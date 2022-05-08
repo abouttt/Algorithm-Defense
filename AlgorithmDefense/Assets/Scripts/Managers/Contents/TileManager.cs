@@ -24,6 +24,11 @@ public class TileManager
         }
     }
 
+    public Tile Load(string path)
+    {
+        return Managers.Resource.Load<Tile>($"Tiles/{path}");
+    }
+
     public Tilemap GetTilemap(Define.Tilemap type)
     {
         Tilemap tilemap;

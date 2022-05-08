@@ -26,6 +26,11 @@ public class GameScene : BaseScene
             Managers.Resource.Instantiate("Contents/BuildingBuilder").name = "@BuildingBuilder";
         }
 
+        if (FindObjectOfType<RoadBuilder>() == null)
+        {
+            Managers.Resource.Instantiate("Contents/RoadBuilder").name = "@RoadBuilder";
+        }
+
         if (FindObjectOfType<UI_SceneCanvas>() == null)
         {
             Managers.UI.ShowSceneUI<UI_SceneCanvas>();

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class BuildingBuilder : BaseBuilder
+public class RoadBuilder : BaseBuilder
 {
-    private static BuildingBuilder s_instance = null;
-    public static BuildingBuilder GetInstance { get { init(); return s_instance; } }
+    private static RoadBuilder s_instance = null;
+    public static RoadBuilder GetInstance { get { init(); return s_instance; } }
 
     private void Start()
     {
@@ -18,17 +18,17 @@ public class BuildingBuilder : BaseBuilder
 
     public override void Build(Vector3Int cellPos, Tile tile)
     {
-        var go = Managers.Resource.Instantiate($"Buildings/{tile.name}");
+        var go = Managers.Resource.Instantiate($"Roads/{tile.name}");
         tile.gameObject = go;
 
-        var buildPos = Managers.Tile.GetCellToWorld(Define.Tilemap.Building, cellPos);
+        var buildPos = Managers.Tile.GetCellToWorld(Define.Tilemap.Road, cellPos);
         buildPos.y += 0.35f;
         go.transform.position = buildPos;
         go.name.Replace("(Clone)", "");
 
         //tile.color = Color.white;
         tile.color += new Color(0, 0, 0, 1);
-        Managers.Tile.SetTile(Define.Tilemap.Building, cellPos, tile);
+        Managers.Tile.SetTile(Define.Tilemap.Road, cellPos, tile);
 
         Managers.Resource.Destroy(go);
     }
@@ -37,14 +37,14 @@ public class BuildingBuilder : BaseBuilder
     {
         if (s_instance == null)
         {
-            var go = GameObject.Find("@BuildingBuilder");
+            var go = GameObject.Find("@RoadBuilder");
             if (go == null)
             {
-                go = new GameObject { name = "@BuildingBuilder" };
-                go.AddComponent<BuildingBuilder>();
+                go = new GameObject { name = "@RoadBuilder" };
+                go.AddComponent<RoadBuilder>();
             }
 
-            s_instance = go.GetComponent<BuildingBuilder>();
+            s_instance = go.GetComponent<RoadBuilder>();
         }
     }
 }

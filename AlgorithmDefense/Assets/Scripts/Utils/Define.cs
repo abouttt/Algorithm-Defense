@@ -4,8 +4,10 @@ public class Define
     public enum Tilemap
     {
         Ground,
-        Main,
-        Temp,
+        Road,
+        Building,
+        RoadTemp,
+        BuildingTemp,
     }
 
     public enum WorldObject
@@ -14,10 +16,17 @@ public class Define
         Citizen,
     }
 
-    public enum Building
+    public enum TileObject
     {
-        Unknown,
+        LeftRoad,
+        RightRoad,
         Gateway,
+    }
+
+    public enum BuildType
+    {
+        Ground,
+        Building,
     }
 
     public enum Citizen

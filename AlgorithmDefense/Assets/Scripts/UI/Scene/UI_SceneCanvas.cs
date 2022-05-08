@@ -8,14 +8,14 @@ public class UI_SceneCanvas : UI_Scene
     {
         base.Init();
 
-        if (FindObjectOfType<UI_CitizenSpawnButtons>() == null)
+        if (GetComponentInChildren<UI_CitizenSpawnButtons>() == null)
         {
             Managers.Resource.Instantiate("UI/Scene/UI_CitizenSpawnButtons", transform);
         }
 
-        if (FindObjectOfType<UI_BuildingButtons>() == null)
+        if (GetComponentInChildren<UI_CitizenSpawnButtons>() == null)
         {
-            Managers.Resource.Instantiate("UI/Scene/UI_BuildingButtons", transform);
+            Managers.Resource.Instantiate("UI/Scene/UI_BuildButtons", transform);
         }
     }
 }

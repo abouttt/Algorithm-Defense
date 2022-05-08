@@ -314,7 +314,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9056081217368903562, guid: f8a9e2e61bafe5947a21bbe343f6c1a2, type: 3}
       propertyPath: m_Name
-      value: UI_BuildingButtons
+      value: UI_BuildButtons
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8a9e2e61bafe5947a21bbe343f6c1a2, type: 3}
