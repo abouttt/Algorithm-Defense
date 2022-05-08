@@ -13,7 +13,7 @@ public class RoadBuilder : BaseBuilder
         init();
 
         _camera = Camera.main;
-        _tempTile = Define.Tilemap.BuildingTemp;
+        _tempTile = Define.Tilemap.RoadTemp;
     }
 
     public override void Build(Vector3Int cellPos, Tile tile)

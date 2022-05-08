@@ -3,6 +3,7 @@ public class Define
 {
     public enum Tilemap
     {
+        None,
         Ground,
         Road,
         Building,

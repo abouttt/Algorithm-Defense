@@ -104,8 +104,7 @@ public class Gateway : MonoBehaviour
             return;
         }
 
-        if (BuildingBuilder.GetInstance.IsBuilding ||
-            RoadBuilder.GetInstance.IsBuilding)
+        if (BaseBuilder.IsBuilding)
         {
             return;
         }

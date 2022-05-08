@@ -31,6 +31,7 @@ public class BuildingBuilder : BaseBuilder
         Managers.Tile.SetTile(Define.Tilemap.Building, cellPos, tile);
 
         Managers.Resource.Destroy(go);
+        Release();
     }
 
     private static void init()

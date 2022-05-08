@@ -21,8 +21,6 @@ public class UI_BuildButtons : UI_Base
         Bind<UI_BuildButton>(typeof(BuildButtons));
         _buttons = GetAll<UI_BuildButton>();
 
-        setBuildButtons();
-
         foreach (var button in _buttons)
         {
             BindEvent(button.gameObject, onButtonClick, Define.UIEvent.Click);
@@ -34,10 +32,8 @@ public class UI_BuildButtons : UI_Base
         var go = EventSystem.current.currentSelectedGameObject;
         var btnInfo = go.GetComponent<UI_BuildButton>();
 
-        if (BuildingBuilder.GetInstance.Target != null)
-        {
-            BuildingBuilder.GetInstance.Target = null;
-        }
+        RoadBuilder.GetInstance.Release();
+        BuildingBuilder.GetInstance.Release();
 
         string name = null;
         switch (btnInfo.BuildType)
@@ -51,18 +47,6 @@ public class UI_BuildButtons : UI_Base
                 name = Enum.GetName(typeof(Define.TileObject), btnInfo.TileName);
                 BuildingBuilder.GetInstance.Target = Managers.Tile.Load(name);
                 break;
-        }
-    }
-
-    private void setBuildButtons()
-    {
-        var values = Enum.GetValues(typeof(Define.TileObject));
-
-        int currentIdx = 0;
-        while (currentIdx < _buttons.Length)
-        {
-            _buttons[currentIdx].TileName = (Define.TileObject)values.GetValue(currentIdx);
-            currentIdx++;
         }
     }
 }
