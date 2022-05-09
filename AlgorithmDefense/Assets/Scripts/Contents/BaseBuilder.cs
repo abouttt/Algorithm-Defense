@@ -51,8 +51,10 @@ public abstract class BaseBuilder : MonoBehaviour
         Managers.Tile.SetTile(_tempTile, _prevPos, null);
         _prevPos = cellPos;
 
+
+        var tile = Managers.Tile.GetTile(Define.Tilemap.Ground, cellPos) as Tile;
         if ((Managers.Tile.GetTile(Define.Tilemap.Ground, cellPos) == null) ||
-            (Managers.Tile.GetTile(Define.Tilemap.Road, cellPos) != null) ||
+            (tile.gameObject != null) ||
             (Managers.Tile.GetTile(Define.Tilemap.Building, cellPos)) != null)
         {
             Target.color = _unvalidColor;

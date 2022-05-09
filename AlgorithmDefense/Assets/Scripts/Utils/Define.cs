@@ -5,9 +5,8 @@ public class Define
     {
         None,
         Ground,
-        Road,
         Building,
-        RoadTemp,
+        GroundTemp,
         BuildingTemp,
     }
 

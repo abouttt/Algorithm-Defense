@@ -13,7 +13,7 @@ public class RoadBuilder : BaseBuilder
         init();
 
         _camera = Camera.main;
-        _tempTile = Define.Tilemap.RoadTemp;
+        _tempTile = Define.Tilemap.GroundTemp;
     }
 
     public override void Build(Vector3Int cellPos, Tile tile)
@@ -21,14 +21,14 @@ public class RoadBuilder : BaseBuilder
         var go = Managers.Resource.Instantiate($"Roads/{tile.name}");
         tile.gameObject = go;
 
-        var buildPos = Managers.Tile.GetCellToWorld(Define.Tilemap.Road, cellPos);
+        var buildPos = Managers.Tile.GetCellToWorld(Define.Tilemap.Ground, cellPos);
         buildPos.y += 0.35f;
         go.transform.position = buildPos;
         go.name.Replace("(Clone)", "");
 
         //tile.color = Color.white;
         tile.color += new Color(0, 0, 0, 1);
-        Managers.Tile.SetTile(Define.Tilemap.Road, cellPos, tile);
+        Managers.Tile.SetTile(Define.Tilemap.Ground, cellPos, tile);
 
         Managers.Resource.Destroy(go);
     }
