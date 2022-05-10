@@ -16,21 +16,19 @@ public class BuildingBuilder : BaseBuilder
         _tempTile = Define.Tilemap.BuildingTemp;
     }
 
-    public override void Build(Vector3Int cellPos, Tile tile)
+    public override void Build(Vector3Int cellPos, Tile originalTile)
     {
-        var go = Managers.Resource.Instantiate($"Buildings/{tile.name}");
-        tile.gameObject = go;
-
+        Tile tile = Instantiate(originalTile);
+        tile.gameObject = Managers.Resource.Instantiate($"Buildings/{originalTile.name}");
+        
         var buildPos = Managers.Tile.GetCellToWorld(Define.Tilemap.Building, cellPos);
         buildPos.y += 0.35f;
-        go.transform.position = buildPos;
-        go.name.Replace("(Clone)", "");
+        tile.gameObject.transform.position = buildPos;
 
         //tile.color = Color.white;
         tile.color += new Color(0, 0, 0, 1);
         Managers.Tile.SetTile(Define.Tilemap.Building, cellPos, tile);
 
-        Managers.Resource.Destroy(go);
         Release();
     }
 

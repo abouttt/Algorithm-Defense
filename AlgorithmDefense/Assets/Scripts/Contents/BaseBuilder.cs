@@ -20,13 +20,13 @@ public abstract class BaseBuilder : MonoBehaviour
     {
         if (Target != null)
         {
+            IsBuilding = true;
+
             if (Input.GetMouseButtonDown(1))
             {
                 Release();
                 return;
             }
-
-            IsBuilding = true;
 
             Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
             Vector3 worldPoint = ray.GetPoint(-ray.origin.z / ray.direction.z);
@@ -69,11 +69,9 @@ public abstract class BaseBuilder : MonoBehaviour
         Managers.Tile.SetTile(_tempTile, cellPos, Target);
     }
 
-    public abstract void Build(Vector3Int cellPos, Tile tile);
-
     public void Release()
     {
-        if ((_tempTile == Define.Tilemap.None) || 
+        if ((_tempTile == Define.Tilemap.None) ||
             (Target == null))
         {
             return;
@@ -84,4 +82,6 @@ public abstract class BaseBuilder : MonoBehaviour
         Target = null;
         IsBuilding = false;
     }
+
+    public abstract void Build(Vector3Int cellPos, Tile originalTile);
 }

@@ -16,21 +16,13 @@ public class RoadBuilder : BaseBuilder
         _tempTile = Define.Tilemap.GroundTemp;
     }
 
-    public override void Build(Vector3Int cellPos, Tile tile)
+    public override void Build(Vector3Int cellPos, Tile originalTile)
     {
-        var go = Managers.Resource.Instantiate($"Roads/{tile.name}");
-        tile.gameObject = go;
+        Tile tile = Instantiate(originalTile);
+        tile.gameObject = Managers.Resource.Instantiate($"Roads/{originalTile.name}");
 
-        var buildPos = Managers.Tile.GetCellToWorld(Define.Tilemap.Ground, cellPos);
-        buildPos.y += 0.35f;
-        go.transform.position = buildPos;
-        go.name.Replace("(Clone)", "");
-
-        //tile.color = Color.white;
-        tile.color += new Color(0, 0, 0, 1);
+        tile.color = Color.white;
         Managers.Tile.SetTile(Define.Tilemap.Ground, cellPos, tile);
-
-        Managers.Resource.Destroy(go);
     }
 
     private static void init()
