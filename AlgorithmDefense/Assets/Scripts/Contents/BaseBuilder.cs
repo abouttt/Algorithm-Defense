@@ -9,7 +9,7 @@ public abstract class BaseBuilder : MonoBehaviour
     public static bool IsBuilding { get; protected set; } = false;
 
     protected Camera _camera = null;
-    protected Define.Tilemap _tempTile = Define.Tilemap.None;
+    protected Define.Tilemap _tempTilemap = Define.Tilemap.None;
 
     protected Vector3Int _prevPos;
     protected Color _validColor = new Color(1, 1, 1, 0.5f);
@@ -30,7 +30,7 @@ public abstract class BaseBuilder : MonoBehaviour
 
             Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
             Vector3 worldPoint = ray.GetPoint(-ray.origin.z / ray.direction.z);
-            Vector3Int cellPos = Managers.Tile.GetWorldToCell(_tempTile, worldPoint);
+            Vector3Int cellPos = Managers.Tile.GetWorldToCell(_tempTilemap, worldPoint);
 
             CheckCanBuild(cellPos);
 
@@ -43,14 +43,13 @@ public abstract class BaseBuilder : MonoBehaviour
 
     protected void CheckCanBuild(Vector3Int cellPos)
     {
-        if (_prevPos == cellPos)
-        {
-            return;
-        }
+        //if (_prevPos == cellPos)
+        //{
+        //    return;
+        //}
 
-        Managers.Tile.SetTile(_tempTile, _prevPos, null);
+        Managers.Tile.SetTile(_tempTilemap, _prevPos, null);
         _prevPos = cellPos;
-
 
         var tile = Managers.Tile.GetTile(Define.Tilemap.Ground, cellPos) as Tile;
         if ((Managers.Tile.GetTile(Define.Tilemap.Ground, cellPos) == null) ||
@@ -66,18 +65,18 @@ public abstract class BaseBuilder : MonoBehaviour
             _canBuild = true;
         }
 
-        Managers.Tile.SetTile(_tempTile, cellPos, Target);
+        Managers.Tile.SetTile(_tempTilemap, cellPos, Target);
     }
 
     public void Release()
     {
-        if ((_tempTile == Define.Tilemap.None) ||
+        if ((_tempTilemap == Define.Tilemap.None) ||
             (Target == null))
         {
             return;
         }
 
-        Managers.Tile.GetTilemap(_tempTile).ClearAllTiles();
+        Managers.Tile.GetTilemap(_tempTilemap).ClearAllTiles();
         Target.color = Color.white;
         Target = null;
         IsBuilding = false;

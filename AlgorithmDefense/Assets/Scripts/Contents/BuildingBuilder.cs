@@ -13,13 +13,13 @@ public class BuildingBuilder : BaseBuilder
         init();
 
         _camera = Camera.main;
-        _tempTile = Define.Tilemap.BuildingTemp;
+        _tempTilemap = Define.Tilemap.BuildingTemp;
     }
 
     public override void Build(Vector3Int cellPos, Tile originalTile)
     {
         Tile tile = Instantiate(originalTile);
-        tile.gameObject = Managers.Resource.Instantiate($"Buildings/{originalTile.name}");
+        tile.gameObject = Managers.Resource.Load<GameObject>($"Prefabs/Buildings/{originalTile.name}");
         
         var buildPos = Managers.Tile.GetCellToWorld(Define.Tilemap.Building, cellPos);
         buildPos.y += 0.35f;

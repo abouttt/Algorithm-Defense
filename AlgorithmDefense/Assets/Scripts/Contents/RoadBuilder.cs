@@ -13,13 +13,16 @@ public class RoadBuilder : BaseBuilder
         init();
 
         _camera = Camera.main;
-        _tempTile = Define.Tilemap.GroundTemp;
+        _tempTilemap = Define.Tilemap.GroundTemp;
     }
 
     public override void Build(Vector3Int cellPos, Tile originalTile)
     {
         Tile tile = Instantiate(originalTile);
-        tile.gameObject = Managers.Resource.Instantiate($"Roads/{originalTile.name}");
+        tile.gameObject = Managers.Resource.Load<GameObject>($"Prefabs/Roads/{originalTile.name}");
+
+        var buildPos = Managers.Tile.GetCellToWorld(Define.Tilemap.Ground, cellPos);
+        tile.gameObject.transform.position = buildPos;
 
         tile.color = Color.white;
         Managers.Tile.SetTile(Define.Tilemap.Ground, cellPos, tile);
