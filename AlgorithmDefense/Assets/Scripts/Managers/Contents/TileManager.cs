@@ -60,6 +60,12 @@ public class TileManager
         return tilemap.CellToWorld(cellPos);
     }
 
+    public Vector3 GetCellCenterToWorld(Define.Tilemap type, Vector3Int cellPos)
+    {
+        var tilemap = GetTilemap(type);
+        return tilemap.GetCellCenterWorld(cellPos);
+    }
+
     public void SetTile(Define.Tilemap type, Vector3 worldPos, Tile tile)
     {
         SetTile(type, GetWorldToCell(type, worldPos), tile);

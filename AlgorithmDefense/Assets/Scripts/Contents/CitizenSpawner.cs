@@ -10,13 +10,13 @@ public class CitizenSpawner : MonoBehaviour
 
     public bool IsSpawning { get; private set; } = false;
 
-    private Tilemap _buildingTilemap = null;
+    private Tilemap _groundTilemap = null;
     private GameObject _spawnTarget = null;
 
     [SerializeField]
-    private Vector3Int _spawnPosition;
+    private Vector3Int _spawnCellPosition;
     [SerializeField]
-    private Vector3Int _endPosition;
+    private Vector3Int _endCellPosition;
     [SerializeField]
     private float _spawnTime = 5.0f;
     private int _spawnIdx = 0;
@@ -25,7 +25,7 @@ public class CitizenSpawner : MonoBehaviour
     {
         init();
 
-        _buildingTilemap = GameObject.Find("Tilemap_Building").GetComponent<Tilemap>();
+        _groundTilemap = GameObject.Find("Tilemap_Ground").GetComponent<Tilemap>();
 
         setup();
     }
@@ -70,7 +70,7 @@ public class CitizenSpawner : MonoBehaviour
             var citizenName = name.Replace("Button", "Citizen");
 
             _spawnTarget = Managers.Game.Spawn(Define.WorldObject.Citizen, $"Citizen/{citizenName}");
-            _spawnTarget.transform.position = _buildingTilemap.GetCellCenterWorld(_spawnPosition);
+            _spawnTarget.transform.position = _groundTilemap.GetCellCenterWorld(_spawnCellPosition);
 
             yield return new WaitForSeconds(_spawnTime);
 
@@ -81,10 +81,13 @@ public class CitizenSpawner : MonoBehaviour
     private void setup()
     {
         var tile = Managers.Tile.Load("StartGateway");
-        BuildingBuilder.GetInstance.Build(_spawnPosition, tile);
+        BuildingBuilder.GetInstance.Build(_spawnCellPosition, tile);
 
         tile = Managers.Tile.Load("EndGateway");
-        BuildingBuilder.GetInstance.Build(_endPosition, tile);
+        BuildingBuilder.GetInstance.Build(_endCellPosition, tile);
+
+        _spawnCellPosition.z = 1;
+        _endCellPosition.z = 1;
     }
 
     private static void init()

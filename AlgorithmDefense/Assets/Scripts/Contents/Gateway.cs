@@ -67,7 +67,8 @@ public class Gateway : MonoBehaviour
 
         var citizenInfo = _citizenOrderQueue.Dequeue();
         var go = Managers.Game.Spawn(Define.WorldObject.Citizen, $"{citizenInfo.Item1}Citizen");
-        go.transform.position = transform.position + Vector3.forward;
+        var cellPos = Managers.Tile.GetWorldToCell(Define.Tilemap.Ground, transform.position);
+        go.transform.position = Managers.Tile.GetCellCenterToWorld(Define.Tilemap.Ground, cellPos);
 
         var citizen = go.GetComponent<CitizenController>();
         citizen.MoveType = citizenInfo.Item2;

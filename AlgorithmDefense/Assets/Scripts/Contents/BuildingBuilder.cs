@@ -20,13 +20,9 @@ public class BuildingBuilder : BaseBuilder
     {
         Tile tile = Instantiate(originalTile);
         tile.gameObject = Managers.Resource.Load<GameObject>($"Prefabs/Buildings/{originalTile.name}");
-        
-        var buildPos = Managers.Tile.GetCellToWorld(Define.Tilemap.Building, cellPos);
-        buildPos.y += 0.35f;
-        tile.gameObject.transform.position = buildPos;
+        tile.gameObject.transform.position = Managers.Tile.GetCellToWorld(Define.Tilemap.Building, cellPos);
 
-        //tile.color = Color.white;
-        tile.color += new Color(0, 0, 0, 1);
+        tile.color = Color.white;
         Managers.Tile.SetTile(Define.Tilemap.Building, cellPos, tile);
 
         Release();

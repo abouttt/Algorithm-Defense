@@ -8,8 +8,7 @@ public class UI_BuildButtons : UI_Base
     #region UI_Objects
     enum BuildButtons
     {
-        LeftRoadButton,
-        RightRoadButton,
+        RoadButton,
         GatewayButton,
     }
     #endregion
