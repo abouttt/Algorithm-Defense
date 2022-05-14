@@ -21,14 +21,9 @@ public class GameScene : BaseScene
             Managers.Resource.Instantiate("Contents/CitizenSpawner").name = "@CitizenSpawner";
         }
 
-        if (FindObjectOfType<BuildingBuilder>() == null)
+        if (FindObjectOfType<ObjectBuilder>() == null)
         {
-            Managers.Resource.Instantiate("Contents/BuildingBuilder").name = "@BuildingBuilder";
-        }
-
-        if (FindObjectOfType<RoadBuilder>() == null)
-        {
-            Managers.Resource.Instantiate("Contents/RoadBuilder").name = "@RoadBuilder";
+            Managers.Resource.Instantiate("Contents/ObjectBuilder").name = "@ObjectBuilder";
         }
 
         if (FindObjectOfType<UI_SceneCanvas>() == null)

@@ -80,11 +80,11 @@ public class CitizenSpawner : MonoBehaviour
 
     private void setup()
     {
-        var tile = Managers.Tile.Load("StartGateway");
-        BuildingBuilder.GetInstance.Build(_spawnCellPosition, tile);
+        var tile = Managers.Resource.Load<Tile>("Tiles/StartGateway");
+        ObjectBuilder.GetInstance.Build(_spawnCellPosition, tile);
 
-        tile = Managers.Tile.Load("EndGateway");
-        BuildingBuilder.GetInstance.Build(_endCellPosition, tile);
+        tile = Managers.Resource.Load<Tile>("Tiles/EndGateway");
+        ObjectBuilder.GetInstance.Build(_endCellPosition, tile);
 
         _spawnCellPosition.z = 1;
         _endCellPosition.z = 1;

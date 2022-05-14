@@ -31,21 +31,6 @@ public class UI_BuildButtons : UI_Base
         var go = EventSystem.current.currentSelectedGameObject;
         var btnInfo = go.GetComponent<UI_BuildButton>();
 
-        RoadBuilder.GetInstance.Release();
-        BuildingBuilder.GetInstance.Release();
-
-        string name = null;
-        switch (btnInfo.BuildType)
-        {
-            case Define.BuildType.Ground:
-                name = Enum.GetName(typeof(Define.TileObject), btnInfo.TileName);
-                RoadBuilder.GetInstance.Target = Managers.Tile.Load(name);
-                break;
-
-            case Define.BuildType.Building:
-                name = Enum.GetName(typeof(Define.TileObject), btnInfo.TileName);
-                BuildingBuilder.GetInstance.Target = Managers.Tile.Load(name);
-                break;
-        }
+        ObjectBuilder.GetInstance.SetTarget(btnInfo.BuildType, btnInfo.TileName);
     }
 }
