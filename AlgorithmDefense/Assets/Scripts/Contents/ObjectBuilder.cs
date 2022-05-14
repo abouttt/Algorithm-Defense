@@ -13,8 +13,8 @@ public class ObjectBuilder : MonoBehaviour
 
     private Tile _target = null;
     private Camera _camera = null;
-    private Define.Tilemap _tempTilemap = Define.Tilemap.None;
     private Grid _grid = null;
+    private Define.Tilemap _tempTilemap = Define.Tilemap.None;
 
     private Vector3Int _prevPos;
     private Color _validColor = new Color(1, 1, 1, 0.5f);
@@ -47,7 +47,15 @@ public class ObjectBuilder : MonoBehaviour
 
             if (_canBuild && Input.GetMouseButton(0))
             {
-                Build(cellPos, _target);
+                switch (_tempTilemap)
+                {
+                    case Define.Tilemap.GroundTemp:
+                        Build(_target, Define.BuildType.Ground, cellPos);
+                        break;
+                    case Define.Tilemap.BuildingTemp:
+                        Build(_target, Define.BuildType.Building, cellPos);
+                        break;
+                }
             }
         }
     }
@@ -63,7 +71,7 @@ public class ObjectBuilder : MonoBehaviour
                 _tempTilemap = Define.Tilemap.BuildingTemp;
                 break;
         }
-        
+
         _target = Managers.Resource.Load<Tile>($"Tiles/{tileObject.ToString()}");
     }
 
@@ -94,14 +102,23 @@ public class ObjectBuilder : MonoBehaviour
         Managers.Tile.SetTile(_tempTilemap, cellPos, _target);
     }
 
-    public void Build(Vector3Int cellPos, Tile originalTile)
+    public void Build(Tile originalTile, Define.BuildType buildType, Vector3Int cellPos)
     {
         Tile tile = Instantiate(originalTile);
         tile.gameObject = Managers.Resource.Load<GameObject>($"Prefabs/Tiles/{originalTile.name}");
         tile.gameObject.transform.position = _grid.GetCellCenterWorld(cellPos);
 
         tile.color = Color.white;
-        Managers.Tile.SetTile(Define.Tilemap.Building, cellPos, tile);
+
+        switch (buildType)
+        {
+            case Define.BuildType.Ground:
+                Managers.Tile.SetTile(Define.Tilemap.Ground, cellPos, tile);
+                break;
+            case Define.BuildType.Building:
+                Managers.Tile.SetTile(Define.Tilemap.Building, cellPos, tile);
+                break;
+        }
 
         Release();
     }
