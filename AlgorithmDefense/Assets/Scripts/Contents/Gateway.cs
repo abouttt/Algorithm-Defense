@@ -50,32 +50,6 @@ public class Gateway : MonoBehaviour
         }
     }
 
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    var citizen = collision.GetComponent<CitizenController>();
-    //    if (citizen != null)
-    //    {
-    //        if (!citizen.IsExit)
-    //        {
-    //            return;
-    //        }
-
-    //        var citizenInfo = (citizen.CitizenType, citizen.MoveType);
-    //        _citizenOrderQueue.Enqueue(citizenInfo);
-    //        Managers.Game.Despawn(citizen.gameObject);
-    //        StartCoroutine(releaseCitizen());
-    //    }
-    //}
-
-    //private void OnTriggerExit2D(Collider2D collision)
-    //{
-    //    var citizen = collision.GetComponent<CitizenController>();
-    //    if (citizen != null)
-    //    {
-    //        citizen.IsExit = true;
-    //    }
-    //}
-
     private IEnumerator releaseCitizen()
     {
         yield return new WaitForSeconds(releaseTime);

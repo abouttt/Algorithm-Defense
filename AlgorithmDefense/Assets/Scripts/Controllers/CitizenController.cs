@@ -17,7 +17,6 @@ public class CitizenController : BaseController
 
     private Tilemap _groundTilemap = null;
     private Tilemap _buildingTilemap = null;
-    private Define.RoadType _prevRoadType;
 
     public override void Init()
     {

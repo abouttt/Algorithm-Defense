@@ -46,6 +46,12 @@ public class ObjectBuilder : MonoBehaviour
 
             CheckCanBuild(cellPos);
 
+            if (_tempTilemap == Define.Tilemap.GroundTemp && Input.GetKeyDown(KeyCode.R))
+            {
+                _target = _target.name.Equals("Road_UD") ? 
+                    Managers.Resource.Load<Tile>($"{ROAD_PATH}Road_LR") : Managers.Resource.Load<Tile>($"{ROAD_PATH}Road_UD");
+            }
+
             if (_canBuild && Input.GetMouseButton(0))
             {
                 switch (_tempTilemap)
@@ -63,6 +69,8 @@ public class ObjectBuilder : MonoBehaviour
 
     public void SetTarget(Define.BuildType buildType, Define.TileObject tileObject)
     {
+        Release();
+
         switch (buildType)
         {
             case Define.BuildType.Ground:
@@ -78,17 +86,16 @@ public class ObjectBuilder : MonoBehaviour
 
     public void CheckCanBuild(Vector3Int cellPos)
     {
-        //if (_prevPos == cellPos)
-        //{
-        //    return;
-        //}
+        if ((_tempTilemap == Define.Tilemap.BuildingTemp) &&
+            (_prevPos == cellPos))
+        {
+            return;
+        }
 
         Managers.Tile.SetTile(_tempTilemap, _prevPos, null);
         _prevPos = cellPos;
 
-        var groundTile = Managers.Tile.GetTile(Define.Tilemap.Ground, cellPos) as Tile;
         if ((Managers.Tile.GetTile(Define.Tilemap.Ground, cellPos) == null) ||
-            groundTile.gameObject != null ||
             (Managers.Tile.GetTile(Define.Tilemap.Building, cellPos)) != null)
         {
             _target.color = _unvalidColor;
@@ -98,6 +105,16 @@ public class ObjectBuilder : MonoBehaviour
         {
             _target.color = _validColor;
             _canBuild = true;
+        }
+
+        if (_tempTilemap == Define.Tilemap.GroundTemp)
+        {
+            var groundTile = Managers.Tile.GetTile(Define.Tilemap.Ground, cellPos) as Tile;
+            if (groundTile != null && groundTile.gameObject != null)
+            {
+                _target.color = _unvalidColor;
+                _canBuild = false;
+            }
         }
 
         Managers.Tile.SetTile(_tempTilemap, cellPos, _target);
@@ -144,6 +161,7 @@ public class ObjectBuilder : MonoBehaviour
         _target.color = Color.white;
         _target = null;
         _tempTilemap = Define.Tilemap.None;
+        _prevPos = new Vector3Int(999, 999, 999);
         IsBuilding = false;
     }
 
