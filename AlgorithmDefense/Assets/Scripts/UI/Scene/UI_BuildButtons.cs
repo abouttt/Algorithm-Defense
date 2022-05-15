@@ -31,6 +31,6 @@ public class UI_BuildButtons : UI_Base
         var go = EventSystem.current.currentSelectedGameObject;
         var btnInfo = go.GetComponent<UI_BuildButton>();
 
-        ObjectBuilder.GetInstance.SetTarget(btnInfo.BuildType, btnInfo.TileName);
+        ObjectBuilder.GetInstance.SetTarget(btnInfo.BuildType, btnInfo.TileObject);
     }
 }

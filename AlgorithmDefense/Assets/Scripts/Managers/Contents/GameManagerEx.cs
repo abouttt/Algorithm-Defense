@@ -19,7 +19,7 @@ public class GameManagerEx
         {
             case Define.WorldObject.Citizen:
                 var citizen = go.GetComponent<CitizenController>();
-                citizen.MoveType = Define.MoveType.Right;
+                citizen.MoveType = Define.MoveType.Down;
                 citizen.IsExit = false;
                 break;
         }

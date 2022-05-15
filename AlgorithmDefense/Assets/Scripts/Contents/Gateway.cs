@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -35,9 +34,8 @@ public class Gateway : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void EnterCitizen(CitizenController citizen)
     {
-        var citizen = collision.GetComponent<CitizenController>();
         if (citizen != null)
         {
             if (!citizen.IsExit)
@@ -52,14 +50,31 @@ public class Gateway : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        var citizen = collision.GetComponent<CitizenController>();
-        if (citizen != null)
-        {
-            citizen.IsExit = true;
-        }
-    }
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    var citizen = collision.GetComponent<CitizenController>();
+    //    if (citizen != null)
+    //    {
+    //        if (!citizen.IsExit)
+    //        {
+    //            return;
+    //        }
+
+    //        var citizenInfo = (citizen.CitizenType, citizen.MoveType);
+    //        _citizenOrderQueue.Enqueue(citizenInfo);
+    //        Managers.Game.Despawn(citizen.gameObject);
+    //        StartCoroutine(releaseCitizen());
+    //    }
+    //}
+
+    //private void OnTriggerExit2D(Collider2D collision)
+    //{
+    //    var citizen = collision.GetComponent<CitizenController>();
+    //    if (citizen != null)
+    //    {
+    //        citizen.IsExit = true;
+    //    }
+    //}
 
     private IEnumerator releaseCitizen()
     {

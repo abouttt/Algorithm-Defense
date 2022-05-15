@@ -10,7 +10,6 @@ public class CitizenSpawner : MonoBehaviour
 
     public bool IsSpawning { get; private set; } = false;
 
-    private Tilemap _groundTilemap = null;
     private GameObject _spawnTarget = null;
 
     [SerializeField]
@@ -24,9 +23,6 @@ public class CitizenSpawner : MonoBehaviour
     private void Start()
     {
         init();
-
-        _groundTilemap = GameObject.Find("Tilemap_Ground").GetComponent<Tilemap>();
-
         setup();
     }
 
@@ -70,7 +66,7 @@ public class CitizenSpawner : MonoBehaviour
             var citizenName = name.Replace("Button", "Citizen");
 
             _spawnTarget = Managers.Game.Spawn(Define.WorldObject.Citizen, $"Citizen/{citizenName}");
-            _spawnTarget.transform.position = _groundTilemap.GetCellCenterWorld(_spawnCellPosition);
+            _spawnTarget.transform.position = Managers.Tile.GetCellCenterToWorld(Define.Tilemap.Ground, _spawnCellPosition);
 
             yield return new WaitForSeconds(_spawnTime);
 
@@ -80,14 +76,27 @@ public class CitizenSpawner : MonoBehaviour
 
     private void setup()
     {
-        var tile = Managers.Resource.Load<Tile>("Tiles/StartGateway");
+        var tile = Managers.Resource.Load<Tile>($"{ObjectBuilder.BUILDING_PATH}StartGateway");
         ObjectBuilder.GetInstance.Build(tile, Define.BuildType.Building, _spawnCellPosition);
 
-        tile = Managers.Resource.Load<Tile>("Tiles/EndGateway");
+        tile = Managers.Resource.Load<Tile>($"{ObjectBuilder.BUILDING_PATH}EndGateway");
         ObjectBuilder.GetInstance.Build(tile, Define.BuildType.Building, _endCellPosition);
 
         _spawnCellPosition.z = 1;
         _endCellPosition.z = 1;
+
+        tile = Managers.Resource.Load<Tile>($"{ObjectBuilder.ROAD_PATH}Road_UD");
+        Vector3Int roadCellPos = new Vector3Int(0, 0, 0);
+        for (int y = 6; y >= -6; y--)
+        {
+            if (-3 < y && y < 3)
+            {
+                continue;
+            }
+
+            roadCellPos.y = y;
+            ObjectBuilder.GetInstance.Build(tile, Define.BuildType.Ground, roadCellPos);
+        }
     }
 
     private static void init()

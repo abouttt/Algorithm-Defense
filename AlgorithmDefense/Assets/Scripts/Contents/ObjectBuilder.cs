@@ -9,11 +9,13 @@ public class ObjectBuilder : MonoBehaviour
     private static ObjectBuilder s_instance = null;
     public static ObjectBuilder GetInstance { get { init(); return s_instance; } }
 
+    public static readonly string ROAD_PATH = "Tiles/Roads/";
+    public static readonly string BUILDING_PATH = "Tiles/Buildings/";
+
     public bool IsBuilding { get; private set; } = false;
 
     private Tile _target = null;
     private Camera _camera = null;
-    private Grid _grid = null;
     private Define.Tilemap _tempTilemap = Define.Tilemap.None;
 
     private Vector3Int _prevPos;
@@ -24,7 +26,6 @@ public class ObjectBuilder : MonoBehaviour
     private void Awake()
     {
         _camera = Camera.main;
-        _grid = FindObjectOfType<Grid>();
     }
 
     private void Update()
@@ -66,28 +67,28 @@ public class ObjectBuilder : MonoBehaviour
         {
             case Define.BuildType.Ground:
                 _tempTilemap = Define.Tilemap.GroundTemp;
+                _target = Managers.Resource.Load<Tile>($"{ROAD_PATH}{tileObject.ToString()}");
                 break;
             case Define.BuildType.Building:
                 _tempTilemap = Define.Tilemap.BuildingTemp;
+                _target = Managers.Resource.Load<Tile>($"{BUILDING_PATH}{tileObject.ToString()}");
                 break;
         }
-
-        _target = Managers.Resource.Load<Tile>($"Tiles/{tileObject.ToString()}");
     }
 
     public void CheckCanBuild(Vector3Int cellPos)
     {
-        if (_prevPos == cellPos)
-        {
-            return;
-        }
+        //if (_prevPos == cellPos)
+        //{
+        //    return;
+        //}
 
         Managers.Tile.SetTile(_tempTilemap, _prevPos, null);
         _prevPos = cellPos;
 
-        var tile = Managers.Tile.GetTile(Define.Tilemap.Ground, cellPos) as Tile;
+        var groundTile = Managers.Tile.GetTile(Define.Tilemap.Ground, cellPos) as Tile;
         if ((Managers.Tile.GetTile(Define.Tilemap.Ground, cellPos) == null) ||
-            (tile.gameObject != null) ||
+            groundTile.gameObject != null ||
             (Managers.Tile.GetTile(Define.Tilemap.Building, cellPos)) != null)
         {
             _target.color = _unvalidColor;
@@ -105,22 +106,29 @@ public class ObjectBuilder : MonoBehaviour
     public void Build(Tile originalTile, Define.BuildType buildType, Vector3Int cellPos)
     {
         Tile tile = Instantiate(originalTile);
-        tile.gameObject = Managers.Resource.Load<GameObject>($"Prefabs/Tiles/{originalTile.name}");
-        tile.gameObject.transform.position = _grid.GetCellCenterWorld(cellPos);
-
         tile.color = Color.white;
 
         switch (buildType)
         {
             case Define.BuildType.Ground:
                 Managers.Tile.SetTile(Define.Tilemap.Ground, cellPos, tile);
+                tile.gameObject = Managers.Resource.Instantiate($"{ROAD_PATH}{originalTile.name}",
+                    Managers.Tile.GetTilemap(Define.Tilemap.Ground).transform);
+                tile.gameObject.transform.position = Managers.Tile.GetCellCenterToWorld(Define.Tilemap.Ground, cellPos);
                 break;
+
             case Define.BuildType.Building:
                 Managers.Tile.SetTile(Define.Tilemap.Building, cellPos, tile);
+                tile.gameObject = Managers.Resource.Instantiate($"{BUILDING_PATH}{originalTile.name}",
+                    Managers.Tile.GetTilemap(Define.Tilemap.Building).transform);
+                tile.gameObject.transform.position = Managers.Tile.GetCellCenterToWorld(Define.Tilemap.Building, cellPos);
                 break;
         }
 
-        Release();
+        if (buildType != Define.BuildType.Ground)
+        {
+            Release();
+        }
     }
 
     public void Release()

@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class EndGateway : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void EnterCitizen(CitizenController citizen)
     {
-        var citizen = collision.GetComponent<CitizenController>();
         if (citizen != null)
         {
             Managers.Game.Despawn(citizen.gameObject);

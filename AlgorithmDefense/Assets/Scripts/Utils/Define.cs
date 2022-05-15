@@ -18,8 +18,9 @@ public class Define
 
     public enum TileObject
     {
-        LeftRoad,
-        RightRoad,
+        Road_UD,
+        StartGateway,
+        EndGateway,
         Gateway,
     }
 
@@ -27,6 +28,21 @@ public class Define
     {
         Ground,
         Building,
+    }
+
+    public enum RoadType
+    {
+        Road_UD,
+        Road_LR,
+        TWRoad_U,
+        TWRoad_D,
+        TWRoad_L,
+        TWRoad_R,
+        CornerRoad_U,
+        CornerRoad_D,
+        CornerRoad_L,
+        CornerRoad_R,
+        CrossRoad,
     }
 
     public enum Citizen

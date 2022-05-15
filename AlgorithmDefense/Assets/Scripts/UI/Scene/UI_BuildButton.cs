@@ -6,8 +6,8 @@ using UnityEngine.Tilemaps;
 public class UI_BuildButton : MonoBehaviour
 {
     [field: SerializeField]
-    public Define.BuildType BuildType { get; set; }
+    public Define.BuildType BuildType { get; private set; }
 
     [field: SerializeField]
-    public Define.TileObject TileName { get; set; }
+    public Define.TileObject TileObject { get; private set; }
 }
