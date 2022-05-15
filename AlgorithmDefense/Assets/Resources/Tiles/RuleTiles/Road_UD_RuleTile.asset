@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Road_UD_RuleTile
   m_EditorClassIdentifier: 
   m_DefaultSprite: {fileID: 21300000, guid: 617534034b19825448cc92cd260828f9, type: 3}
-  m_DefaultGameObject: {fileID: 0}
+  m_DefaultGameObject: {fileID: 8490018224020852800, guid: f1cdf19abfd9e744ba43e1428e93e300, type: 3}
   m_DefaultColliderType: 1
   m_TilingRules:
   - m_Id: 0
@@ -139,3 +139,4 @@ MonoBehaviour:
   tilesToConnect:
   - {fileID: 11400000, guid: d293d184124414c4d96e9232fdfc9dcf, type: 2}
   checkSelf: 1
+  groundTile: {fileID: 11400000, guid: c5e1982feb35c9d408d5cfc27b7cdae6, type: 2}

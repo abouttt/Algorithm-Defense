@@ -139,3 +139,4 @@ MonoBehaviour:
   tilesToConnect:
   - {fileID: 11400000, guid: 7ac4abc3c59f0c046a17b029ce44766b, type: 2}
   checkSelf: 1
+  groundTile: {fileID: 11400000, guid: c5e1982feb35c9d408d5cfc27b7cdae6, type: 2}
