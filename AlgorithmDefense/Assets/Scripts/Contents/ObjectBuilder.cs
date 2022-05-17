@@ -17,7 +17,6 @@ public class ObjectBuilder : MonoBehaviour
     private Tile _target = null;
     private Camera _camera = null;
     private Define.Tilemap _tempTilemap = Define.Tilemap.None;
-    private RuleTile _ruleTile = null;
 
     private Vector3Int _prevPos;
     private Color _validColor = new Color(1, 1, 1, 0.5f);
@@ -27,16 +26,10 @@ public class ObjectBuilder : MonoBehaviour
     private void Awake()
     {
         _camera = Camera.main;
-        _ruleTile = Managers.Resource.Load<RuleTile>("Tiles/RuleTiles/Road_UD_RuleTile");
     }
 
     private void Update()
     {
-        //Tile tile = ScriptableObject.CreateInstance<Tile>();
-        //tile.sprite = _ruleTile.m_DefaultSprite;
-        //tile.gameObject = _ruleTile.m_DefaultGameObject;
-        //Managers.Tile.SetTile(Define.Tilemap.Ground, new Vector3Int(0, 2, 0), tile);
-
         if (_target != null)
         {
             IsBuilding = true;
@@ -82,7 +75,7 @@ public class ObjectBuilder : MonoBehaviour
         {
             case Define.BuildType.Ground:
                 _tempTilemap = Define.Tilemap.GroundTemp;
-                _target = Managers.Resource.Load<Tile>($"{ROAD_PATH}{tileObject.ToString()}");
+                //_target = Managers.Resource.Load<Tile>($"{ROAD_PATH}{tileObject.ToString()}");
                 break;
             case Define.BuildType.Building:
                 _tempTilemap = Define.Tilemap.BuildingTemp;

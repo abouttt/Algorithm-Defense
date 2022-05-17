@@ -61,14 +61,9 @@ public class TileManager
         return tilemap.GetCellCenterWorld(cellPos);
     }
 
-    public void SetTile(Define.Tilemap type, Vector3 worldPos, Tile tile)
-    {
-        SetTile(type, GetWorldToCell(type, worldPos), tile);
-    }
-
-    public void SetTile(Define.Tilemap type, Vector3Int cellPos, Tile tile)
+    public void SetTile(Define.Tilemap type, Vector3Int cellPos, TileBase tileBase)
     {
         var tilemap = GetTilemap(type);
-        tilemap.SetTile(cellPos, tile);
+        tilemap.SetTile(cellPos, tileBase);
     }
 }

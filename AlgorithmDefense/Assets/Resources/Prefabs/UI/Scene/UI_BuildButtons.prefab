@@ -410,7 +410,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <BuildType>k__BackingField: 1
-  <TileObject>k__BackingField: 3
+  <TileObject>k__BackingField: 4
 --- !u!1 &7847406801343157369
 GameObject:
   m_ObjectHideFlags: 0

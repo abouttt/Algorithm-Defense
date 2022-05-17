@@ -18,7 +18,8 @@ public class Define
 
     public enum TileObject
     {
-        Road_UD,
+        Road_UD_RuleTile,
+        Road_LR_RuleTile,
         StartGateway,
         EndGateway,
         Gateway,

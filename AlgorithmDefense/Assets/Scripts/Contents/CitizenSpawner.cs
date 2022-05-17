@@ -76,16 +76,16 @@ public class CitizenSpawner : MonoBehaviour
 
     private void setup()
     {
-        var tile = Managers.Resource.Load<Tile>($"{ObjectBuilder.BUILDING_PATH}StartGateway");
-        ObjectBuilder.GetInstance.Build(tile, Define.BuildType.Building, _spawnCellPosition);
+        var tile = Managers.Resource.Load<Tile>($"{BuildingBuilder.BUILDING_PATH}StartGateway");
+        BuildingBuilder.GetInstance.Build(tile, _spawnCellPosition);
 
-        tile = Managers.Resource.Load<Tile>($"{ObjectBuilder.BUILDING_PATH}EndGateway");
-        ObjectBuilder.GetInstance.Build(tile, Define.BuildType.Building, _endCellPosition);
+        tile = Managers.Resource.Load<Tile>($"{BuildingBuilder.BUILDING_PATH}EndGateway");
+        BuildingBuilder.GetInstance.Build(tile, _endCellPosition);
 
         _spawnCellPosition.z = 1;
         _endCellPosition.z = 1;
 
-        tile = Managers.Resource.Load<Tile>($"{ObjectBuilder.ROAD_PATH}Road_UD");
+        var roadTile = Managers.Resource.Load<TileBase>($"{RoadBuilder.ROAD_RULETILE_PATH}Road_UD_RuleTile");
         Vector3Int roadCellPos = new Vector3Int(0, 0, 0);
         for (int y = 6; y >= -6; y--)
         {
@@ -95,7 +95,7 @@ public class CitizenSpawner : MonoBehaviour
             }
 
             roadCellPos.y = y;
-            ObjectBuilder.GetInstance.Build(tile, Define.BuildType.Ground, roadCellPos);
+            RoadBuilder.GetInstance.Build(roadTile, roadCellPos);
         }
     }
 

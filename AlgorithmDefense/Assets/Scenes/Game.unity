@@ -489,30 +489,42 @@ Tilemap:
   m_TileMatrixArray:
   - m_RefCount: 0
     m_Data:
-      e00: -164.27734
+      e00: -0.0054405928
       e01: 0
-      e02: 2.5749843e-19
-      e03: 2.5749843e-19
+      e02: -2.5749843e-19
+      e03: -2.5749843e-19
       e10: 4.5908e-41
       e11: 0
-      e12: 7.45e-43
-      e13: 7.45e-43
-      e20: -1.8296616e+17
+      e12: 6.94e-43
+      e13: 6.94e-43
+      e20: -7.1279246e-14
       e21: 1e-45
-      e22: -5.3554196e-19
-      e23: -4.66545e-10
-      e30: 4.5904e-41
+      e22: 4.862453e-19
+      e23: 2.0037956
+      e30: 4.5905e-41
       e31: 0
-      e32: 7.45e-43
-      e33: 7.48e-43
+      e32: 6.95e-43
+      e33: 6.98e-43
   m_TileColorArray:
   - m_RefCount: 0
-    m_Data: {r: NaN, g: NaN, b: NaN, a: NaN}
-  m_TileObjectToInstantiateArray: []
+    m_Data: {r: 3.411e-41, g: 3.411e-41, b: 3.411e-41, a: 3.411e-41}
+  m_TileObjectToInstantiateArray:
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Origin: {x: -5, y: -10, z: 0}
-  m_Size: {x: 11, y: 17, z: 1}
+  m_Origin: {x: -5, y: -22, z: 0}
+  m_Size: {x: 19, y: 29, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 1}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
@@ -2110,7 +2122,23 @@ Tilemap:
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   - m_RefCount: 0
     m_Data: {r: 3.3959e-41, g: 3.3959e-41, b: 3.3959e-41, a: 3.3959e-41}
-  m_TileObjectToInstantiateArray: []
+  m_TileObjectToInstantiateArray:
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: -6, y: -14, z: 0}
