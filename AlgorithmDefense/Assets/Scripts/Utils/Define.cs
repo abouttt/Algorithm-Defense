@@ -6,8 +6,10 @@ public class Define
         None,
         Ground,
         Building,
-        GroundTemp,
+        Road,
         BuildingTemp,
+        RoadTemp,
+        Temp,
     }
 
     public enum WorldObject
@@ -33,17 +35,17 @@ public class Define
 
     public enum RoadType
     {
-        Road_UD,
-        Road_LR,
-        TWRoad_U,
-        TWRoad_D,
-        TWRoad_L,
-        TWRoad_R,
-        CornerRoad_U,
-        CornerRoad_D,
-        CornerRoad_L,
-        CornerRoad_R,
-        CrossRoad,
+        UD,
+        LR,
+        TW_U,
+        TW_D,
+        TW_L,
+        TW_R,
+        Corner_U,
+        Corner_D,
+        Corner_L,
+        Corner_R,
+        Cross,
     }
 
     public enum Citizen

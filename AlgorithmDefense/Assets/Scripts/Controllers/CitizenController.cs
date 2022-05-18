@@ -15,52 +15,43 @@ public class CitizenController : BaseController
     [SerializeField]
     private float _moveSpeed = 0.0f;
 
-    private Tilemap _groundTilemap = null;
+    private Tilemap _tempTilemap = null;
+    private Tilemap _roadTilemap = null;
     private Tilemap _buildingTilemap = null;
 
     private Vector3Int _prevPos;
-    private bool _isChangeRoad = false;
-    private const float TURN_GAP = 0.3f;
+    private bool _isChangeRoad = true;
+    private const float TURN_GAP = 0.01f;
 
     public override void Init()
     {
         WorldObjectType = Define.WorldObject.Citizen;
         _state = Define.State.Moving;
-        _groundTilemap = Managers.Tile.GetTilemap(Define.Tilemap.Ground);
+        _tempTilemap = Managers.Tile.GetTilemap(Define.Tilemap.Temp);
+        _roadTilemap = Managers.Tile.GetTilemap(Define.Tilemap.Road);
         _buildingTilemap = Managers.Tile.GetTilemap(Define.Tilemap.Building);
     }
 
     protected override void UpdateMoving()
     {
-        var cellPos = Managers.Tile.GetWorldToCell(Define.Tilemap.Ground, transform.position);
-        var nextPos = new Vector3();
-
+        var cellPos = _tempTilemap.WorldToCell(transform.position);
         switch (MoveType)
         {
             case Define.MoveType.Down:
-                //nextPos = (Vector3.right * 2) + Vector3.down;
                 cellPos.y--;
                 break;
             case Define.MoveType.Up:
-                //nextPos = (Vector3.left * 2) + Vector3.up;
                 cellPos.y++;
                 break;
             case Define.MoveType.Right:
-                //nextPos = Vector3.up + (Vector3.right * 2);
                 cellPos.x++;
                 break;
             case Define.MoveType.Left:
-                //nextPos = Vector3.down + (Vector3.left * 2);
                 cellPos.x--;
                 break;
         }
 
-        //transform.position += nextPos * (_moveSpeed * Time.deltaTime);
-        transform.position = Vector3.MoveTowards(
-            transform.position, 
-            Managers.Tile.GetCellToWorld(Define.Tilemap.Ground, cellPos) + new Vector3(0, 0.25f, 0), 
-            (_moveSpeed * Time.deltaTime));
-
+        transform.position = Vector3.MoveTowards(transform.position, _tempTilemap.GetCellCenterWorld(cellPos), (_moveSpeed * Time.deltaTime));
         checkOnBuilding(transform.position);
 
         if (IsExit)
@@ -93,16 +84,15 @@ public class CitizenController : BaseController
 
     private void checkOnRoad(Vector3 currentPos)
     {
-        var cellPos = _groundTilemap.WorldToCell(currentPos);
-        if (_prevPos == cellPos)
+        var cellPos = _tempTilemap.WorldToCell(currentPos);
+        if (_prevPos != cellPos)
         {
-            return;
+            _isChangeRoad = true;
         }
 
         _prevPos = cellPos;
-        _isChangeRoad = true;
 
-        var go = _groundTilemap.GetInstantiatedObject(cellPos);
+        var go = _roadTilemap.GetInstantiatedObject(cellPos);
         if (go == null)
         {
             turnAround();
@@ -114,24 +104,23 @@ public class CitizenController : BaseController
                 return;
             }
 
-            var centerPos = Managers.Tile.GetCellCenterToWorld(Define.Tilemap.Ground, cellPos);
-            centerPos += new Vector3(0, 0.25f, 1);
+            var centerPos = _tempTilemap.GetCellCenterWorld(cellPos);
             var road = go.GetComponent<Road>();
             switch (road.RoadType)
             {
-                case Define.RoadType.Road_UD:
+                case Define.RoadType.UD:
                     break;
-                case Define.RoadType.Road_LR:
+                case Define.RoadType.LR:
                     break;
-                case Define.RoadType.TWRoad_U:
+                case Define.RoadType.TW_U:
                     break;
-                case Define.RoadType.TWRoad_D:
+                case Define.RoadType.TW_D:
                     break;
-                case Define.RoadType.TWRoad_L:
+                case Define.RoadType.TW_L:
                     break;
-                case Define.RoadType.TWRoad_R:
+                case Define.RoadType.TW_R:
                     break;
-                case Define.RoadType.CornerRoad_U:
+                case Define.RoadType.Corner_U:
                     if (isMoveTypeUD())
                     {
                         if (Vector3.Distance(transform.position, centerPos) <= TURN_GAP)
@@ -149,11 +138,11 @@ public class CitizenController : BaseController
                         }
                     }
                     break;
-                case Define.RoadType.CornerRoad_D:
-                    Debug.Log(centerPos);
-                    Debug.Log(Vector3.Distance(transform.position, centerPos));
+                case Define.RoadType.Corner_D:
                     if (isMoveTypeUD())
                     {
+                        Debug.Log(Vector3.Distance(transform.position, centerPos));
+                        Debug.Log(centerPos);
                         if (Vector3.Distance(transform.position, centerPos) <= TURN_GAP)
                         {
                             MoveType = Define.MoveType.Right;
@@ -169,7 +158,7 @@ public class CitizenController : BaseController
                         }
                     }
                     break;
-                case Define.RoadType.CornerRoad_L:
+                case Define.RoadType.Corner_L:
                     if (isMoveTypeUD())
                     {
                         if (Vector3.Distance(transform.position, centerPos) <= TURN_GAP)
@@ -187,7 +176,7 @@ public class CitizenController : BaseController
                         }
                     }
                     break;
-                case Define.RoadType.CornerRoad_R:
+                case Define.RoadType.Corner_R:
                     if (isMoveTypeUD())
                     {
                         if (Vector3.Distance(transform.position, centerPos) <= TURN_GAP)
@@ -205,12 +194,12 @@ public class CitizenController : BaseController
                         }
                     }
                     break;
-                case Define.RoadType.CrossRoad:
+                case Define.RoadType.Cross:
                     break;
             }
         }
     }
-    
+
     private void turnAround()
     {
         switch (MoveType)

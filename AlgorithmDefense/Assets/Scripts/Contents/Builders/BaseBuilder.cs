@@ -32,7 +32,7 @@ public abstract class BaseBuilder : MonoBehaviour
             Vector3 worldPoint = ray.GetPoint(-ray.origin.z / ray.direction.z);
             Vector3Int cellPos = Managers.Tile.GetWorldToCell(_tempTilemap, worldPoint);
 
-            if ((_tempTilemap == Define.Tilemap.GroundTemp) && (Input.GetKeyDown(KeyCode.R)))
+            if ((_tempTilemap == Define.Tilemap.RoadTemp) && (Input.GetKeyDown(KeyCode.R)))
             {
                 if (_target.name.Equals(Define.TileObject.Road_UD_RuleTile.ToString()))
                 {

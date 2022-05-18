@@ -36,15 +36,14 @@ public class BuildingBuilder : BaseBuilder
         Managers.Tile.SetTile(Define.Tilemap.Building, cellPos, tile);
         tile.gameObject = Managers.Resource.Instantiate($"{BUILDING_PATH}{tileBase.name}",
             Managers.Tile.GetTilemap(Define.Tilemap.Building).transform);
-        tile.gameObject.transform.position = Managers.Tile.GetCellCenterToWorld(Define.Tilemap.Building, cellPos);
+        tile.gameObject.transform.position = Managers.Tile.GetCellCenterToWorld(Define.Tilemap.Temp, cellPos);
 
         Release();
     }
 
     public override void CheckCanBuild(Vector3Int cellPos)
     {
-        if ((_tempTilemap == Define.Tilemap.BuildingTemp) &&
-           (_prevPos == cellPos))
+        if (_prevPos == cellPos)
         {
             return;
         }

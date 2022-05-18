@@ -10,7 +10,6 @@ public class AdvancedIsometricRuleTile : IsometricRuleTile<AdvancedIsometricRule
     public bool alwaysConnect;
     public TileBase[] tilesToConnect;
     public bool checkSelf;
-    public Tile groundTile;
 
     public class Neighbor : IsometricRuleTile.TilingRule.Neighbor
     {
@@ -57,11 +56,11 @@ public class AdvancedIsometricRuleTile : IsometricRuleTile<AdvancedIsometricRule
     {
         if (checkSelf)
         {
-            return tile != groundTile;
+            return tile != null;
         }
         else
         {
-            return tile != groundTile && tile != this;
+            return tile != null && tile != this;
         }
     }
 
@@ -72,16 +71,16 @@ public class AdvancedIsometricRuleTile : IsometricRuleTile<AdvancedIsometricRule
 
     private bool Check_Nothing(TileBase tile)
     {
-        return tile == groundTile;
+        return tile == null;
     }
 
     private bool Check_AnyOrNothing(TileBase tile)
     {
-        return ((tile != groundTile) || (tile == groundTile));
+        return ((tile != null) || (tile == null));
     }
 
     private bool Check_ThisOrNothing(TileBase tile)
     {
-        return ((tile == this) || (tile == groundTile));
+        return ((tile == this) || (tile == null));
     }
 }

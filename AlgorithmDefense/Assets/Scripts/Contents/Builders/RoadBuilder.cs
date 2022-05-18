@@ -9,12 +9,12 @@ public class RoadBuilder : BaseBuilder
     public static RoadBuilder GetInstance { get { init(); return s_instance; } }
 
     public static readonly string ROAD_RULETILE_PATH = "Tiles/RuleTiles/";
-    public static readonly string ROAD_PATH = "Tiles/Roads/";
+    public static readonly string ROAD_PATH = "Tiles/Roads2/";
 
     private void Start()
     {
         _camera = Camera.main;
-        _tempTilemap = Define.Tilemap.GroundTemp;
+        _tempTilemap = Define.Tilemap.RoadTemp;
     }
 
     public override void SetTarget(Define.TileObject tileObject)
@@ -27,8 +27,8 @@ public class RoadBuilder : BaseBuilder
 
     public override void Build(TileBase tileBase, Vector3Int cellPos)
     {
-        Managers.Tile.SetTile(Define.Tilemap.Ground, cellPos, tileBase);
-        var go = Managers.Tile.GetTilemap(Define.Tilemap.Ground).GetInstantiatedObject(cellPos);
+        Managers.Tile.SetTile(Define.Tilemap.Road, cellPos, tileBase);
+        var go = Managers.Tile.GetTilemap(Define.Tilemap.Road).GetInstantiatedObject(cellPos);
     }
 
     public override void CheckCanBuild(Vector3Int cellPos)
@@ -63,7 +63,6 @@ public class RoadBuilder : BaseBuilder
         _targetTile.color = Color.white;
         _targetTile = null;
         _target = null;
-        _prevPos = new Vector3Int(999, 999, 999);
         IsBuilding = false;
     }
 
