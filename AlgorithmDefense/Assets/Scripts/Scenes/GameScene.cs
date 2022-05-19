@@ -17,11 +17,6 @@ public class GameScene : BaseScene
 
         SceneType = Define.Scene.Game;
 
-        if (FindObjectOfType<CitizenSpawner>() == null)
-        {
-            Managers.Resource.Instantiate("Contents/CitizenSpawner").name = "@CitizenSpawner";
-        }
-
         if (FindObjectOfType<BuildingBuilder>() == null)
         {
             Managers.Resource.Instantiate("Contents/BuildingBuilder").name = "@BuildingBuilder";
@@ -30,6 +25,11 @@ public class GameScene : BaseScene
         if (FindObjectOfType<RoadBuilder>() == null)
         {
             Managers.Resource.Instantiate("Contents/RoadBuilder").name = "@RoadBuilder";
+        }
+
+        if (FindObjectOfType<CitizenSpawner>() == null)
+        {
+            Managers.Resource.Instantiate("Contents/CitizenSpawner").name = "@CitizenSpawner";
         }
 
         if (FindObjectOfType<UI_SceneCanvas>() == null)

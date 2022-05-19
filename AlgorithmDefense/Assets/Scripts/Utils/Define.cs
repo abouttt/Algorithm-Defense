@@ -9,7 +9,7 @@ public class Define
         Road,
         BuildingTemp,
         RoadTemp,
-        Temp,
+        Global,
     }
 
     public enum WorldObject

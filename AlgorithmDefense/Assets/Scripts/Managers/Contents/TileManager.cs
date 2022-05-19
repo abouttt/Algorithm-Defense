@@ -24,10 +24,7 @@ public class TileManager
         }
     }
 
-    public Grid GetGrid()
-    {
-        return _grid;
-    }
+    public Grid GetGrid() => _grid;
 
     public Tilemap GetTilemap(Define.Tilemap type)
     {

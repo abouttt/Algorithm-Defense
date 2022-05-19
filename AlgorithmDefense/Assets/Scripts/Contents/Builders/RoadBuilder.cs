@@ -9,13 +9,7 @@ public class RoadBuilder : BaseBuilder
     public static RoadBuilder GetInstance { get { init(); return s_instance; } }
 
     public static readonly string ROAD_RULETILE_PATH = "Tiles/RuleTiles/";
-    public static readonly string ROAD_PATH = "Tiles/Roads2/";
-
-    private void Start()
-    {
-        _camera = Camera.main;
-        _tempTilemap = Define.Tilemap.RoadTemp;
-    }
+    public static readonly string ROAD_PATH = "Tiles/Roads/";
 
     public override void SetTarget(Define.TileObject tileObject)
     {
@@ -27,13 +21,12 @@ public class RoadBuilder : BaseBuilder
 
     public override void Build(TileBase tileBase, Vector3Int cellPos)
     {
-        Managers.Tile.SetTile(Define.Tilemap.Road, cellPos, tileBase);
-        var go = Managers.Tile.GetTilemap(Define.Tilemap.Road).GetInstantiatedObject(cellPos);
+        _originalTilemap.SetTile(cellPos, tileBase);
     }
 
     public override void CheckCanBuild(Vector3Int cellPos)
     {
-        Managers.Tile.SetTile(_tempTilemap, _prevPos, null);
+        _tempTilemap.SetTile(_prevPos, null);
         _prevPos = cellPos;
 
         if ((Managers.Tile.GetTile(Define.Tilemap.Ground, cellPos) == null) ||
@@ -48,7 +41,7 @@ public class RoadBuilder : BaseBuilder
             _canBuild = true;
         }
 
-        Managers.Tile.SetTile(_tempTilemap, cellPos, _targetTile);
+        _tempTilemap.SetTile(cellPos, _targetTile);
     }
 
     public override void Release()
@@ -58,12 +51,19 @@ public class RoadBuilder : BaseBuilder
             return;
         }
 
-        Managers.Tile.SetTile(_tempTilemap, _prevPos, null);
-
+        _tempTilemap.SetTile(_prevPos, null);
         _targetTile.color = Color.white;
         _targetTile = null;
         _target = null;
         IsBuilding = false;
+    }
+
+    protected override void Init()
+    {
+        base.Init();
+
+        _originalTilemap = Managers.Tile.GetTilemap(Define.Tilemap.Road);
+        _tempTilemap = Managers.Tile.GetTilemap(Define.Tilemap.RoadTemp);
     }
 
     private static void init()

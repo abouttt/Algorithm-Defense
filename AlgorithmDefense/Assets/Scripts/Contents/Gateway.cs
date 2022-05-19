@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 using UnityEngine.EventSystems;
 
 public class Gateway : MonoBehaviour
@@ -11,6 +12,7 @@ public class Gateway : MonoBehaviour
     private float releaseTime = 0.5f;
 
     private Queue<(Define.Citizen, Define.MoveType)> _citizenOrderQueue = new Queue<(Define.Citizen, Define.MoveType)>();
+    private Tilemap _globalTilemap = null;
     private Camera _camera = null;
 
     private void Start()
@@ -23,6 +25,7 @@ public class Gateway : MonoBehaviour
             { Define.Citizen.Yellow, Define.MoveType.None },
         };
 
+        _globalTilemap = Managers.Tile.GetTilemap(Define.Tilemap.Global);
         _camera = Camera.main;
     }
 
@@ -38,11 +41,6 @@ public class Gateway : MonoBehaviour
     {
         if (citizen != null)
         {
-            if (!citizen.IsExit)
-            {
-                return;
-            }
-
             var citizenInfo = (citizen.CitizenType, citizen.MoveType);
             _citizenOrderQueue.Enqueue(citizenInfo);
             Managers.Game.Despawn(citizen.gameObject);
@@ -56,8 +54,8 @@ public class Gateway : MonoBehaviour
 
         var citizenInfo = _citizenOrderQueue.Dequeue();
         var go = Managers.Game.Spawn(Define.WorldObject.Citizen, $"{citizenInfo.Item1}Citizen");
-        var cellPos = Managers.Tile.GetWorldToCell(Define.Tilemap.Temp, transform.position);
-        go.transform.position = Managers.Tile.GetCellCenterToWorld(Define.Tilemap.Temp, cellPos);
+        var cellPos = _globalTilemap.WorldToCell(transform.position);
+        go.transform.position = _globalTilemap.GetCellCenterWorld(cellPos);
 
         var citizen = go.GetComponent<CitizenController>();
         citizen.MoveType = citizenInfo.Item2;

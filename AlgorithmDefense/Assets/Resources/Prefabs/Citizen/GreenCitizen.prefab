@@ -131,7 +131,7 @@ MonoBehaviour:
   _state: 0
   <CitizenType>k__BackingField: 3
   <IsExit>k__BackingField: 0
-  _moveSpeed: 2
+  _moveSpeed: 1
 --- !u!114 &5722472562183425252
 MonoBehaviour:
   m_ObjectHideFlags: 0

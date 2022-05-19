@@ -15,7 +15,7 @@ public class CitizenController : BaseController
     [SerializeField]
     private float _moveSpeed = 0.0f;
 
-    private Tilemap _tempTilemap = null;
+    private Tilemap _globalTilemap = null;
     private Tilemap _roadTilemap = null;
     private Tilemap _buildingTilemap = null;
 
@@ -27,14 +27,14 @@ public class CitizenController : BaseController
     {
         WorldObjectType = Define.WorldObject.Citizen;
         _state = Define.State.Moving;
-        _tempTilemap = Managers.Tile.GetTilemap(Define.Tilemap.Temp);
+        _globalTilemap = Managers.Tile.GetTilemap(Define.Tilemap.Global);
         _roadTilemap = Managers.Tile.GetTilemap(Define.Tilemap.Road);
         _buildingTilemap = Managers.Tile.GetTilemap(Define.Tilemap.Building);
     }
 
     protected override void UpdateMoving()
     {
-        var cellPos = _tempTilemap.WorldToCell(transform.position);
+        var cellPos = _globalTilemap.WorldToCell(transform.position);
         switch (MoveType)
         {
             case Define.MoveType.Down:
@@ -51,7 +51,8 @@ public class CitizenController : BaseController
                 break;
         }
 
-        transform.position = Vector3.MoveTowards(transform.position, _tempTilemap.GetCellCenterWorld(cellPos), (_moveSpeed * Time.deltaTime));
+        transform.position = Vector3.MoveTowards(transform.position, _globalTilemap.GetCellCenterWorld(cellPos), (_moveSpeed * Time.deltaTime));
+
         checkOnBuilding(transform.position);
 
         if (IsExit)
@@ -65,18 +66,23 @@ public class CitizenController : BaseController
         var cellPos = _buildingTilemap.WorldToCell(currentPos);
         var tile = _buildingTilemap.GetTile(cellPos) as Tile;
 
-        if (tile == null || tile.gameObject == null)
+        if (tile == null)
         {
             IsExit = true;
             return;
         }
 
-        if (tile.gameObject.name.Equals(Enum.GetName(typeof(Define.TileObject), Define.TileObject.Gateway)) ||
-            tile.gameObject.name.Equals(Enum.GetName(typeof(Define.TileObject), Define.TileObject.StartGateway)))
+        if (!IsExit)
+        {
+            return;
+        }
+
+        if (tile.gameObject.name.Equals(Define.TileObject.Gateway.ToString()) ||
+            tile.gameObject.name.Equals(Define.TileObject.StartGateway.ToString()))
         {
             tile.gameObject.GetComponent<Gateway>().EnterCitizen(this);
         }
-        else if (tile.gameObject.name.Equals(Enum.GetName(typeof(Define.TileObject), Define.TileObject.EndGateway)))
+        else if (tile.gameObject.name.Equals(Define.TileObject.EndGateway.ToString()))
         {
             tile.gameObject.GetComponent<EndGateway>().EnterCitizen(this);
         }
@@ -84,13 +90,12 @@ public class CitizenController : BaseController
 
     private void checkOnRoad(Vector3 currentPos)
     {
-        var cellPos = _tempTilemap.WorldToCell(currentPos);
+        var cellPos = _globalTilemap.WorldToCell(currentPos);
         if (_prevPos != cellPos)
         {
             _isChangeRoad = true;
+            _prevPos = cellPos;
         }
-
-        _prevPos = cellPos;
 
         var go = _roadTilemap.GetInstantiatedObject(cellPos);
         if (go == null)
@@ -104,22 +109,21 @@ public class CitizenController : BaseController
                 return;
             }
 
-            var centerPos = _tempTilemap.GetCellCenterWorld(cellPos);
+            var centerPos = _globalTilemap.GetCellCenterWorld(cellPos);
             var road = go.GetComponent<Road>();
             switch (road.RoadType)
             {
-                case Define.RoadType.UD:
-                    break;
-                case Define.RoadType.LR:
-                    break;
                 case Define.RoadType.TW_U:
-                    break;
                 case Define.RoadType.TW_D:
-                    break;
                 case Define.RoadType.TW_L:
-                    break;
                 case Define.RoadType.TW_R:
+                    if (Vector3.Distance(transform.position, centerPos) <= TURN_GAP)
+                    {
+                        turnAround();
+                        _isChangeRoad = false;
+                    }
                     break;
+
                 case Define.RoadType.Corner_U:
                     if (isMoveTypeUD())
                     {
@@ -141,8 +145,6 @@ public class CitizenController : BaseController
                 case Define.RoadType.Corner_D:
                     if (isMoveTypeUD())
                     {
-                        Debug.Log(Vector3.Distance(transform.position, centerPos));
-                        Debug.Log(centerPos);
                         if (Vector3.Distance(transform.position, centerPos) <= TURN_GAP)
                         {
                             MoveType = Define.MoveType.Right;
@@ -193,8 +195,6 @@ public class CitizenController : BaseController
                             _isChangeRoad = false;
                         }
                     }
-                    break;
-                case Define.RoadType.Cross:
                     break;
             }
         }

@@ -10,12 +10,6 @@ public class BuildingBuilder : BaseBuilder
 
     public static readonly string BUILDING_PATH = "Tiles/Buildings/";
 
-    private void Start()
-    {
-        _camera = Camera.main;
-        _tempTilemap = Define.Tilemap.BuildingTemp;
-    }
-
     public override void SetTarget(Define.TileObject tileObject)
     {
         Release();
@@ -30,13 +24,14 @@ public class BuildingBuilder : BaseBuilder
         {
             _targetTile = tileBase as Tile;
         }
+
         _targetTile.color = Color.white;
         Tile tile = Instantiate(tileBase) as Tile;
-
         Managers.Tile.SetTile(Define.Tilemap.Building, cellPos, tile);
+
         tile.gameObject = Managers.Resource.Instantiate($"{BUILDING_PATH}{tileBase.name}",
-            Managers.Tile.GetTilemap(Define.Tilemap.Building).transform);
-        tile.gameObject.transform.position = Managers.Tile.GetCellCenterToWorld(Define.Tilemap.Temp, cellPos);
+            _originalTilemap.transform);
+        tile.gameObject.transform.position = Managers.Tile.GetCellCenterToWorld(Define.Tilemap.Global, cellPos);
 
         Release();
     }
@@ -48,11 +43,11 @@ public class BuildingBuilder : BaseBuilder
             return;
         }
 
-        Managers.Tile.SetTile(_tempTilemap, _prevPos, null);
+        _tempTilemap.SetTile(_prevPos, null);
         _prevPos = cellPos;
 
         if ((Managers.Tile.GetTile(Define.Tilemap.Ground, cellPos) == null) ||
-            (Managers.Tile.GetTile(Define.Tilemap.Building, cellPos)) != null)
+            (_originalTilemap.GetTile(cellPos) != null))
         {
             _targetTile.color = _unvalidColor;
             _canBuild = false;
@@ -63,7 +58,7 @@ public class BuildingBuilder : BaseBuilder
             _canBuild = true;
         }
 
-        Managers.Tile.SetTile(_tempTilemap, cellPos, _targetTile);
+        _tempTilemap.SetTile(cellPos, _targetTile);
     }
 
     public override void Release()
@@ -73,12 +68,19 @@ public class BuildingBuilder : BaseBuilder
             return;
         }
 
-        Managers.Tile.SetTile(_tempTilemap, _prevPos, null);
-
+        _tempTilemap.SetTile(_prevPos, null);
         _targetTile.color = Color.white;
         _targetTile = null;
         _target = null;
         IsBuilding = false;
+    }
+
+    protected override void Init()
+    {
+        base.Init();
+
+        _originalTilemap = Managers.Tile.GetTilemap(Define.Tilemap.Building);
+        _tempTilemap = Managers.Tile.GetTilemap(Define.Tilemap.BuildingTemp);
     }
 
     private static void init()

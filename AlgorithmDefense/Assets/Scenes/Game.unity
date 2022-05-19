@@ -433,7 +433,7 @@ GameObject:
   - component: {fileID: 1314980004}
   - component: {fileID: 1314980003}
   m_Layer: 0
-  m_Name: Tilemap_Temp
+  m_Name: Tilemap_Global
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -500,7 +500,7 @@ TilemapRenderer:
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 3
-  m_Mode: 0
+  m_Mode: 1
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
 --- !u!1839735485 &1314980004
