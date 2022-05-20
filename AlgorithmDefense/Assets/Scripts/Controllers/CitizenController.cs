@@ -11,6 +11,7 @@ public class CitizenController : BaseController
     public Define.MoveType MoveType { get; set; } = Define.MoveType.None;
     [field: SerializeField]
     public bool IsExit { get; set; } = false;
+    public Vector3Int PrevPos { get; set; }
 
     [SerializeField]
     private float _moveSpeed = 0.0f;
@@ -19,7 +20,6 @@ public class CitizenController : BaseController
     private Tilemap _roadTilemap = null;
     private Tilemap _buildingTilemap = null;
 
-    private Vector3Int _prevPos;
     private bool _isChangeRoad = true;
     private const float TURN_GAP = 0.01f;
 
@@ -52,23 +52,28 @@ public class CitizenController : BaseController
         }
 
         transform.position = Vector3.MoveTowards(transform.position, _globalTilemap.GetCellCenterWorld(cellPos), (_moveSpeed * Time.deltaTime));
+        cellPos = _globalTilemap.WorldToCell(transform.position);
 
-        checkOnBuilding(transform.position);
+        checkOnBuilding(cellPos);
 
         if (IsExit)
         {
-            checkOnRoad(transform.position);
+            checkOnRoad(cellPos);
+        }
+
+        if (PrevPos != cellPos)
+        {
+            PrevPos = cellPos;
+            IsExit = true;
         }
     }
 
-    private void checkOnBuilding(Vector3 currentPos)
+    private void checkOnBuilding(Vector3Int currentPos)
     {
-        var cellPos = _buildingTilemap.WorldToCell(currentPos);
-        var tile = _buildingTilemap.GetTile(cellPos) as Tile;
+        var tile = _buildingTilemap.GetTile(currentPos) as Tile;
 
         if (tile == null)
         {
-            IsExit = true;
             return;
         }
 
@@ -88,16 +93,14 @@ public class CitizenController : BaseController
         }
     }
 
-    private void checkOnRoad(Vector3 currentPos)
+    private void checkOnRoad(Vector3Int currentPos)
     {
-        var cellPos = _globalTilemap.WorldToCell(currentPos);
-        if (_prevPos != cellPos)
+        if (PrevPos != currentPos)
         {
             _isChangeRoad = true;
-            _prevPos = cellPos;
         }
 
-        var go = _roadTilemap.GetInstantiatedObject(cellPos);
+        var go = _roadTilemap.GetInstantiatedObject(currentPos);
         if (go == null)
         {
             turnAround();
@@ -109,18 +112,30 @@ public class CitizenController : BaseController
                 return;
             }
 
-            var centerPos = _globalTilemap.GetCellCenterWorld(cellPos);
+            var centerPos = _globalTilemap.GetCellCenterWorld(currentPos);
             var road = go.GetComponent<Road>();
             switch (road.RoadType)
             {
                 case Define.RoadType.TW_U:
                 case Define.RoadType.TW_D:
+                    if (isMoveTypeUD())
+                    {
+                        if (Vector3.Distance(transform.position, centerPos) <= TURN_GAP)
+                        {
+                            turnAround();
+                            _isChangeRoad = false;
+                        }
+                    }
+                    break;
                 case Define.RoadType.TW_L:
                 case Define.RoadType.TW_R:
-                    if (Vector3.Distance(transform.position, centerPos) <= TURN_GAP)
+                    if (!isMoveTypeUD())
                     {
-                        turnAround();
-                        _isChangeRoad = false;
+                        if (Vector3.Distance(transform.position, centerPos) <= TURN_GAP)
+                        {
+                            turnAround();
+                            _isChangeRoad = false;
+                        }
                     }
                     break;
 

@@ -66,10 +66,7 @@ public abstract class BaseBuilder : MonoBehaviour
     }
 
     public abstract void SetTarget(Define.TileObject tileObject);
-
     public abstract void CheckCanBuild(Vector3Int cellPos);
-
     public abstract void Build(TileBase tileBase, Vector3Int cellPos);
-
     public abstract void Release();
 }

@@ -40,7 +40,13 @@ public class PoolManager
 
         public Poolable Pop(Transform parent)
         {
+            return Pop(Vector3.zero, parent);
+        }
+
+        public Poolable Pop(Vector3 position, Transform parent)
+        {
             var poolable = _poolStack.Count > 0 ? _poolStack.Pop() : create();
+            poolable.transform.position = position;
             poolable.gameObject.SetActive(true);
             poolable.transform.parent = parent == null ? Root : parent;
             poolable.IsUsing = true;
@@ -101,12 +107,17 @@ public class PoolManager
 
     public Poolable Pop(GameObject original, Transform parent = null)
     {
+        return Pop(original, Vector3.zero, parent);
+    }
+
+    public Poolable Pop(GameObject original, Vector3 position, Transform parent = null)
+    {
         if (!_pool.ContainsKey(original.name))
         {
             CreatePool(original);
         }
 
-        return _pool[original.name].Pop(parent);
+        return _pool[original.name].Pop(position, parent);
     }
 
     public GameObject GetOriginal(string name)

@@ -65,8 +65,9 @@ public class CitizenSpawner : MonoBehaviour
             var name = _spawnTarget.name;
             var citizenName = name.Replace("Button", "Citizen");
 
-            _spawnTarget = Managers.Game.Spawn(Define.WorldObject.Citizen, $"Citizen/{citizenName}");
-            _spawnTarget.transform.position = Managers.Tile.GetCellCenterToWorld(Define.Tilemap.Ground, _spawnCellPosition);
+            var pos = Managers.Tile.GetCellCenterToWorld(Define.Tilemap.Ground, _spawnCellPosition);
+            _spawnTarget = Managers.Game.Spawn(Define.WorldObject.Citizen, $"Citizen/{citizenName}", pos);
+            //_spawnTarget.transform.position = Managers.Tile.GetCellCenterToWorld(Define.Tilemap.Ground, _spawnCellPosition);
 
             yield return new WaitForSeconds(_spawnTime);
 

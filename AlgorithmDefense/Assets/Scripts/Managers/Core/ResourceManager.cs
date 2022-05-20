@@ -25,6 +25,11 @@ public class ResourceManager
 
     public GameObject Instantiate(string path, Transform parent = null)
     {
+        return Instantiate(path, Vector3.zero, parent);
+    }
+
+    public GameObject Instantiate(string path, Vector3 position, Transform parent = null)
+    {
         var original = Load<GameObject>($"Prefabs/{path}");
         if (original == null)
         {
@@ -34,7 +39,7 @@ public class ResourceManager
 
         if (original.GetComponent<Poolable>() != null)
         {
-            return Managers.Pool.Pop(original, parent).gameObject;
+            return Managers.Pool.Pop(original, position, parent).gameObject;
         }
 
         var go = Object.Instantiate(original, parent);

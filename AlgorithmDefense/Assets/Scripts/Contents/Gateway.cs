@@ -53,9 +53,10 @@ public class Gateway : MonoBehaviour
         yield return new WaitForSeconds(releaseTime);
 
         var citizenInfo = _citizenOrderQueue.Dequeue();
-        var go = Managers.Game.Spawn(Define.WorldObject.Citizen, $"{citizenInfo.Item1}Citizen");
+
         var cellPos = _globalTilemap.WorldToCell(transform.position);
-        go.transform.position = _globalTilemap.GetCellCenterWorld(cellPos);
+        var pos = _globalTilemap.GetCellCenterWorld(cellPos);
+        var go = Managers.Game.Spawn(Define.WorldObject.Citizen, $"{citizenInfo.Item1}Citizen", pos);
 
         var citizen = go.GetComponent<CitizenController>();
         citizen.MoveType = citizenInfo.Item2;

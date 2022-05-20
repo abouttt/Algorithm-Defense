@@ -28,27 +28,15 @@ public class TileManager
 
     public Tilemap GetTilemap(Define.Tilemap type)
     {
-        Tilemap tilemap;
+        Tilemap tilemap = null;
         _tilemaps.TryGetValue(type, out tilemap);
         return tilemap;
-    }
-
-    public TileBase GetTile(Define.Tilemap type, Vector3 worldPos)
-    {
-        var cellPos = GetWorldToCell(type, worldPos);
-        return GetTile(type, cellPos);
     }
 
     public TileBase GetTile(Define.Tilemap type, Vector3Int cellPos)
     {
         var tilemap = GetTilemap(type);
         return tilemap.GetTile(cellPos);
-    }
-
-    public Vector3Int GetWorldToCell(Define.Tilemap type, Vector3 worldPos)
-    {
-        var tilemap = GetTilemap(type);
-        return tilemap.WorldToCell(worldPos);
     }
 
     public Vector3 GetCellToWorld(Define.Tilemap type, Vector3Int cellPos)
