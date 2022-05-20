@@ -11,18 +11,22 @@ public class GameManagerEx
         CitizenSpawnOrderList = new List<GameObject>(UI_CitizenSpawnButtons.BUTTON_NUM);
     }
 
-    public GameObject Spawn(Define.WorldObject type, string path, Vector3 position, Transform parent = null)
+    public GameObject Spawn(Define.WorldObject type, string path, Vector3? position, Transform parent = null)
     {
-        var go = Managers.Resource.Instantiate(path, position, parent);
+        if (!position.HasValue)
+        {
+            position = Vector3.zero;
+        }
+
+        var go = Managers.Resource.Instantiate(path, position.Value, parent);
 
         switch (type)
         {
             case Define.WorldObject.Citizen:
                 var citizen = go.GetComponent<CitizenController>();
-                citizen.PrevPos = Managers.Tile.GetTilemap(Define.Tilemap.Global).WorldToCell(position);
+                citizen.PrevPos = Managers.Tile.GetTilemap(Define.Tilemap.Global).WorldToCell(position.Value);
                 citizen.MoveType = Define.MoveType.Down;
                 citizen.IsExit = false;
-                Debug.Log(citizen.PrevPos);
                 break;
         }
 
