@@ -13,6 +13,7 @@ public class RoadBuilder : BaseBuilder
 
     public override void SetTarget(Define.TileObject tileObject)
     {
+        BuildingBuilder.GetInstance.Release();
         Release();
 
         _target = Managers.Resource.Load<TileBase>($"{ROAD_RULETILE_PATH}{tileObject.ToString()}");

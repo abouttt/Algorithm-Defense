@@ -12,6 +12,7 @@ public class BuildingBuilder : BaseBuilder
 
     public override void SetTarget(Define.TileObject tileObject)
     {
+        RoadBuilder.GetInstance.Release();
         Release();
 
         _target = Managers.Resource.Load<TileBase>($"{BUILDING_PATH}{tileObject.ToString()}");
