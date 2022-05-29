@@ -171,7 +171,7 @@ public class CitizenController : BaseController
                     {
                         if (Vector3.Distance(transform.position, centerPos) <= TURN_GAP)
                         {
-                            MoveType = Define.MoveType.Up;
+                            MoveType = Define.MoveType.Down;
                             _isChangeRoad = false;
                         }
                     }
@@ -189,7 +189,7 @@ public class CitizenController : BaseController
                     {
                         if (Vector3.Distance(transform.position, centerPos) <= TURN_GAP)
                         {
-                            MoveType = Define.MoveType.Down;
+                            MoveType = Define.MoveType.Up;
                             _isChangeRoad = false;
                         }
                     }
