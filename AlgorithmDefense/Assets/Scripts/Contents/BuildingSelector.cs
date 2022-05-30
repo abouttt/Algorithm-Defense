@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 using UnityEngine.EventSystems;
 
 public class BuildingSelector : MonoBehaviour
@@ -26,13 +27,15 @@ public class BuildingSelector : MonoBehaviour
                 return;
             }
 
-            var pos = _camera.ScreenToWorldPoint(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero, 0f);
+            Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
+            Vector3 worldPoint = ray.GetPoint(-ray.origin.z / ray.direction.z);
+            Vector3Int cellPos = Managers.Tile.GetWorldToCell(Define.Tilemap.Building, worldPoint);
+            var tile = Managers.Tile.GetTile(Define.Tilemap.Building, cellPos) as Tile;
 
-            if (hit.collider != null)
+            if (tile != null)
             {
-                var building = hit.collider.GetComponent<BaseBuilding>();
-                if (building != null)
+                var building = tile.gameObject.GetComponent<BaseBuilding>();
+                if (building.CanSelect)
                 {
                     building.ShowUIController();
                 }
