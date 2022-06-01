@@ -24,6 +24,8 @@ public static class Define
         StartGateway,
         EndGateway,
         Gateway,
+        ClassGiveCenter,
+        ClassTrainingCenter,
     }
 
     public enum WorldObject

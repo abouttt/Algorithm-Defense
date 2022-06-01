@@ -64,7 +64,7 @@ public class UI_CitizenDirectionController : UI_Popup
             var toggle = toggles.GetFirstActiveToggle();
             if (toggle != null)
             {
-                var info = toggle.GetComponent<UI_GatewayToggle>();
+                var info = toggle.GetComponent<UI_DirectionToggle>();
                 Target[info.CitizenType] = info.MoveType;
             }
         }
@@ -90,7 +90,7 @@ public class UI_CitizenDirectionController : UI_Popup
         {
             if (toggles.name.Contains(Enum.GetName(typeof(Define.Citizen), citizenType)))
             {
-                return toggles.GetComponentsInChildren<UI_GatewayToggle>()
+                return toggles.GetComponentsInChildren<UI_DirectionToggle>()
                               .First(toggle => toggle.MoveType == moveType)
                               .GetComponent<Toggle>();
             }
@@ -106,7 +106,7 @@ public class UI_CitizenDirectionController : UI_Popup
             var toggle = toggles.GetFirstActiveToggle();
             if (toggle != null)
             {
-                var info = toggle.GetComponent<UI_GatewayToggle>();
+                var info = toggle.GetComponent<UI_DirectionToggle>();
                 _moveTypeCntDic[info.MoveType]++;
             }
         }

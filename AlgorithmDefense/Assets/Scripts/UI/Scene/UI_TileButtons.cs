@@ -9,6 +9,8 @@ public class UI_TileButtons : UI_Base
     {
         RoadButton,
         GatewayButton,
+        ClassGiveCenterButton,
+        ClassTrainingCenterButton,
     }
 
     private UI_TileButton[] _buttons;

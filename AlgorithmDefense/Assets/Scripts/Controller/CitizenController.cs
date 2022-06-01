@@ -10,7 +10,11 @@ public class CitizenController : BaseController
     public Define.Citizen CitizenType { get; private set; }
     [field: SerializeField]
     public Define.MoveType MoveType { get; set; } = Define.MoveType.None;
+    [field: SerializeField]
     public Define.Class Class { get; set; } = Define.Class.None;
+    [field: SerializeField]
+    public Define.Class ClassTemp { get; set; } = Define.Class.None;
+    [field: SerializeField]
     public uint ClassTrainingCount { get; set; } = 0;
 
     public bool IsExit { get; set; } = false;
@@ -56,7 +60,11 @@ public class CitizenController : BaseController
 
         if (IsExit)
         {
-            checkOnBuilding(cellPos);
+            if (checkOnBuilding(cellPos))
+            {
+                return;
+            }
+
             checkOnRoad(cellPos);
         }
 
@@ -67,15 +75,16 @@ public class CitizenController : BaseController
         }
     }
 
-    private void checkOnBuilding(Vector3Int currentPos)
+    private bool checkOnBuilding(Vector3Int currentPos)
     {
         var tile = Managers.Tile.GetTile(Define.Tilemap.Building, currentPos) as Tile;
         if (tile == null)
         {
-            return;
+            return false;
         }
 
         tile.gameObject.GetComponent<BaseBuilding>().EnterTheBuilding(this);
+        return true;
     }
 
     private void checkOnRoad(Vector3Int currentPos)

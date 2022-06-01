@@ -40,6 +40,11 @@ public class GameManagerEx
         switch (type)
         {
             case Define.WorldObject.Citizen:
+                var citizen = go.GetComponent<CitizenController>();
+                citizen.MoveType = Define.MoveType.None;
+                citizen.Class = Define.Class.None;
+                citizen.ClassTemp = Define.Class.None;
+                citizen.ClassTrainingCount = 0;
                 break;
         }
 
