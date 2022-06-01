@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 356b614e8a6d32244b9bae70c42e47ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnCellPosition: {x: -6, y: 0, z: 0}
-  _endCellPosition: {x: 5, y: 0, z: 0}
-  _spawnTime: 3
+  _spawnCellPos: {x: -6, y: 0, z: 0}
+  _endCellPos: {x: 5, y: 0, z: 0}
+  _spawnTime: 2

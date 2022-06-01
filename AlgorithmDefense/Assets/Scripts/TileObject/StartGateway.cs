@@ -12,20 +12,6 @@ public class StartGateway : BaseBuilding
     private Queue<(Define.Citizen, Define.MoveType)> _citizenOrderQueue = new Queue<(Define.Citizen, Define.MoveType)>();
     private Camera _camera;
 
-    private void Start()
-    {
-        GatewayPassCondition = new Dictionary<Define.Citizen, Define.MoveType>()
-        {
-            { Define.Citizen.Red, Define.MoveType.None },
-            { Define.Citizen.Blue, Define.MoveType.None },
-            { Define.Citizen.Green, Define.MoveType.None },
-            { Define.Citizen.Yellow, Define.MoveType.None },
-        };
-
-        _camera = Camera.main;
-        CanSelect = false;
-    }
-
     public override void EnterTheBuilding(CitizenController citizen)
     {
         if (citizen == null)
@@ -37,6 +23,25 @@ public class StartGateway : BaseBuilding
         _citizenOrderQueue.Enqueue(citizenInfo);
         Managers.Game.Despawn(citizen.gameObject);
         StartCoroutine(releaseCitizen());
+    }
+
+    public override void ShowUIController()
+    {
+
+    }
+
+    protected override void Init()
+    {
+        GatewayPassCondition = new Dictionary<Define.Citizen, Define.MoveType>()
+        {
+            { Define.Citizen.Red, Define.MoveType.None },
+            { Define.Citizen.Blue, Define.MoveType.None },
+            { Define.Citizen.Green, Define.MoveType.None },
+            { Define.Citizen.Yellow, Define.MoveType.None },
+        };
+
+        _camera = Camera.main;
+        CanSelect = false;
     }
 
     private IEnumerator releaseCitizen()
@@ -68,8 +73,4 @@ public class StartGateway : BaseBuilding
         }
     }
 
-    public override void ShowUIController()
-    {
-
-    }
 }

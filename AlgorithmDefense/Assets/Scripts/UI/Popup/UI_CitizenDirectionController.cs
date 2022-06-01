@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class UI_GatewayController : UI_Popup
+public class UI_CitizenDirectionController : UI_Popup
 {
     #region UI_Object
     enum Buttons
@@ -22,10 +22,10 @@ public class UI_GatewayController : UI_Popup
     }
     #endregion
 
-    public Gateway Target { get; set; } = null;
+    public Dictionary<Define.Citizen, Define.MoveType> Target { get; set; }
 
-    private ToggleGroup[] _toggleGroups = null;
-    private Dictionary<Define.MoveType, int> _moveTypeCntDic = null;
+    private ToggleGroup[] _toggleGroups;
+    private Dictionary<Define.MoveType, int> _moveTypeCntDic;
 
     public override void Init()
     {
@@ -54,9 +54,9 @@ public class UI_GatewayController : UI_Popup
             return;
         }
 
-        for (int citizenIdx = 1; citizenIdx < Target.GatewayPassCondition.Count; citizenIdx++)
+        for (int citizenIdx = 1; citizenIdx < Target.Count; citizenIdx++)
         {
-            Target.GatewayPassCondition[(Define.Citizen)citizenIdx] = Define.MoveType.None;
+            Target[(Define.Citizen)citizenIdx] = Define.MoveType.None;
         }
 
         foreach (var toggles in _toggleGroups)
@@ -65,7 +65,7 @@ public class UI_GatewayController : UI_Popup
             if (toggle != null)
             {
                 var info = toggle.GetComponent<UI_GatewayToggle>();
-                Target.GatewayPassCondition[info.CitizenType] = info.MoveType;
+                Target[info.CitizenType] = info.MoveType;
             }
         }
 
@@ -74,7 +74,7 @@ public class UI_GatewayController : UI_Popup
 
     private void setupGatewayInfo()
     {
-        foreach (var condition in Target.GatewayPassCondition)
+        foreach (var condition in Target)
         {
             if (condition.Value != Define.MoveType.None)
             {

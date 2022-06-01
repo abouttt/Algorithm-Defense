@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameScene : BaseScene
 {
+    public static readonly string CONTENTS_PATH = "Prefabs/Contents/";
+
     public override void Clear()
     {
 
@@ -17,22 +19,22 @@ public class GameScene : BaseScene
 
         if (FindObjectOfType<BuildingBuilder>() == null)
         {
-            Managers.Resource.Instantiate("Contents/BuildingBuilder").name = "@BuildingBuilder";
+            Managers.Resource.Instantiate($"{CONTENTS_PATH}BuildingBuilder").name = "@BuildingBuilder";
         }
 
         if (FindObjectOfType<RoadBuilder>() == null)
         {
-            Managers.Resource.Instantiate("Contents/RoadBuilder").name = "@RoadBuilder";
+            Managers.Resource.Instantiate($"{CONTENTS_PATH}RoadBuilder").name = "@RoadBuilder";
         }
 
-        if (FindObjectOfType<BuildingSelector>() == null)
+        if (FindObjectOfType<TileSelector>() == null)
         {
-            Managers.Resource.Instantiate("Contents/BuildingSelector").name = "@BuildingSelector";
+            Managers.Resource.Instantiate($"{CONTENTS_PATH}TileSelector").name = "@TileSelector";
         }
 
         if (FindObjectOfType<CitizenSpawner>() == null)
         {
-            Managers.Resource.Instantiate("Contents/CitizenSpawner").name = "@CitizenSpawner";
+            Managers.Resource.Instantiate($"{CONTENTS_PATH}CitizenSpawner").name = "@CitizenSpawner";
         }
 
         if (FindObjectOfType<UI_SceneCanvas>() == null)

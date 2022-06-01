@@ -6,7 +6,12 @@ public abstract class BaseBuilding : MonoBehaviour
 {
     public bool CanSelect { get; protected set; }
 
-    public abstract void EnterTheBuilding(CitizenController citizen);
+    private void Start()
+    {
+        Init();
+    }
 
+    public abstract void EnterTheBuilding(CitizenController citizen);
     public abstract void ShowUIController();
+    protected abstract void Init();
 }

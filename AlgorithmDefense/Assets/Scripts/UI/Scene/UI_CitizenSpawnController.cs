@@ -30,11 +30,10 @@ public class UI_CitizenSpawnController : UI_Base
 
     public override void Init()
     {
-        _buttonTexts = new List<TextMeshProUGUI>(BUTTON_NUM);
-
         Bind<Button>(typeof(Buttons));
         Bind<TextMeshProUGUI>(typeof(Texts));
 
+        _buttonTexts = new List<TextMeshProUGUI>(BUTTON_NUM);
         _buttonTexts.AddRange(GetAll<TextMeshProUGUI>());
 
         var buttons = GetAll<Button>();
@@ -48,14 +47,14 @@ public class UI_CitizenSpawnController : UI_Base
 
     private void onButtonSpawnCitizen(PointerEventData data)
     {
-        var go = EventSystem.current.currentSelectedGameObject;
-        if (Managers.Game.CitizenSpawnOrderList.Contains(go))
+        var citizenBtn = EventSystem.current.currentSelectedGameObject.GetComponent<UI_CitizenSpawnButton>();
+        if (Managers.Game.CitizenSpawnOrderList.Contains(citizenBtn.Citizen))
         {
-            Managers.Game.CitizenSpawnOrderList.Remove(go);
+            Managers.Game.CitizenSpawnOrderList.Remove(citizenBtn.Citizen);
         }
         else
         {
-            Managers.Game.CitizenSpawnOrderList.Add(go);
+            Managers.Game.CitizenSpawnOrderList.Add(citizenBtn.Citizen);
         }
 
         if (!CitizenSpawner.GetInstance.IsSpawning)
@@ -71,7 +70,8 @@ public class UI_CitizenSpawnController : UI_Base
         int idx;
         foreach (var tmpro in _buttonTexts)
         {
-            idx = Managers.Game.CitizenSpawnOrderList.IndexOf(tmpro.transform.parent.gameObject);
+            var citizenBtn = tmpro.transform.parent.GetComponent<UI_CitizenSpawnButton>();
+            idx = Managers.Game.CitizenSpawnOrderList.IndexOf(citizenBtn.Citizen);
             tmpro.text = idx >= 0 ? (idx + 1).ToString() : "";
         }
     }

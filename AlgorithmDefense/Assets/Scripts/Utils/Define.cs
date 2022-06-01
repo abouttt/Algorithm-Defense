@@ -1,6 +1,13 @@
 
 public static class Define
 {
+    public enum Class
+    {
+        None,
+        Warrior,
+        Archer,
+    }
+
     public enum Tilemap
     {
         Ground,

@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class GameManagerEx
 {
-    public List<GameObject> CitizenSpawnOrderList { get; private set; } = null;
+    public List<Define.Citizen> CitizenSpawnOrderList { get; private set; } = null;
 
     public void Init()
     {
-        CitizenSpawnOrderList = new List<GameObject>(UI_CitizenSpawnController.BUTTON_NUM);
+        CitizenSpawnOrderList = new List<Define.Citizen>(UI_CitizenSpawnController.BUTTON_NUM);
     }
 
     public GameObject Spawn(Define.WorldObject type, string path, Vector3? position, Transform parent = null)
@@ -24,7 +24,7 @@ public class GameManagerEx
         {
             case Define.WorldObject.Citizen:
                 var citizen = go.GetComponent<CitizenController>();
-                citizen.PrevPos = Managers.Tile.GetTilemap(Define.Tilemap.Ground).WorldToCell(position.Value);
+                citizen.PrevPos = Managers.Tile.GetWorldToCell(Define.Tilemap.Ground, position.Value);
                 citizen.MoveType = Define.MoveType.Right;
                 citizen.IsExit = false;
                 break;

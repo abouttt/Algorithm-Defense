@@ -9,7 +9,7 @@ public class BuildingBuilder : BaseBuilder
     public static BuildingBuilder GetInstance { get { init(); return s_instance; } }
 
     public static readonly string BUILDING_TILE_PATH = "Tiles/Buildings/";
-    public static readonly string BUILDING_OBJECT_PATH = "TileObject/Buildings/";
+    public static readonly string BUILDING_OBJECT_PATH = "Prefabs/TileObject/Buildings/";
 
     public override void SetTarget(Define.TileObject tileObject)
     {
@@ -22,16 +22,17 @@ public class BuildingBuilder : BaseBuilder
 
     public override void Build(TileBase tileBase, Vector3Int cellPos)
     {
-        if (_targetTile == null)
+        if (_target == null)
         {
-            _targetTile = tileBase as Tile;
+            _target = tileBase;
+            _targetTile = _target as Tile;
         }
 
         _targetTile.color = Color.white;
-        Tile tile = Instantiate(tileBase) as Tile;
+        Tile tile = Instantiate(_targetTile);
         Managers.Tile.SetTile(Define.Tilemap.Building, cellPos, tile);
 
-        tile.gameObject = Managers.Resource.Instantiate($"{BUILDING_OBJECT_PATH}{tileBase.name}");
+        tile.gameObject = Managers.Resource.Instantiate($"{BUILDING_OBJECT_PATH}{_target.name}");
         tile.gameObject.transform.SetParent(Managers.Tile.GetTilemap(Define.Tilemap.Building).transform);
         tile.gameObject.transform.position = Managers.Tile.GetCellCenterToWorld(Define.Tilemap.Building, cellPos);
 
@@ -79,8 +80,6 @@ public class BuildingBuilder : BaseBuilder
 
     protected override void Init()
     {
-        base.Init();
-
         _tempTilemap = Managers.Tile.GetTilemap(Define.Tilemap.BuildingTemp);
     }
 

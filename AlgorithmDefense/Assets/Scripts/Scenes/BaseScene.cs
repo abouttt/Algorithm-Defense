@@ -16,7 +16,7 @@ public abstract class BaseScene : MonoBehaviour
     {
         if (FindObjectOfType(typeof(EventSystem)) == null)
         {
-            Managers.Resource.Instantiate("UI/EventSystem").name = "@EventSystem";
+            Managers.Resource.Instantiate("Prefabs/UI/EventSystem").name = "@EventSystem";
         }
     }
 }

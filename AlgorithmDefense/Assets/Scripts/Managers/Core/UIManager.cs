@@ -43,7 +43,7 @@ public class UIManager
             name = typeof(T).Name;
         }
 
-        var go = Managers.Resource.Instantiate($"UI/Scene/{name}");
+        var go = Managers.Resource.Instantiate($"Prefabs/UI/Scene/{name}");
         var sceneUI = Util.GetOrAddComponent<T>(go);
         _sceneUI = sceneUI;
         go.transform.SetParent(Root);
@@ -58,7 +58,7 @@ public class UIManager
             name = typeof(T).Name;
         }
 
-        var go = Managers.Resource.Instantiate($"UI/Popup/{name}");
+        var go = Managers.Resource.Instantiate($"Prefabs/UI/Popup/{name}");
         var popup = Util.GetOrAddComponent<T>(go);
         _popupStack.Push(popup);
         go.transform.SetParent(Root);

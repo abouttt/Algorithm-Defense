@@ -8,19 +8,19 @@ public class CitizenSpawner : MonoBehaviour
     private static CitizenSpawner s_instance;
     public static CitizenSpawner GetInstance { get { init(); return s_instance; } }
 
+    public static readonly string CITIZEN_PATH = "Prefabs/WorldObject/Citizen/";
+
     public bool IsSpawning { get; private set; } = false;
 
-    private GameObject _spawnTarget;
+    private Define.Citizen _spawnTarget;
 
     [SerializeField]
-    private Vector3Int _spawnCellPosition;
+    private Vector3Int _spawnCellPos;
     [SerializeField]
-    private Vector3Int _endCellPosition;
+    private Vector3Int _endCellPos;
     [SerializeField]
     private float _spawnTime = 5.0f;
     private int _spawnIdx = 0;
-
-    private static readonly string CITIZEN_PATH = "WorldObject/Citizen/";
 
     private void Start()
     {
@@ -44,7 +44,6 @@ public class CitizenSpawner : MonoBehaviour
             if (Managers.Game.CitizenSpawnOrderList.Count == 0)
             {
                 _spawnIdx = 0;
-                _spawnTarget = null;
                 IsSpawning = false;
                 yield break;
             }
@@ -64,11 +63,9 @@ public class CitizenSpawner : MonoBehaviour
                 }
             }
 
-            var name = _spawnTarget.name;
-            var citizenName = name.Replace("Button", "Citizen");
-
-            var pos = Managers.Tile.GetCellCenterToWorld(Define.Tilemap.Ground, _spawnCellPosition);
-            _spawnTarget = Managers.Game.Spawn(Define.WorldObject.Citizen, $"{CITIZEN_PATH}{citizenName}", pos);
+            var name = _spawnTarget.ToString();
+            var pos = Managers.Tile.GetCellCenterToWorld(Define.Tilemap.Ground, _spawnCellPos);
+            Managers.Game.Spawn(Define.WorldObject.Citizen, $"{CITIZEN_PATH}{name}Citizen", pos);
 
             yield return new WaitForSeconds(_spawnTime);
 
@@ -79,13 +76,13 @@ public class CitizenSpawner : MonoBehaviour
     private void setup()
     {
         var tile = Managers.Resource.Load<Tile>($"{BuildingBuilder.BUILDING_TILE_PATH}StartGateway");
-        BuildingBuilder.GetInstance.Build(tile, _spawnCellPosition);
+        BuildingBuilder.GetInstance.Build(tile, _spawnCellPos);
 
         tile = Managers.Resource.Load<Tile>($"{BuildingBuilder.BUILDING_TILE_PATH}EndGateway");
-        BuildingBuilder.GetInstance.Build(tile, _endCellPosition);
+        BuildingBuilder.GetInstance.Build(tile, _endCellPos);
 
-        _spawnCellPosition.z = 1;
-        _endCellPosition.z = 1;
+        _spawnCellPos.z = 1;
+        _endCellPos.z = 1;
 
         var roadTile = Managers.Resource.Load<TileBase>($"{RoadBuilder.ROAD_RULETILE_PATH}Road_LR_RuleTile");
         Vector3Int roadCellPos = new Vector3Int(0, 0, 0);

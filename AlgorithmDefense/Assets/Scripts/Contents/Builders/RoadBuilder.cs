@@ -61,8 +61,6 @@ public class RoadBuilder : BaseBuilder
 
     protected override void Init()
     {
-        base.Init();
-
         _tempTilemap = Managers.Tile.GetTilemap(Define.Tilemap.RoadTemp);
     }
 

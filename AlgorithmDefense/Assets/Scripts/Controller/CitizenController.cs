@@ -7,32 +7,31 @@ using UnityEngine.Tilemaps;
 public class CitizenController : BaseController
 {
     [field: SerializeField]
-    public Define.Citizen CitizenType { get; private set; } = Define.Citizen.None;
-    public Define.MoveType MoveType { get; set; } = Define.MoveType.None;
+    public Define.Citizen CitizenType { get; private set; }
     [field: SerializeField]
+    public Define.MoveType MoveType { get; set; } = Define.MoveType.None;
+    public Define.Class Class { get; set; } = Define.Class.None;
+    public uint ClassTrainingCount { get; set; } = 0;
+
     public bool IsExit { get; set; } = false;
     public Vector3Int PrevPos { get; set; }
-
-    private Animator _anim;
 
     [SerializeField]
     private float _moveSpeed = 0.0f;
 
     private bool _isChangeRoad = true;
-    private const float TURN_GAP = 0.01f;
+    private static readonly float TURN_GAP = 0.01f;
 
     public override void Init()
     {
         WorldObjectType = Define.WorldObject.Citizen;
         _state = Define.State.Moving;
-        _anim = Util.FindChild<Animator>(gameObject);
     }
 
     protected override void UpdateMoving()
     {
-        _anim.SetTrigger("MOVE");
-
         var cellPos = Managers.Tile.GetWorldToCell(Define.Tilemap.Ground, transform.position);
+
         switch (MoveType)
         {
             case Define.MoveType.Down:
@@ -51,14 +50,13 @@ public class CitizenController : BaseController
                 break;
         }
 
-        Vector3 target = Managers.Tile.GetCellCenterToWorld(Define.Tilemap.Ground, cellPos);
-        transform.position = Vector3.MoveTowards(transform.position, target, (_moveSpeed * Time.deltaTime));
+        var targetPos = Managers.Tile.GetCellCenterToWorld(Define.Tilemap.Ground, cellPos);
+        transform.position = Vector2.MoveTowards(transform.position, targetPos, (_moveSpeed * Time.deltaTime));
         cellPos = Managers.Tile.GetWorldToCell(Define.Tilemap.Ground, transform.position);
-
-        checkOnBuilding(cellPos);
 
         if (IsExit)
         {
+            checkOnBuilding(cellPos);
             checkOnRoad(cellPos);
         }
 
@@ -72,26 +70,12 @@ public class CitizenController : BaseController
     private void checkOnBuilding(Vector3Int currentPos)
     {
         var tile = Managers.Tile.GetTile(Define.Tilemap.Building, currentPos) as Tile;
-
         if (tile == null)
         {
             return;
         }
 
-        if (!IsExit)
-        {
-            return;
-        }
-
-        if (tile.gameObject.name.Equals(Define.TileObject.Gateway.ToString()) ||
-            tile.gameObject.name.Equals(Define.TileObject.StartGateway.ToString()))
-        {
-            tile.gameObject.GetComponent<BaseBuilding>().EnterTheBuilding(this);
-        }
-        else if (tile.gameObject.name.Equals(Define.TileObject.EndGateway.ToString()))
-        {
-            tile.gameObject.GetComponent<BaseBuilding>().EnterTheBuilding(this);
-        }
+        tile.gameObject.GetComponent<BaseBuilding>().EnterTheBuilding(this);
     }
 
     private void checkOnRoad(Vector3Int currentPos)
@@ -113,7 +97,7 @@ public class CitizenController : BaseController
                 return;
             }
 
-            var centerPos = Managers.Tile.GetCellCenterToWorld(Define.Tilemap.Ground, currentPos);
+            Vector2 targetPos = Managers.Tile.GetCellCenterToWorld(Define.Tilemap.Ground, currentPos);
             var road = go.GetComponent<Road>();
             switch (road.RoadType)
             {
@@ -121,7 +105,7 @@ public class CitizenController : BaseController
                 case Define.RoadType.TD:
                     if (isMoveTypeUD())
                     {
-                        if (Vector3.Distance(transform.position, centerPos) <= TURN_GAP)
+                        if (Vector3.Distance(transform.position, targetPos) <= TURN_GAP)
                         {
                             turnAround();
                             _isChangeRoad = false;
@@ -132,7 +116,7 @@ public class CitizenController : BaseController
                 case Define.RoadType.TR:
                     if (!isMoveTypeUD())
                     {
-                        if (Vector3.Distance(transform.position, centerPos) <= TURN_GAP)
+                        if (Vector3.Distance(transform.position, targetPos) <= TURN_GAP)
                         {
                             turnAround();
                             _isChangeRoad = false;
@@ -143,7 +127,7 @@ public class CitizenController : BaseController
                 case Define.RoadType.CUL:
                     if (isMoveTypeUD())
                     {
-                        if (Vector3.Distance(transform.position, centerPos) <= TURN_GAP)
+                        if (Vector2.Distance(transform.position, targetPos) <= TURN_GAP)
                         {
                             MoveType = Define.MoveType.Left;
                             _isChangeRoad = false;
@@ -151,7 +135,7 @@ public class CitizenController : BaseController
                     }
                     else
                     {
-                        if (Vector3.Distance(transform.position, centerPos) <= TURN_GAP)
+                        if (Vector2.Distance(transform.position, targetPos) <= TURN_GAP)
                         {
                             MoveType = Define.MoveType.Down;
                             _isChangeRoad = false;
@@ -161,7 +145,7 @@ public class CitizenController : BaseController
                 case Define.RoadType.CUR:
                     if (isMoveTypeUD())
                     {
-                        if (Vector3.Distance(transform.position, centerPos) <= TURN_GAP)
+                        if (Vector2.Distance(transform.position, targetPos) <= TURN_GAP)
                         {
                             MoveType = Define.MoveType.Right;
                             _isChangeRoad = false;
@@ -169,7 +153,7 @@ public class CitizenController : BaseController
                     }
                     else
                     {
-                        if (Vector3.Distance(transform.position, centerPos) <= TURN_GAP)
+                        if (Vector2.Distance(transform.position, targetPos) <= TURN_GAP)
                         {
                             MoveType = Define.MoveType.Down;
                             _isChangeRoad = false;
@@ -179,7 +163,7 @@ public class CitizenController : BaseController
                 case Define.RoadType.CDR:
                     if (isMoveTypeUD())
                     {
-                        if (Vector3.Distance(transform.position, centerPos) <= TURN_GAP)
+                        if (Vector2.Distance(transform.position, targetPos) <= TURN_GAP)
                         {
                             MoveType = Define.MoveType.Right;
                             _isChangeRoad = false;
@@ -187,7 +171,7 @@ public class CitizenController : BaseController
                     }
                     else
                     {
-                        if (Vector3.Distance(transform.position, centerPos) <= TURN_GAP)
+                        if (Vector2.Distance(transform.position, targetPos) <= TURN_GAP)
                         {
                             MoveType = Define.MoveType.Up;
                             _isChangeRoad = false;
@@ -197,7 +181,7 @@ public class CitizenController : BaseController
                 case Define.RoadType.CDL:
                     if (isMoveTypeUD())
                     {
-                        if (Vector3.Distance(transform.position, centerPos) <= TURN_GAP)
+                        if (Vector2.Distance(transform.position, targetPos) <= TURN_GAP)
                         {
                             MoveType = Define.MoveType.Left;
                             _isChangeRoad = false;
@@ -205,7 +189,7 @@ public class CitizenController : BaseController
                     }
                     else
                     {
-                        if (Vector3.Distance(transform.position, centerPos) <= TURN_GAP)
+                        if (Vector2.Distance(transform.position, targetPos) <= TURN_GAP)
                         {
                             MoveType = Define.MoveType.Up;
                             _isChangeRoad = false;
@@ -238,16 +222,6 @@ public class CitizenController : BaseController
     private bool isMoveTypeUD()
     {
         if ((MoveType == Define.MoveType.Up) || (MoveType == Define.MoveType.Down))
-        {
-            return true;
-        }
-
-        return false;
-    }
-
-    private bool isMoveTypeLR()
-    {
-        if ((MoveType == Define.MoveType.Left) || (MoveType == Define.MoveType.Right))
         {
             return true;
         }

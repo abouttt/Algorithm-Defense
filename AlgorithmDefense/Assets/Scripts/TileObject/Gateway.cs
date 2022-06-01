@@ -13,30 +13,6 @@ public class Gateway : BaseBuilding
     private Queue<(Define.Citizen, Define.MoveType)> _citizenOrderQueue = new Queue<(Define.Citizen, Define.MoveType)>();
     private Camera _camera;
 
-    private void Start()
-    {
-        GatewayPassCondition = new Dictionary<Define.Citizen, Define.MoveType>()
-        {
-            { Define.Citizen.Red, Define.MoveType.None },
-            { Define.Citizen.Blue, Define.MoveType.None },
-            { Define.Citizen.Green, Define.MoveType.None },
-            { Define.Citizen.Yellow, Define.MoveType.None },
-        };
-
-        _camera = Camera.main;
-        CanSelect = true;
-    }
-
-    public void SetGateWay(Define.Citizen citizen, Define.MoveType move)
-    {
-        if (citizen == Define.Citizen.None)
-        {
-            return;
-        }
-
-        GatewayPassCondition[citizen] = move;
-    }
-
     public override void EnterTheBuilding(CitizenController citizen)
     {
         if (citizen == null)
@@ -50,12 +26,35 @@ public class Gateway : BaseBuilding
         StartCoroutine(releaseCitizen());
     }
 
+    public override void ShowUIController()
+    {
+        Managers.UI.CloseAllPopupUI();
+        var controller = Managers.UI.ShowPopupUI<UI_CitizenDirectionController>();
+        var pos = _camera.WorldToScreenPoint(transform.position) + (Vector3.right * 300);
+        controller.transform.GetChild(0).position = pos;
+        controller.Target = GatewayPassCondition;
+    }
+
+    protected override void Init()
+    {
+        GatewayPassCondition = new Dictionary<Define.Citizen, Define.MoveType>()
+        {
+            { Define.Citizen.Red, Define.MoveType.None },
+            { Define.Citizen.Blue, Define.MoveType.None },
+            { Define.Citizen.Green, Define.MoveType.None },
+            { Define.Citizen.Yellow, Define.MoveType.None },
+        };
+
+        _camera = Camera.main;
+        CanSelect = true;
+    }
+
     private IEnumerator releaseCitizen()
     {
         yield return new WaitForSeconds(releaseTime);
 
         var citizenInfo = _citizenOrderQueue.Dequeue();
-        
+
         var pos = Managers.Tile.GetWorldToCellCenterToWorld(Define.Tilemap.Ground, transform.position);
         var go = Managers.Game.Spawn(Define.WorldObject.Citizen, $"{citizenInfo.Item1}Citizen", pos);
 
@@ -85,14 +84,5 @@ public class Gateway : BaseBuilding
                     break;
             }
         }
-    }
-
-    public override void ShowUIController()
-    {
-        Managers.UI.CloseAllPopupUI();
-        var controller = Managers.UI.ShowPopupUI<UI_GatewayController>();
-        var pos = _camera.WorldToScreenPoint(transform.position) + (Vector3.right * 300);
-        controller.transform.GetChild(0).position = pos;
-        controller.Target = this;
     }
 }

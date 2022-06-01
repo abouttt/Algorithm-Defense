@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2929706249857734180}
   - component: {fileID: 2411136874797774981}
   - component: {fileID: 1453340239134120872}
+  - component: {fileID: 786102470968394169}
   m_Layer: 5
   m_Name: BlueButton
   m_TagString: Untagged
@@ -122,6 +123,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &786102470968394169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2353658147293560777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c2760e6ecda7c54ca349b37045dfcf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Citizen>k__BackingField: 2
 --- !u!1 &2810651935432103702
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,7 +282,7 @@ GameObject:
   - component: {fileID: 8599133353505723821}
   - component: {fileID: 165458467479037944}
   m_Layer: 5
-  m_Name: UI_CitizenSpawnButtons
+  m_Name: UI_CitizenSpawnController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -457,6 +471,7 @@ GameObject:
   - component: {fileID: 6830670270606479759}
   - component: {fileID: 6698980665366691095}
   - component: {fileID: 2448150333885915163}
+  - component: {fileID: 4067581610837230702}
   m_Layer: 5
   m_Name: RedButton
   m_TagString: Untagged
@@ -567,6 +582,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4067581610837230702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4479363293643267643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c2760e6ecda7c54ca349b37045dfcf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Citizen>k__BackingField: 1
 --- !u!1 &4762735078627132423
 GameObject:
   m_ObjectHideFlags: 0
@@ -714,6 +742,7 @@ GameObject:
   - component: {fileID: 39909407737538228}
   - component: {fileID: 4467757443563840366}
   - component: {fileID: 2923623602248441421}
+  - component: {fileID: 7233544761077293172}
   m_Layer: 5
   m_Name: GreenButton
   m_TagString: Untagged
@@ -824,6 +853,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7233544761077293172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4893629939014883729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c2760e6ecda7c54ca349b37045dfcf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Citizen>k__BackingField: 3
 --- !u!1 &6332770629220500732
 GameObject:
   m_ObjectHideFlags: 0
@@ -836,6 +878,7 @@ GameObject:
   - component: {fileID: 5435378328698632895}
   - component: {fileID: 8744970152589776083}
   - component: {fileID: 7343128601116144462}
+  - component: {fileID: 5918423893852441048}
   m_Layer: 5
   m_Name: YellowButton
   m_TagString: Untagged
@@ -946,6 +989,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5918423893852441048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6332770629220500732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c2760e6ecda7c54ca349b37045dfcf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Citizen>k__BackingField: 4
 --- !u!1 &6983468494006470167
 GameObject:
   m_ObjectHideFlags: 0
