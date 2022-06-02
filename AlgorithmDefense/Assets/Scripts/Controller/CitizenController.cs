@@ -107,104 +107,41 @@ public class CitizenController : BaseController
             }
 
             Vector2 targetPos = Managers.Tile.GetCellCenterToWorld(Define.Tilemap.Ground, currentPos);
-            var road = go.GetComponent<Road>();
-            switch (road.RoadType)
+            if (Vector3.Distance(transform.position, targetPos) <= TURN_GAP)
             {
-                case Define.RoadType.TU:
-                case Define.RoadType.TD:
-                    if (isMoveTypeUD())
-                    {
-                        if (Vector3.Distance(transform.position, targetPos) <= TURN_GAP)
+                var road = go.GetComponent<Road>();
+                switch (road.RoadType)
+                {
+                    case Define.RoadType.TU:
+                    case Define.RoadType.TD:
+                        if (isMoveTypeUD())
                         {
                             turnAround();
-                            _isChangeRoad = false;
                         }
-                    }
-                    break;
-                case Define.RoadType.TL:
-                case Define.RoadType.TR:
-                    if (!isMoveTypeUD())
-                    {
-                        if (Vector3.Distance(transform.position, targetPos) <= TURN_GAP)
+                        break;
+                    case Define.RoadType.TL:
+                    case Define.RoadType.TR:
+                        if (!isMoveTypeUD())
                         {
                             turnAround();
-                            _isChangeRoad = false;
                         }
-                    }
-                    break;
+                        break;
+                    case Define.RoadType.CUL:
+                        MoveType = isMoveTypeUD() ? Define.MoveType.Left : Define.MoveType.Down;
+                        break;
+                    case Define.RoadType.CUR:
+                        MoveType = isMoveTypeUD() ? Define.MoveType.Right : Define.MoveType.Down;
+                        break;
+                    case Define.RoadType.CDR:
+                        MoveType = isMoveTypeUD() ? Define.MoveType.Right : Define.MoveType.Up;
+                        break;
+                    case Define.RoadType.CDL:
+                        MoveType = isMoveTypeUD() ? Define.MoveType.Left : Define.MoveType.Up;
+                        break;
 
-                case Define.RoadType.CUL:
-                    if (isMoveTypeUD())
-                    {
-                        if (Vector2.Distance(transform.position, targetPos) <= TURN_GAP)
-                        {
-                            MoveType = Define.MoveType.Left;
-                            _isChangeRoad = false;
-                        }
-                    }
-                    else
-                    {
-                        if (Vector2.Distance(transform.position, targetPos) <= TURN_GAP)
-                        {
-                            MoveType = Define.MoveType.Down;
-                            _isChangeRoad = false;
-                        }
-                    }
-                    break;
-                case Define.RoadType.CUR:
-                    if (isMoveTypeUD())
-                    {
-                        if (Vector2.Distance(transform.position, targetPos) <= TURN_GAP)
-                        {
-                            MoveType = Define.MoveType.Right;
-                            _isChangeRoad = false;
-                        }
-                    }
-                    else
-                    {
-                        if (Vector2.Distance(transform.position, targetPos) <= TURN_GAP)
-                        {
-                            MoveType = Define.MoveType.Down;
-                            _isChangeRoad = false;
-                        }
-                    }
-                    break;
-                case Define.RoadType.CDR:
-                    if (isMoveTypeUD())
-                    {
-                        if (Vector2.Distance(transform.position, targetPos) <= TURN_GAP)
-                        {
-                            MoveType = Define.MoveType.Right;
-                            _isChangeRoad = false;
-                        }
-                    }
-                    else
-                    {
-                        if (Vector2.Distance(transform.position, targetPos) <= TURN_GAP)
-                        {
-                            MoveType = Define.MoveType.Up;
-                            _isChangeRoad = false;
-                        }
-                    }
-                    break;
-                case Define.RoadType.CDL:
-                    if (isMoveTypeUD())
-                    {
-                        if (Vector2.Distance(transform.position, targetPos) <= TURN_GAP)
-                        {
-                            MoveType = Define.MoveType.Left;
-                            _isChangeRoad = false;
-                        }
-                    }
-                    else
-                    {
-                        if (Vector2.Distance(transform.position, targetPos) <= TURN_GAP)
-                        {
-                            MoveType = Define.MoveType.Up;
-                            _isChangeRoad = false;
-                        }
-                    }
-                    break;
+                }
+
+                _isChangeRoad = false;
             }
         }
     }

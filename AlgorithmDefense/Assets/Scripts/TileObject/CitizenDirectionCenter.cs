@@ -87,6 +87,8 @@ public class CitizenDirectionCenter : BaseBuilding
         };
 
         _camera = Camera.main;
+        _isApply = true;
+        CanSelect = true;
         AddBuildingFun();
     }
 
