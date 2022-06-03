@@ -3,25 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CitizenDirectionCenter : BaseBuilding
+public class DirectionApplicableBuilding : BaseBuilding
 {
-    [SerializeField]
-    private float releaseTime = 0.5f;
-
-    protected Action<CitizenController> BuildingFuncAction;
-    protected bool _isApply;
+    protected Action<CitizenController> _buildingFuncAction;
 
     private Dictionary<Define.Citizen, Define.MoveType> _directionCondition;
-    private Queue<CitizenController> _citizenOrderQueue = new Queue<CitizenController>();
     private Camera _camera;
 
     public override void EnterTheBuilding(CitizenController citizen)
     {
-        BuildingFuncAction?.Invoke(citizen);
+        _buildingFuncAction?.Invoke(citizen);
 
         _citizenOrderQueue.Enqueue(citizen);
         citizen.gameObject.SetActive(false);
-        StartCoroutine(releaseCitizen());
+        StartCoroutine(ReleaseCitizen());
     }
 
     public override void ShowUIController()
@@ -33,9 +28,9 @@ public class CitizenDirectionCenter : BaseBuilding
         controller.Target = _directionCondition;
     }
 
-    private IEnumerator releaseCitizen()
+    protected override IEnumerator ReleaseCitizen()
     {
-        yield return new WaitForSeconds(releaseTime);
+        yield return new WaitForSeconds(_releaseTime);
 
         if (_citizenOrderQueue.Count == 0)
         {
@@ -48,30 +43,27 @@ public class CitizenDirectionCenter : BaseBuilding
         citizen.PrevPos = Managers.Tile.GetWorldToCell(Define.Tilemap.Ground, transform.position);
         citizen.IsExit = false;
 
-        if (_isApply)
+        var moveType = _directionCondition[citizen.CitizenType];
+        if (moveType != Define.MoveType.None)
         {
-            var moveType = _directionCondition[citizen.CitizenType];
-            if (moveType != Define.MoveType.None)
+            citizen.MoveType = moveType;
+        }
+        else
+        {
+            switch (citizen.MoveType)
             {
-                citizen.MoveType = moveType;
-            }
-            else
-            {
-                switch (citizen.MoveType)
-                {
-                    case Define.MoveType.Right:
-                        citizen.MoveType = Define.MoveType.Left;
-                        break;
-                    case Define.MoveType.Left:
-                        citizen.MoveType = Define.MoveType.Right;
-                        break;
-                    case Define.MoveType.Up:
-                        citizen.MoveType = Define.MoveType.Down;
-                        break;
-                    case Define.MoveType.Down:
-                        citizen.MoveType = Define.MoveType.Up;
-                        break;
-                }
+                case Define.MoveType.Right:
+                    citizen.MoveType = Define.MoveType.Left;
+                    break;
+                case Define.MoveType.Left:
+                    citizen.MoveType = Define.MoveType.Right;
+                    break;
+                case Define.MoveType.Up:
+                    citizen.MoveType = Define.MoveType.Down;
+                    break;
+                case Define.MoveType.Down:
+                    citizen.MoveType = Define.MoveType.Up;
+                    break;
             }
         }
     }
@@ -86,9 +78,10 @@ public class CitizenDirectionCenter : BaseBuilding
             { Define.Citizen.Yellow, Define.MoveType.None },
         };
 
-        _camera = Camera.main;
-        _isApply = true;
         CanSelect = true;
+        _isDirectionOpposite = true;
+        _camera = Camera.main;
+
         AddBuildingFun();
     }
 

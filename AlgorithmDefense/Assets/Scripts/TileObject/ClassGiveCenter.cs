@@ -2,23 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClassGiveCenter : CitizenDirectionCenter
+public class ClassGiveCenter : BaseBuilding
 {
     [SerializeField]
-    private Define.Class _class = Define.Class.None;
+    private Define.Class _classTemp = Define.Class.None;
 
     protected override void Init()
     {
-        base.Init();
-
-        _isApply = false;
         CanSelect = false;
+        _isDirectionOpposite = false;
     }
 
-    protected override void AddBuildingFun()
+    public override void EnterTheBuilding(CitizenController citizen)
     {
-        BuildingFuncAction += GiveClassTemp;
+        citizen.ClassTemp = _classTemp;
+
+        _citizenOrderQueue.Enqueue(citizen);
+        citizen.gameObject.SetActive(false);
+        StartCoroutine(ReleaseCitizen());
     }
 
-    private void GiveClassTemp(CitizenController citizen) => citizen.ClassTemp = _class;
+    public override void ShowUIController() 
+    { 
+        // TODO
+    }
 }

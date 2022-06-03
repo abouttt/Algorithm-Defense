@@ -46,11 +46,11 @@ public abstract class BaseBuilder : MonoBehaviour
                 }
             }
 
-            CheckCanBuild(TileSelector.GetInstance.MouseCellPos);
+            CheckCanBuild(TileSelector.GetInstance.CurrentMouseCellPos);
 
             if (_canBuild && Input.GetMouseButton(0))
             {
-                Build(_target, TileSelector.GetInstance.MouseCellPos);
+                Build(_target, TileSelector.GetInstance.CurrentMouseCellPos);
             }
         }
     }

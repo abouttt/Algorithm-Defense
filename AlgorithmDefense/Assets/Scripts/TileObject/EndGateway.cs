@@ -19,6 +19,6 @@ public class EndGateway : BaseBuilding
 
     protected override void Init()
     {
-        
+        CanSelect = false;
     }
 }

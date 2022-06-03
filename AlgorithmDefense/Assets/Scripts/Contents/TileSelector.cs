@@ -9,7 +9,7 @@ public class TileSelector : MonoBehaviour
     private static TileSelector s_instance;
     public static TileSelector GetInstance { get { init(); return s_instance; } }
 
-    public Vector3Int MouseCellPos { get; private set; }
+    public Vector3Int CurrentMouseCellPos { get; private set; }
 
     private Camera _camera;
     private Vector3 _worldPos;
@@ -22,7 +22,7 @@ public class TileSelector : MonoBehaviour
     private void Update()
     {
         _worldPos = _camera.ScreenToWorldPoint(Input.mousePosition);
-        MouseCellPos = Managers.Tile.GetWorldToCell(Define.Tilemap.Building, _worldPos);
+        CurrentMouseCellPos = Managers.Tile.GetWorldToCell(Define.Tilemap.Building, _worldPos);
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -36,7 +36,7 @@ public class TileSelector : MonoBehaviour
                 return;
             }
 
-            var tile = Managers.Tile.GetTile(Define.Tilemap.Building, MouseCellPos) as Tile;
+            var tile = Managers.Tile.GetTile(Define.Tilemap.Building, CurrentMouseCellPos) as Tile;
             if (tile != null)
             {
                 var building = tile.gameObject.GetComponent<BaseBuilding>();
