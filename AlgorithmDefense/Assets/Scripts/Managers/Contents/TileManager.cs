@@ -21,6 +21,10 @@ public class TileManager
                 Define.Tilemap type = (Define.Tilemap)Enum.Parse(typeof(Define.Tilemap), names[i]);
                 _tilemaps.Add(type, tilemap);
             }
+            else
+            {
+                Debug.Log($"[TileManager] Failed to find tilemap : {names[i]}");
+            }
         }
     }
 

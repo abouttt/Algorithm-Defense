@@ -12,17 +12,31 @@ public class TileSelector : MonoBehaviour
     public Vector3Int CurrentMouseCellPos { get; private set; }
 
     private Camera _camera;
+    private Tile _tile;
     private Vector3 _worldPos;
+    private Vector3Int _prevPos;
 
     private void Start()
     {
         _camera = Camera.main;
+        _tile = Managers.Resource.Load<Tile>("Tiles/Grounds/TileSelect");
     }
 
     private void Update()
     {
         _worldPos = _camera.ScreenToWorldPoint(Input.mousePosition);
         CurrentMouseCellPos = Managers.Tile.GetWorldToCell(Define.Tilemap.Building, _worldPos);
+        
+        
+        if (_prevPos != CurrentMouseCellPos)
+        {
+            if (Managers.Tile.GetTile(Define.Tilemap.Ground, CurrentMouseCellPos) != null)
+            {
+                Managers.Tile.SetTile(Define.Tilemap.GroundTemp, CurrentMouseCellPos, _tile);
+                Managers.Tile.SetTile(Define.Tilemap.GroundTemp, _prevPos, null);
+                _prevPos = CurrentMouseCellPos;
+            }
+        }
 
         if (Input.GetMouseButtonDown(0))
         {

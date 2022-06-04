@@ -16,7 +16,7 @@ public class DirectionApplicableBuilding : BaseBuilding
 
         _citizenOrderQueue.Enqueue(citizen);
         citizen.gameObject.SetActive(false);
-        StartCoroutine(ReleaseCitizen());
+        StartCoroutine(LeaveTheBuilding());
     }
 
     public override void ShowUIController()
@@ -28,9 +28,9 @@ public class DirectionApplicableBuilding : BaseBuilding
         controller.Target = _directionCondition;
     }
 
-    protected override IEnumerator ReleaseCitizen()
+    protected override IEnumerator LeaveTheBuilding()
     {
-        yield return new WaitForSeconds(_releaseTime);
+        yield return new WaitForSeconds(_stayTime);
 
         if (_citizenOrderQueue.Count == 0)
         {

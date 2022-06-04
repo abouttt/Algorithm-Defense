@@ -19,7 +19,7 @@ public class ClassGiveCenter : BaseBuilding
 
         _citizenOrderQueue.Enqueue(citizen);
         citizen.gameObject.SetActive(false);
-        StartCoroutine(ReleaseCitizen());
+        StartCoroutine(LeaveTheBuilding());
     }
 
     public override void ShowUIController() 

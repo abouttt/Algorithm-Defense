@@ -12,11 +12,6 @@ public class EndGateway : BaseBuilding
         }
     }
 
-    public override void ShowUIController()
-    {
-        
-    }
-
     protected override void Init()
     {
         CanSelect = false;

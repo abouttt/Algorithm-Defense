@@ -35,7 +35,6 @@ public class CitizenController : BaseController
     protected override void UpdateMoving()
     {
         var cellPos = Managers.Tile.GetWorldToCell(Define.Tilemap.Ground, transform.position);
-
         switch (MoveType)
         {
             case Define.MoveType.Down:
@@ -54,7 +53,7 @@ public class CitizenController : BaseController
                 break;
         }
 
-        var targetPos = Managers.Tile.GetCellCenterToWorld(Define.Tilemap.Ground, cellPos);
+        Vector2 targetPos = Managers.Tile.GetCellCenterToWorld(Define.Tilemap.Ground, cellPos);
         transform.position = Vector2.MoveTowards(transform.position, targetPos, (_moveSpeed * Time.deltaTime));
         cellPos = Managers.Tile.GetWorldToCell(Define.Tilemap.Ground, transform.position);
 

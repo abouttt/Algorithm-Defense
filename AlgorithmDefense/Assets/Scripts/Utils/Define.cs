@@ -13,6 +13,7 @@ public static class Define
         Ground,
         Road,
         Building,
+        GroundTemp,
         RoadTemp,
         BuildingTemp,
     }

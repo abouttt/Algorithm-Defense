@@ -64,20 +64,6 @@ public class BuildingBuilder : BaseBuilder
         _tempTilemap.SetTile(cellPos, _targetTile);
     }
 
-    public override void Release()
-    {
-        if (_target == null)
-        {
-            return;
-        }
-
-        _tempTilemap.SetTile(_prevPos, null);
-        _targetTile.color = Color.white;
-        _targetTile = null;
-        _target = null;
-        IsBuilding = false;
-    }
-
     protected override void Init()
     {
         _tempTilemap = Managers.Tile.GetTilemap(Define.Tilemap.BuildingTemp);

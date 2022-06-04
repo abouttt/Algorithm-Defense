@@ -7,7 +7,7 @@ public abstract class BaseBuilding : MonoBehaviour
     public bool CanSelect { get; protected set; }
 
     [SerializeField]
-    protected float _releaseTime;
+    protected float _stayTime;
     protected Queue<CitizenController> _citizenOrderQueue = new Queue<CitizenController>();
     protected bool _isDirectionOpposite;
 
@@ -21,9 +21,9 @@ public abstract class BaseBuilding : MonoBehaviour
 
     protected abstract void Init();
 
-    protected virtual IEnumerator ReleaseCitizen()
+    protected virtual IEnumerator LeaveTheBuilding()
     {
-        yield return new WaitForSeconds(_releaseTime);
+        yield return new WaitForSeconds(_stayTime);
 
         if (_citizenOrderQueue.Count == 0)
         {
