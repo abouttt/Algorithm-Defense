@@ -14,9 +14,7 @@ public class DirectionApplicableBuilding : BaseBuilding
     {
         _buildingFuncAction?.Invoke(citizen);
 
-        _citizenOrderQueue.Enqueue(citizen);
-        citizen.gameObject.SetActive(false);
-        StartCoroutine(LeaveTheBuilding());
+        EnqueueCitizen(citizen);
     }
 
     public override void ShowUIController()
@@ -37,35 +35,26 @@ public class DirectionApplicableBuilding : BaseBuilding
             yield break;
         }
 
-        var citizen = _citizenOrderQueue.Dequeue();
-        citizen.gameObject.SetActive(true);
-        citizen.transform.position = Managers.Tile.GetWorldToCellCenterToWorld(Define.Tilemap.Ground, transform.position);
-        citizen.PrevPos = Managers.Tile.GetWorldToCell(Define.Tilemap.Ground, transform.position);
-        citizen.IsExit = false;
+        var citizen = DequeueCitizen();
 
         var moveType = _directionCondition[citizen.CitizenType];
         if (moveType != Define.MoveType.None)
         {
-            citizen.MoveType = moveType;
+            if (!IsRoad(moveType))
+            {
+                SetOpposite(citizen);
+            }
+            else
+            {
+                citizen.MoveType = moveType;
+            }
         }
         else
         {
-            switch (citizen.MoveType)
-            {
-                case Define.MoveType.Right:
-                    citizen.MoveType = Define.MoveType.Left;
-                    break;
-                case Define.MoveType.Left:
-                    citizen.MoveType = Define.MoveType.Right;
-                    break;
-                case Define.MoveType.Up:
-                    citizen.MoveType = Define.MoveType.Down;
-                    break;
-                case Define.MoveType.Down:
-                    citizen.MoveType = Define.MoveType.Up;
-                    break;
-            }
+            SetOpposite(citizen);
         }
+
+        SetPosition(citizen);
     }
 
     protected override void Init()

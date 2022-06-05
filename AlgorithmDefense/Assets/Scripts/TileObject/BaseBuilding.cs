@@ -30,29 +30,106 @@ public abstract class BaseBuilding : MonoBehaviour
             yield break;
         }
 
-        var citizen = _citizenOrderQueue.Dequeue();
-        citizen.gameObject.SetActive(true);
-        citizen.transform.position = Managers.Tile.GetWorldToCellCenterToWorld(Define.Tilemap.Ground, transform.position);
-        citizen.PrevPos = Managers.Tile.GetWorldToCell(Define.Tilemap.Ground, transform.position);
-        citizen.IsExit = false;
+        var citizen = DequeueCitizen();
 
         if (_isDirectionOpposite)
         {
-            switch (citizen.MoveType)
-            {
-                case Define.MoveType.Right:
-                    citizen.MoveType = Define.MoveType.Left;
-                    break;
-                case Define.MoveType.Left:
-                    citizen.MoveType = Define.MoveType.Right;
-                    break;
-                case Define.MoveType.Up:
-                    citizen.MoveType = Define.MoveType.Down;
-                    break;
-                case Define.MoveType.Down:
-                    citizen.MoveType = Define.MoveType.Up;
-                    break;
-            }
+            SetOpposite(citizen);
         }
+
+        if (!IsRoad(citizen.MoveType))
+        {
+            SetOpposite(citizen);
+        }
+
+        SetPosition(citizen);
+    }
+
+    protected void EnqueueCitizen(CitizenController citizen)
+    {
+        _citizenOrderQueue.Enqueue(citizen);
+        citizen.gameObject.SetActive(false);
+        StartCoroutine(LeaveTheBuilding());
+    }
+
+    protected CitizenController DequeueCitizen()
+    {
+        var citizen = _citizenOrderQueue.Dequeue();
+        citizen.gameObject.SetActive(true);
+        citizen.PrevPos = Managers.Tile.GetWorldToCell(Define.Tilemap.Ground, transform.position);
+        citizen.IsExit = false;
+
+        return citizen;
+    }
+
+    protected void SetOpposite(CitizenController citizen)
+    {
+        switch (citizen.MoveType)
+        {
+            case Define.MoveType.Right:
+                citizen.MoveType = Define.MoveType.Left;
+                break;
+            case Define.MoveType.Left:
+                citizen.MoveType = Define.MoveType.Right;
+                break;
+            case Define.MoveType.Up:
+                citizen.MoveType = Define.MoveType.Down;
+                break;
+            case Define.MoveType.Down:
+                citizen.MoveType = Define.MoveType.Up;
+                break;
+        }
+    }
+
+    protected bool IsRoad(Define.MoveType moveType)
+    {
+        var cellPos = Managers.Tile.GetWorldToCell(Define.Tilemap.Ground, transform.position);
+
+        switch (moveType)
+        {
+            case Define.MoveType.Right:
+                cellPos += Vector3Int.right;
+                break;
+            case Define.MoveType.Left:
+                cellPos += Vector3Int.left;
+                break;
+            case Define.MoveType.Up:
+                cellPos += Vector3Int.up;
+                break;
+            case Define.MoveType.Down:
+                cellPos += Vector3Int.down;
+                break;
+        }
+
+        var tile = Managers.Tile.GetTile(Define.Tilemap.Road, cellPos);
+        if (!tile)
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    protected void SetPosition(CitizenController citizen)
+    {
+        var pos = Managers.Tile.GetWorldToCellCenterToWorld(Define.Tilemap.Ground, transform.position);
+
+        switch (citizen.MoveType)
+        {
+            case Define.MoveType.Right:
+                pos += new Vector3(0.5f, 0, 0);
+                break;
+            case Define.MoveType.Left:
+                pos += new Vector3(-0.5f, 0, 0);
+                break;
+            case Define.MoveType.Up:
+                pos += new Vector3(0, 0.5f, 0);
+                break;
+            case Define.MoveType.Down:
+                pos += new Vector3(0, -0.5f, 0);
+                break;
+        }
+
+        citizen.transform.position = pos;
     }
 }

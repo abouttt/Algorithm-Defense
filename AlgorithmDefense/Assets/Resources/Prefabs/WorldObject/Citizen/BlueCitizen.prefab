@@ -1877,7 +1877,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 6
 --- !u!95 &7519963367967187437
 Animator:
   serializedVersion: 4
@@ -2366,7 +2366,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: 21300000, guid: 4e7be181b77e1184d8b05c51da1543a6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f63083452d68c460db811918d4f6f323, type: 3}
   m_Color: {r: 0, g: 0.3137255, b: 0.7882353, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2641,7 +2641,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _state: 0
   <CitizenType>k__BackingField: 2
-  <IsExit>k__BackingField: 0
+  <MoveType>k__BackingField: 0
+  <Class>k__BackingField: 0
+  <ClassTemp>k__BackingField: 0
+  <ClassTrainingCount>k__BackingField: 0
   _moveSpeed: 2
 --- !u!114 &1930935195580406158
 MonoBehaviour:

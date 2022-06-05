@@ -17,9 +17,7 @@ public class ClassGiveCenter : BaseBuilding
     {
         citizen.ClassTemp = _classTemp;
 
-        _citizenOrderQueue.Enqueue(citizen);
-        citizen.gameObject.SetActive(false);
-        StartCoroutine(LeaveTheBuilding());
+        EnqueueCitizen(citizen);
     }
 
     public override void ShowUIController() 

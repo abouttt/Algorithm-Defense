@@ -24,7 +24,6 @@ public class CitizenController : BaseController
     private float _moveSpeed = 0.0f;
 
     private bool _isChangeRoad = true;
-    private static readonly float TURN_GAP = 0.01f;
 
     public override void Init()
     {
@@ -106,7 +105,7 @@ public class CitizenController : BaseController
             }
 
             Vector2 targetPos = Managers.Tile.GetCellCenterToWorld(Define.Tilemap.Ground, currentPos);
-            if (Vector3.Distance(transform.position, targetPos) <= TURN_GAP)
+            if (Vector3.Distance(transform.position, targetPos) <= 0.01f)
             {
                 var road = go.GetComponent<Road>();
                 switch (road.RoadType)

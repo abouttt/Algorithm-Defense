@@ -6,9 +6,7 @@ public class StartGateway : BaseBuilding
 {
     public override void EnterTheBuilding(CitizenController citizen)
     {
-        _citizenOrderQueue.Enqueue(citizen);
-        citizen.gameObject.SetActive(false);
-        StartCoroutine(LeaveTheBuilding());
+        EnqueueCitizen(citizen);
     }
 
     protected override void Init()

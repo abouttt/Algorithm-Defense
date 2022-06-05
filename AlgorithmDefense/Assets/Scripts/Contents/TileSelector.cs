@@ -27,7 +27,6 @@ public class TileSelector : MonoBehaviour
         _worldPos = _camera.ScreenToWorldPoint(Input.mousePosition);
         CurrentMouseCellPos = Managers.Tile.GetWorldToCell(Define.Tilemap.Building, _worldPos);
         
-        
         if (_prevPos != CurrentMouseCellPos)
         {
             if (Managers.Tile.GetTile(Define.Tilemap.Ground, CurrentMouseCellPos) != null)

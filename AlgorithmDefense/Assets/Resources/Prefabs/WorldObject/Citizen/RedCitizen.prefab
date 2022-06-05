@@ -2258,7 +2258,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _state: 0
   <CitizenType>k__BackingField: 1
-  <IsExit>k__BackingField: 0
+  <MoveType>k__BackingField: 0
+  <Class>k__BackingField: 0
+  <ClassTemp>k__BackingField: 0
+  <ClassTrainingCount>k__BackingField: 0
   _moveSpeed: 2
 --- !u!114 &1280943226161831022
 MonoBehaviour:
@@ -3385,7 +3388,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 6
 --- !u!95 &36500845335866278
 Animator:
   serializedVersion: 4
