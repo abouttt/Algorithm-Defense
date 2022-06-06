@@ -54,6 +54,7 @@ public class DirectionApplicableBuilding : BaseBuilding
             SetOpposite(citizen);
         }
 
+        citizen.SetDest();
         SetPosition(citizen);
     }
 

@@ -14,7 +14,7 @@ public class TileSelector : MonoBehaviour
     private Camera _camera;
     private Tile _tile;
     private Vector3 _worldPos;
-    private Vector3Int _prevPos;
+    private Vector3Int _prevCellPos;
 
     private void Start()
     {
@@ -27,13 +27,13 @@ public class TileSelector : MonoBehaviour
         _worldPos = _camera.ScreenToWorldPoint(Input.mousePosition);
         CurrentMouseCellPos = Managers.Tile.GetWorldToCell(Define.Tilemap.Building, _worldPos);
         
-        if (_prevPos != CurrentMouseCellPos)
+        if (_prevCellPos != CurrentMouseCellPos)
         {
             if (Managers.Tile.GetTile(Define.Tilemap.Ground, CurrentMouseCellPos) != null)
             {
                 Managers.Tile.SetTile(Define.Tilemap.GroundTemp, CurrentMouseCellPos, _tile);
-                Managers.Tile.SetTile(Define.Tilemap.GroundTemp, _prevPos, null);
-                _prevPos = CurrentMouseCellPos;
+                Managers.Tile.SetTile(Define.Tilemap.GroundTemp, _prevCellPos, null);
+                _prevCellPos = CurrentMouseCellPos;
             }
         }
 

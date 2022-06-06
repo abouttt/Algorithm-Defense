@@ -36,32 +36,10 @@ public class BuildingBuilder : BaseBuilder
         tile.gameObject.transform.SetParent(Managers.Tile.GetTilemap(Define.Tilemap.Building).transform);
         tile.gameObject.transform.position = Managers.Tile.GetCellCenterToWorld(Define.Tilemap.Building, cellPos);
 
+        var roadTile = Managers.Resource.Load<TileBase>($"{RoadBuilder.ROAD_RULETILE_PATH}Road_RuleTile");
+        RoadBuilder.GetInstance.Build(roadTile, cellPos);
+
         Release();
-    }
-
-    public override void CheckCanBuild(Vector3Int cellPos)
-    {
-        if (_prevPos == cellPos)
-        {
-            return;
-        }
-
-        _tempTilemap.SetTile(_prevPos, null);
-        _prevPos = cellPos;
-
-        if ((Managers.Tile.GetTile(Define.Tilemap.Ground, cellPos) == null) ||
-            (Managers.Tile.GetTile(Define.Tilemap.Building, cellPos) != null))
-        {
-            _targetTile.color = _unvalidColor;
-            _canBuild = false;
-        }
-        else
-        {
-            _targetTile.color = _validColor;
-            _canBuild = true;
-        }
-
-        _tempTilemap.SetTile(cellPos, _targetTile);
     }
 
     protected override void Init()

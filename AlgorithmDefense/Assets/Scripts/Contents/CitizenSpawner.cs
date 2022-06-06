@@ -11,8 +11,7 @@ public class CitizenSpawner : MonoBehaviour
     public static readonly string CITIZEN_PATH = "Prefabs/WorldObject/Citizen/";
 
     public bool IsSpawning { get; private set; } = false;
-
-    private Define.Citizen _spawnTarget;
+    public int OnNum { get; set; } = 0;
 
     [SerializeField]
     private Vector3Int _spawnCellPos;
@@ -20,6 +19,8 @@ public class CitizenSpawner : MonoBehaviour
     private Vector3Int _endCellPos;
     [SerializeField]
     private float _spawnTime = 5.0f;
+
+    private Define.Citizen _spawnTarget;
     private int _spawnIdx = 0;
 
     private void Start()
@@ -41,35 +42,32 @@ public class CitizenSpawner : MonoBehaviour
 
         while (true)
         {
-            if (Managers.Game.CitizenSpawnOrderList.Count == 0)
+            if (OnNum == 0)
             {
                 _spawnIdx = 0;
                 IsSpawning = false;
                 yield break;
             }
 
-            _spawnTarget = Managers.Game.CitizenSpawnOrderList[_spawnIdx];
-
-            while (_spawnIdx >= 0)
+            while (true)
             {
-                if (!Managers.Game.CitizenSpawnOrderList.Contains(_spawnTarget))
+                if (Managers.Game.CitizenSpawnList[_spawnIdx].Item2)
                 {
-                    _spawnIdx--;
-                    _spawnTarget = Managers.Game.CitizenSpawnOrderList[_spawnIdx];
+                    _spawnTarget = Managers.Game.CitizenSpawnList[_spawnIdx].Item1;
+                    break;
                 }
                 else
                 {
-                    break;
+                    _spawnIdx = ++_spawnIdx < Managers.Game.CitizenSpawnList.Length ? _spawnIdx : 0;
                 }
             }
 
-            var name = _spawnTarget.ToString();
             var pos = Managers.Tile.GetCellCenterToWorld(Define.Tilemap.Ground, _spawnCellPos) + new Vector3(0.5f, 0, 0);
-            Managers.Game.Spawn(Define.WorldObject.Citizen, $"{CITIZEN_PATH}{name}Citizen", pos);
+            Managers.Game.Spawn(Define.WorldObject.Citizen, $"{CITIZEN_PATH}{_spawnTarget.ToString()}Citizen", pos);
 
             yield return new WaitForSeconds(_spawnTime);
 
-            _spawnIdx = ++_spawnIdx < Managers.Game.CitizenSpawnOrderList.Count ? _spawnIdx : 0;
+            _spawnIdx = ++_spawnIdx < Managers.Game.CitizenSpawnList.Length ? _spawnIdx : 0;
         }
     }
 
@@ -84,7 +82,7 @@ public class CitizenSpawner : MonoBehaviour
         _spawnCellPos.z = 1;
         _endCellPos.z = 1;
 
-        var roadTile = Managers.Resource.Load<TileBase>($"{RoadBuilder.ROAD_RULETILE_PATH}Road_LR_RuleTile");
+        var roadTile = Managers.Resource.Load<TileBase>($"{RoadBuilder.ROAD_RULETILE_PATH}Road_RuleTile");
         Vector3Int roadCellPos = new Vector3Int(0, 0, 0);
         for (int x = -5; x < 5; x++)
         {

@@ -10,7 +10,7 @@ public abstract class BaseBuilder : MonoBehaviour
     protected Tile _targetTile;
     protected Tilemap _tempTilemap;
 
-    protected Vector3Int _prevPos;
+    protected Vector3Int _prevCellPos;
     protected bool _canBuild = false;
 
     protected readonly Color _validColor = new Color(1, 1, 1, 0.5f);
@@ -33,19 +33,6 @@ public abstract class BaseBuilder : MonoBehaviour
                 return;
             }
 
-            if ((_tempTilemap == Managers.Tile.GetTilemap(Define.Tilemap.RoadTemp)) &&
-                (Input.GetKeyDown(KeyCode.R)))
-            {
-                if (_target.name.Equals(Define.TileObject.Road_UD_RuleTile.ToString()))
-                {
-                    SetTarget(Define.TileObject.Road_LR_RuleTile);
-                }
-                else
-                {
-                    SetTarget(Define.TileObject.Road_UD_RuleTile);
-                }
-            }
-
             CheckCanBuild(TileSelector.GetInstance.CurrentMouseCellPos);
 
             if (_canBuild && Input.GetMouseButton(0))
@@ -55,10 +42,31 @@ public abstract class BaseBuilder : MonoBehaviour
         }
     }
 
-    protected abstract void Init();
-    public abstract void SetTarget(Define.TileObject tileObject);
-    public abstract void CheckCanBuild(Vector3Int cellPos);
-    public abstract void Build(TileBase tileBase, Vector3Int cellPos);
+    public virtual void CheckCanBuild(Vector3Int cellPos)
+    {
+        if (_prevCellPos == cellPos)
+        {
+            return;
+        }
+
+        _tempTilemap.SetTile(_prevCellPos, null);
+        _prevCellPos = cellPos;
+
+        if ((Managers.Tile.GetTile(Define.Tilemap.Ground, cellPos) == null) ||
+            (Managers.Tile.GetTile(Define.Tilemap.Building, cellPos) != null))
+        {
+            _targetTile.color = _unvalidColor;
+            _canBuild = false;
+        }
+        else
+        {
+            _targetTile.color = _validColor;
+            _canBuild = true;
+        }
+
+        _tempTilemap.SetTile(cellPos, _targetTile);
+    }
+
     public virtual void Release()
     {
         if (_target == null)
@@ -66,10 +74,14 @@ public abstract class BaseBuilder : MonoBehaviour
             return;
         }
 
-        _tempTilemap.SetTile(_prevPos, null);
+        _tempTilemap.SetTile(_prevCellPos, null);
         _targetTile.color = Color.white;
         _targetTile = null;
         _target = null;
         IsBuilding = false;
     }
+
+    public abstract void SetTarget(Define.TileObject tileObject);
+    public abstract void Build(TileBase tileBase, Vector3Int cellPos);
+    protected abstract void Init();
 }

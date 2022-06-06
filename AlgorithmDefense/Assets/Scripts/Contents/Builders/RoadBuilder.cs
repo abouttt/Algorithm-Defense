@@ -17,32 +17,12 @@ public class RoadBuilder : BaseBuilder
         Release();
 
         _target = Managers.Resource.Load<TileBase>($"{ROAD_RULETILE_PATH}{tileObject.ToString()}");
-        _targetTile = Managers.Resource.Load<Tile>($"{ROAD_TILE_PATH}{tileObject.ToString().Replace("_RuleTile", "")}");
+        _targetTile = Managers.Resource.Load<Tile>($"{ROAD_TILE_PATH}Road_B");
     }
 
     public override void Build(TileBase tileBase, Vector3Int cellPos)
     {
         Managers.Tile.SetTile(Define.Tilemap.Road, cellPos, tileBase);
-    }
-
-    public override void CheckCanBuild(Vector3Int cellPos)
-    {
-        _tempTilemap.SetTile(_prevPos, null);
-        _prevPos = cellPos;
-
-        if ((Managers.Tile.GetTile(Define.Tilemap.Ground, cellPos) == null) ||
-            (Managers.Tile.GetTile(Define.Tilemap.Building, cellPos)) != null)
-        {
-            _targetTile.color = _unvalidColor;
-            _canBuild = false;
-        }
-        else
-        {
-            _targetTile.color = _validColor;
-            _canBuild = true;
-        }
-
-        _tempTilemap.SetTile(cellPos, _targetTile);
     }
 
     protected override void Init()

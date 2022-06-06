@@ -24,7 +24,7 @@ public class UI_CitizenSpawnController : UI_Base
     }
     #endregion
 
-    public static readonly int BUTTON_NUM = 4;
+    public const int BUTTON_NUM = 4;
 
     private List<TextMeshProUGUI> _buttonTexts;
 
@@ -48,13 +48,15 @@ public class UI_CitizenSpawnController : UI_Base
     private void onButtonSpawnCitizen(PointerEventData data)
     {
         var citizenBtn = EventSystem.current.currentSelectedGameObject.GetComponent<UI_CitizenSpawnButton>();
-        if (Managers.Game.CitizenSpawnOrderList.Contains(citizenBtn.Citizen))
+        for (int i = 0; i < BUTTON_NUM; i++)
         {
-            Managers.Game.CitizenSpawnOrderList.Remove(citizenBtn.Citizen);
-        }
-        else
-        {
-            Managers.Game.CitizenSpawnOrderList.Add(citizenBtn.Citizen);
+            if (Managers.Game.CitizenSpawnList[i].Item1 == citizenBtn.CitizenType)
+            {
+                Managers.Game.CitizenSpawnList[i].Item2 = !Managers.Game.CitizenSpawnList[i].Item2;
+                CitizenSpawner.GetInstance.OnNum = Managers.Game.CitizenSpawnList[i].Item2 ?
+                    CitizenSpawner.GetInstance.OnNum + 1 : CitizenSpawner.GetInstance.OnNum - 1;
+                updateText(citizenBtn.CitizenType);
+            }
         }
 
         if (!CitizenSpawner.GetInstance.IsSpawning)
@@ -67,12 +69,21 @@ public class UI_CitizenSpawnController : UI_Base
 
     private void updateAllTexts()
     {
-        int idx;
-        foreach (var tmpro in _buttonTexts)
+        for (int i = 0; i < BUTTON_NUM; i++)
         {
-            var citizenBtn = tmpro.transform.parent.GetComponent<UI_CitizenSpawnButton>();
-            idx = Managers.Game.CitizenSpawnOrderList.IndexOf(citizenBtn.Citizen);
-            tmpro.text = idx >= 0 ? (idx + 1).ToString() : "";
+            _buttonTexts[i].text = Managers.Game.CitizenSpawnList[i].Item2 ? "ON" : "OFF";
+        }
+    }
+
+    private void updateText(Define.Citizen citizenType)
+    {
+        for (int i = 0; i < BUTTON_NUM; i++)
+        {
+            if (Managers.Game.CitizenSpawnList[i].Item1 == citizenType)
+            {
+                _buttonTexts[i].text = Managers.Game.CitizenSpawnList[i].Item2 ? "ON" : "OFF";
+                break;
+            }
         }
     }
 }

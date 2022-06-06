@@ -44,4 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d26e7645bdb3e4a47a32b52ce6a72830, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <RoadType>k__BackingField: 7
+  <RoadType>k__BackingField: 12

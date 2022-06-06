@@ -17,13 +17,12 @@ public class CitizenController : BaseController
     [field: SerializeField]
     public uint ClassTrainingCount { get; set; } = 0;
 
-    public bool IsExit { get; set; } = false;
     public Vector3Int PrevPos { get; set; }
 
     [SerializeField]
     private float _moveSpeed = 0.0f;
 
-    private bool _isChangeRoad = true;
+    private Vector3 _dest;
 
     public override void Init()
     {
@@ -32,6 +31,24 @@ public class CitizenController : BaseController
     }
 
     protected override void UpdateMoving()
+    {
+        var cellPos = Managers.Tile.GetWorldToCell(Define.Tilemap.Ground, transform.position);
+        if (Vector2.Distance(transform.position, _dest) <= 0.01f)
+        {
+            checkRoad(cellPos);
+            SetDest();
+        }
+
+        transform.position = Vector2.MoveTowards(transform.position, _dest, (_moveSpeed * Time.deltaTime));
+
+        if (PrevPos != cellPos)
+        {
+            checkOnBuilding(cellPos);
+            PrevPos = cellPos;
+        }
+    }
+
+    public void SetDest()
     {
         var cellPos = Managers.Tile.GetWorldToCell(Define.Tilemap.Ground, transform.position);
         switch (MoveType)
@@ -52,95 +69,59 @@ public class CitizenController : BaseController
                 break;
         }
 
-        Vector2 targetPos = Managers.Tile.GetCellCenterToWorld(Define.Tilemap.Ground, cellPos);
-        transform.position = Vector2.MoveTowards(transform.position, targetPos, (_moveSpeed * Time.deltaTime));
-        cellPos = Managers.Tile.GetWorldToCell(Define.Tilemap.Ground, transform.position);
-
-        if (IsExit)
-        {
-            if (checkOnBuilding(cellPos))
-            {
-                return;
-            }
-
-            checkOnRoad(cellPos);
-        }
-
-        if (PrevPos != cellPos)
-        {
-            PrevPos = cellPos;
-            IsExit = true;
-        }
+        _dest = Managers.Tile.GetCellCenterToWorld(Define.Tilemap.Ground, cellPos);
     }
 
-    private bool checkOnBuilding(Vector3Int currentPos)
+    private void checkOnBuilding(Vector3Int currentPos)
     {
         var tile = Managers.Tile.GetTile(Define.Tilemap.Building, currentPos) as Tile;
         if (tile == null)
         {
-            return false;
+            return;
         }
 
         tile.gameObject.GetComponent<BaseBuilding>().EnterTheBuilding(this);
-        return true;
     }
 
-    private void checkOnRoad(Vector3Int currentPos)
+    private void checkRoad(Vector3Int currentPos)
     {
-        if (PrevPos != currentPos)
-        {
-            _isChangeRoad = true;
-        }
-
         var go = Managers.Tile.GetTilemap(Define.Tilemap.Road).GetInstantiatedObject(currentPos);
-        if (go == null)
+        var road = go.GetComponent<Road>();
+        switch (road.RoadType)
         {
-            turnAround();
-        }
-        else
-        {
-            if (!_isChangeRoad)
-            {
-                return;
-            }
-
-            Vector2 targetPos = Managers.Tile.GetCellCenterToWorld(Define.Tilemap.Ground, currentPos);
-            if (Vector3.Distance(transform.position, targetPos) <= 0.01f)
-            {
-                var road = go.GetComponent<Road>();
-                switch (road.RoadType)
+            case Define.RoadType.B:
+            case Define.RoadType.BU:
+            case Define.RoadType.BD:
+            case Define.RoadType.BL:
+            case Define.RoadType.BR:
+                turnAround();
+                break;
+            case Define.RoadType.TU:
+            case Define.RoadType.TD:
+                if (isMoveTypeUD())
                 {
-                    case Define.RoadType.TU:
-                    case Define.RoadType.TD:
-                        if (isMoveTypeUD())
-                        {
-                            turnAround();
-                        }
-                        break;
-                    case Define.RoadType.TL:
-                    case Define.RoadType.TR:
-                        if (!isMoveTypeUD())
-                        {
-                            turnAround();
-                        }
-                        break;
-                    case Define.RoadType.CUL:
-                        MoveType = isMoveTypeUD() ? Define.MoveType.Left : Define.MoveType.Down;
-                        break;
-                    case Define.RoadType.CUR:
-                        MoveType = isMoveTypeUD() ? Define.MoveType.Right : Define.MoveType.Down;
-                        break;
-                    case Define.RoadType.CDR:
-                        MoveType = isMoveTypeUD() ? Define.MoveType.Right : Define.MoveType.Up;
-                        break;
-                    case Define.RoadType.CDL:
-                        MoveType = isMoveTypeUD() ? Define.MoveType.Left : Define.MoveType.Up;
-                        break;
-
+                    turnAround();
                 }
-
-                _isChangeRoad = false;
-            }
+                break;
+            case Define.RoadType.TL:
+            case Define.RoadType.TR:
+                if (!isMoveTypeUD())
+                {
+                    turnAround();
+                }
+                break;
+            case Define.RoadType.CUL:
+                MoveType = isMoveTypeUD() ? Define.MoveType.Left : Define.MoveType.Down;
+                break;
+            case Define.RoadType.CUR:
+                MoveType = isMoveTypeUD() ? Define.MoveType.Right : Define.MoveType.Down;
+                break;
+            case Define.RoadType.CDR:
+                MoveType = isMoveTypeUD() ? Define.MoveType.Right : Define.MoveType.Up;
+                break;
+            case Define.RoadType.CDL:
+                MoveType = isMoveTypeUD() ? Define.MoveType.Left : Define.MoveType.Up;
+                break;
         }
     }
 

@@ -32,16 +32,13 @@ public abstract class BaseBuilding : MonoBehaviour
 
         var citizen = DequeueCitizen();
 
-        if (_isDirectionOpposite)
+        if (_isDirectionOpposite ||
+            !IsRoad(citizen.MoveType))
         {
             SetOpposite(citizen);
         }
 
-        if (!IsRoad(citizen.MoveType))
-        {
-            SetOpposite(citizen);
-        }
-
+        citizen.SetDest();
         SetPosition(citizen);
     }
 
@@ -57,8 +54,6 @@ public abstract class BaseBuilding : MonoBehaviour
         var citizen = _citizenOrderQueue.Dequeue();
         citizen.gameObject.SetActive(true);
         citizen.PrevPos = Managers.Tile.GetWorldToCell(Define.Tilemap.Ground, transform.position);
-        citizen.IsExit = false;
-
         return citizen;
     }
 

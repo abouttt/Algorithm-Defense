@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2760e6ecda7c54ca349b37045dfcf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Citizen>k__BackingField: 2
+  <CitizenType>k__BackingField: 2
 --- !u!1 &2810651935432103702
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,8 +229,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 52
-  m_fontSizeBase: 52
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -417,8 +417,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 52
-  m_fontSizeBase: 52
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -594,7 +594,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2760e6ecda7c54ca349b37045dfcf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Citizen>k__BackingField: 1
+  <CitizenType>k__BackingField: 1
 --- !u!1 &4762735078627132423
 GameObject:
   m_ObjectHideFlags: 0
@@ -688,8 +688,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 52
-  m_fontSizeBase: 52
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -865,7 +865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2760e6ecda7c54ca349b37045dfcf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Citizen>k__BackingField: 3
+  <CitizenType>k__BackingField: 3
 --- !u!1 &6332770629220500732
 GameObject:
   m_ObjectHideFlags: 0
@@ -1001,7 +1001,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2760e6ecda7c54ca349b37045dfcf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Citizen>k__BackingField: 4
+  <CitizenType>k__BackingField: 4
 --- !u!1 &6983468494006470167
 GameObject:
   m_ObjectHideFlags: 0
@@ -1095,8 +1095,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 52
-  m_fontSizeBase: 52
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

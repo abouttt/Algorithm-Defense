@@ -5,5 +5,5 @@ using UnityEngine;
 public class UI_CitizenSpawnButton : MonoBehaviour
 {
     [field: SerializeField]
-    public Define.Citizen Citizen { get; private set; }
+    public Define.Citizen CitizenType { get; private set; }
 }

@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class GameManagerEx
 {
-    public List<Define.Citizen> CitizenSpawnOrderList { get; private set; } = null;
+    public (Define.Citizen, bool)[] CitizenSpawnList { get; private set; }
 
     public void Init()
     {
-        CitizenSpawnOrderList = new List<Define.Citizen>(UI_CitizenSpawnController.BUTTON_NUM);
+        CitizenSpawnList = new (Define.Citizen, bool)[UI_CitizenSpawnController.BUTTON_NUM]
+        {
+            (Define.Citizen.Red, false),
+            (Define.Citizen.Blue, false),
+            (Define.Citizen.Green, false),
+            (Define.Citizen.Yellow, false),
+        };
     }
 
     public GameObject Spawn(Define.WorldObject type, string path, Vector3? position, Transform parent = null)
@@ -26,7 +32,7 @@ public class GameManagerEx
                 var citizen = go.GetComponent<CitizenController>();
                 citizen.PrevPos = Managers.Tile.GetWorldToCell(Define.Tilemap.Ground, position.Value);
                 citizen.MoveType = Define.MoveType.Right;
-                citizen.IsExit = false;
+                citizen.SetDest();
                 break;
         }
 
