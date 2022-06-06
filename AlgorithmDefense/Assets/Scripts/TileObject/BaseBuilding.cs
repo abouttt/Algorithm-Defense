@@ -32,10 +32,20 @@ public abstract class BaseBuilding : MonoBehaviour
 
         var citizen = DequeueCitizen();
 
-        if (_isDirectionOpposite ||
-            !IsRoad(citizen.MoveType))
+        if (_isDirectionOpposite)
         {
             SetOpposite(citizen);
+            if (!IsRoad(citizen.MoveType))
+            {
+                SetOpposite(citizen);
+            }
+        }
+        else
+        {
+            if (!IsRoad(citizen.MoveType))
+            {
+                SetOpposite(citizen);
+            }
         }
 
         citizen.SetDest();

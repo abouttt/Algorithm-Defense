@@ -40,18 +40,22 @@ public class DirectionApplicableBuilding : BaseBuilding
         var moveType = _directionCondition[citizen.CitizenType];
         if (moveType != Define.MoveType.None)
         {
-            if (!IsRoad(moveType))
+            if (IsRoad(moveType))
             {
-                SetOpposite(citizen);
+                citizen.MoveType = moveType;
             }
             else
             {
-                citizen.MoveType = moveType;
+                SetOpposite(citizen);
             }
         }
         else
         {
             SetOpposite(citizen);
+            if (!IsRoad(citizen.MoveType))
+            {
+                SetOpposite(citizen);
+            }
         }
 
         citizen.SetDest();

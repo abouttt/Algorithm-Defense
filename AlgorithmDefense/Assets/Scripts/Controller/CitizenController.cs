@@ -81,7 +81,7 @@ public class CitizenController : BaseController
     private void checkOnBuilding(Vector3Int currentPos)
     {
         var tile = Managers.Tile.GetTile(Define.Tilemap.Building, currentPos) as Tile;
-        if (tile == null)
+        if (!tile)
         {
             return;
         }
@@ -92,6 +92,11 @@ public class CitizenController : BaseController
     private void checkRoad(Vector3Int currentPos)
     {
         var go = Managers.Tile.GetTilemap(Define.Tilemap.Road).GetInstantiatedObject(currentPos);
+        if (!go)
+        {
+            return;
+        }
+
         var road = go.GetComponent<Road>();
         switch (road.RoadType)
         {

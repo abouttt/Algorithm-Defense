@@ -23,7 +23,7 @@ public abstract class BaseBuilder : MonoBehaviour
 
     private void Update()
     {
-        if (_target != null)
+        if (_target)
         {
             IsBuilding = true;
 
@@ -52,8 +52,8 @@ public abstract class BaseBuilder : MonoBehaviour
         _tempTilemap.SetTile(_prevCellPos, null);
         _prevCellPos = cellPos;
 
-        if ((Managers.Tile.GetTile(Define.Tilemap.Ground, cellPos) == null) ||
-            (Managers.Tile.GetTile(Define.Tilemap.Building, cellPos) != null))
+        if (!Managers.Tile.GetTile(Define.Tilemap.Ground, cellPos) ||
+            (Managers.Tile.GetTile(Define.Tilemap.Building, cellPos)))
         {
             _targetTile.color = _unvalidColor;
             _canBuild = false;
@@ -69,7 +69,7 @@ public abstract class BaseBuilder : MonoBehaviour
 
     public virtual void Release()
     {
-        if (_target == null)
+        if (!_target)
         {
             return;
         }
