@@ -54,6 +54,7 @@ public abstract class BaseBuilding : MonoBehaviour
         var citizen = _citizenOrderQueue.Dequeue();
         citizen.gameObject.SetActive(true);
         citizen.PrevPos = Managers.Tile.GetWorldToCell(Define.Tilemap.Ground, transform.position);
+        citizen.IsExit = false;
         return citizen;
     }
 

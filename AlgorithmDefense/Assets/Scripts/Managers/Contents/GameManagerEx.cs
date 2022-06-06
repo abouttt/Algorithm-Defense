@@ -31,6 +31,7 @@ public class GameManagerEx
             case Define.WorldObject.Citizen:
                 var citizen = go.GetComponent<CitizenController>();
                 citizen.PrevPos = Managers.Tile.GetWorldToCell(Define.Tilemap.Ground, position.Value);
+                citizen.IsExit = false;
                 citizen.MoveType = Define.MoveType.Right;
                 citizen.SetDest();
                 break;

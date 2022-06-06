@@ -18,6 +18,7 @@ public class CitizenController : BaseController
     public uint ClassTrainingCount { get; set; } = 0;
 
     public Vector3Int PrevPos { get; set; }
+    public bool IsExit { get; set; }
 
     [SerializeField]
     private float _moveSpeed = 0.0f;
@@ -41,9 +42,14 @@ public class CitizenController : BaseController
 
         transform.position = Vector2.MoveTowards(transform.position, _dest, (_moveSpeed * Time.deltaTime));
 
-        if (PrevPos != cellPos)
+        if (IsExit)
         {
             checkOnBuilding(cellPos);
+        }
+
+        if (PrevPos != cellPos)
+        {
+            IsExit = true;
             PrevPos = cellPos;
         }
     }
