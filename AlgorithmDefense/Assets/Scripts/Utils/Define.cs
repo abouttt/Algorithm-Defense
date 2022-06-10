@@ -6,6 +6,7 @@ public static class Define
         None,
         Warrior,
         Archer,
+        Wizard,
     }
 
     public enum Tilemap

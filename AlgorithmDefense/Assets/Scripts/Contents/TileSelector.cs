@@ -50,13 +50,42 @@ public class TileSelector : MonoBehaviour
             }
 
             var tile = Managers.Tile.GetTile(Define.Tilemap.Building, CurrentMouseCellPos) as Tile;
-            if (tile != null)
+            if (tile)
             {
                 var building = tile.gameObject.GetComponent<BaseBuilding>();
                 if (building.CanSelect)
                 {
                     building.ShowUIController();
                 }
+            }
+        }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            if (EventSystem.current.IsPointerOverGameObject())
+            {
+                return;
+            }
+
+            if (BaseBuilder.IsBuilding)
+            {
+                return;
+            }
+
+            var tile = Managers.Tile.GetTile(Define.Tilemap.Building, CurrentMouseCellPos) as Tile;
+            if (tile)
+            {
+                Managers.Tile.SetTile(Define.Tilemap.Building, CurrentMouseCellPos, null);
+                Managers.Tile.SetTile(Define.Tilemap.Road, CurrentMouseCellPos, null);
+                Managers.Resource.Destroy(Managers.Tile.GetTilemap(Define.Tilemap.Road).GetInstantiatedObject(CurrentMouseCellPos));
+                Managers.Resource.Destroy(tile.gameObject);
+            }
+
+            var road = Managers.Tile.GetTile(Define.Tilemap.Road, CurrentMouseCellPos);
+            if (road)
+            {
+                Managers.Tile.SetTile(Define.Tilemap.Road, CurrentMouseCellPos, null);
+                Managers.Resource.Destroy(Managers.Tile.GetTilemap(Define.Tilemap.Road).GetInstantiatedObject(CurrentMouseCellPos));
             }
         }
     }
