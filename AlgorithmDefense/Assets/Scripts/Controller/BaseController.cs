@@ -4,8 +4,6 @@ using UnityEngine;
 
 public abstract class BaseController : MonoBehaviour
 {
-    public Define.WorldObject WorldObjectType { get; protected set; } = Define.WorldObject.Unknown;
-
     [SerializeField]
     protected Define.State _state = Define.State.Idle;
 

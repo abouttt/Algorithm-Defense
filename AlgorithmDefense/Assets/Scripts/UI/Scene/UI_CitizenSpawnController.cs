@@ -48,21 +48,22 @@ public class UI_CitizenSpawnController : UI_Base
     private void onButtonSpawnCitizen(PointerEventData data)
     {
         var citizenBtn = EventSystem.current.currentSelectedGameObject.GetComponent<UI_CitizenSpawnButton>();
-        for (int i = 0; i < BUTTON_NUM; i++)
-        {
-            if (Managers.Game.CitizenSpawnList[i].Item1 == citizenBtn.CitizenType)
-            {
-                Managers.Game.CitizenSpawnList[i].Item2 = !Managers.Game.CitizenSpawnList[i].Item2;
-                CitizenSpawner.GetInstance.OnNum = Managers.Game.CitizenSpawnList[i].Item2 ?
-                    CitizenSpawner.GetInstance.OnNum + 1 : CitizenSpawner.GetInstance.OnNum - 1;
-                updateText(citizenBtn.CitizenType);
-            }
-        }
+        CitizenSpawner.GetInstance.SetOnOff(citizenBtn.CitizenType);
+        //for (int i = 0; i < BUTTON_NUM; i++)
+        //{
+        //    if (Managers.Game.CitizenSpawnList[i].Item1 == citizenBtn.CitizenType)
+        //    {
+        //        Managers.Game.CitizenSpawnList[i].Item2 = !Managers.Game.CitizenSpawnList[i].Item2;
+        //        CitizenSpawner.GetInstance.OnCount = Managers.Game.CitizenSpawnList[i].Item2 ?
+        //            CitizenSpawner.GetInstance.OnCount + 1 : CitizenSpawner.GetInstance.OnCount - 1;
+        //        updateText(citizenBtn.CitizenType);
+        //    }
+        //}
 
-        if (!CitizenSpawner.GetInstance.IsSpawning)
-        {
-            StartCoroutine(CitizenSpawner.GetInstance.SpawnCitizen());
-        }
+        //if (!CitizenSpawner.GetInstance.IsSpawning)
+        //{
+        //    StartCoroutine(CitizenSpawner.GetInstance.SpawnCitizen());
+        //}
 
         updateAllTexts();
     }
@@ -71,7 +72,7 @@ public class UI_CitizenSpawnController : UI_Base
     {
         for (int i = 0; i < BUTTON_NUM; i++)
         {
-            _buttonTexts[i].text = Managers.Game.CitizenSpawnList[i].Item2 ? "ON" : "OFF";
+            _buttonTexts[i].text = CitizenSpawner.GetInstance.CitizenSpawnList[i].Item2 ? "ON" : "OFF";
         }
     }
 
@@ -79,9 +80,9 @@ public class UI_CitizenSpawnController : UI_Base
     {
         for (int i = 0; i < BUTTON_NUM; i++)
         {
-            if (Managers.Game.CitizenSpawnList[i].Item1 == citizenType)
+            if (CitizenSpawner.GetInstance.CitizenSpawnList[i].Item1 == citizenType)
             {
-                _buttonTexts[i].text = Managers.Game.CitizenSpawnList[i].Item2 ? "ON" : "OFF";
+                _buttonTexts[i].text = CitizenSpawner.GetInstance.CitizenSpawnList[i].Item2 ? "ON" : "OFF";
                 break;
             }
         }

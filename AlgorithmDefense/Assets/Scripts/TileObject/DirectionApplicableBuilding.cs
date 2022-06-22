@@ -5,14 +5,14 @@ using UnityEngine;
 
 public class DirectionApplicableBuilding : BaseBuilding
 {
-    protected Action<CitizenController> _buildingFuncAction;
+    protected Action<CitizenController> BuildingFuncAction;
 
     private Dictionary<Define.Citizen, Define.MoveType> _directionCondition;
     private Camera _camera;
 
     public override void EnterTheBuilding(CitizenController citizen)
     {
-        _buildingFuncAction?.Invoke(citizen);
+        BuildingFuncAction?.Invoke(citizen);
 
         EnqueueCitizen(citizen);
     }
@@ -75,9 +75,5 @@ public class DirectionApplicableBuilding : BaseBuilding
         CanSelect = true;
         _isDirectionOpposite = true;
         _camera = Camera.main;
-
-        AddBuildingFun();
     }
-
-    protected virtual void AddBuildingFun() { }
 }

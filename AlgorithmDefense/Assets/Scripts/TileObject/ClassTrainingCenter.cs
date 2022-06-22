@@ -2,23 +2,72 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClassTrainingCenter : DirectionApplicableBuilding
+public class ClassTrainingCenter : BaseBuilding
 {
     [SerializeField]
-    private int _count;
+    private Define.Class _tempClass = Define.Class.None;
 
-    protected override void AddBuildingFun()
+    [SerializeField]
+    private Define.MoveType _moveType = Define.MoveType.None;
+
+    public void SetTempClass(Define.Class classType) => _tempClass = classType;
+    public void SetMoveType(Define.MoveType moveType) => _moveType = moveType;
+
+    public override void EnterTheBuilding(CitizenController citizen)
     {
-        _buildingFuncAction += countCitizenClassTemp;
+        if (_tempClass == Define.Class.None)
+        {
+            return;
+        }
+
+        if (citizen.Class == Define.Class.None)
+        {
+            if (citizen.TempClass != _tempClass)
+            {
+                citizen.ClassTrainingCount = 0;
+                citizen.TempClass = _tempClass;
+            }
+
+            citizen.ClassTrainingCount++;
+        }
+
+        EnqueueCitizen(citizen);
     }
 
-    private void countCitizenClassTemp(CitizenController citizen)
+    protected override IEnumerator LeaveTheBuilding()
     {
-        citizen.ClassTrainingCount++;
-        if (citizen.ClassTrainingCount >= _count)
+        yield return new WaitForSeconds(_stayTime);
+
+        if (_citizenOrderQueue.Count == 0)
         {
-            citizen.ClassTrainingCount = 0;
-            citizen.Class = citizen.ClassTemp;
+            yield break;
         }
+
+        var citizen = DequeueCitizen();
+
+        if (_moveType != Define.MoveType.None)
+        {
+            if (IsRoad(_moveType))
+            {
+                citizen.MoveType = _moveType;
+            }
+            else
+            {
+                SetOpposite(citizen);
+            }
+        }
+        else
+        {
+            SetOpposite(citizen);
+        }
+
+        citizen.SetDest();
+        SetPosition(citizen);
+    }
+
+    protected override void Init()
+    {
+        CanSelect = true;
+        _isDirectionOpposite = true;
     }
 }

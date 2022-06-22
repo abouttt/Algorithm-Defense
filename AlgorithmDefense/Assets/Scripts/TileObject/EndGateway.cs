@@ -6,10 +6,12 @@ public class EndGateway : BaseBuilding
 {
     public override void EnterTheBuilding(CitizenController citizen)
     {
-        if (citizen != null)
+        if (!citizen)
         {
-            Managers.Game.Despawn(citizen.gameObject);
+            return;
         }
+
+        CitizenSpawner.GetInstance.Despawn(citizen);
     }
 
     protected override void Init()

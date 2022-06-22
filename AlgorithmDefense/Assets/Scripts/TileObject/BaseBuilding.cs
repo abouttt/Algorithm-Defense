@@ -35,17 +35,11 @@ public abstract class BaseBuilding : MonoBehaviour
         if (_isDirectionOpposite)
         {
             SetOpposite(citizen);
-            if (!IsRoad(citizen.MoveType))
-            {
-                SetOpposite(citizen);
-            }
         }
-        else
+
+        if (!IsRoad(citizen.MoveType))
         {
-            if (!IsRoad(citizen.MoveType))
-            {
-                SetOpposite(citizen);
-            }
+            SetOpposite(citizen);
         }
 
         citizen.SetDest();
@@ -56,6 +50,7 @@ public abstract class BaseBuilding : MonoBehaviour
     {
         _citizenOrderQueue.Enqueue(citizen);
         citizen.gameObject.SetActive(false);
+
         StartCoroutine(LeaveTheBuilding());
     }
 
@@ -89,25 +84,25 @@ public abstract class BaseBuilding : MonoBehaviour
 
     protected bool IsRoad(Define.MoveType moveType)
     {
-        var cellPos = Managers.Tile.GetWorldToCell(Define.Tilemap.Ground, transform.position);
+        var nextPos = Managers.Tile.GetWorldToCell(Define.Tilemap.Ground, transform.position);
 
         switch (moveType)
         {
             case Define.MoveType.Right:
-                cellPos += Vector3Int.right;
+                nextPos += Vector3Int.right;
                 break;
             case Define.MoveType.Left:
-                cellPos += Vector3Int.left;
+                nextPos += Vector3Int.left;
                 break;
             case Define.MoveType.Up:
-                cellPos += Vector3Int.up;
+                nextPos += Vector3Int.up;
                 break;
             case Define.MoveType.Down:
-                cellPos += Vector3Int.down;
+                nextPos += Vector3Int.down;
                 break;
         }
 
-        var tile = Managers.Tile.GetTile(Define.Tilemap.Road, cellPos);
+        var tile = Managers.Tile.GetTile(Define.Tilemap.Road, nextPos);
         if (!tile)
         {
             return false;

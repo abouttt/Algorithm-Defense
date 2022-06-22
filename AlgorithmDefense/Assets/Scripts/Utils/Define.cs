@@ -7,6 +7,7 @@ public static class Define
         Warrior,
         Archer,
         Wizard,
+        Thief,
     }
 
     public enum Tilemap
@@ -27,12 +28,6 @@ public static class Define
         Gateway,
         ClassGiveCenter,
         ClassTrainingCenter,
-    }
-
-    public enum WorldObject
-    {
-        Unknown,
-        Citizen,
     }
 
     public enum Citizen
@@ -89,7 +84,7 @@ public static class Define
     public enum Scene
     {
         Unknown,
-        Game,
+        GameScene,
     }
 
     public enum Sound

@@ -10,8 +10,9 @@ public class CitizenSpawner : MonoBehaviour
 
     public static readonly string CITIZEN_PATH = "Prefabs/WorldObject/Citizen/";
 
+    public (Define.Citizen, bool)[] CitizenSpawnList;
     public bool IsSpawning { get; private set; } = false;
-    public int OnNum { get; set; } = 0;
+    public int OnCount { get; set; } = 0;
 
     [SerializeField]
     private Vector3Int _spawnCellPos;
@@ -21,12 +22,52 @@ public class CitizenSpawner : MonoBehaviour
     private float _spawnTime = 5.0f;
 
     private Define.Citizen _spawnTarget;
-    private int _spawnIdx = 0;
+    private int _spawnIndex = 0;
 
     private void Start()
     {
         init();
         setup();
+
+        CitizenSpawnList = new (Define.Citizen, bool)[4]
+        {
+            (Define.Citizen.Red, false),
+            (Define.Citizen.Blue, false),
+            (Define.Citizen.Green, false),
+            (Define.Citizen.Yellow, false),
+        };
+    }
+
+    public void SetOnOff(Define.Citizen citizenType)
+    {
+        for (int i = 0; i < CitizenSpawnList.Length; i++)
+        {
+            if (CitizenSpawnList[i].Item1 == citizenType)
+            {
+                CitizenSpawnList[i].Item2 = !CitizenSpawnList[i].Item2;
+                OnCount = CitizenSpawnList[i].Item2 ? OnCount + 1 : OnCount - 1;
+            }
+        }
+
+        if (!IsSpawning && OnCount > 0)
+        {
+            StartCoroutine(SpawnCitizen());
+        }
+    }
+
+    public void Despawn(CitizenController citizen)
+    {
+        if (!citizen)
+        {
+            return;
+        }
+
+        citizen.MoveType = Define.MoveType.None;
+        citizen.Class = Define.Class.None;
+        citizen.TempClass = Define.Class.None;
+        citizen.ClassTrainingCount = 0;
+
+        Managers.Resource.Destroy(citizen.gameObject);
     }
 
     public IEnumerator SpawnCitizen()
@@ -42,32 +83,37 @@ public class CitizenSpawner : MonoBehaviour
 
         while (true)
         {
-            if (OnNum == 0)
+            if (OnCount == 0)
             {
-                _spawnIdx = 0;
+                _spawnIndex = 0;
                 IsSpawning = false;
                 yield break;
             }
 
             while (true)
             {
-                if (Managers.Game.CitizenSpawnList[_spawnIdx].Item2)
+                if (CitizenSpawnList[_spawnIndex].Item2)
                 {
-                    _spawnTarget = Managers.Game.CitizenSpawnList[_spawnIdx].Item1;
+                    _spawnTarget = CitizenSpawnList[_spawnIndex].Item1;
                     break;
                 }
                 else
                 {
-                    _spawnIdx = ++_spawnIdx < Managers.Game.CitizenSpawnList.Length ? _spawnIdx : 0;
+                    _spawnIndex = ++_spawnIndex < CitizenSpawnList.Length ? _spawnIndex : 0;
                 }
             }
 
             var pos = Managers.Tile.GetCellCenterToWorld(Define.Tilemap.Ground, _spawnCellPos) + new Vector3(0.5f, 0, 0);
-            Managers.Game.Spawn(Define.WorldObject.Citizen, $"{CITIZEN_PATH}{_spawnTarget.ToString()}Citizen", pos);
+            var go = Managers.Resource.Instantiate($"{CITIZEN_PATH}{_spawnTarget.ToString()}Citizen", pos);
+            var citizen = go.GetComponent<CitizenController>();
+            citizen.PrevPos = Managers.Tile.GetWorldToCell(Define.Tilemap.Ground, pos);
+            citizen.IsExit = false;
+            citizen.MoveType = Define.MoveType.Right;
+            citizen.SetDest();
 
             yield return new WaitForSeconds(_spawnTime);
 
-            _spawnIdx = ++_spawnIdx < Managers.Game.CitizenSpawnList.Length ? _spawnIdx : 0;
+            _spawnIndex = ++_spawnIndex < CitizenSpawnList.Length ? _spawnIndex : 0;
         }
     }
 

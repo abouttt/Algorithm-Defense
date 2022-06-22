@@ -53,7 +53,7 @@ public abstract class BaseBuilder : MonoBehaviour
         _prevCellPos = cellPos;
 
         if (!Managers.Tile.GetTile(Define.Tilemap.Ground, cellPos) ||
-            (Managers.Tile.GetTile(Define.Tilemap.Building, cellPos)))
+            Managers.Tile.GetTile(Define.Tilemap.Building, cellPos))
         {
             _targetTile.color = _unvalidColor;
             _canBuild = false;

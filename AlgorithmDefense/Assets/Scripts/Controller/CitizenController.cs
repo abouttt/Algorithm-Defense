@@ -6,14 +6,21 @@ using UnityEngine.Tilemaps;
 
 public class CitizenController : BaseController
 {
-    [field: SerializeField]
+    [field: SerializeField] 
     public Define.Citizen CitizenType { get; private set; }
-    [field: SerializeField]
+
+    [field: SerializeField] 
     public Define.MoveType MoveType { get; set; } = Define.MoveType.None;
+
     [field: SerializeField]
     public Define.Class Class { get; set; } = Define.Class.None;
+
     [field: SerializeField]
-    public Define.Class ClassTemp { get; set; } = Define.Class.None;
+    public int Tier { get; set; } = 0;
+
+    [field: SerializeField]
+    public Define.Class TempClass { get; set; } = Define.Class.None;
+
     [field: SerializeField]
     public uint ClassTrainingCount { get; set; } = 0;
 
@@ -27,7 +34,6 @@ public class CitizenController : BaseController
 
     public override void Init()
     {
-        WorldObjectType = Define.WorldObject.Citizen;
         _state = Define.State.Moving;
     }
 
@@ -47,7 +53,7 @@ public class CitizenController : BaseController
             checkOnBuilding(cellPos);
         }
 
-        if (PrevPos != cellPos)
+        if (!IsExit && PrevPos != cellPos)
         {
             IsExit = true;
             PrevPos = cellPos;
