@@ -7,7 +7,13 @@ public static class Define
         Warrior,
         Archer,
         Wizard,
-        Thief,
+    }
+
+    public enum ClassTier
+    {
+        One,
+        Two,
+        Three,
     }
 
     public enum Tilemap

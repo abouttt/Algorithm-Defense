@@ -1,34 +1,36 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ClassTrainingCenter : BaseBuilding
 {
     [SerializeField]
-    private Define.Class _tempClass = Define.Class.None;
+    private Define.MoveType _satisfactionMoveType = Define.MoveType.None;
 
     [SerializeField]
-    private Define.MoveType _moveType = Define.MoveType.None;
+    private Define.MoveType _dissatisfactionMoveType = Define.MoveType.None;
 
-    public void SetTempClass(Define.Class classType) => _tempClass = classType;
-    public void SetMoveType(Define.MoveType moveType) => _moveType = moveType;
+    [SerializeField]
+    private Define.ClassTier _tier;
+
+    private bool _isSatisfaction = false;
+
+    public void SetSatisfactionMoveType(Define.MoveType moveType) => _satisfactionMoveType = moveType;
+    public void SetDissatisfactionMoveType(Define.MoveType moveType) => _dissatisfactionMoveType = moveType;
 
     public override void EnterTheBuilding(CitizenController citizen)
     {
-        if (_tempClass == Define.Class.None)
+        if (citizen.TempClass != Define.Class.None)
         {
-            return;
-        }
-
-        if (citizen.Class == Define.Class.None)
-        {
-            if (citizen.TempClass != _tempClass)
+            if (isSatisfactionClass(citizen))
             {
-                citizen.ClassTrainingCount = 0;
-                citizen.TempClass = _tempClass;
+                citizen.Class = citizen.TempClass;
+                citizen.Tier = _tier;
+                _isSatisfaction = true;
             }
-
-            citizen.ClassTrainingCount++;
+            else
+            {
+                citizen.ClassTrainingCount++;
+            }
         }
 
         EnqueueCitizen(citizen);
@@ -40,25 +42,49 @@ public class ClassTrainingCenter : BaseBuilding
 
         if (_citizenOrderQueue.Count == 0)
         {
+
             yield break;
         }
 
         var citizen = DequeueCitizen();
 
-        if (_moveType != Define.MoveType.None)
+        if (_isSatisfaction)
         {
-            if (IsRoad(_moveType))
+            if (_satisfactionMoveType != Define.MoveType.None)
             {
-                citizen.MoveType = _moveType;
+                if (HasRoadNextPosition(_satisfactionMoveType))
+                {
+                    citizen.MoveType = _satisfactionMoveType;
+                }
+                else
+                {
+                    SetOpposite(citizen);
+                }
             }
             else
             {
                 SetOpposite(citizen);
             }
+
+            _isSatisfaction = false;
         }
         else
         {
-            SetOpposite(citizen);
+            if (_dissatisfactionMoveType != Define.MoveType.None)
+            {
+                if (HasRoadNextPosition(_dissatisfactionMoveType))
+                {
+                    citizen.MoveType = _dissatisfactionMoveType;
+                }
+                else
+                {
+                    SetOpposite(citizen);
+                }
+            }
+            else
+            {
+                SetOpposite(citizen);
+            }
         }
 
         citizen.SetDest();
@@ -68,6 +94,28 @@ public class ClassTrainingCenter : BaseBuilding
     protected override void Init()
     {
         CanSelect = true;
-        _isDirectionOpposite = true;
+    }
+
+    private bool isSatisfactionClass(CitizenController citizen)
+    {
+        if (_tier == Define.ClassTier.One)
+        {
+            return citizen.ClassTrainingCount >= 3;
+        }
+        else if (_tier == Define.ClassTier.Two)
+        {
+            return citizen.ClassTrainingCount >= 5;
+        }
+        else if (_tier == Define.ClassTier.Three)
+        {
+            return citizen.ClassTrainingCount >= 10;
+        }
+
+        return false;
+    }
+
+    public override void ShowUIController()
+    {
+        // TODO
     }
 }

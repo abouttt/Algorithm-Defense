@@ -37,7 +37,7 @@ public abstract class BaseBuilding : MonoBehaviour
             SetOpposite(citizen);
         }
 
-        if (!IsRoad(citizen.MoveType))
+        if (!HasRoadNextPosition(citizen.MoveType))
         {
             SetOpposite(citizen);
         }
@@ -82,7 +82,7 @@ public abstract class BaseBuilding : MonoBehaviour
         }
     }
 
-    protected bool IsRoad(Define.MoveType moveType)
+    protected bool HasRoadNextPosition(Define.MoveType moveType)
     {
         var nextPos = Managers.Tile.GetWorldToCell(Define.Tilemap.Ground, transform.position);
 

@@ -5,37 +5,27 @@ using UnityEngine;
 public class ClassGiveCenter : BaseBuilding
 {
     [SerializeField]
-    private Define.MoveType _satisfactionMoveType = Define.MoveType.None;
+    private Define.Class _tempClass = Define.Class.None;
 
     [SerializeField]
-    private Define.MoveType _dissatisfactionMoveType = Define.MoveType.None;
+    private Define.MoveType _moveType = Define.MoveType.None;
 
-    private bool _isSatisfaction = false;
-
-    public void SetSatisfactionMoveType(Define.MoveType moveType) => _satisfactionMoveType = moveType;
-    public void SetDissatisfactionMoveType(Define.MoveType moveType) => _dissatisfactionMoveType = moveType;
+    public void SetTempClass(Define.Class classType) => _tempClass = classType;
+    public void SetMoveType(Define.MoveType moveType) => _moveType = moveType;
 
     public override void EnterTheBuilding(CitizenController citizen)
     {
-        if (citizen.ClassTrainingCount >= 3)
+        if (citizen.Class == Define.Class.None)
         {
-            citizen.Class = citizen.TempClass;
-            citizen.TempClass = Define.Class.None;
-
-            if (citizen.ClassTrainingCount >= 10)
+            if (citizen.TempClass != _tempClass)
             {
-                citizen.Tier = 3;
-            }
-            else if(citizen.ClassTrainingCount >= 5)
-            {
-                citizen.Tier = 2;
-            }
-            else if (citizen.ClassTrainingCount >= 3)
-            {
-                citizen.Tier = 1;
+                citizen.ClassTrainingCount = 0;
             }
 
-            _isSatisfaction = true;
+            if (_tempClass != Define.Class.None)
+            {
+                citizen.TempClass = _tempClass;
+            }
         }
 
         EnqueueCitizen(citizen);
@@ -47,24 +37,16 @@ public class ClassGiveCenter : BaseBuilding
 
         if (_citizenOrderQueue.Count == 0)
         {
- 
             yield break;
         }
 
         var citizen = DequeueCitizen();
 
-        if (_isSatisfaction)
+        if (_moveType != Define.MoveType.None)
         {
-            if (_satisfactionMoveType != Define.MoveType.None)
+            if (HasRoadNextPosition(_moveType))
             {
-                if (IsRoad(_satisfactionMoveType))
-                {
-                    citizen.MoveType = _satisfactionMoveType;
-                }
-                else
-                {
-                    SetOpposite(citizen);
-                }
+                citizen.MoveType = _moveType;
             }
             else
             {
@@ -73,21 +55,7 @@ public class ClassGiveCenter : BaseBuilding
         }
         else
         {
-            if (_dissatisfactionMoveType != Define.MoveType.None)
-            {
-                if (IsRoad(_dissatisfactionMoveType))
-                {
-                    citizen.MoveType = _dissatisfactionMoveType;
-                }
-                else
-                {
-                    SetOpposite(citizen);
-                }
-            }
-            else
-            {
-                SetOpposite(citizen);
-            }
+            SetOpposite(citizen);
         }
 
         citizen.SetDest();
@@ -97,10 +65,6 @@ public class ClassGiveCenter : BaseBuilding
     protected override void Init()
     {
         CanSelect = true;
-    }
-
-    public override void ShowUIController() 
-    { 
-        // TODO
+        _isDirectionOpposite = true;
     }
 }

@@ -16,7 +16,7 @@ public class CitizenController : BaseController
     public Define.Class Class { get; set; } = Define.Class.None;
 
     [field: SerializeField]
-    public int Tier { get; set; } = 0;
+    public Define.ClassTier Tier { get; set; } = 0;
 
     [field: SerializeField]
     public Define.Class TempClass { get; set; } = Define.Class.None;

@@ -40,7 +40,7 @@ public class DirectionApplicableBuilding : BaseBuilding
         var moveType = _directionCondition[citizen.CitizenType];
         if (moveType != Define.MoveType.None)
         {
-            if (IsRoad(moveType))
+            if (HasRoadNextPosition(moveType))
             {
                 citizen.MoveType = moveType;
             }
@@ -52,7 +52,7 @@ public class DirectionApplicableBuilding : BaseBuilding
         else
         {
             SetOpposite(citizen);
-            if (!IsRoad(citizen.MoveType))
+            if (!HasRoadNextPosition(citizen.MoveType))
             {
                 SetOpposite(citizen);
             }
