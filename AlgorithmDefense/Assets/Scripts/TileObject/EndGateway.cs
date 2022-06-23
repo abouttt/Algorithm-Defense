@@ -18,4 +18,9 @@ public class EndGateway : BaseBuilding
     {
         CanSelect = false;
     }
+
+    protected override IEnumerator LeaveTheBuilding()
+    {
+        yield break;
+    }
 }

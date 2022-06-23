@@ -9,9 +9,30 @@ public class StartGateway : BaseBuilding
         EnqueueCitizen(citizen);
     }
 
+    protected override IEnumerator LeaveTheBuilding()
+    {
+        yield return new WaitForSeconds(_stayTime);
+
+        if (_citizenOrderQueue.Count == 0)
+        {
+            yield break;
+        }
+
+        var citizen = DequeueCitizen();
+
+        SetOpposite(citizen);
+
+        if (!HasRoadNextPosition(citizen.MoveType))
+        {
+            SetOpposite(citizen);
+        }
+
+        citizen.SetDest();
+        SetPosition(citizen);
+    }
+
     protected override void Init()
     {
         CanSelect = false;
-        _isDirectionOpposite = true;
     }
 }

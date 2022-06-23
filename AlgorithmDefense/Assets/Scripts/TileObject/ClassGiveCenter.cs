@@ -65,6 +65,5 @@ public class ClassGiveCenter : BaseBuilding
     protected override void Init()
     {
         CanSelect = true;
-        _isDirectionOpposite = true;
     }
 }

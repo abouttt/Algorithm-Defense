@@ -3,17 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DirectionApplicableBuilding : BaseBuilding
+public class Gateway : BaseBuilding
 {
-    protected Action<CitizenController> BuildingFuncAction;
-
     private Dictionary<Define.Citizen, Define.MoveType> _directionCondition;
     private Camera _camera;
 
     public override void EnterTheBuilding(CitizenController citizen)
     {
-        BuildingFuncAction?.Invoke(citizen);
-
         EnqueueCitizen(citizen);
     }
 
@@ -73,7 +69,6 @@ public class DirectionApplicableBuilding : BaseBuilding
         };
 
         CanSelect = true;
-        _isDirectionOpposite = true;
         _camera = Camera.main;
     }
 }

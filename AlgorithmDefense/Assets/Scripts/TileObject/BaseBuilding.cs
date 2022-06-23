@@ -9,7 +9,6 @@ public abstract class BaseBuilding : MonoBehaviour
     [SerializeField]
     protected float _stayTime;
     protected Queue<CitizenController> _citizenOrderQueue = new Queue<CitizenController>();
-    protected bool _isDirectionOpposite;
 
     private void Start()
     {
@@ -21,30 +20,7 @@ public abstract class BaseBuilding : MonoBehaviour
 
     protected abstract void Init();
 
-    protected virtual IEnumerator LeaveTheBuilding()
-    {
-        yield return new WaitForSeconds(_stayTime);
-
-        if (_citizenOrderQueue.Count == 0)
-        {
-            yield break;
-        }
-
-        var citizen = DequeueCitizen();
-
-        if (_isDirectionOpposite)
-        {
-            SetOpposite(citizen);
-        }
-
-        if (!HasRoadNextPosition(citizen.MoveType))
-        {
-            SetOpposite(citizen);
-        }
-
-        citizen.SetDest();
-        SetPosition(citizen);
-    }
+    protected abstract IEnumerator LeaveTheBuilding();
 
     protected void EnqueueCitizen(CitizenController citizen)
     {
