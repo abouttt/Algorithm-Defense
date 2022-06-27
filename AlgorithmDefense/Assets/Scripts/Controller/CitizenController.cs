@@ -6,10 +6,10 @@ using UnityEngine.Tilemaps;
 
 public class CitizenController : BaseController
 {
-    [field: SerializeField] 
+    [field: SerializeField]
     public Define.Citizen CitizenType { get; private set; }
 
-    [field: SerializeField] 
+    [field: SerializeField]
     public Define.MoveType MoveType { get; set; } = Define.MoveType.None;
 
     [field: SerializeField]
@@ -30,11 +30,19 @@ public class CitizenController : BaseController
     [SerializeField]
     private float _moveSpeed = 0.0f;
 
+    private Transform _weaponTransform;
+
     private Vector3 _dest;
 
     public override void Init()
     {
+        _weaponTransform = Util.FindChild<Transform>(gameObject, "R_Weapon", recursive: true);
         _state = Define.State.Moving;
+    }
+
+    public void SetWeapon(Sprite weaponSprite)
+    {
+        _weaponTransform.GetComponent<SpriteRenderer>().sprite = weaponSprite;
     }
 
     protected override void UpdateMoving()
@@ -82,6 +90,18 @@ public class CitizenController : BaseController
         }
 
         _dest = Managers.Tile.GetCellCenterToWorld(Define.Tilemap.Ground, cellPos);
+    }
+
+    public void CopyTo(CitizenController other)
+    {
+        other.CitizenType = CitizenType;
+        other.MoveType = MoveType;
+        other.Class = Class;
+        other.Tier = Tier;
+        other.TempClass = TempClass;
+        other.ClassTrainingCount = ClassTrainingCount;
+        other.PrevPos = PrevPos;
+        other.IsExit = IsExit;
     }
 
     private void checkOnBuilding(Vector3Int currentPos)

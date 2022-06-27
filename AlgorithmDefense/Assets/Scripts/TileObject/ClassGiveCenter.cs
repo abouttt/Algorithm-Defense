@@ -31,6 +31,11 @@ public class ClassGiveCenter : BaseBuilding
         EnqueueCitizen(citizen);
     }
 
+    public override void ShowUIController()
+    {
+        
+    }
+
     protected override IEnumerator LeaveTheBuilding()
     {
         yield return new WaitForSeconds(_stayTime);

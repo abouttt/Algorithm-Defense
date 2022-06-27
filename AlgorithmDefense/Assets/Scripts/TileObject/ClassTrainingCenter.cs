@@ -14,6 +14,9 @@ public class ClassTrainingCenter : BaseBuilding
 
     private bool _isSatisfaction = false;
 
+    public static readonly string BATTLE_UNIT_PATH = "Prefabs/WorldObject/BattleUnits/";
+    public static readonly string WEAPON_PATH = "Textures/Weapons/";
+
     public void SetSatisfactionMoveType(Define.MoveType moveType) => _satisfactionMoveType = moveType;
     public void SetDissatisfactionMoveType(Define.MoveType moveType) => _dissatisfactionMoveType = moveType;
 
@@ -25,6 +28,30 @@ public class ClassTrainingCenter : BaseBuilding
             {
                 citizen.Class = citizen.TempClass;
                 citizen.Tier = _tier;
+
+                if (citizen.Tier == Define.ClassTier.One)
+                {
+                    var weapon = Managers.Resource.Load<Sprite>($"{WEAPON_PATH}{citizen.Class.ToString()}_Tier_1");
+                    citizen.SetWeapon(weapon);
+                }
+                else
+                {
+                    string tier = citizen.Tier switch
+                    {
+                        Define.ClassTier.One => "1",
+                        Define.ClassTier.Two => "2",
+                        Define.ClassTier.Three => "3",
+                        _ => throw new System.NotImplementedException(),
+                    };
+
+                    var newCitizen = Managers.Resource.Instantiate($"{BATTLE_UNIT_PATH}{citizen.Class.ToString()}_Tier_{tier}").GetComponent<CitizenController>();
+                    citizen.CopyTo(newCitizen);
+                    newCitizen.transform.position = citizen.transform.position;
+
+                    CitizenSpawner.GetInstance.Despawn(citizen);
+                    citizen = newCitizen;
+                }
+
                 _isSatisfaction = true;
             }
             else
@@ -34,6 +61,11 @@ public class ClassTrainingCenter : BaseBuilding
         }
 
         EnqueueCitizen(citizen);
+    }
+
+    public override void ShowUIController()
+    {
+
     }
 
     protected override IEnumerator LeaveTheBuilding()
@@ -112,10 +144,5 @@ public class ClassTrainingCenter : BaseBuilding
         }
 
         return false;
-    }
-
-    public override void ShowUIController()
-    {
-        // TODO
     }
 }
