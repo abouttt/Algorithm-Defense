@@ -62,10 +62,7 @@ public class CitizenSpawner : MonoBehaviour
             return;
         }
 
-        citizen.MoveType = Define.MoveType.None;
-        citizen.Class = Define.Class.None;
-        citizen.TempClass = Define.Class.None;
-        citizen.ClassTrainingCount = 0;
+        citizen.Clear();
 
         Managers.Resource.Destroy(citizen.gameObject);
     }

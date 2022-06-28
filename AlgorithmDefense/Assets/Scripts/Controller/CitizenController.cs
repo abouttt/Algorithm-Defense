@@ -45,6 +45,15 @@ public class CitizenController : BaseController
         _weaponTransform.GetComponent<SpriteRenderer>().sprite = weaponSprite;
     }
 
+    public void Clear()
+    {
+        MoveType = Define.MoveType.None;
+        Class = Define.Class.None;
+        TempClass = Define.Class.None;
+        ClassTrainingCount = 0;
+        _weaponTransform.GetComponent<SpriteRenderer>().sprite = null;
+    }
+
     protected override void UpdateMoving()
     {
         var cellPos = Managers.Tile.GetWorldToCell(Define.Tilemap.Ground, transform.position);
