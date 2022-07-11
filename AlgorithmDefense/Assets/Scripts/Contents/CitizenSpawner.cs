@@ -6,13 +6,13 @@ using UnityEngine.Tilemaps;
 public class CitizenSpawner : MonoBehaviour
 {
     private static CitizenSpawner s_instance;
-    public static CitizenSpawner GetInstance { get { init(); return s_instance; } }
+    public static CitizenSpawner GetInstance { get { Init(); return s_instance; } }
 
     public static readonly string CITIZEN_PATH = "Prefabs/WorldObject/Citizen/";
 
-    public (Define.Citizen, bool)[] CitizenSpawnList;
+    public int OnCount;
+    public (Define.Citizen, bool)[] CitizenSpawnList { get; private set; }
     public bool IsSpawning { get; private set; } = false;
-    public int OnCount { get; set; } = 0;
 
     [SerializeField]
     private Vector3Int _spawnCellPos;
@@ -26,8 +26,8 @@ public class CitizenSpawner : MonoBehaviour
 
     private void Start()
     {
-        init();
-        setup();
+        Init();
+        Setup();
 
         CitizenSpawnList = new (Define.Citizen, bool)[4]
         {
@@ -51,33 +51,13 @@ public class CitizenSpawner : MonoBehaviour
 
         if (!IsSpawning && OnCount > 0)
         {
+            IsSpawning = true;
             StartCoroutine(SpawnCitizen());
         }
     }
 
-    public void Despawn(CitizenController citizen)
-    {
-        if (!citizen)
-        {
-            return;
-        }
-
-        citizen.Clear();
-
-        Managers.Resource.Destroy(citizen.gameObject);
-    }
-
     public IEnumerator SpawnCitizen()
     {
-        if (IsSpawning)
-        {
-            yield break;
-        }
-        else
-        {
-            IsSpawning = true;
-        }
-
         while (true)
         {
             if (OnCount == 0)
@@ -105,7 +85,7 @@ public class CitizenSpawner : MonoBehaviour
             var citizen = go.GetComponent<CitizenController>();
             citizen.PrevPos = Managers.Tile.GetWorldToCell(Define.Tilemap.Ground, pos);
             citizen.IsExit = false;
-            citizen.MoveType = Define.MoveType.Right;
+            citizen.MoveType = Define.Move.Right;
             citizen.SetDest();
 
             yield return new WaitForSeconds(_spawnTime);
@@ -114,7 +94,7 @@ public class CitizenSpawner : MonoBehaviour
         }
     }
 
-    private void setup()
+    private void Setup()
     {
         var tile = Managers.Resource.Load<Tile>($"{BuildingBuilder.BUILDING_TILE_PATH}StartGateway");
         BuildingBuilder.GetInstance.Build(tile, _spawnCellPos);
@@ -139,7 +119,7 @@ public class CitizenSpawner : MonoBehaviour
         }
     }
 
-    private static void init()
+    private static void Init()
     {
         if (s_instance == null)
         {

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Gateway : BaseBuilding
 {
-    private Dictionary<Define.Citizen, Define.MoveType> _directionCondition;
+    private Dictionary<Define.Citizen, Define.Move> _directionCondition;
     private Camera _camera;
 
     public override void EnterTheBuilding(CitizenController citizen)
@@ -24,48 +24,48 @@ public class Gateway : BaseBuilding
 
     protected override IEnumerator LeaveTheBuilding()
     {
-        yield return new WaitForSeconds(_stayTime);
-
-        if (_citizenOrderQueue.Count == 0)
+        while (true)
         {
-            yield break;
-        }
-
-        var citizen = DequeueCitizen();
-
-        var moveType = _directionCondition[citizen.CitizenType];
-        if (moveType != Define.MoveType.None)
-        {
-            if (HasRoadNextPosition(moveType))
+            if (_citizenOrderQueue.Count == 0)
             {
-                citizen.MoveType = moveType;
+                _isReleasing = false;
+                yield break;
+            }
+
+            yield return new WaitForSeconds(_stayTime);
+
+            var citizen = DequeueCitizen();
+
+            var moveType = _directionCondition[citizen.CitizenType];
+            if (moveType != Define.Move.None)
+            {
+                if (HasRoadNextPosition(moveType))
+                {
+                    citizen.MoveType = moveType;
+                }
+                else
+                {
+                    citizen.TurnAround();
+                }
             }
             else
             {
-                SetOpposite(citizen);
+                citizen.TurnAround();
             }
-        }
-        else
-        {
-            SetOpposite(citizen);
-            if (!HasRoadNextPosition(citizen.MoveType))
-            {
-                SetOpposite(citizen);
-            }
-        }
 
-        citizen.SetDest();
-        SetPosition(citizen);
+            citizen.SetDest();
+            SetPosition(citizen);
+        }
     }
 
     protected override void Init()
     {
-        _directionCondition = new Dictionary<Define.Citizen, Define.MoveType>()
+        _directionCondition = new Dictionary<Define.Citizen, Define.Move>()
         {
-            { Define.Citizen.Red, Define.MoveType.None },
-            { Define.Citizen.Blue, Define.MoveType.None },
-            { Define.Citizen.Green, Define.MoveType.None },
-            { Define.Citizen.Yellow, Define.MoveType.None },
+            { Define.Citizen.Red, Define.Move.None },
+            { Define.Citizen.Blue, Define.Move.None },
+            { Define.Citizen.Green, Define.Move.None },
+            { Define.Citizen.Yellow, Define.Move.None },
         };
 
         CanSelect = true;

@@ -7,14 +7,14 @@ public class ResourceManager
         if (typeof(T) == typeof(GameObject))
         {
             var name = path;
-            int idx = path.LastIndexOf('/');
-            if (idx >= 0)
+            int index = path.LastIndexOf('/');
+            if (index >= 0)
             {
-                name = path.Substring(idx + 1);
+                name = path.Substring(index + 1);
             }
 
             var original = Managers.Pool.GetOriginal(name);
-            if (original != null)
+            if (original)
             {
                 return original as T;
             }
@@ -29,13 +29,13 @@ public class ResourceManager
     public GameObject Instantiate(string path, Vector3 position, Transform parent = null)
     {
         var original = Load<GameObject>(path);
-        if (original == null)
+        if (!original)
         {
             Debug.Log($"[ResourceManager] Failed to load prefab : {path}");
             return null;
         }
 
-        if (original.GetComponent<Poolable>() != null)
+        if (original.GetComponent<Poolable>())
         {
             return Managers.Pool.Pop(original, position, parent).gameObject;
         }
@@ -48,13 +48,13 @@ public class ResourceManager
 
     public void Destroy(GameObject go)
     {
-        if (go == null)
+        if (!go)
         {
             return;
         }
 
         var poolable = go.GetComponent<Poolable>();
-        if (poolable != null)
+        if (poolable)
         {
             Managers.Pool.Push(poolable);
             return;

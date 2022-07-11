@@ -6,10 +6,15 @@ using UnityEngine.Tilemaps;
 public class BuildingBuilder : BaseBuilder
 {
     private static BuildingBuilder s_instance;
-    public static BuildingBuilder GetInstance { get { init(); return s_instance; } }
+    public static BuildingBuilder GetInstance { get { Init(); return s_instance; } }
 
     public static readonly string BUILDING_TILE_PATH = "Tiles/Buildings/";
     public static readonly string BUILDING_OBJECT_PATH = "Prefabs/TileObject/Buildings/";
+
+    private void Start()
+    {
+        _tempTilemap = Managers.Tile.GetTilemap(Define.Tilemap.BuildingTemp);
+    }
 
     public override void SetTarget(Define.TileObject tileObject)
     {
@@ -22,7 +27,7 @@ public class BuildingBuilder : BaseBuilder
 
     public override void Build(TileBase tileBase, Vector3Int cellPos)
     {
-        if (_target == null)
+        if (!_target)
         {
             _target = tileBase;
             _targetTile = _target as Tile;
@@ -42,17 +47,12 @@ public class BuildingBuilder : BaseBuilder
         Release();
     }
 
-    protected override void Init()
+    private static void Init()
     {
-        _tempTilemap = Managers.Tile.GetTilemap(Define.Tilemap.BuildingTemp);
-    }
-
-    private static void init()
-    {
-        if (s_instance == null)
+        if (!s_instance)
         {
             var go = GameObject.Find("@BuildingBuilder");
-            if (go == null)
+            if (!go)
             {
                 go = new GameObject { name = "@BuildingBuilder" };
                 go.AddComponent<BuildingBuilder>();

@@ -1,13 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 using UnityEngine.EventSystems;
+using UnityEngine.Tilemaps;
 
 public class TileSelector : MonoBehaviour
 {
     private static TileSelector s_instance;
-    public static TileSelector GetInstance { get { init(); return s_instance; } }
+    public static TileSelector GetInstance { get { Init(); return s_instance; } }
 
     public Vector3Int CurrentMouseCellPos { get; private set; }
 
@@ -25,8 +23,8 @@ public class TileSelector : MonoBehaviour
     private void Update()
     {
         _worldPos = _camera.ScreenToWorldPoint(Input.mousePosition);
-        CurrentMouseCellPos = Managers.Tile.GetWorldToCell(Define.Tilemap.Building, _worldPos);
-        
+        CurrentMouseCellPos = Managers.Tile.GetGrid().WorldToCell(_worldPos);
+
         if (_prevCellPos != CurrentMouseCellPos)
         {
             if (Managers.Tile.GetTile(Define.Tilemap.Ground, CurrentMouseCellPos) != null)
@@ -72,13 +70,13 @@ public class TileSelector : MonoBehaviour
                 return;
             }
 
-            var tile = Managers.Tile.GetTile(Define.Tilemap.Building, CurrentMouseCellPos) as Tile;
-            if (tile)
+            var building = Managers.Tile.GetTile(Define.Tilemap.Building, CurrentMouseCellPos) as Tile;
+            if (building)
             {
                 Managers.Tile.SetTile(Define.Tilemap.Building, CurrentMouseCellPos, null);
                 Managers.Tile.SetTile(Define.Tilemap.Road, CurrentMouseCellPos, null);
                 Managers.Resource.Destroy(Managers.Tile.GetTilemap(Define.Tilemap.Road).GetInstantiatedObject(CurrentMouseCellPos));
-                Managers.Resource.Destroy(tile.gameObject);
+                Managers.Resource.Destroy(building.gameObject);
             }
 
             var road = Managers.Tile.GetTile(Define.Tilemap.Road, CurrentMouseCellPos);
@@ -90,12 +88,12 @@ public class TileSelector : MonoBehaviour
         }
     }
 
-    private static void init()
+    private static void Init()
     {
-        if (s_instance == null)
+        if (!s_instance)
         {
             var go = GameObject.Find("@TileSelector");
-            if (go == null)
+            if (!go)
             {
                 go = new GameObject { name = "@TileSelector" };
                 go.AddComponent<TileSelector>();

@@ -12,7 +12,7 @@ public class UIManager
     public void Init()
     {
         var root = GameObject.Find("@UI_Root");
-        if (root == null)
+        if (!root)
         {
             root = new GameObject { name = "@UI_Root" };
         }

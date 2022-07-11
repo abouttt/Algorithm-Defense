@@ -2,42 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameScene : BaseScene
+public class GameScene : MonoBehaviour
 {
     public static readonly string CONTENTS_PATH = "Prefabs/Contents/";
 
-    public override void Clear()
+    private void Start()
     {
+        Managers.Resource.Instantiate($"Prefabs/UI/EventSystem").name = "@EventSystem";
 
-    }
-
-    protected override void Init()
-    {
-        base.Init();
-
-        SceneType = Define.Scene.GameScene;
-
-        if (FindObjectOfType<BuildingBuilder>() == null)
+        if (!FindObjectOfType<BuildingBuilder>())
         {
             Managers.Resource.Instantiate($"{CONTENTS_PATH}BuildingBuilder").name = "@BuildingBuilder";
         }
 
-        if (FindObjectOfType<RoadBuilder>() == null)
+        if (!FindObjectOfType<RoadBuilder>())
         {
             Managers.Resource.Instantiate($"{CONTENTS_PATH}RoadBuilder").name = "@RoadBuilder";
         }
 
-        if (FindObjectOfType<TileSelector>() == null)
+        if (!FindObjectOfType<TileSelector>())
         {
             Managers.Resource.Instantiate($"{CONTENTS_PATH}TileSelector").name = "@TileSelector";
         }
 
-        if (FindObjectOfType<CitizenSpawner>() == null)
+        if (!FindObjectOfType<CitizenSpawner>())
         {
             Managers.Resource.Instantiate($"{CONTENTS_PATH}CitizenSpawner").name = "@CitizenSpawner";
         }
 
-        if (FindObjectOfType<UI_SceneCanvas>() == null)
+        if (!FindObjectOfType<UI_SceneCanvas>())
         {
             Managers.UI.ShowSceneUI<UI_SceneCanvas>();
         }

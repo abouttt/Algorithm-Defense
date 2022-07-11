@@ -10,7 +10,7 @@ public class SoundManager
     public void Init()
     {
         var root = GameObject.Find("@Sound");
-        if (root == null)
+        if (!root)
         {
             root = new GameObject { name = "@Sound" };
             Object.DontDestroyOnLoad(root);
@@ -35,7 +35,7 @@ public class SoundManager
 
     public void Play(AudioClip audioClip, Define.Sound type = Define.Sound.Effect, float volume = 1.0f)
     {
-        if (audioClip == null)
+        if (!audioClip)
         {
             return;
         }
@@ -92,7 +92,7 @@ public class SoundManager
             }
         }
 
-        if (audioClip == null)
+        if (!audioClip)
         {
             Debug.Log($"[SoundManager] AudioClip Missing. {path}");
         }

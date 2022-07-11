@@ -5,5 +5,5 @@ using UnityEngine;
 public class Road : MonoBehaviour
 {
     [field: SerializeField]
-    public Define.RoadType RoadType { get; private set; }
+    public Define.Road RoadType { get; private set; }
 }

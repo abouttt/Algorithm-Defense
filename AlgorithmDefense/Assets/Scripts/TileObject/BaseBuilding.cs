@@ -10,6 +10,8 @@ public abstract class BaseBuilding : MonoBehaviour
     protected float _stayTime;
     protected Queue<CitizenController> _citizenOrderQueue = new Queue<CitizenController>();
 
+    protected bool _isReleasing = false;
+
     private void Start()
     {
         Init();
@@ -27,7 +29,11 @@ public abstract class BaseBuilding : MonoBehaviour
         _citizenOrderQueue.Enqueue(citizen);
         citizen.gameObject.SetActive(false);
 
-        StartCoroutine(LeaveTheBuilding());
+        if (!_isReleasing)
+        {
+            _isReleasing = true;
+            StartCoroutine(LeaveTheBuilding()); 
+        }
     }
 
     protected CitizenController DequeueCitizen()
@@ -39,41 +45,22 @@ public abstract class BaseBuilding : MonoBehaviour
         return citizen;
     }
 
-    protected void SetOpposite(CitizenController citizen)
-    {
-        switch (citizen.MoveType)
-        {
-            case Define.MoveType.Right:
-                citizen.MoveType = Define.MoveType.Left;
-                break;
-            case Define.MoveType.Left:
-                citizen.MoveType = Define.MoveType.Right;
-                break;
-            case Define.MoveType.Up:
-                citizen.MoveType = Define.MoveType.Down;
-                break;
-            case Define.MoveType.Down:
-                citizen.MoveType = Define.MoveType.Up;
-                break;
-        }
-    }
-
-    protected bool HasRoadNextPosition(Define.MoveType moveType)
+    protected bool HasRoadNextPosition(Define.Move moveType)
     {
         var nextPos = Managers.Tile.GetWorldToCell(Define.Tilemap.Ground, transform.position);
 
         switch (moveType)
         {
-            case Define.MoveType.Right:
+            case Define.Move.Right:
                 nextPos += Vector3Int.right;
                 break;
-            case Define.MoveType.Left:
+            case Define.Move.Left:
                 nextPos += Vector3Int.left;
                 break;
-            case Define.MoveType.Up:
+            case Define.Move.Up:
                 nextPos += Vector3Int.up;
                 break;
-            case Define.MoveType.Down:
+            case Define.Move.Down:
                 nextPos += Vector3Int.down;
                 break;
         }
@@ -93,16 +80,16 @@ public abstract class BaseBuilding : MonoBehaviour
 
         switch (citizen.MoveType)
         {
-            case Define.MoveType.Right:
+            case Define.Move.Right:
                 pos += new Vector3(0.5f, 0, 0);
                 break;
-            case Define.MoveType.Left:
+            case Define.Move.Left:
                 pos += new Vector3(-0.5f, 0, 0);
                 break;
-            case Define.MoveType.Up:
+            case Define.Move.Up:
                 pos += new Vector3(0, 0.5f, 0);
                 break;
-            case Define.MoveType.Down:
+            case Define.Move.Down:
                 pos += new Vector3(0, -0.5f, 0);
                 break;
         }

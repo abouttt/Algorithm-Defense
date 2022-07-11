@@ -8,10 +8,10 @@ public class ClassGiveCenter : BaseBuilding
     private Define.Class _tempClass = Define.Class.None;
 
     [SerializeField]
-    private Define.MoveType _moveType = Define.MoveType.None;
+    private Define.Move _moveType = Define.Move.None;
 
     public void SetTempClass(Define.Class classType) => _tempClass = classType;
-    public void SetMoveType(Define.MoveType moveType) => _moveType = moveType;
+    public void SetMoveType(Define.Move moveType) => _moveType = moveType;
 
     public override void EnterTheBuilding(CitizenController citizen)
     {
@@ -38,33 +38,37 @@ public class ClassGiveCenter : BaseBuilding
 
     protected override IEnumerator LeaveTheBuilding()
     {
-        yield return new WaitForSeconds(_stayTime);
-
-        if (_citizenOrderQueue.Count == 0)
+        while (true)
         {
-            yield break;
-        }
-
-        var citizen = DequeueCitizen();
-
-        if (_moveType != Define.MoveType.None)
-        {
-            if (HasRoadNextPosition(_moveType))
+            if (_citizenOrderQueue.Count == 0)
             {
-                citizen.MoveType = _moveType;
+                _isReleasing = false;
+                yield break;
+            }
+
+            yield return new WaitForSeconds(_stayTime);
+
+            var citizen = DequeueCitizen();
+
+            if (_moveType != Define.Move.None)
+            {
+                if (HasRoadNextPosition(_moveType))
+                {
+                    citizen.MoveType = _moveType;
+                }
+                else
+                {
+                    citizen.TurnAround();
+                }
             }
             else
             {
-                SetOpposite(citizen);
+                citizen.TurnAround();
             }
-        }
-        else
-        {
-            SetOpposite(citizen);
-        }
 
-        citizen.SetDest();
-        SetPosition(citizen);
+            citizen.SetDest();
+            SetPosition(citizen);
+        }
     }
 
     protected override void Init()

@@ -22,10 +22,10 @@ public class UI_CitizenDirectionController : UI_Popup
     }
     #endregion
 
-    public Dictionary<Define.Citizen, Define.MoveType> Target { get; set; }
+    public Dictionary<Define.Citizen, Define.Move> Target { get; set; }
 
     private ToggleGroup[] _toggleGroups;
-    private Dictionary<Define.MoveType, int> _moveTypeCntDic;
+    private Dictionary<Define.Move, int> _moveTypeCntDic;
 
     public override void Init()
     {
@@ -35,12 +35,12 @@ public class UI_CitizenDirectionController : UI_Popup
         BindEvent(GetButton((int)Buttons.OKButton).gameObject, onButtonOK, Define.UIEvent.Click);
         _toggleGroups = GetAll<ToggleGroup>();
 
-        _moveTypeCntDic = new Dictionary<Define.MoveType, int>()
+        _moveTypeCntDic = new Dictionary<Define.Move, int>()
         {
-            { Define.MoveType.Up, 0 },
-            { Define.MoveType.Down, 0 },
-            { Define.MoveType.Left, 0 },
-            { Define.MoveType.Right, 0 },
+            { Define.Move.Up, 0 },
+            { Define.Move.Down, 0 },
+            { Define.Move.Left, 0 },
+            { Define.Move.Right, 0 },
         };
 
         setupGatewayInfo();
@@ -56,7 +56,7 @@ public class UI_CitizenDirectionController : UI_Popup
 
         for (int citizenIdx = 1; citizenIdx < Target.Count; citizenIdx++)
         {
-            Target[(Define.Citizen)citizenIdx] = Define.MoveType.None;
+            Target[(Define.Citizen)citizenIdx] = Define.Move.None;
         }
 
         foreach (var toggles in _toggleGroups)
@@ -76,7 +76,7 @@ public class UI_CitizenDirectionController : UI_Popup
     {
         foreach (var condition in Target)
         {
-            if (condition.Value != Define.MoveType.None)
+            if (condition.Value != Define.Move.None)
             {
                 var toggle = findToggle(condition.Key, condition.Value);
                 toggle.isOn = true;
@@ -84,7 +84,7 @@ public class UI_CitizenDirectionController : UI_Popup
         }
     }
 
-    private Toggle findToggle(Define.Citizen citizenType, Define.MoveType moveType)
+    private Toggle findToggle(Define.Citizen citizenType, Define.Move moveType)
     {
         foreach (var toggles in _toggleGroups)
         {

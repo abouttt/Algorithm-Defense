@@ -33,10 +33,10 @@ public class UI_TileButtons : UI_Base
 
         switch (btnInfo.BuildType)
         {
-            case Define.BuildType.Ground:
+            case Define.Build.Ground:
                 RoadBuilder.GetInstance.SetTarget(btnInfo.TileObject);
                 break;
-            case Define.BuildType.Building:
+            case Define.Build.Building:
                 BuildingBuilder.GetInstance.SetTarget(btnInfo.TileObject);
                 break;
         }

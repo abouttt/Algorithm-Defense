@@ -10,71 +10,37 @@ public class CitizenController : BaseController
     public Define.Citizen CitizenType { get; private set; }
 
     [field: SerializeField]
-    public Define.MoveType MoveType { get; set; } = Define.MoveType.None;
+    public Define.Move MoveType = Define.Move.None;
 
     [field: SerializeField]
-    public Define.Class Class { get; set; } = Define.Class.None;
+    public Define.Class Class = Define.Class.None;
 
     [field: SerializeField]
-    public Define.ClassTier Tier { get; set; } = 0;
+    public Define.ClassTier Tier = Define.ClassTier.None;
 
     [field: SerializeField]
-    public Define.Class TempClass { get; set; } = Define.Class.None;
+    public Define.Class TempClass = Define.Class.None;
 
     [field: SerializeField]
-    public uint ClassTrainingCount { get; set; } = 0;
+    public uint ClassTrainingCount;
 
-    public Vector3Int PrevPos { get; set; }
-    public bool IsExit { get; set; }
+    public Vector3Int PrevPos;
+    public bool IsExit;
 
     [SerializeField]
-    private float _moveSpeed = 0.0f;
-
-    private Transform _weaponTransform;
-
+    private float _moveSpeed;
+    private SpriteRenderer _weaponSpriteRenderer;
     private Vector3 _dest;
 
     public override void Init()
     {
-        _weaponTransform = Util.FindChild<Transform>(gameObject, "R_Weapon", recursive: true);
+        _weaponSpriteRenderer = Util.FindChild<Transform>(gameObject, "R_Weapon", recursive: true).GetComponent<SpriteRenderer>();
         _state = Define.State.Moving;
     }
 
     public void SetWeapon(Sprite weaponSprite)
     {
-        _weaponTransform.GetComponent<SpriteRenderer>().sprite = weaponSprite;
-    }
-
-    public void Clear()
-    {
-        MoveType = Define.MoveType.None;
-        Class = Define.Class.None;
-        TempClass = Define.Class.None;
-        ClassTrainingCount = 0;
-        _weaponTransform.GetComponent<SpriteRenderer>().sprite = null;
-    }
-
-    protected override void UpdateMoving()
-    {
-        var cellPos = Managers.Tile.GetWorldToCell(Define.Tilemap.Ground, transform.position);
-        if (Vector2.Distance(transform.position, _dest) <= 0.01f)
-        {
-            checkRoad(cellPos);
-            SetDest();
-        }
-
-        transform.position = Vector2.MoveTowards(transform.position, _dest, (_moveSpeed * Time.deltaTime));
-
-        if (IsExit)
-        {
-            checkOnBuilding(cellPos);
-        }
-
-        if (!IsExit && PrevPos != cellPos)
-        {
-            IsExit = true;
-            PrevPos = cellPos;
-        }
+        _weaponSpriteRenderer.sprite = weaponSprite;
     }
 
     public void SetDest()
@@ -82,23 +48,42 @@ public class CitizenController : BaseController
         var cellPos = Managers.Tile.GetWorldToCell(Define.Tilemap.Ground, transform.position);
         switch (MoveType)
         {
-            case Define.MoveType.Down:
+            case Define.Move.Down:
                 cellPos.y--;
                 break;
-            case Define.MoveType.Up:
+            case Define.Move.Up:
                 cellPos.y++;
                 break;
-            case Define.MoveType.Right:
+            case Define.Move.Right:
                 cellPos.x++;
                 transform.localScale = new Vector3(-1, 1, 1);
                 break;
-            case Define.MoveType.Left:
+            case Define.Move.Left:
                 cellPos.x--;
                 transform.localScale = new Vector3(1, 1, 1);
                 break;
         }
 
         _dest = Managers.Tile.GetCellCenterToWorld(Define.Tilemap.Ground, cellPos);
+    }
+
+    public void TurnAround()
+    {
+        switch (MoveType)
+        {
+            case Define.Move.Right:
+                MoveType = Define.Move.Left;
+                break;
+            case Define.Move.Left:
+                MoveType = Define.Move.Right;
+                break;
+            case Define.Move.Up:
+                MoveType = Define.Move.Down;
+                break;
+            case Define.Move.Down:
+                MoveType = Define.Move.Up;
+                break;
+        }
     }
 
     public void CopyTo(CitizenController other)
@@ -113,7 +98,40 @@ public class CitizenController : BaseController
         other.IsExit = IsExit;
     }
 
-    private void checkOnBuilding(Vector3Int currentPos)
+    public void Clear()
+    {
+        MoveType = Define.Move.None;
+        Class = Define.Class.None;
+        Tier = Define.ClassTier.None;
+        TempClass = Define.Class.None;
+        ClassTrainingCount = 0;
+        _weaponSpriteRenderer.sprite = null;
+    }
+
+    protected override void UpdateMoving()
+    {
+        var cellPos = Managers.Tile.GetWorldToCell(Define.Tilemap.Ground, transform.position);
+        if (Vector2.Distance(transform.position, _dest) <= 0.01f)
+        {
+            CheckRoad(cellPos);
+            SetDest();
+        }
+
+        transform.position = Vector2.MoveTowards(transform.position, _dest, (_moveSpeed * Time.deltaTime));
+
+        if (IsExit)
+        {
+            CheckOnBuilding(cellPos);
+        }
+
+        if (!IsExit && PrevPos != cellPos)
+        {
+            IsExit = true;
+            PrevPos = cellPos;
+        }
+    }
+
+    private void CheckOnBuilding(Vector3Int currentPos)
     {
         var tile = Managers.Tile.GetTile(Define.Tilemap.Building, currentPos) as Tile;
         if (!tile)
@@ -124,7 +142,7 @@ public class CitizenController : BaseController
         tile.gameObject.GetComponent<BaseBuilding>().EnterTheBuilding(this);
     }
 
-    private void checkRoad(Vector3Int currentPos)
+    private void CheckRoad(Vector3Int currentPos)
     {
         var go = Managers.Tile.GetTilemap(Define.Tilemap.Road).GetInstantiatedObject(currentPos);
         if (!go)
@@ -135,64 +153,45 @@ public class CitizenController : BaseController
         var road = go.GetComponent<Road>();
         switch (road.RoadType)
         {
-            case Define.RoadType.B:
-            case Define.RoadType.BU:
-            case Define.RoadType.BD:
-            case Define.RoadType.BL:
-            case Define.RoadType.BR:
-                turnAround();
+            case Define.Road.B:
+            case Define.Road.BU:
+            case Define.Road.BD:
+            case Define.Road.BL:
+            case Define.Road.BR:
+                TurnAround();
                 break;
-            case Define.RoadType.TU:
-            case Define.RoadType.TD:
-                if (isMoveTypeUD())
+            case Define.Road.TU:
+            case Define.Road.TD:
+                if (IsMoveTypeUD())
                 {
-                    turnAround();
+                    TurnAround();
                 }
                 break;
-            case Define.RoadType.TL:
-            case Define.RoadType.TR:
-                if (!isMoveTypeUD())
+            case Define.Road.TL:
+            case Define.Road.TR:
+                if (!IsMoveTypeUD())
                 {
-                    turnAround();
+                    TurnAround();
                 }
                 break;
-            case Define.RoadType.CUL:
-                MoveType = isMoveTypeUD() ? Define.MoveType.Left : Define.MoveType.Down;
+            case Define.Road.CUL:
+                MoveType = IsMoveTypeUD() ? Define.Move.Left : Define.Move.Down;
                 break;
-            case Define.RoadType.CUR:
-                MoveType = isMoveTypeUD() ? Define.MoveType.Right : Define.MoveType.Down;
+            case Define.Road.CUR:
+                MoveType = IsMoveTypeUD() ? Define.Move.Right : Define.Move.Down;
                 break;
-            case Define.RoadType.CDR:
-                MoveType = isMoveTypeUD() ? Define.MoveType.Right : Define.MoveType.Up;
+            case Define.Road.CDR:
+                MoveType = IsMoveTypeUD() ? Define.Move.Right : Define.Move.Up;
                 break;
-            case Define.RoadType.CDL:
-                MoveType = isMoveTypeUD() ? Define.MoveType.Left : Define.MoveType.Up;
+            case Define.Road.CDL:
+                MoveType = IsMoveTypeUD() ? Define.Move.Left : Define.Move.Up;
                 break;
         }
     }
 
-    private void turnAround()
+    private bool IsMoveTypeUD()
     {
-        switch (MoveType)
-        {
-            case Define.MoveType.Right:
-                MoveType = Define.MoveType.Left;
-                break;
-            case Define.MoveType.Left:
-                MoveType = Define.MoveType.Right;
-                break;
-            case Define.MoveType.Up:
-                MoveType = Define.MoveType.Down;
-                break;
-            case Define.MoveType.Down:
-                MoveType = Define.MoveType.Up;
-                break;
-        }
-    }
-
-    private bool isMoveTypeUD()
-    {
-        if ((MoveType == Define.MoveType.Up) || (MoveType == Define.MoveType.Down))
+        if ((MoveType == Define.Move.Up) || (MoveType == Define.Move.Down))
         {
             return true;
         }

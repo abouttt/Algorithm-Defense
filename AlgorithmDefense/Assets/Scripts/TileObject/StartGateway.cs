@@ -11,24 +11,21 @@ public class StartGateway : BaseBuilding
 
     protected override IEnumerator LeaveTheBuilding()
     {
-        yield return new WaitForSeconds(_stayTime);
-
-        if (_citizenOrderQueue.Count == 0)
+        while (true)
         {
-            yield break;
+            if (_citizenOrderQueue.Count == 0)
+            {
+                _isReleasing = false;
+                yield break;
+            }
+
+            yield return new WaitForSeconds(_stayTime);
+
+            var citizen = DequeueCitizen();
+            citizen.TurnAround();
+            citizen.SetDest();
+            SetPosition(citizen);
         }
-
-        var citizen = DequeueCitizen();
-
-        SetOpposite(citizen);
-
-        if (!HasRoadNextPosition(citizen.MoveType))
-        {
-            SetOpposite(citizen);
-        }
-
-        citizen.SetDest();
-        SetPosition(citizen);
     }
 
     protected override void Init()

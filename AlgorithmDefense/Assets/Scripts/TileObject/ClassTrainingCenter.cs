@@ -3,28 +3,28 @@ using UnityEngine;
 
 public class ClassTrainingCenter : BaseBuilding
 {
-    [SerializeField]
-    private Define.MoveType _satisfactionMoveType = Define.MoveType.None;
-
-    [SerializeField]
-    private Define.MoveType _dissatisfactionMoveType = Define.MoveType.None;
-
-    [SerializeField]
-    private Define.ClassTier _tier;
-
-    private bool _isSatisfaction = false;
-
     public static readonly string BATTLE_UNIT_PATH = "Prefabs/WorldObject/BattleUnits/";
     public static readonly string WEAPON_PATH = "Textures/Weapons/";
 
-    public void SetSatisfactionMoveType(Define.MoveType moveType) => _satisfactionMoveType = moveType;
-    public void SetDissatisfactionMoveType(Define.MoveType moveType) => _dissatisfactionMoveType = moveType;
+    [SerializeField]
+    private Define.Move _satisfactionMoveType = Define.Move.None;
+
+    [SerializeField]
+    private Define.Move _dissatisfactionMoveType = Define.Move.None;
+
+    [SerializeField]
+    private Define.ClassTier _tier = Define.ClassTier.None;
+
+    private bool _isSatisfaction = false;
+
+    public void SetSatisfactionMoveType(Define.Move moveType) => _satisfactionMoveType = moveType;
+    public void SetDissatisfactionMoveType(Define.Move moveType) => _dissatisfactionMoveType = moveType;
 
     public override void EnterTheBuilding(CitizenController citizen)
     {
         if (citizen.TempClass != Define.Class.None)
         {
-            if (isSatisfactionClass(citizen))
+            if (IsSatisfactionClass(citizen))
             {
                 citizen.Class = citizen.TempClass;
                 citizen.Tier = _tier;
@@ -36,19 +36,23 @@ public class ClassTrainingCenter : BaseBuilding
                 }
                 else
                 {
-                    string tier = citizen.Tier switch
+                    string tier = null;
+                    switch(citizen.Tier)
                     {
-                        Define.ClassTier.One => "1",
-                        Define.ClassTier.Two => "2",
-                        Define.ClassTier.Three => "3",
-                        _ => throw new System.NotImplementedException(),
-                    };
+                        case Define.ClassTier.Two:
+                            tier = "2";
+                            break;
+                        case Define.ClassTier.Three:
+                            tier = "3";
+                            break;
+                    }
 
                     var newCitizen = Managers.Resource.Instantiate($"{BATTLE_UNIT_PATH}{citizen.Class.ToString()}_Tier_{tier}").GetComponent<CitizenController>();
                     citizen.CopyTo(newCitizen);
                     newCitizen.transform.position = citizen.transform.position;
 
-                    CitizenSpawner.GetInstance.Despawn(citizen);
+                    citizen.Clear();
+                    Managers.Resource.Destroy(citizen.gameObject);
                     citizen = newCitizen;
                 }
 
@@ -70,57 +74,60 @@ public class ClassTrainingCenter : BaseBuilding
 
     protected override IEnumerator LeaveTheBuilding()
     {
-        yield return new WaitForSeconds(_stayTime);
-
-        if (_citizenOrderQueue.Count == 0)
+        while (true)
         {
-
-            yield break;
-        }
-
-        var citizen = DequeueCitizen();
-
-        if (_isSatisfaction)
-        {
-            if (_satisfactionMoveType != Define.MoveType.None)
+            if (_citizenOrderQueue.Count == 0)
             {
-                if (HasRoadNextPosition(_satisfactionMoveType))
+                _isReleasing = false;
+                yield break;
+            }
+
+            yield return new WaitForSeconds(_stayTime);
+
+            var citizen = DequeueCitizen();
+
+            if (_isSatisfaction)
+            {
+                if (_satisfactionMoveType != Define.Move.None)
                 {
-                    citizen.MoveType = _satisfactionMoveType;
+                    if (HasRoadNextPosition(_satisfactionMoveType))
+                    {
+                        citizen.MoveType = _satisfactionMoveType;
+                    }
+                    else
+                    {
+                        citizen.TurnAround();
+                    }
                 }
                 else
                 {
-                    SetOpposite(citizen);
+                    citizen.TurnAround();
                 }
+
+                _isSatisfaction = false;
             }
             else
             {
-                SetOpposite(citizen);
-            }
-
-            _isSatisfaction = false;
-        }
-        else
-        {
-            if (_dissatisfactionMoveType != Define.MoveType.None)
-            {
-                if (HasRoadNextPosition(_dissatisfactionMoveType))
+                if (_dissatisfactionMoveType != Define.Move.None)
                 {
-                    citizen.MoveType = _dissatisfactionMoveType;
+                    if (HasRoadNextPosition(_dissatisfactionMoveType))
+                    {
+                        citizen.MoveType = _dissatisfactionMoveType;
+                    }
+                    else
+                    {
+                        citizen.TurnAround();
+                    }
                 }
                 else
                 {
-                    SetOpposite(citizen);
+                    citizen.TurnAround();
                 }
             }
-            else
-            {
-                SetOpposite(citizen);
-            }
-        }
 
-        citizen.SetDest();
-        SetPosition(citizen);
+            citizen.SetDest();
+            SetPosition(citizen);
+        }
     }
 
     protected override void Init()
@@ -128,7 +135,7 @@ public class ClassTrainingCenter : BaseBuilding
         CanSelect = true;
     }
 
-    private bool isSatisfactionClass(CitizenController citizen)
+    private bool IsSatisfactionClass(CitizenController citizen)
     {
         if (_tier == Define.ClassTier.One)
         {

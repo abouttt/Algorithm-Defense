@@ -4,7 +4,7 @@ using UnityEngine.Tilemaps;
 
 public abstract class BaseBuilder : MonoBehaviour
 {
-    public static bool IsBuilding { get; protected set; } = false;
+    public static bool IsBuilding { get; protected set; }
 
     protected TileBase _target;
     protected Tile _targetTile;
@@ -12,14 +12,6 @@ public abstract class BaseBuilder : MonoBehaviour
 
     protected Vector3Int _prevCellPos;
     protected bool _canBuild = false;
-
-    protected readonly Color _validColor = new Color(1, 1, 1, 0.5f);
-    protected readonly Color _unvalidColor = new Color(1, 0, 0, 0.5f);
-
-    private void Start()
-    {
-        Init();
-    }
 
     private void Update()
     {
@@ -42,32 +34,7 @@ public abstract class BaseBuilder : MonoBehaviour
         }
     }
 
-    public virtual void CheckCanBuild(Vector3Int cellPos)
-    {
-        if (_prevCellPos == cellPos)
-        {
-            return;
-        }
-
-        _tempTilemap.SetTile(_prevCellPos, null);
-        _prevCellPos = cellPos;
-
-        if (!Managers.Tile.GetTile(Define.Tilemap.Ground, cellPos) ||
-            Managers.Tile.GetTile(Define.Tilemap.Building, cellPos))
-        {
-            _targetTile.color = _unvalidColor;
-            _canBuild = false;
-        }
-        else
-        {
-            _targetTile.color = _validColor;
-            _canBuild = true;
-        }
-
-        _tempTilemap.SetTile(cellPos, _targetTile);
-    }
-
-    public virtual void Release()
+    public void Release()
     {
         if (!_target)
         {
@@ -83,5 +50,29 @@ public abstract class BaseBuilder : MonoBehaviour
 
     public abstract void SetTarget(Define.TileObject tileObject);
     public abstract void Build(TileBase tileBase, Vector3Int cellPos);
-    protected abstract void Init();
+
+    private void CheckCanBuild(Vector3Int cellPos)
+    {
+        if (_prevCellPos == cellPos)
+        {
+            return;
+        }
+
+        _tempTilemap.SetTile(_prevCellPos, null);
+        _prevCellPos = cellPos;
+
+        if (!Managers.Tile.GetTile(Define.Tilemap.Ground, cellPos) ||
+            Managers.Tile.GetTile(Define.Tilemap.Building, cellPos))
+        {
+            _targetTile.color = Color.red;
+            _canBuild = false;
+        }
+        else
+        {
+            _targetTile.color = Color.white;
+            _canBuild = true;
+        }
+
+        _tempTilemap.SetTile(cellPos, _targetTile);
+    }
 }

@@ -1,21 +1,6 @@
 
 public static class Define
 {
-    public enum Class
-    {
-        None,
-        Warrior,
-        Archer,
-        Wizard,
-    }
-
-    public enum ClassTier
-    {
-        One,
-        Two,
-        Three,
-    }
-
     public enum Tilemap
     {
         Ground,
@@ -36,22 +21,7 @@ public static class Define
         ClassTrainingCenter,
     }
 
-    public enum Citizen
-    {
-        None,
-        Red,
-        Blue,
-        Green,
-        Yellow,
-    }
-
-    public enum BuildType
-    {
-        Ground,
-        Building,
-    }
-
-    public enum RoadType
+    public enum Road
     {
         B,
         BU,
@@ -71,7 +41,32 @@ public static class Define
         Cross,
     }
 
-    public enum MoveType
+    public enum Class
+    {
+        None,
+        Warrior,
+        Archer,
+        Wizard,
+    }
+
+    public enum ClassTier
+    {
+        None,
+        One,
+        Two,
+        Three,
+    }
+
+    public enum Citizen
+    {
+        None,
+        Red,
+        Blue,
+        Green,
+        Yellow,
+    }
+
+    public enum Move
     {
         None,
         Left,
@@ -80,17 +75,17 @@ public static class Define
         Down,
     }
 
+    public enum Build
+    {
+        Ground,
+        Building,
+    }
+
     public enum State
     {
         Idle,
         Moving,
         Die,
-    }
-
-    public enum Scene
-    {
-        Unknown,
-        GameScene,
     }
 
     public enum Sound

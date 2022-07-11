@@ -7,5 +7,5 @@ public class UI_DirectionToggle : MonoBehaviour
     [field: SerializeField]
     public Define.Citizen CitizenType { get; private set; }
     [field: SerializeField]
-    public Define.MoveType MoveType { get; private set; }
+    public Define.Move MoveType { get; private set; }
 }

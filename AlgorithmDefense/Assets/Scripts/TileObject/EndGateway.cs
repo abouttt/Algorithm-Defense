@@ -11,7 +11,8 @@ public class EndGateway : BaseBuilding
             return;
         }
 
-        CitizenSpawner.GetInstance.Despawn(citizen);
+        citizen.Clear();
+        Managers.Resource.Destroy(citizen.gameObject);
     }
 
     protected override void Init()

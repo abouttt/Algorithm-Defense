@@ -6,10 +6,15 @@ using UnityEngine.Tilemaps;
 public class RoadBuilder : BaseBuilder
 {
     private static RoadBuilder s_instance;
-    public static RoadBuilder GetInstance { get { init(); return s_instance; } }
+    public static RoadBuilder GetInstance { get { Init(); return s_instance; } }
 
-    public static readonly string ROAD_RULETILE_PATH = "Tiles/RuleTiles/";
     public static readonly string ROAD_TILE_PATH = "Tiles/Roads/";
+    public static readonly string ROAD_RULETILE_PATH = "Tiles/RuleTiles/";
+
+    private void Start()
+    {
+        _tempTilemap = Managers.Tile.GetTilemap(Define.Tilemap.RoadTemp);
+    }
 
     public override void SetTarget(Define.TileObject tileObject)
     {
@@ -25,17 +30,12 @@ public class RoadBuilder : BaseBuilder
         Managers.Tile.SetTile(Define.Tilemap.Road, cellPos, tileBase);
     }
 
-    protected override void Init()
+    private static void Init()
     {
-        _tempTilemap = Managers.Tile.GetTilemap(Define.Tilemap.RoadTemp);
-    }
-
-    private static void init()
-    {
-        if (s_instance == null)
+        if (!s_instance)
         {
             var go = GameObject.Find("@RoadBuilder");
-            if (go == null)
+            if (!go)
             {
                 go = new GameObject { name = "@RoadBuilder" };
                 go.AddComponent<RoadBuilder>();

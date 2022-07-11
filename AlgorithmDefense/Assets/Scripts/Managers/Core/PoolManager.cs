@@ -8,7 +8,7 @@ public class PoolManager
     private class Pool
     {
         public GameObject Original { get; private set; }
-        public Transform Root { get; set; }
+        public Transform Root { get; private set; }
 
         private Stack<Poolable> _poolStack = new Stack<Poolable>();
 
@@ -19,13 +19,13 @@ public class PoolManager
 
             for (int i = 0; i < count; i++)
             {
-                Push(create());
+                Push(Create());
             }
         }
 
         public void Push(Poolable poolable)
         {
-            if (poolable == null)
+            if (!poolable)
             {
                 Debug.Log("[PoolManager\\Pool] Poolable Object is null.");
                 return;
@@ -45,16 +45,16 @@ public class PoolManager
 
         public Poolable Pop(Vector3 position, Transform parent)
         {
-            var poolable = _poolStack.Count > 0 ? _poolStack.Pop() : create();
-            poolable.transform.position = position;
+            var poolable = _poolStack.Count > 0 ? _poolStack.Pop() : Create();
             poolable.gameObject.SetActive(true);
+            poolable.transform.position = position;
             poolable.transform.parent = parent == null ? Root : parent;
             poolable.IsUsing = true;
 
             return poolable;
         }
 
-        private Poolable create()
+        private Poolable Create()
         {
             var go = Object.Instantiate(Original);
             go.name = Original.name;
@@ -69,7 +69,7 @@ public class PoolManager
     public void Init()
     {
         var root = GameObject.Find("@Pool_Root");
-        if (root == null)
+        if (!root)
         {
             root = new GameObject { name = "@Pool_Root" };
         }
@@ -141,7 +141,7 @@ public class PoolManager
     public void ClearPool(GameObject go)
     {
         var poolable = go.GetComponent<Poolable>();
-        if (poolable == null)
+        if (!poolable)
         {
             Debug.Log($"[PoolManager] {go.name} is not a Poolabe Object.");
             return;
