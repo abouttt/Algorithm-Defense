@@ -524,7 +524,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4264555455075623063}
   - component: {fileID: 2468912302967213579}
-  - component: {fileID: 5901687366576942039}
   m_Layer: 0
   m_Name: Back
   m_TagString: Untagged
@@ -599,18 +598,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5901687366576942039
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1136493783769305578}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c562f92f3b8b435d98ac3b65547b755, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1187694999698968123
 GameObject:
   m_ObjectHideFlags: 0
@@ -891,11 +878,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _state: 0
   <CitizenType>k__BackingField: 0
-  <MoveType>k__BackingField: 0
-  <Class>k__BackingField: 0
-  <Tier>k__BackingField: 0
-  <TempClass>k__BackingField: 0
-  <ClassTrainingCount>k__BackingField: 0
+  MoveType: 0
+  Class: 0
+  Tier: 0
+  TempClass: 0
+  ClassTrainingCount: 0
+  PrevPos: {x: 0, y: 0, z: 0}
+  IsExit: 0
   _moveSpeed: 2
 --- !u!114 &6223636699361473407
 MonoBehaviour:
@@ -909,6 +898,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1177474cf8c0084b8a2023f9bc83f14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsUsing: 0
 --- !u!1 &2075749379517350861
 GameObject:
   m_ObjectHideFlags: 0
@@ -1158,7 +1148,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: c5a65547d1edf4a9d882bd6cff83eda8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2022,7 +2012,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5920171216963590834}
   - component: {fileID: 7683256227844759847}
-  - component: {fileID: 8476772163037893010}
   m_Layer: 0
   m_Name: Back
   m_TagString: Untagged
@@ -2097,18 +2086,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8476772163037893010
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4857880919182649893}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c562f92f3b8b435d98ac3b65547b755, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4931887340495807900
 GameObject:
   m_ObjectHideFlags: 0
@@ -2685,7 +2662,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: c5a65547d1edf4a9d882bd6cff83eda8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2870,7 +2847,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: c5a65547d1edf4a9d882bd6cff83eda8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3180,7 +3157,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7739408866197142239}
   - component: {fileID: 596311467691252312}
-  - component: {fileID: 266806234530154224}
   m_Layer: 0
   m_Name: Front
   m_TagString: Untagged
@@ -3255,18 +3231,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &266806234530154224
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7847163011689098848}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c562f92f3b8b435d98ac3b65547b755, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7857288078931014728
 GameObject:
   m_ObjectHideFlags: 0
@@ -3482,7 +3446,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: c5a65547d1edf4a9d882bd6cff83eda8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3682,7 +3646,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: c5a65547d1edf4a9d882bd6cff83eda8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
