@@ -1,0 +1,121 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Tilemaps;
+
+public class TileObjectBuilder : MonoBehaviour
+{
+    private static TileObjectBuilder s_instance;
+    public static TileObjectBuilder GetInstance { get { Init(); return s_instance; } }
+
+    public bool IsBuilding { get; private set; }
+
+    private TileBase _target;
+    private Tile _targetTile;
+    private Vector3Int _prevCellPos;
+    private bool _canBuild;
+
+    private void Update()
+    {
+        if (_target)
+        {
+            IsBuilding = true;
+
+            if (Input.GetMouseButtonDown(1))
+            {
+                Release();
+                return;
+            }
+
+            CheckCanBuild(MouseController.GetInstance.MouseCellPos);
+
+            if (_canBuild && Input.GetMouseButton(0))
+            {
+                Build(_target, MouseController.GetInstance.MouseCellPos);
+            }
+        }
+    }
+
+    public void SetRoadTarget()
+    {
+        Release();
+
+        _target = Managers.Resource.Load<TileBase>($"{Define.RULE_TILE_PATH}RoadRuleTile");
+        _targetTile = Managers.Resource.Load<Tile>("Tiles/Roads/Road_B");
+    }
+
+    public void SetBuildingTarget(Define.Building building)
+    {
+        Release();
+
+        _target = Managers.Resource.Load<TileBase>($"{Define.RULE_TILE_PATH}{building.ToString()}RuleTile");
+        _targetTile = Managers.Resource.Load<Tile>($"Tiles/Buildings/{building.ToString()}");
+    }
+
+    public void Build(TileBase tileBase, Vector3Int cellPos)
+    {
+        if (tileBase.name.Equals("RoadRuleTile"))
+        {
+            Managers.Tile.SetTile(Define.Tilemap.Road, cellPos, tileBase);
+        }
+        else
+        {
+            Managers.Tile.SetTile(Define.Tilemap.Building, cellPos, tileBase);
+            Release();
+        }
+    }
+
+    private void CheckCanBuild(Vector3Int cellPos)
+    {
+        if (_prevCellPos == cellPos)
+        {
+            return;
+        }
+
+        Managers.Tile.SetTile(Define.Tilemap.Temp, _prevCellPos, null);
+
+        if (Managers.Tile.GetTile(Define.Tilemap.Building, cellPos))
+        {
+            _targetTile.color = Color.red;
+            _canBuild = false;
+        }
+        else
+        {
+            _targetTile.color = Color.white;
+            _canBuild = true;
+        }
+
+        Managers.Tile.SetTile(Define.Tilemap.Temp, cellPos, _targetTile);
+
+        _prevCellPos = cellPos;
+    }
+
+    public void Release()
+    {
+        if (!_target)
+        {
+            return;
+        }
+
+        IsBuilding = false;
+        Managers.Tile.SetTile(Define.Tilemap.Temp, _prevCellPos, null);
+        _targetTile.color = Color.white;
+        _targetTile = null;
+        _target = null;
+        _canBuild = false;
+    }
+
+    private static void Init()
+    {
+        if (s_instance == null)
+        {
+            var go = GameObject.Find("@TileObjectBuilder");
+            if (go == null)
+            {
+                go = Util.CreateGameObject<TileObjectBuilder>("@TileObjectBuilder");
+            }
+
+            s_instance = go.GetComponent<TileObjectBuilder>();
+        }
+    }
+}

@@ -10,9 +10,6 @@ public class CitizenController : BaseController
 
     public Define.Move MoveType = Define.Move.None;
 
-    public Vector3Int PrevPos;
-    public bool IsExit;
-
     [SerializeField]
     private float _moveSpeed;
     private SpriteRenderer _weaponSpriteRenderer;
@@ -26,7 +23,7 @@ public class CitizenController : BaseController
     
     public void SetWeapon(Sprite weaponSprite) => _weaponSpriteRenderer.sprite = weaponSprite;
 
-    public void SetDestination()
+    public void SetNextDestination()
     {
         var cellPos = Managers.Tile.GetWorldToCell(Define.Tilemap.Ground, transform.position);
         switch (MoveType)
@@ -50,7 +47,7 @@ public class CitizenController : BaseController
         _dest = Managers.Tile.GetCellCenterToWorld(Define.Tilemap.Ground, cellPos);
     }
 
-    public void TurnAround()
+    public void SetOppositeMoveType()
     {
         switch (MoveType)
         {
@@ -71,36 +68,28 @@ public class CitizenController : BaseController
 
     protected override void UpdateMoving()
     {
+        transform.position = Vector2.MoveTowards(transform.position, _dest, (_moveSpeed * Time.deltaTime));
+
         var cellPos = Managers.Tile.GetWorldToCell(Define.Tilemap.Ground, transform.position);
         if (Vector2.Distance(transform.position, _dest) <= 0.01f)
         {
             CheckRoad(cellPos);
-            SetDestination();
+            SetNextDestination();
         }
 
-        transform.position = Vector2.MoveTowards(transform.position, _dest, (_moveSpeed * Time.deltaTime));
-
-        if (IsExit)
-        {
-            CheckOnBuilding(cellPos);
-        }
-
-        if (!IsExit && PrevPos != cellPos)
-        {
-            IsExit = true;
-            PrevPos = cellPos;
-        }
+        CheckBuilding(cellPos);
     }
 
-    private void CheckOnBuilding(Vector3Int cellPos)
+    private void CheckBuilding(Vector3Int cellPos)
     {
-        var tile = Managers.Tile.GetTile(Define.Tilemap.Building, cellPos) as Tile;
-        if (!tile)
+        //var tile = Managers.Tile.GetTile(Define.Tilemap.Building, cellPos) as Tile;
+        var go = Managers.Tile.GetTilemap(Define.Tilemap.Building).GetInstantiatedObject(cellPos);
+        if (!go)
         {
             return;
         }
 
-        //tile.gameObject.GetComponent<BaseBuilding>().EnterTheBuilding(this);
+        go.GetComponent<BaseBuilding>().EnterTheBuilding(this);
     }
 
     private void CheckRoad(Vector3Int cellPos)
@@ -119,20 +108,20 @@ public class CitizenController : BaseController
             case Define.Road.BD:
             case Define.Road.BL:
             case Define.Road.BR:
-                TurnAround();
+                SetOppositeMoveType();
                 break;
             case Define.Road.TU:
             case Define.Road.TD:
                 if (IsMoveTypeUD())
                 {
-                    TurnAround();
+                    SetOppositeMoveType();
                 }
                 break;
             case Define.Road.TL:
             case Define.Road.TR:
                 if (!IsMoveTypeUD())
                 {
-                    TurnAround();
+                    SetOppositeMoveType();
                 }
                 break;
             case Define.Road.CUL:

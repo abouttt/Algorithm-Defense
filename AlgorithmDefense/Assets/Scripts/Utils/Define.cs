@@ -4,14 +4,16 @@ using UnityEngine;
 
 public static class Define
 {
+    public static readonly string CONTENTS_PATH = "Prefabs/Contents/";
+    public static readonly string CITIZEN_PATH = "Prefabs/Citizens/";
+    public static readonly string RULE_TILE_PATH = "Tiles/RuleTiles/";
+
     public enum Tilemap
     {
         Ground,
         Road,
         Building,
-        GroundTemp,
-        RoadTemp,
-        BuildingTemp,
+        Temp,
     }
 
     public enum Road
@@ -36,7 +38,7 @@ public static class Define
 
     public enum Building
     {
-        
+        Gateway,
     }
 
     public enum Class
