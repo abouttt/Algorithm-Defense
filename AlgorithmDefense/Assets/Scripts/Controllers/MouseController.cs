@@ -38,10 +38,10 @@ public class MouseController : MonoBehaviour
                 return;
             }
 
-            var tile = Managers.Tile.GetTile(Define.Tilemap.Building, MouseCellPos) as Tile;
-            if (tile)
+            var go = Managers.Tile.GetTilemap(Define.Tilemap.Building).GetInstantiatedObject(MouseCellPos);
+            if (go)
             {
-                var building = tile.gameObject.GetComponent<BaseBuilding>();
+                var building = go.GetComponent<BaseBuilding>();
                 if (building.HasUI)
                 {
                     // TODO
