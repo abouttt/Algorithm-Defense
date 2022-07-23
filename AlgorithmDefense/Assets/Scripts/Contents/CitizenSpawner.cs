@@ -13,8 +13,9 @@ public class CitizenSpawner : MonoBehaviour
     public (Define.Citizen, bool)[] CitizenSpawnList { get; private set; }
     public bool IsSpawning { get; private set; }
 
-    private Vector3Int _spawnCellPos;
+    [SerializeField]
     private float _spawnTime;
+    private Vector3Int _spawnCellPos;
 
     private Define.Citizen _spawnTarget;
     private int _spawnIndex = 0;
@@ -72,8 +73,7 @@ public class CitizenSpawner : MonoBehaviour
         _spawnTime = spawnTime;
 
         var road = Managers.Resource.Load<RuleTile>($"{Define.RULE_TILE_PATH}RoadRuleTile");
-        //Managers.Tile.SetTile(Define.Tilemap.Road, spawnPos, road);
-        TileObjectBuilder.GetInstance.Build(road, spawnPos);
+        Managers.Tile.SetTile(Define.Tilemap.Road, spawnPos, road);
     }
 
     // 시민 종류에 따라 스폰 여부를 결정한다.
@@ -119,7 +119,7 @@ public class CitizenSpawner : MonoBehaviour
                 }
             }
 
-            var pos = Managers.Tile.GetCellCenterToWorld(Define.Tilemap.Ground, _spawnCellPos) + new Vector3(0.5f, 0, 0);
+            var pos = Managers.Tile.GetCellCenterToWorld(Define.Tilemap.Ground, _spawnCellPos);
             var go = Managers.Resource.Instantiate($"{Define.CITIZEN_PATH}{_spawnTarget.ToString()}Citizen", pos);
             var citizen = go.GetComponent<CitizenController>();
             citizen.MoveType = Define.Move.Right;

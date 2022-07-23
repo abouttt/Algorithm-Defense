@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -41,15 +42,15 @@ public class TileObjectBuilder : MonoBehaviour
         Release();
 
         _target = Managers.Resource.Load<TileBase>($"{Define.RULE_TILE_PATH}RoadRuleTile");
-        _targetTile = Managers.Resource.Load<Tile>("Tiles/Roads/Road_B");
+        _targetTile = Managers.Resource.Load<Tile>($"{Define.ROAD_TILE_PATH}Road_B");
     }
 
     public void SetBuildingTarget(Define.Building building)
     {
         Release();
 
-        _target = Managers.Resource.Load<TileBase>($"{Define.RULE_TILE_PATH}{building.ToString()}RuleTile");
-        _targetTile = Managers.Resource.Load<Tile>($"Tiles/Buildings/{building.ToString()}");
+        _target = Managers.Resource.Load<TileBase>($"{Define.BUILDING_TILE_PATH}{building.ToString()}");
+        _targetTile = _target as Tile;
     }
 
     public void Build(TileBase tileBase, Vector3Int cellPos)
@@ -61,6 +62,8 @@ public class TileObjectBuilder : MonoBehaviour
         else
         {
             Managers.Tile.SetTile(Define.Tilemap.Building, cellPos, tileBase);
+            SetRoadTarget();
+            Managers.Tile.SetTile(Define.Tilemap.Road, cellPos, _target);
             Release();
         }
     }

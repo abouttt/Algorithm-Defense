@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,8 @@ using UnityEngine.Tilemaps;
 
 public class GameScene : MonoBehaviour
 {
+    [Header("[게임 초기 설정] - 씬 시작 시 1회만 동작한다.")]
+    
     [Header("[그라운드 생성]")]
     [SerializeField]
     private int _groundWidth;
@@ -35,6 +38,7 @@ public class GameScene : MonoBehaviour
     {
         InitContents();
         InitCamera();
+        InitTilesObject();
         InitGround();
         InitSpawn();
 
@@ -75,10 +79,10 @@ public class GameScene : MonoBehaviour
             for (var y = 0; y < _groundHeight; y++)
             {
                 int grassTileNum = 1;
-                int randNum = Random.Range(0, 100);
+                int randNum = UnityEngine.Random.Range(0, 100);
                 if (randNum <= _grassPercentage)
                 {
-                    grassTileNum = Random.Range(2, 4);
+                    grassTileNum = UnityEngine.Random.Range(2, 4);
                 }
 
                 var tile = Managers.Resource.Load<Tile>($"Tiles/Grounds/Grass_{grassTileNum}");
@@ -90,5 +94,15 @@ public class GameScene : MonoBehaviour
     private void InitSpawn()
     {
         CitizenSpawner.GetInstance.Setup(_spawnCellPos, _spawnTime);
+    }
+
+    private void InitTilesObject()
+    {
+        var buildingNames = Enum.GetNames(typeof(Define.Building));
+        foreach (var buildingName in buildingNames)
+        {
+            var tile = Managers.Resource.Load<Tile>($"{Define.BUILDING_TILE_PATH}{buildingName}");
+            tile.gameObject = Managers.Resource.Load<GameObject>($"{Define.BUILDING_PATH}{buildingName}");
+        }
     }
 }
