@@ -757,6 +757,53 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1225086662
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1225086663}
+  - component: {fileID: 1225086664}
+  m_Layer: 0
+  m_Name: DataSaveLoadTest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1225086663
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225086662}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1225086664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225086662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36f275fab4ac08e439f0448a0a9886fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Save: 0
+  Load: 0
+  Clear: 0
 --- !u!1 &1505168555
 GameObject:
   m_ObjectHideFlags: 0
@@ -834,13 +881,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 612e9eaa27ff8db4c9223b84cedef549, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _groundWidth: 50
-  _groundHeight: 15
-  _grassPercentage: 5
   _cameraX: 13.5
   _cameraY: 7.5
   _cameraZ: -10
   _cameraSize: 7.5
+  _groundWidth: 50
+  _groundHeight: 15
+  _grassPercentage: 5
+  _rampartWidth: 25
+  _rampartHeight: 15
   _spawnCellPos: {x: 0, y: 7, z: 0}
   _spawnTime: 1
 --- !u!4 &1717982457

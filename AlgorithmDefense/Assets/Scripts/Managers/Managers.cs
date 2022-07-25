@@ -7,21 +7,17 @@ public class Managers : MonoBehaviour
     private static Managers s_instance;
     private static Managers Instance { get { Init(); return s_instance; } }
 
-    #region Contents
-    private TileManager _tile = new TileManager();
-
-    public static TileManager Tile { get { return Instance._tile; } }
-    #endregion
-
-    #region Core
+    private DataManager _data = new DataManager();
     private PoolManager _pool = new PoolManager();
     private ResourceManager _resource = new ResourceManager();
     private SoundManager _sound = new SoundManager();
+    private TileManager _tile = new TileManager();
 
+    public static DataManager Data { get { return Instance._data; } }
     public static PoolManager Pool { get { return Instance._pool; } }
     public static ResourceManager Resource { get { return Instance._resource; } }
     public static SoundManager Sound { get { return Instance._sound; } }
-    #endregion
+    public static TileManager Tile { get { return Instance._tile; } }
 
     private void Start()
     {
@@ -32,6 +28,7 @@ public class Managers : MonoBehaviour
     {
         Pool.Clear();
         Sound.Clear();
+        Data.Clear();
     }
 
     private static void Init()
@@ -49,7 +46,7 @@ public class Managers : MonoBehaviour
             s_instance = go.GetComponent<Managers>();
 
             s_instance._tile.Init();
-
+            s_instance._data.Init();
             s_instance._pool.Init();
             s_instance._sound.Init();
         }

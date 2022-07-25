@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Road_TWU
+  m_Name: Rampart_CR
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: 3563f1b1a97310f41b6b8b681e638a9a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 77fda99f306392a4fb92d6b7a62b5bcc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1

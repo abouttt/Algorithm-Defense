@@ -5,12 +5,13 @@ using UnityEngine;
 public static class Define
 {
     public static readonly string CONTENTS_PATH = "Prefabs/Contents/";
-    public static readonly string CITIZEN_PATH = "Prefabs/Citizens/";
-    public static readonly string BUILDING_PATH = "Prefabs/Buildings/";
+    public static readonly string CITIZEN_PATH = "Prefabs/Units/Citizens/";
+    public static readonly string BUILDING_PREFAB_PATH = "Prefabs/TileObject/Buildings/";
+    public static readonly string ROAD_PREFAB_PATH = "Prefabs/TileObject/Roads/";
     public static readonly string ROAD_TILE_PATH = "Tiles/Roads/";
     public static readonly string RULE_TILE_PATH = "Tiles/RuleTiles/";
     public static readonly string BUILDING_TILE_PATH = "Tiles/Buildings/";
-
+    
     public enum Tilemap
     {
         Ground,
@@ -84,6 +85,11 @@ public static class Define
         Moving,
         Attack,
         Die,
+    }
+
+    public enum Data
+    {
+        TilemapData,
     }
 
     public enum Sound
