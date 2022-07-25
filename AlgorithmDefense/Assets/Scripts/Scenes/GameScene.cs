@@ -49,8 +49,6 @@ public class GameScene : MonoBehaviour
         InitRampart();
         InitSpawn();
 
-        TileObjectBuilder.GetInstance.SetBuildingTarget(Define.Building.Gateway);
-
         Destroy(this);
     }
 

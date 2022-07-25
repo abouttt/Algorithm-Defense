@@ -20,16 +20,6 @@ public class CitizenSpawner : MonoBehaviour
     private Define.Citizen _spawnTarget;
     private int _spawnIndex = 0;
 
-    // 인스펙터 실험용 변수
-    [SerializeField]
-    private bool _onRed;
-    [SerializeField]
-    private bool _onGreen;
-    [SerializeField]
-    private bool _onBlue;
-    [SerializeField]
-    private bool _onYellow;
-
     private void Start()
     {
         Init();
@@ -41,30 +31,6 @@ public class CitizenSpawner : MonoBehaviour
             (Define.Citizen.Blue, false),
             (Define.Citizen.Yellow, false),
         };
-    }
-
-    private void Update()
-    {
-        if (_onRed)
-        {
-            SetOnOff(Define.Citizen.Red);
-            _onRed = false;
-        }
-        if (_onGreen)
-        {
-            SetOnOff(Define.Citizen.Green);
-            _onGreen = false;
-        }
-        if (_onBlue)
-        {
-            SetOnOff(Define.Citizen.Blue);
-            _onBlue = false;
-        }
-        if (_onYellow)
-        {
-            SetOnOff(Define.Citizen.Yellow);
-            _onYellow = false;
-        }
     }
 
     public void Setup(Vector3Int spawnPos, float spawnTime)

@@ -68,7 +68,14 @@ public class DataManager
                     else
                     {
                         var tile = Managers.Resource.Load<TileBase>($"{Define.BUILDING_TILE_PATH}{data.TileName}");
-                        TileObjectBuilder.GetInstance.Build(tile, data.Pos);
+                        if (tile.name.Contains("Rampart"))
+                        {
+                            Managers.Tile.SetTile(Define.Tilemap.Building, data.Pos, tile);
+                        }
+                        else
+                        {
+                            TileObjectBuilder.GetInstance.Build(tile, data.Pos);
+                        }
                     }
                 }
             }
