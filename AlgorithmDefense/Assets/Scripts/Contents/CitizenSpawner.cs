@@ -40,6 +40,7 @@ public class CitizenSpawner : MonoBehaviour
 
         var road = Managers.Resource.Load<RuleTile>($"{Define.RULE_TILE_PATH}RoadRuleTile");
         Managers.Tile.SetTile(Define.Tilemap.Road, spawnPos, road);
+        Managers.Tile.SetTile(Define.Tilemap.Road, spawnPos + Vector3Int.right, road);
     }
 
     // 시민 종류에 따라 스폰 여부를 결정한다.
