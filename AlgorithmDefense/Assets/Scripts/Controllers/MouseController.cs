@@ -82,7 +82,7 @@ public class MouseController : MonoBehaviour
         if (s_instance == null)
         {
             var go = GameObject.Find("@MouseController");
-            if (go == null)
+            if (!go)
             {
                 go = Util.CreateGameObject<MouseController>("@MouseController");
             }

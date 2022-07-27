@@ -113,7 +113,7 @@ public class TileObjectBuilder : MonoBehaviour
         if (s_instance == null)
         {
             var go = GameObject.Find("@TileObjectBuilder");
-            if (go == null)
+            if (!go)
             {
                 go = Util.CreateGameObject<TileObjectBuilder>("@TileObjectBuilder");
             }

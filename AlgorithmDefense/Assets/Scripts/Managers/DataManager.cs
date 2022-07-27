@@ -10,7 +10,7 @@ public class DataManager
     [Serializable]
     public class TilemapData
     {
-        public Vector3Int Pos;
+        public Vector3Int CellPos;
         public string TileName;
     }
 
@@ -36,7 +36,7 @@ public class DataManager
                 {
                     _tilemapDatas[tilemapData.Key].Add(new TilemapData
                     {
-                        Pos = pos,
+                        CellPos = pos,
                         TileName = tilemap.GetTile(localPlace).name
                     });
                 }
@@ -63,18 +63,18 @@ public class DataManager
                     if (data.TileName.Equals("RoadRuleTile"))
                     {
                         var tile = Managers.Resource.Load<RuleTile>($"{Define.RULE_TILE_PATH}{data.TileName}");
-                        TileObjectBuilder.GetInstance.Build(tile, data.Pos);
+                        TileObjectBuilder.GetInstance.Build(tile, data.CellPos);
                     }
                     else
                     {
                         var tile = Managers.Resource.Load<TileBase>($"{Define.BUILDING_TILE_PATH}{data.TileName}");
                         if (tile.name.Contains("Rampart"))
                         {
-                            Managers.Tile.SetTile(Define.Tilemap.Building, data.Pos, tile);
+                            Managers.Tile.SetTile(Define.Tilemap.Building, data.CellPos, tile);
                         }
                         else
                         {
-                            TileObjectBuilder.GetInstance.Build(tile, data.Pos);
+                            TileObjectBuilder.GetInstance.Build(tile, data.CellPos);
                         }
                     }
                 }
