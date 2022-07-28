@@ -6,16 +6,16 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 
 [Serializable]
-public class Serialization<T>
+public class SerializationList<T>
 {
     [SerializeField]
     private List<T> _target;
 
     public List<T> ToList()
-    { 
+    {
         return _target;
     }
-    public Serialization(List<T> target)
+    public SerializationList(List<T> target)
     {
         _target = target;
     }
@@ -55,7 +55,7 @@ public class DataManager
             }
         }
 
-        string json = JsonUtility.ToJson(new Serialization<TilemapSaveData>(_tilemapDatas), true);
+        string json = JsonUtility.ToJson(new SerializationList<TilemapSaveData>(_tilemapDatas), true);
         File.WriteAllText($"{Define.SAVE_DATA_PATH.ToString()}{Define.Data.TilemapData}.json", json);
 
         // Ω√πŒ ¿˙¿Â.
@@ -81,13 +81,13 @@ public class DataManager
                         Scale = item.transform.localScale,
                         Data = item.GetComponent<CitizenController>().Data
                     };
-                    
+
                     _citizenDatas.Add(saveData);
                 }
             }
         }
 
-        json = JsonUtility.ToJson(new Serialization<CitizenSaveData>(_citizenDatas), true);
+        json = JsonUtility.ToJson(new SerializationList<CitizenSaveData>(_citizenDatas), true);
         File.WriteAllText($"{Define.SAVE_DATA_PATH.ToString()}{Define.Data.CitizenData}.json", json);
     }
 
@@ -97,32 +97,38 @@ public class DataManager
         // ≈∏¿œ∏  ∑ŒµÂ.
 
         string json = File.ReadAllText($"{Define.SAVE_DATA_PATH.ToString()}{Define.Data.TilemapData}.json");
-        _tilemapDatas = JsonUtility.FromJson<Serialization<TilemapSaveData>>(json).ToList();
-
-        foreach (var tilemapData in _tilemapDatas)
+        if (!json.Equals(""))
         {
-            var tilemap = Managers.Tile.GetTilemap(tilemapData.Tilemap);
-            tilemap.ClearAllTiles();
+            _tilemapDatas = JsonUtility.FromJson<SerializationList<TilemapSaveData>>(json).ToList();
 
-            for (int i = 0; i < tilemapData.Tiles.Count; i++)
+            foreach (var tilemapData in _tilemapDatas)
             {
-                tilemap.SetTile(tilemapData.CellPoses[i], tilemapData.Tiles[i]);
+                var tilemap = Managers.Tile.GetTilemap(tilemapData.Tilemap);
+                tilemap.ClearAllTiles();
+
+                for (int i = 0; i < tilemapData.Tiles.Count; i++)
+                {
+                    tilemap.SetTile(tilemapData.CellPoses[i], tilemapData.Tiles[i]);
+                }
             }
         }
 
         // Ω√πŒ ∑ŒµÂ.
 
         json = File.ReadAllText($"{Define.SAVE_DATA_PATH.ToString()}{Define.Data.CitizenData}.json");
-        _citizenDatas = JsonUtility.FromJson<Serialization<CitizenSaveData>>(json).ToList();
-
-        foreach (var data in _citizenDatas)
+        if (!json.Equals(""))
         {
-            var go = Managers.Resource.Instantiate($"{Define.CITIZEN_PATH}{data.Data.CitizenType.ToString()}Citizen");
-            go.transform.position = data.Position;
-            go.transform.rotation = data.Rotation;
-            go.transform.localScale = data.Scale;
-            var citizen = go.GetComponent<CitizenController>();
-            citizen.Data = data.Data;
+            _citizenDatas = JsonUtility.FromJson<SerializationList<CitizenSaveData>>(json).ToList();
+
+            foreach (var data in _citizenDatas)
+            {
+                var go = Managers.Resource.Instantiate($"{Define.CITIZEN_PATH}{data.Data.CitizenType.ToString()}Citizen");
+                go.transform.position = data.Position;
+                go.transform.rotation = data.Rotation;
+                go.transform.localScale = data.Scale;
+                var citizen = go.GetComponent<CitizenController>();
+                citizen.Data = data.Data;
+            }
         }
     }
 

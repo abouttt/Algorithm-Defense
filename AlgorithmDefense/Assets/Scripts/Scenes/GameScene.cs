@@ -49,7 +49,7 @@ public class GameScene : MonoBehaviour
         InitRampart();
         InitSpawn();
 
-        Destroy(this);
+        Destroy(gameObject);
     }
 
     private void InitCamera()
