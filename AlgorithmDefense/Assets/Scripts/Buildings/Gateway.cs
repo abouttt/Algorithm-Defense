@@ -29,7 +29,7 @@ public class Gateway : BaseBuilding
 
             var citizen = DequeueCitizen();
 
-            var directionConditionMoveType = _directionCondition[citizen.CitizenType];
+            var directionConditionMoveType = _directionCondition[citizen.Data.CitizenType];
             if (directionConditionMoveType == Define.Move.None)
             {
                 citizen.SetOppositeMoveType();
@@ -38,7 +38,7 @@ public class Gateway : BaseBuilding
             {
                 if (IsRoadNextPosition(directionConditionMoveType))
                 {
-                    citizen.MoveType = directionConditionMoveType;
+                    citizen.Data.MoveType = directionConditionMoveType;
                 }
                 else
                 {

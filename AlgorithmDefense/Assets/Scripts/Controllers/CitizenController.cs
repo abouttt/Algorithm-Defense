@@ -5,15 +5,8 @@ using UnityEngine.Tilemaps;
 
 public class CitizenController : BaseController
 {
-    [field: SerializeField]
-    public Define.Citizen CitizenType { get; private set; }
-
-    public Define.Move MoveType = Define.Move.None;
-
-    [SerializeField]
-    private float _moveSpeed;
+    public CitizenData Data = new CitizenData();
     private SpriteRenderer _weaponSpriteRenderer;
-    private Vector3 _dest;
 
     public override void Init()
     {
@@ -26,7 +19,7 @@ public class CitizenController : BaseController
     public void SetNextDestination()
     {
         var cellPos = Managers.Tile.GetWorldToCell(Define.Tilemap.Ground, transform.position);
-        switch (MoveType)
+        switch (Data.MoveType)
         {
             case Define.Move.Down:
                 cellPos.y--;
@@ -44,34 +37,34 @@ public class CitizenController : BaseController
                 break;
         }
 
-        _dest = Managers.Tile.GetCellCenterToWorld(Define.Tilemap.Ground, cellPos);
+        Data.Destination = Managers.Tile.GetCellCenterToWorld(Define.Tilemap.Ground, cellPos);
     }
 
     public void SetOppositeMoveType()
     {
-        switch (MoveType)
+        switch (Data.MoveType)
         {
             case Define.Move.Right:
-                MoveType = Define.Move.Left;
+                Data.MoveType = Define.Move.Left;
                 break;
             case Define.Move.Left:
-                MoveType = Define.Move.Right;
+                Data.MoveType = Define.Move.Right;
                 break;
             case Define.Move.Up:
-                MoveType = Define.Move.Down;
+                Data.MoveType = Define.Move.Down;
                 break;
             case Define.Move.Down:
-                MoveType = Define.Move.Up;
+                Data.MoveType = Define.Move.Up;
                 break;
         }
     }
 
     protected override void UpdateMoving()
     {
-        transform.position = Vector2.MoveTowards(transform.position, _dest, (_moveSpeed * Time.deltaTime));
+        transform.position = Vector2.MoveTowards(transform.position, Data.Destination, (Data.MoveSpeed * Time.deltaTime));
 
         var cellPos = Managers.Tile.GetWorldToCell(Define.Tilemap.Ground, transform.position);
-        if (Vector2.Distance(transform.position, _dest) <= 0.01f)
+        if (Vector2.Distance(transform.position, Data.Destination) <= 0.01f)
         {
             CheckRoad(cellPos);
             SetNextDestination();
@@ -125,19 +118,19 @@ public class CitizenController : BaseController
                 }
                 break;
             case Define.Road.CUL:
-                MoveType = IsMoveTypeUD() ? Define.Move.Left : Define.Move.Down;
+                Data.MoveType = IsMoveTypeUD() ? Define.Move.Left : Define.Move.Down;
                 break;
             case Define.Road.CUR:
-                MoveType = IsMoveTypeUD() ? Define.Move.Right : Define.Move.Down;
+                Data.MoveType = IsMoveTypeUD() ? Define.Move.Right : Define.Move.Down;
                 break;
             case Define.Road.CDR:
-                MoveType = IsMoveTypeUD() ? Define.Move.Right : Define.Move.Up;
+                Data.MoveType = IsMoveTypeUD() ? Define.Move.Right : Define.Move.Up;
                 break;
             case Define.Road.CDL:
-                MoveType = IsMoveTypeUD() ? Define.Move.Left : Define.Move.Up;
+                Data.MoveType = IsMoveTypeUD() ? Define.Move.Left : Define.Move.Up;
                 break;
         }
     }
 
-    private bool IsMoveTypeUD() => (MoveType == Define.Move.Up) || (MoveType == Define.Move.Down);
+    private bool IsMoveTypeUD() => (Data.MoveType == Define.Move.Up) || (Data.MoveType == Define.Move.Down);
 }

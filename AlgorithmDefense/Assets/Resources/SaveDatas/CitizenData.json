@@ -1,0 +1,144 @@
+{
+    "_target": [
+        {
+            "Position": {
+                "x": 10.51606559753418,
+                "y": 4.500000476837158,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "Scale": {
+                "x": -1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "Data": {
+                "<CitizenType>k__BackingField": 1,
+                "MoveType": 2,
+                "MoveSpeed": 1.5,
+                "Destination": {
+                    "x": 11.5,
+                    "y": 4.5,
+                    "z": 0.0
+                }
+            }
+        },
+        {
+            "Position": {
+                "x": 9.01561450958252,
+                "y": 4.5031657218933109,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "Scale": {
+                "x": -1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "Data": {
+                "<CitizenType>k__BackingField": 2,
+                "MoveType": 2,
+                "MoveSpeed": 1.5,
+                "Destination": {
+                    "x": 9.5,
+                    "y": 4.5,
+                    "z": 0.0
+                }
+            }
+        },
+        {
+            "Position": {
+                "x": 8.499999046325684,
+                "y": 5.4938201904296879,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "Scale": {
+                "x": -1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "Data": {
+                "<CitizenType>k__BackingField": 3,
+                "MoveType": 4,
+                "MoveSpeed": 1.5,
+                "Destination": {
+                    "x": 8.5,
+                    "y": 4.5,
+                    "z": 0.0
+                }
+            }
+        },
+        {
+            "Position": {
+                "x": 7.494213104248047,
+                "y": 7.5,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "Scale": {
+                "x": -1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "Data": {
+                "<CitizenType>k__BackingField": 4,
+                "MoveType": 2,
+                "MoveSpeed": 1.5,
+                "Destination": {
+                    "x": 8.5,
+                    "y": 7.5,
+                    "z": 0.0
+                }
+            }
+        },
+        {
+            "Position": {
+                "x": 8.496210098266602,
+                "y": 6.99398946762085,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "Scale": {
+                "x": -1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "Data": {
+                "<CitizenType>k__BackingField": 4,
+                "MoveType": 4,
+                "MoveSpeed": 1.5,
+                "Destination": {
+                    "x": 8.5,
+                    "y": 6.5,
+                    "z": 0.0
+                }
+            }
+        }
+    ]
+}

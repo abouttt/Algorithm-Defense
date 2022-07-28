@@ -937,9 +937,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _state: 0
-  <CitizenType>k__BackingField: 1
-  MoveType: 0
-  _moveSpeed: 2
+  Data:
+    <CitizenType>k__BackingField: 1
+    MoveType: 0
+    MoveSpeed: 1.5
+    Destination: {x: 0, y: 0, z: 0}
 --- !u!114 &4752205172462892363
 MonoBehaviour:
   m_ObjectHideFlags: 0

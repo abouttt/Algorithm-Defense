@@ -44,7 +44,7 @@ public abstract class BaseBuilding : MonoBehaviour
     {
         var pos = Managers.Tile.GetWorldToCellCenterToWorld(Define.Tilemap.Ground, transform.position);
 
-        switch (citizen.MoveType)
+        switch (citizen.Data.MoveType)
         {
             case Define.Move.Right:
                 pos += new Vector3(0.5f, 0, 0);

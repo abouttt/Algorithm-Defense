@@ -1,94 +1,134 @@
 using System;
+using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using Newtonsoft.Json;
+
+[Serializable]
+public class Serialization<T>
+{
+    [SerializeField]
+    private List<T> _target;
+
+    public List<T> ToList()
+    { 
+        return _target;
+    }
+    public Serialization(List<T> target)
+    {
+        _target = target;
+    }
+}
 
 public class DataManager
 {
-    [Serializable]
-    public class TilemapData
-    {
-        public Vector3Int CellPos;
-        public string TileName;
-    }
-
-    private Dictionary<Define.Tilemap, List<TilemapData>> _tilemapDatas = new Dictionary<Define.Tilemap, List<TilemapData>>();
+    private List<TilemapSaveData> _tilemapDatas = new List<TilemapSaveData>();
+    private List<CitizenSaveData> _citizenDatas = new List<CitizenSaveData>();
 
     public void Init()
     {
-        _tilemapDatas.Add(Define.Tilemap.Road, new List<TilemapData>());
-        _tilemapDatas.Add(Define.Tilemap.Building, new List<TilemapData>());
+        for (int i = 0; i < Enum.GetValues(typeof(Define.Tilemap)).Length; i++)
+        {
+            _tilemapDatas.Add(new TilemapSaveData { Tilemap = (Define.Tilemap)i });
+        }
     }
 
-    public void SaveTilemaps()
+    public void SaveData()
     {
+
+        // ≈∏¿œ∏  ¿˙¿Â.
+
         foreach (var tilemapData in _tilemapDatas)
         {
-            var tilemap = Managers.Tile.GetTilemap(tilemapData.Key);
+            var tilemap = Managers.Tile.GetTilemap(tilemapData.Tilemap);
             tilemap.CompressBounds();
 
             foreach (var pos in tilemap.cellBounds.allPositionsWithin)
             {
-                var localPlace = new Vector3Int(pos.x, pos.y, pos.z);
-                if (tilemap.HasTile(localPlace))
+                var tile = tilemap.GetTile(pos);
+                if (tile)
                 {
-                    _tilemapDatas[tilemapData.Key].Add(new TilemapData
-                    {
-                        CellPos = pos,
-                        TileName = tilemap.GetTile(localPlace).name
-                    });
+                    tilemapData.Tiles.Add(tile);
+                    tilemapData.CellPoses.Add(pos);
                 }
             }
         }
 
-        string data = JsonConvert.SerializeObject(_tilemapDatas);
-        PlayerPrefs.SetString(Define.Data.TilemapData.ToString(), data);
-        PlayerPrefs.Save();
-    }
+        string json = JsonUtility.ToJson(new Serialization<TilemapSaveData>(_tilemapDatas), true);
+        File.WriteAllText($"{Define.SAVE_DATA_PATH.ToString()}{Define.Data.TilemapData}.json", json);
 
-    public void LoadTilemaps()
-    {
-        if (PlayerPrefs.HasKey(Define.Data.TilemapData.ToString()))
+        // Ω√πŒ ¿˙¿Â.
+
+        var names = Enum.GetNames(typeof(Define.Citizen));
+        foreach (var type in names)
         {
-            string dataStr = PlayerPrefs.GetString(Define.Data.TilemapData.ToString());
-            _tilemapDatas = JsonConvert.DeserializeObject<Dictionary<Define.Tilemap, List<TilemapData>>>(dataStr);
-
-            foreach (var tilemapData in _tilemapDatas)
+            var pool = Managers.Pool.GetPool($"{type}Citizen");
+            if (pool == null)
             {
-                for (int i = 0; i < tilemapData.Value.Count; i++)
+                continue;
+            }
+
+            var poolables = pool.Root.GetComponentsInChildren<Poolable>();
+            foreach (var item in poolables)
+            {
+                if (item.IsUsing)
                 {
-                    var data = tilemapData.Value[i];
-                    if (data.TileName.Equals("RoadRuleTile"))
+                    var saveData = new CitizenSaveData
                     {
-                        var tile = Managers.Resource.Load<RuleTile>($"{Define.RULE_TILE_PATH}{data.TileName}");
-                        TileObjectBuilder.GetInstance.Build(tile, data.CellPos);
-                    }
-                    else
-                    {
-                        var tile = Managers.Resource.Load<TileBase>($"{Define.BUILDING_TILE_PATH}{data.TileName}");
-                        if (tile.name.Contains("Rampart"))
-                        {
-                            Managers.Tile.SetTile(Define.Tilemap.Building, data.CellPos, tile);
-                        }
-                        else
-                        {
-                            TileObjectBuilder.GetInstance.Build(tile, data.CellPos);
-                        }
-                    }
+                        Position = item.transform.position,
+                        Rotation = item.transform.rotation,
+                        Scale = item.transform.localScale,
+                        Data = item.GetComponent<CitizenController>().Data
+                    };
+                    
+                    _citizenDatas.Add(saveData);
                 }
             }
         }
+
+        json = JsonUtility.ToJson(new Serialization<CitizenSaveData>(_citizenDatas), true);
+        File.WriteAllText($"{Define.SAVE_DATA_PATH.ToString()}{Define.Data.CitizenData}.json", json);
     }
 
-    public void DeleteTilemaps()
+    public void LoadData()
     {
-        if (PlayerPrefs.HasKey(Define.Data.TilemapData.ToString()))
+
+        // ≈∏¿œ∏  ∑ŒµÂ.
+
+        string json = File.ReadAllText($"{Define.SAVE_DATA_PATH.ToString()}{Define.Data.TilemapData}.json");
+        _tilemapDatas = JsonUtility.FromJson<Serialization<TilemapSaveData>>(json).ToList();
+
+        foreach (var tilemapData in _tilemapDatas)
         {
-            PlayerPrefs.DeleteKey(Define.Data.TilemapData.ToString());
+            var tilemap = Managers.Tile.GetTilemap(tilemapData.Tilemap);
+            tilemap.ClearAllTiles();
+
+            for (int i = 0; i < tilemapData.Tiles.Count; i++)
+            {
+                tilemap.SetTile(tilemapData.CellPoses[i], tilemapData.Tiles[i]);
+            }
+        }
+
+        // Ω√πŒ ∑ŒµÂ.
+
+        json = File.ReadAllText($"{Define.SAVE_DATA_PATH.ToString()}{Define.Data.CitizenData}.json");
+        _citizenDatas = JsonUtility.FromJson<Serialization<CitizenSaveData>>(json).ToList();
+
+        foreach (var data in _citizenDatas)
+        {
+            var go = Managers.Resource.Instantiate($"{Define.CITIZEN_PATH}{data.Data.CitizenType.ToString()}Citizen");
+            go.transform.position = data.Position;
+            go.transform.rotation = data.Rotation;
+            go.transform.localScale = data.Scale;
+            var citizen = go.GetComponent<CitizenController>();
+            citizen.Data = data.Data;
         }
     }
 
-    public void Clear() => PlayerPrefs.DeleteAll();
+    public void Clear()
+    {
+        File.WriteAllText($"{Define.SAVE_DATA_PATH.ToString()}{Define.Data.TilemapData}.json", "");
+        File.WriteAllText($"{Define.SAVE_DATA_PATH.ToString()}{Define.Data.CitizenData}.json", "");
+    }
 }

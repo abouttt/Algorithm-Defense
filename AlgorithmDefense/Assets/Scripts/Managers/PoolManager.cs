@@ -5,7 +5,7 @@ public class PoolManager
 {
     #region Pool
 
-    private class Pool
+    public class Pool
     {
         public GameObject Original { get; private set; }
         public Transform Root { get; private set; }
@@ -118,14 +118,25 @@ public class PoolManager
         return _pool[original.name].Pop(position, parent);
     }
 
-    public GameObject GetOriginal(string name)
+    public Pool GetPool(string name)
     {
         if (!_pool.ContainsKey(name))
         {
             return null;
         }
 
-        return _pool[name].Original;
+        return _pool[name];
+    }
+
+    public GameObject GetOriginal(string name)
+    {
+        var pool = GetPool(name);
+        if(pool == null)
+        {
+            return null;
+        }
+
+        return pool.Original;
     }
 
     public void Clear()

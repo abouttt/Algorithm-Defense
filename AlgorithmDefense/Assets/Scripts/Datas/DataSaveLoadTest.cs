@@ -13,13 +13,13 @@ public class DataSaveLoadTest : MonoBehaviour
         if (Save)
         {
             Save = false;
-            Managers.Data.SaveTilemaps();
+            Managers.Data.SaveData();
         }
 
         if (Load)
         {
             Load = false;
-            Managers.Data.LoadTilemaps();
+            Managers.Data.LoadData();
         }
 
         if (Clear)
