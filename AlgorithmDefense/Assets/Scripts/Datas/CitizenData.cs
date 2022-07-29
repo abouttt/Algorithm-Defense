@@ -5,9 +5,18 @@ using UnityEngine;
 [System.Serializable]
 public class CitizenData
 {
-    [field: SerializeField]
-    public Define.Citizen CitizenType { get; private set; }
+    public Define.Citizen CitizenType = Define.Citizen.None;
+    public Define.Job JobType = Define.Job.None;
     public Define.Move MoveType = Define.Move.None;
     public float MoveSpeed;
     public Vector3 Destination;
+
+    public void CopyTo(CitizenData other)
+    {
+        other.CitizenType = CitizenType;
+        other.JobType = JobType;
+        other.MoveType = MoveType;
+        other.MoveSpeed = MoveSpeed;
+        other.Destination = Destination;
+    }
 }

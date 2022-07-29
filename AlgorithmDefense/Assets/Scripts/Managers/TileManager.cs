@@ -35,6 +35,12 @@ public class TileManager
     public TileBase GetTile(Define.Tilemap tilemap, Vector3Int cellPos)
         => _tilemaps[tilemap].GetTile(cellPos);
 
+    public TileBase GetTile(Define.Tilemap tilemap, Vector3 pos)
+    {
+        var cellPos = GetWorldToCell(tilemap, pos);
+        return _tilemaps[tilemap].GetTile(cellPos);
+    }
+
     public Vector3Int GetWorldToCell(Define.Tilemap tilemap, Vector3 worldPos)
         => _tilemaps[tilemap].WorldToCell(worldPos);
 

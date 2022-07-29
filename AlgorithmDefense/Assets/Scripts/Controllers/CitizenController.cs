@@ -40,7 +40,7 @@ public class CitizenController : BaseController
         Data.Destination = Managers.Tile.GetCellCenterToWorld(Define.Tilemap.Ground, cellPos);
     }
 
-    public void SetOppositeMoveType()
+    public void SetReverseMoveType()
     {
         switch (Data.MoveType)
         {
@@ -101,20 +101,20 @@ public class CitizenController : BaseController
             case Define.Road.BD:
             case Define.Road.BL:
             case Define.Road.BR:
-                SetOppositeMoveType();
+                SetReverseMoveType();
                 break;
             case Define.Road.TU:
             case Define.Road.TD:
                 if (IsMoveTypeUD())
                 {
-                    SetOppositeMoveType();
+                    SetReverseMoveType();
                 }
                 break;
             case Define.Road.TL:
             case Define.Road.TR:
                 if (!IsMoveTypeUD())
                 {
-                    SetOppositeMoveType();
+                    SetReverseMoveType();
                 }
                 break;
             case Define.Road.CUL:

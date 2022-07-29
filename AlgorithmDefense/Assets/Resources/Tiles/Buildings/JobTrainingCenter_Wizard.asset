@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Camp
+  m_Name: JobTrainingCenter_Wizard
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: feeb70d415cb0334f8541edfa8da1090, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cbb7e6f278070c44791258ca4c25665c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1

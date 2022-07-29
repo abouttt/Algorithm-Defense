@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Job
+  m_Name: JobTrainingCenter
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: af5d9b305641a31428c0000355e6cd88, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7d0964d20db09aa4596314bd3a34d672, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
@@ -31,6 +31,6 @@ MonoBehaviour:
     e31: 0
     e32: 0
     e33: 1
-  m_InstancedGameObject: {fileID: 0}
+  m_InstancedGameObject: {fileID: 6847655680317937990, guid: 4d15bdb875051ea4884f5456b03be8d1, type: 3}
   m_Flags: 1
   m_ColliderType: 1

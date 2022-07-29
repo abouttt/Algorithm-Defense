@@ -32,7 +32,7 @@ public class Gateway : BaseBuilding
             var directionConditionMoveType = _directionCondition[citizen.Data.CitizenType];
             if (directionConditionMoveType == Define.Move.None)
             {
-                citizen.SetOppositeMoveType();
+                citizen.SetReverseMoveType();
             }
             else
             {
@@ -42,12 +42,12 @@ public class Gateway : BaseBuilding
                 }
                 else
                 {
-                    citizen.SetOppositeMoveType();
+                    citizen.SetReverseMoveType();
                 }
             }
 
-            citizen.SetNextDestination();
             SetCitizenPosition(citizen);
+            citizen.SetNextDestination();
         }
     }
 

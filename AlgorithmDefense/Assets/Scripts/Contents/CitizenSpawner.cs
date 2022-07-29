@@ -88,7 +88,8 @@ public class CitizenSpawner : MonoBehaviour
 
             var pos = Managers.Tile.GetCellCenterToWorld(Define.Tilemap.Ground, _spawnCellPos);
             var go = Managers.Resource.Instantiate($"{Define.CITIZEN_PATH}{_spawnTarget.ToString()}Citizen", pos);
-            var citizen = go.GetComponent<CitizenController>();
+            var citizen = go.GetOrAddComponent<CitizenController>();
+            citizen.Data.CitizenType = _spawnTarget;
             citizen.Data.MoveType = Define.Move.Right;
             citizen.SetNextDestination();
 

@@ -6,6 +6,7 @@ public static class Define
 {
     public static readonly string CONTENTS_PATH = "Prefabs/Contents/";
     public static readonly string CITIZEN_PATH = "Prefabs/Units/Citizens/";
+    public static readonly string BATTILE_UNIT_PATH = "Prefabs/Units/BattleUnits/";
     public static readonly string BUILDING_PREFAB_PATH = "Prefabs/TileObject/Buildings/";
     public static readonly string ROAD_PREFAB_PATH = "Prefabs/TileObject/Roads/";
     public static readonly string ROAD_TILE_PATH = "Tiles/Roads/";
@@ -44,22 +45,18 @@ public static class Define
     public enum Building
     {
         Gateway,
+        JobTrainingCenter,
     }
 
-    public enum Class
+    public enum Job
     {
         None,
         Warrior,
         Archer,
         Wizard,
-    }
-
-    public enum ClassTier
-    {
-        None,
-        One,
-        Two,
-        Three,
+        Golem,
+        Sniper,
+        FreezeWizard,
     }
 
     public enum Citizen
