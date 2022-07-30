@@ -7,8 +7,8 @@ public class CitizenMove : SerializableDictionary<Define.Citizen, Define.Move> {
 
 public class Gateway : BaseBuilding
 {
-    [SerializeField]
-    private CitizenMove _directionCondition;
+    [field: SerializeField]
+    public CitizenMove DirectionCondition { get; private set; }
 
     public override void EnterTheBuilding(CitizenController citizen)
     {
@@ -19,17 +19,17 @@ public class Gateway : BaseBuilding
     {
         while (true)
         {
-            if (_citizenOrderQueue.Count == 0)
+            if (_baseBuildingData.CitizenOrderQueue.Count == 0)
             {
-                _isReleasing = false;
+                _baseBuildingData.IsReleasing = false;
                 yield break;
             }
 
-            yield return new WaitForSeconds(_releaseTime);
+            yield return new WaitForSeconds(_baseBuildingData.ReleaseTime);
 
             var citizen = DequeueCitizen();
 
-            var directionConditionMoveType = _directionCondition[citizen.Data.CitizenType];
+            var directionConditionMoveType = DirectionCondition[citizen.Data.CitizenType];
             if (directionConditionMoveType == Define.Move.None)
             {
                 citizen.SetReverseMoveType();
@@ -47,7 +47,7 @@ public class Gateway : BaseBuilding
             }
 
             SetCitizenPosition(citizen);
-            citizen.SetNextDestination();
+            SetNextDestination(citizen);
         }
     }
 
@@ -60,12 +60,12 @@ public class Gateway : BaseBuilding
         //    { Define.Citizen.Blue, Define.Move.None },
         //    { Define.Citizen.Yellow, Define.Move.None },
         //};
-        _directionCondition = new CitizenMove();
-        _directionCondition.Add(Define.Citizen.Red, Define.Move.None);
-        _directionCondition.Add(Define.Citizen.Green, Define.Move.None);
-        _directionCondition.Add(Define.Citizen.Blue, Define.Move.None);
-        _directionCondition.Add(Define.Citizen.Yellow, Define.Move.None);
+        DirectionCondition = new CitizenMove();
+        DirectionCondition.Add(Define.Citizen.Red, Define.Move.None);
+        DirectionCondition.Add(Define.Citizen.Green, Define.Move.None);
+        DirectionCondition.Add(Define.Citizen.Blue, Define.Move.None);
+        DirectionCondition.Add(Define.Citizen.Yellow, Define.Move.None);
 
-        HasUI = true;
+        _baseBuildingData.HasUI = true;
     }
 }

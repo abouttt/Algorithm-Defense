@@ -75,7 +75,6 @@ public class CitizenController : BaseController
 
     private void CheckBuilding(Vector3Int cellPos)
     {
-        //var tile = Managers.Tile.GetTile(Define.Tilemap.Building, cellPos) as Tile;
         var go = Managers.Tile.GetTilemap(Define.Tilemap.Building).GetInstantiatedObject(cellPos);
         if (!go)
         {

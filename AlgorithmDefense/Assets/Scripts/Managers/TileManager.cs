@@ -58,4 +58,10 @@ public class TileManager
 
     public void SetTile(Define.Tilemap tilemap, Vector3Int cellPos, TileBase tile)
         => _tilemaps[tilemap].SetTile(cellPos, tile);
+
+    public void SetTile(Define.Tilemap tilemap, Vector3 pos, TileBase tile)
+    {
+        var cellPos = GetWorldToCell(tilemap, pos);
+        _tilemaps[tilemap].SetTile(cellPos, tile);
+    }
 }

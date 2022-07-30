@@ -65,14 +65,12 @@ public class MouseController : MonoBehaviour
             if (building)
             {
                 Managers.Tile.SetTile(Define.Tilemap.Building, MouseCellPos, null);
-                Managers.Resource.Destroy(Managers.Tile.GetTilemap(Define.Tilemap.Building).GetInstantiatedObject(MouseCellPos));
             }
 
             var road = Managers.Tile.GetTile(Define.Tilemap.Road, MouseCellPos);
             if (road)
             {
                 Managers.Tile.SetTile(Define.Tilemap.Road, MouseCellPos, null);
-                Managers.Resource.Destroy(Managers.Tile.GetTilemap(Define.Tilemap.Road).GetInstantiatedObject(MouseCellPos));
             }
         }
     }

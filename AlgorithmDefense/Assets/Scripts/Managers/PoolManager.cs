@@ -128,6 +128,17 @@ public class PoolManager
         return _pool[name];
     }
 
+    public Pool[] GetAllPool()
+    {
+        List<Pool> pools = new List<Pool>();
+        foreach (var pool in _pool)
+        {
+            pools.Add(pool.Value);
+        }
+
+        return pools.ToArray();
+    }
+
     public GameObject GetOriginal(string name)
     {
         var pool = GetPool(name);

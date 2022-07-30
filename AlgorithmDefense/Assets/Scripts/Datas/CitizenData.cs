@@ -9,6 +9,7 @@ public class CitizenData
     public Define.Job JobType = Define.Job.None;
     public Define.Move MoveType = Define.Move.None;
     public float MoveSpeed;
+    [HideInInspector]
     public Vector3 Destination;
 
     public void CopyTo(CitizenData other)

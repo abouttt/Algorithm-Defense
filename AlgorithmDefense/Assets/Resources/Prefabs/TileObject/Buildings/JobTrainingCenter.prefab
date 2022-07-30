@@ -44,8 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 228bdb670818fae4f811a971aaba938a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _releaseTime: 1
-  JobType: 0
-  MoveType: 0
-  CitizenType: 0
-  CurrentCount: 0
+  _baseBuildingData:
+    ReleaseTime: 1
+    HasUI: 0
+    IsReleasing: 0
+  Data:
+    JobType: 0
+    MoveType: 0
+    CurrentCount: 0
+    CitizenType: 0

@@ -1,25 +1,21 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JobTrainingCenterData : ScriptableObject
+[System.Serializable]
+public class JobTrainingCenterData
 {
-    [field: SerializeField]
-    public int WarriorCount { get; private set; }
+    public Define.Job JobType = Define.Job.None;
+    public Define.Move MoveType = Define.Move.None;
+    public int CurrentCount;
+    [HideInInspector]
+    public Define.Citizen CitizenType = Define.Citizen.None;
 
-    [field: SerializeField]
-    public int ArcherCount { get; private set; }
-
-    [field: SerializeField]
-    public int WizardCount { get; private set; }
-
-    [field: SerializeField]
-    public int GolemCount { get; private set; }
-
-    [field: SerializeField]
-    public int SniperCount { get; private set; }
-
-    [field: SerializeField]
-    public int FreezeWizardCount { get; private set; }
+    public void CopyTo(JobTrainingCenterData other)
+    {
+        other.JobType = JobType;
+        other.MoveType = MoveType;
+        other.CurrentCount = CurrentCount;
+        other.CitizenType = CitizenType;
+    }
 }

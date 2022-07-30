@@ -4,12 +4,10 @@ using UnityEngine;
 
 public abstract class BaseBuilding : MonoBehaviour
 {
-    public bool HasUI { get; protected set; }
+    public bool HasUI => _baseBuildingData.HasUI;
 
     [SerializeField]
-    protected float _releaseTime;
-    protected Queue<CitizenController> _citizenOrderQueue = new Queue<CitizenController>();
-    protected bool _isReleasing = false;
+    protected BaseBuildingData _baseBuildingData = new BaseBuildingData();
 
     private void Start()
     {
@@ -23,19 +21,19 @@ public abstract class BaseBuilding : MonoBehaviour
 
     protected void EnqueueCitizen(CitizenController citizen)
     {
-        _citizenOrderQueue.Enqueue(citizen);
+        _baseBuildingData.CitizenOrderQueue.Enqueue(citizen);
         citizen.gameObject.SetActive(false);
 
-        if (!_isReleasing)
+        if (!_baseBuildingData.IsReleasing)
         {
-            _isReleasing = true;
+            _baseBuildingData.IsReleasing = true;
             StartCoroutine(ReleaseCitizen());
         }
     }
 
     protected CitizenController DequeueCitizen()
     {
-        var citizen = _citizenOrderQueue.Dequeue();
+        var citizen = _baseBuildingData.CitizenOrderQueue.Dequeue();
         citizen.gameObject.SetActive(true);
         return citizen;
     }
@@ -47,20 +45,35 @@ public abstract class BaseBuilding : MonoBehaviour
         switch (citizen.Data.MoveType)
         {
             case Define.Move.Right:
-                pos += new Vector3(0.5f, 0, 0);
+                pos += new Vector3(0.51f, 0, 0);
                 break;
             case Define.Move.Left:
-                pos += new Vector3(-0.5f, 0, 0);
+                pos += new Vector3(-0.51f, 0, 0);
                 break;
             case Define.Move.Up:
-                pos += new Vector3(0, 0.5f, 0);
+                pos += new Vector3(0, 0.51f, 0);
                 break;
             case Define.Move.Down:
-                pos += new Vector3(0, -0.5f, 0);
+                pos += new Vector3(0, -0.51f, 0);
                 break;
         }
 
         citizen.transform.position = pos;
+    }
+
+    protected void SetNextDestination(CitizenController citizen)
+    {
+        switch (citizen.Data.MoveType)
+        {
+            case Define.Move.Right:
+                citizen.transform.localScale = new Vector3(-1, 1, 1);
+                break;
+            case Define.Move.Left:
+                citizen.transform.localScale = new Vector3(1, 1, 1);
+                break;
+        }
+
+        citizen.Data.Destination = Managers.Tile.GetWorldToCellCenterToWorld(Define.Tilemap.Ground, citizen.transform.position);
     }
 
     protected bool IsRoadNextPosition(Define.Move moveType)

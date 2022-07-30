@@ -3,6 +3,7 @@ using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 using UnityEngine.Tilemaps;
 
 [Serializable]
@@ -36,6 +37,7 @@ public class DataManager
 
     public void SaveData()
     {
+        Clear();
 
         // ≈∏¿œ∏  ¿˙¿Â.
 
@@ -46,10 +48,10 @@ public class DataManager
 
             foreach (var pos in tilemap.cellBounds.allPositionsWithin)
             {
-                var tile = tilemap.GetTile(pos);
-                if (tile)
+                var tileBase = tilemap.GetTile(pos);
+                if (tileBase)
                 {
-                    tilemapData.Tiles.Add(tile);
+                    tilemapData.Tiles.Add(tileBase);
                     tilemapData.CellPoses.Add(pos);
                 }
             }
@@ -60,18 +62,18 @@ public class DataManager
 
         // Ω√πŒ ¿˙¿Â.
 
-        var names = Enum.GetNames(typeof(Define.Citizen));
-        foreach (var type in names)
+        var pools = Managers.Pool.GetAllPool();
+        foreach (var pool in pools)
         {
-            var pool = Managers.Pool.GetPool($"{type}Citizen");
-            if (pool == null)
-            {
-                continue;
-            }
-
             var poolables = pool.Root.GetComponentsInChildren<Poolable>();
             foreach (var item in poolables)
             {
+                var citizen = item.GetComponent<CitizenController>();
+                if (!citizen)
+                {
+                    continue;
+                }
+
                 if (item.IsUsing)
                 {
                     var saveData = new CitizenSaveData
@@ -122,11 +124,21 @@ public class DataManager
 
             foreach (var data in _citizenDatas)
             {
-                var go = Managers.Resource.Instantiate($"{Define.CITIZEN_PATH}{data.Data.CitizenType.ToString()}Citizen");
+                GameObject go = null;
+
+                if (data.Data.JobType == Define.Job.None)
+                {
+                    go = Managers.Resource.Instantiate($"{Define.CITIZEN_PATH}{data.Data.CitizenType.ToString()}Citizen");
+                }
+                else
+                {
+                    go = Managers.Resource.Instantiate($"{Define.BATTILE_UNIT_PATH}{data.Data.JobType.ToString()}Unit");
+                }
+
                 go.transform.position = data.Position;
                 go.transform.rotation = data.Rotation;
                 go.transform.localScale = data.Scale;
-                var citizen = go.GetComponent<CitizenController>();
+                var citizen = go.GetOrAddComponent<CitizenController>();
                 citizen.Data = data.Data;
             }
         }
@@ -134,7 +146,9 @@ public class DataManager
 
     public void Clear()
     {
-        File.WriteAllText($"{Define.SAVE_DATA_PATH.ToString()}{Define.Data.TilemapData}.json", "");
-        File.WriteAllText($"{Define.SAVE_DATA_PATH.ToString()}{Define.Data.CitizenData}.json", "");
+        for (int i = 0; i < Enum.GetValues(typeof(Define.Data)).Length; i++)
+        {
+            File.WriteAllText($"{Define.SAVE_DATA_PATH.ToString()}{(Define.Data)i}.json", "");
+        }
     }
 }
