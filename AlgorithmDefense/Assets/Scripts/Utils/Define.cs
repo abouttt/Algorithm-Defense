@@ -88,7 +88,9 @@ public static class Define
     public enum Data
     {
         TilemapData,
-        CitizenData
+        CitizenData,
+        GatewayData,
+        JobTrainingData,
     }
 
     public enum Sound

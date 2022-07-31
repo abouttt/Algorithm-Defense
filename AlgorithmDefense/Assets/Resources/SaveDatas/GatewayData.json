@@ -1,0 +1,5 @@
+{
+    "_target": [
+        "{\"Data\":\"{\\\"_releaseTime\\\":1.0,\\\"Red\\\":1,\\\"Green\\\":2,\\\"Blue\\\":3,\\\"Yellow\\\":4,\\\"IsChanged\\\":false}\",\"OrderQueue\":\"{\\\"_items\\\":[]}\",\"DirectionCondition\":\"{\\\"_keys\\\":[1,2,3,4],\\\"_values\\\":[1,2,3,4]}\"}"
+    ]
+}

@@ -4,10 +4,12 @@ using UnityEngine;
 
 public abstract class BaseBuilding : MonoBehaviour
 {
-    public bool HasUI => _baseBuildingData.HasUI;
+    public bool HasUI { get; protected set; }
 
     [SerializeField]
-    protected BaseBuildingData _baseBuildingData = new BaseBuildingData();
+    protected float _releaseTime;
+    protected Queue<CitizenController> _citizenOrderQueue = new Queue<CitizenController>();
+    protected bool _isReleasing;
 
     private void Start()
     {
@@ -15,25 +17,27 @@ public abstract class BaseBuilding : MonoBehaviour
     }
 
     public abstract void EnterTheBuilding(CitizenController citizen);
+    public abstract string GetSaveData();
+    public abstract void LoadSaveData(string saveData);
 
     protected abstract IEnumerator ReleaseCitizen();
     protected abstract void Init();
 
     protected void EnqueueCitizen(CitizenController citizen)
     {
-        _baseBuildingData.CitizenOrderQueue.Enqueue(citizen);
+        _citizenOrderQueue.Enqueue(citizen);
         citizen.gameObject.SetActive(false);
 
-        if (!_baseBuildingData.IsReleasing)
+        if (!_isReleasing)
         {
-            _baseBuildingData.IsReleasing = true;
+            _isReleasing = true;
             StartCoroutine(ReleaseCitizen());
         }
     }
 
     protected CitizenController DequeueCitizen()
     {
-        var citizen = _baseBuildingData.CitizenOrderQueue.Dequeue();
+        var citizen = _citizenOrderQueue.Dequeue();
         citizen.gameObject.SetActive(true);
         return citizen;
     }
@@ -103,5 +107,13 @@ public abstract class BaseBuilding : MonoBehaviour
         }
 
         return true;
+    }
+
+    public virtual void CopyTo(BaseBuilding other)
+    {
+        other.HasUI = HasUI;
+        other._releaseTime = _releaseTime;
+        other._citizenOrderQueue = _citizenOrderQueue;
+        other._isReleasing = _isReleasing;
     }
 }

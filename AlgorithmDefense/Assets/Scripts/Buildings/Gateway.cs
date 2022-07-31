@@ -7,25 +7,68 @@ public class CitizenMove : SerializableDictionary<Define.Citizen, Define.Move> {
 
 public class Gateway : BaseBuilding
 {
-    [field: SerializeField]
-    public CitizenMove DirectionCondition { get; private set; }
+    public Dictionary<Define.Citizen, Define.Move> DirectionCondition;
+
+    // 테스트 변수.
+    public Define.Move Red = Define.Move.None;
+    public Define.Move Green = Define.Move.None;
+    public Define.Move Blue = Define.Move.None;
+    public Define.Move Yellow = Define.Move.None;
+    public bool IsChanged = false;
+
+    // 테스트 업데이트.
+    private void Update()
+    {
+        Debug.Log($"{DirectionCondition[Define.Citizen.Red]}");
+        Debug.Log($"{DirectionCondition[Define.Citizen.Green]}");
+        Debug.Log($"{DirectionCondition[Define.Citizen.Blue]}");
+        Debug.Log($"{DirectionCondition[Define.Citizen.Yellow]}");
+
+        if (IsChanged)
+        {
+            DirectionCondition[Define.Citizen.Red] = Red;
+            DirectionCondition[Define.Citizen.Green] = Green;
+            DirectionCondition[Define.Citizen.Blue] = Blue;
+            DirectionCondition[Define.Citizen.Yellow] = Yellow;
+            IsChanged = false;
+        }
+    }
 
     public override void EnterTheBuilding(CitizenController citizen)
     {
         EnqueueCitizen(citizen);
     }
 
+    public override string GetSaveData()
+    {
+        string data = JsonUtility.ToJson(this);
+        string q = JsonUtility.ToJson(new SerializationQueue<CitizenController>(_citizenOrderQueue));
+        string dic = JsonUtility.ToJson(new SerializationDictionary<Define.Citizen, Define.Move>(DirectionCondition));
+        return JsonUtility.ToJson(new GatewaySaveData(data, q, dic));
+    }
+
+    public override void LoadSaveData(string saveData)
+    {
+        var data = JsonUtility.FromJson<GatewaySaveData>(saveData);
+
+        JsonUtility.FromJsonOverwrite(data.Data, this);
+        _citizenOrderQueue =
+            JsonUtility.FromJson<SerializationQueue<CitizenController>>(data.OrderQueue).ToQueue();
+        DirectionCondition =
+            JsonUtility.FromJson<SerializationDictionary<Define.Citizen, Define.Move>>(data.DirectionCondition).ToDictionary();
+    }
+
     protected override IEnumerator ReleaseCitizen()
     {
         while (true)
         {
-            if (_baseBuildingData.CitizenOrderQueue.Count == 0)
+            if (_citizenOrderQueue.Count == 0)
             {
-                _baseBuildingData.IsReleasing = false;
+                _isReleasing = false;
                 yield break;
             }
 
-            yield return new WaitForSeconds(_baseBuildingData.ReleaseTime);
+            yield return new WaitForSeconds(_releaseTime);
 
             var citizen = DequeueCitizen();
 
@@ -53,19 +96,17 @@ public class Gateway : BaseBuilding
 
     protected override void Init()
     {
-        //_directionCondition = new Dictionary<Define.Citizen, Define.Move>()
-        //{
-        //    { Define.Citizen.Red, Define.Move.None },
-        //    { Define.Citizen.Green, Define.Move.None },
-        //    { Define.Citizen.Blue, Define.Move.None },
-        //    { Define.Citizen.Yellow, Define.Move.None },
-        //};
-        DirectionCondition = new CitizenMove();
-        DirectionCondition.Add(Define.Citizen.Red, Define.Move.None);
-        DirectionCondition.Add(Define.Citizen.Green, Define.Move.None);
-        DirectionCondition.Add(Define.Citizen.Blue, Define.Move.None);
-        DirectionCondition.Add(Define.Citizen.Yellow, Define.Move.None);
+        if (DirectionCondition == null)
+        {
+            DirectionCondition = new Dictionary<Define.Citizen, Define.Move>()
+            {
+                { Define.Citizen.Red, Define.Move.None },
+                { Define.Citizen.Green, Define.Move.None },
+                { Define.Citizen.Blue, Define.Move.None },
+                { Define.Citizen.Yellow, Define.Move.None },
+            };
+        }
 
-        _baseBuildingData.HasUI = true;
+        HasUI = true;
     }
 }

@@ -3,23 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "JobTrainingCenterCommonData", menuName = "ScriptableObject/JobTrainingCenterCommonData", order = 1)]
 public class JobTrainingCenterCommonData : ScriptableObject
 {
-    [field: SerializeField]
-    public int WarriorCount { get; private set; }
-
-    [field: SerializeField]
-    public int ArcherCount { get; private set; }
-
-    [field: SerializeField]
-    public int WizardCount { get; private set; }
-
-    [field: SerializeField]
-    public int GolemCount { get; private set; }
-
-    [field: SerializeField]
-    public int SniperCount { get; private set; }
-
-    [field: SerializeField]
-    public int FreezeWizardCount { get; private set; }
+    [ArrayElementNamed(new string[] { "Àü»ç", "±Ã¼ö", "¸¶¹ý»ç", "°ñ·½", "Àú°Ý¼ö", "ºù°á¼ú»ç" })]
+    [SerializeField]
+    public int[] JobCountData;
 }
