@@ -83,7 +83,7 @@ public class JobTrainingCenter : BaseBuilding
     public override string GetSaveData()
     {
         string data = JsonUtility.ToJson(this);
-        string q = JsonUtility.ToJson(new SerializationQueue<CitizenController>(_citizenOrderQueue));
+        string q = JsonUtility.ToJson(new SerializationQueue<OrderQueueData>(_citizenOrderQueue));
         return JsonUtility.ToJson(new JobTrainingCenterSaveData(data, q));
     }
 
@@ -93,14 +93,19 @@ public class JobTrainingCenter : BaseBuilding
 
         JsonUtility.FromJsonOverwrite(data.Data, this);
         _citizenOrderQueue =
-            JsonUtility.FromJson<SerializationQueue<CitizenController>>(data.OrderQueue).ToQueue();
+            JsonUtility.FromJson<SerializationQueue<OrderQueueData>>(data.OrderQueue).ToQueue();
+
+        if (!_isReleasing)
+        {
+            _isReleasing = true;
+            StartCoroutine(ReleaseCitizen());
+        }
     }
 
     protected override void Init()
     {
         _commonData = Managers.Resource.Load<JobTrainingCenterCommonData>("Datas/JobTrainingCenterCommonData");
         HasUI = true;
-
         StartCoroutine(CreateJobCitizen());
     }
 

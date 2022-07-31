@@ -4,11 +4,18 @@ using UnityEngine;
 
 public abstract class BaseBuilding : MonoBehaviour
 {
+    [System.Serializable]
+    public class OrderQueueData
+    {
+        public string CitzienName;
+        public CitizenData CitizenData;
+    }
+
     public bool HasUI { get; protected set; }
 
     [SerializeField]
     protected float _releaseTime;
-    protected Queue<CitizenController> _citizenOrderQueue = new Queue<CitizenController>();
+    protected Queue<OrderQueueData> _citizenOrderQueue = new Queue<OrderQueueData>();
     protected bool _isReleasing;
 
     private void Start()
@@ -25,8 +32,13 @@ public abstract class BaseBuilding : MonoBehaviour
 
     protected void EnqueueCitizen(CitizenController citizen)
     {
-        _citizenOrderQueue.Enqueue(citizen);
-        citizen.gameObject.SetActive(false);
+        _citizenOrderQueue.Enqueue(new OrderQueueData 
+        { 
+            CitzienName = citizen.name, 
+            CitizenData = citizen.Data
+        });
+
+        Managers.Resource.Destroy(citizen.gameObject);
 
         if (!_isReleasing)
         {
@@ -37,8 +49,21 @@ public abstract class BaseBuilding : MonoBehaviour
 
     protected CitizenController DequeueCitizen()
     {
-        var citizen = _citizenOrderQueue.Dequeue();
-        citizen.gameObject.SetActive(true);
+        var orderQueueData = _citizenOrderQueue.Dequeue();
+
+        GameObject go = null;
+        if (orderQueueData.CitzienName.Contains("Citizen"))
+        {
+            go = Managers.Resource.Instantiate($"{Define.CITIZEN_PATH}{orderQueueData.CitzienName}");
+        }
+        else
+        {
+            go = Managers.Resource.Instantiate($"{Define.BATTILE_UNIT_PATH}{orderQueueData.CitzienName}");
+        }
+
+        var citizen = go.GetOrAddComponent<CitizenController>();
+        citizen.Data = orderQueueData.CitizenData;
+
         return citizen;
     }
 

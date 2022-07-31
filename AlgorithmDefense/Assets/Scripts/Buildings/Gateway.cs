@@ -2,9 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class CitizenMove : SerializableDictionary<Define.Citizen, Define.Move> { }
-
 public class Gateway : BaseBuilding
 {
     public Dictionary<Define.Citizen, Define.Move> DirectionCondition;
@@ -19,11 +16,6 @@ public class Gateway : BaseBuilding
     // 테스트 업데이트.
     private void Update()
     {
-        Debug.Log($"{DirectionCondition[Define.Citizen.Red]}");
-        Debug.Log($"{DirectionCondition[Define.Citizen.Green]}");
-        Debug.Log($"{DirectionCondition[Define.Citizen.Blue]}");
-        Debug.Log($"{DirectionCondition[Define.Citizen.Yellow]}");
-
         if (IsChanged)
         {
             DirectionCondition[Define.Citizen.Red] = Red;
@@ -31,6 +23,11 @@ public class Gateway : BaseBuilding
             DirectionCondition[Define.Citizen.Blue] = Blue;
             DirectionCondition[Define.Citizen.Yellow] = Yellow;
             IsChanged = false;
+
+            Debug.Log($"{DirectionCondition[Define.Citizen.Red]}");
+            Debug.Log($"{DirectionCondition[Define.Citizen.Green]}");
+            Debug.Log($"{DirectionCondition[Define.Citizen.Blue]}");
+            Debug.Log($"{DirectionCondition[Define.Citizen.Yellow]}");
         }
     }
 
@@ -42,7 +39,7 @@ public class Gateway : BaseBuilding
     public override string GetSaveData()
     {
         string data = JsonUtility.ToJson(this);
-        string q = JsonUtility.ToJson(new SerializationQueue<CitizenController>(_citizenOrderQueue));
+        string q = JsonUtility.ToJson(new SerializationQueue<OrderQueueData>(_citizenOrderQueue));
         string dic = JsonUtility.ToJson(new SerializationDictionary<Define.Citizen, Define.Move>(DirectionCondition));
         return JsonUtility.ToJson(new GatewaySaveData(data, q, dic));
     }
@@ -53,9 +50,15 @@ public class Gateway : BaseBuilding
 
         JsonUtility.FromJsonOverwrite(data.Data, this);
         _citizenOrderQueue =
-            JsonUtility.FromJson<SerializationQueue<CitizenController>>(data.OrderQueue).ToQueue();
+            JsonUtility.FromJson<SerializationQueue<OrderQueueData>>(data.OrderQueue).ToQueue();
         DirectionCondition =
             JsonUtility.FromJson<SerializationDictionary<Define.Citizen, Define.Move>>(data.DirectionCondition).ToDictionary();
+
+        if (!_isReleasing)
+        {
+            _isReleasing = true;
+            StartCoroutine(ReleaseCitizen());
+        }
     }
 
     protected override IEnumerator ReleaseCitizen()

@@ -1,3 +1,33 @@
 {
-    "_target": []
+    "_target": [
+        {
+            "Position": {
+                "x": 6.5,
+                "y": 11.371206283569336,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "Scale": {
+                "x": -1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "Data": {
+                "CitizenType": 3,
+                "JobType": 0,
+                "MoveType": 3,
+                "MoveSpeed": 2.0,
+                "Destination": {
+                    "x": 6.5,
+                    "y": 11.5,
+                    "z": 0.0
+                }
+            }
+        }
+    ]
 }
