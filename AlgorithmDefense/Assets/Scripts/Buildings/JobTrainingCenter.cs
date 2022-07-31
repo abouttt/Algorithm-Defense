@@ -83,7 +83,7 @@ public class JobTrainingCenter : BaseBuilding
     public override string GetSaveData()
     {
         string data = JsonUtility.ToJson(this);
-        string q = JsonUtility.ToJson(new SerializationQueue<OrderQueueData>(_citizenOrderQueue));
+        string q = JsonUtility.ToJson(new SerializationQueue<CitizenOrderQueueData>(_citizenOrderQueue));
         return JsonUtility.ToJson(new JobTrainingCenterSaveData(data, q));
     }
 
@@ -93,7 +93,7 @@ public class JobTrainingCenter : BaseBuilding
 
         JsonUtility.FromJsonOverwrite(data.Data, this);
         _citizenOrderQueue =
-            JsonUtility.FromJson<SerializationQueue<OrderQueueData>>(data.OrderQueue).ToQueue();
+            JsonUtility.FromJson<SerializationQueue<CitizenOrderQueueData>>(data.OrderQueue).ToQueue();
 
         if (!_isReleasing)
         {

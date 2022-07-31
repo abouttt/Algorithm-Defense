@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class JobTrainingCenterSaveData
+public struct JobTrainingCenterSaveData
 {
     public string Data;
     public string OrderQueue;

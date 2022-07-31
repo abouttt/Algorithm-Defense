@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class BaseBuilding : MonoBehaviour
 {
     [System.Serializable]
-    public class OrderQueueData
+    public struct CitizenOrderQueueData
     {
         public string CitzienName;
         public CitizenData CitizenData;
@@ -15,7 +15,7 @@ public abstract class BaseBuilding : MonoBehaviour
 
     [SerializeField]
     protected float _releaseTime;
-    protected Queue<OrderQueueData> _citizenOrderQueue = new Queue<OrderQueueData>();
+    protected Queue<CitizenOrderQueueData> _citizenOrderQueue = new Queue<CitizenOrderQueueData>();
     protected bool _isReleasing;
 
     private void Start()
@@ -32,7 +32,7 @@ public abstract class BaseBuilding : MonoBehaviour
 
     protected void EnqueueCitizen(CitizenController citizen)
     {
-        _citizenOrderQueue.Enqueue(new OrderQueueData 
+        _citizenOrderQueue.Enqueue(new CitizenOrderQueueData 
         { 
             CitzienName = citizen.name, 
             CitizenData = citizen.Data

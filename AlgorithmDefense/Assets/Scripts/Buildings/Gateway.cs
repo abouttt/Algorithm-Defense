@@ -4,25 +4,25 @@ using UnityEngine;
 
 public class Gateway : BaseBuilding
 {
-    public Dictionary<Define.Citizen, Define.Move> DirectionCondition;
+    public Dictionary<Define.Citizen, Define.Move> DirectionCondition { get; private set; }
 
     // 테스트 변수.
     public Define.Move Red = Define.Move.None;
     public Define.Move Green = Define.Move.None;
     public Define.Move Blue = Define.Move.None;
     public Define.Move Yellow = Define.Move.None;
-    public bool IsChanged = false;
+    public bool SetChangeValue = false;
 
     // 테스트 업데이트.
     private void Update()
     {
-        if (IsChanged)
+        if (SetChangeValue)
         {
             DirectionCondition[Define.Citizen.Red] = Red;
             DirectionCondition[Define.Citizen.Green] = Green;
             DirectionCondition[Define.Citizen.Blue] = Blue;
             DirectionCondition[Define.Citizen.Yellow] = Yellow;
-            IsChanged = false;
+            SetChangeValue = false;
 
             Debug.Log($"{DirectionCondition[Define.Citizen.Red]}");
             Debug.Log($"{DirectionCondition[Define.Citizen.Green]}");
@@ -39,7 +39,7 @@ public class Gateway : BaseBuilding
     public override string GetSaveData()
     {
         string data = JsonUtility.ToJson(this);
-        string q = JsonUtility.ToJson(new SerializationQueue<OrderQueueData>(_citizenOrderQueue));
+        string q = JsonUtility.ToJson(new SerializationQueue<CitizenOrderQueueData>(_citizenOrderQueue));
         string dic = JsonUtility.ToJson(new SerializationDictionary<Define.Citizen, Define.Move>(DirectionCondition));
         return JsonUtility.ToJson(new GatewaySaveData(data, q, dic));
     }
@@ -50,7 +50,7 @@ public class Gateway : BaseBuilding
 
         JsonUtility.FromJsonOverwrite(data.Data, this);
         _citizenOrderQueue =
-            JsonUtility.FromJson<SerializationQueue<OrderQueueData>>(data.OrderQueue).ToQueue();
+            JsonUtility.FromJson<SerializationQueue<CitizenOrderQueueData>>(data.OrderQueue).ToQueue();
         DirectionCondition =
             JsonUtility.FromJson<SerializationDictionary<Define.Citizen, Define.Move>>(data.DirectionCondition).ToDictionary();
 

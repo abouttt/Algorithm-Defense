@@ -2,8 +2,8 @@
     "_target": [
         {
             "Position": {
-                "x": 6.5,
-                "y": 11.371206283569336,
+                "x": 10.798652648925782,
+                "y": 10.5,
                 "z": 0.0
             },
             "Rotation": {
@@ -18,13 +18,448 @@
                 "z": 1.0
             },
             "Data": {
-                "CitizenType": 3,
+                "CitizenType": 1,
+                "JobType": 0,
+                "MoveType": 2,
+                "MoveSpeed": 2.0,
+                "Destination": {
+                    "x": 11.5,
+                    "y": 10.5,
+                    "z": 0.0
+                }
+            }
+        },
+        {
+            "Position": {
+                "x": 5.5,
+                "y": 9.771693229675293,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "Scale": {
+                "x": -1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "Data": {
+                "CitizenType": 1,
                 "JobType": 0,
                 "MoveType": 3,
                 "MoveSpeed": 2.0,
                 "Destination": {
+                    "x": 5.5,
+                    "y": 10.5,
+                    "z": 0.0
+                }
+            }
+        },
+        {
+            "Position": {
+                "x": 4.923295021057129,
+                "y": 7.5,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "Scale": {
+                "x": -1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "Data": {
+                "CitizenType": 1,
+                "JobType": 0,
+                "MoveType": 2,
+                "MoveSpeed": 2.0,
+                "Destination": {
+                    "x": 5.5,
+                    "y": 7.5,
+                    "z": 0.0
+                }
+            }
+        },
+        {
+            "Position": {
+                "x": 7.711451053619385,
+                "y": 2.5,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "Data": {
+                "CitizenType": 2,
+                "JobType": 0,
+                "MoveType": 1,
+                "MoveSpeed": 2.0,
+                "Destination": {
+                    "x": 7.5,
+                    "y": 2.5,
+                    "z": 0.0
+                }
+            }
+        },
+        {
+            "Position": {
+                "x": 15.706722259521485,
+                "y": 2.500000476837158,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "Data": {
+                "CitizenType": 2,
+                "JobType": 0,
+                "MoveType": 1,
+                "MoveSpeed": 2.0,
+                "Destination": {
+                    "x": 15.5,
+                    "y": 2.5,
+                    "z": 0.0
+                }
+            }
+        },
+        {
+            "Position": {
+                "x": 11.711450576782227,
+                "y": 2.5,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "Data": {
+                "CitizenType": 2,
+                "JobType": 0,
+                "MoveType": 1,
+                "MoveSpeed": 2.0,
+                "Destination": {
+                    "x": 11.5,
+                    "y": 2.5,
+                    "z": 0.0
+                }
+            }
+        },
+        {
+            "Position": {
+                "x": 9.296886444091797,
+                "y": 4.5,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "Scale": {
+                "x": -1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "Data": {
+                "CitizenType": 2,
+                "JobType": 0,
+                "MoveType": 2,
+                "MoveSpeed": 2.0,
+                "Destination": {
+                    "x": 9.5,
+                    "y": 4.5,
+                    "z": 0.0
+                }
+            }
+        },
+        {
+            "Position": {
+                "x": 5.501148700714111,
+                "y": 3.2941129207611086,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "Data": {
+                "CitizenType": 2,
+                "JobType": 0,
+                "MoveType": 3,
+                "MoveSpeed": 2.0,
+                "Destination": {
+                    "x": 5.5,
+                    "y": 3.5,
+                    "z": 0.0
+                }
+            }
+        },
+        {
+            "Position": {
+                "x": 7.290599822998047,
+                "y": 4.5,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "Scale": {
+                "x": -1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "Data": {
+                "CitizenType": 2,
+                "JobType": 0,
+                "MoveType": 2,
+                "MoveSpeed": 2.0,
+                "Destination": {
+                    "x": 7.5,
+                    "y": 4.5,
+                    "z": 0.0
+                }
+            }
+        },
+        {
+            "Position": {
+                "x": 2.917931318283081,
+                "y": 7.5,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "Scale": {
+                "x": -1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "Data": {
+                "CitizenType": 2,
+                "JobType": 0,
+                "MoveType": 2,
+                "MoveSpeed": 2.0,
+                "Destination": {
+                    "x": 3.5,
+                    "y": 7.5,
+                    "z": 0.0
+                }
+            }
+        },
+        {
+            "Position": {
+                "x": 18.499998092651368,
+                "y": 7.706689834594727,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "Scale": {
+                "x": -1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "Data": {
+                "CitizenType": 1,
+                "JobType": 1,
+                "MoveType": 4,
+                "MoveSpeed": 2.0,
+                "Destination": {
+                    "x": 18.5,
+                    "y": 7.5,
+                    "z": 0.0
+                }
+            }
+        },
+        {
+            "Position": {
+                "x": 17.7139835357666,
+                "y": 2.501746654510498,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "Data": {
+                "CitizenType": 1,
+                "JobType": 1,
+                "MoveType": 1,
+                "MoveSpeed": 2.0,
+                "Destination": {
+                    "x": 17.5,
+                    "y": 2.5,
+                    "z": 0.0
+                }
+            }
+        },
+        {
+            "Position": {
+                "x": 17.288536071777345,
+                "y": 10.5,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "Scale": {
+                "x": -1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "Data": {
+                "CitizenType": 1,
+                "JobType": 1,
+                "MoveType": 2,
+                "MoveSpeed": 2.0,
+                "Destination": {
+                    "x": 17.5,
+                    "y": 10.5,
+                    "z": 0.0
+                }
+            }
+        },
+        {
+            "Position": {
+                "x": 13.711445808410645,
+                "y": 2.5,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "Data": {
+                "CitizenType": 1,
+                "JobType": 1,
+                "MoveType": 1,
+                "MoveSpeed": 2.0,
+                "Destination": {
+                    "x": 13.5,
+                    "y": 2.5,
+                    "z": 0.0
+                }
+            }
+        },
+        {
+            "Position": {
+                "x": 9.711450576782227,
+                "y": 2.5,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "Data": {
+                "CitizenType": 1,
+                "JobType": 1,
+                "MoveType": 1,
+                "MoveSpeed": 2.0,
+                "Destination": {
+                    "x": 9.5,
+                    "y": 2.5,
+                    "z": 0.0
+                }
+            }
+        },
+        {
+            "Position": {
+                "x": 6.711456775665283,
+                "y": 2.5,
+                "z": 0.0
+            },
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "Scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "Data": {
+                "CitizenType": 1,
+                "JobType": 1,
+                "MoveType": 1,
+                "MoveSpeed": 2.0,
+                "Destination": {
                     "x": 6.5,
-                    "y": 11.5,
+                    "y": 2.5,
                     "z": 0.0
                 }
             }

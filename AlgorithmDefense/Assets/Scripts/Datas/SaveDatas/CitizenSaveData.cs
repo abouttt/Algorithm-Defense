@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class CitizenSaveData
+public struct CitizenSaveData
 {
     public Vector3 Position;
     public Quaternion Rotation;
