@@ -24,7 +24,7 @@ public class TileObjectBuilder : MonoBehaviour
 
             if (Input.GetMouseButtonDown(1))
             {
-                Release();
+                Clear();
                 return;
             }
 
@@ -39,7 +39,7 @@ public class TileObjectBuilder : MonoBehaviour
 
     public void SetRoadTarget()
     {
-        Release();
+        Clear();
 
         _target = Managers.Resource.Load<TileBase>($"{Define.RULE_TILE_PATH}RoadRuleTile");
         _targetTile = Managers.Resource.Load<Tile>($"{Define.ROAD_TILE_PATH}Road_B");
@@ -47,7 +47,7 @@ public class TileObjectBuilder : MonoBehaviour
 
     public void SetBuildingTarget(Define.Building building)
     {
-        Release();
+        Clear();
 
         _target = Managers.Resource.Load<TileBase>($"{Define.BUILDING_TILE_PATH}{building.ToString()}");
         _targetTile = _target as Tile;
@@ -64,7 +64,7 @@ public class TileObjectBuilder : MonoBehaviour
             Managers.Tile.SetTile(Define.Tilemap.Building, cellPos, tileBase);
             SetRoadTarget();
             Managers.Tile.SetTile(Define.Tilemap.Road, cellPos, _target);
-            Release();
+            Clear();
         }
     }
 
@@ -93,7 +93,7 @@ public class TileObjectBuilder : MonoBehaviour
         _prevCellPos = cellPos;
     }
 
-    public void Release()
+    public void Clear()
     {
         if (!_target)
         {

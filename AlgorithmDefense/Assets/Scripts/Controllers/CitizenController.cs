@@ -6,15 +6,11 @@ using UnityEngine.Tilemaps;
 public class CitizenController : BaseController
 {
     public CitizenData Data = new CitizenData();
-    private SpriteRenderer _weaponSpriteRenderer;
 
     public override void Init()
     {
-        _weaponSpriteRenderer = Util.FindChild<Transform>(gameObject, "R_Weapon", recursive: true).GetComponent<SpriteRenderer>();
         _state = Define.State.Moving;
     }
-    
-    public void SetWeapon(Sprite weaponSprite) => _weaponSpriteRenderer.sprite = weaponSprite;
 
     public void SetNextDestination()
     {

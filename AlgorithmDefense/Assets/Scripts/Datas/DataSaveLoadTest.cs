@@ -4,28 +4,21 @@ using UnityEngine;
 
 public class DataSaveLoadTest : MonoBehaviour
 {
-    public bool Save;
-    public bool Load;
-    public bool Clear;
-
-    private void Update()
+    [ContextMenu("[저장]")]
+    void SaveJsonData()
     {
-        if (Save)
-        {
-            Save = false;
-            Managers.Data.SaveData();
-        }
+        Managers.Data.SaveData();
+    }
 
-        if (Load)
-        {
-            Load = false;
-            Managers.Data.LoadData();
-        }
+    [ContextMenu("[로드]")]
+    void LoadJsonData()
+    {
+        Managers.Data.LoadData();
+    }
 
-        if (Clear)
-        {
-            Clear = false;
-            Managers.Data.Clear();
-        }
+    [ContextMenu("[클리어]")]
+    void ClearJsonData()
+    {
+        Managers.Data.Clear();
     }
 }

@@ -36,23 +36,23 @@ public class Gateway : BaseBuilding
         EnqueueCitizen(citizen);
     }
 
-    public override string GetSaveData()
+    public override void CreateSaveData()
     {
         string data = JsonUtility.ToJson(this);
         string q = JsonUtility.ToJson(new SerializationQueue<CitizenOrderQueueData>(_citizenOrderQueue));
         string dic = JsonUtility.ToJson(new SerializationDictionary<Define.Citizen, Define.Move>(DirectionCondition));
-        return JsonUtility.ToJson(new GatewaySaveData(data, q, dic));
+        Managers.Data.GatewaySaveDatas.Enqueue(JsonUtility.ToJson(new GatewaySaveData(data, q, dic)));
     }
 
-    public override void LoadSaveData(string saveData)
+    public override void LoadSaveData()
     {
-        var data = JsonUtility.FromJson<GatewaySaveData>(saveData);
+        var saveData = JsonUtility.FromJson<GatewaySaveData>(Managers.Data.GatewaySaveDatas.Dequeue());
 
-        JsonUtility.FromJsonOverwrite(data.Data, this);
+        JsonUtility.FromJsonOverwrite(saveData.Data, this);
         _citizenOrderQueue =
-            JsonUtility.FromJson<SerializationQueue<CitizenOrderQueueData>>(data.OrderQueue).ToQueue();
+            JsonUtility.FromJson<SerializationQueue<CitizenOrderQueueData>>(saveData.OrderQueue).ToQueue();
         DirectionCondition =
-            JsonUtility.FromJson<SerializationDictionary<Define.Citizen, Define.Move>>(data.DirectionCondition).ToDictionary();
+            JsonUtility.FromJson<SerializationDictionary<Define.Citizen, Define.Move>>(saveData.DirectionCondition).ToDictionary();
 
         if (!_isReleasing)
         {

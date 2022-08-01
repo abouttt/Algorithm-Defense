@@ -80,20 +80,20 @@ public class JobTrainingCenter : BaseBuilding
         StartCoroutine(CreateJobCitizen());
     }
 
-    public override string GetSaveData()
+    public override void CreateSaveData()
     {
         string data = JsonUtility.ToJson(this);
         string q = JsonUtility.ToJson(new SerializationQueue<CitizenOrderQueueData>(_citizenOrderQueue));
-        return JsonUtility.ToJson(new JobTrainingCenterSaveData(data, q));
+        Managers.Data.JobTrainingCenterSaveDatas.Enqueue(JsonUtility.ToJson(new JobTrainingCenterSaveData(data, q)));
     }
 
-    public override void LoadSaveData(string saveData)
+    public override void LoadSaveData()
     {
-        var data = JsonUtility.FromJson<JobTrainingCenterSaveData>(saveData);
+        var saveData = JsonUtility.FromJson<JobTrainingCenterSaveData>(Managers.Data.JobTrainingCenterSaveDatas.Dequeue());
 
-        JsonUtility.FromJsonOverwrite(data.Data, this);
+        JsonUtility.FromJsonOverwrite(saveData.Data, this);
         _citizenOrderQueue =
-            JsonUtility.FromJson<SerializationQueue<CitizenOrderQueueData>>(data.OrderQueue).ToQueue();
+            JsonUtility.FromJson<SerializationQueue<CitizenOrderQueueData>>(saveData.OrderQueue).ToQueue();
 
         if (!_isReleasing)
         {

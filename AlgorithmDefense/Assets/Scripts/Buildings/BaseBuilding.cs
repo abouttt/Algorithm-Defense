@@ -24,17 +24,17 @@ public abstract class BaseBuilding : MonoBehaviour
     }
 
     public abstract void EnterTheBuilding(CitizenController citizen);
-    public abstract string GetSaveData();
-    public abstract void LoadSaveData(string saveData);
+    public abstract void CreateSaveData();
+    public abstract void LoadSaveData();
 
     protected abstract IEnumerator ReleaseCitizen();
     protected abstract void Init();
 
     protected void EnqueueCitizen(CitizenController citizen)
     {
-        _citizenOrderQueue.Enqueue(new CitizenOrderQueueData 
-        { 
-            CitzienName = citizen.name, 
+        _citizenOrderQueue.Enqueue(new CitizenOrderQueueData
+        {
+            CitzienName = citizen.name,
             CitizenData = citizen.Data
         });
 
