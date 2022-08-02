@@ -82,9 +82,9 @@ public class JobTrainingCenter : BaseBuilding
 
     public override void CreateSaveData()
     {
-        string data = JsonUtility.ToJson(this);
-        string q = JsonUtility.ToJson(new SerializationQueue<CitizenOrderQueueData>(_citizenOrderQueue));
-        Managers.Data.JobTrainingCenterSaveDatas.Enqueue(JsonUtility.ToJson(new JobTrainingCenterSaveData(data, q)));
+        string data = JsonUtility.ToJson(this, true);
+        string q = JsonUtility.ToJson(new SerializationQueue<CitizenOrderQueueData>(_citizenOrderQueue), true);
+        Managers.Data.JobTrainingCenterSaveDatas.Enqueue(JsonUtility.ToJson(new JobTrainingCenterSaveData(data, q), true));
     }
 
     public override void LoadSaveData()

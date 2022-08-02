@@ -89,6 +89,7 @@ public class SerializationQueue<T> : ISerializationCallbackReceiver
 public class DataManager
 {
     public Queue<string> GatewaySaveDatas = new Queue<string>();
+    public Queue<string> GatewayWithCountSaveDatas = new Queue<string>();
     public Queue<string> JobTrainingCenterSaveDatas = new Queue<string>();
 
     private List<TilemapSaveData> _tilemapDatas = new List<TilemapSaveData>();
@@ -140,6 +141,9 @@ public class DataManager
 
         json = JsonUtility.ToJson(new SerializationList<string>(GatewaySaveDatas), true);
         SaveDataToFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.GatewayData}.json", json);
+
+        json = JsonUtility.ToJson(new SerializationList<string>(GatewayWithCountSaveDatas), true);
+        SaveDataToFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.GatewayWithCountData}.json", json);
 
         json = JsonUtility.ToJson(new SerializationList<string>(JobTrainingCenterSaveDatas), true);
         SaveDataToFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.JobTrainingData}.json", json);
@@ -206,6 +210,9 @@ public class DataManager
 
         json = LoadDataFromFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.GatewayData}.json");
         GatewaySaveDatas = new Queue<string>(JsonUtility.FromJson<SerializationList<string>>(json).ToList());
+
+        json = LoadDataFromFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.GatewayWithCountData}.json");
+        GatewayWithCountSaveDatas = new Queue<string>(JsonUtility.FromJson<SerializationList<string>>(json).ToList());
 
         json = LoadDataFromFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.JobTrainingData}.json");
         JobTrainingCenterSaveDatas = new Queue<string>(JsonUtility.FromJson<SerializationList<string>>(json).ToList());

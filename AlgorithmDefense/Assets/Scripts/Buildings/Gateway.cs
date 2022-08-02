@@ -38,10 +38,10 @@ public class Gateway : BaseBuilding
 
     public override void CreateSaveData()
     {
-        string data = JsonUtility.ToJson(this);
-        string q = JsonUtility.ToJson(new SerializationQueue<CitizenOrderQueueData>(_citizenOrderQueue));
-        string dic = JsonUtility.ToJson(new SerializationDictionary<Define.Citizen, Define.Move>(DirectionCondition));
-        Managers.Data.GatewaySaveDatas.Enqueue(JsonUtility.ToJson(new GatewaySaveData(data, q, dic)));
+        string data = JsonUtility.ToJson(this, true);
+        string q = JsonUtility.ToJson(new SerializationQueue<CitizenOrderQueueData>(_citizenOrderQueue), true);
+        string dc = JsonUtility.ToJson(new SerializationDictionary<Define.Citizen, Define.Move>(DirectionCondition), true);
+        Managers.Data.GatewaySaveDatas.Enqueue(JsonUtility.ToJson(new GatewaySaveData(data, q, dc), true));
     }
 
     public override void LoadSaveData()

@@ -44,6 +44,7 @@ public static class Define
     public enum Building
     {
         Gateway,
+        GatewayWithCount,
         JobTrainingCenter,
     }
 
@@ -89,6 +90,7 @@ public static class Define
         TilemapData,
         CitizenData,
         GatewayData,
+        GatewayWithCountData,
         JobTrainingData,
         CitizenSpawnerData,
     }
