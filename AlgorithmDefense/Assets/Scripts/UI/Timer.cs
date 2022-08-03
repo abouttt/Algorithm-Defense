@@ -7,11 +7,13 @@ using System;
 public class Timer : MonoBehaviour
 {
 
-    
+    [SerializeField]
+    private Wave WaveCount;
     [SerializeField]
     private Text TimeText;
     private float _currentTime;
     private bool _timerActive = true;
+   
 
 
     void Start()
@@ -52,6 +54,7 @@ public class Timer : MonoBehaviour
                 _currentTime = 60;
 
                 //웨이브 증가
+                WaveCount.WaveCountPlus();
                 //다음 웨이브 호출
 
             }
