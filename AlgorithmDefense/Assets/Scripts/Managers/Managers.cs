@@ -8,12 +8,14 @@ public class Managers : MonoBehaviour
     private static Managers Instance { get { Init(); return s_instance; } }
 
     private DataManager _data = new DataManager();
+    private GameManager _game = new GameManager();
     private PoolManager _pool = new PoolManager();
     private ResourceManager _resource = new ResourceManager();
     private SoundManager _sound = new SoundManager();
     private TileManager _tile = new TileManager();
 
     public static DataManager Data { get { return Instance._data; } }
+    public static GameManager Game { get { return Instance._game; } }
     public static PoolManager Pool { get { return Instance._pool; } }
     public static ResourceManager Resource { get { return Instance._resource; } }
     public static SoundManager Sound { get { return Instance._sound; } }
@@ -26,9 +28,10 @@ public class Managers : MonoBehaviour
 
     public static void Clear()
     {
+        Game.Clear();
+        Data.Clear();
         Pool.Clear();
         Sound.Clear();
-        Data.Clear();
     }
 
     private static void Init()
@@ -48,6 +51,7 @@ public class Managers : MonoBehaviour
             s_instance._tile.Init();
             s_instance._data.Init();
             s_instance._pool.Init();
+            s_instance._game.Init();
             s_instance._sound.Init();
         }
     }

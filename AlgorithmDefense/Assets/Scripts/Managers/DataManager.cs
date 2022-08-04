@@ -91,6 +91,7 @@ public class DataManager
     public Queue<string> GatewaySaveDatas = new Queue<string>();
     public Queue<string> GatewayWithCountSaveDatas = new Queue<string>();
     public Queue<string> JobTrainingCenterSaveDatas = new Queue<string>();
+    public Queue<string> MagicFactorySaveDatas = new Queue<string>();
 
     private List<TilemapSaveData> _tilemapDatas = new List<TilemapSaveData>();
     private List<CitizenSaveData> _citizenDatas = new List<CitizenSaveData>();
@@ -148,6 +149,9 @@ public class DataManager
         json = JsonUtility.ToJson(new SerializationList<string>(JobTrainingCenterSaveDatas), true);
         SaveDataToFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.JobTrainingData}.json", json);
 
+        json = JsonUtility.ToJson(new SerializationList<string>(MagicFactorySaveDatas), true);
+        SaveDataToFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.MagicFactoryData}.json", json);
+
         // Ω√πŒ ¿˙¿Â.
 
         var pools = Managers.Pool.GetAllPool();
@@ -189,6 +193,7 @@ public class DataManager
                 _citizenSpawnerSaveData.Add(citizenSpawnerList[i].Item1);
             }
         }
+
         json = JsonUtility.ToJson(new SerializationList<Define.Citizen>(_citizenSpawnerSaveData), true);
         SaveDataToFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.CitizenSpawnerData}.json", json);
     }
@@ -216,6 +221,9 @@ public class DataManager
 
         json = LoadDataFromFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.JobTrainingData}.json");
         JobTrainingCenterSaveDatas = new Queue<string>(JsonUtility.FromJson<SerializationList<string>>(json).ToList());
+
+        json = LoadDataFromFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.MagicFactoryData}.json");
+        MagicFactorySaveDatas = new Queue<string>(JsonUtility.FromJson<SerializationList<string>>(json).ToList());
 
         foreach (var tilemapData in _tilemapDatas)
         {

@@ -5,11 +5,13 @@ using UnityEngine.Tilemaps;
 
 public class JobTrainingCenter : BaseBuilding
 {
-    public Define.Job JobType = Define.Job.None;
     public Define.Move MoveType = Define.Move.None;
+
     [field: SerializeField]
     public int CurrentCount { get; private set; }
 
+    [SerializeField]
+    private Define.Job _jobType = Define.Job.None;
     private JobTrainingCenterCommonData _commonData;
     private Define.Citizen _citizenType = Define.Citizen.None;
 
@@ -20,15 +22,15 @@ public class JobTrainingCenter : BaseBuilding
     // UI 존재 전 테스트 업데이트.
     private void Update()
     {
-        if (JobType != _prevJob)
+        if (_jobType != _prevJob)
         {
             _isChanged = true;
-            _prevJob = JobType;
+            _prevJob = _jobType;
         }
 
         if (_isChanged)
         {
-            SetJobType(JobType);
+            SetJobType(_jobType);
             _isChanged = false;
         }
     }
@@ -36,20 +38,20 @@ public class JobTrainingCenter : BaseBuilding
     // 건물의 직업 설정에 따라 타일을 바꾼다.
     public void SetJobType(Define.Job job)
     {
-        JobType = job;
+        _jobType = job;
 
-        if (JobType == Define.Job.Warrior ||
-            JobType == Define.Job.Golem)
+        if (_jobType == Define.Job.Warrior ||
+            _jobType == Define.Job.Golem)
         {
             ChangeTile("JobTrainingCenter_Warrior");
         }
-        else if (JobType == Define.Job.Archer ||
-                 JobType == Define.Job.Sniper)
+        else if (_jobType == Define.Job.Archer ||
+                 _jobType == Define.Job.Sniper)
         {
             ChangeTile("JobTrainingCenter_Archer");
         }
-        else if (JobType == Define.Job.Wizard ||
-                 JobType == Define.Job.FreezeWizard)
+        else if (_jobType == Define.Job.Wizard ||
+                 _jobType == Define.Job.FreezeWizard)
         {
             ChangeTile("JobTrainingCenter_Wizard");
         }
@@ -61,7 +63,7 @@ public class JobTrainingCenter : BaseBuilding
 
     public override void EnterTheBuilding(CitizenController citizen)
     {
-        if ((JobType == Define.Job.None) ||
+        if ((_jobType == Define.Job.None) ||
             (MoveType == Define.Move.None) ||
             (citizen.Data.JobType != Define.Job.None))
         {
@@ -138,10 +140,10 @@ public class JobTrainingCenter : BaseBuilding
                 yield break;
             }
 
-            var go = Managers.Resource.Instantiate($"{Define.BATTILE_UNIT_PATH}{JobType.ToString()}Unit");
+            var go = Managers.Resource.Instantiate($"{Define.BATTILE_UNIT_PATH}{_jobType.ToString()}Unit");
             var citizen = go.GetOrAddComponent<CitizenController>();
             citizen.Data.CitizenType = _citizenType;
-            citizen.Data.JobType = JobType;
+            citizen.Data.JobType = _jobType;
             citizen.Data.MoveType = MoveType;
             citizen.Data.MoveSpeed = 2.0f;
 
@@ -155,14 +157,14 @@ public class JobTrainingCenter : BaseBuilding
     // 건물의 시민 카운트를 확인하여 만족했는지 확인한다.
     private bool IsJobSatisfaction()
     {
-        if (JobType == Define.Job.None)
+        if (_jobType == Define.Job.None)
         {
             return false;
         }
 
-        if (CurrentCount >= _commonData.JobCountData[(int)JobType - 1])
+        if (CurrentCount >= _commonData.JobCountData[(int)_jobType - 1])
         {
-            CurrentCount -= _commonData.JobCountData[(int)JobType - 1];
+            CurrentCount -= _commonData.JobCountData[(int)_jobType - 1];
             return true;
         }
 
@@ -186,7 +188,7 @@ public class JobTrainingCenter : BaseBuilding
     {
         base.CopyTo(other);
 
-        other.JobType = JobType;
+        other._jobType = _jobType;
         other.MoveType = MoveType;
         other.CurrentCount = CurrentCount;
         other._citizenType = _citizenType;

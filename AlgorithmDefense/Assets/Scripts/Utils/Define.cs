@@ -46,6 +46,7 @@ public static class Define
         Gateway,
         GatewayWithCount,
         JobTrainingCenter,
+        MagicFactory,
     }
 
     public enum Job
@@ -77,6 +78,14 @@ public static class Define
         Down,
     }
 
+    public enum Magic
+    {
+        None,
+        Thunderstroke,
+        Madness,
+        Heal,
+    }
+
     public enum State
     {
         Idle,
@@ -92,6 +101,7 @@ public static class Define
         GatewayData,
         GatewayWithCountData,
         JobTrainingData,
+        MagicFactoryData,
         CitizenSpawnerData,
     }
 
