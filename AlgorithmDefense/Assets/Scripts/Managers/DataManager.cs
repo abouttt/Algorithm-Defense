@@ -20,10 +20,21 @@ public class SerializationList<T>
         _target = new List<T>(target);
     }
 
-    public List<T> ToList()
+    public List<T> ToList() => _target;
+}
+
+[Serializable]
+public class SerializationArray<T>
+{
+    [SerializeField]
+    private T[] _target;
+
+    public SerializationArray(T[] target)
     {
-        return _target;
+        _target = target;
     }
+
+    public T[] ToArray() =>_target;
 }
 
 [Serializable]
@@ -88,10 +99,19 @@ public class SerializationQueue<T> : ISerializationCallbackReceiver
 
 public class DataManager
 {
-    public Queue<string> GatewaySaveDatas = new Queue<string>();
-    public Queue<string> GatewayWithCountSaveDatas = new Queue<string>();
-    public Queue<string> JobTrainingCenterSaveDatas = new Queue<string>();
-    public Queue<string> MagicFactorySaveDatas = new Queue<string>();
+
+    // 게임 런타임 데이터.
+
+    public int[] MagicCounts { get; private set; } = new int[Enum.GetValues(typeof(Define.Magic)).Length - 1];
+    public int[] BattleUnitCounts { get; private set; } = new int[Enum.GetValues(typeof(Define.Job)).Length - 1];
+
+    // 세이브 데이터.
+
+    public Queue<string> GatewaySaveDatas { get; private set; } = new Queue<string>();
+    public Queue<string> GatewayWithCountSaveDatas { get; private set; } = new Queue<string>();
+    public Queue<string> JobTrainingCenterSaveDatas { get; private set; } = new Queue<string>();
+    public Queue<string> MagicFactorySaveDatas { get; private set; } = new Queue<string>();
+    public Queue<string> CampSaveDatas { get; private set; } = new Queue<string>();
 
     private List<TilemapSaveData> _tilemapDatas = new List<TilemapSaveData>();
     private List<CitizenSaveData> _citizenDatas = new List<CitizenSaveData>();
@@ -152,6 +172,9 @@ public class DataManager
         json = JsonUtility.ToJson(new SerializationList<string>(MagicFactorySaveDatas), true);
         SaveDataToFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.MagicFactoryData}.json", json);
 
+        json = JsonUtility.ToJson(new SerializationList<string>(CampSaveDatas), true);
+        SaveDataToFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.CampData}.json", json);
+
         // 시민 저장.
 
         var pools = Managers.Pool.GetAllPool();
@@ -196,6 +219,14 @@ public class DataManager
 
         json = JsonUtility.ToJson(new SerializationList<Define.Citizen>(_citizenSpawnerSaveData), true);
         SaveDataToFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.CitizenSpawnerData}.json", json);
+
+        // 런타임 데이터 저장.
+
+        json = JsonUtility.ToJson(new SerializationArray<int>(MagicCounts), true);
+        SaveDataToFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.Magic}.json", json);
+
+        json = JsonUtility.ToJson(new SerializationArray<int>(BattleUnitCounts), true);
+        SaveDataToFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.BattleUnit}.json", json);
     }
 
     public void LoadData()
@@ -224,6 +255,9 @@ public class DataManager
 
         json = LoadDataFromFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.MagicFactoryData}.json");
         MagicFactorySaveDatas = new Queue<string>(JsonUtility.FromJson<SerializationList<string>>(json).ToList());
+
+        json = LoadDataFromFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.CampData}.json");
+        CampSaveDatas = new Queue<string>(JsonUtility.FromJson<SerializationList<string>>(json).ToList());
 
         foreach (var tilemapData in _tilemapDatas)
         {
@@ -283,6 +317,14 @@ public class DataManager
         {
             CitizenSpawner.GetInstance.SetOnOff(_citizenSpawnerSaveData[i]);
         }
+
+        // 런타임 데이터 로드.
+
+        json = LoadDataFromFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.Magic}.json");
+        MagicCounts = JsonUtility.FromJson<SerializationArray<int>>(json).ToArray();
+
+        json = LoadDataFromFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.BattleUnit}.json");
+        BattleUnitCounts = JsonUtility.FromJson<SerializationArray<int>>(json).ToArray();
     }
 
     public void Clear()

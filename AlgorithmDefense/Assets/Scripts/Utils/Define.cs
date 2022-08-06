@@ -47,6 +47,7 @@ public static class Define
         GatewayWithCount,
         JobTrainingCenter,
         MagicFactory,
+        Camp,
     }
 
     public enum Job
@@ -102,7 +103,10 @@ public static class Define
         GatewayWithCountData,
         JobTrainingData,
         MagicFactoryData,
+        CampData,
         CitizenSpawnerData,
+        Magic,
+        BattleUnit,
     }
 
     public enum Sound
