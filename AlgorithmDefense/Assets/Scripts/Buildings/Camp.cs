@@ -60,7 +60,7 @@ public class Camp : BaseBuilding
 
     protected override void Init()
     {
-        HasUI = true;
+        HasUI = false;
     }
 
     private void CreateBattleUnit(CitizenController citizen)

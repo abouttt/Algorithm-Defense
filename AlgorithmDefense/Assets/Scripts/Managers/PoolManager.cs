@@ -65,6 +65,7 @@ public class PoolManager
 
     private Dictionary<string, Pool> _pool = new Dictionary<string, Pool>();
     private Transform _root;
+    private List<Pool> _tempPool = new List<Pool>();
 
     public void Init()
     {
@@ -128,15 +129,15 @@ public class PoolManager
         return _pool[name];
     }
 
-    public Pool[] GetAllPool()
+    public List<Pool> GetAllPool()
     {
-        List<Pool> pools = new List<Pool>();
+        _tempPool.Clear();
         foreach (var pool in _pool)
         {
-            pools.Add(pool.Value);
+            _tempPool.Add(pool.Value);
         }
 
-        return pools.ToArray();
+        return _tempPool;
     }
 
     public GameObject GetOriginal(string name)

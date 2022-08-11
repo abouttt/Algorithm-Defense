@@ -13,6 +13,7 @@ public static class Define
     public static readonly string RULE_TILE_PATH = "Tiles/RuleTiles/";
     public static readonly string BUILDING_TILE_PATH = "Tiles/Buildings/";
     public static readonly string STREAM_SAVE_DATA_PATH = $"{Application.streamingAssetsPath}/SaveDatas/";
+
     public enum Tilemap
     {
         Ground,
