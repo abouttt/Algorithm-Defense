@@ -6,12 +6,12 @@ using System;
 
 public class UI_NoticeTextSet : MonoBehaviour
 {
-    private GameObject noticeMenu;
-    Text noticeText;
-    public Color alpha;
-    public float alphaSpeed;
-    public bool showText;
-    public int msg;
+    private GameObject NoticeMenu;
+    private Text NoticeText;
+    private Color Alpha;
+    private float _alphaSpeed;
+    private bool _showText;
+    private int _msg;
 
 
     void Start()
@@ -23,27 +23,15 @@ public class UI_NoticeTextSet : MonoBehaviour
         //Debug.Log(obj);
 
         //비활성화 object
-        noticeMenu = obj.transform.Find("Notice_Text").gameObject;
+        NoticeMenu = obj.transform.Find("NoticeText").gameObject;
         //Debug.Log(noticeMenu);
 
-        noticeText = noticeMenu.GetComponent<Text>();
+        NoticeText = NoticeMenu.GetComponent<Text>();
         //Debug.Log(noticeText);
 
-        alpha = noticeText.color;
-        showText = false;
-        alphaSpeed = 1.5f;
-    }
-
-
-
-    //건물을 설치 할 수 없는 곳을 클릭했을 때
-    public void CannotBeBuilt()
-    {
-        showText = true;
-        alpha.a = 1f;
-        noticeText.text = msg.ToString("설치를 할 수 없는 위치입니다'.'");
-        noticeMenu.SetActive(true);
-
+        Alpha = NoticeText.color;
+        _showText = false;
+        _alphaSpeed = 2f;
     }
 
 
@@ -51,19 +39,31 @@ public class UI_NoticeTextSet : MonoBehaviour
     void Update()
     {
 
-        if (showText)
+        if (_showText)
         {
-            alpha.a = Mathf.Lerp(alpha.a, 0, Time.deltaTime / alphaSpeed);
-            noticeText.color = alpha;
+            Alpha.a = Mathf.Lerp(Alpha.a, 0, Time.deltaTime / _alphaSpeed);
+            NoticeText.color = Alpha;
             //Debug.Log(alpha.a);
-            if (noticeText.color.a < 0.09f)
+            if (NoticeText.color.a < 0.25f)
             {
-                showText = false;
-                noticeText.text = msg.ToString(" ");
-                noticeMenu.SetActive(false);
+                _showText = false;
+                NoticeText.text = _msg.ToString("Null Text");
+                NoticeMenu.SetActive(false);
             }
 
         }
+
+    }
+
+
+
+    //건물을 설치 할 수 없는 곳을 클릭했을 때
+    public void CanNotBeBuilt()
+    {
+        _showText = true;
+        Alpha.a = 1f;
+        NoticeText.text = _msg.ToString("설치를 할 수 없는 위치입니다'.'");
+        NoticeMenu.SetActive(true);
 
     }
 }

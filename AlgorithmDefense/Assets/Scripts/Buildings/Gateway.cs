@@ -6,6 +6,9 @@ public class Gateway : BaseBuilding
 {
     public Dictionary<Define.Citizen, Define.Move> DirectionCondition { get; private set; }
 
+    private UI_CitizenDirectionController Controller;
+    private Camera _camera;
+
     // 테스트 변수.
     public Define.Move Red = Define.Move.None;
     public Define.Move Green = Define.Move.None;
@@ -18,17 +21,43 @@ public class Gateway : BaseBuilding
     {
         if (SetChangeValue)
         {
-            DirectionCondition[Define.Citizen.Red] = Red;
-            DirectionCondition[Define.Citizen.Green] = Green;
-            DirectionCondition[Define.Citizen.Blue] = Blue;
-            DirectionCondition[Define.Citizen.Yellow] = Yellow;
+            //설정된 데이터 입력
+            DirectionCondition[Define.Citizen.Red] = Controller.ToggleDirection[Define.Citizen.Red];
+            DirectionCondition[Define.Citizen.Green] = Controller.ToggleDirection[Define.Citizen.Green];
+            DirectionCondition[Define.Citizen.Blue] = Controller.ToggleDirection[Define.Citizen.Blue];
+            DirectionCondition[Define.Citizen.Yellow] = Controller.ToggleDirection[Define.Citizen.Yellow];
             SetChangeValue = false;
 
-            Debug.Log($"{DirectionCondition[Define.Citizen.Red]}");
-            Debug.Log($"{DirectionCondition[Define.Citizen.Green]}");
-            Debug.Log($"{DirectionCondition[Define.Citizen.Blue]}");
-            Debug.Log($"{DirectionCondition[Define.Citizen.Yellow]}");
+
+            //입력한 데이터 저장
+            Red = Controller.ToggleDirection[Define.Citizen.Red];
+            Green = Controller.ToggleDirection[Define.Citizen.Green];
+            Blue = Controller.ToggleDirection[Define.Citizen.Blue];
+            Yellow = Controller.ToggleDirection[Define.Citizen.Yellow];
+
+
+            Debug.Log("-------------------------------------");
+            Debug.Log("Red: " + $"{DirectionCondition[Define.Citizen.Red]}");
+            Debug.Log("green: " + $"{DirectionCondition[Define.Citizen.Green]}");
+            Debug.Log("Blue: " + $"{DirectionCondition[Define.Citizen.Blue]}");
+            Debug.Log("yellow: " + $"{DirectionCondition[Define.Citizen.Yellow]}");
+
+            Controller = null;
         }
+    }
+
+    public override void GateWayInformationTransfer(GameObject clone)
+    {
+
+        Controller = FindObjectOfType<UI_CitizenDirectionController>();
+
+        //건물 오른쪽에 생성되도록 좌표지정
+        var pos = _camera.WorldToScreenPoint(transform.position) + (Vector3.right * 300);
+        Controller.transform.GetChild(0).position = pos;
+
+        Controller.ToggleDirection = DirectionCondition;
+        Controller.SetDirection(clone);
+
     }
 
     public override void EnterTheBuilding(CitizenController citizen)
@@ -111,5 +140,7 @@ public class Gateway : BaseBuilding
         }
 
         HasUI = true;
+
+        _camera = Camera.main;
     }
 }

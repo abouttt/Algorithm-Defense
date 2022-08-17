@@ -19,9 +19,26 @@ public class JobTrainingCenter : BaseBuilding
     private bool _isChanged = false;
     private Define.Job _prevJob = Define.Job.None;
 
+    public bool SetChangeValue = false;
+    private UI_JobTrainingController Controller;
+    private Camera _camera;
+
+    private bool _classSwich = false;
+
     // UI 존재 전 테스트 업데이트.
     private void Update()
     {
+        if (SetChangeValue)
+        {
+            _jobType = Controller.JobClassType;
+            MoveType = Controller.JobMoveType;
+
+            Debug.Log("클래스: " + _jobType);
+            Debug.Log("이동: " + MoveType);
+            SetChangeValue = false;
+        }
+
+
         if (_jobType != _prevJob)
         {
             _isChanged = true;
@@ -33,6 +50,23 @@ public class JobTrainingCenter : BaseBuilding
             SetJobType(_jobType);
             _isChanged = false;
         }
+    }
+
+    //UI에 정보 전달
+    public override void JobTrainingInformationTransfer(GameObject clone)
+    {
+
+        Controller = FindObjectOfType<UI_JobTrainingController>();
+
+        //건물 오른쪽에 생성되도록 좌표지정
+        var pos = _camera.WorldToScreenPoint(transform.position) + (Vector3.right * 300);
+        Controller.transform.GetChild(0).position = pos;
+
+        Controller.JobMoveType = MoveType;
+        Controller.JobClassType = _jobType;
+
+        Controller.SetDirection(clone);
+
     }
 
     // 건물의 직업 설정에 따라 타일을 바꾼다.
@@ -108,6 +142,7 @@ public class JobTrainingCenter : BaseBuilding
     {
         _commonData = Managers.Resource.Load<JobTrainingCenterCommonData>("Datas/JobTrainingCenterCommonData");
         HasUI = true;
+        _camera = Camera.main;
         StartCoroutine(CreateJobCitizen());
     }
 

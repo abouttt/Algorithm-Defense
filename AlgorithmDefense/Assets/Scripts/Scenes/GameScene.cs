@@ -101,6 +101,7 @@ public class GameScene : MonoBehaviour
     private void InitTilesObject()
     {
         var buildingNames = Enum.GetNames(typeof(Define.Building));
+
         foreach (var buildingName in buildingNames)
         {
             var tile = Managers.Resource.Load<Tile>($"{Define.BUILDING_TILE_PATH}{buildingName}");

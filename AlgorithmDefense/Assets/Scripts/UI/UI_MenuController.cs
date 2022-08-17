@@ -8,7 +8,8 @@ public class UI_MenuController : MonoBehaviour
     private GameObject citizenButtenMenu;
     [SerializeField]
     private GameObject buildTileMenu;
-
+    [SerializeField]
+    private GameObject battleMenu;
 
 
     public void GetCitizenButtonDown()
@@ -44,6 +45,23 @@ public class UI_MenuController : MonoBehaviour
         {
             buildTileMenu.SetActive(true);
             citizenButtenMenu.SetActive(false);       
+
+        }
+    }
+
+
+    public void GetBattleButtonDown()
+    {
+        if (battleMenu.activeSelf)
+        {
+            //전체닫기
+            battleMenu.SetActive(false);
+
+        }
+        else//아니면
+        {
+            battleMenu.SetActive(true);
+
 
         }
     }

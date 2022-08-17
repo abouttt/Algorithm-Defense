@@ -13,8 +13,8 @@ public class Wave : MonoBehaviour
 
     private void Start()
     {
-        _count = 1;
-        WaveText.text = "Wave " + _count.ToString();
+        _count = 0;
+        WaveText.text = "Wave waitng";
     }
 
 

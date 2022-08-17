@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -44,7 +45,15 @@ public class MouseController : MonoBehaviour
                 var building = go.GetComponent<BaseBuilding>();
                 if (building.HasUI)
                 {
-                    // TODO
+                    //생성된 클론으로 건물 정보 찾기
+                    var name = building.name.Replace("(Clone)", String.Empty);
+                    Debug.Log("빌딩이름: " + name);
+
+                    //일딴 켜져있는 해당 건물UI 닫기(같은 이름의 건물 클릭 오류 방지)
+                    UI_BuildingMenager.GetInstance.CloseUIController((Define.Building)Enum.Parse(typeof(Define.Building), name));
+
+                    //클릭한 건물 이름과 오브젝트 전달
+                    UI_BuildingMenager.GetInstance.ShowUIController((Define.Building)Enum.Parse(typeof(Define.Building), name), go);
                 }
             }
         }
