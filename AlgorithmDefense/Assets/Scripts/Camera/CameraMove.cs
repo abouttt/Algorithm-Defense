@@ -9,14 +9,11 @@ public class CameraMove : MonoBehaviour
     public float MoveSpeed = 10;                     //카메라 이동 스피드
 
     private Vector3 mousePositionSaved;         //마우스 위치 저장
-    private bool _leftMove = false;
-    private bool _rightMove = false;
-    private bool _mousMove = false;
 
 
-    //public float maximumZoom=0f;                   //최대 줌
-    //public float minimumZoom=0f;                   //최소 줌
-    //public float zoomSpeed = 0f;              //줌 양
+    public float maximumZoom = 0f;                   //최대 줌
+    public float minimumZoom = 0f;                   //최소 줌
+    public float zoomSpeed = 0f;              //줌 양
 
 
 
@@ -30,14 +27,11 @@ public class CameraMove : MonoBehaviour
             CameraLeftMove();
         }
 
-
         //오른쪽
         if (Input.GetKey(KeyCode.RightArrow))
         {
             CameraRightMove();
         }
-
-
 
 
         if (Input.GetMouseButton(2))
@@ -46,21 +40,6 @@ public class CameraMove : MonoBehaviour
             CameraMousMove();
 
         }
-
-
-
-        ////마우스 카메라 이동(횔 버튼)
-        //if (Input.GetMouseButtonDown(2))
-        //{
-        //    mousePositionSaved = Input.mousePosition;
-        //    _mousMove = true;
-
-        //}
-        //if (Input.GetMouseButtonUp(2))
-        //{
-        //    _mousMove = false;
-
-        //}
 
 
         //if(_mousMove)
@@ -155,21 +134,22 @@ public class CameraMove : MonoBehaviour
     }
 
 
-    //public void CameraZoom()
-    //{
-    //    //카메라 줌 아웃
-    //    float t_zoomDirection = Input.GetAxis("Mouse ScrollWheel");// 마우스 횔 읽어오기
-    //    if (transform.position.y <= maximumZoom && t_zoomDirection > 0)
-    //    {
-    //        return;
-    //    }
-    //    if (transform.position.y >= minimumZoom && t_zoomDirection < 0)
-    //    {
-    //        return;
-    //    }
+    public void CameraZoom()
+    {
+        //카메라 줌 아웃
+        float t_zoomDirection = Input.GetAxis("Mouse ScrollWheel"); // 마우스 횔 읽어오기
 
-    //    transform.position += transform.forward * t_zoomDirection * MoveSpeed;
-    //}
+        if (transform.position.y <= maximumZoom && t_zoomDirection > 0)
+        {
+            return;
+        }
+        if (transform.position.y >= minimumZoom && t_zoomDirection < 0)
+        {
+            return;
+        }
+
+        MainCamera.orthographicSize += t_zoomDirection * MoveSpeed;
+    }
 
 
 }

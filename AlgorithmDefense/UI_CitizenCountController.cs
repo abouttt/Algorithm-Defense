@@ -5,7 +5,6 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System;
 using System.Linq;
-using static Define;
 
 
 public class UI_CitizenCountController : UI_BaseBuildingController
@@ -107,8 +106,7 @@ public class UI_CitizenCountController : UI_BaseBuildingController
 
     {
         //건물 삭제
-        Managers.Tile.SetTile(Define.Tilemap.Building, MouseController.GetInstance.MouseCellPos, null);
-        Managers.Tile.SetTile(Define.Tilemap.Road, MouseController.GetInstance.MouseCellPos, null);
+
 
         //UI 닫기
         UI_BuildingMenager.GetInstance.CloseUIController();

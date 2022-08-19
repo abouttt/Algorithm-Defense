@@ -6,54 +6,13 @@ public class MagicFactory : BaseBuilding
 {
     [field: SerializeField]
     public int CurrentCount { get; private set; }
+    public Define.Magic MagicType = Define.Magic.None;
 
-    [SerializeField]
-    private Define.Magic _magicType = Define.Magic.None;
     private MagicFactoryCommonData _commonData;
-
-    public bool SetChangeValue = false;
-    private UI_MagicProductionController Controller;
-    private Camera _camera;
-
-    private void Update()
-    {
-        if (SetChangeValue)
-        {
-            //설정된 데이터 입력
-            _magicType = Controller.MagicType;
-
-            SetChangeValue = false;
-
-            Debug.Log("-------------------------------------");
-            Debug.Log("마법선택: " + $"{_magicType}");
-
-            Controller = null;
-        }
-    }
-
-    public void SetMagicType(Define.Magic magic)
-    {
-        _magicType = magic;
-    }
-
-    //UI에 정보 전달
-    public override void MagicFactoryInformationTransfer(GameObject clone)
-    {
-
-        Controller = FindObjectOfType<UI_MagicProductionController>();
-
-        //건물 오른쪽에 생성되도록 좌표지정
-        var pos = _camera.WorldToScreenPoint(transform.position) + (Vector3.right * 300);
-        Controller.transform.GetChild(0).position = pos;
-
-        Controller.MagicType = _magicType;
-        Controller.SetDirection(clone);
-
-    }
 
     public override void EnterTheBuilding(CitizenController citizen)
     {
-        if ((_magicType == Define.Magic.None) ||
+        if ((MagicType == Define.Magic.None) ||
             (citizen.Data.JobType != Define.Job.None))
         {
             EnqueueCitizen(citizen);
@@ -117,16 +76,16 @@ public class MagicFactory : BaseBuilding
 
     private void CreateMagic()
     {
-        if (_magicType == Define.Magic.None)
+        if (MagicType == Define.Magic.None)
         {
             return;
         }
 
-        if (CurrentCount >= _commonData.MagicCountData[(int)_magicType - 1])
+        if (CurrentCount >= _commonData.MagicCountData[(int)MagicType - 1])
         {
-            CurrentCount -= _commonData.MagicCountData[(int)_magicType - 1];
-            Managers.Data.MagicCounts[(int)_magicType - 1]++;
-            Debug.Log($"{_magicType.ToString()} : {Managers.Data.MagicCounts[(int)_magicType - 1]}");
+            CurrentCount -= _commonData.MagicCountData[(int)MagicType - 1];
+            Managers.Data.MagicCounts[(int)MagicType - 1]++;
+            Debug.Log($"{MagicType.ToString()} : {Managers.Data.MagicCounts[(int)MagicType - 1]}");
         }
     }
 }

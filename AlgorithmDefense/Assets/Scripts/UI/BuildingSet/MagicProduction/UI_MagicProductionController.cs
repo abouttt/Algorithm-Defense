@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 using System;
 using System.Linq;
 
-public class UI_MagicProductionController : MagicFactory
+public class UI_MagicProductionController : UI_BaseBuildingController
 {
 
     [SerializeField]
@@ -85,13 +85,12 @@ public class UI_MagicProductionController : MagicFactory
         }
 
         // 연결된 GateWay 데이터 업데이트
-        ThisMagicFactory.GetComponent<MagicFactory>().SetChangeValue = true;
 
         //모든 토글 닫기(잔상 때문에)
         AllOffToggles();
 
         //UI 닫기
-        UI_BuildingMenager.GetInstance.CloseUIController(Define.Building.MagicFactory);
+        UI_BuildingMenager.GetInstance.CloseUIController();
 
     }
 
@@ -103,7 +102,12 @@ public class UI_MagicProductionController : MagicFactory
 
 
         //UI 닫기
-        UI_BuildingMenager.GetInstance.CloseUIController(Define.Building.MagicFactory);
+        UI_BuildingMenager.GetInstance.CloseUIController();
 
+    }
+
+    public override void Clear()
+    {
+        throw new NotImplementedException();
     }
 }

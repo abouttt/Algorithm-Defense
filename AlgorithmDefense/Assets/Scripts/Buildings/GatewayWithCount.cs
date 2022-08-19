@@ -19,75 +19,6 @@ public class GatewayWithCount : BaseBuilding
     [SerializeField]
     private int _currentIndex;
 
-    // 테스트 변수.
-    public bool Left = false;
-    public bool Up = false;
-    public bool Right = false;
-    public bool Down = false;
-    public bool SetChangeValue = false;
-
-    private UI_CitizenCountController Controller;
-    private Camera _camera;
-
-    // 테스트 업데이트.
-    private void Update()
-    {
-        if (SetChangeValue)
-        {
-            for (int i = 0; i < 4; i++)
-            {
-                if (DirectionCondition[i].MoveType == Controller.MoveType)
-                {
-                    DirectionCondition[i].IsOn = true;
-
-                }
-                else
-                {
-                    DirectionCondition[i].IsOn = false;
-                }
-            }
-
-            Controller.MoveType = Define.Move.None;
-
-            //DirectionCondition[0].IsOn = Left;
-            //DirectionCondition[1].IsOn = Up;
-            //DirectionCondition[2].IsOn = Right;
-            //DirectionCondition[3].IsOn = Down;
-            SetChangeValue = false;
-
-            Count = Controller.CitizenCount;
-
-            Debug.Log($"Left : {Left}");
-            Debug.Log($"Up : {Up}");
-            Debug.Log($"Right : {Right}");
-            Debug.Log($"Down : {Down}");
-        }
-    }
-
-    public override void GatewayWithCountInformationTransfer(GameObject clone)
-    {
-
-        Controller = FindObjectOfType<UI_CitizenCountController>();
-
-        //건물 오른쪽에 생성되도록 좌표지정
-        var pos = _camera.WorldToScreenPoint(transform.position) + (Vector3.right * 300);
-        Controller.transform.GetChild(0).position = pos;
-
-        for (int i = 0; i < 4; i++)
-        {
-            if (DirectionCondition[i].IsOn == true)
-            {
-                Controller.MoveType = DirectionCondition[i].MoveType;
-            }
-        }
-
-        Controller.CitizenCount = Count;
-
-
-        Controller.SetDirection(clone);
-
-    }
-
     public override void EnterTheBuilding(CitizenController citizen)
     {
         EnqueueCitizen(citizen);
@@ -193,7 +124,5 @@ public class GatewayWithCount : BaseBuilding
         }
 
         HasUI = true;
-
-        _camera = Camera.main;
     }
 }

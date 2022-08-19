@@ -6,28 +6,21 @@ using UnityEngine.EventSystems;
 using System;
 using System.Linq;
 
-public class UI_CitizenDirectionController : Gateway
+public class UI_CitizenDirectionController : UI_BaseBuildingController
 {
     [SerializeField]
     private ToggleGroup[] _toggleGroups;
 
-    public  Dictionary<Define.Citizen, Define.Move> ToggleDirection;
+    //public Dictionary<Define.Citizen, Define.Move> ToggleDirection;
 
-    //현재 연결된 GateWay prtfab(Clone)
-    private GameObject ThisGateWay;
+    private Gateway _gateway;
 
-
-    public  void SetDirection(GameObject obj)
+    private void OnEnable()
     {
-        //모든 토글 닫기
-        AllOffToggles();
+        _gateway = CurrentBuilding.GetComponent<Gateway>();
 
-        //토글 설정
+        // 건물 데이터 로드.
         setupGatewayInfo();
-
-        //현재 연결된 GateWay 저장
-        ThisGateWay = obj;
-     
     }
 
     public void AllOffToggles()
@@ -36,13 +29,12 @@ public class UI_CitizenDirectionController : Gateway
         for (int i = 0; i < _toggleGroups.Length; i++)
         {
             _toggleGroups[i].SetAllTogglesOff();
-
         }
     }
 
     private void setupGatewayInfo()
     {
-        foreach (var condition in ToggleDirection)
+        foreach (var condition in _gateway.DirectionCondition)
         {
             if (condition.Value != Define.Move.None)
             {
@@ -71,13 +63,12 @@ public class UI_CitizenDirectionController : Gateway
     public void OKButtonClick()
     {
 
-       
-        for (int citizenIdx = 0; citizenIdx < ToggleDirection.Count; citizenIdx++)
+
+        for (int citizenIdx = 0; citizenIdx < _gateway.DirectionCondition.Count; citizenIdx++)
         {
 
-            ToggleDirection[(Define.Citizen)citizenIdx + 1] = Define.Move.None;
+            _gateway.DirectionCondition[(Define.Citizen)citizenIdx + 1] = Define.Move.None;
 
-          
         }
 
         //트리거 그룹에서 찾기
@@ -91,23 +82,18 @@ public class UI_CitizenDirectionController : Gateway
                 //트리거 정보 가져옴
                 var info = toggle.GetComponent<UI_DirectionToggleSet>();
                 //트리거 색깔에 움직임 넣어줌
-                ToggleDirection[info.CitizenType] = info.MoveType;
+                _gateway.DirectionCondition[info.CitizenType] = info.MoveType;
 
             }
         }
-
-        // 연결된 GateWay 데이터 업데이트
-        ThisGateWay.GetComponent<Gateway>().SetChangeValue = true;
 
         //모든 토글 닫기(잔상 때문에)
         AllOffToggles();
 
         //UI 닫기
-        UI_BuildingMenager.GetInstance.CloseUIController(Define.Building.Gateway);
-     
+        UI_BuildingMenager.GetInstance.CloseUIController();
     }
 
-
-
+    public override void Clear() => AllOffToggles();
 }
 

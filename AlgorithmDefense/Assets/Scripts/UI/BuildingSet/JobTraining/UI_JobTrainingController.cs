@@ -7,7 +7,7 @@ using System;
 using System.Linq;
 
 
-public class UI_JobTrainingController : JobTrainingCenter
+public class UI_JobTrainingController : UI_BaseBuildingController
 {
     [SerializeField]
     private ToggleGroup _jobToggleGroups;
@@ -147,13 +147,12 @@ public class UI_JobTrainingController : JobTrainingCenter
             var info = toggle.GetComponent<UI_JobTrainingToggleSet>();
             //트리거 색깔에 움직임 넣어줌
             JobClassType = info.JobType;
-            SetJobType(info.JobType);
+            //SetJobType(info.JobType);
 
         }
 
     
         // 연결된 GateWay 데이터 업데이트
-        ThisJobTraining.GetComponent<JobTrainingCenter>().SetChangeValue = true;
 
         //모든 토글 닫기(잔상 때문에)
         AllOffToggles();
@@ -162,7 +161,7 @@ public class UI_JobTrainingController : JobTrainingCenter
         UniqueClass.SetActive(true);
 
         //UI 닫기
-        UI_BuildingMenager.GetInstance.CloseUIController(Define.Building.JobTrainingCenter);
+        UI_BuildingMenager.GetInstance.CloseUIController();
 
     }
 
@@ -174,7 +173,12 @@ public class UI_JobTrainingController : JobTrainingCenter
 
 
         //UI 닫기
-        UI_BuildingMenager.GetInstance.CloseUIController(Define.Building.JobTrainingCenter);
+        UI_BuildingMenager.GetInstance.CloseUIController();
 
+    }
+
+    public override void Clear()
+    {
+        throw new NotImplementedException();
     }
 }

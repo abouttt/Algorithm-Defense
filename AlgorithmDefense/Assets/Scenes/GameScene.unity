@@ -433,6 +433,28 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &516913232 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1755683686826279102, guid: 2adfe9d1905159748b780016d4f750eb, type: 3}
+  m_PrefabInstance: {fileID: 1921244468}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9b84fa5c5fb1774d865e0c9afe9e8f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &516925300 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8977442409462362568, guid: 2adfe9d1905159748b780016d4f750eb, type: 3}
+  m_PrefabInstance: {fileID: 1921244468}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20fa01371ee36044ea91b0e76cde017d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -532,6 +554,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainCamera: {fileID: 519420031}
   MoveSpeed: 3
+  maximumZoom: 7.5
+  minimumZoom: 1
+  zoomSpeed: 5
+--- !u!114 &550787707 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8977442410519381157, guid: 2adfe9d1905159748b780016d4f750eb, type: 3}
+  m_PrefabInstance: {fileID: 1921244468}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6d50795468a6434faccbb00e6236957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &588400149 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8977442411025705207, guid: 2adfe9d1905159748b780016d4f750eb, type: 3}
+  m_PrefabInstance: {fileID: 1921244468}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91728eff63c5a0f409111a1ef36221a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &601305120
 GameObject:
   m_ObjectHideFlags: 0
@@ -970,6 +1017,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1755683686826279074, guid: 2adfe9d1905159748b780016d4f750eb, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.222
+      objectReference: {fileID: 0}
     - target: {fileID: 1755683686826279103, guid: 2adfe9d1905159748b780016d4f750eb, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -982,6 +1033,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8977442409990052932, guid: 2adfe9d1905159748b780016d4f750eb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8977442409990052938, guid: 2adfe9d1905159748b780016d4f750eb, type: 3}
+      propertyPath: GatewayUIController
+      value: 
+      objectReference: {fileID: 516913232}
+    - target: {fileID: 8977442409990052938, guid: 2adfe9d1905159748b780016d4f750eb, type: 3}
+      propertyPath: JobTrainingUIController
+      value: 
+      objectReference: {fileID: 550787707}
+    - target: {fileID: 8977442409990052938, guid: 2adfe9d1905159748b780016d4f750eb, type: 3}
+      propertyPath: GatewayCountUIController
+      value: 
+      objectReference: {fileID: 588400149}
+    - target: {fileID: 8977442409990052938, guid: 2adfe9d1905159748b780016d4f750eb, type: 3}
+      propertyPath: MagicFactoryUIController
+      value: 
+      objectReference: {fileID: 516925300}
     - target: {fileID: 8977442410519381155, guid: 2adfe9d1905159748b780016d4f750eb, type: 3}
       propertyPath: m_IsActive
       value: 0

@@ -30,11 +30,6 @@ public abstract class BaseBuilding : MonoBehaviour
     protected abstract IEnumerator ReleaseCitizen();
     protected abstract void Init();
 
-    public virtual void GateWayInformationTransfer(GameObject go) { }
-    public virtual void GatewayWithCountInformationTransfer(GameObject go) { }
-    public virtual void JobTrainingInformationTransfer(GameObject go) { }
-    public virtual void MagicFactoryInformationTransfer(GameObject go) { }
-
     protected void EnqueueCitizen(CitizenController citizen)
     {
         _citizenOrderQueue.Enqueue(new CitizenOrderQueueData

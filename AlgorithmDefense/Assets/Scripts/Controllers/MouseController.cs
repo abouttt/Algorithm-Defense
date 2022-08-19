@@ -50,10 +50,10 @@ public class MouseController : MonoBehaviour
                     Debug.Log("빌딩이름: " + name);
 
                     //일딴 켜져있는 해당 건물UI 닫기(같은 이름의 건물 클릭 오류 방지)
-                    UI_BuildingMenager.GetInstance.CloseUIController((Define.Building)Enum.Parse(typeof(Define.Building), name));
+                    UI_BuildingMenager.GetInstance.CloseUIController();
 
                     //클릭한 건물 이름과 오브젝트 전달
-                    UI_BuildingMenager.GetInstance.ShowUIController((Define.Building)Enum.Parse(typeof(Define.Building), name), go);
+                    UI_BuildingMenager.GetInstance.ShowUIController((Define.Building)Enum.Parse(typeof(Define.Building), name), building);
                 }
             }
         }
