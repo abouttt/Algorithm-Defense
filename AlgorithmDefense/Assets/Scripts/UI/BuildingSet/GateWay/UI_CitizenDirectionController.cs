@@ -11,9 +11,9 @@ public class UI_CitizenDirectionController : UI_BaseBuildingController
     [SerializeField]
     private ToggleGroup[] _toggleGroups;
 
-    //public Dictionary<Define.Citizen, Define.Move> ToggleDirection;
 
     private Gateway _gateway;
+
 
     private void OnEnable()
     {
@@ -24,11 +24,12 @@ public class UI_CitizenDirectionController : UI_BaseBuildingController
     }
 
     public void AllOffToggles()
-    { 
+    {
         //현재 켜져있는 토글 모두 닫기
         for (int i = 0; i < _toggleGroups.Length; i++)
         {
             _toggleGroups[i].SetAllTogglesOff();
+
         }
     }
 
@@ -69,6 +70,7 @@ public class UI_CitizenDirectionController : UI_BaseBuildingController
 
             _gateway.DirectionCondition[(Define.Citizen)citizenIdx + 1] = Define.Move.None;
 
+
         }
 
         //트리거 그룹에서 찾기
@@ -92,8 +94,16 @@ public class UI_CitizenDirectionController : UI_BaseBuildingController
 
         //UI 닫기
         UI_BuildingMenager.GetInstance.CloseUIController();
+
     }
 
-    public override void Clear() => AllOffToggles();
+
+
+
+    public override void Clear()
+    {
+        AllOffToggles();
+    }
+
 }
 

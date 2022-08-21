@@ -23,17 +23,19 @@ public class UI_TileSpawnController : TileObjectBuilder
     public BuildButtonsInformation[] BuildButtons;
 
 
-
     [SerializeField]
     private Button TileButton;
     [SerializeField]
     private RectTransform buildButtonContainer;
 
-
+    private GameObject _buildTileMenu;
 
 
     private void Start()
     {
+
+        //해당 오브젝트의 부모를 찾아서 찾기
+        _buildTileMenu = GameObject.Find("BuildSpawnButtons");
 
         CreateButton(buildButtonContainer, TileButton, BuildButtons);
 
@@ -97,6 +99,7 @@ public class UI_TileSpawnController : TileObjectBuilder
             TileObjectBuilder.GetInstance.SetBuildingTarget((Define.Building)num - 1);
         }
 
+        _buildTileMenu.SetActive(false);
     }
 
 

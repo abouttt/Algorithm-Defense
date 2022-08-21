@@ -61,12 +61,6 @@ public class UI_BuildingMenager : MonoBehaviour
 
         _currentShowUIController.Clear();
 
-
-        //if (building == Define.Building.Gateway)
-        //{
-        //    _currentShowUIController.SetActive(false);
-        //}
-
         _currentShowUIController.gameObject.SetActive(false);
         _currentShowUIController = null;
 

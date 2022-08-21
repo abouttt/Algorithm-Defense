@@ -19,16 +19,17 @@ public class UI_JobTrainingController : UI_BaseBuildingController
     [SerializeField]
     private GameObject UniqueClass;
 
-    public Define.Move JobMoveType;
-    public Define.Job JobClassType;
-
     //현재 연결된 GateWay prtfab(Clone)
-    private GameObject ThisJobTraining;
+    private JobTrainingCenter _jobTraining;
 
-    public void SetDirection(GameObject obj)
+
+
+    private void OnEnable()
     {
+        _jobTraining = CurrentBuilding.GetComponent<JobTrainingCenter>();
+
         //클래스 구분
-        if (JobClassType < Define.Job.Golem)
+        if (_jobTraining.JobType < Define.Job.Golem)
         {
             NomalClassButtonKlick();
         }
@@ -38,17 +39,24 @@ public class UI_JobTrainingController : UI_BaseBuildingController
         }
 
 
-        //모든 토글 닫기
-        AllOffToggles();
-
         //토글 설정
-        SetupGatewayInfo();
-
-
-        //현재 연결된 GateWay 저장
-        ThisJobTraining = obj;
-
+        SetupJobTrainingInfo();
     }
+
+
+    public void NomalClassButtonKlick()
+    {
+
+        NomalClass.SetActive(true);
+        UniqueClass.SetActive(false);
+    }
+
+    public void UniqueClassButtonKlick()
+    {
+        NomalClass.SetActive(false);
+        UniqueClass.SetActive(true);
+    }
+
 
 
     public void AllOffToggles()
@@ -59,18 +67,18 @@ public class UI_JobTrainingController : UI_BaseBuildingController
 
     }
 
-    private void SetupGatewayInfo()
+    private void SetupJobTrainingInfo()
     {
 
-        if (JobClassType != Define.Job.None)
+        if (_jobTraining.JobType != Define.Job.None)
         {
-            var toggle = findJobToggle(JobClassType);
+            var toggle = findJobToggle(_jobTraining.JobType);
             toggle.isOn = true;
         }
 
-        if (JobMoveType != Define.Move.None)
+        if (_jobTraining.MoveType != Define.Move.None)
         {
-            var toggle = findMoveToggle(JobMoveType);
+            var toggle = findMoveToggle(_jobTraining.MoveType);
             toggle.isOn = true;
         }
 
@@ -99,25 +107,6 @@ public class UI_JobTrainingController : UI_BaseBuildingController
     }
 
 
-
-    public void NomalClassButtonKlick()
-    {
-
-        _jobToggleGroups.SetAllTogglesOff();
-
-        NomalClass.SetActive(true);
-        UniqueClass.SetActive(false);
-    }
-
-    public void UniqueClassButtonKlick()
-    {
-        _jobToggleGroups.SetAllTogglesOff();
-
-        NomalClass.SetActive(false);
-        UniqueClass.SetActive(true);
-    }
-
-
     public void OKButtonClick()
     {
 
@@ -132,27 +121,26 @@ public class UI_JobTrainingController : UI_BaseBuildingController
             //트리거 정보 가져옴
             var info = toggle.GetComponent<UI_JobTrainingToggleSet>();
             //트리거 색깔에 움직임 넣어줌
-            JobMoveType = info.MoveType;
+            _jobTraining.MoveType = info.MoveType;
 
         }
 
         //트리거 그룹에서 찾기
-         toggles = _jobToggleGroups;
+        toggles = _jobToggleGroups;
         //눌린 트리거 가져오기
-         toggle = toggles.GetFirstActiveToggle();
+        toggle = toggles.GetFirstActiveToggle();
         //무언가 눌렸다면
         if (toggle != null)
         {
             //트리거 정보 가져옴
             var info = toggle.GetComponent<UI_JobTrainingToggleSet>();
             //트리거 색깔에 움직임 넣어줌
-            JobClassType = info.JobType;
-            //SetJobType(info.JobType);
+            _jobTraining.JobType = info.JobType;
 
+            //건물에 해당 유닛 출력하도록 실행
+            _jobTraining.SetJobType(info.JobType);
         }
 
-    
-        // 연결된 GateWay 데이터 업데이트
 
         //모든 토글 닫기(잔상 때문에)
         AllOffToggles();
@@ -165,20 +153,14 @@ public class UI_JobTrainingController : UI_BaseBuildingController
 
     }
 
-    public void DestructionButtonClick()
-
-    {
-        //건물 삭제
-
-
-
-        //UI 닫기
-        UI_BuildingMenager.GetInstance.CloseUIController();
-
-    }
 
     public override void Clear()
     {
-        throw new NotImplementedException();
+        AllOffToggles();
+
+
+        NomalClass.SetActive(true);
+        UniqueClass.SetActive(true);
     }
+
 }

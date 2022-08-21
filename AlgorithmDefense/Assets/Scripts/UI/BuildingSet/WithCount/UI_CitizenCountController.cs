@@ -10,116 +10,101 @@ using static Define;
 
 public class UI_CitizenCountController : UI_BaseBuildingController
 {
+    public int CitizenCount;
 
     [SerializeField]
-    private ToggleGroup[] _toggleGroups;
+    private Toggle[] _toggles;
     [SerializeField]
     private Text countText;
 
-    public Define.Move MoveType;
+    //생성된 프리탭 데이터
+    private GatewayWithCount _withCount;
+    //오류출력 TEXT
+    private UI_NoticeTextSet GetNoticeInstance;
 
-    public int CitizenCount;
 
-
-    //현재 연결된 GateWay prtfab(Clone)
-    private GameObject ThisWithCount;
-
-    public void SetDirection(GameObject obj)
+    private void OnEnable()
     {
-        //모든 토글 닫기
-        AllOffToggles();
+        _withCount = CurrentBuilding.GetComponent<GatewayWithCount>();
 
-        //토글 설정
-        SetupGatewayInfo();
-
-        //카운트 설정
-        countText.text = CitizenCount.ToString();
-
-        //현재 연결된 GateWay 저장
-        ThisWithCount = obj;
+        SetupWithCountInfo();
 
     }
 
-    public void AllOffToggles()
+
+    public void SetupWithCountInfo()
     {
-        //현재 켜져있는 토글 모두 닫기
-        for (int i = 0; i < _toggleGroups.Length; i++)
+        countText.text = _withCount.Count.ToString();
+
+        CitizenCount = _withCount.Count;
+
+        for (int i = 0; i < _toggles.Length; i++)
         {
-            _toggleGroups[i].SetAllTogglesOff();
-
-        }
-    }
-
-    private void SetupGatewayInfo()
-    {
-
-        if (MoveType != Define.Move.None)
-        {
-            var toggle = findToggle(MoveType);
-            toggle.isOn = true;
+            if (_withCount.DirectionCondition[i].IsOn)
+            {
+                _toggles[i].isOn = true;
+            }
         }
 
     }
-
-    private Toggle findToggle(Define.Move moveType)
-    {
-        foreach (var toggles in _toggleGroups)
-        {
-            return toggles.GetComponentsInChildren<UI_CitizenCountToggleSet>()
-                          .First(toggle => toggle.MoveType == moveType)
-                          .GetComponent<Toggle>();
-        }
-
-        return null;
-    }
-
 
 
     public void OKButtonClick()
     {
-        //트리거 그룹에서 찾기
-        foreach (var toggles in _toggleGroups)
-        {
-            //눌린 트리거 가져오기
-            var toggle = toggles.GetFirstActiveToggle();
-            //무언가 눌렸다면
-            if (toggle != null)
-            {
-                //트리거 정보 가져옴
-                var info = toggle.GetComponent<UI_CitizenCountToggleSet>();
-                //트리거 색깔에 움직임 넣어줌
-                MoveType = info.MoveType;
+        //방향버튼 갯수 세는용도
+        int count = 0;
 
+        for (int i = 0; i < _toggles.Length; i++)
+        {
+
+            if (_toggles[i].isOn == true)
+            {
+                _withCount.DirectionCondition[i].IsOn = true;
+                count++;
+            }
+            else
+            {
+                _withCount.DirectionCondition[i].IsOn = false;
             }
         }
 
-        // 연결된 GateWay 데이터 업데이트
 
-        //모든 토글 닫기(잔상 때문에)
-        AllOffToggles();
+
+        if (count < 2 || count > 3)
+        {
+
+            //GetNoticeInstance.CanNotBeBuilt();
+            return;
+        }
+
+        _withCount.Count = CitizenCount;
+
+
+
+        for (int i = 0; i < _toggles.Length; i++)
+        {
+            _toggles[i].isOn = false;
+
+
+        }
 
         //UI 닫기
         UI_BuildingMenager.GetInstance.CloseUIController();
 
     }
 
-    public void DestructionButtonClick()
 
-    {
-        //건물 삭제
-        Managers.Tile.SetTile(Define.Tilemap.Building, MouseController.GetInstance.MouseCellPos, null);
-        Managers.Tile.SetTile(Define.Tilemap.Road, MouseController.GetInstance.MouseCellPos, null);
 
-        //UI 닫기
-        UI_BuildingMenager.GetInstance.CloseUIController();
 
-    }
 
     public void CountPlusButtonClick()
     {
-        CitizenCount++;
+        if (CitizenCount != 10)
+        {
+            CitizenCount++;
 
-        countText.text = CitizenCount.ToString();
+            countText.text = CitizenCount.ToString();
+        }
 
     }
     public void CountMinusButtonClick()
@@ -133,8 +118,17 @@ public class UI_CitizenCountController : UI_BaseBuildingController
 
     }
 
+
     public override void Clear()
     {
-        throw new NotImplementedException();
+        for (int i = 0; i < _toggles.Length; i++)
+        {
+            _toggles[i].isOn = false;
+
+        }
+
+
+        CitizenCount = 0;
     }
+
 }

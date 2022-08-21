@@ -12,24 +12,18 @@ public class UI_MagicProductionController : UI_BaseBuildingController
     [SerializeField]
     private ToggleGroup[] _toggleGroups;
 
-    public Define.Magic MagicType;
-
     //현재 연결된 GateWay prtfab(Clone)
-    private GameObject ThisMagicFactory;
+    private MagicFactory _magicFactory;
 
 
-    public void SetDirection(GameObject obj)
+    private void OnEnable()
     {
-        //모든 토글 닫기
-        AllOffToggles();
+        _magicFactory = CurrentBuilding.GetComponent<MagicFactory>();
 
         //토글 설정
-        SetupGatewayInfo();
-
-        //현재 연결된 GateWay 저장
-        ThisMagicFactory = obj;
-
+        SetupMagicFactoryInfo();
     }
+
 
     public void AllOffToggles()
     {
@@ -41,15 +35,15 @@ public class UI_MagicProductionController : UI_BaseBuildingController
         }
     }
 
-    private void SetupGatewayInfo()
+    private void SetupMagicFactoryInfo()
     {
-        
-            if (MagicType != Define.Magic.None)
-            {
-                var toggle = findToggle(MagicType);
-                toggle.isOn = true;
-            }
-        
+
+        if (_magicFactory.MagicType != Define.Magic.None)
+        {
+            var toggle = findToggle(_magicFactory.MagicType);
+            toggle.isOn = true;
+        }
+
     }
 
     private Toggle findToggle(Define.Magic magicType)
@@ -79,12 +73,10 @@ public class UI_MagicProductionController : UI_BaseBuildingController
                 //트리거 정보 가져옴
                 var info = toggle.GetComponent<UI_MagicToggleSet>();
                 //트리거 색깔에 움직임 넣어줌
-                MagicType = info.MagicType;
+                _magicFactory.MagicType = info.MagicType;
 
             }
         }
-
-        // 연결된 GateWay 데이터 업데이트
 
         //모든 토글 닫기(잔상 때문에)
         AllOffToggles();
@@ -94,20 +86,9 @@ public class UI_MagicProductionController : UI_BaseBuildingController
 
     }
 
-    public void DestructionButtonClick()
-
-    {
-        //건물 삭제
-
-
-
-        //UI 닫기
-        UI_BuildingMenager.GetInstance.CloseUIController();
-
-    }
-
     public override void Clear()
     {
-        throw new NotImplementedException();
+        AllOffToggles();
     }
+
 }
