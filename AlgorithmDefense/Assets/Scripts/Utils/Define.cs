@@ -49,6 +49,10 @@ public static class Define
         JobTrainingCenter,
         MagicFactory,
         Camp,
+
+
+        // Test
+        TBuilding,
     }
 
     public enum Job
