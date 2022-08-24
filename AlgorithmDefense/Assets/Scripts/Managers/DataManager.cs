@@ -34,7 +34,7 @@ public class SerializationArray<T>
         _target = target;
     }
 
-    public T[] ToArray() =>_target;
+    public T[] ToArray() => _target;
 }
 
 [Serializable]
@@ -97,10 +97,17 @@ public class SerializationQueue<T> : ISerializationCallbackReceiver
     public Queue<T> ToQueue() => _target;
 }
 
+[Serializable]
+public class RuntimeData
+{
+    public int Ore = 0;
+    public int Wood = 0;
+}
+
 public class DataManager
 {
-
     // 게임 런타임 데이터.
+    public RuntimeData RuntimeDatas = new RuntimeData();
 
     public int[] MagicCounts { get; private set; } = new int[Enum.GetValues(typeof(Define.Magic)).Length - 1];
     public int[] BattleUnitCounts { get; private set; } = new int[Enum.GetValues(typeof(Define.Job)).Length - 1];
@@ -112,6 +119,9 @@ public class DataManager
     public Queue<string> JobTrainingCenterSaveDatas { get; private set; } = new Queue<string>();
     public Queue<string> MagicFactorySaveDatas { get; private set; } = new Queue<string>();
     public Queue<string> CampSaveDatas { get; private set; } = new Queue<string>();
+    public Queue<string> OreMineSaveDatas { get; private set; } = new Queue<string>();
+    public Queue<string> SawmillSaveDatas { get; private set; } = new Queue<string>();
+
 
     private List<TilemapSaveData> _tilemapDatas = new List<TilemapSaveData>();
     private List<CitizenSaveData> _citizenDatas = new List<CitizenSaveData>();
@@ -158,22 +168,28 @@ public class DataManager
         }
 
         string json = JsonUtility.ToJson(new SerializationList<TilemapSaveData>(_tilemapDatas), true);
-        SaveDataToFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.TilemapData}.json", json);
+        SaveDataToFile($"{Define.STREAM_SAVE_DATA_PATH}{Define.Data.Tilemap}.json", json);
 
         json = JsonUtility.ToJson(new SerializationList<string>(GatewaySaveDatas), true);
-        SaveDataToFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.GatewayData}.json", json);
+        SaveDataToFile($"{Define.STREAM_SAVE_DATA_PATH}{Define.Data.Gateway}.json", json);
 
         json = JsonUtility.ToJson(new SerializationList<string>(GatewayWithCountSaveDatas), true);
-        SaveDataToFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.GatewayWithCountData}.json", json);
+        SaveDataToFile($"{Define.STREAM_SAVE_DATA_PATH}{Define.Data.GatewayWithCount}.json", json);
 
         json = JsonUtility.ToJson(new SerializationList<string>(JobTrainingCenterSaveDatas), true);
-        SaveDataToFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.JobTrainingData}.json", json);
+        SaveDataToFile($"{Define.STREAM_SAVE_DATA_PATH}{Define.Data.JobTraining}.json", json);
 
         json = JsonUtility.ToJson(new SerializationList<string>(MagicFactorySaveDatas), true);
-        SaveDataToFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.MagicFactoryData}.json", json);
+        SaveDataToFile($"{Define.STREAM_SAVE_DATA_PATH}{Define.Data.MagicFactory}.json", json);
 
         json = JsonUtility.ToJson(new SerializationList<string>(CampSaveDatas), true);
-        SaveDataToFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.CampData}.json", json);
+        SaveDataToFile($"{Define.STREAM_SAVE_DATA_PATH}{Define.Data.Camp}.json", json);
+
+        json = JsonUtility.ToJson(new SerializationList<string>(OreMineSaveDatas), true);
+        SaveDataToFile($"{Define.STREAM_SAVE_DATA_PATH}{Define.Data.OreMine}.json", json);
+
+        json = JsonUtility.ToJson(new SerializationList<string>(SawmillSaveDatas), true);
+        SaveDataToFile($"{Define.STREAM_SAVE_DATA_PATH}{Define.Data.Sawmill}.json", json);
 
         // 시민 저장.
 
@@ -205,9 +221,10 @@ public class DataManager
         }
 
         json = JsonUtility.ToJson(new SerializationList<CitizenSaveData>(_citizenDatas), true);
-        SaveDataToFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.CitizenData}.json", json);
+        SaveDataToFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.Citizen}.json", json);
 
         // 시민 스포너 저장.
+
         var citizenSpawnerList = CitizenSpawner.GetInstance.CitizenSpawnList;
         for (int i = 0; i < citizenSpawnerList.Length; i++)
         {
@@ -218,15 +235,18 @@ public class DataManager
         }
 
         json = JsonUtility.ToJson(new SerializationList<Define.Citizen>(_citizenSpawnerSaveData), true);
-        SaveDataToFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.CitizenSpawnerData}.json", json);
+        SaveDataToFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.CitizenSpawner}.json", json);
 
         // 런타임 데이터 저장.
 
+        json = JsonUtility.ToJson(RuntimeDatas);
+        SaveDataToFile($"{Define.STREAM_SAVE_DATA_PATH}{Define.Data.Runtime}.json", json);
+
         json = JsonUtility.ToJson(new SerializationArray<int>(MagicCounts), true);
-        SaveDataToFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.Magic}.json", json);
+        SaveDataToFile($"{Define.STREAM_SAVE_DATA_PATH}{Define.Data.Magic}.json", json);
 
         json = JsonUtility.ToJson(new SerializationArray<int>(BattleUnitCounts), true);
-        SaveDataToFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.BattleUnit}.json", json);
+        SaveDataToFile($"{Define.STREAM_SAVE_DATA_PATH}{Define.Data.BattleUnit}.json", json);
     }
 
     public void LoadData()
@@ -234,7 +254,7 @@ public class DataManager
 
         // 타일맵 로드.
 
-        string json = LoadDataFromFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.TilemapData}.json");
+        string json = LoadDataFromFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.Tilemap}.json");
         if (json == null ||
             json.Equals(""))
         {
@@ -244,19 +264,19 @@ public class DataManager
 
         _tilemapDatas = JsonUtility.FromJson<SerializationList<TilemapSaveData>>(json).ToList();
 
-        json = LoadDataFromFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.GatewayData}.json");
+        json = LoadDataFromFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.Gateway}.json");
         GatewaySaveDatas = new Queue<string>(JsonUtility.FromJson<SerializationList<string>>(json).ToList());
 
-        json = LoadDataFromFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.GatewayWithCountData}.json");
+        json = LoadDataFromFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.GatewayWithCount}.json");
         GatewayWithCountSaveDatas = new Queue<string>(JsonUtility.FromJson<SerializationList<string>>(json).ToList());
 
-        json = LoadDataFromFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.JobTrainingData}.json");
+        json = LoadDataFromFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.JobTraining}.json");
         JobTrainingCenterSaveDatas = new Queue<string>(JsonUtility.FromJson<SerializationList<string>>(json).ToList());
 
-        json = LoadDataFromFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.MagicFactoryData}.json");
+        json = LoadDataFromFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.MagicFactory}.json");
         MagicFactorySaveDatas = new Queue<string>(JsonUtility.FromJson<SerializationList<string>>(json).ToList());
 
-        json = LoadDataFromFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.CampData}.json");
+        json = LoadDataFromFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.Camp}.json");
         CampSaveDatas = new Queue<string>(JsonUtility.FromJson<SerializationList<string>>(json).ToList());
 
         foreach (var tilemapData in _tilemapDatas)
@@ -281,7 +301,7 @@ public class DataManager
 
         // 시민 로드.
 
-        json = LoadDataFromFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.CitizenData}.json");
+        json = LoadDataFromFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.Citizen}.json");
         _citizenDatas = JsonUtility.FromJson<SerializationList<CitizenSaveData>>(json).ToList();
 
         foreach (var data in _citizenDatas)
@@ -311,7 +331,7 @@ public class DataManager
 
         // 시민 스포너 로드.
 
-        json = LoadDataFromFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.CitizenSpawnerData}.json");
+        json = LoadDataFromFile($"{Define.STREAM_SAVE_DATA_PATH}{Define.Data.CitizenSpawner}.json");
         _citizenSpawnerSaveData = JsonUtility.FromJson<SerializationList<Define.Citizen>>(json).ToList();
         for (int i = 0; i < _citizenSpawnerSaveData.Count; i++)
         {
@@ -320,10 +340,13 @@ public class DataManager
 
         // 런타임 데이터 로드.
 
-        json = LoadDataFromFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.Magic}.json");
+        json = LoadDataFromFile($"{Define.STREAM_SAVE_DATA_PATH}{Define.Data.Runtime}.json");
+        RuntimeDatas= JsonUtility.FromJson<RuntimeData>(json);
+
+        json = LoadDataFromFile($"{Define.STREAM_SAVE_DATA_PATH}{Define.Data.Magic}.json");
         MagicCounts = JsonUtility.FromJson<SerializationArray<int>>(json).ToArray();
 
-        json = LoadDataFromFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.BattleUnit}.json");
+        json = LoadDataFromFile($"{Define.STREAM_SAVE_DATA_PATH}{Define.Data.BattleUnit}.json");
         BattleUnitCounts = JsonUtility.FromJson<SerializationArray<int>>(json).ToArray();
     }
 

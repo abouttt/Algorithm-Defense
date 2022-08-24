@@ -9,34 +9,29 @@ public class GameScene : MonoBehaviour
     [Header("[게임 초기 설정] - 씬 시작 시 1회만 동작한다.")]
 
     [Header("[카메라 설정]")]
-    [SerializeField]
-    private float _cameraX;
-    [SerializeField]
-    private float _cameraY;
-    [SerializeField]
-    private float _cameraZ;
-    [SerializeField]
-    private float _cameraSize;
+    public float CameraX;
+    public float CameraY;
+    public float CameraZ;
+    public float CameraSize;
 
     [Header("[그라운드 생성]")]
-    [SerializeField]
-    private int _groundWidth;
-    [SerializeField]
-    private int _groundHeight;
-    [SerializeField]
-    private int _grassPercentage;
+    public int GroundWidth;
+    public int GroundHeight;
+    public int GrassPercentage;
 
     [Header("[성벽 생성]")]
-    [SerializeField]
-    private int _rampartWidth;
-    [SerializeField]
-    private int _rampartHeight;
+    public Vector3Int StartPosition;
+    public int RampartWidth;
+    public int RampartHeight;
 
     [Header("[시민 스폰 설정]")]
-    [SerializeField]
-    private Vector3Int _spawnCellPos;
-    [SerializeField]
-    private float _spawnTime;
+    public Vector3Int SpawnCellPos;
+    public float SpawnTime;
+
+    [Header("광석 증가량")]
+    public int OreIncrease;
+    [Header("목재 증가량")]
+    public int WoodIncrease;
 
     private Transform _contentsRoot;
 
@@ -48,21 +43,19 @@ public class GameScene : MonoBehaviour
         InitGround();
         InitRampart();
         InitSpawn();
-
-        Destroy(gameObject);
     }
 
     private void InitCamera()
     {
         var camera = Camera.main;
-        camera.transform.position = new Vector3(_cameraX, _cameraY, _cameraZ);
-        camera.orthographicSize = _cameraSize;
+        camera.transform.position = new Vector3(CameraX, CameraY, CameraZ);
+        camera.orthographicSize = CameraSize;
     }
 
     private void InitContents()
     {
         _contentsRoot = Util.CreateGameObject("@Contens_Root").transform;
-
+        
         if (!FindObjectOfType<MouseController>())
         {
             Managers.Resource.Instantiate($"{Define.CONTENTS_PATH}@MouseController").transform.SetParent(_contentsRoot);
@@ -81,13 +74,13 @@ public class GameScene : MonoBehaviour
 
     private void InitGround()
     {
-        for (int x = 0; x < _groundWidth; x++)
+        for (int x = 0; x < GroundWidth; x++)
         {
-            for (var y = 0; y < _groundHeight; y++)
+            for (var y = 0; y < GroundHeight; y++)
             {
                 int grassTileNum = 1;
                 int randNum = UnityEngine.Random.Range(0, 100);
-                if (randNum <= _grassPercentage)
+                if (randNum <= GrassPercentage)
                 {
                     grassTileNum = UnityEngine.Random.Range(2, 4);
                 }
@@ -123,27 +116,27 @@ public class GameScene : MonoBehaviour
         var rampartCL = Managers.Resource.Load<Tile>($"{Define.BUILDING_TILE_PATH}Rampart_CL");
         var rampartCR = Managers.Resource.Load<Tile>($"{Define.BUILDING_TILE_PATH}Rampart_CR");
 
-        for (int x = 1; x < _rampartWidth - 1; x++)
+        for (int x = StartPosition.x + 1; x < RampartWidth - 1; x++)
         {
-            Managers.Tile.SetTile(Define.Tilemap.Building, new Vector3Int(x, 0, 0), rampartLR);
-            Managers.Tile.SetTile(Define.Tilemap.Building, new Vector3Int(x, _rampartHeight - 1, 0), rampartLR);
+            Managers.Tile.SetTile(Define.Tilemap.Building, new Vector3Int(x, StartPosition.y, 0), rampartLR);
+            Managers.Tile.SetTile(Define.Tilemap.Building, new Vector3Int(x, RampartHeight - 1, 0), rampartLR);
         }
 
-        for (int y = 1; y < _rampartHeight - 1; y++)
+        for (int y = StartPosition.y + 1; y < RampartHeight - 1; y++)
         {
-            Managers.Tile.SetTile(Define.Tilemap.Building, new Vector3Int(0, y, 0), rampartUD);
-            Managers.Tile.SetTile(Define.Tilemap.Building, new Vector3Int(_rampartWidth - 1, y, 0), rampartUD);
+            Managers.Tile.SetTile(Define.Tilemap.Building, new Vector3Int(StartPosition.x, y, 0), rampartUD);
+            Managers.Tile.SetTile(Define.Tilemap.Building, new Vector3Int(RampartWidth - 1, y, 0), rampartUD);
         }
 
-        Managers.Tile.SetTile(Define.Tilemap.Building, new Vector3Int(0, 0, 0), rampartCL);
-        Managers.Tile.SetTile(Define.Tilemap.Building, new Vector3Int(0, _rampartHeight - 1, 0), rampartCL);
+        Managers.Tile.SetTile(Define.Tilemap.Building, StartPosition, rampartCL);
+        Managers.Tile.SetTile(Define.Tilemap.Building, new Vector3Int(StartPosition.x, RampartHeight - 1, 0), rampartCL);
 
-        Managers.Tile.SetTile(Define.Tilemap.Building, new Vector3Int(_rampartWidth - 1, 0, 0), rampartCR);
-        Managers.Tile.SetTile(Define.Tilemap.Building, new Vector3Int(_rampartWidth - 1, _rampartHeight - 1, 0), rampartCR);
+        Managers.Tile.SetTile(Define.Tilemap.Building, new Vector3Int(RampartWidth - 1, StartPosition.y, 0), rampartCR);
+        Managers.Tile.SetTile(Define.Tilemap.Building, new Vector3Int(RampartWidth - 1, RampartHeight - 1, 0), rampartCR);
     }
 
     private void InitSpawn()
     {
-        CitizenSpawner.GetInstance.Setup(_spawnCellPos, _spawnTime);
+        CitizenSpawner.GetInstance.Setup(SpawnCellPos, SpawnTime);
     }
 }

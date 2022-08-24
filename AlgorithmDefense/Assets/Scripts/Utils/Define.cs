@@ -12,12 +12,14 @@ public static class Define
     public static readonly string ROAD_TILE_PATH = "Tiles/Roads/";
     public static readonly string RULE_TILE_PATH = "Tiles/RuleTiles/";
     public static readonly string BUILDING_TILE_PATH = "Tiles/Buildings/";
+    public static readonly string ITEM_TILE_PATH = "Tiles/Items/";
     public static readonly string STREAM_SAVE_DATA_PATH = $"{Application.streamingAssetsPath}/SaveDatas/";
 
     public enum Tilemap
     {
         Ground,
         Road,
+        Item,
         Building,
         Temp,
     }
@@ -49,6 +51,8 @@ public static class Define
         JobTrainingCenter,
         MagicFactory,
         Camp,
+        OreMine,
+        Sawmill,
 
 
         // Test
@@ -92,6 +96,12 @@ public static class Define
         Heal,
     }
 
+    public enum Item
+    {
+        Ore,
+        Wood,
+    }
+
     public enum State
     {
         Idle,
@@ -102,14 +112,19 @@ public static class Define
 
     public enum Data
     {
-        TilemapData,
-        CitizenData,
-        GatewayData,
-        GatewayWithCountData,
-        JobTrainingData,
-        MagicFactoryData,
-        CampData,
-        CitizenSpawnerData,
+        Tilemap,
+        Citizen,
+        Camp,
+        Gateway,
+        GatewayWithCount,
+        JobTraining,
+        MagicFactory,
+        OreMine,
+        Sawmill,
+        CitizenSpawner,
+        Runtime,
+        Ore,
+        Wood,
         Magic,
         BattleUnit,
     }

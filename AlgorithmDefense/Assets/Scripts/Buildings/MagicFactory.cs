@@ -29,12 +29,12 @@ public class MagicFactory : BaseBuilding
     {
         string data = JsonUtility.ToJson(this, true);
         string q = JsonUtility.ToJson(new SerializationQueue<CitizenOrderQueueData>(_citizenOrderQueue), true);
-        Managers.Data.JobTrainingCenterSaveDatas.Enqueue(JsonUtility.ToJson(new MagicFactorySaveData(data, q), true));
+        Managers.Data.JobTrainingCenterSaveDatas.Enqueue(JsonUtility.ToJson(new BuildingSaveData(data, q), true));
     }
 
     public override void LoadSaveData()
     {
-        var saveData = JsonUtility.FromJson<MagicFactorySaveData>(Managers.Data.JobTrainingCenterSaveDatas.Dequeue());
+        var saveData = JsonUtility.FromJson<BuildingSaveData>(Managers.Data.JobTrainingCenterSaveDatas.Dequeue());
 
         JsonUtility.FromJsonOverwrite(saveData.Data, this);
         _citizenOrderQueue =

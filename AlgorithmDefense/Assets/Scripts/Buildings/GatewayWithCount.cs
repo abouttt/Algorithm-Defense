@@ -29,12 +29,12 @@ public class GatewayWithCount : BaseBuilding
         string data = JsonUtility.ToJson(this, true);
         string q = JsonUtility.ToJson(new SerializationQueue<CitizenOrderQueueData>(_citizenOrderQueue), true);
         string dc = JsonUtility.ToJson(new SerializationList<DirectionConditionData>(DirectionCondition), true);
-        Managers.Data.GatewayWithCountSaveDatas.Enqueue(JsonUtility.ToJson(new GatewayWithCountSaveData(data, q, dc), true));
+        Managers.Data.GatewayWithCountSaveDatas.Enqueue(JsonUtility.ToJson(new BuildingSaveData(data, q, dc), true));
     }
 
     public override void LoadSaveData()
     {
-        var saveData = JsonUtility.FromJson<GatewayWithCountSaveData>(Managers.Data.GatewayWithCountSaveDatas.Dequeue());
+        var saveData = JsonUtility.FromJson<BuildingSaveData>(Managers.Data.GatewayWithCountSaveDatas.Dequeue());
 
         JsonUtility.FromJsonOverwrite(saveData.Data, this);
         _citizenOrderQueue =

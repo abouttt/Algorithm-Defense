@@ -47,7 +47,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 61
+  controlID: 141
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 62
+  controlID: 142
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1590,7 +1590,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 105
+  m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
@@ -1637,22 +1637,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Resources/Textures/Buildings
+    - Assets/StreamingAssets/SaveDatas
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Resources/Textures/Buildings
+  - Assets/StreamingAssets/SaveDatas
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\git\AlgorithmDefense\AlgorithmDefense
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 206}
-    m_SelectedIDs: a86a0000
-    m_LastClickedID: 27304
-    m_ExpandedIDs: 000000006e6a0000706a0000726a0000746a0000766a0000786a00007c6a0000
+    scrollPos: {x: 0, y: 174}
+    m_SelectedIDs: d4760000
+    m_LastClickedID: 30420
+    m_ExpandedIDs: 00000000bc700000be700000c0700000c2700000c4700000c6700000d0760000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1680,7 +1680,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000006e6a0000706a0000726a0000746a0000766a0000786a00007a6a00007c6a0000
+    m_ExpandedIDs: 00000000bc700000be700000c0700000c2700000c4700000c6700000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1821,7 +1821,7 @@ MonoBehaviour:
       width: 2786.087
       height: 1080
     m_MinimalGUI: 1
-  m_defaultScale: 0.38333333
+  m_defaultScale: 0.4027778
   m_LastWindowPixelSize: {x: 1068, y: 435}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
@@ -2075,9 +2075,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 8.211006, y: 7.5688257, z: 0}
+    m_Target: {x: 1.6599083, y: 4.2950425, z: -0.36292034}
     speed: 2
-    m_Value: {x: 8.211006, y: 7.5688257, z: 0}
+    m_Value: {x: 1.6599083, y: 4.2950425, z: -0.36292034}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -2128,9 +2128,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 10
+    m_Target: 8.46614
     speed: 2
-    m_Value: 10
+    m_Value: 8.46614
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -2188,7 +2188,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: eed3ffff50d4ffff54d4ffff78deffffdadeffffdedefffff2deffffeaf9ffff2afbffff086b00001e6b0000
+      m_ExpandedIDs: 2afbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -2204,7 +2204,7 @@ MonoBehaviour:
         m_IsRenaming: 0
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 14}
+        m_ClientGUIView: {fileID: 11}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0

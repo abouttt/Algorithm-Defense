@@ -2,30 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Camp : BaseBuilding
+public class OreMine : BaseBuilding
 {
+    public Define.Move MoveType = Define.Move.None;
+
     public override void EnterTheBuilding(CitizenController citizen)
     {
-        if (citizen.Data.JobType == Define.Job.None)
-        {
-            EnqueueCitizen(citizen);
-            return;
-        }
-
-        Managers.Resource.Destroy(citizen.gameObject);
-        CreateBattleUnit(citizen);
+        EnqueueCitizen(citizen);
     }
 
     public override void CreateSaveData()
     {
         string data = JsonUtility.ToJson(this, true);
         string q = JsonUtility.ToJson(new SerializationQueue<CitizenOrderQueueData>(_citizenOrderQueue), true);
-        Managers.Data.CampSaveDatas.Enqueue(JsonUtility.ToJson(new BuildingSaveData(data, q), true));
+        Managers.Data.GatewaySaveDatas.Enqueue(JsonUtility.ToJson(new BuildingSaveData(data, q), true));
     }
 
     public override void LoadSaveData()
     {
-        var saveData = JsonUtility.FromJson<BuildingSaveData>(Managers.Data.CampSaveDatas.Dequeue());
+        var saveData = JsonUtility.FromJson<BuildingSaveData>(Managers.Data.GatewaySaveDatas.Dequeue());
 
         JsonUtility.FromJsonOverwrite(saveData.Data, this);
         _citizenOrderQueue =
@@ -52,20 +47,33 @@ public class Camp : BaseBuilding
 
             var citizen = DequeueCitizen();
 
-            citizen.SetReverseMoveType();
+            if ((MoveType == Define.Move.None) ||
+                (citizen.Data.JobType != Define.Job.None))
+            {
+                citizen.SetReverseMoveType();
+            }
+            else
+            {
+                Managers.Data.RuntimeDatas.Ore += Managers.Game.Setting.OreIncrease;
+                Debug.Log(Managers.Data.RuntimeDatas.Ore);
+
+                if (IsRoadNextPosition(MoveType))
+                {
+                    citizen.Data.MoveType = MoveType;
+                }
+                else
+                {
+                    citizen.SetReverseMoveType();
+                }
+            }
+
             SetCitizenPosition(citizen);
-            citizen.SetNextDestination();
+            SetNextDestination(citizen);
         }
     }
 
     protected override void Init()
     {
-        HasUI = false;
-    }
-
-    private void CreateBattleUnit(CitizenController citizen)
-    {
-        Managers.Data.BattleUnitCounts[(int)citizen.Data.JobType - 1]++;
-        Debug.Log($"{citizen.Data.JobType.ToString()} : {Managers.Data.BattleUnitCounts[(int)citizen.Data.JobType - 1]}");
+        HasUI = true;
     }
 }
