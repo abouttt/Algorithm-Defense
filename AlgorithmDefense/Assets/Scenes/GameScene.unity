@@ -720,16 +720,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4572447755566083314, guid: 2adfe9d1905159748b780016d4f750eb, type: 3}
       propertyPath: BuildButtons.Array.size
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4572447755566083314, guid: 2adfe9d1905159748b780016d4f750eb, type: 3}
       propertyPath: BuildButtons.Array.data[5]._cost
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4572447755566083314, guid: 2adfe9d1905159748b780016d4f750eb, type: 3}
+      propertyPath: BuildButtons.Array.data[6]._cost
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572447755566083314, guid: 2adfe9d1905159748b780016d4f750eb, type: 3}
+      propertyPath: BuildButtons.Array.data[7]._cost
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572447755566083314, guid: 2adfe9d1905159748b780016d4f750eb, type: 3}
       propertyPath: BuildButtons.Array.data[5].ButtonSprite
       value: 
       objectReference: {fileID: 21300000, guid: 0e7905f52bc1c724c9637fb94758a9bc, type: 3}
+    - target: {fileID: 4572447755566083314, guid: 2adfe9d1905159748b780016d4f750eb, type: 3}
+      propertyPath: BuildButtons.Array.data[6].ButtonSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d575f34933734b54cb418ff6023edc35, type: 3}
+    - target: {fileID: 4572447755566083314, guid: 2adfe9d1905159748b780016d4f750eb, type: 3}
+      propertyPath: BuildButtons.Array.data[7].ButtonSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3baf7784e75427e449eddc6456ea6491, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2adfe9d1905159748b780016d4f750eb, type: 3}
 --- !u!1 &1122283139
@@ -1094,10 +1110,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 612e9eaa27ff8db4c9223b84cedef549, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CameraX: 13.3
-  CameraY: 7.5
+  CameraX: 50
+  CameraY: 52.5
   CameraZ: -10
-  CameraSize: 7.5
+  CameraSize: 13
   GroundWidth: 100
   GroundHeight: 100
   GrassPercentage: 3

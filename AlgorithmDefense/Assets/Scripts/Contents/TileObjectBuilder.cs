@@ -61,6 +61,12 @@ public class TileObjectBuilder : MonoBehaviour
         }
         else
         {
+            if (_target.name.Equals(Define.Building.OreMine.ToString()) ||
+                _target.name.Equals(Define.Building.Sawmill.ToString()))
+            {
+                Managers.Tile.SetTile(Define.Tilemap.Item, cellPos, null);
+            }
+
             Managers.Tile.SetTile(Define.Tilemap.Building, cellPos, tileBase);
             SetRoadTarget();
             Managers.Tile.SetTile(Define.Tilemap.Road, cellPos, _target);
@@ -77,15 +83,42 @@ public class TileObjectBuilder : MonoBehaviour
 
         Managers.Tile.SetTile(Define.Tilemap.Temp, _prevCellPos, null);
 
-        if (Managers.Tile.GetTile(Define.Tilemap.Building, cellPos))
+        if (_target.name.Equals(Define.Building.OreMine.ToString()))
         {
-            _targetTile.color = Color.red;
-            _canBuild = false;
+            var tile = Managers.Tile.GetTile(Define.Tilemap.Item, cellPos);
+            if (tile &&
+                tile.name.Equals(Define.Item.Ore.ToString()))
+            {
+                SetCanBuildTrue();
+            }
+            else
+            {
+                SetCanBuildFalse();
+            }
+        }
+        else if (_target.name.Equals(Define.Building.Sawmill.ToString()))
+        {
+            var tile = Managers.Tile.GetTile(Define.Tilemap.Item, cellPos);
+            if (tile &&
+                tile.name.Equals(Define.Item.Wood.ToString()))
+            {
+                SetCanBuildTrue();
+            }
+            else
+            {
+                SetCanBuildFalse();
+            }
         }
         else
         {
-            _targetTile.color = Color.white;
-            _canBuild = true;
+            if (Managers.Tile.GetTile(Define.Tilemap.Building, cellPos))
+            {
+                SetCanBuildFalse();
+            }
+            else
+            {
+                SetCanBuildTrue();
+            }
         }
 
         Managers.Tile.SetTile(Define.Tilemap.Temp, cellPos, _targetTile);
@@ -105,6 +138,18 @@ public class TileObjectBuilder : MonoBehaviour
         _targetTile.color = Color.white;
         _targetTile = null;
         _target = null;
+        _canBuild = false;
+    }
+
+    private void SetCanBuildTrue()
+    {
+        _targetTile.color = Color.white;
+        _canBuild = true;
+    }
+
+    private void SetCanBuildFalse()
+    {
+        _targetTile.color = Color.red;
         _canBuild = false;
     }
 

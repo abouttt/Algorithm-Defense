@@ -56,25 +56,6 @@ public class MouseController : MonoBehaviour
                     UI_BuildingMenager.GetInstance.ShowUIController((Define.Building)Enum.Parse(typeof(Define.Building), name), building);
                 }
             }
-
-            var item = Managers.Tile.GetTile(Define.Tilemap.Item, MouseCellPos);
-            if (item)
-            {
-                if (item.name.Equals(Define.Item.Ore.ToString()))
-                {
-                    var tile = Managers.Resource.Load<Tile>($"{Define.BUILDING_TILE_PATH}{Define.Building.OreMine}");
-                    TileObjectBuilder.GetInstance.Build(tile, MouseCellPos);
-                    Managers.Tile.SetTile(Define.Tilemap.Item, MouseCellPos, null);
-                    Managers.Game.HasOreMine = true;
-                }
-                else if(item.name.Equals(Define.Item.Wood.ToString()))
-                {
-                    var tile = Managers.Resource.Load<Tile>($"{Define.BUILDING_TILE_PATH}{Define.Building.Sawmill}");
-                    TileObjectBuilder.GetInstance.Build(tile, MouseCellPos);
-                    Managers.Tile.SetTile(Define.Tilemap.Item, MouseCellPos, null);
-                    Managers.Game.HasSawmill = true;
-                }
-            }
         }
 
         if (Input.GetMouseButtonDown(1))

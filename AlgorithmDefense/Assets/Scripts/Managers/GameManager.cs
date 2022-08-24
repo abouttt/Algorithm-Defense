@@ -8,35 +8,6 @@ public class GameManager
 {
     public GameScene Setting;
 
-    public bool HasOreMine
-    {
-        get => _hasGoldMine;
-        set
-        {
-            _hasGoldMine = value;
-            if (!_hasGoldMine)
-            {
-                CreateGoldOnField();
-            }
-        }
-    }
-
-    public bool HasSawmill
-    {
-        get => _hasSawmill;
-        set
-        {
-            _hasSawmill = value;
-            if (!_hasSawmill)
-            {
-                CreateWoodOnField();
-            }
-        }
-    }
-
-    private bool _hasGoldMine = false;
-    private bool _hasSawmill = false;
-
     public void Init()
     {
         Setting = GameObject.FindObjectOfType<GameScene>();
