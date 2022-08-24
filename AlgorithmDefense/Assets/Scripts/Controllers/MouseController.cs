@@ -62,14 +62,14 @@ public class MouseController : MonoBehaviour
             {
                 if (item.name.Equals(Define.Item.Ore.ToString()))
                 {
-                    var tile = Managers.Resource.Load<Tile>($"{Define.BUILDING_TILE_PATH}OreMine");
+                    var tile = Managers.Resource.Load<Tile>($"{Define.BUILDING_TILE_PATH}{Define.Building.OreMine}");
                     TileObjectBuilder.GetInstance.Build(tile, MouseCellPos);
                     Managers.Tile.SetTile(Define.Tilemap.Item, MouseCellPos, null);
-                    Managers.Game.HasGoldMine = true;
+                    Managers.Game.HasOreMine = true;
                 }
                 else if(item.name.Equals(Define.Item.Wood.ToString()))
                 {
-                    var tile = Managers.Resource.Load<Tile>($"{Define.BUILDING_TILE_PATH}Sawmill");
+                    var tile = Managers.Resource.Load<Tile>($"{Define.BUILDING_TILE_PATH}{Define.Building.Sawmill}");
                     TileObjectBuilder.GetInstance.Build(tile, MouseCellPos);
                     Managers.Tile.SetTile(Define.Tilemap.Item, MouseCellPos, null);
                     Managers.Game.HasSawmill = true;

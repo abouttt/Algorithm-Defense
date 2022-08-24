@@ -8,7 +8,7 @@ public class GameManager
 {
     public GameScene Setting;
 
-    public bool HasGoldMine
+    public bool HasOreMine
     {
         get => _hasGoldMine;
         set

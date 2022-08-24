@@ -299,7 +299,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 63
+  controlID: 87
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -319,8 +319,8 @@ MonoBehaviour:
     y: 0
     width: 465
     height: 720
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 20}
@@ -1637,21 +1637,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/StreamingAssets/SaveDatas
+    - Assets/Scripts/Managers
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/StreamingAssets/SaveDatas
+  - Assets/Scripts/Managers
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\git\AlgorithmDefense\AlgorithmDefense
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 174}
-    m_SelectedIDs: d4760000
-    m_LastClickedID: 30420
+    m_SelectedIDs: c4760000
+    m_LastClickedID: 30404
     m_ExpandedIDs: 00000000bc700000be700000c0700000c2700000c4700000c6700000d0760000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1821,7 +1821,7 @@ MonoBehaviour:
       width: 2786.087
       height: 1080
     m_MinimalGUI: 1
-  m_defaultScale: 0.4027778
+  m_defaultScale: 0.38333333
   m_LastWindowPixelSize: {x: 1068, y: 435}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
@@ -2186,7 +2186,7 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: 2e180000
       m_LastClickedID: 0
       m_ExpandedIDs: 2afbffff
       m_RenameOverlay:
