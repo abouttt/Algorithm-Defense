@@ -2856,7 +2856,7 @@ MonoBehaviour:
   _state: 0
   Data:
     CitizenType: 0
-    Job: 0
+    JobType: 0
     MoveType: 0
     MoveSpeed: 2
     Destination: {x: 0, y: 0, z: 0}

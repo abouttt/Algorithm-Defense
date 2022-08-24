@@ -525,7 +525,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e8fe9c52371a7641918c0c2f82f540c, type: 3}
   m_Name: 
@@ -662,9 +662,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1168714102501754631, guid: 2adfe9d1905159748b780016d4f750eb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2984164514034603744, guid: 2adfe9d1905159748b780016d4f750eb, type: 3}
       propertyPath: m_Name
       value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 2984164514034603744, guid: 2adfe9d1905159748b780016d4f750eb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3963795853386389946, guid: 2adfe9d1905159748b780016d4f750eb, type: 3}
       propertyPath: m_RootOrder
@@ -1090,13 +1098,13 @@ MonoBehaviour:
   CameraY: 7.5
   CameraZ: -10
   CameraSize: 7.5
-  GroundWidth: 50
-  GroundHeight: 15
+  GroundWidth: 100
+  GroundHeight: 100
   GrassPercentage: 3
-  StartPosition: {x: 0, y: 0, z: 0}
-  RampartWidth: 25
-  RampartHeight: 15
-  SpawnCellPos: {x: 1, y: 7, z: 0}
+  StartPosition: {x: 41, y: 40, z: 0}
+  RampartWidth: 65
+  RampartHeight: 65
+  SpawnCellPos: {x: 42, y: 53, z: 0}
   SpawnTime: 1
   OreIncrease: 50
   WoodIncrease: 50
