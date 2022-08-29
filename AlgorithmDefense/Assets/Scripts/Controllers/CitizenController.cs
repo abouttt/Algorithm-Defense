@@ -37,11 +37,11 @@ public class CitizenController : MonoBehaviour
                 break;
             case Define.Move.Right:
                 cellPos.x++;
-                transform.localScale = new Vector3(7, 7, 1);
+                transform.localScale = new Vector3(3, 3, 1);
                 break;
             case Define.Move.Left:
                 cellPos.x--;
-                transform.localScale = new Vector3(-7, 7, 1);
+                transform.localScale = new Vector3(-3, 3, 1);
                 break;
         }
 
