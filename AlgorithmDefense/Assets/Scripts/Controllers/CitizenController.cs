@@ -6,11 +6,13 @@ using UnityEngine.Tilemaps;
 public class CitizenController : BaseController
 {
     private Animator Anim; // 테스트 코드
+    private SpriteRenderer spriteX;// 테스트 코드
     public CitizenData Data = new CitizenData();
 
     public void Awake() // 테스트 코드
     {
-        Anim = this.transform.GetComponent<Animator>();
+        Anim = this.transform.GetComponent<Animator>(); // 테스트 코드
+        spriteX = this.transform.GetComponent<SpriteRenderer>(); // 테스트 코드
     }
     public override void Init()
     {
@@ -30,11 +32,13 @@ public class CitizenController : BaseController
                 break;
             case Define.Move.Right:
                 cellPos.x++;
-                transform.localScale = new Vector3(7, 7, 1); // 스케일 (7,7) 조정
+                //transform.localScale = new Vector3(1, 1, 1);
+                spriteX.flipX = false; // 테스트 코드
                 break;
             case Define.Move.Left:
                 cellPos.x--;
-                transform.localScale = new Vector3(-7, 7, 1); // 스케일 (-7,7) 조정
+                //transform.localScale = new Vector3(-1, 1, 1);
+                spriteX.flipX = true; // 테스트 코드
                 break;
         }
 
