@@ -95,10 +95,10 @@ public abstract class BaseBuilding : MonoBehaviour
         switch (citizen.Data.MoveType)
         {
             case Define.Move.Right:
-                citizen.transform.localScale = new Vector3(7, 7, 1); //스케일(7,7) 조정
+                citizen.transform.localScale = new Vector3(7, 7, 1);
                 break;
             case Define.Move.Left:
-                citizen.transform.localScale = new Vector3(-7, 7, 1); //스케일(-7,7) 조정
+                citizen.transform.localScale = new Vector3(-7, 7, 1);
                 break;
         }
 

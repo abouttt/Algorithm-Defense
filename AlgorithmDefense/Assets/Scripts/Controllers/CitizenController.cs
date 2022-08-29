@@ -3,18 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class CitizenController : BaseController
+public class CitizenController : MonoBehaviour
 {
-    private Animator Anim; // 테스트 코드
     public CitizenData Data = new CitizenData();
 
-    public void Awake() // 테스트 코드
+    private Animator _animator;
+
+    private void Awake()
     {
-        Anim = this.transform.GetComponent<Animator>();
+        _animator = GetComponent<Animator>();
     }
-    public override void Init()
+
+    private void OnEnable()
     {
-        _state = Define.State.Moving;
+        _animator.SetInteger("AnimState", 1);
+    }
+
+    private void Update()
+    {
+        UpdateMoving();
     }
 
     public void SetNextDestination()
@@ -30,11 +37,11 @@ public class CitizenController : BaseController
                 break;
             case Define.Move.Right:
                 cellPos.x++;
-                transform.localScale = new Vector3(7, 7, 1); // 스케일 (7,7) 조정
+                transform.localScale = new Vector3(7, 7, 1);
                 break;
             case Define.Move.Left:
                 cellPos.x--;
-                transform.localScale = new Vector3(-7, 7, 1); // 스케일 (-7,7) 조정
+                transform.localScale = new Vector3(-7, 7, 1);
                 break;
         }
 
@@ -60,9 +67,8 @@ public class CitizenController : BaseController
         }
     }
 
-    protected override void UpdateMoving()
+    private void UpdateMoving()
     {
-        Anim.SetInteger("AnimState", 1); // 테스트 코드
         transform.position = Vector2.MoveTowards(transform.position, Data.Destination, (Data.MoveSpeed * Time.deltaTime));
 
         var cellPos = Managers.Tile.GetWorldToCell(Define.Tilemap.Ground, transform.position);
