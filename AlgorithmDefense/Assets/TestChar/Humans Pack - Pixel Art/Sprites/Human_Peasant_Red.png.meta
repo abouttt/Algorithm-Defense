@@ -192,7 +192,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -1122,7 +1122,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Human_Peasant_Red_11: 21300022
+      Human_Peasant_Red_37: 21300074
       Human_Peasant_Red_7: 21300014
       Human_Peasant_Red_16: 21300032
       Human_Peasant_Red_25: 21300050
@@ -1159,11 +1159,11 @@ TextureImporter:
       Human_Peasant_Red_27: 21300054
       Human_Peasant_Red_38: 21300076
       Human_Peasant_Red_1: 21300002
-      Human_Peasant_Red_14: 21300028
-      Human_Peasant_Red_5: 21300010
-      Human_Peasant_Red_37: 21300074
       Human_Peasant_Red_41: 21300082
       Human_Peasant_Red_18: 21300036
+      Human_Peasant_Red_14: 21300028
+      Human_Peasant_Red_11: 21300022
+      Human_Peasant_Red_5: 21300010
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

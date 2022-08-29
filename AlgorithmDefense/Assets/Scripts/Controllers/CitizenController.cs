@@ -8,10 +8,12 @@ public class CitizenController : MonoBehaviour
     public CitizenData Data = new CitizenData();
 
     private Animator _animator;
+    private SpriteRenderer _spriteRenderer;
 
     private void Awake()
     {
         _animator = GetComponent<Animator>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void OnEnable()
@@ -37,11 +39,11 @@ public class CitizenController : MonoBehaviour
                 break;
             case Define.Move.Right:
                 cellPos.x++;
-                transform.localScale = new Vector3(3, 3, 1);
+                _spriteRenderer.flipX = false;
                 break;
             case Define.Move.Left:
                 cellPos.x--;
-                transform.localScale = new Vector3(-3, 3, 1);
+                _spriteRenderer.flipX = true;
                 break;
         }
 

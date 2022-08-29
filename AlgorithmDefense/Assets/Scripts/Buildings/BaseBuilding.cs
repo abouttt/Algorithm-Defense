@@ -92,16 +92,6 @@ public abstract class BaseBuilding : MonoBehaviour
 
     protected void SetNextDestination(CitizenController citizen)
     {
-        switch (citizen.Data.MoveType)
-        {
-            case Define.Move.Right:
-                citizen.transform.localScale = new Vector3(3, 3, 1);
-                break;
-            case Define.Move.Left:
-                citizen.transform.localScale = new Vector3(-3, 3, 1);
-                break;
-        }
-
         citizen.Data.Destination = Managers.Tile.GetWorldToCellCenterToWorld(Define.Tilemap.Ground, citizen.transform.position);
     }
 

@@ -192,7 +192,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -1123,7 +1123,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Human_Peasant_Green_4: 1294317528
-      Human_Peasant_Green_39: -1409950789
+      Human_Peasant_Green_35: 545327630
       Human_Peasant_Green_30: -1149409811
       Human_Peasant_Green_34: -1139384758
       Human_Peasant_Green_12: -1343407659
@@ -1153,15 +1153,15 @@ TextureImporter:
       Human_Peasant_Green_3: 1109604218
       Human_Peasant_Green_23: 344445932
       Human_Peasant_Green_13: -776785374
-      Human_Peasant_Green_5: -1124478013
-      Human_Peasant_Green_25: 1633915387
+      Human_Peasant_Green_37: 987544970
+      Human_Peasant_Green_39: -1409950789
       Human_Peasant_Green_28: -61327205
-      Human_Peasant_Green_26: 2101712809
+      Human_Peasant_Green_5: -1124478013
       Human_Peasant_Green_2: 758705622
-      Human_Peasant_Green_35: 545327630
+      Human_Peasant_Green_25: 1633915387
       Human_Peasant_Green_21: 1009195080
       Human_Peasant_Green_32: 979711334
-      Human_Peasant_Green_37: 987544970
+      Human_Peasant_Green_26: 2101712809
       Human_Peasant_Green_14: -1122573094
       Human_Peasant_Green_40: 93464604
   spritePackingTag: 

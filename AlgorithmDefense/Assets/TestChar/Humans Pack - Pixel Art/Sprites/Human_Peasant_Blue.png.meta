@@ -192,7 +192,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -1131,8 +1131,8 @@ TextureImporter:
       Human_Peasant_Blue_17: 21300034
       Human_Peasant_Blue_40: 21300080
       Human_Peasant_Blue_41: 21300082
-      Human_Peasant_Blue_23: 21300046
       Human_Peasant_Blue_33: 21300066
+      Human_Peasant_Blue_8: 21300016
       Human_Peasant_Blue_3: 21300006
       Human_Peasant_Blue_4: 21300008
       Human_Peasant_Blue_7: 21300014
@@ -1154,16 +1154,16 @@ TextureImporter:
       Human_Peasant_Blue_36: 21300072
       Human_Peasant_Blue_21: 21300042
       Human_Peasant_Blue_19: 21300038
-      Human_Peasant_Blue_20: 21300040
+      Human_Peasant_Blue_23: 21300046
       Human_Peasant_Blue_15: 21300030
+      Human_Peasant_Blue_29: 21300058
       Human_Peasant_Blue_39: 21300078
       Human_Peasant_Blue_22: 21300044
-      Human_Peasant_Blue_31: 21300062
-      Human_Peasant_Blue_28: 21300056
+      Human_Peasant_Blue_20: 21300040
       Human_Peasant_Blue_26: 21300052
+      Human_Peasant_Blue_31: 21300062
       Human_Peasant_Blue_34: 21300068
-      Human_Peasant_Blue_29: 21300058
-      Human_Peasant_Blue_8: 21300016
+      Human_Peasant_Blue_28: 21300056
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
