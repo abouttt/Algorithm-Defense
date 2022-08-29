@@ -5,8 +5,13 @@ using UnityEngine.Tilemaps;
 
 public class CitizenController : BaseController
 {
+    private Animator Anim; // 테스트 코드
     public CitizenData Data = new CitizenData();
 
+    public void Awake() // 테스트 코드
+    {
+        Anim = this.transform.GetComponent<Animator>();
+    }
     public override void Init()
     {
         _state = Define.State.Moving;
@@ -25,11 +30,11 @@ public class CitizenController : BaseController
                 break;
             case Define.Move.Right:
                 cellPos.x++;
-                transform.localScale = new Vector3(-1, 1, 1);
+                transform.localScale = new Vector3(7, 7, 1); // 스케일 (7,7) 조정
                 break;
             case Define.Move.Left:
                 cellPos.x--;
-                transform.localScale = new Vector3(1, 1, 1);
+                transform.localScale = new Vector3(-7, 7, 1); // 스케일 (-7,7) 조정
                 break;
         }
 
@@ -57,6 +62,7 @@ public class CitizenController : BaseController
 
     protected override void UpdateMoving()
     {
+        Anim.SetInteger("AnimState", 1); // 테스트 코드
         transform.position = Vector2.MoveTowards(transform.position, Data.Destination, (Data.MoveSpeed * Time.deltaTime));
 
         var cellPos = Managers.Tile.GetWorldToCell(Define.Tilemap.Ground, transform.position);
