@@ -470,7 +470,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -525,16 +525,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e8fe9c52371a7641918c0c2f82f540c, type: 3}
+  m_Script: {fileID: 11500000, guid: f1e8c0045f580f24799ec981908cc623, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainCamera: {fileID: 519420031}
-  MoveSpeed: 3
-  maximumZoom: 7.5
-  minimumZoom: 1
-  zoomSpeed: 5
 --- !u!1 &601305120
 GameObject:
   m_ObjectHideFlags: 0
@@ -1170,17 +1165,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 612e9eaa27ff8db4c9223b84cedef549, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CameraX: 50
-  CameraY: 52.5
+  CameraX: 3
+  CameraY: 8.5
   CameraZ: -10
-  CameraSize: 13
-  GroundWidth: 100
-  GroundHeight: 100
-  GrassPercentage: 3
-  StartPosition: {x: 41, y: 40, z: 0}
-  RampartWidth: 65
-  RampartHeight: 65
-  SpawnCellPos: {x: 42, y: 53, z: 0}
+  CameraSize: 10.5
+  GroundWidth: 6
+  GroundHeight: 17
+  GrassPercentage: 10
+  StartPosition: {x: 0, y: 0, z: 0}
+  RampartWidth: 6
+  RampartHeight: 10
+  SpawnCellPos: {x: 1, y: 1, z: 0}
   SpawnTime: 1
   OreIncrease: 50
   WoodIncrease: 50

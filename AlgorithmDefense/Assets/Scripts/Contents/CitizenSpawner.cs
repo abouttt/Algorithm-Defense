@@ -40,7 +40,7 @@ public class CitizenSpawner : MonoBehaviour
 
         var road = Managers.Resource.Load<RuleTile>($"{Define.RULE_TILE_PATH}RoadRuleTile");
         Managers.Tile.SetTile(Define.Tilemap.Road, spawnPos, road);
-        Managers.Tile.SetTile(Define.Tilemap.Road, spawnPos + Vector3Int.right, road);
+        Managers.Tile.SetTile(Define.Tilemap.Road, spawnPos + Vector3Int.up, road);
     }
 
     // 시민 종류에 따라 스폰 여부를 결정한다.
@@ -90,7 +90,7 @@ public class CitizenSpawner : MonoBehaviour
             var go = Managers.Resource.Instantiate($"{Define.CITIZEN_PATH}{_spawnTarget.ToString()}Citizen", pos);
             var citizen = go.GetOrAddComponent<CitizenController>();
             citizen.Data.CitizenType = _spawnTarget;
-            citizen.Data.MoveType = Define.Move.Right;
+            citizen.Data.MoveType = Define.Move.Up;
             citizen.SetNextDestination();
 
             yield return new WaitForSeconds(_spawnTime);
