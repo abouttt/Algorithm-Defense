@@ -8,17 +8,15 @@ public class CitizenController : MonoBehaviour
     public CitizenData Data = new CitizenData();
 
     private Animator _animator;
-    private SpriteRenderer _spriteRenderer;
 
     private void Awake()
     {
         _animator = GetComponent<Animator>();
-        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void OnEnable()
     {
-        _animator.SetInteger("AnimState", 1);
+        //_animator.SetInteger("AnimState", 1); //수정
     }
 
     private void Update()
@@ -33,17 +31,23 @@ public class CitizenController : MonoBehaviour
         {
             case Define.Move.Down:
                 cellPos.y--;
+                _animator.SetFloat("Hor", 0); //수정
+                _animator.SetFloat("Ver", -1);
                 break;
             case Define.Move.Up:
                 cellPos.y++;
+                _animator.SetFloat("Hor", 0);
+                _animator.SetFloat("Ver", 1);
                 break;
             case Define.Move.Right:
                 cellPos.x++;
-                _spriteRenderer.flipX = false;
+                _animator.SetFloat("Hor", 1);
+                _animator.SetFloat("Ver", 0);
                 break;
             case Define.Move.Left:
                 cellPos.x--;
-                _spriteRenderer.flipX = true;
+                _animator.SetFloat("Hor", -1);
+                _animator.SetFloat("Ver", 0);
                 break;
         }
 

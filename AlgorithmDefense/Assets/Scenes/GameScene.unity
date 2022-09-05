@@ -292,25 +292,25 @@ Tilemap:
   m_TileMatrixArray:
   - m_RefCount: 0
     m_Data:
-      e00: -9.69902e-26
+      e00: 0.000029267132
       e01: 0
-      e02: -1.3959018e-38
-      e03: -1.3959018e-38
-      e10: 4.5911e-41
+      e02: 3.8750038
+      e03: 3.8750038
+      e10: 6.3e-43
       e11: 0
-      e12: 3.84e-43
-      e13: 3.84e-43
-      e20: -3.2512016
+      e12: 6.28e-43
+      e13: 6.28e-43
+      e20: -647483
       e21: 1e-45
-      e22: 4.9985417e-29
-      e23: 4.659313e-10
-      e30: 4.5904e-41
+      e22: -1.4204899e-28
+      e23: -4.727214e-10
+      e30: 4.5905e-41
       e31: 0
-      e32: 3.85e-43
-      e33: 3.88e-43
+      e32: 6.28e-43
+      e33: 6.3e-43
   m_TileColorArray:
   - m_RefCount: 0
-    m_Data: {r: 3.5688e-41, g: 3.5688e-41, b: 3.5688e-41, a: 3.5688e-41}
+    m_Data: {r: NaN, g: NaN, b: NaN, a: NaN}
   m_TileObjectToInstantiateArray:
   - m_RefCount: 0
     m_Data: {fileID: 0}
@@ -1215,14 +1215,14 @@ MonoBehaviour:
   CameraY: 8.5
   CameraZ: -10
   CameraSize: 10.5
-  GroundWidth: 6
+  GroundWidth: 7
   GroundHeight: 17
   GrassPercentage: 10
   StartPosition: {x: 0, y: 0, z: 0}
-  RampartWidth: 6
-  RampartHeight: 10
-  SpawnCellPos: {x: 1, y: 1, z: 0}
-  SpawnTime: 1
+  RampartWidth: 7
+  RampartHeight: 7
+  SpawnCellPos: {x: 3, y: 0, z: 0}
+  SpawnTime: 5
   OreIncrease: 50
   WoodIncrease: 50
 --- !u!4 &1717982457

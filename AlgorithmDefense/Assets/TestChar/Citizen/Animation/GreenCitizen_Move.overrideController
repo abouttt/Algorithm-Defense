@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: GreenCitizen_Move
+  m_Controller: {fileID: 9100000, guid: b67b43894477fe347aa63d161a1dd56d, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: a6fb8c5433583a74e81d4c5aa512a5d7, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a6fb8c5433583a74e81d4c5aa512a5d7, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 2409e29dcd9477b409b1a09eb4c254e8, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 2409e29dcd9477b409b1a09eb4c254e8, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 10db173d4ac2b624fa1208ea7caa73cb, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 10db173d4ac2b624fa1208ea7caa73cb, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 9cbc0d67a5bbb4949be126ceec70bd61, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 9cbc0d67a5bbb4949be126ceec70bd61, type: 2}
