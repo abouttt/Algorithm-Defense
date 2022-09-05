@@ -650,6 +650,31 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1038566370 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2984164514034603744, guid: 2adfe9d1905159748b780016d4f750eb, type: 3}
+  m_PrefabInstance: {fileID: 1071902597}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1038566372
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038566370}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: af128f3c805248b4897f7a134efd6ad2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1071902597
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -695,7 +720,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3963795853386389946, guid: 2adfe9d1905159748b780016d4f750eb, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3963795853386389946, guid: 2adfe9d1905159748b780016d4f750eb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -953,7 +978,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1225086664
 MonoBehaviour:
@@ -1134,7 +1159,7 @@ Transform:
   - {fileID: 601305121}
   - {fileID: 1122283140}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1717982455
 GameObject:
@@ -1236,7 +1261,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2141674988
 GameObject:
