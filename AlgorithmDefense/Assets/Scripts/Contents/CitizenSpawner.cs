@@ -24,12 +24,11 @@ public class CitizenSpawner : MonoBehaviour
     {
         Init();
 
-        CitizenSpawnList = new (Define.Citizen, bool)[4]
+        CitizenSpawnList = new (Define.Citizen, bool)[3]
         {
             (Define.Citizen.Red, false),
             (Define.Citizen.Green, false),
             (Define.Citizen.Blue, false),
-            (Define.Citizen.Yellow, false),
         };
     }
 

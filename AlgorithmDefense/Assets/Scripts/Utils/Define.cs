@@ -76,7 +76,6 @@ public static class Define
         Red,
         Green,
         Blue,
-        Yellow,
     }
 
     public enum Move

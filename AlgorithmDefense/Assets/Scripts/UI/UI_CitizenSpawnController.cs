@@ -91,7 +91,7 @@ public class UI_CitizenSpawnController : CitizenSpawner
     }
     public void OnButtonYellow()
     {
-        CitizenSpawner.GetInstance.SetOnOff(Define.Citizen.Yellow);
+        //CitizenSpawner.GetInstance.SetOnOff(Define.Citizen.Yellow);
         if (!_onYellow)
         {
             YellowButtenText.text = "ON";

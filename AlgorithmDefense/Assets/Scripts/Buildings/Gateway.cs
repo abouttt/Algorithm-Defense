@@ -81,7 +81,6 @@ public class Gateway : BaseBuilding
                 { Define.Citizen.Red, Define.Move.None },
                 { Define.Citizen.Green, Define.Move.None },
                 { Define.Citizen.Blue, Define.Move.None },
-                { Define.Citizen.Yellow, Define.Move.None },
             };
         }
 

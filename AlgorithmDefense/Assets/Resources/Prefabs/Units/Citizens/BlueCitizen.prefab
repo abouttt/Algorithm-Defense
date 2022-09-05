@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Data:
-    CitizenType: 0
+    CitizenType: 3
     JobType: 0
     MoveType: 0
     MoveSpeed: 1

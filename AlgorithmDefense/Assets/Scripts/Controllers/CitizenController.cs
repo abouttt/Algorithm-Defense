@@ -14,11 +14,6 @@ public class CitizenController : MonoBehaviour
         _animator = GetComponent<Animator>();
     }
 
-    private void OnEnable()
-    {
-        //_animator.SetInteger("AnimState", 1); //¼öÁ¤
-    }
-
     private void Update()
     {
         UpdateMoving();
