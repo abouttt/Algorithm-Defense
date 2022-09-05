@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e1bcd1484e30a14ea72e2f6c312d2b8, type: 3}
   m_Name: JobTrainingCenterCommonData
   m_EditorClassIdentifier: 
-  JobCountData: 0100000003000000060000000a0000000c00000008000000
+  JobCountData: 0100000001000000010000000a0000000c00000008000000

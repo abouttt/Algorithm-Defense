@@ -124,7 +124,7 @@ public class JobTrainingCenter : BaseBuilding
             citizen.Data.CitizenType = _citizenType;
             citizen.Data.JobType = JobType;
             citizen.Data.MoveType = MoveType;
-            citizen.Data.MoveSpeed = 2.0f;
+            citizen.Data.MoveSpeed = 1.0f;
 
             SetCitizenPosition(citizen);
             SetNextDestination(citizen);
