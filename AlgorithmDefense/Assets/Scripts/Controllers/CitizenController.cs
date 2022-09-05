@@ -26,7 +26,7 @@ public class CitizenController : MonoBehaviour
         {
             case Define.Move.Down:
                 cellPos.y--;
-                _animator.SetFloat("Hor", 0); //¼öÁ¤
+                _animator.SetFloat("Hor", 0);
                 _animator.SetFloat("Ver", -1);
                 break;
             case Define.Move.Up:

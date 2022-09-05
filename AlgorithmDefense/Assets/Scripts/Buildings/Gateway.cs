@@ -68,7 +68,7 @@ public class Gateway : BaseBuilding
             }
 
             SetCitizenPosition(citizen);
-            SetNextDestination(citizen);
+            citizen.SetNextDestination();
         }
     }
 

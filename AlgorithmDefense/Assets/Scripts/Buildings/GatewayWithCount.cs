@@ -108,7 +108,7 @@ public class GatewayWithCount : BaseBuilding
             }
 
             SetCitizenPosition(citizen);
-            SetNextDestination(citizen);
+            citizen.SetNextDestination();
         }
     }
 

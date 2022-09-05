@@ -68,7 +68,7 @@ public class OreMine : BaseBuilding
             }
 
             SetCitizenPosition(citizen);
-            SetNextDestination(citizen);
+            citizen.SetNextDestination();
         }
     }
 

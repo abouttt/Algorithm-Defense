@@ -90,11 +90,6 @@ public abstract class BaseBuilding : MonoBehaviour
         citizen.transform.position = pos;
     }
 
-    protected void SetNextDestination(CitizenController citizen)
-    {
-        citizen.Data.Destination = Managers.Tile.GetWorldToCellCenterToWorld(Define.Tilemap.Ground, citizen.transform.position);
-    }
-
     protected bool IsRoadNextPosition(Define.Move moveType)
     {
         var nextPos = Managers.Tile.GetWorldToCell(Define.Tilemap.Ground, transform.position);

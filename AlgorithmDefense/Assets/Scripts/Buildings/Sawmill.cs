@@ -68,7 +68,7 @@ public class Sawmill : BaseBuilding
             }
 
             SetCitizenPosition(citizen);
-            SetNextDestination(citizen);
+            citizen.SetNextDestination();
         }
     }
 

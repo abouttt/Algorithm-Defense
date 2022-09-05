@@ -127,7 +127,7 @@ public class JobTrainingCenter : BaseBuilding
             citizen.Data.MoveSpeed = 1.0f;
 
             SetCitizenPosition(citizen);
-            SetNextDestination(citizen);
+            citizen.SetNextDestination();
 
             yield return new WaitForSeconds(_releaseTime * 0.5f);
         }
