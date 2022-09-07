@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -15,6 +16,9 @@ public class TileObjectBuilder : MonoBehaviour
     private Tile _targetTile;
     private Vector3Int _prevCellPos;
     private bool _canBuild;
+
+    private int _roadGroupNumber = 1;
+    private int _roadGroupCount = 0;
 
     private void Update()
     {
@@ -41,7 +45,7 @@ public class TileObjectBuilder : MonoBehaviour
     {
         Clear();
 
-        _target = Managers.Resource.Load<TileBase>($"{Define.RULE_TILE_PATH}RoadRuleTile");
+        _target = Managers.Resource.Load<TileBase>($"{Define.RULE_TILE_PATH}Test/RoadRuleTile");
         _targetTile = Managers.Resource.Load<Tile>($"{Define.ROAD_TILE_PATH}Road_B");
     }
 
@@ -58,6 +62,13 @@ public class TileObjectBuilder : MonoBehaviour
         if (tileBase.name.Equals("RoadRuleTile"))
         {
             Managers.Tile.SetTile(Define.Tilemap.Road, cellPos, tileBase);
+            var go = Managers.Tile.GetTilemap(Define.Tilemap.Road).GetInstantiatedObject(cellPos);
+            go.GetComponent<Road>().GroupNumber = _roadGroupNumber;
+            if (++_roadGroupCount >= 3)
+            {
+                _roadGroupNumber++;
+                _roadGroupCount = 1;
+            }
         }
         else
         {

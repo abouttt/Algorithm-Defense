@@ -7,4 +7,5 @@ public class Road : MonoBehaviour
 {
     [field: SerializeField]
     public Define.Road RoadType { get; private set; }
+    public int GroupNumber;
 }

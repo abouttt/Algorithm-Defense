@@ -56,12 +56,16 @@ public class TileManager
         return _tilemaps[tilemap].GetCellCenterWorld(cellPos);
     }
 
-    public void SetTile(Define.Tilemap tilemap, Vector3Int cellPos, TileBase tile)
-        => _tilemaps[tilemap].SetTile(cellPos, tile);
+    public TileBase SetTile(Define.Tilemap tilemap, Vector3Int cellPos, TileBase tile)
+    {
+        _tilemaps[tilemap].SetTile(cellPos, tile);
+        return tile;
+    }
 
-    public void SetTile(Define.Tilemap tilemap, Vector3 pos, TileBase tile)
+    public TileBase SetTile(Define.Tilemap tilemap, Vector3 pos, TileBase tile)
     {
         var cellPos = GetWorldToCell(tilemap, pos);
         _tilemaps[tilemap].SetTile(cellPos, tile);
+        return tile;
     }
 }
