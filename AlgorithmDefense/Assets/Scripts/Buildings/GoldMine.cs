@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Gateway : BaseBuilding
+public class GoldMine : BaseBuilding
 {
-    public Dictionary<Define.Citizen, Define.Move> DirectionCondition { get; private set; }
+    public Define.Move MoveType = Define.Move.None;
+    public int GoldIncrease;
 
     public override void EnterTheBuilding(CitizenController citizen)
     {
@@ -15,8 +16,7 @@ public class Gateway : BaseBuilding
     {
         string data = JsonUtility.ToJson(this, true);
         string q = JsonUtility.ToJson(new SerializationQueue<CitizenOrderQueueData>(_citizenOrderQueue), true);
-        string dc = JsonUtility.ToJson(new SerializationDictionary<Define.Citizen, Define.Move>(DirectionCondition), true);
-        Managers.Data.GatewaySaveDatas.Enqueue(JsonUtility.ToJson(new BuildingSaveData(data, q, dc), true));
+        Managers.Data.GatewaySaveDatas.Enqueue(JsonUtility.ToJson(new BuildingSaveData(data, q), true));
     }
 
     public override void LoadSaveData()
@@ -26,8 +26,6 @@ public class Gateway : BaseBuilding
         JsonUtility.FromJsonOverwrite(saveData.Data, this);
         _citizenOrderQueue =
             JsonUtility.FromJson<SerializationQueue<CitizenOrderQueueData>>(saveData.OrderQueue).ToQueue();
-        DirectionCondition =
-            JsonUtility.FromJson<SerializationDictionary<Define.Citizen, Define.Move>>(saveData.DirectionCondition).ToDictionary();
 
         if (!_isReleasing)
         {
@@ -50,16 +48,19 @@ public class Gateway : BaseBuilding
 
             var citizen = DequeueCitizen();
 
-            var directionConditionMoveType = DirectionCondition[citizen.Data.CitizenType];
-            if (directionConditionMoveType == Define.Move.None)
+            if ((MoveType == Define.Move.None) ||
+                (citizen.Data.JobType != Define.Job.None))
             {
                 citizen.SetReverseMoveType();
             }
             else
             {
-                if (IsRoadNextPosition(directionConditionMoveType))
+                Managers.Data.RuntimeDatas.Gold += GoldIncrease;
+                Debug.Log(Managers.Data.RuntimeDatas.Gold);
+
+                if (IsRoadNextPosition(MoveType))
                 {
-                    citizen.Data.MoveType = directionConditionMoveType;
+                    citizen.Data.MoveType = MoveType;
                 }
                 else
                 {
@@ -74,16 +75,6 @@ public class Gateway : BaseBuilding
 
     protected override void Init()
     {
-        if (DirectionCondition == null)
-        {
-            DirectionCondition = new Dictionary<Define.Citizen, Define.Move>()
-            {
-                { Define.Citizen.Red, Define.Move.None },
-                { Define.Citizen.Green, Define.Move.None },
-                { Define.Citizen.Blue, Define.Move.None },
-            };
-        }
-
         HasUI = true;
     }
 }

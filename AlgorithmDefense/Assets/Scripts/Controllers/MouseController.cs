@@ -34,7 +34,7 @@ public class MouseController : MonoBehaviour
                 return;
             }
 
-            if (TileObjectBuilder.GetInstance.IsBuilding)
+            if (RoadBuilder.GetInstance.IsBuilding)
             {
                 return;
             }

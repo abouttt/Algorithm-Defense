@@ -100,8 +100,7 @@ public class SerializationQueue<T> : ISerializationCallbackReceiver
 [Serializable]
 public class RuntimeData
 {
-    public int Ore = 0;
-    public int Wood = 0;
+    public int Gold = 0;
 }
 
 public class DataManager
@@ -115,18 +114,11 @@ public class DataManager
     // 세이브 데이터.
 
     public Queue<string> GatewaySaveDatas { get; private set; } = new Queue<string>();
-    public Queue<string> GatewayWithCountSaveDatas { get; private set; } = new Queue<string>();
     public Queue<string> JobTrainingCenterSaveDatas { get; private set; } = new Queue<string>();
-    public Queue<string> MagicFactorySaveDatas { get; private set; } = new Queue<string>();
-    public Queue<string> CampSaveDatas { get; private set; } = new Queue<string>();
-    public Queue<string> OreMineSaveDatas { get; private set; } = new Queue<string>();
-    public Queue<string> SawmillSaveDatas { get; private set; } = new Queue<string>();
-
+    public Queue<string> GoldMineSaveDatas { get; private set; } = new Queue<string>();
 
     private List<TilemapSaveData> _tilemapDatas = new List<TilemapSaveData>();
     private List<CitizenSaveData> _citizenDatas = new List<CitizenSaveData>();
-
-    private List<Define.Citizen> _citizenSpawnerSaveData = new List<Define.Citizen>();
 
     public void Init()
     {
@@ -173,23 +165,11 @@ public class DataManager
         json = JsonUtility.ToJson(new SerializationList<string>(GatewaySaveDatas), true);
         SaveDataToFile($"{Define.STREAM_SAVE_DATA_PATH}{Define.Data.Gateway}.json", json);
 
-        json = JsonUtility.ToJson(new SerializationList<string>(GatewayWithCountSaveDatas), true);
-        SaveDataToFile($"{Define.STREAM_SAVE_DATA_PATH}{Define.Data.GatewayWithCount}.json", json);
-
         json = JsonUtility.ToJson(new SerializationList<string>(JobTrainingCenterSaveDatas), true);
         SaveDataToFile($"{Define.STREAM_SAVE_DATA_PATH}{Define.Data.JobTraining}.json", json);
 
-        json = JsonUtility.ToJson(new SerializationList<string>(MagicFactorySaveDatas), true);
-        SaveDataToFile($"{Define.STREAM_SAVE_DATA_PATH}{Define.Data.MagicFactory}.json", json);
-
-        json = JsonUtility.ToJson(new SerializationList<string>(CampSaveDatas), true);
-        SaveDataToFile($"{Define.STREAM_SAVE_DATA_PATH}{Define.Data.Camp}.json", json);
-
-        json = JsonUtility.ToJson(new SerializationList<string>(OreMineSaveDatas), true);
+        json = JsonUtility.ToJson(new SerializationList<string>(GoldMineSaveDatas), true);
         SaveDataToFile($"{Define.STREAM_SAVE_DATA_PATH}{Define.Data.OreMine}.json", json);
-
-        json = JsonUtility.ToJson(new SerializationList<string>(SawmillSaveDatas), true);
-        SaveDataToFile($"{Define.STREAM_SAVE_DATA_PATH}{Define.Data.Sawmill}.json", json);
 
         // 시민 저장.
 
@@ -223,20 +203,6 @@ public class DataManager
         json = JsonUtility.ToJson(new SerializationList<CitizenSaveData>(_citizenDatas), true);
         SaveDataToFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.Citizen}.json", json);
 
-        // 시민 스포너 저장.
-
-        var citizenSpawnerList = CitizenSpawner.GetInstance.CitizenSpawnList;
-        for (int i = 0; i < citizenSpawnerList.Length; i++)
-        {
-            if (citizenSpawnerList[i].Item2)
-            {
-                _citizenSpawnerSaveData.Add(citizenSpawnerList[i].Item1);
-            }
-        }
-
-        json = JsonUtility.ToJson(new SerializationList<Define.Citizen>(_citizenSpawnerSaveData), true);
-        SaveDataToFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.CitizenSpawner}.json", json);
-
         // 런타임 데이터 저장.
 
         json = JsonUtility.ToJson(RuntimeDatas);
@@ -267,17 +233,8 @@ public class DataManager
         json = LoadDataFromFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.Gateway}.json");
         GatewaySaveDatas = new Queue<string>(JsonUtility.FromJson<SerializationList<string>>(json).ToList());
 
-        json = LoadDataFromFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.GatewayWithCount}.json");
-        GatewayWithCountSaveDatas = new Queue<string>(JsonUtility.FromJson<SerializationList<string>>(json).ToList());
-
         json = LoadDataFromFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.JobTraining}.json");
         JobTrainingCenterSaveDatas = new Queue<string>(JsonUtility.FromJson<SerializationList<string>>(json).ToList());
-
-        json = LoadDataFromFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.MagicFactory}.json");
-        MagicFactorySaveDatas = new Queue<string>(JsonUtility.FromJson<SerializationList<string>>(json).ToList());
-
-        json = LoadDataFromFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.Camp}.json");
-        CampSaveDatas = new Queue<string>(JsonUtility.FromJson<SerializationList<string>>(json).ToList());
 
         foreach (var tilemapData in _tilemapDatas)
         {
@@ -327,15 +284,6 @@ public class DataManager
             go.transform.localScale = data.Scale;
             var citizen = go.GetOrAddComponent<CitizenController>();
             citizen.Data = data.Data;
-        }
-
-        // 시민 스포너 로드.
-
-        json = LoadDataFromFile($"{Define.STREAM_SAVE_DATA_PATH}{Define.Data.CitizenSpawner}.json");
-        _citizenSpawnerSaveData = JsonUtility.FromJson<SerializationList<Define.Citizen>>(json).ToList();
-        for (int i = 0; i < _citizenSpawnerSaveData.Count; i++)
-        {
-            CitizenSpawner.GetInstance.SetOnOff(_citizenSpawnerSaveData[i]);
         }
 
         // 런타임 데이터 로드.

@@ -19,8 +19,8 @@ public static class Define
     {
         Ground,
         Road,
-        Item,
         Building,
+        Rampart,
         Temp,
     }
 
@@ -47,16 +47,12 @@ public static class Define
     public enum Building
     {
         Gateway,
-        GatewayWithCount,
-        JobTrainingCenter,
-        MagicFactory,
-        Camp,
-        OreMine,
-        Sawmill,
-
-
-        // Test
-        TBuilding,
+        WarriorCenter,
+        ArcherCenter,
+        WizardCenter,
+        GoldMine,
+        CastleGate,
+        MonsterGate,
     }
 
     public enum Job
@@ -65,9 +61,6 @@ public static class Define
         Warrior,
         Archer,
         Wizard,
-        Golem,
-        Sniper,
-        FreezeWizard,
     }
 
     public enum Citizen
@@ -93,20 +86,6 @@ public static class Define
         Thunderstroke,
         Madness,
         Heal,
-    }
-
-    public enum Item
-    {
-        Ore,
-        Wood,
-    }
-
-    public enum State
-    {
-        Idle,
-        Moving,
-        Attack,
-        Die,
     }
 
     public enum Data

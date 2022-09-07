@@ -20,23 +20,23 @@ public class UI_JobTrainingController : UI_BaseBuildingController
     private GameObject UniqueClass;
 
     //현재 연결된 GateWay prtfab(Clone)
-    private JobTrainingCenter _jobTraining;
+    //private JobTrainingCenter _jobTraining;
 
 
 
     private void OnEnable()
     {
-        _jobTraining = CurrentBuilding.GetComponent<JobTrainingCenter>();
+        //_jobTraining = CurrentBuilding.GetComponent<JobTrainingCenter>();
 
         //클래스 구분
-        if (_jobTraining.JobType < Define.Job.Golem)
-        {
-            NomalClassButtonKlick();
-        }
-        else
-        {
-            UniqueClassButtonKlick();
-        }
+        //if (_jobTraining.JobType < Define.Job.Golem)
+        //{
+        //    NomalClassButtonKlick();
+        //}
+        //else
+        //{
+        //    UniqueClassButtonKlick();
+        //}
 
 
         //토글 설정
@@ -70,17 +70,17 @@ public class UI_JobTrainingController : UI_BaseBuildingController
     private void SetupJobTrainingInfo()
     {
 
-        if (_jobTraining.JobType != Define.Job.None)
-        {
-            var toggle = findJobToggle(_jobTraining.JobType);
-            toggle.isOn = true;
-        }
+        //if (_jobTraining.JobType != Define.Job.None)
+        //{
+        //    var toggle = findJobToggle(_jobTraining.JobType);
+        //    toggle.isOn = true;
+        //}
 
-        if (_jobTraining.MoveType != Define.Move.None)
-        {
-            var toggle = findMoveToggle(_jobTraining.MoveType);
-            toggle.isOn = true;
-        }
+        //if (_jobTraining.MoveType != Define.Move.None)
+        //{
+        //    var toggle = findMoveToggle(_jobTraining.MoveType);
+        //    toggle.isOn = true;
+        //}
 
     }
 
@@ -121,7 +121,7 @@ public class UI_JobTrainingController : UI_BaseBuildingController
             //트리거 정보 가져옴
             var info = toggle.GetComponent<UI_JobTrainingToggleSet>();
             //트리거 색깔에 움직임 넣어줌
-            _jobTraining.MoveType = info.MoveType;
+            //_jobTraining.MoveType = info.MoveType;
 
         }
 
@@ -135,10 +135,10 @@ public class UI_JobTrainingController : UI_BaseBuildingController
             //트리거 정보 가져옴
             var info = toggle.GetComponent<UI_JobTrainingToggleSet>();
             //트리거 색깔에 움직임 넣어줌
-            _jobTraining.JobType = info.JobType;
+            //_jobTraining.JobType = info.JobType;
 
             //건물에 해당 유닛 출력하도록 실행
-            _jobTraining.SetJobType(info.JobType);
+            //_jobTraining.SetJobType(info.JobType);
         }
 
 

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class UI_TileSpawnController : TileObjectBuilder
+public class UI_TileSpawnController : MonoBehaviour
 {
 
 
@@ -93,10 +93,12 @@ public class UI_TileSpawnController : TileObjectBuilder
         if (num == 0)
         {
             TileObjectBuilder.GetInstance.SetRoadTarget();
+
         }
         else//해당 타입 건물 전달
         {
             TileObjectBuilder.GetInstance.SetBuildingTarget((Define.Building)num - 1);
+
         }
 
         _buildTileMenu.SetActive(false);

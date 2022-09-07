@@ -13,12 +13,12 @@ public class UI_MagicProductionController : UI_BaseBuildingController
     private ToggleGroup[] _toggleGroups;
 
     //현재 연결된 GateWay prtfab(Clone)
-    private MagicFactory _magicFactory;
+    //private MagicFactory _magicFactory;
 
 
     private void OnEnable()
     {
-        _magicFactory = CurrentBuilding.GetComponent<MagicFactory>();
+        //_magicFactory = CurrentBuilding.GetComponent<MagicFactory>();
 
         //토글 설정
         SetupMagicFactoryInfo();
@@ -38,11 +38,11 @@ public class UI_MagicProductionController : UI_BaseBuildingController
     private void SetupMagicFactoryInfo()
     {
 
-        if (_magicFactory.MagicType != Define.Magic.None)
-        {
-            var toggle = findToggle(_magicFactory.MagicType);
-            toggle.isOn = true;
-        }
+        //if (_magicFactory.MagicType != Define.Magic.None)
+        //{
+        //    var toggle = findToggle(_magicFactory.MagicType);
+        //    toggle.isOn = true;
+        //}
 
     }
 
@@ -73,7 +73,7 @@ public class UI_MagicProductionController : UI_BaseBuildingController
                 //트리거 정보 가져옴
                 var info = toggle.GetComponent<UI_MagicToggleSet>();
                 //트리거 색깔에 움직임 넣어줌
-                _magicFactory.MagicType = info.MagicType;
+                //_magicFactory.MagicType = info.MagicType;
 
             }
         }

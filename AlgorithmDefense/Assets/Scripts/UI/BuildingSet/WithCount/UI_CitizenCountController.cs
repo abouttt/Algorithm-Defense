@@ -18,14 +18,14 @@ public class UI_CitizenCountController : UI_BaseBuildingController
     private Text countText;
 
     //생성된 프리탭 데이터
-    private GatewayWithCount _withCount;
+    //private GatewayWithCount _withCount;
     //오류출력 TEXT
     private UI_NoticeTextSet GetNoticeInstance;
 
 
     private void OnEnable()
     {
-        _withCount = CurrentBuilding.GetComponent<GatewayWithCount>();
+        //_withCount = CurrentBuilding.GetComponent<GatewayWithCount>();
 
         SetupWithCountInfo();
 
@@ -34,16 +34,16 @@ public class UI_CitizenCountController : UI_BaseBuildingController
 
     public void SetupWithCountInfo()
     {
-        countText.text = _withCount.Count.ToString();
+        //countText.text = _withCount.Count.ToString();
 
-        CitizenCount = _withCount.Count;
+        //CitizenCount = _withCount.Count;
 
         for (int i = 0; i < _toggles.Length; i++)
         {
-            if (_withCount.DirectionCondition[i].IsOn)
-            {
+            //if (_withCount.DirectionCondition[i].IsOn)
+            //{
                 _toggles[i].isOn = true;
-            }
+            //}
         }
 
     }
@@ -59,12 +59,12 @@ public class UI_CitizenCountController : UI_BaseBuildingController
 
             if (_toggles[i].isOn == true)
             {
-                _withCount.DirectionCondition[i].IsOn = true;
+                //_withCount.DirectionCondition[i].IsOn = true;
                 count++;
             }
             else
             {
-                _withCount.DirectionCondition[i].IsOn = false;
+                //_withCount.DirectionCondition[i].IsOn = false;
             }
         }
 
@@ -77,7 +77,7 @@ public class UI_CitizenCountController : UI_BaseBuildingController
             return;
         }
 
-        _withCount.Count = CitizenCount;
+        //_withCount.Count = CitizenCount;
 
 
 

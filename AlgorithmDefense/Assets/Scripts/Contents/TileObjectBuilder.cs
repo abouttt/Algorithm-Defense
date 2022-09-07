@@ -61,12 +61,6 @@ public class TileObjectBuilder : MonoBehaviour
         }
         else
         {
-            if (_target.name.Equals(Define.Building.OreMine.ToString()) ||
-                _target.name.Equals(Define.Building.Sawmill.ToString()))
-            {
-                Managers.Tile.SetTile(Define.Tilemap.Item, cellPos, null);
-            }
-
             Managers.Tile.SetTile(Define.Tilemap.Building, cellPos, tileBase);
             SetRoadTarget();
             Managers.Tile.SetTile(Define.Tilemap.Road, cellPos, _target);
@@ -83,42 +77,15 @@ public class TileObjectBuilder : MonoBehaviour
 
         Managers.Tile.SetTile(Define.Tilemap.Temp, _prevCellPos, null);
 
-        if (_target.name.Equals(Define.Building.OreMine.ToString()))
+
+        if (Managers.Tile.GetTile(Define.Tilemap.Building, cellPos) ||
+            Managers.Tile.GetTile(Define.Tilemap.Rampart, cellPos))
         {
-            var tile = Managers.Tile.GetTile(Define.Tilemap.Item, cellPos);
-            if (tile &&
-                tile.name.Equals(Define.Item.Ore.ToString()))
-            {
-                SetCanBuildTrue();
-            }
-            else
-            {
-                SetCanBuildFalse();
-            }
-        }
-        else if (_target.name.Equals(Define.Building.Sawmill.ToString()))
-        {
-            var tile = Managers.Tile.GetTile(Define.Tilemap.Item, cellPos);
-            if (tile &&
-                tile.name.Equals(Define.Item.Wood.ToString()))
-            {
-                SetCanBuildTrue();
-            }
-            else
-            {
-                SetCanBuildFalse();
-            }
+            SetCanBuildFalse();
         }
         else
         {
-            if (Managers.Tile.GetTile(Define.Tilemap.Building, cellPos))
-            {
-                SetCanBuildFalse();
-            }
-            else
-            {
-                SetCanBuildTrue();
-            }
+            SetCanBuildTrue();
         }
 
         Managers.Tile.SetTile(Define.Tilemap.Temp, cellPos, _targetTile);

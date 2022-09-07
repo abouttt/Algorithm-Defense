@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -8,10 +9,7 @@ public class CitizenSpawner : MonoBehaviour
     private static CitizenSpawner s_instance;
     public static CitizenSpawner GetInstance { get { Init(); return s_instance; } }
 
-    [HideInInspector]
-    public int OnCount;
-    public (Define.Citizen, bool)[] CitizenSpawnList { get; private set; }
-    public bool IsSpawning { get; private set; }
+    public Define.Citizen[] CitizenSpawnList { get; private set; }
 
     [SerializeField]
     private float _spawnTime;
@@ -20,16 +18,32 @@ public class CitizenSpawner : MonoBehaviour
     private Define.Citizen _spawnTarget;
     private int _spawnIndex = 0;
 
+    // 테스트 전용 변수.
+    [SerializeField]
+    private bool _spawn = false;
+    private bool _isSpawning = false;
+
     private void Start()
     {
         Init();
 
-        CitizenSpawnList = new (Define.Citizen, bool)[3]
+        CitizenSpawnList = new Define.Citizen[3]
         {
-            (Define.Citizen.Red, false),
-            (Define.Citizen.Green, false),
-            (Define.Citizen.Blue, false),
+            Define.Citizen.Red,
+            Define.Citizen.Green,
+            Define.Citizen.Blue,
         };
+
+        StartCoroutine(SpawnCitizen());
+    }
+
+    private void Update()
+    {
+        if (_spawn && !_isSpawning)
+        {
+            StartCoroutine(SpawnCitizen());
+            _isSpawning = true;
+        }
     }
 
     public void Setup(Vector3Int spawnPos, float spawnTime)
@@ -42,55 +56,25 @@ public class CitizenSpawner : MonoBehaviour
         Managers.Tile.SetTile(Define.Tilemap.Road, spawnPos + Vector3Int.up, road);
     }
 
-    // 시민 종류에 따라 스폰 여부를 결정한다.
-    public void SetOnOff(Define.Citizen citizenType)
-    {
-        for (int i = 0; i < CitizenSpawnList.Length; i++)
-        {
-            if (CitizenSpawnList[i].Item1 == citizenType)
-            {
-                CitizenSpawnList[i].Item2 = !CitizenSpawnList[i].Item2;
-                OnCount = CitizenSpawnList[i].Item2 ? OnCount + 1 : OnCount - 1;
-            }
-        }
-
-        if (!IsSpawning && OnCount > 0)
-        {
-            IsSpawning = true;
-            StartCoroutine(SpawnCitizen());
-        }
-    }
-
     public IEnumerator SpawnCitizen()
     {
         while (true)
         {
-            if (OnCount == 0)
+            if (!_spawn)
             {
-                _spawnIndex = 0;
-                IsSpawning = false;
+                _isSpawning = false;
                 yield break;
             }
 
-            while (true)
-            {
-                if (CitizenSpawnList[_spawnIndex].Item2)
-                {
-                    _spawnTarget = CitizenSpawnList[_spawnIndex].Item1;
-                    break;
-                }
-                else
-                {
-                    _spawnIndex = ++_spawnIndex < CitizenSpawnList.Length ? _spawnIndex : 0;
-                }
-            }
+            _spawnTarget = CitizenSpawnList[_spawnIndex];
+            _spawnIndex = ++_spawnIndex < CitizenSpawnList.Length ? _spawnIndex : 0;
 
             var pos = Managers.Tile.GetCellCenterToWorld(Define.Tilemap.Ground, _spawnCellPos);
             var go = Managers.Resource.Instantiate($"{Define.CITIZEN_PATH}{_spawnTarget.ToString()}Citizen", pos);
             var citizen = go.GetOrAddComponent<CitizenController>();
             citizen.Data.CitizenType = _spawnTarget;
             citizen.Data.MoveType = Define.Move.Up;
-            citizen.SetNextDestination();
+            citizen.SetNextDestination(citizen.transform.position);
 
             yield return new WaitForSeconds(_spawnTime);
 

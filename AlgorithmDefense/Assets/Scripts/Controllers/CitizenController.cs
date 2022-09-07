@@ -5,7 +5,7 @@ using UnityEngine.Tilemaps;
 
 public class CitizenController : MonoBehaviour
 {
-    public CitizenData Data = new CitizenData();
+    public CitizenData Data = new();
 
     private Animator _animator;
 
@@ -19,9 +19,9 @@ public class CitizenController : MonoBehaviour
         UpdateMoving();
     }
 
-    public void SetNextDestination()
+    public void SetNextDestination(Vector3 startPosition)
     {
-        var cellPos = Managers.Tile.GetWorldToCell(Define.Tilemap.Ground, transform.position);
+        var cellPos = Managers.Tile.GetWorldToCell(Define.Tilemap.Ground, startPosition);
         switch (Data.MoveType)
         {
             case Define.Move.Down:
@@ -76,7 +76,7 @@ public class CitizenController : MonoBehaviour
         if (Vector2.Distance(transform.position, Data.Destination) <= 0.01f)
         {
             CheckRoad(cellPos);
-            SetNextDestination();
+            SetNextDestination(transform.position);
         }
 
         CheckBuilding(cellPos);

@@ -44,7 +44,7 @@ public class UI_CitizenSpawnController : CitizenSpawner
 
     public void OnButtonRed()
     {
-        CitizenSpawner.GetInstance.SetOnOff(Define.Citizen.Red);
+        //CitizenSpawner.GetInstance.SetOnOff(Define.Citizen.Red);
         if (!_onRed)
         {
             RedButtenText.text = "ON";
@@ -60,7 +60,7 @@ public class UI_CitizenSpawnController : CitizenSpawner
 
     public void OnButtonBlue()
     {
-        CitizenSpawner.GetInstance.SetOnOff(Define.Citizen.Blue);
+        //CitizenSpawner.GetInstance.SetOnOff(Define.Citizen.Blue);
         if (!_onBlue)
         {
             BlueButtenText.text = "ON";
@@ -76,7 +76,7 @@ public class UI_CitizenSpawnController : CitizenSpawner
 
     public void OnButtonGreen()
     {
-        CitizenSpawner.GetInstance.SetOnOff(Define.Citizen.Green);
+        //CitizenSpawner.GetInstance.SetOnOff(Define.Citizen.Green);
         if (!_onGreen)
         {
             GreenButtenText.text = "ON";

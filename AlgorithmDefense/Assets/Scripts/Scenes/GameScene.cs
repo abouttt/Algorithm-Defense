@@ -28,10 +28,8 @@ public class GameScene : MonoBehaviour
     public Vector3Int SpawnCellPos;
     public float SpawnTime;
 
-    [Header("광석 증가량")]
-    public int OreIncrease;
-    [Header("목재 증가량")]
-    public int WoodIncrease;
+    [Header("[전투 라인 설정]")]
+    public int BattleLineLength;
 
     private Transform _contentsRoot;
 
@@ -43,6 +41,7 @@ public class GameScene : MonoBehaviour
         InitGround();
         InitRampart();
         InitSpawn();
+        InitBattleLine();
     }
 
     private void InitCamera()
@@ -66,9 +65,9 @@ public class GameScene : MonoBehaviour
             Managers.Resource.Instantiate($"{Define.CONTENTS_PATH}@CitizenSpawner").transform.SetParent(_contentsRoot);
         }
 
-        if (!FindObjectOfType<TileObjectBuilder>())
+        if (!FindObjectOfType<RoadBuilder>())
         {
-            Managers.Resource.Instantiate($"{Define.CONTENTS_PATH}@TileObjectBuilder").transform.SetParent(_contentsRoot);
+            Managers.Resource.Instantiate($"{Define.CONTENTS_PATH}@RoadBuilder").transform.SetParent(_contentsRoot);
         }
     }
 
@@ -118,25 +117,49 @@ public class GameScene : MonoBehaviour
 
         for (int x = StartPosition.x + 1; x < RampartWidth - 1; x++)
         {
-            Managers.Tile.SetTile(Define.Tilemap.Building, new Vector3Int(x, StartPosition.y, 0), rampartLR);
-            Managers.Tile.SetTile(Define.Tilemap.Building, new Vector3Int(x, RampartHeight - 1, 0), rampartLR);
+            Managers.Tile.SetTile(Define.Tilemap.Rampart, new Vector3Int(x, StartPosition.y, 0), rampartLR);
+            Managers.Tile.SetTile(Define.Tilemap.Rampart, new Vector3Int(x, RampartHeight - 1, 0), rampartLR);
         }
 
         for (int y = StartPosition.y + 1; y < RampartHeight - 1; y++)
         {
-            Managers.Tile.SetTile(Define.Tilemap.Building, new Vector3Int(StartPosition.x, y, 0), rampartUD);
-            Managers.Tile.SetTile(Define.Tilemap.Building, new Vector3Int(RampartWidth - 1, y, 0), rampartUD);
+            Managers.Tile.SetTile(Define.Tilemap.Rampart, new Vector3Int(StartPosition.x, y, 0), rampartUD);
+            Managers.Tile.SetTile(Define.Tilemap.Rampart, new Vector3Int(RampartWidth - 1, y, 0), rampartUD);
         }
 
-        Managers.Tile.SetTile(Define.Tilemap.Building, StartPosition, rampartCL);
-        Managers.Tile.SetTile(Define.Tilemap.Building, new Vector3Int(StartPosition.x, RampartHeight - 1, 0), rampartCL);
-
-        Managers.Tile.SetTile(Define.Tilemap.Building, new Vector3Int(RampartWidth - 1, StartPosition.y, 0), rampartCR);
-        Managers.Tile.SetTile(Define.Tilemap.Building, new Vector3Int(RampartWidth - 1, RampartHeight - 1, 0), rampartCR);
+        Managers.Tile.SetTile(Define.Tilemap.Rampart, StartPosition, rampartCL);
+        Managers.Tile.SetTile(Define.Tilemap.Rampart, new Vector3Int(StartPosition.x, RampartHeight - 1, 0), rampartCL);
+                                             
+        Managers.Tile.SetTile(Define.Tilemap.Rampart, new Vector3Int(RampartWidth - 1, StartPosition.y, 0), rampartCR);
+        Managers.Tile.SetTile(Define.Tilemap.Rampart, new Vector3Int(RampartWidth - 1, RampartHeight - 1, 0), rampartCR);
     }
 
     private void InitSpawn()
     {
         CitizenSpawner.GetInstance.Setup(SpawnCellPos, SpawnTime);
+    }
+
+    private void InitBattleLine()
+    {
+        var castleGate = Managers.Resource.Load<Tile>($"{Define.BUILDING_TILE_PATH}{Define.Building.CastleGate}");
+        var road = Managers.Resource.Load<RuleTile>($"{Define.RULE_TILE_PATH}RoadRuleTile");
+        var monsterCenter = Managers.Resource.Load<Tile>($"{Define.BUILDING_TILE_PATH}{Define.Building.MonsterGate}");
+
+        // 성벽 / 몬스터 스폰 지역 설치.
+        for (int x = 1; x <= 5; x += 2)
+        {
+            Managers.Tile.SetTile(Define.Tilemap.Rampart, new Vector3Int(StartPosition.x + x, RampartHeight - 1, 0), null);
+            TileObjectBuilder.GetInstance.Build(castleGate, new Vector3Int(StartPosition.x + x, RampartHeight - 1, 0));
+            TileObjectBuilder.GetInstance.Build(monsterCenter, new Vector3Int(StartPosition.x + x, RampartHeight + BattleLineLength - 1, 0));
+        }
+
+        // 길 설치.
+        for (int x = 1; x <= 5; x += 2)
+        {
+            for (int y = 0; y < BattleLineLength; y++)
+            {
+                Managers.Tile.SetTile(Define.Tilemap.Road, new Vector3Int(StartPosition.x + x, RampartHeight + y, 0), road);
+            }
+        }
     }
 }

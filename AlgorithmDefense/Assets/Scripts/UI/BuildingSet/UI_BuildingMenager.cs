@@ -34,16 +34,6 @@ public class UI_BuildingMenager : MonoBehaviour
             case Define.Building.Gateway:
                 _currentShowUIController = GatewayUIController;
                 break;
-            case Define.Building.GatewayWithCount:
-                _currentShowUIController = GatewayCountUIController;
-                break;
-            case Define.Building.JobTrainingCenter:
-                _currentShowUIController = JobTrainingUIController;
-                break;
-            case Define.Building.MagicFactory:
-                _currentShowUIController = MagicFactoryUIController;
-                break;
-
         }
 
         _currentShowUIController.CurrentBuilding = go;
