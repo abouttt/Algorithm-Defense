@@ -1321,11 +1321,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CameraX: 3.5
-  CameraY: 8.5
+  CameraY: 7.5
   CameraZ: -10
-  CameraSize: 10.5
+  CameraSize: 7.5
   GroundWidth: 7
-  GroundHeight: 17
+  GroundHeight: 15
   GrassPercentage: 10
   StartPosition: {x: 0, y: 0, z: 0}
   RampartWidth: 7
