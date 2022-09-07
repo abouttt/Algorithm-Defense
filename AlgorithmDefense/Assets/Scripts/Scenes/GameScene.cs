@@ -54,7 +54,7 @@ public class GameScene : MonoBehaviour
     private void InitContents()
     {
         _contentsRoot = Util.CreateGameObject("@Contens_Root").transform;
-        
+
         if (!FindObjectOfType<MouseController>())
         {
             Managers.Resource.Instantiate($"{Define.CONTENTS_PATH}@MouseController").transform.SetParent(_contentsRoot);
@@ -65,9 +65,9 @@ public class GameScene : MonoBehaviour
             Managers.Resource.Instantiate($"{Define.CONTENTS_PATH}@CitizenSpawner").transform.SetParent(_contentsRoot);
         }
 
-        if (!FindObjectOfType<RoadBuilder>())
+        if (!FindObjectOfType<TileObjectBuilder>())
         {
-            Managers.Resource.Instantiate($"{Define.CONTENTS_PATH}@RoadBuilder").transform.SetParent(_contentsRoot);
+            Managers.Resource.Instantiate($"{Define.CONTENTS_PATH}@TileObjectBuilder").transform.SetParent(_contentsRoot);
         }
     }
 
@@ -129,7 +129,7 @@ public class GameScene : MonoBehaviour
 
         Managers.Tile.SetTile(Define.Tilemap.Rampart, StartPosition, rampartCL);
         Managers.Tile.SetTile(Define.Tilemap.Rampart, new Vector3Int(StartPosition.x, RampartHeight - 1, 0), rampartCL);
-                                             
+
         Managers.Tile.SetTile(Define.Tilemap.Rampart, new Vector3Int(RampartWidth - 1, StartPosition.y, 0), rampartCR);
         Managers.Tile.SetTile(Define.Tilemap.Rampart, new Vector3Int(RampartWidth - 1, RampartHeight - 1, 0), rampartCR);
     }
@@ -142,7 +142,7 @@ public class GameScene : MonoBehaviour
     private void InitBattleLine()
     {
         var castleGate = Managers.Resource.Load<Tile>($"{Define.BUILDING_TILE_PATH}{Define.Building.CastleGate}");
-        var road = Managers.Resource.Load<RuleTile>($"{Define.RULE_TILE_PATH}RoadRuleTile");
+        var road = Managers.Resource.Load<RuleTile>($"{Define.RULE_TILE_PATH}Test/RoadRuleTile");
         var monsterCenter = Managers.Resource.Load<Tile>($"{Define.BUILDING_TILE_PATH}{Define.Building.MonsterGate}");
 
         // 성벽 / 몬스터 스폰 지역 설치.
@@ -150,7 +150,7 @@ public class GameScene : MonoBehaviour
         {
             Managers.Tile.SetTile(Define.Tilemap.Rampart, new Vector3Int(StartPosition.x + x, RampartHeight - 1, 0), null);
             TileObjectBuilder.GetInstance.Build(castleGate, new Vector3Int(StartPosition.x + x, RampartHeight - 1, 0));
-            TileObjectBuilder.GetInstance.Build(monsterCenter, new Vector3Int(StartPosition.x + x, RampartHeight + BattleLineLength - 1, 0));
+            TileObjectBuilder.GetInstance.Build(monsterCenter, new Vector3Int(StartPosition.x + x, RampartHeight + BattleLineLength, 0));
         }
 
         // 길 설치.
@@ -161,5 +161,7 @@ public class GameScene : MonoBehaviour
                 Managers.Tile.SetTile(Define.Tilemap.Road, new Vector3Int(StartPosition.x + x, RampartHeight + y, 0), road);
             }
         }
+
+        Managers.Tile.GetTilemap(Define.Tilemap.Road).RefreshAllTiles();
     }
 }

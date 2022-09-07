@@ -11,6 +11,7 @@ public class TileObjectBuilder : MonoBehaviour
     public static TileObjectBuilder GetInstance { get { Init(); return s_instance; } }
 
     public bool IsBuilding { get; private set; }
+    public Dictionary<Vector3Int, int> RoadGroupNumberDatas = new();
 
     private TileBase _target;
     private Tile _targetTile;
@@ -34,7 +35,7 @@ public class TileObjectBuilder : MonoBehaviour
 
             CheckCanBuild(MouseController.GetInstance.MouseCellPos);
 
-            if (_canBuild && Input.GetMouseButton(0))
+            if (_canBuild && Input.GetMouseButtonDown(0))
             {
                 Build(_target, MouseController.GetInstance.MouseCellPos);
             }
@@ -64,44 +65,24 @@ public class TileObjectBuilder : MonoBehaviour
             Managers.Tile.SetTile(Define.Tilemap.Road, cellPos, tileBase);
             var go = Managers.Tile.GetTilemap(Define.Tilemap.Road).GetInstantiatedObject(cellPos);
             go.GetComponent<Road>().GroupNumber = _roadGroupNumber;
+            RoadGroupNumberDatas[cellPos] = _roadGroupNumber;
+
             if (++_roadGroupCount >= 3)
             {
+                Debug.Log("Group Number Plus");
                 _roadGroupNumber++;
-                _roadGroupCount = 1;
+                _roadGroupCount = 0;
             }
         }
         else
         {
             Managers.Tile.SetTile(Define.Tilemap.Building, cellPos, tileBase);
-            SetRoadTarget();
-            Managers.Tile.SetTile(Define.Tilemap.Road, cellPos, _target);
+            //SetRoadTarget();
+            //Managers.Tile.SetTile(Define.Tilemap.Road, cellPos, _target);
             Clear();
         }
-    }
 
-    private void CheckCanBuild(Vector3Int cellPos)
-    {
-        if (_prevCellPos == cellPos)
-        {
-            return;
-        }
-
-        Managers.Tile.SetTile(Define.Tilemap.Temp, _prevCellPos, null);
-
-
-        if (Managers.Tile.GetTile(Define.Tilemap.Building, cellPos) ||
-            Managers.Tile.GetTile(Define.Tilemap.Rampart, cellPos))
-        {
-            SetCanBuildFalse();
-        }
-        else
-        {
-            SetCanBuildTrue();
-        }
-
-        Managers.Tile.SetTile(Define.Tilemap.Temp, cellPos, _targetTile);
-
-        _prevCellPos = cellPos;
+        Managers.Tile.GetTilemap(Define.Tilemap.Road).RefreshAllTiles();
     }
 
     public void Clear()
@@ -117,6 +98,27 @@ public class TileObjectBuilder : MonoBehaviour
         _targetTile = null;
         _target = null;
         _canBuild = false;
+    }
+
+    private void CheckCanBuild(Vector3Int cellPos)
+    {
+        Managers.Tile.SetTile(Define.Tilemap.Temp, _prevCellPos, null);
+
+
+        if (Managers.Tile.GetTile(Define.Tilemap.Road, cellPos) ||
+            Managers.Tile.GetTile(Define.Tilemap.Building, cellPos) ||
+            Managers.Tile.GetTile(Define.Tilemap.Rampart, cellPos))
+        {
+            SetCanBuildFalse();
+        }
+        else
+        {
+            SetCanBuildTrue();
+        }
+
+        Managers.Tile.SetTile(Define.Tilemap.Temp, cellPos, _targetTile);
+
+        _prevCellPos = cellPos;
     }
 
     private void SetCanBuildTrue()

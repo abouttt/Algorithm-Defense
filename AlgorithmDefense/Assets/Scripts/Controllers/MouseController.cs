@@ -80,6 +80,7 @@ public class MouseController : MonoBehaviour
             if (road)
             {
                 Managers.Tile.SetTile(Define.Tilemap.Road, MouseCellPos, null);
+                TileObjectBuilder.GetInstance.RoadGroupNumberDatas.Remove(MouseCellPos);
             }
         }
     }

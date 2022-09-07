@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -9,6 +9,9 @@ using UnityEngine.Tilemaps;
 public class RoadRuleTile : RuleTile<RoadRuleTile.Neighbor>
 {
     public bool customField;
+
+    private Vector3Int _thisPos;
+    private Vector3Int _neighborPos;
 
     public class Neighbor : RuleTile.TilingRule.Neighbor
     {
@@ -19,15 +22,47 @@ public class RoadRuleTile : RuleTile<RoadRuleTile.Neighbor>
     {
         switch (neighbor)
         {
-            case Neighbor.SameGroup: return IsSameGroup(tile);
+            case Neighbor.This: return IsSameGroup(tile);
+            case Neighbor.NotThis: return !IsSameGroup(tile);
         }
 
         return base.RuleMatch(neighbor, tile);
     }
 
+    public override Vector3Int GetOffsetPosition(Vector3Int position, Vector3Int offset)
+    {
+        _thisPos = position;
+        _neighborPos = position + offset;
+        return base.GetOffsetPosition(position, offset);
+    }
+
     bool IsSameGroup(TileBase tile)
     {
-        
+        // 건물 체크.
+        var building = Managers.Tile.GetTilemap(Define.Tilemap.Building).GetInstantiatedObject(_neighborPos);
+        if (building)
+        {
+            return true;
+        }
+
+        // 길 체크.
+        var thisGo = Managers.Tile.GetTilemap(Define.Tilemap.Road).GetInstantiatedObject(_thisPos);
+        var neighborGo = Managers.Tile.GetTilemap(Define.Tilemap.Road).GetInstantiatedObject(_neighborPos);
+        if (!thisGo || !neighborGo)
+        {
+            return false;
+        }
+
+        var thisRoad = thisGo.GetComponent<Road>();
+        var neighborRoad = neighborGo.GetComponent<Road>();
+        if (thisRoad && neighborRoad)
+        {
+            if (thisRoad.GroupNumber == neighborRoad.GroupNumber)
+            {
+                return true;
+            }
+        }
+
         return false;
     }
 }
