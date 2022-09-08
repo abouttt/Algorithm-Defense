@@ -104,7 +104,8 @@ public class GameScene : MonoBehaviour
         foreach (var roadName in roadNames)
         {
             var tile = Managers.Resource.Load<Tile>($"{Define.ROAD_TILE_PATH}Road_{roadName}");
-            tile.gameObject = Managers.Resource.Load<GameObject>($"{Define.ROAD_PREFAB_PATH}Road_{roadName}");
+            //tile.gameObject = Managers.Resource.Load<GameObject>($"{Define.ROAD_PREFAB_PATH}Road_{roadName}");
+            tile.gameObject = null;
         }
     }
 
@@ -142,7 +143,7 @@ public class GameScene : MonoBehaviour
     private void InitBattleLine()
     {
         var castleGate = Managers.Resource.Load<Tile>($"{Define.BUILDING_TILE_PATH}{Define.Building.CastleGate}");
-        var road = Managers.Resource.Load<RuleTile>($"{Define.RULE_TILE_PATH}Test/RoadRuleTile");
+        var road = Managers.Resource.Load<RuleTile>($"{Define.RULE_TILE_PATH}RoadRuleTile");
         var monsterCenter = Managers.Resource.Load<Tile>($"{Define.BUILDING_TILE_PATH}{Define.Building.MonsterGate}");
 
         // 성벽 / 몬스터 스폰 지역 설치.

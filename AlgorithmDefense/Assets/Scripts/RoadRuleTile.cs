@@ -53,14 +53,11 @@ public class RoadRuleTile : RuleTile<RoadRuleTile.Neighbor>
             return false;
         }
 
-        var thisRoad = thisGo.GetComponent<Road>();
-        var neighborRoad = neighborGo.GetComponent<Road>();
-        if (thisRoad && neighborRoad)
+        if (TileObjectBuilder.GetInstance.RoadGroupNumberDatas.ContainsKey(_thisPos) &&
+            TileObjectBuilder.GetInstance.RoadGroupNumberDatas.ContainsKey(_neighborPos))
         {
-            if (thisRoad.GroupNumber == neighborRoad.GroupNumber)
-            {
-                return true;
-            }
+            return TileObjectBuilder.GetInstance.RoadGroupNumberDatas[_thisPos] ==
+                TileObjectBuilder.GetInstance.RoadGroupNumberDatas[_neighborPos];
         }
 
         return false;
