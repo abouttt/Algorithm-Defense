@@ -150,8 +150,12 @@ public class GameScene : MonoBehaviour
         for (int x = 1; x <= 5; x += 2)
         {
             Managers.Tile.SetTile(Define.Tilemap.Rampart, new Vector3Int(StartPosition.x + x, RampartHeight - 1, 0), null);
+
             TileObjectBuilder.GetInstance.Build(castleGate, new Vector3Int(StartPosition.x + x, RampartHeight - 1, 0));
             TileObjectBuilder.GetInstance.Build(monsterCenter, new Vector3Int(StartPosition.x + x, RampartHeight + BattleLineLength, 0));
+
+            TileObjectBuilder.GetInstance.Build(road, new Vector3Int(StartPosition.x + x, RampartHeight - 1, 0));
+            TileObjectBuilder.GetInstance.Build(road, new Vector3Int(StartPosition.x + x, RampartHeight + BattleLineLength, 0));
         }
 
         // ±æ ¼³Ä¡.
