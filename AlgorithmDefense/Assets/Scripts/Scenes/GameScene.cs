@@ -104,8 +104,7 @@ public class GameScene : MonoBehaviour
         foreach (var roadName in roadNames)
         {
             var tile = Managers.Resource.Load<Tile>($"{Define.ROAD_TILE_PATH}Road_{roadName}");
-            //tile.gameObject = Managers.Resource.Load<GameObject>($"{Define.ROAD_PREFAB_PATH}Road_{roadName}");
-            tile.gameObject = null;
+            tile.gameObject = Managers.Resource.Load<GameObject>($"{Define.ROAD_PREFAB_PATH}Road_{roadName}");
         }
     }
 
@@ -151,11 +150,11 @@ public class GameScene : MonoBehaviour
         {
             Managers.Tile.SetTile(Define.Tilemap.Rampart, new Vector3Int(StartPosition.x + x, RampartHeight - 1, 0), null);
 
-            TileObjectBuilder.GetInstance.Build(castleGate, new Vector3Int(StartPosition.x + x, RampartHeight - 1, 0));
-            TileObjectBuilder.GetInstance.Build(monsterCenter, new Vector3Int(StartPosition.x + x, RampartHeight + BattleLineLength, 0));
+            Managers.Tile.SetTile(Define.Tilemap.Building, new Vector3Int(StartPosition.x + x, RampartHeight - 1, 0), castleGate);
+            Managers.Tile.SetTile(Define.Tilemap.Building, new Vector3Int(StartPosition.x + x, RampartHeight + BattleLineLength, 0), monsterCenter);
 
-            TileObjectBuilder.GetInstance.Build(road, new Vector3Int(StartPosition.x + x, RampartHeight - 1, 0));
-            TileObjectBuilder.GetInstance.Build(road, new Vector3Int(StartPosition.x + x, RampartHeight + BattleLineLength, 0));
+            Managers.Tile.SetTile(Define.Tilemap.Road, new Vector3Int(StartPosition.x + x, RampartHeight - 1, 0), road);
+            Managers.Tile.SetTile(Define.Tilemap.Road, new Vector3Int(StartPosition.x + x, RampartHeight + BattleLineLength, 0), road);
         }
 
         // ±æ ¼³Ä¡.
@@ -166,7 +165,5 @@ public class GameScene : MonoBehaviour
                 Managers.Tile.SetTile(Define.Tilemap.Road, new Vector3Int(StartPosition.x + x, RampartHeight + y, 0), road);
             }
         }
-
-        Managers.Tile.GetTilemap(Define.Tilemap.Road).RefreshAllTiles();
     }
 }

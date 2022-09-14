@@ -11,15 +11,14 @@ public class TileObjectBuilder : MonoBehaviour
     public static TileObjectBuilder GetInstance { get { Init(); return s_instance; } }
 
     public bool IsBuilding { get; private set; }
-    public Dictionary<Vector3Int, int> RoadGroupNumberDatas = new();
 
     private TileBase _target;
     private Tile _targetTile;
     private Vector3Int _prevCellPos;
     private bool _canBuild;
+    private bool _isRoadBuild;
 
-    private int _roadGroupNumber = 1;
-    private int _roadGroupCount = 0;
+    private int _groupCount = 1;
 
     private void Update()
     {
@@ -35,9 +34,15 @@ public class TileObjectBuilder : MonoBehaviour
 
             CheckCanBuild(MouseController.GetInstance.MouseCellPos);
 
-            if (_canBuild && Input.GetMouseButtonDown(0))
+            if (_canBuild && Input.GetMouseButton(0))
             {
                 Build(_target, MouseController.GetInstance.MouseCellPos);
+            }
+
+            if (_isRoadBuild && Input.GetMouseButtonUp(0))
+            {
+                _isRoadBuild = false;
+                _groupCount++;
             }
         }
     }
@@ -46,33 +51,36 @@ public class TileObjectBuilder : MonoBehaviour
     {
         Clear();
 
-        _target = Managers.Resource.Load<TileBase>($"{Define.RULE_TILE_PATH}Test/RoadRuleTile");
-        _targetTile = Managers.Resource.Load<Tile>($"{Define.ROAD_TILE_PATH}Road_B");
+        _target = Managers.Resource.Load<TileBase>($"{Define.ROAD_TILE_PATH}Road_B");
+        _targetTile = _target as Tile;
     }
 
     public void SetBuildingTarget(Define.Building building)
     {
         Clear();
 
-        _target = Managers.Resource.Load<TileBase>($"{Define.BUILDING_TILE_PATH}{building.ToString()}");
+        _target = Managers.Resource.Load<TileBase>($"{Define.BUILDING_TILE_PATH}{building}");
         _targetTile = _target as Tile;
     }
 
     public void Build(TileBase tileBase, Vector3Int cellPos)
     {
-        if (tileBase.name.Equals("RoadRuleTile"))
+        if (tileBase.name.Equals("Road_B"))
         {
-            RoadGroupNumberDatas[cellPos] = _roadGroupNumber;
-
+            _isRoadBuild = true;
             Managers.Tile.SetTile(Define.Tilemap.Road, cellPos, tileBase);
             var go = Managers.Tile.GetTilemap(Define.Tilemap.Road).GetInstantiatedObject(cellPos);
-            go.GetComponent<Road>().GroupNumber = _roadGroupNumber;
-
-            if (++_roadGroupCount >= 3)
+            if (go)
             {
-                Debug.Log("Group Number Plus");
-                _roadGroupNumber++;
-                _roadGroupCount = 0;
+                if (!Road.RoadGroupDic.ContainsKey(_groupCount))
+                {
+                    Road.RoadGroupDic.Add(_groupCount, new());
+                }
+
+                Road.RoadGroupDic[_groupCount].Add(cellPos);
+                go.GetComponent<Road>().GroupNumber = _groupCount;
+                go.GetComponent<Road>().Index = Road.RoadGroupDic[_groupCount].Count - 1;
+                go.GetComponent<Road>().RefreshTile(cellPos);
             }
         }
         else
@@ -80,8 +88,6 @@ public class TileObjectBuilder : MonoBehaviour
             Managers.Tile.SetTile(Define.Tilemap.Building, cellPos, tileBase);
             Clear();
         }
-
-        Managers.Tile.GetTilemap(Define.Tilemap.Road).RefreshAllTiles();
     }
 
     public void Clear()
@@ -97,15 +103,11 @@ public class TileObjectBuilder : MonoBehaviour
         _targetTile = null;
         _target = null;
         _canBuild = false;
+        _isRoadBuild = false;
     }
 
     private void CheckCanBuild(Vector3Int cellPos)
     {
-        if (cellPos == _prevCellPos)
-        {
-            return;
-        }
-
         Managers.Tile.SetTile(Define.Tilemap.Temp, _prevCellPos, null);
 
         if (Managers.Tile.GetTile(Define.Tilemap.Road, cellPos) ||

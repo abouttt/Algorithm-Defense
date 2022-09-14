@@ -1,4 +1,5 @@
 using System;
+using Unity.Mathematics;
 using UnityEngine;
 
 public static class Util
@@ -73,5 +74,13 @@ public static class Util
         }
 
         return null;
+    }
+
+    public static Vector3Int GetAbsVector3Int(Vector3Int value)
+    {
+        int x = Mathf.Abs(value.x);
+        int y = Mathf.Abs(value.y);
+        int z = Mathf.Abs(value.z);
+        return new Vector3Int(x, y, z);
     }
 }
