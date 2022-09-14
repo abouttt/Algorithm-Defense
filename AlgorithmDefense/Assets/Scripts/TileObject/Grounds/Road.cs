@@ -6,7 +6,7 @@ using UnityEngine.Tilemaps;
 
 public class Road : MonoBehaviour
 {
-    public static Dictionary<int, List<Vector3Int>> RoadGroupDic = new Dictionary<int, List<Vector3Int>>();
+    public static Dictionary<int, List<Vector3Int>> RoadGroupDic = new();
 
     [field: SerializeField]
     public Define.Road RoadType { get; private set; }
@@ -15,7 +15,7 @@ public class Road : MonoBehaviour
 
     public void RefreshTile(Vector3Int cellPos)
     {
-        Rule(cellPos, isAllowCurve: false);
+        Rule(cellPos);
 
         if (Index > 0)
         {
@@ -38,7 +38,7 @@ public class Road : MonoBehaviour
         }
     }
 
-    private void Rule(Vector3Int cellPos, bool isAllowCurve = true)
+    private void Rule(Vector3Int cellPos)
     {
         TileBase nextTile = null;
 
