@@ -57,17 +57,17 @@ public class GameScene : MonoBehaviour
 
         if (!FindObjectOfType<MouseController>())
         {
-            Managers.Resource.Instantiate($"{Define.CONTENTS_PATH}@MouseController").transform.SetParent(_contentsRoot);
+            Managers.Resource.Instantiate($"{Define.CONTENTS_PATH}/@MouseController").transform.SetParent(_contentsRoot);
         }
 
         if (!FindObjectOfType<CitizenSpawner>())
         {
-            Managers.Resource.Instantiate($"{Define.CONTENTS_PATH}@CitizenSpawner").transform.SetParent(_contentsRoot);
+            Managers.Resource.Instantiate($"{Define.CONTENTS_PATH}/@CitizenSpawner").transform.SetParent(_contentsRoot);
         }
 
         if (!FindObjectOfType<TileObjectBuilder>())
         {
-            Managers.Resource.Instantiate($"{Define.CONTENTS_PATH}@TileObjectBuilder").transform.SetParent(_contentsRoot);
+            Managers.Resource.Instantiate($"{Define.CONTENTS_PATH}/@TileObjectBuilder").transform.SetParent(_contentsRoot);
         }
     }
 
@@ -96,24 +96,24 @@ public class GameScene : MonoBehaviour
 
         foreach (var buildingName in buildingNames)
         {
-            var tile = Managers.Resource.Load<Tile>($"{Define.BUILDING_TILE_PATH}{buildingName}");
-            tile.gameObject = Managers.Resource.Load<GameObject>($"{Define.BUILDING_PREFAB_PATH}{buildingName}");
+            var tile = Managers.Resource.Load<Tile>($"{Define.BUILDING_TILE_PATH}/{buildingName}");
+            tile.gameObject = Managers.Resource.Load<GameObject>($"{Define.BUILDING_PREFAB_PATH}/{buildingName}");
         }
 
         var roadNames = Enum.GetNames(typeof(Define.Road));
         foreach (var roadName in roadNames)
         {
-            var tile = Managers.Resource.Load<Tile>($"{Define.ROAD_TILE_PATH}Road_{roadName}");
-            tile.gameObject = Managers.Resource.Load<GameObject>($"{Define.ROAD_PREFAB_PATH}Road_{roadName}");
+            var tile = Managers.Resource.Load<Tile>($"{Define.ROAD_TILE_PATH}/Road_{roadName}");
+            tile.gameObject = Managers.Resource.Load<GameObject>($"{Define.ROAD_PREFAB_PATH}/Road_{roadName}");
         }
     }
 
     private void InitRampart()
     {
-        var rampartLR = Managers.Resource.Load<Tile>($"{Define.BUILDING_TILE_PATH}Rampart_LR");
-        var rampartUD = Managers.Resource.Load<Tile>($"{Define.BUILDING_TILE_PATH}Rampart_UD");
-        var rampartCL = Managers.Resource.Load<Tile>($"{Define.BUILDING_TILE_PATH}Rampart_CL");
-        var rampartCR = Managers.Resource.Load<Tile>($"{Define.BUILDING_TILE_PATH}Rampart_CR");
+        var rampartLR = Managers.Resource.Load<Tile>($"{Define.BUILDING_TILE_PATH}/Rampart_LR");
+        var rampartUD = Managers.Resource.Load<Tile>($"{Define.BUILDING_TILE_PATH}/Rampart_UD");
+        var rampartCL = Managers.Resource.Load<Tile>($"{Define.BUILDING_TILE_PATH}/Rampart_CL");
+        var rampartCR = Managers.Resource.Load<Tile>($"{Define.BUILDING_TILE_PATH}/Rampart_CR");
 
         for (int x = StartPosition.x + 1; x < RampartWidth - 1; x++)
         {
@@ -141,9 +141,9 @@ public class GameScene : MonoBehaviour
 
     private void InitBattleLine()
     {
-        var castleGate = Managers.Resource.Load<Tile>($"{Define.BUILDING_TILE_PATH}{Define.Building.CastleGate}");
-        var road = Managers.Resource.Load<RuleTile>($"{Define.RULE_TILE_PATH}RoadRuleTile");
-        var monsterCenter = Managers.Resource.Load<Tile>($"{Define.BUILDING_TILE_PATH}{Define.Building.MonsterGate}");
+        var castleGate = Managers.Resource.Load<Tile>($"{Define.BUILDING_TILE_PATH}/{Define.Building.CastleGate}");
+        var road = Managers.Resource.Load<RuleTile>($"{Define.RULE_TILE_PATH}/RoadRuleTile");
+        var monsterCenter = Managers.Resource.Load<Tile>($"{Define.BUILDING_TILE_PATH}/{Define.Building.MonsterGate}");
 
         // 성벽 / 몬스터 스폰 지역 설치.
         for (int x = 1; x <= 5; x += 2)

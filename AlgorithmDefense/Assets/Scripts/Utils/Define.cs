@@ -4,16 +4,16 @@ using UnityEngine;
 
 public static class Define
 {
-    public static readonly string CONTENTS_PATH = "Prefabs/Contents/";
-    public static readonly string CITIZEN_PATH = "Prefabs/Units/Citizens/";
-    public static readonly string BATTILE_UNIT_PATH = "Prefabs/Units/BattleUnits/";
-    public static readonly string BUILDING_PREFAB_PATH = "Prefabs/TileObject/Buildings/";
-    public static readonly string ROAD_PREFAB_PATH = "Prefabs/TileObject/Roads/";
-    public static readonly string ROAD_TILE_PATH = "Tiles/Roads/";
-    public static readonly string RULE_TILE_PATH = "Tiles/RuleTiles/";
-    public static readonly string BUILDING_TILE_PATH = "Tiles/Buildings/";
-    public static readonly string ITEM_TILE_PATH = "Tiles/Items/";
-    public static readonly string STREAM_SAVE_DATA_PATH = $"{Application.streamingAssetsPath}/SaveDatas/";
+    public static readonly string CONTENTS_PATH = "Prefabs/Contents";
+    public static readonly string CITIZEN_PATH = "Prefabs/Units/Citizens";
+    public static readonly string BATTILE_UNIT_PATH = "Prefabs/Units/BattleUnits";
+    public static readonly string BUILDING_PREFAB_PATH = "Prefabs/TileObject/Buildings";
+    public static readonly string ROAD_PREFAB_PATH = "Prefabs/TileObject/Roads";
+    public static readonly string ROAD_TILE_PATH = "Tiles/Roads";
+    public static readonly string RULE_TILE_PATH = "Tiles/RuleTiles";
+    public static readonly string BUILDING_TILE_PATH = "Tiles/Buildings";
+    public static readonly string ITEM_TILE_PATH = "Tiles/Items";
+    public static readonly string STREAM_SAVE_DATA_PATH = $"{Application.streamingAssetsPath}/SaveDatas";
 
     public enum Tilemap
     {
