@@ -51,7 +51,7 @@ public class TileObjectBuilder : MonoBehaviour
     {
         Clear();
 
-        _target = Managers.Resource.Load<TileBase>($"{Define.ROAD_TILE_PATH}/Road_B");
+        _target = Managers.Resource.Load<TileBase>($"{Define.ROAD_TILE_PATH}Road_B");
         _targetTile = _target as Tile;
     }
 
@@ -59,7 +59,7 @@ public class TileObjectBuilder : MonoBehaviour
     {
         Clear();
 
-        _target = Managers.Resource.Load<TileBase>($"{Define.BUILDING_TILE_PATH}/{building}");
+        _target = Managers.Resource.Load<TileBase>($"{Define.BUILDING_TILE_PATH}{building}");
         _targetTile = _target as Tile;
     }
 

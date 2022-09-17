@@ -54,11 +54,11 @@ public abstract class BaseBuilding : MonoBehaviour
         GameObject go = null;
         if (orderQueueData.CitzienName.Contains("Citizen"))
         {
-            go = Managers.Resource.Instantiate($"{Define.CITIZEN_PATH}/{orderQueueData.CitzienName}");
+            go = Managers.Resource.Instantiate($"{Define.CITIZEN_PATH}{orderQueueData.CitzienName}");
         }
         else
         {
-            go = Managers.Resource.Instantiate($"{Define.BATTILE_UNIT_PATH}/{orderQueueData.CitzienName}");
+            go = Managers.Resource.Instantiate($"{Define.BATTILE_UNIT_PATH}{orderQueueData.CitzienName}");
         }
 
         var citizen = go.GetOrAddComponent<CitizenController>();

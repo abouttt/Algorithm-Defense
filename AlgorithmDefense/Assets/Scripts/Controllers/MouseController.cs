@@ -70,24 +70,16 @@ public class MouseController : MonoBehaviour
                 return;
             }
 
-            // 건물 삭제.
             var building = Managers.Tile.GetTile(Define.Tilemap.Building, MouseCellPos);
             if (building)
             {
                 Managers.Tile.SetTile(Define.Tilemap.Building, MouseCellPos, null);
             }
 
-            // 길 그룹 삭제.
-            var go = Managers.Tile.GetTilemap(Define.Tilemap.Road).GetInstantiatedObject(MouseCellPos);
-            var road = go.GetComponent<Road>();
+            var road = Managers.Tile.GetTile(Define.Tilemap.Road, MouseCellPos);
             if (road)
             {
-                foreach (var pos in Road.RoadGroupDic[road.GroupNumber])
-                {
-                    Managers.Tile.SetTile(Define.Tilemap.Road, pos, null);
-                }
-
-                Road.RoadGroupDic.Remove(road.GroupNumber);
+                Managers.Tile.SetTile(Define.Tilemap.Road, MouseCellPos, null);
             }
         }
     }
