@@ -70,15 +70,7 @@ public class CitizenSpawner : MonoBehaviour
             _spawnIndex = ++_spawnIndex < CitizenSpawnList.Length ? _spawnIndex : 0;
 
             var pos = Managers.Tile.GetCellCenterToWorld(Define.Tilemap.Ground, _spawnCellPos);
-<<<<<<< HEAD
-<<<<<<< HEAD
             var go = Managers.Resource.Instantiate($"{Define.CITIZEN_PATH}{_spawnTarget}Citizen", pos);
-=======
-            var go = Managers.Resource.Instantiate($"{Define.CITIZEN_PATH}{_spawnTarget.ToString()}Citizen", pos);
->>>>>>> parent of e5ebc00f (길 삭제 수정.)
-=======
-            var go = Managers.Resource.Instantiate($"{Define.CITIZEN_PATH}{_spawnTarget.ToString()}Citizen", pos);
->>>>>>> parent of e5ebc00f (길 삭제 수정.)
             var citizen = go.GetOrAddComponent<CitizenController>();
             citizen.Data.CitizenType = _spawnTarget;
             citizen.Data.MoveType = Define.Move.Up;

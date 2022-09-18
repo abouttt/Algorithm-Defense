@@ -220,15 +220,7 @@ public class DataManager
 
         // Ÿ�ϸ� �ε�.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         string json = LoadDataFromFile($"{Define.STREAM_SAVE_DATA_PATH}{Define.Data.Tilemap}.json");
-=======
-        string json = LoadDataFromFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.Tilemap}.json");
->>>>>>> parent of e5ebc00f (길 삭제 수정.)
-=======
-        string json = LoadDataFromFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.Tilemap}.json");
->>>>>>> parent of e5ebc00f (길 삭제 수정.)
         if (json == null ||
             json.Equals(""))
         {
@@ -238,24 +230,10 @@ public class DataManager
 
         _tilemapDatas = JsonUtility.FromJson<SerializationList<TilemapSaveData>>(json).ToList();
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         json = LoadDataFromFile($"{Define.STREAM_SAVE_DATA_PATH}{Define.Data.Gateway}.json");
         GatewaySaveDatas = new Queue<string>(JsonUtility.FromJson<SerializationList<string>>(json).ToList());
 
         json = LoadDataFromFile($"{Define.STREAM_SAVE_DATA_PATH}{Define.Data.JobTraining}.json");
-=======
-        json = LoadDataFromFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.Gateway}.json");
-        GatewaySaveDatas = new Queue<string>(JsonUtility.FromJson<SerializationList<string>>(json).ToList());
-
-        json = LoadDataFromFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.JobTraining}.json");
->>>>>>> parent of e5ebc00f (길 삭제 수정.)
-=======
-        json = LoadDataFromFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.Gateway}.json");
-        GatewaySaveDatas = new Queue<string>(JsonUtility.FromJson<SerializationList<string>>(json).ToList());
-
-        json = LoadDataFromFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.JobTraining}.json");
->>>>>>> parent of e5ebc00f (길 삭제 수정.)
         JobTrainingCenterSaveDatas = new Queue<string>(JsonUtility.FromJson<SerializationList<string>>(json).ToList());
 
         foreach (var tilemapData in _tilemapDatas)
@@ -280,7 +258,7 @@ public class DataManager
 
         // �ù� �ε�.
 
-        json = LoadDataFromFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{Define.Data.Citizen}.json");
+        json = LoadDataFromFile($"{Define.STREAM_SAVE_DATA_PATH}{Define.Data.Citizen}.json");
         _citizenDatas = JsonUtility.FromJson<SerializationList<CitizenSaveData>>(json).ToList();
 
         foreach (var data in _citizenDatas)
@@ -289,27 +267,11 @@ public class DataManager
 
             if (data.Data.JobType == Define.Job.None)
             {
-<<<<<<< HEAD
-<<<<<<< HEAD
                 go = Managers.Resource.Instantiate($"{Define.CITIZEN_PATH}{data.Data.CitizenType}Citizen");
             }
             else
             {
                 go = Managers.Resource.Instantiate($"{Define.BATTILE_UNIT_PATH}{data.Data.JobType}Unit");
-=======
-                go = Managers.Resource.Instantiate($"{Define.CITIZEN_PATH}{data.Data.CitizenType.ToString()}Citizen");
-            }
-            else
-            {
-                go = Managers.Resource.Instantiate($"{Define.BATTILE_UNIT_PATH}{data.Data.JobType.ToString()}Unit");
->>>>>>> parent of e5ebc00f (길 삭제 수정.)
-=======
-                go = Managers.Resource.Instantiate($"{Define.CITIZEN_PATH}{data.Data.CitizenType.ToString()}Citizen");
-            }
-            else
-            {
-                go = Managers.Resource.Instantiate($"{Define.BATTILE_UNIT_PATH}{data.Data.JobType.ToString()}Unit");
->>>>>>> parent of e5ebc00f (길 삭제 수정.)
             }
 
             if (!go)
@@ -340,7 +302,7 @@ public class DataManager
     {
         for (int i = 0; i < Enum.GetValues(typeof(Define.Data)).Length; i++)
         {
-            SaveDataToFile($"{Define.STREAM_SAVE_DATA_PATH.ToString()}{(Define.Data)i}.json", "");
+            SaveDataToFile($"{Define.STREAM_SAVE_DATA_PATH}{(Define.Data)i}.json", "");
         }
     }
 

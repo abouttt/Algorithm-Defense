@@ -137,7 +137,6 @@ public class Road : MonoBehaviour
             {
                 nextTile = Managers.Resource.Load<Tile>($"{Define.ROAD_TILE_PATH}Road_CDR");
             }
-
         }
 
         if (nextTile)
