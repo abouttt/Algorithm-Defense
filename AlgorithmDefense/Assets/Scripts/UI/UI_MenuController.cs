@@ -4,29 +4,31 @@ using UnityEngine;
 
 public class UI_MenuController : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject citizenButtenMenu;
+    //[SerializeField]
+   // private GameObject citizenButtenMenu;
     [SerializeField]
     private GameObject buildTileMenu;
-    [SerializeField]
-    private GameObject battleMenu;
+   // [SerializeField]
+    //private GameObject battleMenu;
 
 
     public void GetCitizenButtonDown()
     {
 
-        if (citizenButtenMenu.activeSelf)
-        {
-            //전체닫기
-            citizenButtenMenu.SetActive(false);
+        buildTileMenu.SetActive(false);
+
+        //if (citizenButtenMenu.activeSelf)
+        //{
+        //    //전체닫기
+        //    citizenButtenMenu.SetActive(false);
           
-        }
-        else//아니면
-        {
-            buildTileMenu.SetActive(false);
-            citizenButtenMenu.SetActive(true);
+        //}
+        //else//아니면
+        //{
+        //    buildTileMenu.SetActive(false);
+        //    citizenButtenMenu.SetActive(true);
         
-        }
+        //}
 
 
     }
@@ -44,7 +46,7 @@ public class UI_MenuController : MonoBehaviour
         else//아니면
         {
             buildTileMenu.SetActive(true);
-            citizenButtenMenu.SetActive(false);       
+            //citizenButtenMenu.SetActive(false);       
 
         }
     }
@@ -52,18 +54,18 @@ public class UI_MenuController : MonoBehaviour
 
     public void GetBattleButtonDown()
     {
-        if (battleMenu.activeSelf)
-        {
-            //전체닫기
-            battleMenu.SetActive(false);
+        //if (battleMenu.activeSelf)
+        //{
+        //    //전체닫기
+        //    battleMenu.SetActive(false);
 
-        }
-        else//아니면
-        {
-            battleMenu.SetActive(true);
+        //}
+        //else//아니면
+        //{
+        //    battleMenu.SetActive(true);
 
 
-        }
+        //}
     }
 
 }

@@ -1,60 +1,59 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 using UnityEngine.UI;
-
 
 public class UI_StartSubMenuController : MonoBehaviour
 {
     [SerializeField]
-    private GameObject MainMenuSet;
+    private CanvasGroup subMenuCanvasGroup;
     [SerializeField]
-    private GameObject SubMenuSet;
+    private RectTransform subMenuRectTransform;
     [SerializeField]
-    private GameObject SattingSet;
-    [SerializeField]
-    private GameObject Resolution;
-    [SerializeField]
-    private GameObject Sound;
-
-    [SerializeField]
-    private Button ExitButton;
+    private CanvasGroup mainMenuCanvasGroup;
 
 
-    void Start()
+    public void SubMenuFadeIn()
     {
-        SubMenuSet.SetActive(false);
-        MainMenuSet.SetActive(true);
+        // Debug.Log("시작버튼 클릭ㄷ");
+        //시작 alpha 0
 
-        ExitButton.onClick.AddListener(GameExit);
+
+        mainMenuCanvasGroup.alpha = 1f;
+        mainMenuCanvasGroup.DOFade(0, 0.3f);
+
+
+        subMenuCanvasGroup.alpha = 0f;
+        subMenuRectTransform.transform.localPosition = new Vector3(600f, 0f, 0f);
+
+
+        //페이드 인 종류와 속도
+        subMenuRectTransform.DOAnchorPos(new Vector2(0f, 0f), 0.7f, false).SetEase(Ease.OutBack);
+
+        subMenuCanvasGroup.DOFade(1, 0.7f);
+
+
     }
 
-    void Update()
+
+    public void SubMenuFadeOut()
     {
-        // 메뉴창
-        if (Input.GetButtonDown("Cancel"))//esc버튼 클릭
-        {
-            SattingSet.SetActive(true);    //설정화면 끄기
-            Resolution.SetActive(false);    //해상도화면 끄기
-            Sound.SetActive(false);         //소리화면 끄기
 
-            //이미 메뉴가 열린 상태라면
-            if (SubMenuSet.activeSelf)
-            {
-                //전체닫기
-                SubMenuSet.SetActive(false);
-                MainMenuSet.SetActive(true);
-            }
-            else//아니면
-            {
-                //열기
-                SubMenuSet.SetActive(true);
-                MainMenuSet.SetActive(false);
-            }
+        mainMenuCanvasGroup.alpha = 0f;
+        mainMenuCanvasGroup.DOFade(1, 0.3f);
 
-        }
+        subMenuCanvasGroup.alpha = 1f;
+        subMenuRectTransform.transform.localPosition = new Vector3(0f, 0f, 0f);
+        subMenuRectTransform.DOAnchorPos(new Vector2(600f, 0f), 1f, false).SetEase(Ease.InOutQuint);
+        subMenuCanvasGroup.DOFade(0, 0.7f);
+
+
 
     }
+
+
+
 
     //종료버튼
     public void GameExit()

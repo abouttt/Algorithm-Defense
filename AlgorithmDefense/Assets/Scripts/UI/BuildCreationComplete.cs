@@ -13,8 +13,8 @@ public class BuildCreationComplete : MonoBehaviour
         GameObject obj1 = GameObject.Find("BuildButton");
         _build = obj1.transform.Find("BuildSpawnButtons").gameObject;
 
-        GameObject obj2 = GameObject.Find("CitizenButton");
-        _citizen = obj2.transform.Find("CitizenSpawnButtons").gameObject;
+        //GameObject obj2 = GameObject.Find("CitizenButton");
+        //_citizen = obj2.transform.Find("CitizenSpawnButtons").gameObject;
 
     }
 

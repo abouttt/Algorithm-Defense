@@ -3,36 +3,47 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class UI_StartSceneGameStart : MonoBehaviour
 {
     [SerializeField]
     private Button gameStartButton;
     [SerializeField]
-    private Button gameLodeButton;
+    private Text gameStartText;
+    [SerializeField]
+    private Button settingButton;
+    [SerializeField]
+    private Text settingText;
 
 
-
-    private void Start()
+    public void StartButtonSinIn()
     {
-        gameStartButton.onClick.AddListener(NewGameStart);
-        gameLodeButton.onClick.AddListener(LodeGameStart);
 
+        gameStartButton.transform.GetComponent<Image>().DOFade(1, 0.2f);
+        gameStartText.transform.GetComponent<Text>().DOColor(Color.black, 0.4f);
+    }
+
+    public void StartButtonSinOut()
+    {
+
+        gameStartButton.transform.GetComponent<Image>().DOFade(0, 0.2f);
+        gameStartText.transform.GetComponent<Text>().DOColor(Color.white, 0.4f);
     }
 
 
-    public void NewGameStart()
+    public void SettingButtonSinIn()
     {
 
-        SceneManager.LoadScene("GameScene");
-
+        settingButton.transform.GetComponent<Image>().DOFade(1, 0.2f);
+        settingText.transform.GetComponent<Text>().DOColor(Color.black, 0.4f);
     }
 
-    public void LodeGameStart()
+    public void SettingButtonSinOut()
     {
 
-        //저장된 데이터 불러오기
-
-        SceneManager.LoadScene("GameScene");
+        settingButton.transform.GetComponent<Image>().DOFade(0, 0.2f);
+        settingText.transform.GetComponent<Text>().DOColor(Color.white, 0.4f);
     }
+
 }
