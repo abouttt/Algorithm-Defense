@@ -7,10 +7,10 @@ using UnityEngine.Tilemaps;
 
 public class GoogleSheetManager : MonoBehaviour
 {
-    const string URL = "https://docs.google.com/spreadsheets/d/10P8Dn319v-O0QbgBwSjkXi5HZtkVWst3ZPnSoBU2SDA/export?format=tsv";
-    const string building = "https://docs.google.com/spreadsheets/d/10P8Dn319v-O0QbgBwSjkXi5HZtkVWst3ZPnSoBU2SDA/export?format=tsv&range=B2:B4";
-    const string posX = "https://docs.google.com/spreadsheets/d/10P8Dn319v-O0QbgBwSjkXi5HZtkVWst3ZPnSoBU2SDA/export?format=tsv&range=C2:C4";
-    const string posY = "https://docs.google.com/spreadsheets/d/10P8Dn319v-O0QbgBwSjkXi5HZtkVWst3ZPnSoBU2SDA/export?format=tsv&range=D2:D4";
+    const string URL = "https://docs.google.com/spreadsheets/d/1rbYCu0s6tjQM9YmjNNmWJRriqRHzgoTzIZzXo8Nj_Uw/export?format=tsv";
+    const string building = "https://docs.google.com/spreadsheets/d/1rbYCu0s6tjQM9YmjNNmWJRriqRHzgoTzIZzXo8Nj_Uw/export?format=tsv&range=B2:B4";
+    const string posX = "https://docs.google.com/spreadsheets/d/1rbYCu0s6tjQM9YmjNNmWJRriqRHzgoTzIZzXo8Nj_Uw/export?format=tsv&range=C2:C4";
+    const string posY = "https://docs.google.com/spreadsheets/d/1rbYCu0s6tjQM9YmjNNmWJRriqRHzgoTzIZzXo8Nj_Uw/export?format=tsv&range=D2:D4";
 
     List<string> _buildings = new();
     List<Vector3Int> _pos = new();
