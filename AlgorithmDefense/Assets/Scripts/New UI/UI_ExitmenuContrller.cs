@@ -45,6 +45,14 @@ public class UI_ExitmenuContrller : MonoBehaviour
     }
 
 
+    public void ExitButtonClick()
+    {
+     
+            ExitMenu.SetActive(true);       //초기화면 키기
+
+    }
+
+
     public void GameAgain()
     {
         ExitMenu.SetActive(false);       //초기화면 키기

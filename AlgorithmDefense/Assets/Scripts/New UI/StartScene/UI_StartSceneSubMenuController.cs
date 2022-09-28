@@ -4,7 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
 
-public class UI_StartSubMenuController : MonoBehaviour
+public class UI_StartSceneSubMenuController : MonoBehaviour
 {
     [SerializeField]
     private CanvasGroup subMenuCanvasGroup;
@@ -25,7 +25,7 @@ public class UI_StartSubMenuController : MonoBehaviour
 
 
         subMenuCanvasGroup.alpha = 0f;
-        subMenuRectTransform.transform.localPosition = new Vector3(600f, 0f, 0f);
+        subMenuRectTransform.transform.localPosition = new Vector3(-1100f, 0f, 0f);
 
 
         //페이드 인 종류와 속도
@@ -45,7 +45,7 @@ public class UI_StartSubMenuController : MonoBehaviour
 
         subMenuCanvasGroup.alpha = 1f;
         subMenuRectTransform.transform.localPosition = new Vector3(0f, 0f, 0f);
-        subMenuRectTransform.DOAnchorPos(new Vector2(600f, 0f), 1f, false).SetEase(Ease.InOutQuint);
+        subMenuRectTransform.DOAnchorPos(new Vector2(-1100f, 0f), 1f, false).SetEase(Ease.InOutQuint);
         subMenuCanvasGroup.DOFade(0, 0.7f);
 
 

@@ -190,6 +190,7 @@ public class RoadBuilder : MonoBehaviour
                 go.GetComponent<WillRoad>().RefreshTile(cellPos);
             }
 
+            // 클릭한 곳이 건물인지.
             if (Managers.Tile.GetTile(Define.Tilemap.Building, cellPos))
             {
                 Managers.Tile.SetTile(Define.Tilemap.WillRoad, cellPos, null);

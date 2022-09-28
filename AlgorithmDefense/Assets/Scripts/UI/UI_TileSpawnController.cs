@@ -45,7 +45,7 @@ public class UI_TileSpawnController : MonoBehaviour
 
     public void CreateButton(RectTransform container, Button btn_Obj, BuildButtonsInformation[] btn_Slot)
     {
-
+   
         for (int i = 0; i < btn_Slot.Length; i++)
         {
             int index = i;
@@ -57,7 +57,7 @@ public class UI_TileSpawnController : MonoBehaviour
 
 
             //생성된 버튼의 좌표와 이미지 변경
-            newButton.transform.position = new Vector3(newButton.transform.position.x + 150f * i, newButton.transform.position.y, newButton.transform.position.z);
+            newButton.transform.localPosition = new Vector3(newButton.transform.localPosition.x + 150f * i, newButton.transform.localPosition.y, newButton.transform.localPosition.z);
             newButton.GetComponent<Image>().sprite = btn_Slot[i].ButtonSprite;
 
 
@@ -93,11 +93,7 @@ public class UI_TileSpawnController : MonoBehaviour
         if (num == 0)
         {
             //TileObjectBuilder.GetInstance.SetRoadTarget();
-            if (Input.GetMouseButtonUp(0))
-            {
-                RoadBuilder.GetInstance.IsBuilding = true;
-            }
-
+            RoadBuilder.GetInstance.IsBuilding = true;
         }
         else//해당 타입 건물 전달
         {

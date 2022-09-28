@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 7779405605018320444}
   - component: {fileID: 7779405605018320835}
   - component: {fileID: 7779405605018320834}
-  m_Layer: 0
+  - component: {fileID: -5305519583196170815}
+  m_Layer: 6
   m_Name: Goblin_Archer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7779405605018320833}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.716388, y: -0.016849935, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -73,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: -1480818805, guid: eed92f5a3caf675459f8f0e633682b34, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -105,3 +106,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-5305519583196170815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7779405605018320833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08943eedf67b89d4a95b3bd8b666c9fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveType: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  attackDamage: 0
+  _speed: 0
+  _range: 0

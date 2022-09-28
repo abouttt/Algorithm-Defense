@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CastleGate : BaseBuilding
@@ -45,6 +46,9 @@ public class CastleGate : BaseBuilding
                 citizen.SetReverseMoveType();
             }
 
+            citizen.GetComponent<CitizenController>().enabled = false;
+            citizen.GetComponent<UnitManager>().enabled = true;
+            citizen.GetComponent<UnitAI>().enabled = true;
             SetCitizenPosition(citizen);
             citizen.SetNextDestination(transform.position);
         }

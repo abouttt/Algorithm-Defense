@@ -74,10 +74,10 @@ public class SoundController : MonoBehaviour
     {
         if (!s_instance)
         {
-            var go = GameObject.Find("SoundMenager");
+            var go = GameObject.Find("SoundManager");
             if (!go)
             {
-                go = new GameObject { name = "SoundMenager" };
+                go = new GameObject { name = "SoundManager" };
                 go.AddComponent<SoundController>();
             }
 
