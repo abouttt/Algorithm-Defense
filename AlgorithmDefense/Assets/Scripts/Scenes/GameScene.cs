@@ -153,7 +153,6 @@ public class GameScene : MonoBehaviour
     {
         var castleGate = Managers.Resource.Load<Tile>($"{Define.BUILDING_TILE_PATH}{Define.Building.CastleGate}");
         var road = Managers.Resource.Load<RuleTile>($"{Define.RULE_TILE_PATH}RoadRuleTile");
-        var udRoad = Managers.Resource.Load<Tile>($"{Define.ROAD_TILE_PATH}Road_UD");
         var monsterCenter = Managers.Resource.Load<Tile>($"{Define.BUILDING_TILE_PATH}{Define.Building.MonsterGate}");
 
         // 성벽 / 몬스터 스폰 지역 설치.
@@ -164,6 +163,7 @@ public class GameScene : MonoBehaviour
             Managers.Tile.SetTile(Define.Tilemap.Building, new Vector3Int(StartPosition.x + x, RampartHeight - 1, 0), castleGate);
             Managers.Tile.SetTile(Define.Tilemap.Building, new Vector3Int(StartPosition.x + x, RampartHeight + BattleLineLength, 0), monsterCenter);
 
+            Managers.Tile.SetTile(Define.Tilemap.Road, new Vector3Int(StartPosition.x + x, RampartHeight - 1, 0), road);
             Managers.Tile.SetTile(Define.Tilemap.Road, new Vector3Int(StartPosition.x + x, RampartHeight + BattleLineLength, 0), road);
         }
 
@@ -172,7 +172,7 @@ public class GameScene : MonoBehaviour
         {
             for (int y = 0; y < BattleLineLength; y++)
             {
-                Managers.Tile.SetTile(Define.Tilemap.Road, new Vector3Int(StartPosition.x + x, RampartHeight + y, 0), udRoad);
+                Managers.Tile.SetTile(Define.Tilemap.Road, new Vector3Int(StartPosition.x + x, RampartHeight + y, 0), road);
             }
         }
     }
