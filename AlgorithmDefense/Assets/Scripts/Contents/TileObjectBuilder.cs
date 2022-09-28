@@ -18,8 +18,6 @@ public class TileObjectBuilder : MonoBehaviour
     private bool _canBuild;
     private bool _isRoadBuild;
 
-    private int _groupCount = 1;
-
     private void Update()
     {
         if (_target)
@@ -42,7 +40,6 @@ public class TileObjectBuilder : MonoBehaviour
             if (_isRoadBuild && Input.GetMouseButtonUp(0))
             {
                 _isRoadBuild = false;
-                _groupCount++;
             }
         }
     }
@@ -72,14 +69,6 @@ public class TileObjectBuilder : MonoBehaviour
             var go = Managers.Tile.GetTilemap(Define.Tilemap.Road).GetInstantiatedObject(cellPos);
             if (go)
             {
-                if (!Road.RoadGroupDic.ContainsKey(_groupCount))
-                {
-                    Road.RoadGroupDic.Add(_groupCount, new());
-                }
-
-                Road.RoadGroupDic[_groupCount].Add(cellPos);
-                go.GetComponent<Road>().GroupNumber = _groupCount;
-                go.GetComponent<Road>().Index = Road.RoadGroupDic[_groupCount].Count - 1;
                 go.GetComponent<Road>().RefreshTile(cellPos);
             }
         }

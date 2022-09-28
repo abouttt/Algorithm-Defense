@@ -69,6 +69,11 @@ public class GameScene : MonoBehaviour
         {
             Managers.Resource.Instantiate($"{Define.CONTENTS_PATH}@TileObjectBuilder").transform.SetParent(_contentsRoot);
         }
+
+        if (!FindObjectOfType<RoadBuilder>())
+        {
+            Managers.Resource.Instantiate($"{Define.CONTENTS_PATH}@RoadBuilder").transform.SetParent(_contentsRoot);
+        }
     }
 
     private void InitGround()
@@ -94,17 +99,22 @@ public class GameScene : MonoBehaviour
     {
         var buildingNames = Enum.GetNames(typeof(Define.Building));
 
+        Tile buildingTile = null;
         foreach (var buildingName in buildingNames)
         {
-            var tile = Managers.Resource.Load<Tile>($"{Define.BUILDING_TILE_PATH}{buildingName}");
-            tile.gameObject = Managers.Resource.Load<GameObject>($"{Define.BUILDING_PREFAB_PATH}{buildingName}");
+            buildingTile = Managers.Resource.Load<Tile>($"{Define.BUILDING_TILE_PATH}{buildingName}");
+            buildingTile.gameObject = Managers.Resource.Load<GameObject>($"{Define.BUILDING_PREFAB_PATH}{buildingName}");
         }
 
         var roadNames = Enum.GetNames(typeof(Define.Road));
+        Tile roadTile = null;
         foreach (var roadName in roadNames)
         {
-            var tile = Managers.Resource.Load<Tile>($"{Define.ROAD_TILE_PATH}Road_{roadName}");
-            tile.gameObject = Managers.Resource.Load<GameObject>($"{Define.ROAD_PREFAB_PATH}Road_{roadName}");
+            roadTile = Managers.Resource.Load<Tile>($"{Define.ROAD_TILE_PATH}Road_{roadName}");
+            roadTile.gameObject = Managers.Resource.Load<GameObject>($"{Define.ROAD_PREFAB_PATH}Road_{roadName}");
+
+            roadTile = Managers.Resource.Load<Tile>($"{Define.WILLROAD_TILE_PATH}Road_{roadName}");
+            roadTile.gameObject = Managers.Resource.Load<GameObject>($"{Define.WILLROAD_PREFAB_PATH}Road_{roadName}");
         }
     }
 

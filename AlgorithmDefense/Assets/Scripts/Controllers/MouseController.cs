@@ -34,7 +34,8 @@ public class MouseController : MonoBehaviour
                 return;
             }
 
-            if (TileObjectBuilder.GetInstance.IsBuilding)
+            if (TileObjectBuilder.GetInstance.IsBuilding || 
+                RoadBuilder.GetInstance.IsBuilding)
             {
                 return;
             }
@@ -75,19 +76,6 @@ public class MouseController : MonoBehaviour
             if (building)
             {
                 Managers.Tile.SetTile(Define.Tilemap.Building, MouseCellPos, null);
-            }
-
-            // 길 그룹 삭제.
-            var go = Managers.Tile.GetTilemap(Define.Tilemap.Road).GetInstantiatedObject(MouseCellPos);
-            var road = go.GetComponent<Road>();
-            if (road)
-            {
-                foreach (var pos in Road.RoadGroupDic[road.GroupNumber])
-                {
-                    Managers.Tile.SetTile(Define.Tilemap.Road, pos, null);
-                }
-
-                Road.RoadGroupDic.Remove(road.GroupNumber);
             }
         }
     }
