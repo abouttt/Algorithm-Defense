@@ -110,8 +110,8 @@ public class RoadBuilder : MonoBehaviour
         // 설치 범위 확인.
         if (cellPos.x <= Managers.Game.Setting.StartPosition.x ||
             cellPos.y <= Managers.Game.Setting.StartPosition.y ||
-            cellPos.x >= Managers.Game.Setting.RampartWidth - 1 ||
-            cellPos.y >= Managers.Game.Setting.RampartHeight - 1)
+            cellPos.x > Managers.Game.Setting.RampartWidth - 1 ||
+            cellPos.y > Managers.Game.Setting.RampartHeight - 1)
         {
             return;
         }
@@ -131,6 +131,11 @@ public class RoadBuilder : MonoBehaviour
         // 위치가 예약 되어 있다면 제거.
         if (Managers.Tile.GetTile(Define.Tilemap.WillRoad, cellPos))
         {
+            if (_willRoadPosStack.Count <= 1)
+            {
+                return;
+            }
+
             var pos = _willRoadPosStack.Pop();
             if (_willRoadPosStack.Peek() == cellPos)
             {

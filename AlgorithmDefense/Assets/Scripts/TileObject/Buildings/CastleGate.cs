@@ -40,15 +40,15 @@ public class CastleGate : BaseBuilding
             if (citizen.Data.JobType != Define.Job.None)
             {
                 citizen.Data.MoveType = Define.Move.Up;
+                citizen.GetComponent<CitizenController>().enabled = false;
+                citizen.GetComponent<UnitManager>().enabled = true;
+                citizen.GetComponent<UnitAI>().enabled = true;
             }
             else
             {
                 citizen.SetReverseMoveType();
             }
 
-            citizen.GetComponent<CitizenController>().enabled = false;
-            citizen.GetComponent<UnitManager>().enabled = true;
-            citizen.GetComponent<UnitAI>().enabled = true;
             SetCitizenPosition(citizen);
             citizen.SetNextDestination(transform.position);
         }

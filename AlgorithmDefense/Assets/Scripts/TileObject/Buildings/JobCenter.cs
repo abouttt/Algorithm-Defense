@@ -61,6 +61,9 @@ public class JobCenter : BaseBuilding
 
                 Managers.Resource.Destroy(citizen.gameObject);
                 citizen = newCitizen;
+                citizen.GetComponent<CitizenController>().enabled = true;
+                citizen.GetComponent<UnitManager>().enabled = false;
+                citizen.GetComponent<UnitAI>().enabled = false;
 
                 if (IsRoadNextPosition(MoveType))
                 {
@@ -76,9 +79,6 @@ public class JobCenter : BaseBuilding
                 citizen.SetReverseMoveType();
             }
 
-            citizen.GetComponent<CitizenController>().enabled = true;
-            citizen.GetComponent<UnitManager>().enabled = false;
-            citizen.GetComponent<UnitAI>().enabled = false;
             SetCitizenPosition(citizen);
             citizen.SetNextDestination(transform.position);
         }
