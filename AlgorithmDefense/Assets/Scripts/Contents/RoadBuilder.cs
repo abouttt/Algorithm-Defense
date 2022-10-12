@@ -272,7 +272,7 @@ public class RoadBuilder : MonoBehaviour
             return true;
         }
 
-        if (b && _startRoadPos.HasValue && (_startRoadPos.Value == _lastPos))
+        if (b && _startRoadPos.HasValue && (_startRoadPos.Value == _firstPos))
         {
             return true;
         }
@@ -285,14 +285,24 @@ public class RoadBuilder : MonoBehaviour
         var a = Managers.Tile.GetTile(Define.Tilemap.Building, _firstPos);
         var b = Managers.Tile.GetTile(Define.Tilemap.Building, _lastPos);
 
-        if (a && a.name.Equals(Define.Building.Gateway.ToString()))
+        //if (a && a.name.Equals(Define.Building.Gateway.ToString()))
+        //{
+        //    Managers.Tile.SetTile(Define.Tilemap.Road, _firstPos, null);
+        //}
+
+        //if (b && b.name.Equals(Define.Building.Gateway.ToString()))
+        //{
+        //    Managers.Tile.SetTile(Define.Tilemap.Road, _lastPos, null);
+        //}
+
+        if (a && _startRoadPos != _firstPos)
         {
             Managers.Tile.SetTile(Define.Tilemap.Road, _firstPos, null);
         }
 
-        if (b && b.name.Equals(Define.Building.Gateway.ToString()))
+        if (b && _startRoadPos != _lastPos)
         {
-            Managers.Tile.SetTile(Define.Tilemap.Road, _firstPos, null);
+            Managers.Tile.SetTile(Define.Tilemap.Road, _lastPos, null);
         }
     }
 
