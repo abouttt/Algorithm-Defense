@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -94,6 +94,18 @@ TextureImporter:
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -5111,9 +5123,9 @@ TextureImporter:
       Goblin_Warrior_74: 1970213631
       Goblin_Warrior_185: 167818293
       Goblin_Warrior_33: 1163098683
-      Goblin_Warrior_43: -1860298523
-      Goblin_Warrior_187: -1361388022
       Goblin_Warrior_223: 2143519008
+      Goblin_Warrior_187: -1361388022
+      Goblin_Warrior_43: -1860298523
       Goblin_Warrior_76: -824646326
       Goblin_Warrior_93: 1825744489
       Goblin_Warrior_180: -1553958742
@@ -5140,19 +5152,19 @@ TextureImporter:
       Goblin_Warrior_37: -1998406652
       Goblin_Warrior_115: -189348707
       Goblin_Warrior_30: -436166708
-      Goblin_Warrior_11: 274493812
+      Goblin_Warrior_221: 92336355
       Goblin_Warrior_94: -911282503
       Goblin_Warrior_128: -689096503
-      Goblin_Warrior_213: -28838812
-      Goblin_Warrior_221: 92336355
+      Goblin_Warrior_11: 274493812
       Goblin_Warrior_105: 1423319579
       Goblin_Warrior_143: 1204560088
       Goblin_Warrior_0: -980335746
       Goblin_Warrior_53: 961110243
       Goblin_Warrior_170: 2106818287
       Goblin_Warrior_36: -1419793909
-      Goblin_Warrior_169: 483182965
       Goblin_Warrior_204: 996155045
+      Goblin_Warrior_213: -28838812
+      Goblin_Warrior_169: 483182965
       Goblin_Warrior_107: -1878001132
       Goblin_Warrior_219: 268145591
       Goblin_Warrior_35: 757892919
