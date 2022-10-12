@@ -51,9 +51,13 @@ public class CitizenSpawner : MonoBehaviour
         _spawnCellPos = spawnPos;
         _spawnTime = spawnTime;
 
-        var road = Managers.Resource.Load<RuleTile>($"{Define.RULE_TILE_PATH}RoadRuleTile");
-        Managers.Tile.SetTile(Define.Tilemap.Road, spawnPos, road);
-        Managers.Tile.SetTile(Define.Tilemap.Road, spawnPos + Vector3Int.up, road);
+        var bu = Managers.Resource.Load<TileBase>($"{Define.ROAD_TILE_PATH}Road_BU");
+        var db = Managers.Resource.Load<TileBase>($"{Define.ROAD_TILE_PATH}Road_BD");
+        Managers.Tile.SetTile(Define.Tilemap.Road, spawnPos, bu);
+        Managers.Tile.SetTile(Define.Tilemap.Road, spawnPos + Vector3Int.up, db);
+
+        var go = Managers.Tile.GetTilemap(Define.Tilemap.Road).GetInstantiatedObject(spawnPos + Vector3Int.up);
+        go.GetComponent<Road>().IsStartRoad = true;
     }
 
     public IEnumerator SpawnCitizen()

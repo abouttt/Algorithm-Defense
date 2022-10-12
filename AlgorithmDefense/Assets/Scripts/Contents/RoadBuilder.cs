@@ -1,7 +1,5 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Tilemaps;
@@ -11,46 +9,41 @@ public class RoadBuilder : MonoBehaviour
     private static RoadBuilder s_instance;
     public static RoadBuilder GetInstance { get { Init(); return s_instance; } }
 
-    public float WrongTilePosRemoveTime;
-
     [HideInInspector]
     public bool IsBuilding;
+    public Dictionary<int, List<Vector3Int>> RoadGroupDic = new();
 
     private Tile _roadTile;
     private Stack<Vector3Int> _willRoadPosStack = new();
-    private Stack<Vector3Int> _willRoadPosStackTemp = new();
-    private Queue<Vector3Int> _wrongTilePosQueue = new();
     private Vector3Int _prevPos;
-    private bool _isWillBuildMode;
-    private bool _hasMode;
-    private bool _isRemoveWrongTile;
+    private int _groupCount = 1;
+
+    private Vector3Int _firstPos;
+    private Vector3Int _lastPos;
+
+    private Vector3Int? _startRoadPos;
 
     private void Start()
     {
-        _roadTile = Managers.Resource.Load<TileBase>($"{Define.WILLROAD_TILE_PATH}Road_B") as Tile;
+        _roadTile = Managers.Resource.Load<TileBase>($"{Define.ROAD_TILE_PATH}Road_B") as Tile;
     }
 
     private void Update()
     {
         if (IsBuilding)
         {
-            // 취소.
+            // 설치 취소.
             if (Input.GetMouseButtonDown(1))
             {
                 Clear();
+                _startRoadPos = null;
                 return;
             }
 
             // 설치할 위치 지정.
             if (Input.GetMouseButton(0))
             {
-                if (!_hasMode)
-                {
-                    _isWillBuildMode = Managers.Tile.GetTile(Define.Tilemap.Road, MouseController.GetInstance.MouseCellPos) ? false : true;
-                    _hasMode = true;
-                }
-
-                CallMode(MouseController.GetInstance.MouseCellPos);
+                BuildWillRoads(MouseController.GetInstance.MouseCellPos);
             }
 
             // 설치.
@@ -62,149 +55,174 @@ public class RoadBuilder : MonoBehaviour
         }
     }
 
-    private void BuildRoads()
+    public void RemoveRoads(int groupNumber)
     {
-        _roadTile.color = Color.white;
-
-        TileBase willRoadTile = null;
-        TileBase roadTile = null;
-        bool isFirstTileRefresh = false;
-
-        while (_willRoadPosStack.Count > 0)
-        {
-            var cellPos = _willRoadPosStack.Pop();
-
-            willRoadTile = Managers.Tile.GetTile(Define.Tilemap.WillRoad, cellPos);
-            roadTile = Managers.Resource.Load<TileBase>($"{Define.ROAD_TILE_PATH}{willRoadTile.name}");
-
-            Managers.Tile.SetTile(Define.Tilemap.WillRoad, cellPos, null);
-            Managers.Tile.SetTile(Define.Tilemap.Road, cellPos, roadTile);
-
-            if (!isFirstTileRefresh || _willRoadPosStack.Count == 0)
-            {
-                _willRoadPosStackTemp.Push(cellPos);
-                isFirstTileRefresh = true;
-            }
-        }
-
-        while (_willRoadPosStackTemp.Count > 0)
-        {
-            var cellPos = _willRoadPosStackTemp.Pop();
-            var go = Managers.Tile.GetTilemap(Define.Tilemap.Road).GetInstantiatedObject(cellPos);
-            if (go)
-            {
-                go.GetComponent<Road>().RefreshTile(cellPos);
-            }
-        }
-    }
-
-    private void CallMode(Vector3Int cellPos)
-    {
-        if (_prevPos == cellPos)
+        if (!RoadGroupDic.ContainsKey(groupNumber))
         {
             return;
         }
 
-        _prevPos = cellPos;
+        foreach (var pos in RoadGroupDic[groupNumber])
+        {
+            if (_startRoadPos.HasValue && (_startRoadPos.Value == pos))
+            {
+                var tile = Managers.Resource.Load<TileBase>($"{Define.ROAD_TILE_PATH}Road_BD");
+                Managers.Tile.SetTile(Define.Tilemap.Road, pos, tile);
+                var go = Managers.Tile.GetTilemap(Define.Tilemap.Road).GetInstantiatedObject(pos);
+                go.GetComponent<Road>().IsStartRoad = true;
+                _startRoadPos = null;
+            }
+            else
+            {
+                Managers.Tile.SetTile(Define.Tilemap.Road, pos, null);
+            }
+        }
 
-        // 설치 범위 확인.
-        if (cellPos.x <= Managers.Game.Setting.StartPosition.x ||
-            cellPos.y <= Managers.Game.Setting.StartPosition.y ||
-            cellPos.x > Managers.Game.Setting.RampartWidth - 1 ||
-            cellPos.y > Managers.Game.Setting.RampartHeight - 1)
+        RoadGroupDic.Remove(groupNumber);
+    }
+
+    private void BuildWillRoads(Vector3Int pos)
+    {
+        if (_prevPos == pos)
         {
             return;
         }
 
-        if (_isWillBuildMode)
-        {
-            BuildMode(cellPos);
-        }
-        else
-        {
-            RemoveMode(cellPos);
-        }
-    }
+        _prevPos = pos;
 
-    private void BuildMode(Vector3Int cellPos)
-    {
-        // 위치가 예약 되어 있다면 제거.
-        if (Managers.Tile.GetTile(Define.Tilemap.WillRoad, cellPos))
+        // 범위 체크.
+        if (!IsInOfRange(pos))
         {
-            if (_willRoadPosStack.Count <= 1)
+            return;
+        }
+
+        // 이전에 예약한 위치 옆이 아닐 경우 진행하지 않는다.
+        if (!IsNextToPrevPos(pos))
+        {
+            return;
+        }
+
+        // 시작길이 아니며 길이 있다면 진행하지 않는다.
+        if (Managers.Tile.GetTile(Define.Tilemap.Road, pos))
+        {
+            if (!_startRoadPos.HasValue && IsStartRoad(pos))
+            {
+                _startRoadPos = new Vector3Int?(pos);
+            }
+            else
             {
                 return;
             }
+        }
 
-            var pos = _willRoadPosStack.Pop();
-            if (_willRoadPosStack.Peek() == cellPos)
+        // 성벽이 있다면 진행하지 않는다.
+        if (Managers.Tile.GetTile(Define.Tilemap.Rampart, pos))
+        {
+            return;
+        }
+
+        // 예약한 위치라면 취소한다.
+        if (Managers.Tile.GetTile(Define.Tilemap.WillRoad, pos))
+        {
+            var peekPos = _willRoadPosStack.Pop();
+            if ((_willRoadPosStack.Count >= 1) && (pos == _willRoadPosStack.Peek()))
             {
-                Managers.Tile.SetTile(Define.Tilemap.WillRoad, pos, null);
-                WillRoad.WillRoadList.RemoveAt(WillRoad.WillRoadList.Count - 1);
+                Managers.Tile.SetTile(Define.Tilemap.WillRoad, peekPos, null);
+                RoadGroupDic[_groupCount].RemoveAt(RoadGroupDic[_groupCount].Count - 1);
 
-                var prevPos = WillRoad.WillRoadList[WillRoad.WillRoadList.Count - 1];
-                var go = Managers.Tile.GetTilemap(Define.Tilemap.WillRoad).GetInstantiatedObject(prevPos);
-                if (go)
+                var prevGo = Managers.Tile.GetTilemap(Define.Tilemap.WillRoad).GetInstantiatedObject(pos);
+                if (prevGo)
                 {
-                    go.GetComponent<WillRoad>().RefreshTile(prevPos);
+                    prevGo.GetComponent<Road>().Refresh(pos);
                 }
             }
             else
             {
-                _willRoadPosStack.Push(pos);
+                _willRoadPosStack.Push(peekPos);
             }
+
+            return;
         }
-        else
+
+        _willRoadPosStack.Push(pos);
+        Managers.Tile.SetTile(Define.Tilemap.WillRoad, pos, _roadTile);
+        var go = Managers.Tile.GetTilemap(Define.Tilemap.WillRoad).GetInstantiatedObject(pos);
+        if (go)
         {
-            // 설치할려는 위치가 이전에 예약한 위치 옆이 아닐 경우 진행하지 않는다.
-            if (!IsNextToPrevPos(cellPos))
+            if (!RoadGroupDic.ContainsKey(_groupCount))
             {
-                return;
+                RoadGroupDic.Add(_groupCount, new());
             }
 
-            // 이미 길이 있다면 설치 불가.
-            // 또는 주변에 막다른 길이 2개 이상이면 설치 불가.
-            if (Managers.Tile.GetTile(Define.Tilemap.Road, cellPos) ||
-                GetCountNeighborEndRoad(cellPos) >= 2)
+            RoadGroupDic[_groupCount].Add(pos);
+            var road = go.GetComponent<Road>();
+            road.GroupNumber = _groupCount;
+            road.Index = RoadGroupDic[_groupCount].Count - 1;
+            if (_startRoadPos.HasValue && (_startRoadPos.Value == pos))
             {
-                if (Managers.Tile.GetTile(Define.Tilemap.Temp, cellPos))
-                {
-                    return;
-                }
-
-                _roadTile.color = new Color(1, 0, 0, 0.5f);
-                _wrongTilePosQueue.Enqueue(cellPos);
-                Managers.Tile.SetTile(Define.Tilemap.Temp, cellPos, _roadTile);
-                if (!_isRemoveWrongTile)
-                {
-                    _isRemoveWrongTile = true;
-                    StartCoroutine(RemoveWrongTile());
-                }
-
-                return;
+                road.IsStartRoad = true;
             }
+            road.Refresh(pos);
+        }
 
-            _roadTile.color = new Color(0, 0, 1, 0.5f);
-            _willRoadPosStack.Push(cellPos);
-            Managers.Tile.SetTile(Define.Tilemap.WillRoad, cellPos, _roadTile);
-            var go = Managers.Tile.GetTilemap(Define.Tilemap.WillRoad).GetInstantiatedObject(cellPos);
-            if (go)
-            {
-                WillRoad.WillRoadList.Add(cellPos);
-                go.GetComponent<WillRoad>().Index = WillRoad.WillRoadList.Count - 1;
-                go.GetComponent<WillRoad>().RefreshTile(cellPos);
-            }
-
-            // 클릭한 곳이 건물인지.
-            if (Managers.Tile.GetTile(Define.Tilemap.Building, cellPos))
-            {
-                Managers.Tile.SetTile(Define.Tilemap.WillRoad, cellPos, null);
-                _willRoadPosStack.Pop();
-            }
+        if (_willRoadPosStack.Count == 1)
+        {
+            _firstPos = pos;
         }
     }
 
-    bool IsNextToPrevPos(Vector3Int cellPos)
+    private void BuildRoads()
+    {
+        if (_willRoadPosStack.Count == 0)
+        {
+            return;
+        }
+
+        _lastPos = _willRoadPosStack.Peek();
+
+        if (IsConnectBuilding())
+        {
+            TileBase roadTile = null;
+            Road willRoad = null;
+            Road road = null;
+
+            while (_willRoadPosStack.Count > 0)
+            {
+                var pos = _willRoadPosStack.Pop();
+
+                var name = Managers.Tile.GetTile(Define.Tilemap.WillRoad, pos).name;
+                roadTile = Managers.Resource.Load<TileBase>($"{Define.ROAD_TILE_PATH}{name}");
+
+                willRoad = Managers.Tile.GetTilemap(Define.Tilemap.WillRoad).GetInstantiatedObject(pos).GetComponent<Road>();
+                int willRoadGroupNumber = willRoad.GroupNumber;
+                int willRoadIndex = willRoad.Index;
+                bool isStartRoad = willRoad.IsStartRoad;
+
+                Managers.Tile.SetTile(Define.Tilemap.WillRoad, pos, null);
+                Managers.Tile.SetTile(Define.Tilemap.Road, pos, roadTile);
+                road = Managers.Tile.GetTilemap(Define.Tilemap.Road).GetInstantiatedObject(pos).GetComponent<Road>();
+                road.GroupNumber = willRoadGroupNumber;
+                road.Index = willRoadIndex;
+                road.IsStartRoad = isStartRoad;
+            }
+
+            RemoveFirstAndLastRoad();
+
+            _groupCount++;
+        }
+        else
+        {
+            while (_willRoadPosStack.Count > 0)
+            {
+                var pos = _willRoadPosStack.Pop();
+                Managers.Tile.SetTile(Define.Tilemap.WillRoad, pos, null);
+            }
+            RoadGroupDic[_groupCount].Clear();
+            _startRoadPos = null;
+        }
+    }
+
+    private bool IsNextToPrevPos(Vector3Int pos)
     {
         if (_willRoadPosStack.Count == 0)
         {
@@ -213,10 +231,11 @@ public class RoadBuilder : MonoBehaviour
 
         for (int i = 0; i < 4; i++)
         {
-            int nx = _willRoadPosStack.Peek().x + Define.DX[i];
-            int ny = _willRoadPosStack.Peek().y + Define.DY[i];
+            var prevPos = _willRoadPosStack.Peek();
+            int nx = prevPos.x + Define.DX[i];
+            int ny = prevPos.y + Define.DY[i];
 
-            if (cellPos.x == nx && cellPos.y == ny)
+            if (pos.x == nx && pos.y == ny)
             {
                 return true;
             }
@@ -225,67 +244,74 @@ public class RoadBuilder : MonoBehaviour
         return false;
     }
 
-    int GetCountNeighborEndRoad(Vector3Int cellPos)
+    private bool IsInOfRange(Vector3Int pos)
     {
-        int cnt = 0;
-
-        for (int i = 0; i < 4; i++)
+        if (pos.x <= Managers.Game.Setting.StartPosition.x ||
+            pos.y <= Managers.Game.Setting.StartPosition.y ||
+            pos.x > Managers.Game.Setting.StartPosition.x + Managers.Game.Setting.RampartWidth - 1 ||
+            pos.y > Managers.Game.Setting.StartPosition.y + Managers.Game.Setting.RampartHeight - 1)
         {
-            int nx = cellPos.x + Define.DX[i];
-            int ny = cellPos.y + Define.DY[i];
-
-            var neighborPos = new Vector3Int(nx, ny, 0);
-            var go = Managers.Tile.GetTilemap(Define.Tilemap.Road).GetInstantiatedObject(neighborPos);
-            if (go)
-            {
-                var road = go.GetComponent<Road>();
-                if (road.RoadType == Define.Road.B  ||
-                    road.RoadType == Define.Road.BU ||
-                    road.RoadType == Define.Road.BD ||
-                    road.RoadType == Define.Road.BL ||
-                    road.RoadType == Define.Road.BR)
-                {
-                    cnt++;
-                }
-            }
+            return false;
         }
 
-        return cnt;
+        return true;
     }
 
-    private void RemoveMode(Vector3Int cellPos)
+    private bool IsConnectBuilding()
     {
-        if (Managers.Tile.GetTile(Define.Tilemap.Road, cellPos))
+        var a = Managers.Tile.GetTilemap(Define.Tilemap.Building).GetInstantiatedObject(_firstPos);
+        var b = Managers.Tile.GetTilemap(Define.Tilemap.Building).GetInstantiatedObject(_lastPos);
+
+        if (a && b)
         {
-            Managers.Tile.SetTile(Define.Tilemap.Road, cellPos, null);
+            return true;
+        }
+
+        if (a && _startRoadPos.HasValue && (_startRoadPos.Value == _lastPos))
+        {
+            return true;
+        }
+
+        if (b && _startRoadPos.HasValue && (_startRoadPos.Value == _lastPos))
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    private void RemoveFirstAndLastRoad()
+    {
+        var a = Managers.Tile.GetTile(Define.Tilemap.Building, _firstPos);
+        var b = Managers.Tile.GetTile(Define.Tilemap.Building, _lastPos);
+
+        if (a && a.name.Equals(Define.Building.Gateway.ToString()))
+        {
+            Managers.Tile.SetTile(Define.Tilemap.Road, _firstPos, null);
+        }
+
+        if (b && b.name.Equals(Define.Building.Gateway.ToString()))
+        {
+            Managers.Tile.SetTile(Define.Tilemap.Road, _firstPos, null);
         }
     }
 
-    private IEnumerator RemoveWrongTile()
+    private bool IsStartRoad(Vector3Int pos)
     {
-        while (true)
+        var go = Managers.Tile.GetTilemap(Define.Tilemap.Road).GetInstantiatedObject(pos);
+        if (go)
         {
-            if (_wrongTilePosQueue.Count == 0)
-            {
-                _isRemoveWrongTile = false;
-                yield break;
-            }
-
-            yield return new WaitForSeconds(WrongTilePosRemoveTime);
-
-            var pos = _wrongTilePosQueue.Dequeue();
-            Managers.Tile.SetTile(Define.Tilemap.Temp, pos, null);
+            var road = go.GetComponent<Road>();
+            return road.IsStartRoad;
         }
+
+        return false;
     }
 
     private void Clear()
     {
-        WillRoad.WillRoadList.Clear();
-        _roadTile.color = Color.white;
-        _willRoadPosStack.Clear();
-        _willRoadPosStackTemp.Clear();
-        _hasMode = false;
         IsBuilding = false;
+        _willRoadPosStack.Clear();
     }
 
     private static void Init()

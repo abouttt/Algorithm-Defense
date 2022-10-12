@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Tilemaps;
@@ -69,6 +70,13 @@ public class MouseController : MonoBehaviour
             if (TileObjectBuilder.GetInstance.IsBuilding)
             {
                 return;
+            }
+
+            // 길 삭제.
+            var go = Managers.Tile.GetTilemap(Define.Tilemap.Road).GetInstantiatedObject(MouseCellPos);
+            if (go)
+            {
+                RoadBuilder.GetInstance.RemoveRoads(go.GetComponent<Road>().GroupNumber);
             }
 
             // 건물 삭제.

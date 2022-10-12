@@ -64,13 +64,7 @@ public class TileObjectBuilder : MonoBehaviour
     {
         if (tileBase.name.Equals("Road_B"))
         {
-            _isRoadBuild = true;
-            Managers.Tile.SetTile(Define.Tilemap.Road, cellPos, tileBase);
-            var go = Managers.Tile.GetTilemap(Define.Tilemap.Road).GetInstantiatedObject(cellPos);
-            if (go)
-            {
-                go.GetComponent<Road>().RefreshTile(cellPos);
-            }
+            return;
         }
         else
         {

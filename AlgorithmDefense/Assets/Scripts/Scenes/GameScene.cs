@@ -37,7 +37,7 @@ public class GameScene : MonoBehaviour
     {
         InitCamera();
         InitContents();
-        InitTilesObject();
+        InitTileObjects();
         InitGround();
         InitRampart();
         InitSpawn();
@@ -95,7 +95,7 @@ public class GameScene : MonoBehaviour
         }
     }
 
-    private void InitTilesObject()
+    private void InitTileObjects()
     {
         var buildingNames = Enum.GetNames(typeof(Define.Building));
 
