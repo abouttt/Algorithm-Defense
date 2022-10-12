@@ -52,7 +52,7 @@ public class JobCenter : BaseBuilding
             if (MoveType != Define.Move.None &&
                 citizen.Data.JobType == Define.Job.None)
             {
-                var go = Managers.Resource.Instantiate($"{Define.BATTILE_UNIT_PATH}{JobType}Unit");
+                var go = Managers.Resource.Instantiate($"{Define.BATTILE_UNIT_PATH}{citizen.Data.CitizenType}_{JobType}");
                 go.transform.position = transform.position;
 
                 var newCitizen = go.GetOrAddComponent<CitizenController>();
