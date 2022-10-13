@@ -112,9 +112,6 @@ public class GameScene : MonoBehaviour
         {
             roadTile = Managers.Resource.Load<Tile>($"{Define.ROAD_TILE_PATH}Road_{roadName}");
             roadTile.gameObject = Managers.Resource.Load<GameObject>($"{Define.ROAD_PREFAB_PATH}Road_{roadName}");
-
-            roadTile = Managers.Resource.Load<Tile>($"{Define.WILLROAD_TILE_PATH}Road_{roadName}");
-            roadTile.gameObject = Managers.Resource.Load<GameObject>($"{Define.WILLROAD_PREFAB_PATH}Road_{roadName}");
         }
     }
 
@@ -152,7 +149,7 @@ public class GameScene : MonoBehaviour
     private void InitBattleLine()
     {
         var castleGate = Managers.Resource.Load<Tile>($"{Define.BUILDING_TILE_PATH}{Define.Building.CastleGate}");
-        var road = Managers.Resource.Load<RuleTile>($"{Define.RULE_TILE_PATH}RoadRuleTile");
+        var bdRoad = Managers.Resource.Load<Tile>($"{Define.ROAD_TILE_PATH}Road_BD");
         var udRoad = Managers.Resource.Load<Tile>($"{Define.ROAD_TILE_PATH}Road_UD");
         var monsterCenter = Managers.Resource.Load<Tile>($"{Define.BUILDING_TILE_PATH}{Define.Building.MonsterGate}");
 
@@ -163,8 +160,6 @@ public class GameScene : MonoBehaviour
 
             Managers.Tile.SetTile(Define.Tilemap.Building, new Vector3Int(StartPosition.x + x, RampartHeight - 1, 0), castleGate);
             Managers.Tile.SetTile(Define.Tilemap.Building, new Vector3Int(StartPosition.x + x, RampartHeight + BattleLineLength, 0), monsterCenter);
-
-            Managers.Tile.SetTile(Define.Tilemap.Road, new Vector3Int(StartPosition.x + x, RampartHeight + BattleLineLength, 0), road);
         }
 
         // ±æ ¼³Ä¡.
@@ -174,6 +169,8 @@ public class GameScene : MonoBehaviour
             {
                 Managers.Tile.SetTile(Define.Tilemap.Road, new Vector3Int(StartPosition.x + x, RampartHeight + y, 0), udRoad);
             }
+
+            Managers.Tile.SetTile(Define.Tilemap.Road, new Vector3Int(StartPosition.x + x, RampartHeight + BattleLineLength, 0), bdRoad);
         }
     }
 }

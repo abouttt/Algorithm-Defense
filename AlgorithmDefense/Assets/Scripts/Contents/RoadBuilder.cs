@@ -23,6 +23,9 @@ public class RoadBuilder : MonoBehaviour
 
     private Vector3Int? _startRoadPos;
 
+    private int[] _dx = { 0, 1, 0, -1 };
+    private int[] _dy = { 1, 0, -1, 0 };
+
     private void Start()
     {
         _roadTile = Managers.Resource.Load<TileBase>($"{Define.ROAD_TILE_PATH}Road_B") as Tile;
@@ -59,23 +62,21 @@ public class RoadBuilder : MonoBehaviour
     {
         if (!RoadGroupDic.ContainsKey(groupNumber))
         {
+            Debug.Log($"RoadBuilder - RemoveRoads() : No contains group number({groupNumber}).");
             return;
         }
 
         foreach (var pos in RoadGroupDic[groupNumber])
         {
-            if (_startRoadPos.HasValue && (_startRoadPos.Value == pos))
-            {
-                var tile = Managers.Resource.Load<TileBase>($"{Define.ROAD_TILE_PATH}Road_BD");
-                Managers.Tile.SetTile(Define.Tilemap.Road, pos, tile);
-                var go = Managers.Tile.GetTilemap(Define.Tilemap.Road).GetInstantiatedObject(pos);
-                go.GetComponent<Road>().IsStartRoad = true;
-                _startRoadPos = null;
-            }
-            else
-            {
-                Managers.Tile.SetTile(Define.Tilemap.Road, pos, null);
-            }
+            Managers.Tile.SetTile(Define.Tilemap.Road, pos, null);
+        }
+
+        if (_startRoadPos.HasValue)
+        {
+            var tile = Managers.Resource.Load<TileBase>($"{Define.ROAD_TILE_PATH}Road_BD");
+            Managers.Tile.SetTile(Define.Tilemap.Road, _startRoadPos.Value, tile);
+            GetRoad(Define.Tilemap.Road, _startRoadPos.Value).IsStartRoad = true;
+            _startRoadPos = null;
         }
 
         RoadGroupDic.Remove(groupNumber);
@@ -83,6 +84,7 @@ public class RoadBuilder : MonoBehaviour
 
     private void BuildWillRoads(Vector3Int pos)
     {
+        // 같은 위치라면 진행하지 않는다.
         if (_prevPos == pos)
         {
             return;
@@ -92,6 +94,12 @@ public class RoadBuilder : MonoBehaviour
 
         // 범위 체크.
         if (!IsInOfRange(pos))
+        {
+            return;
+        }
+
+        // 성벽이 있다면 진행하지 않는다.
+        if (Managers.Tile.GetTile(Define.Tilemap.Rampart, pos))
         {
             return;
         }
@@ -115,56 +123,48 @@ public class RoadBuilder : MonoBehaviour
             }
         }
 
-        // 성벽이 있다면 진행하지 않는다.
-        if (Managers.Tile.GetTile(Define.Tilemap.Rampart, pos))
-        {
-            return;
-        }
-
-        // 예약한 위치라면 취소한다.
+        // 이전에 예약한 위치라면 취소한다.
         if (Managers.Tile.GetTile(Define.Tilemap.WillRoad, pos))
         {
-            var peekPos = _willRoadPosStack.Pop();
+            var nextPos = _willRoadPosStack.Pop();
             if ((_willRoadPosStack.Count >= 1) && (pos == _willRoadPosStack.Peek()))
             {
-                Managers.Tile.SetTile(Define.Tilemap.WillRoad, peekPos, null);
+                Managers.Tile.SetTile(Define.Tilemap.WillRoad, nextPos, null);
                 RoadGroupDic[_groupCount].RemoveAt(RoadGroupDic[_groupCount].Count - 1);
-
-                var prevGo = Managers.Tile.GetTilemap(Define.Tilemap.WillRoad).GetInstantiatedObject(pos);
-                if (prevGo)
-                {
-                    prevGo.GetComponent<Road>().Refresh(pos);
-                }
+                GetRoad(Define.Tilemap.WillRoad, pos).Refresh(pos);
             }
             else
             {
-                _willRoadPosStack.Push(peekPos);
+                _willRoadPosStack.Push(nextPos);
+            }
+
+            if (_startRoadPos.HasValue && _startRoadPos.Value == nextPos)
+            {
+                _startRoadPos = null;
             }
 
             return;
         }
 
-        _willRoadPosStack.Push(pos);
-        Managers.Tile.SetTile(Define.Tilemap.WillRoad, pos, _roadTile);
-        var go = Managers.Tile.GetTilemap(Define.Tilemap.WillRoad).GetInstantiatedObject(pos);
-        if (go)
+        // 길 위치 예약.
+        if (!RoadGroupDic.ContainsKey(_groupCount))
         {
-            if (!RoadGroupDic.ContainsKey(_groupCount))
-            {
-                RoadGroupDic.Add(_groupCount, new());
-            }
-
-            RoadGroupDic[_groupCount].Add(pos);
-            var road = go.GetComponent<Road>();
-            road.GroupNumber = _groupCount;
-            road.Index = RoadGroupDic[_groupCount].Count - 1;
-            if (_startRoadPos.HasValue && (_startRoadPos.Value == pos))
-            {
-                road.IsStartRoad = true;
-            }
-            road.Refresh(pos);
+            RoadGroupDic.Add(_groupCount, new());
         }
 
+        _willRoadPosStack.Push(pos);
+        RoadGroupDic[_groupCount].Add(pos);
+        Managers.Tile.SetTile(Define.Tilemap.WillRoad, pos, _roadTile);
+        var willRoad = GetRoad(Define.Tilemap.WillRoad, pos);
+        willRoad.GroupNumber = _groupCount;
+        willRoad.Index = _willRoadPosStack.Count - 1;
+        if (_startRoadPos.HasValue && (_startRoadPos.Value == pos))
+        {
+            willRoad.IsStartRoad = true;
+        }
+        willRoad.Refresh(pos);
+
+        // 첫번째로 예약한 위치가 마지막 건물 또는 시작길인지 판별하기 위한 저장.
         if (_willRoadPosStack.Count == 1)
         {
             _firstPos = pos;
@@ -173,11 +173,13 @@ public class RoadBuilder : MonoBehaviour
 
     private void BuildRoads()
     {
+        // 아무것도 예약되어 있지 않다면 진행하지 않는다.
         if (_willRoadPosStack.Count == 0)
         {
             return;
         }
 
+        // 마지막으로 예약한 위치가 마지막 건물 또는 시작길인지 판별하기 위한 저장.
         _lastPos = _willRoadPosStack.Peek();
 
         if (IsConnectBuilding())
@@ -193,14 +195,15 @@ public class RoadBuilder : MonoBehaviour
                 var name = Managers.Tile.GetTile(Define.Tilemap.WillRoad, pos).name;
                 roadTile = Managers.Resource.Load<TileBase>($"{Define.ROAD_TILE_PATH}{name}");
 
-                willRoad = Managers.Tile.GetTilemap(Define.Tilemap.WillRoad).GetInstantiatedObject(pos).GetComponent<Road>();
+                willRoad = GetRoad(Define.Tilemap.WillRoad, pos);
                 int willRoadGroupNumber = willRoad.GroupNumber;
                 int willRoadIndex = willRoad.Index;
                 bool isStartRoad = willRoad.IsStartRoad;
 
                 Managers.Tile.SetTile(Define.Tilemap.WillRoad, pos, null);
                 Managers.Tile.SetTile(Define.Tilemap.Road, pos, roadTile);
-                road = Managers.Tile.GetTilemap(Define.Tilemap.Road).GetInstantiatedObject(pos).GetComponent<Road>();
+
+                road = GetRoad(Define.Tilemap.Road, pos);
                 road.GroupNumber = willRoadGroupNumber;
                 road.Index = willRoadIndex;
                 road.IsStartRoad = isStartRoad;
@@ -217,7 +220,8 @@ public class RoadBuilder : MonoBehaviour
                 var pos = _willRoadPosStack.Pop();
                 Managers.Tile.SetTile(Define.Tilemap.WillRoad, pos, null);
             }
-            RoadGroupDic[_groupCount].Clear();
+
+            RoadGroupDic.Remove(_groupCount);
             _startRoadPos = null;
         }
     }
@@ -232,8 +236,8 @@ public class RoadBuilder : MonoBehaviour
         for (int i = 0; i < 4; i++)
         {
             var prevPos = _willRoadPosStack.Peek();
-            int nx = prevPos.x + Define.DX[i];
-            int ny = prevPos.y + Define.DY[i];
+            int nx = prevPos.x + _dx[i];
+            int ny = prevPos.y + _dy[i];
 
             if (pos.x == nx && pos.y == ny)
             {
@@ -259,20 +263,20 @@ public class RoadBuilder : MonoBehaviour
 
     private bool IsConnectBuilding()
     {
-        var a = Managers.Tile.GetTilemap(Define.Tilemap.Building).GetInstantiatedObject(_firstPos);
-        var b = Managers.Tile.GetTilemap(Define.Tilemap.Building).GetInstantiatedObject(_lastPos);
+        var firstBuilding = Managers.Tile.GetTilemap(Define.Tilemap.Building).GetInstantiatedObject(_firstPos);
+        var secondBuilding = Managers.Tile.GetTilemap(Define.Tilemap.Building).GetInstantiatedObject(_lastPos);
 
-        if (a && b)
+        if (firstBuilding && secondBuilding)
         {
             return true;
         }
 
-        if (a && _startRoadPos.HasValue && (_startRoadPos.Value == _lastPos))
+        if (firstBuilding && _startRoadPos.HasValue && (_startRoadPos.Value == _lastPos))
         {
             return true;
         }
 
-        if (b && _startRoadPos.HasValue && (_startRoadPos.Value == _firstPos))
+        if (secondBuilding && _startRoadPos.HasValue && (_startRoadPos.Value == _firstPos))
         {
             return true;
         }
@@ -282,8 +286,8 @@ public class RoadBuilder : MonoBehaviour
 
     private void RemoveFirstAndLastRoad()
     {
-        var a = Managers.Tile.GetTile(Define.Tilemap.Building, _firstPos);
-        var b = Managers.Tile.GetTile(Define.Tilemap.Building, _lastPos);
+        var firstBuilding = Managers.Tile.GetTile(Define.Tilemap.Building, _firstPos);
+        var secondBuilding = Managers.Tile.GetTile(Define.Tilemap.Building, _lastPos);
 
         //if (a && a.name.Equals(Define.Building.Gateway.ToString()))
         //{
@@ -295,12 +299,12 @@ public class RoadBuilder : MonoBehaviour
         //    Managers.Tile.SetTile(Define.Tilemap.Road, _lastPos, null);
         //}
 
-        if (a && _startRoadPos != _firstPos)
+        if (firstBuilding && _startRoadPos != _firstPos)
         {
             Managers.Tile.SetTile(Define.Tilemap.Road, _firstPos, null);
         }
 
-        if (b && _startRoadPos != _lastPos)
+        if (secondBuilding && _startRoadPos != _lastPos)
         {
             Managers.Tile.SetTile(Define.Tilemap.Road, _lastPos, null);
         }
@@ -308,14 +312,24 @@ public class RoadBuilder : MonoBehaviour
 
     private bool IsStartRoad(Vector3Int pos)
     {
-        var go = Managers.Tile.GetTilemap(Define.Tilemap.Road).GetInstantiatedObject(pos);
-        if (go)
+        var road = GetRoad(Define.Tilemap.Road, pos);
+        if (road)
         {
-            var road = go.GetComponent<Road>();
             return road.IsStartRoad;
         }
 
         return false;
+    }
+
+    private Road GetRoad(Define.Tilemap tilemap, Vector3Int pos)
+    {
+        var go = Managers.Tile.GetTilemap(tilemap).GetInstantiatedObject(pos);
+        if (go)
+        {
+            return go.GetComponent<Road>();
+        }
+
+        return null;
     }
 
     private void Clear()
