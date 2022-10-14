@@ -5,21 +5,14 @@ using UnityEngine;
 
 public class CastleGate : BaseBuilding
 {
-    public int HP;
+    public void TakeDamage()
+    {
+        
+    }
 
     public override void EnterTheBuilding(CitizenController citizen)
     {
         EnqueueCitizen(citizen);
-    }
-
-    public override void CreateSaveData()
-    {
-        
-    }
-
-    public override void LoadSaveData()
-    {
-        
     }
 
     protected override IEnumerator ReleaseCitizen()

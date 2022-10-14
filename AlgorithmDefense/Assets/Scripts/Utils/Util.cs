@@ -83,4 +83,26 @@ public static class Util
         int z = Mathf.Abs(value.z);
         return new Vector3Int(x, y, z);
     }
+
+    public static Road GetRoad(Define.Tilemap tilemap, Vector3Int pos)
+    {
+        var go = Managers.Tile.GetTilemap(tilemap).GetInstantiatedObject(pos);
+        if (go)
+        {
+            return go.GetComponent<Road>();
+        }
+
+        return null;
+    }
+
+    public static T GetBuilding<T>(Vector3Int pos) where T : UnityEngine.Component
+    {
+        var go = Managers.Tile.GetTilemap(Define.Tilemap.Building).GetInstantiatedObject(pos);
+        if (go)
+        {
+            return go.GetComponent<T>();
+        }
+
+        return null;
+    }
 }

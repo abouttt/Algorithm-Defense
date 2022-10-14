@@ -82,20 +82,18 @@ public class CitizenController : MonoBehaviour
         CheckBuilding(cellPos);
     }
 
-    private void CheckBuilding(Vector3Int cellPos)
+    private void CheckBuilding(Vector3Int pos)
     {
-        var go = Managers.Tile.GetTilemap(Define.Tilemap.Building).GetInstantiatedObject(cellPos);
-        if (!go)
+        var building = Util.GetBuilding<BaseBuilding>(pos);
+        if (building)
         {
-            return;
+            building.EnterTheBuilding(this);
         }
-
-        go.GetComponent<BaseBuilding>().EnterTheBuilding(this);
     }
 
-    private void CheckRoad(Vector3Int cellPos)
+    private void CheckRoad(Vector3Int pos)
     {
-        var go = Managers.Tile.GetTilemap(Define.Tilemap.Road).GetInstantiatedObject(cellPos);
+        var go = Managers.Tile.GetTilemap(Define.Tilemap.Road).GetInstantiatedObject(pos);
         if (!go)
         {
             return;

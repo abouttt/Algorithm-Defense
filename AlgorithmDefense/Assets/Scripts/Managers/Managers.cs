@@ -28,7 +28,6 @@ public class Managers : MonoBehaviour
 
     public static void Clear()
     {
-        Data.Clear();
         Pool.Clear();
         Sound.Clear();
     }
@@ -48,7 +47,6 @@ public class Managers : MonoBehaviour
             s_instance = go.GetComponent<Managers>();
 
             s_instance._tile.Init();
-            s_instance._data.Init();
             s_instance._pool.Init();
             s_instance._sound.Init();
             s_instance._game.Init();

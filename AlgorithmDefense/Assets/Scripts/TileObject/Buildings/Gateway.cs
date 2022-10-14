@@ -11,31 +11,6 @@ public class Gateway : BaseBuilding
         EnqueueCitizen(citizen);
     }
 
-    public override void CreateSaveData()
-    {
-        string data = JsonUtility.ToJson(this, true);
-        string q = JsonUtility.ToJson(new SerializationQueue<CitizenOrderQueueData>(_citizenOrderQueue), true);
-        string dc = JsonUtility.ToJson(new SerializationDictionary<Define.Citizen, Define.Move>(DirectionCondition), true);
-        Managers.Data.GatewaySaveDatas.Enqueue(JsonUtility.ToJson(new BuildingSaveData(data, q, dc), true));
-    }
-
-    public override void LoadSaveData()
-    {
-        var saveData = JsonUtility.FromJson<BuildingSaveData>(Managers.Data.GatewaySaveDatas.Dequeue());
-
-        JsonUtility.FromJsonOverwrite(saveData.Data, this);
-        _citizenOrderQueue =
-            JsonUtility.FromJson<SerializationQueue<CitizenOrderQueueData>>(saveData.OrderQueue).ToQueue();
-        DirectionCondition =
-            JsonUtility.FromJson<SerializationDictionary<Define.Citizen, Define.Move>>(saveData.DirectionCondition).ToDictionary();
-
-        if (!_isReleasing)
-        {
-            _isReleasing = true;
-            StartCoroutine(ReleaseCitizen());
-        }
-    }
-
     protected override IEnumerator ReleaseCitizen()
     {
         while (true)
@@ -48,6 +23,11 @@ public class Gateway : BaseBuilding
 
             yield return new WaitForSeconds(_releaseTime);
 
+            if (!HasNeighborRoad())
+            {
+                continue;
+            }
+
             var citizen = DequeueCitizen();
 
             var directionConditionMoveType = DirectionCondition[citizen.Data.CitizenType];
@@ -57,7 +37,7 @@ public class Gateway : BaseBuilding
             }
             else
             {
-                if (IsRoadNextPosition(directionConditionMoveType))
+                if (HasRoadNextPosition(directionConditionMoveType))
                 {
                     citizen.Data.MoveType = directionConditionMoveType;
                 }

@@ -5,34 +5,20 @@ using UnityEngine;
 
 public class JobCenter : BaseBuilding
 {
-    public Define.Move MoveType = Define.Move.None;
     [SerializeField]
-    private Define.Job JobType = Define.Job.None;
+    private Define.Job _jobType = Define.Job.None;
+    private Define.Move[] _moveTypes;
+    private int _moveTypesIndex = 0;
+
+    public void ChangeMoveType()
+    {
+        _moveTypesIndex = (_moveTypesIndex + 1) >= 4 ? 0 : _moveTypesIndex + 1;
+        transform.Rotate(new Vector3(0f, 0f, -90.0f));
+    }
 
     public override void EnterTheBuilding(CitizenController citizen)
     {
         EnqueueCitizen(citizen);
-    }
-
-    public override void CreateSaveData()
-    {
-        string data = JsonUtility.ToJson(this, true);
-        string q = JsonUtility.ToJson(new SerializationQueue<CitizenOrderQueueData>(_citizenOrderQueue), true);
-        Managers.Data.GatewaySaveDatas.Enqueue(JsonUtility.ToJson(new BuildingSaveData(data, q), true));
-    }
-
-    public override void LoadSaveData()
-    {
-        var saveData = JsonUtility.FromJson<BuildingSaveData>(Managers.Data.JobTrainingCenterSaveDatas.Dequeue());
-
-        JsonUtility.FromJsonOverwrite(saveData.Data, this);
-        _citizenOrderQueue = JsonUtility.FromJson<SerializationQueue<CitizenOrderQueueData>>(saveData.OrderQueue).ToQueue();
-
-        if (!_isReleasing)
-        {
-            _isReleasing = true;
-            StartCoroutine(ReleaseCitizen());
-        }
     }
 
     protected override IEnumerator ReleaseCitizen()
@@ -47,32 +33,32 @@ public class JobCenter : BaseBuilding
 
             yield return new WaitForSeconds(_releaseTime);
 
+            if (!HasNeighborRoad())
+            {
+                continue;
+            }
+
             var citizen = DequeueCitizen();
 
-            if (MoveType != Define.Move.None &&
-                citizen.Data.JobType == Define.Job.None)
+            if (citizen.Data.JobType == Define.Job.None)
             {
-                var go = Managers.Resource.Instantiate($"{Define.BATTILE_UNIT_PATH}{citizen.Data.CitizenType}_{JobType}");
+                var go = Managers.Resource.Instantiate($"{Define.BATTILE_UNIT_PATH}{citizen.Data.CitizenType}_{_jobType}");
                 go.transform.position = transform.position;
 
                 var newCitizen = go.GetOrAddComponent<CitizenController>();
                 newCitizen.Data = citizen.Data;
-                newCitizen.Data.JobType = JobType;
+                newCitizen.Data.JobType = _jobType;
 
                 Managers.Resource.Destroy(citizen.gameObject);
                 citizen = newCitizen;
                 citizen.GetComponent<CitizenController>().enabled = true;
                 citizen.GetComponent<UnitManager>().enabled = false;
                 citizen.GetComponent<UnitAI>().enabled = false;
+            }
 
-                if (IsRoadNextPosition(MoveType))
-                {
-                    citizen.Data.MoveType = MoveType;
-                }
-                else
-                {
-                    citizen.SetReverseMoveType();
-                }
+            if (HasRoadNextPosition(_moveTypes[_moveTypesIndex]))
+            {
+                citizen.Data.MoveType = _moveTypes[_moveTypesIndex];
             }
             else
             {
@@ -86,6 +72,14 @@ public class JobCenter : BaseBuilding
 
     protected override void Init()
     {
-        HasUI = true;
+        _moveTypes = new Define.Move[]
+        {
+            Define.Move.Up,
+            Define.Move.Right,
+            Define.Move.Down,
+            Define.Move.Left
+        };
+
+        HasUI = false;
     }
 }

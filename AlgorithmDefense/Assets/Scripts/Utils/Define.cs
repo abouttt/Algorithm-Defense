@@ -16,6 +16,9 @@ public static class Define
     public static readonly string ITEM_TILE_PATH = "Tiles/Items/";
     public static readonly string STREAM_SAVE_DATA_PATH = $"{Application.streamingAssetsPath}/SaveDatas/";
 
+    public static int[] DX = { 0, 1, 0, -1 };
+    public static int[] DY = { 1, 0, -1, 0 };
+
     public enum Tilemap
     {
         Ground,

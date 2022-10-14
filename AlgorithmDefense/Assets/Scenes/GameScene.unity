@@ -1296,10 +1296,10 @@ MonoBehaviour:
   GroundWidth: 7
   GroundHeight: 15
   GrassPercentage: 10
-  StartPosition: {x: 0, y: 0, z: 0}
+  StartPosition: {x: 0, y: 1, z: 0}
   RampartWidth: 7
-  RampartHeight: 7
-  SpawnCellPos: {x: 3, y: 0, z: 0}
+  RampartHeight: 8
+  SpawnCellPos: {x: 3, y: 1, z: 0}
   SpawnTime: 5
   BattleLineLength: 5
 --- !u!4 &1717982457

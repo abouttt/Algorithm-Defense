@@ -4,18 +4,11 @@ using UnityEngine;
 
 public abstract class BaseBuilding : MonoBehaviour
 {
-    [System.Serializable]
-    public struct CitizenOrderQueueData
-    {
-        public string CitzienName;
-        public CitizenData CitizenData;
-    }
-
     public bool HasUI { get; protected set; }
 
     [SerializeField]
     protected float _releaseTime;
-    protected Queue<CitizenOrderQueueData> _citizenOrderQueue = new Queue<CitizenOrderQueueData>();
+    protected Queue<CitizenData> _citizenOrderQueue = new();
     protected bool _isReleasing;
 
     private void Start()
@@ -24,19 +17,13 @@ public abstract class BaseBuilding : MonoBehaviour
     }
 
     public abstract void EnterTheBuilding(CitizenController citizen);
-    public abstract void CreateSaveData();
-    public abstract void LoadSaveData();
 
     protected abstract IEnumerator ReleaseCitizen();
     protected abstract void Init();
 
     protected void EnqueueCitizen(CitizenController citizen)
     {
-        _citizenOrderQueue.Enqueue(new CitizenOrderQueueData
-        {
-            CitzienName = citizen.name,
-            CitizenData = citizen.Data
-        });
+        _citizenOrderQueue.Enqueue(citizen.Data);
 
         Managers.Resource.Destroy(citizen.gameObject);
 
@@ -52,17 +39,19 @@ public abstract class BaseBuilding : MonoBehaviour
         var orderQueueData = _citizenOrderQueue.Dequeue();
 
         GameObject go = null;
-        if (orderQueueData.CitzienName.Contains("Citizen"))
+        if (orderQueueData.JobType == Define.Job.None)
         {
-            go = Managers.Resource.Instantiate($"{Define.CITIZEN_PATH}{orderQueueData.CitzienName}");
+            go = Managers.Resource.Instantiate($"{Define.CITIZEN_PATH}{orderQueueData.CitizenType}Citizen");
         }
         else
         {
-            go = Managers.Resource.Instantiate($"{Define.BATTILE_UNIT_PATH}{orderQueueData.CitzienName}");
+            go = Managers.Resource.Instantiate(
+                $"{Define.BATTILE_UNIT_PATH}" +
+                $"{orderQueueData.CitizenType}_{orderQueueData.JobType}");
         }
 
         var citizen = go.GetOrAddComponent<CitizenController>();
-        citizen.Data = orderQueueData.CitizenData;
+        citizen.Data = orderQueueData;
 
         return citizen;
     }
@@ -90,7 +79,7 @@ public abstract class BaseBuilding : MonoBehaviour
         citizen.transform.position = pos;
     }
 
-    protected bool IsRoadNextPosition(Define.Move moveType)
+    protected bool HasRoadNextPosition(Define.Move moveType)
     {
         var nextPos = Managers.Tile.GetWorldToCell(Define.Tilemap.Ground, transform.position);
 
@@ -110,20 +99,23 @@ public abstract class BaseBuilding : MonoBehaviour
                 break;
         }
 
-        var tile = Managers.Tile.GetTile(Define.Tilemap.Road, nextPos);
-        if (!tile)
-        {
-            return false;
-        }
-
-        return true;
+        return Util.GetRoad(Define.Tilemap.Road, nextPos) ? true : false;
     }
 
-    public virtual void CopyTo(BaseBuilding other)
+    protected bool HasNeighborRoad()
     {
-        other.HasUI = HasUI;
-        other._releaseTime = _releaseTime;
-        other._citizenOrderQueue = _citizenOrderQueue;
-        other._isReleasing = _isReleasing;
+        var pos = Managers.Tile.GetWorldToCell(Define.Tilemap.Road, transform.position);
+        for (int i = 0; i < 4; i++)
+        {
+            int nx = pos.x + Define.DX[i];
+            int ny = pos.y + Define.DY[i];
+
+            if (Util.GetRoad(Define.Tilemap.Road, new Vector3Int(nx, ny, 0)))
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

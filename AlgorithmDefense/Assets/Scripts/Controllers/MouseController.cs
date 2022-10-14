@@ -57,6 +57,12 @@ public class MouseController : MonoBehaviour
                     //클릭한 건물 이름과 오브젝트 전달
                     UI_BuildingMenager.GetInstance.ShowUIController((Define.Building)Enum.Parse(typeof(Define.Building), name), building);
                 }
+
+                var jobCenter = go.GetComponent<JobCenter>();
+                if (jobCenter)
+                {
+                    jobCenter.ChangeMoveType();
+                }
             }
         }
 

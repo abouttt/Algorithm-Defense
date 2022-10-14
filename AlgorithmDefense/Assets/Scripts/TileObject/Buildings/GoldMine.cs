@@ -12,28 +12,6 @@ public class GoldMine : BaseBuilding
         EnqueueCitizen(citizen);
     }
 
-    public override void CreateSaveData()
-    {
-        string data = JsonUtility.ToJson(this, true);
-        string q = JsonUtility.ToJson(new SerializationQueue<CitizenOrderQueueData>(_citizenOrderQueue), true);
-        Managers.Data.GatewaySaveDatas.Enqueue(JsonUtility.ToJson(new BuildingSaveData(data, q), true));
-    }
-
-    public override void LoadSaveData()
-    {
-        var saveData = JsonUtility.FromJson<BuildingSaveData>(Managers.Data.GatewaySaveDatas.Dequeue());
-
-        JsonUtility.FromJsonOverwrite(saveData.Data, this);
-        _citizenOrderQueue =
-            JsonUtility.FromJson<SerializationQueue<CitizenOrderQueueData>>(saveData.OrderQueue).ToQueue();
-
-        if (!_isReleasing)
-        {
-            _isReleasing = true;
-            StartCoroutine(ReleaseCitizen());
-        }
-    }
-
     protected override IEnumerator ReleaseCitizen()
     {
         while (true)
@@ -55,10 +33,10 @@ public class GoldMine : BaseBuilding
             }
             else
             {
-                Managers.Data.RuntimeDatas.Gold += GoldIncrease;
-                Debug.Log(Managers.Data.RuntimeDatas.Gold);
+                Managers.Game.Gold += GoldIncrease;
+                Debug.Log(Managers.Game.Gold);
 
-                if (IsRoadNextPosition(MoveType))
+                if (HasRoadNextPosition(MoveType))
                 {
                     citizen.Data.MoveType = MoveType;
                 }
