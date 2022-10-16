@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Tilemaps;
@@ -14,14 +15,11 @@ public class RoadBuilder : MonoBehaviour
     public Dictionary<int, List<Vector3Int>> RoadGroupDic = new();
 
     private Tile _roadTile;
-    private Stack<Vector3Int> _willRoadPosStack = new();
     private Vector3Int _prevPos;
     private int _groupCount = 1;
 
-    private JobCenter _jobCenterRef;
     private Vector3Int _firstPos;
     private Vector3Int _lastPos;
-
     private Vector3Int? _startRoadPos;
 
     private void Start()
@@ -33,14 +31,6 @@ public class RoadBuilder : MonoBehaviour
     {
         if (IsBuilding)
         {
-            // 설치 취소.
-            if (Input.GetMouseButtonDown(1))
-            {
-                Clear();
-                _startRoadPos = null;
-                return;
-            }
-
             // 설치할 위치 지정.
             if (Input.GetMouseButton(0))
             {
@@ -51,7 +41,7 @@ public class RoadBuilder : MonoBehaviour
             if (!EventSystem.current.IsPointerOverGameObject() && Input.GetMouseButtonUp(0))
             {
                 BuildRoads();
-                Clear();
+                IsBuilding = false;
             }
         }
     }
@@ -67,6 +57,7 @@ public class RoadBuilder : MonoBehaviour
         foreach (var pos in RoadGroupDic[groupNumber])
         {
             Managers.Tile.SetTile(Define.Tilemap.Road, pos, null);
+
             if (_startRoadPos.HasValue && _startRoadPos.Value == pos)
             {
                 var tile = Managers.Resource.Load<TileBase>($"{Define.ROAD_TILE_PATH}Road_BD");
@@ -101,10 +92,10 @@ public class RoadBuilder : MonoBehaviour
             return;
         }
 
-        // 이전에 예약한 위치 옆이 아닐 경우 진행하지 않는다.
-        if (!IsNextToPrevPos(pos))
+        // 그룹이 없다면 만든다.
+        if (!RoadGroupDic.ContainsKey(_groupCount))
         {
-            return;
+            RoadGroupDic.Add(_groupCount, new());
         }
 
         // 시작길이 아니며 길이 있다면 진행하지 않는다.
@@ -123,38 +114,45 @@ public class RoadBuilder : MonoBehaviour
         // 이전에 예약한 위치라면 취소한다.
         if (Managers.Tile.GetTile(Define.Tilemap.WillRoad, pos))
         {
-            var nextPos = _willRoadPosStack.Pop();
-            if ((_willRoadPosStack.Count >= 1) && (pos == _willRoadPosStack.Peek()))
+            var nextPos = GetLastPos();
+            RoadGroupDic[_groupCount].RemoveAt(GetLastIndex());
+
+            if ((RoadGroupDic[_groupCount].Count >= 1) && (pos == GetLastPos()))
             {
                 Managers.Tile.SetTile(Define.Tilemap.WillRoad, nextPos, null);
-                RoadGroupDic[_groupCount].RemoveAt(RoadGroupDic[_groupCount].Count - 1);
                 Util.GetRoad(Define.Tilemap.WillRoad, pos).Refresh(pos);
+
+                if (_startRoadPos.HasValue && (_startRoadPos.Value == nextPos))
+                {
+                    _startRoadPos = null;
+                }
             }
             else
             {
-                _willRoadPosStack.Push(nextPos);
-            }
-
-            if (_startRoadPos.HasValue && _startRoadPos.Value == nextPos)
-            {
-                _startRoadPos = null;
+                RoadGroupDic[_groupCount].Add(nextPos);
             }
 
             return;
         }
 
-        // 길 위치 예약.
-        if (!RoadGroupDic.ContainsKey(_groupCount))
+        // 이전에 예약한 위치 옆이 아닐 경우 진행하지 않는다.
+        if (!IsNextToPrevPos(pos))
         {
-            RoadGroupDic.Add(_groupCount, new());
+            return;
         }
 
-        _willRoadPosStack.Push(pos);
+        // 이전에 예약한 위치가 시작길이라면 진행하지 않는다.
+        if (IsStartRoadPrevPos())
+        {
+            return;
+        }
+
         RoadGroupDic[_groupCount].Add(pos);
         Managers.Tile.SetTile(Define.Tilemap.WillRoad, pos, _roadTile);
+
         var willRoad = Util.GetRoad(Define.Tilemap.WillRoad, pos);
         willRoad.GroupNumber = _groupCount;
-        willRoad.Index = _willRoadPosStack.Count - 1;
+        willRoad.Index = GetLastIndex();
         if (_startRoadPos.HasValue && (_startRoadPos.Value == pos))
         {
             willRoad.IsStartRoad = true;
@@ -162,14 +160,8 @@ public class RoadBuilder : MonoBehaviour
         willRoad.Refresh(pos);
 
         // 첫번째로 예약한 위치가 마지막 건물 또는 시작길인지 판별하기 위한 저장.
-        if (_willRoadPosStack.Count == 1)
+        if (RoadGroupDic[_groupCount].Count == 1)
         {
-            var go = Managers.Tile.GetTilemap(Define.Tilemap.Building).GetInstantiatedObject(pos);
-            if (go)
-            {
-                _jobCenterRef = go.GetComponent<JobCenter>();
-            }
-
             _firstPos = pos;
         }
     }
@@ -177,24 +169,22 @@ public class RoadBuilder : MonoBehaviour
     private void BuildRoads()
     {
         // 아무것도 예약되어 있지 않다면 진행하지 않는다.
-        if (_willRoadPosStack.Count == 0)
+        if (RoadGroupDic[_groupCount].Count == 0)
         {
             return;
         }
 
         // 마지막으로 예약한 위치가 마지막 건물 또는 시작길인지 판별하기 위한 저장.
-        _lastPos = _willRoadPosStack.Peek();
+        _lastPos = GetLastPos();
 
-        if (IsConnectBuilding())
+        if (IsConnectedBuilding())
         {
             TileBase roadTile = null;
             Road willRoad = null;
             Road road = null;
 
-            while (_willRoadPosStack.Count > 0)
+            foreach (var pos in RoadGroupDic[_groupCount])
             {
-                var pos = _willRoadPosStack.Pop();
-
                 var name = Managers.Tile.GetTile(Define.Tilemap.WillRoad, pos).name;
                 roadTile = Managers.Resource.Load<TileBase>($"{Define.ROAD_TILE_PATH}{name}");
 
@@ -218,9 +208,8 @@ public class RoadBuilder : MonoBehaviour
         }
         else
         {
-            while (_willRoadPosStack.Count > 0)
+            foreach (var pos in RoadGroupDic[_groupCount])
             {
-                var pos = _willRoadPosStack.Pop();
                 Managers.Tile.SetTile(Define.Tilemap.WillRoad, pos, null);
             }
 
@@ -231,14 +220,14 @@ public class RoadBuilder : MonoBehaviour
 
     private bool IsNextToPrevPos(Vector3Int pos)
     {
-        if (_willRoadPosStack.Count == 0)
+        if (RoadGroupDic[_groupCount].Count == 0)
         {
             return true;
         }
 
+        var prevPos = GetLastPos();
         for (int i = 0; i < 4; i++)
         {
-            var prevPos = _willRoadPosStack.Peek();
             int nx = prevPos.x + Define.DX[i];
             int ny = prevPos.y + Define.DY[i];
 
@@ -249,6 +238,22 @@ public class RoadBuilder : MonoBehaviour
         }
 
         return false;
+    }
+
+    private bool IsStartRoadPrevPos()
+    {
+        if (RoadGroupDic[_groupCount].Count == 0)
+        {
+            return false;
+        }
+
+        // 첫번째 예약위치가 시작길이라면 예외.
+        if (_startRoadPos.HasValue && (_startRoadPos.Value == _firstPos))
+        {
+            return false;
+        }
+
+        return _startRoadPos.HasValue && (_startRoadPos.Value == GetLastPos());
     }
 
     private bool IsInOfRange(Vector3Int pos)
@@ -264,7 +269,7 @@ public class RoadBuilder : MonoBehaviour
         return true;
     }
 
-    private bool IsConnectBuilding()
+    private bool IsConnectedBuilding()
     {
         var firstBuilding = Managers.Tile.GetTilemap(Define.Tilemap.Building).GetInstantiatedObject(_firstPos);
         var secondBuilding = Managers.Tile.GetTilemap(Define.Tilemap.Building).GetInstantiatedObject(_lastPos);
@@ -314,12 +319,9 @@ public class RoadBuilder : MonoBehaviour
         return false;
     }
 
-    private void Clear()
-    {
-        IsBuilding = false;
-        _willRoadPosStack.Clear();
-        _jobCenterRef = null;
-    }
+    private Vector3Int GetLastPos() => RoadGroupDic[_groupCount][RoadGroupDic[_groupCount].Count - 1];
+
+    private int GetLastIndex() => RoadGroupDic[_groupCount].Count - 1;
 
     private static void Init()
     {

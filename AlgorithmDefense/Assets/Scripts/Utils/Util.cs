@@ -1,5 +1,5 @@
 using System;
-using Unity.Mathematics;
+using System.Collections.Generic;
 using UnityEngine;
 
 public static class Util
@@ -97,6 +97,12 @@ public static class Util
 
     public static T GetBuilding<T>(Vector3Int pos) where T : UnityEngine.Component
     {
+        Type type = typeof(T);
+        if (type != typeof(BaseBuilding))
+        {
+            return null;
+        }
+
         var go = Managers.Tile.GetTilemap(Define.Tilemap.Building).GetInstantiatedObject(pos);
         if (go)
         {

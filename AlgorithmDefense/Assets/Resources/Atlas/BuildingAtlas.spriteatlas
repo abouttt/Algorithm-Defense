@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BuildingAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 4096
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 0
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 65356eb88f224b6488a5c40ea76c0c2d, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 5619a0a0e2b2c714daf5ecd38f75347c, type: 3}
+  - {fileID: 21300000, guid: 4c356ea0adddcc34783d024da913a900, type: 3}
+  - {fileID: 21300000, guid: cbb7e6f278070c44791258ca4c25665c, type: 3}
+  - {fileID: 21300000, guid: 8cb425030b943e34881f7e118db8bfb2, type: 3}
+  - {fileID: 21300000, guid: 0e7905f52bc1c724c9637fb94758a9bc, type: 3}
+  - {fileID: 21300000, guid: a55b780882a90a84f8d6218ba5bcc644, type: 3}
+  - {fileID: 21300000, guid: d575f34933734b54cb418ff6023edc35, type: 3}
+  - {fileID: 21300000, guid: 5981d4b90b4792044bc1139afc0ae0c8, type: 3}
+  - {fileID: 21300000, guid: 2e0f39da6c26a8848a7bc548364a1b60, type: 3}
+  - {fileID: 21300000, guid: 0af0d34bced890c4b96df63c982a7781, type: 3}
+  - {fileID: 21300000, guid: a8738f9ddff8fb04595a1d4befbdbf3f, type: 3}
+  - {fileID: 21300000, guid: 49eda33ebefc6994fb48985bb34504ef, type: 3}
+  - {fileID: 21300000, guid: 4e60e75faf5ac9d43b9aae68256417c8, type: 3}
+  - {fileID: 21300000, guid: 77fda99f306392a4fb92d6b7a62b5bcc, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - WarriorCenter
+  - GoldMine_1
+  - WizardCenter
+  - CastleGate
+  - MonsterGate
+  - Rampart_CL
+  - GoldMine_0
+  - Rampart_UD
+  - ArcherCenter
+  - GoldMine_2
+  - Rampart_LR
+  - Gateway
+  - GoldMine_3
+  - Rampart_CR
+  m_RenderDataMap: {}
+  m_Tag: BuildingAtlas
+  m_IsVariant: 0

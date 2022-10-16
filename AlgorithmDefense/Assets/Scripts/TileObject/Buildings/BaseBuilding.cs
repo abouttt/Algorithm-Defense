@@ -36,22 +36,22 @@ public abstract class BaseBuilding : MonoBehaviour
 
     protected CitizenController DequeueCitizen()
     {
-        var orderQueueData = _citizenOrderQueue.Dequeue();
+        var citizenData = _citizenOrderQueue.Dequeue();
 
         GameObject go = null;
-        if (orderQueueData.JobType == Define.Job.None)
+        if (citizenData.JobType == Define.Job.None)
         {
-            go = Managers.Resource.Instantiate($"{Define.CITIZEN_PATH}{orderQueueData.CitizenType}Citizen");
+            go = Managers.Resource.Instantiate($"{Define.CITIZEN_PATH}{citizenData.CitizenType}Citizen");
         }
         else
         {
             go = Managers.Resource.Instantiate(
                 $"{Define.BATTILE_UNIT_PATH}" +
-                $"{orderQueueData.CitizenType}_{orderQueueData.JobType}");
+                $"{citizenData.CitizenType}_{citizenData.JobType}");
         }
 
         var citizen = go.GetOrAddComponent<CitizenController>();
-        citizen.Data = orderQueueData;
+        citizen.Data = citizenData;
 
         return citizen;
     }

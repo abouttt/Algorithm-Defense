@@ -30,16 +30,16 @@ public class Gateway : BaseBuilding
 
             var citizen = DequeueCitizen();
 
-            var directionConditionMoveType = DirectionCondition[citizen.Data.CitizenType];
-            if (directionConditionMoveType == Define.Move.None)
+            var nextMoveType = DirectionCondition[citizen.Data.CitizenType];
+            if (nextMoveType == Define.Move.None)
             {
                 citizen.SetReverseMoveType();
             }
             else
             {
-                if (HasRoadNextPosition(directionConditionMoveType))
+                if (HasRoadNextPosition(nextMoveType))
                 {
-                    citizen.Data.MoveType = directionConditionMoveType;
+                    citizen.Data.MoveType = nextMoveType;
                 }
                 else
                 {
