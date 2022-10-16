@@ -4,9 +4,15 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class UI_StartSceneUIAnimation : MonoBehaviour
 {
+
+
+    private static UI_StartSceneUIAnimation s_instance;
+    public static UI_StartSceneUIAnimation GetInstance { get { Init(); return s_instance; } }
+
     [SerializeField]
     private CanvasGroup stageCanvasGroup;
     [SerializeField]
@@ -22,20 +28,16 @@ public class UI_StartSceneUIAnimation : MonoBehaviour
     [SerializeField]
     private RectTransform endCreditsTransform;
 
-    [SerializeField]
-    private GameObject stageChoiceMenu;
-    [SerializeField]
-    private RectTransform stageChoiceMenuRectTransform;
-    [SerializeField]
-    private TMPro.TextMeshProUGUI StageChoiceMenuText;
+
 
     private int _easterEggCount = 0;
 
     [System.Serializable]
     public class StageUIBarInformation
     {
-        public bool open;          //스테이지 오픈 여부       
+        public int stageNum;      //별 갯수
         public int starCount;      //별 갯수
+        public bool open;          //스테이지 오픈 여부   
         [HideInInspector]
         public Text stageNumText;        //스테이지 텍스트
         [HideInInspector]
@@ -54,15 +56,19 @@ public class UI_StartSceneUIAnimation : MonoBehaviour
     private Sprite closeImage;
 
 
-
-
-
-
     private void Start()
     {
-        //스테이지 갯수&별갯수&열림확인 받아오기
+        //CreateStageUIBar(stageButtonContainer, defaultStageUIBar, StageUIBar);
+    }
 
-        CreateStageUIBar(stageButtonContainer, defaultStageUIBar, StageUIBar);
+
+    //데이터를 저장환료했을 때 호출
+    public void SetStage()
+    {
+        //현재 스테이지 갯수 저장
+        PlayerPrefs.SetInt("StageCount", StageUIBar.Length);
+
+        CreateStageUIBar(stageButtonContainer, defaultStageUIBar, StageUIBar);       
     }
 
 
@@ -70,13 +76,17 @@ public class UI_StartSceneUIAnimation : MonoBehaviour
     {
         int y_count = 0;
 
+
         for (int i = 0; i < _dataSlot.Length; i++)
         {
+            // _dataSlot[i] = new StageUIBarInformation();
+
             int index = i;
 
             //버튼 생성
             GameObject newUIObj = Instantiate(_stageUIBar, _container.transform);
             _dataSlot[i].stageUIBarObj = newUIObj;
+
 
 
             if (i != 0 && (i % 5) == 0)
@@ -132,15 +142,13 @@ public class UI_StartSceneUIAnimation : MonoBehaviour
 
                 if (_dataSlot[index].open == true)
                 {
-                    stageChoiceMenu.SetActive(true);
-
-                    string num = ("Stage " + index + 1).ToString();
-                    StageChoiceMenuText.text = num;
-
+                   
                     SoundController.GetInstance.BtnClick();
 
-                    stageChoiceMenuRectTransform.transform.localScale = Vector3.zero;
-                    stageChoiceMenuRectTransform.transform.DOScale(1f, 0.3f).SetEase(Ease.OutBounce);
+                    //다른 씬으로 데이터를 보내기위한 일시저장 변수(유니티가 알아서 저장해줌)
+                    PlayerPrefs.SetInt("Num", _dataSlot[index].stageNum);
+
+                    SceneManager.LoadScene("GameScene");
 
                 }
             });
@@ -151,15 +159,6 @@ public class UI_StartSceneUIAnimation : MonoBehaviour
     }
 
 
-    public void ChoiceStageGameStartOnClick()
-    {
-        //받은 버튼 번호가 0이면(길이면)
-        // Debug.Log((num+1) + "번 스테이지 클릭");
-
-        SceneManager.LoadScene("GameScene");
-    }
-
-
 
     public void StageUIFadeIn()
     {
@@ -167,6 +166,8 @@ public class UI_StartSceneUIAnimation : MonoBehaviour
         mainMenuCanvasGroup.DOFade(0, 0.3f);
 
         stageCanvasGroup.alpha = 0f;
+
+        stageRectTransform.DOGoto(1800f, true);
         stageRectTransform.transform.localPosition = new Vector3(0f, 1800f, 0f);
         //페이드 인 종류와 속도
         stageRectTransform.DOAnchorPos(new Vector2(0f, 0f), 1f, false).SetEase(Ease.OutBack);
@@ -216,12 +217,12 @@ public class UI_StartSceneUIAnimation : MonoBehaviour
     public void EasterEggClick()
     {
 
-        if (_easterEggCount <= 9)
+        if (_easterEggCount <= 10)
         {
 
             _easterEggCount++;
 
-            if (_easterEggCount == 9)
+            if (_easterEggCount == 10)
             {
                 Debug.Log("이스터애그 발견!!!!!!");
 
@@ -264,6 +265,19 @@ public class UI_StartSceneUIAnimation : MonoBehaviour
     }
 
 
+    private static void Init()
+    {
+        if (!s_instance)
+        {
+            var go = GameObject.Find("ManuManager");
+            if (!go)
+            {
+                go = new GameObject { name = "ManuManager" };
+                go.AddComponent<UI_StartSceneUIAnimation>();
+            }
 
+            s_instance = go.GetComponent<UI_StartSceneUIAnimation>();
+        }
+    }
 
 }

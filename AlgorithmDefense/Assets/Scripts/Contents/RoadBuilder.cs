@@ -60,6 +60,7 @@ public class RoadBuilder : MonoBehaviour
 
             if (_startRoadPos.HasValue && _startRoadPos.Value == pos)
             {
+                Debug.Log(_startRoadPos.Value);
                 var tile = Managers.Resource.Load<TileBase>($"{Define.ROAD_TILE_PATH}Road_BD");
                 Managers.Tile.SetTile(Define.Tilemap.Road, _startRoadPos.Value, tile);
                 Util.GetRoad(Define.Tilemap.Road, _startRoadPos.Value).IsStartRoad = true;
@@ -211,10 +212,13 @@ public class RoadBuilder : MonoBehaviour
             foreach (var pos in RoadGroupDic[_groupCount])
             {
                 Managers.Tile.SetTile(Define.Tilemap.WillRoad, pos, null);
+                if (_startRoadPos.HasValue && (_startRoadPos == pos))
+                {
+                    _startRoadPos = null;
+                }
             }
 
             RoadGroupDic.Remove(_groupCount);
-            _startRoadPos = null;
         }
     }
 

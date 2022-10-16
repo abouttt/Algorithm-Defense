@@ -45,5 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _releaseTime: 1
-  MoveType: 0
-  GoldIncrease: 100
+  GoldIncrease: 10

@@ -18,8 +18,14 @@ public class MonsterSpawner : MonoBehaviour
                     Managers.Game.Setting.RampartHeight + Managers.Game.Setting.BattleLineLength, 0)));
 
         }
+    }
 
-        StartCoroutine(Spawn());
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            StartCoroutine(Spawn());
+        }
     }
 
     private IEnumerator Spawn()

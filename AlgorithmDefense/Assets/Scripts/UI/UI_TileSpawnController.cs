@@ -92,8 +92,8 @@ public class UI_TileSpawnController : MonoBehaviour
         //받은 버튼 번호가 0이면(길이면)
         if (num == 0)
         {
-            //TileObjectBuilder.GetInstance.SetRoadTarget();
             RoadBuilder.GetInstance.IsBuilding = true;
+
         }
         else//해당 타입 건물 전달
         {
@@ -101,7 +101,7 @@ public class UI_TileSpawnController : MonoBehaviour
 
         }
 
-        _buildTileMenu.SetActive(false);
+       // _buildTileMenu.SetActive(false);
     }
 
 
