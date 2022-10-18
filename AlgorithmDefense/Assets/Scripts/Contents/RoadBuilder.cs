@@ -1,7 +1,5 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Tilemaps;
@@ -62,7 +60,6 @@ public class RoadBuilder : MonoBehaviour
 
             if (_startRoadPos.HasValue && _startRoadPos.Value == pos)
             {
-                Debug.Log(_startRoadPos.Value);
                 var tile = Managers.Resource.Load<TileBase>($"{Define.ROAD_TILE_PATH}Road_BD");
                 Managers.Tile.SetTile(Define.Tilemap.Road, _startRoadPos.Value, tile);
                 Util.GetRoad(Define.Tilemap.Road, _startRoadPos.Value).IsStartRoad = true;

@@ -33,11 +33,11 @@ public class GameScene : MonoBehaviour
 
     private Transform _contentsRoot;
 
-    private void Awake()
+    private void Start()
     {
+        InitTileObjects();
         InitCamera();
         InitContents();
-        InitTileObjects();
         InitGround();
         InitRampart();
         InitSpawn();
@@ -95,7 +95,7 @@ public class GameScene : MonoBehaviour
         }
     }
 
-    private void InitTileObjects()
+    public void InitTileObjects()
     {
         var buildingNames = Enum.GetNames(typeof(Define.Building));
         Tile buildingTile = null;
