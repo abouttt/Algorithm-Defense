@@ -85,6 +85,8 @@ public abstract class BaseBuilding : MonoBehaviour
 
         switch (moveType)
         {
+            case Define.Move.None:
+                return false;
             case Define.Move.Right:
                 nextPos += Vector3Int.right;
                 break;

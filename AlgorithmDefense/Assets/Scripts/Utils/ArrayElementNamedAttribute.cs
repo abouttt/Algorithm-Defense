@@ -1,7 +1,11 @@
 using System;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 using System.Linq;
+
+#if UNITY_EDITOR
 
 public class ArrayElementNamedAttribute : PropertyAttribute
 {
@@ -17,6 +21,9 @@ public class ArrayElementNamedAttribute : PropertyAttribute
         Names = Enum.GetNames(enumType); 
     }
 }
+
+
+
 
 [CustomPropertyDrawer(typeof(ArrayElementNamedAttribute))]
 public class ArrayElementDrawer : PropertyDrawer
@@ -47,3 +54,6 @@ public class ArrayElementDrawer : PropertyDrawer
         EditorGUI.EndProperty();
     }
 }
+
+#endif
+

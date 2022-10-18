@@ -1,6 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+
+#if UNITY_EDITOR
+
 using UnityEditor;
 
 public class UnitSpriteSetting : EditorWindow
@@ -43,3 +47,6 @@ public class UnitSpriteSetting : EditorWindow
         }
     }
 }
+
+
+#endif

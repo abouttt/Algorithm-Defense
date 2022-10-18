@@ -61,7 +61,7 @@ public class MouseController : MonoBehaviour
                 var jobCenter = go.GetComponent<JobCenter>();
                 if (jobCenter)
                 {
-                    jobCenter.ChangeMoveType();
+                    jobCenter.ChangeOutputDir();
                 }
             }
         }

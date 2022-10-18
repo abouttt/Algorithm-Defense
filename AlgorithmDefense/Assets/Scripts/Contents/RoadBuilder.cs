@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -21,6 +22,7 @@ public class RoadBuilder : MonoBehaviour
     private Vector3Int _firstPos;
     private Vector3Int _lastPos;
     private Vector3Int? _startRoadPos;
+
 
     private void Start()
     {
@@ -102,9 +104,12 @@ public class RoadBuilder : MonoBehaviour
         // 시작길이 아니며 길이 있다면 진행하지 않는다.
         if (Managers.Tile.GetTile(Define.Tilemap.Road, pos))
         {
-            if (!_startRoadPos.HasValue && IsStartRoad(pos))
+            if (IsStartRoad(pos))
             {
-                _startRoadPos = new Vector3Int?(pos);
+                if (!_startRoadPos.HasValue)
+                {
+                    _startRoadPos = pos;
+                }
             }
             else
             {
@@ -115,10 +120,10 @@ public class RoadBuilder : MonoBehaviour
         // 이전에 예약한 위치라면 취소한다.
         if (Managers.Tile.GetTile(Define.Tilemap.WillRoad, pos))
         {
-            var nextPos = GetLastPos();
-            RoadGroupDic[_groupCount].RemoveAt(GetLastIndex());
+            var nextPos = GetGroupLastPos();
+            RoadGroupDic[_groupCount].RemoveAt(GetGroupLastIndex());
 
-            if ((RoadGroupDic[_groupCount].Count >= 1) && (pos == GetLastPos()))
+            if ((RoadGroupDic[_groupCount].Count >= 1) && (pos == GetGroupLastPos()))
             {
                 Managers.Tile.SetTile(Define.Tilemap.WillRoad, nextPos, null);
                 Util.GetRoad(Define.Tilemap.WillRoad, pos).Refresh(pos);
@@ -127,6 +132,8 @@ public class RoadBuilder : MonoBehaviour
                 {
                     _startRoadPos = null;
                 }
+
+                _lastPos = GetGroupLastPos();
             }
             else
             {
@@ -148,22 +155,32 @@ public class RoadBuilder : MonoBehaviour
             return;
         }
 
+        // 이미 연결이 안료되었다면 이어서 연결이 안되게 한다.
+        if (IsConnectedBuilding())
+        {
+            return;
+        }
+
         RoadGroupDic[_groupCount].Add(pos);
         Managers.Tile.SetTile(Define.Tilemap.WillRoad, pos, _roadTile);
 
         var willRoad = Util.GetRoad(Define.Tilemap.WillRoad, pos);
         willRoad.GroupNumber = _groupCount;
-        willRoad.Index = GetLastIndex();
+        willRoad.Index = GetGroupLastIndex();
         if (_startRoadPos.HasValue && (_startRoadPos.Value == pos))
         {
             willRoad.IsStartRoad = true;
         }
         willRoad.Refresh(pos);
 
-        // 첫번째로 예약한 위치가 마지막 건물 또는 시작길인지 판별하기 위한 저장.
+        // 예약한 위치가 마지막 건물 또는 시작길인지 판별하기 위한 저장.
         if (RoadGroupDic[_groupCount].Count == 1)
         {
             _firstPos = pos;
+        }
+        else
+        {
+            _lastPos = GetGroupLastPos();
         }
     }
 
@@ -175,14 +192,23 @@ public class RoadBuilder : MonoBehaviour
             return;
         }
 
-        // 마지막으로 예약한 위치가 마지막 건물 또는 시작길인지 판별하기 위한 저장.
-        _lastPos = GetLastPos();
-
         if (IsConnectedBuilding())
         {
             TileBase roadTile = null;
             Road willRoad = null;
             Road road = null;
+
+            var firstJobCenter = Util.GetBuilding<JobCenter>(_firstPos);
+            if (firstJobCenter)
+            {
+                firstJobCenter.ChangeInputDir(RoadGroupDic[_groupCount][1]);
+            }
+
+            var lastJobCenter = Util.GetBuilding<JobCenter>(_lastPos);
+            if (lastJobCenter)
+            {
+                lastJobCenter.ChangeInputDir(RoadGroupDic[_groupCount][GetGroupLastIndex() - 1]);
+            }
 
             foreach (var pos in RoadGroupDic[_groupCount])
             {
@@ -229,7 +255,7 @@ public class RoadBuilder : MonoBehaviour
             return true;
         }
 
-        var prevPos = GetLastPos();
+        var prevPos = GetGroupLastPos();
         for (int i = 0; i < 4; i++)
         {
             int nx = prevPos.x + Define.DX[i];
@@ -257,7 +283,7 @@ public class RoadBuilder : MonoBehaviour
             return false;
         }
 
-        return _startRoadPos.HasValue && (_startRoadPos.Value == GetLastPos());
+        return _startRoadPos.HasValue && (_startRoadPos.Value == GetGroupLastPos());
     }
 
     private bool IsInOfRange(Vector3Int pos)
@@ -323,9 +349,9 @@ public class RoadBuilder : MonoBehaviour
         return false;
     }
 
-    private Vector3Int GetLastPos() => RoadGroupDic[_groupCount][RoadGroupDic[_groupCount].Count - 1];
+    private Vector3Int GetGroupLastPos() => RoadGroupDic[_groupCount][RoadGroupDic[_groupCount].Count - 1];
 
-    private int GetLastIndex() => RoadGroupDic[_groupCount].Count - 1;
+    private int GetGroupLastIndex() => RoadGroupDic[_groupCount].Count - 1;
 
     private static void Init()
     {

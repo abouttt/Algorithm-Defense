@@ -26,21 +26,11 @@ public class Road : MonoBehaviour
                 go.GetComponent<Road>().Rule(backCellPos);
             }
         }
-
-        if (Index < RoadBuilder.GetInstance.RoadGroupDic[GroupNumber].Count - 1)
-        {
-            var frontCellPos = RoadBuilder.GetInstance.RoadGroupDic[GroupNumber][Index + 1];
-            var go = Managers.Tile.GetTilemap(Define.Tilemap.WillRoad).GetInstantiatedObject(frontCellPos);
-            if (go)
-            {
-                go.GetComponent<Road>().Rule(frontCellPos);
-            }
-        }
     }
 
     private void Rule(Vector3Int pos)
     {
-        TileBase nextTile = Managers.Resource.Load<Tile>($"{Define.ROAD_TILE_PATH}Road_B");
+        Tile nextTile = Managers.Resource.Load<Tile>($"{Define.ROAD_TILE_PATH}Road_B");
 
         if (IsStartRoad)
         {
@@ -72,27 +62,22 @@ public class Road : MonoBehaviour
         }
         else
         {
-            bool hasBackTile = false;
-            bool hasFrontTile = false;
-
-            Vector3Int backGapCellPos = Vector3Int.zero;
-            Vector3Int frontGapCellPos = Vector3Int.zero;
+            Vector3Int? backGapCellPos = null;
+            Vector3Int? frontGapCellPos = null;
 
             if (Index > 0)
             {
                 var backCellPos = RoadBuilder.GetInstance.RoadGroupDic[GroupNumber][Index - 1];
                 backGapCellPos = pos - backCellPos;
-                hasBackTile = true;
             }
 
             if (Index < RoadBuilder.GetInstance.RoadGroupDic[GroupNumber].Count - 1)
             {
                 var frontCellPos = RoadBuilder.GetInstance.RoadGroupDic[GroupNumber][Index + 1];
                 frontGapCellPos = pos - frontCellPos;
-                hasFrontTile = true;
             }
 
-            if (hasBackTile && !hasFrontTile)
+            if (backGapCellPos.HasValue && !frontGapCellPos.HasValue)
             {
                 if (backGapCellPos == Vector3Int.up)
                 {
@@ -111,8 +96,7 @@ public class Road : MonoBehaviour
                     nextTile = Managers.Resource.Load<Tile>($"{Define.ROAD_TILE_PATH}Road_BL");
                 }
             }
-
-            if (!hasBackTile && hasFrontTile)
+            else if (!backGapCellPos.HasValue && frontGapCellPos.HasValue)
             {
                 if (frontGapCellPos == Vector3Int.up)
                 {
@@ -131,11 +115,10 @@ public class Road : MonoBehaviour
                     nextTile = Managers.Resource.Load<Tile>($"{Define.ROAD_TILE_PATH}Road_BL");
                 }
             }
-
-            if (hasBackTile && hasFrontTile)
+            else if (backGapCellPos.HasValue && frontGapCellPos.HasValue)
             {
-                var absBackGapCellPos = Util.GetAbsVector3Int(backGapCellPos);
-                var absFrontGapCellPos = Util.GetAbsVector3Int(frontGapCellPos);
+                var absBackGapCellPos = Util.GetAbsVector3Int(backGapCellPos.Value);
+                var absFrontGapCellPos = Util.GetAbsVector3Int(frontGapCellPos.Value);
 
                 if (absBackGapCellPos == Vector3Int.up &&
                     absFrontGapCellPos == Vector3Int.up)

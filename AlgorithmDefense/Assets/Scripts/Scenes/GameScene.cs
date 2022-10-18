@@ -98,12 +98,12 @@ public class GameScene : MonoBehaviour
     private void InitTileObjects()
     {
         var buildingNames = Enum.GetNames(typeof(Define.Building));
-
         Tile buildingTile = null;
         foreach (var buildingName in buildingNames)
         {
             buildingTile = Managers.Resource.Load<Tile>($"{Define.BUILDING_TILE_PATH}{buildingName}");
             buildingTile.gameObject = Managers.Resource.Load<GameObject>($"{Define.BUILDING_PREFAB_PATH}{buildingName}");
+            buildingTile.color = Color.white;
         }
 
         var roadNames = Enum.GetNames(typeof(Define.Road));

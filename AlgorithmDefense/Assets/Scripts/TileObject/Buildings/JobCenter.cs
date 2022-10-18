@@ -6,12 +6,34 @@ public class JobCenter : BaseBuilding
 {
     [SerializeField]
     private Define.Job _jobType = Define.Job.None;
-    private Define.Move[] _moveTypes;
-    private int _moveTypesIndex = 0;
+    private Define.Move _inputDir = Define.Move.None;
+    private Define.Move[] _outputDirs;
+    private int _outputDirIndex = 0;
 
-    public void ChangeMoveType()
+    public void ChangeInputDir(Vector3Int pos)
     {
-        _moveTypesIndex = (_moveTypesIndex + 1) >= 4 ? 0 : _moveTypesIndex + 1;
+        var dir = pos - Managers.Tile.GetWorldToCell(Define.Tilemap.Building, transform.position);
+        if (dir == Vector3Int.right)
+        {
+            _inputDir = Define.Move.Right;
+        }
+        else if (dir == Vector3Int.left)
+        {
+            _inputDir = Define.Move.Left;
+        }
+        else if (dir == Vector3Int.up)
+        {
+            _inputDir = Define.Move.Up;
+        }
+        else if (dir == Vector3Int.down)
+        {
+            _inputDir = Define.Move.Down;
+        }
+    }
+
+    public void ChangeOutputDir()
+    {
+        _outputDirIndex = (_outputDirIndex + 1) >= 4 ? 0 : _outputDirIndex + 1;
         transform.Rotate(new Vector3(0f, 0f, -90.0f));
     }
 
@@ -32,7 +54,10 @@ public class JobCenter : BaseBuilding
 
             yield return new WaitForSeconds(_releaseTime);
 
-            if (!HasNeighborRoad())
+            bool hasInputRoad = HasRoadNextPosition(_inputDir);
+            bool hasOutputRoad = HasRoadNextPosition(_outputDirs[_outputDirIndex]);
+
+            if (!hasInputRoad && !hasOutputRoad)
             {
                 continue;
             }
@@ -55,13 +80,13 @@ public class JobCenter : BaseBuilding
                 citizen.GetComponent<UnitAI>().enabled = false;
             }
 
-            if (HasRoadNextPosition(_moveTypes[_moveTypesIndex]))
+            if (hasOutputRoad)
             {
-                citizen.Data.MoveType = _moveTypes[_moveTypesIndex];
+                citizen.Data.MoveType = _outputDirs[_outputDirIndex];
             }
             else
             {
-                citizen.SetReverseMoveType();
+                citizen.Data.MoveType = _inputDir;
             }
 
             SetCitizenPosition(citizen);
@@ -71,7 +96,7 @@ public class JobCenter : BaseBuilding
 
     protected override void Init()
     {
-        _moveTypes = new Define.Move[]
+        _outputDirs = new Define.Move[]
         {
             Define.Move.Up,
             Define.Move.Right,
