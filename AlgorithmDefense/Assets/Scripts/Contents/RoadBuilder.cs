@@ -99,27 +99,24 @@ public class RoadBuilder : MonoBehaviour
             RoadGroupDic.Add(_groupCount, new());
         }
 
-        // 시작길이 아니며 길이 있다면 진행하지 않는다.
-        if (Managers.Tile.GetTile(Define.Tilemap.Road, pos))
-        {
-            if (IsStartRoad(pos))
-            {
-                if (!_startRoadPos.HasValue)
-                {
-                    _startRoadPos = pos;
-                }
-            }
-            else
-            {
-                return;
-            }
-        }
-
         // 이전에 예약한 위치라면 취소한다.
         if (Managers.Tile.GetTile(Define.Tilemap.WillRoad, pos))
         {
             RevertWillRoad(pos);
             return;
+        }
+
+        // 시작길이 아니며 길이 있다면 진행하지 않는다.
+        if (Managers.Tile.GetTile(Define.Tilemap.Road, pos))
+        {
+            if (!_startRoadPos.HasValue && IsStartRoad(pos))
+            {
+                _startRoadPos = pos;
+            }
+            else
+            {
+                return;
+            }
         }
 
         // 이전에 예약한 위치 옆이 아닐 경우 진행하지 않는다.
