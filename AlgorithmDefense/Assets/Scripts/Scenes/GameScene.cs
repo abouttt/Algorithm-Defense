@@ -38,7 +38,7 @@ public class GameScene : MonoBehaviour
         InitTileObjects();
         InitCamera();
         InitContents();
-        InitGround();
+        //InitGround();
         InitRampart();
         InitSpawn();
         InitBattleLine();
