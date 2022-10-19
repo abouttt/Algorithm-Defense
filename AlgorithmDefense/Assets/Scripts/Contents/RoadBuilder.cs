@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Tilemaps;
+using static UnityEditor.PlayerSettings;
 
 public class RoadBuilder : MonoBehaviour
 {
@@ -117,26 +118,7 @@ public class RoadBuilder : MonoBehaviour
         // 이전에 예약한 위치라면 취소한다.
         if (Managers.Tile.GetTile(Define.Tilemap.WillRoad, pos))
         {
-            var nextPos = GetGroupLastPos();
-            RoadGroupDic[_groupCount].RemoveAt(GetGroupLastIndex());
-
-            if ((RoadGroupDic[_groupCount].Count >= 1) && (pos == GetGroupLastPos()))
-            {
-                Managers.Tile.SetTile(Define.Tilemap.WillRoad, nextPos, null);
-                Util.GetRoad(Define.Tilemap.WillRoad, pos).Refresh(pos);
-
-                if (_startRoadPos.HasValue && (_startRoadPos.Value == nextPos))
-                {
-                    _startRoadPos = null;
-                }
-
-                _lastPos = GetGroupLastPos();
-            }
-            else
-            {
-                RoadGroupDic[_groupCount].Add(nextPos);
-            }
-
+            RevertWillRoad(pos);
             return;
         }
 
@@ -152,8 +134,8 @@ public class RoadBuilder : MonoBehaviour
             return;
         }
 
-        // 이미 연결이 안료되었다면 이어서 연결이 안되게 한다.
-        if (IsConnectedBuilding())
+        // 마지막 위치에 건물이 있다면 진행하지 않는다.
+        if (Managers.Tile.GetTilemap(Define.Tilemap.Building).GetInstantiatedObject(_lastPos))
         {
             return;
         }
@@ -195,17 +177,7 @@ public class RoadBuilder : MonoBehaviour
             Road willRoad = null;
             Road road = null;
 
-            var firstJobCenter = Util.GetBuilding<JobCenter>(_firstPos);
-            if (firstJobCenter)
-            {
-                firstJobCenter.ChangeInputDir(RoadGroupDic[_groupCount][1]);
-            }
-
-            var lastJobCenter = Util.GetBuilding<JobCenter>(_lastPos);
-            if (lastJobCenter)
-            {
-                lastJobCenter.ChangeInputDir(RoadGroupDic[_groupCount][GetGroupLastIndex() - 1]);
-            }
+            CheckJobCenter();
 
             foreach (var pos in RoadGroupDic[_groupCount])
             {
@@ -242,6 +214,32 @@ public class RoadBuilder : MonoBehaviour
             }
 
             RoadGroupDic.Remove(_groupCount);
+        }
+
+        _firstPos = Vector3Int.zero;
+        _lastPos = Vector3Int.zero;
+    }
+
+    private void RevertWillRoad(Vector3Int pos)
+    {
+        var nextPos = GetGroupLastPos();
+        RoadGroupDic[_groupCount].RemoveAt(GetGroupLastIndex());
+
+        if ((RoadGroupDic[_groupCount].Count >= 1) && (pos == GetGroupLastPos()))
+        {
+            Managers.Tile.SetTile(Define.Tilemap.WillRoad, nextPos, null);
+            Util.GetRoad(Define.Tilemap.WillRoad, pos).Refresh(pos);
+
+            if (_startRoadPos.HasValue && (_startRoadPos.Value == nextPos))
+            {
+                _startRoadPos = null;
+            }
+
+            _lastPos = GetGroupLastPos();
+        }
+        else
+        {
+            RoadGroupDic[_groupCount].Add(nextPos);
         }
     }
 
@@ -344,6 +342,24 @@ public class RoadBuilder : MonoBehaviour
         }
 
         return false;
+    }
+
+    private void CheckJobCenter()
+    {
+        if (RoadGroupDic[_groupCount].Count >= 1)
+        {
+            var firstJobCenter = Util.GetBuilding<JobCenter>(_firstPos);
+            if (firstJobCenter)
+            {
+                firstJobCenter.ChangeInputDir(RoadGroupDic[_groupCount][1]);
+            }
+
+            var lastJobCenter = Util.GetBuilding<JobCenter>(_lastPos);
+            if (lastJobCenter)
+            {
+                lastJobCenter.ChangeInputDir(RoadGroupDic[_groupCount][GetGroupLastIndex() - 1]);
+            }
+        }
     }
 
     private Vector3Int GetGroupLastPos() => RoadGroupDic[_groupCount][RoadGroupDic[_groupCount].Count - 1];
