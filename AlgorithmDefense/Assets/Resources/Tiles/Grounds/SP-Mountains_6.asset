@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: SP-Mountains_6
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 1459130097, guid: 5cf9b1bb622a2d34388f27fd7addf104, type: 3}
+  m_Sprite: {fileID: -570426728, guid: a3e31c620c662004eb7c81c6faf202f5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
