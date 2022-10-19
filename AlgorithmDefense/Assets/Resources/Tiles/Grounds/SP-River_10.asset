@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: SP-River_10
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: -1235975389, guid: e3e1254ceba05d24baa2d2d266e8a392, type: 3}
+  m_Sprite: {fileID: 745716451, guid: af95a9219054c8543ab24bee59488136, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
