@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 137066638543204423}
   - component: {fileID: 2475660329784126841}
   - component: {fileID: 1973345733143926027}
-  m_Layer: 9
+  m_Layer: 7
   m_Name: Red_Archer
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -160,6 +160,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveType: 3
+  arrowPrefab: {fileID: 0}
+  RotatePoint: {fileID: 0}
   layerMask:
     serializedVersion: 2
     m_Bits: 64

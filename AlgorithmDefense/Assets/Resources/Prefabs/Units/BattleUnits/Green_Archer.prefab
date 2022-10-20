@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -8997993536632108726}
   - component: {fileID: -683713669345818119}
   - component: {fileID: 2134547115178478044}
-  m_Layer: 9
+  m_Layer: 7
   m_Name: Green_Archer
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -173,6 +173,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveType: 3
+  arrowPrefab: {fileID: 0}
+  RotatePoint: {fileID: 0}
   layerMask:
     serializedVersion: 2
     m_Bits: 64

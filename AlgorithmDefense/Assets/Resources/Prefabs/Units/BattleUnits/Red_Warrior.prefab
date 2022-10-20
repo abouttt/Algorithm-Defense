@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6236262149689608876}
   - component: {fileID: -4111120602477337546}
   - component: {fileID: 3744709538090476499}
-  m_Layer: 9
+  m_Layer: 7
   m_Name: Red_Warrior
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -173,6 +173,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveType: 3
+  arrowPrefab: {fileID: 0}
+  RotatePoint: {fileID: 0}
   layerMask:
     serializedVersion: 2
     m_Bits: 64

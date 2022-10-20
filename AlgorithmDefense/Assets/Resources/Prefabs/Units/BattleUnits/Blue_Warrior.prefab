@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8594461819057574623}
   - component: {fileID: 4672804877220590368}
   - component: {fileID: 8115490382995879972}
-  m_Layer: 9
+  m_Layer: 7
   m_Name: Blue_Warrior
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.3
 --- !u!114 &8594461819057574623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,6 +160,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveType: 3
+  arrowPrefab: {fileID: 0}
+  RotatePoint: {fileID: 0}
   layerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -178,7 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c70187ed11576449ad98deeef54a456, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoint: 0
+  hitPoint: 30
 --- !u!114 &8115490382995879972
 MonoBehaviour:
   m_ObjectHideFlags: 0

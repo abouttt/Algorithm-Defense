@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5588873597872510260}
   - component: {fileID: 9105185264170767061}
   - component: {fileID: 2165931747891772109}
-  m_Layer: 9
+  m_Layer: 7
   m_Name: Green_Warrior
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -160,6 +160,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveType: 3
+  arrowPrefab: {fileID: 0}
+  RotatePoint: {fileID: 0}
   layerMask:
     serializedVersion: 2
     m_Bits: 64
