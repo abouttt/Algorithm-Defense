@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4542070119029972442}
   - component: {fileID: -2940526812244817364}
   - component: {fileID: -6416543551889517681}
-  m_Layer: 9
+  m_Layer: 7
   m_Name: Red_Wizard
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -173,6 +173,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveType: 3
+  arrowPrefab: {fileID: 0}
+  RotatePoint: {fileID: 0}
   layerMask:
     serializedVersion: 2
     m_Bits: 64

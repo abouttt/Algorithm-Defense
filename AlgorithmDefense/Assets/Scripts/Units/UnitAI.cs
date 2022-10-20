@@ -5,6 +5,8 @@ using UnityEngine;
 public class UnitAI : MonoBehaviour
 {
     public Define.Move MoveType;
+    public GameObject arrowPrefab;
+    public Transform RotatePoint;
 
     private UnitManager _detectedUnit;
     private Animator _anim;
@@ -12,6 +14,7 @@ public class UnitAI : MonoBehaviour
     [SerializeField] private int attackDamage;
     [SerializeField] private float _speed = 0f;
     [SerializeField] private float _range = 0f;
+    private int rot;
 
     // Start is called before the first frame update
     void Start()
@@ -42,7 +45,22 @@ public class UnitAI : MonoBehaviour
         }
     }
 
-    private void Move()
+    public void ShootObject()
+    {
+        RotatePoint.rotation = Quaternion.Euler(0, 0, rot);
+        Instantiate(arrowPrefab, transform.position, RotatePoint.rotation);
+
+        bool unitDie = _detectedUnit.LoseHp(attackDamage);
+
+        if (unitDie)
+        {
+            _anim.SetBool("Attack", false);
+
+            _detectedUnit = null;
+        }
+    }
+
+    public void Move()
     {
         _anim.SetBool("Attack", false);
 
@@ -51,12 +69,14 @@ public class UnitAI : MonoBehaviour
             _anim.SetFloat("Hor", 0);
             _anim.SetFloat("Ver", -1);
             transform.Translate(Vector2.down * _speed * Time.deltaTime);
+            rot = -90;
         }
         else
         {
             _anim.SetFloat("Hor", 0);
             _anim.SetFloat("Ver", 1);
             transform.Translate(Vector2.up * _speed * Time.deltaTime);
+            rot = 90;
         }
     }
 
@@ -68,7 +88,7 @@ public class UnitAI : MonoBehaviour
         }
 
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, _range, layerMask);
-        
+
         foreach (Collider2D collider2D in colliders)
         {
             if (colliders != null)
