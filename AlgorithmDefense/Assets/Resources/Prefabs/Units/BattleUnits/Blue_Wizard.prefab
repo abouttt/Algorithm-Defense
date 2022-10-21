@@ -196,7 +196,7 @@ MonoBehaviour:
   RotatePoint: {fileID: 3904652600563281461}
   layerMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 320
   attackDamage: 2
   _speed: 0.6
   _range: 1

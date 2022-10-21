@@ -38,7 +38,7 @@ public class GameScene : MonoBehaviour
         InitTileObjects();
         InitCamera();
         InitContents();
-        //InitGround();
+        InitGround();
         InitRampart();
         InitSpawn();
         InitBattleLine();
@@ -78,21 +78,10 @@ public class GameScene : MonoBehaviour
 
     private void InitGround()
     {
-        for (int x = 0; x < GroundWidth; x++)
-        {
-            for (var y = 0; y < GroundHeight; y++)
-            {
-                int grassTileNum = 1;
-                int randNum = UnityEngine.Random.Range(0, 100);
-                if (randNum <= GrassPercentage)
-                {
-                    grassTileNum = UnityEngine.Random.Range(2, 4);
-                }
-
-                var tile = Managers.Resource.Load<Tile>($"Tiles/Grounds/Grass_{grassTileNum}");
-                Managers.Tile.SetTile(Define.Tilemap.Ground, new Vector3Int(x, y), tile);
-            }
-        }
+        int stageNumber = PlayerPrefs.GetInt("Num");
+        var go =Managers.Resource.Instantiate($"{Define.GROUND_PREFAB_PATH}Ground_{stageNumber}");
+        go.transform.position = new Vector3(5f, 5.5f, 0f);
+        go.transform.SetParent(Managers.Tile.GetGrid().transform);
     }
 
     public void InitTileObjects()

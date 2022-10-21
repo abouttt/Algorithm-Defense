@@ -6,6 +6,7 @@ using UnityEngine;
 public static class Define
 {
     public static readonly string CONTENTS_PATH = "Prefabs/Contents/";
+    public static readonly string GROUND_PREFAB_PATH = "Prefabs/Ground/";
     public static readonly string CITIZEN_PATH = "Prefabs/Units/Citizens/";
     public static readonly string BATTILE_UNIT_PATH = "Prefabs/Units/BattleUnits/";
     public static readonly string BUILDING_PREFAB_PATH = "Prefabs/TileObject/Buildings/";

@@ -164,10 +164,6 @@ public class RoadBuilder : MonoBehaviour
         {
             _firstPos = pos;
         }
-        else
-        {
-            _lastPos = GetGroupLastPos();
-        }
     }
 
     private void BuildRoads()
@@ -177,6 +173,8 @@ public class RoadBuilder : MonoBehaviour
         {
             return;
         }
+
+        _lastPos = GetGroupLastPos();
 
         if (IsConnectedBuilding())
         {

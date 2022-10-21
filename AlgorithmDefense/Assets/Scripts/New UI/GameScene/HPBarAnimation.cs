@@ -63,7 +63,7 @@ public class HPBarAnimation : MonoBehaviour
     {
         enemyBar.transform.DOGoto(0f, true);
 
-       
+        
 
         if (curHP > 0f)
         {

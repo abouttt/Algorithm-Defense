@@ -12,14 +12,8 @@ public class GoldMine : BaseBuilding
 
     public override void EnterTheBuilding(CitizenController citizen)
     {
-        //Managers.Game.Gold += GoldIncrease;
         _goldUI.GoldSaving(GoldIncrease);
         Managers.Resource.Destroy(citizen.gameObject);
-    }
-
-    protected IEnumerator ReleaseCitizen()
-    {
-        yield return null;
     }
 
     protected override void Init()

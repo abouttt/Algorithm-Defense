@@ -7,8 +7,11 @@ public class UnitAI : MonoBehaviour
     public Define.Move MoveType;
     public GameObject arrowPrefab;
     public Transform RotatePoint;
+    public int Damage;
 
     private UnitManager _detectedUnit;
+    private GameObject _tower;
+
     private Animator _anim;
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private int attackDamage;
@@ -25,7 +28,7 @@ public class UnitAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!_detectedUnit)
+        if (!_detectedUnit && !_tower)
         {
             Move();
         }
@@ -35,14 +38,29 @@ public class UnitAI : MonoBehaviour
 
     public void InflictDamage()
     {
-        bool unitDie = _detectedUnit.LoseHp(attackDamage);
-
-        if (unitDie)
+        if (_detectedUnit)
         {
-            _anim.SetBool("Attack", false);
+            bool unitDie = _detectedUnit.LoseHp(attackDamage);
 
-            _detectedUnit = null;
+            if (unitDie)
+            {
+                _anim.SetBool("Attack", false);
+
+                _detectedUnit = null;
+            }
         }
+        else
+        {
+            if (_tower.gameObject.GetComponent<CastleGate>())
+            {
+                Managers.Game.CastleHP -= Damage;
+            }
+            else
+            {
+                Managers.Game.DungeonHP -= Damage;
+            }
+        }
+
     }
 
     public void ShootObject()
@@ -50,13 +68,27 @@ public class UnitAI : MonoBehaviour
         RotatePoint.rotation = Quaternion.Euler(0, 0, rot);
         Instantiate(arrowPrefab, transform.position, RotatePoint.rotation);
 
-        bool unitDie = _detectedUnit.LoseHp(attackDamage);
-
-        if (unitDie)
+        if (_detectedUnit)
         {
-            _anim.SetBool("Attack", false);
+            bool unitDie = _detectedUnit.LoseHp(attackDamage);
 
-            _detectedUnit = null;
+            if (unitDie)
+            {
+                _anim.SetBool("Attack", false);
+
+                _detectedUnit = null;
+            }
+        }
+        else
+        {
+            if (_tower.gameObject.GetComponent<CastleGate>())
+            {
+                Managers.Game.CastleHP -= Damage;
+            }
+            else
+            {
+                Managers.Game.DungeonHP -= Damage;
+            }
         }
     }
 
@@ -93,7 +125,30 @@ public class UnitAI : MonoBehaviour
         {
             if (colliders != null)
             {
-                _detectedUnit = collider2D.GetComponent<UnitManager>();
+                if (collider2D.gameObject.layer == LayerMask.NameToLayer("Tower"))
+                {
+                    if (gameObject.layer == LayerMask.NameToLayer("Human"))
+                    {
+                        if (!collider2D.gameObject.GetComponent<MonsterGate>())
+                        {
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        if (!collider2D.gameObject.GetComponent<CastleGate>())
+                        {
+                            return;
+                        }
+                    }
+
+                    _tower = collider2D.gameObject;
+                }
+                else
+                {
+                    _detectedUnit = collider2D.GetComponent<UnitManager>();
+                }
+
                 _anim.SetBool("Attack", true);
             }
         }
