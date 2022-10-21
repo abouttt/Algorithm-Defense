@@ -9,9 +9,20 @@ public class Road : MonoBehaviour
 {
     [field: SerializeField]
     public Define.Road RoadType { get; private set; }
+    public bool IsOnCitizen;
     public bool IsStartRoad = false;
     public int GroupNumber = 0;
     public int Index = 0;
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        IsOnCitizen = true;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        IsOnCitizen = false;
+    }
 
     public void Refresh(Vector3Int pos)
     {

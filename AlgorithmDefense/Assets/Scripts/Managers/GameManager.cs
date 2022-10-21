@@ -7,6 +7,8 @@ public class GameManager
 {
     public GameScene Setting;
     public int Gold = 0;
+    public int CastleHP = 0;
+    public int DungeonHP = 0;
 
     public void Init()
     {

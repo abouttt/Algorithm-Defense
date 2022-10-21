@@ -8,8 +8,6 @@ public abstract class BaseBuilding : MonoBehaviour
 
     [SerializeField]
     protected float _releaseTime;
-    protected Queue<CitizenData> _citizenOrderQueue = new();
-    protected bool _isReleasing;
 
     private void Start()
     {
@@ -18,25 +16,11 @@ public abstract class BaseBuilding : MonoBehaviour
 
     public abstract void EnterTheBuilding(CitizenController citizen);
 
-    protected abstract IEnumerator ReleaseCitizen();
     protected abstract void Init();
 
-    protected void EnqueueCitizen(CitizenController citizen)
+    protected CitizenController DequeueCitizen(Queue<CitizenData> citizenOrderQueue)
     {
-        _citizenOrderQueue.Enqueue(citizen.Data);
-
-        Managers.Resource.Destroy(citizen.gameObject);
-
-        if (!_isReleasing)
-        {
-            _isReleasing = true;
-            StartCoroutine(ReleaseCitizen());
-        }
-    }
-
-    protected CitizenController DequeueCitizen()
-    {
-        var citizenData = _citizenOrderQueue.Dequeue();
+        CitizenData citizenData = citizenOrderQueue.Dequeue();
 
         GameObject go = null;
         if (citizenData.JobType == Define.Job.None)
@@ -102,22 +86,5 @@ public abstract class BaseBuilding : MonoBehaviour
         }
 
         return Util.GetRoad(Define.Tilemap.Road, nextPos) ? true : false;
-    }
-
-    protected bool HasNeighborRoad()
-    {
-        var pos = Managers.Tile.GetWorldToCell(Define.Tilemap.Road, transform.position);
-        for (int i = 0; i < 4; i++)
-        {
-            int nx = pos.x + Define.DX[i];
-            int ny = pos.y + Define.DY[i];
-
-            if (Util.GetRoad(Define.Tilemap.Road, new Vector3Int(nx, ny, 0)))
-            {
-                return true;
-            }
-        }
-
-        return false;
     }
 }

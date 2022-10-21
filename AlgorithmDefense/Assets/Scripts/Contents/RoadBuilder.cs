@@ -55,6 +55,16 @@ public class RoadBuilder : MonoBehaviour
             return;
         }
 
+        // 시민이 있는지 검사
+        foreach (var pos in RoadGroupDic[groupNumber])
+        {
+            var road = Util.GetRoad(Define.Tilemap.Road, pos);
+            if (road && road.IsOnCitizen)
+            {
+                return;
+            }
+        }
+
         foreach (var pos in RoadGroupDic[groupNumber])
         {
             Managers.Tile.SetTile(Define.Tilemap.Road, pos, null);
@@ -173,8 +183,6 @@ public class RoadBuilder : MonoBehaviour
             TileBase roadTile = null;
             Road willRoad = null;
             Road road = null;
-
-            CheckJobCenter();
 
             foreach (var pos in RoadGroupDic[_groupCount])
             {
@@ -339,24 +347,6 @@ public class RoadBuilder : MonoBehaviour
         }
 
         return false;
-    }
-
-    private void CheckJobCenter()
-    {
-        if (RoadGroupDic[_groupCount].Count >= 1)
-        {
-            var firstJobCenter = Util.GetBuilding<JobCenter>(_firstPos);
-            if (firstJobCenter)
-            {
-                firstJobCenter.ChangeInputDir(RoadGroupDic[_groupCount][1]);
-            }
-
-            var lastJobCenter = Util.GetBuilding<JobCenter>(_lastPos);
-            if (lastJobCenter)
-            {
-                lastJobCenter.ChangeInputDir(RoadGroupDic[_groupCount][GetGroupLastIndex() - 1]);
-            }
-        }
     }
 
     private Vector3Int GetGroupLastPos() => RoadGroupDic[_groupCount][RoadGroupDic[_groupCount].Count - 1];

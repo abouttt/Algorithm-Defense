@@ -5,17 +5,23 @@ using UnityEngine;
 
 public class CastleGate : BaseBuilding
 {
-    public void TakeDamage()
-    {
-        
-    }
+    private Queue<CitizenData> _citizenOrderQueue = new();
+    private bool _isReleasing;
 
     public override void EnterTheBuilding(CitizenController citizen)
     {
-        EnqueueCitizen(citizen);
+        _citizenOrderQueue.Enqueue(citizen.Data);
+
+        Managers.Resource.Destroy(citizen.gameObject);
+
+        if (!_isReleasing)
+        {
+            _isReleasing = true;
+            StartCoroutine(ReleaseCitizen());
+        }
     }
 
-    protected override IEnumerator ReleaseCitizen()
+    protected IEnumerator ReleaseCitizen()
     {
         while (true)
         {
@@ -27,9 +33,8 @@ public class CastleGate : BaseBuilding
 
             yield return new WaitForSeconds(_releaseTime);
 
-            var citizen = DequeueCitizen();
+            var citizen = DequeueCitizen(_citizenOrderQueue);
 
-            // 이곳에서 전투유닛 관련 컴포넌트를 삽입한다.
             if (citizen.Data.JobType != Define.Job.None)
             {
                 citizen.Data.MoveType = Define.Move.Up;

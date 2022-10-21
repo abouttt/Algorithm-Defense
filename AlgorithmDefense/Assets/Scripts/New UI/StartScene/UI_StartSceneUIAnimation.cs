@@ -146,7 +146,7 @@ public class UI_StartSceneUIAnimation : MonoBehaviour
                     SoundController.GetInstance.BtnClick();
 
                     //다른 씬으로 데이터를 보내기위한 일시저장 변수(유니티가 알아서 저장해줌)
-                    PlayerPrefs.SetInt("Num", _dataSlot[index].stageNum);
+                    PlayerPrefs.SetInt("StageNum", _dataSlot[index].stageNum);
 
                     SceneManager.LoadScene("GameScene");
 

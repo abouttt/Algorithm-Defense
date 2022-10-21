@@ -17,7 +17,7 @@ public class GoldMine : BaseBuilding
         Managers.Resource.Destroy(citizen.gameObject);
     }
 
-    protected override IEnumerator ReleaseCitizen()
+    protected IEnumerator ReleaseCitizen()
     {
         yield return null;
     }

@@ -14,7 +14,7 @@ public class MonsterGate : BaseBuilding
         
     }
 
-    protected override IEnumerator ReleaseCitizen()
+    protected IEnumerator ReleaseCitizen()
     {
         yield return null;
     }
