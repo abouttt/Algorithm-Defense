@@ -9,11 +9,11 @@ public abstract class UI_BaseBuildingController : MonoBehaviour
     public abstract void Clear();
     public void DestructionButtonClick()
     {
-        var cellPos = Managers.Tile.GetGrid().WorldToCell(CurrentBuilding.transform.position);
+        var cellPos = TileManager.GetInstance.GetGrid().WorldToCell(CurrentBuilding.transform.position);
 
         //건물 삭제
-        Managers.Tile.SetTile(Define.Tilemap.Building, cellPos, null);
-        Managers.Tile.SetTile(Define.Tilemap.Road, cellPos, null);
+        TileManager.GetInstance.SetTile(Define.Tilemap.Building, cellPos, null);
+        TileManager.GetInstance.SetTile(Define.Tilemap.Road, cellPos, null);
 
         //UI 닫기
         UI_BuildingMenager.GetInstance.CloseUIController();

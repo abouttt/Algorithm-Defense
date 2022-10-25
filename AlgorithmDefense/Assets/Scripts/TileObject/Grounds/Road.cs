@@ -1,9 +1,6 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Tilemaps;
-
 
 public class Road : MonoBehaviour
 {
@@ -31,7 +28,7 @@ public class Road : MonoBehaviour
         if (Index > 0)
         {
             var backCellPos = RoadBuilder.GetInstance.RoadGroupDic[GroupNumber][Index - 1];
-            var go = Managers.Tile.GetTilemap(Define.Tilemap.WillRoad).GetInstantiatedObject(backCellPos);
+            var go = TileManager.GetInstance.GetTilemap(Define.Tilemap.WillRoad).GetInstantiatedObject(backCellPos);
             if (go)
             {
                 go.GetComponent<Road>().Rule(backCellPos);
@@ -41,7 +38,7 @@ public class Road : MonoBehaviour
 
     private void Rule(Vector3Int pos)
     {
-        Tile nextTile = Managers.Resource.Load<Tile>($"{Define.ROAD_TILE_PATH}Road_B");
+        Define.Road roadType = Define.Road.B;
 
         if (IsStartRoad)
         {
@@ -60,15 +57,15 @@ public class Road : MonoBehaviour
 
             if (gapPos == Vector3.down)
             {
-                nextTile = Managers.Resource.Load<Tile>($"{Define.ROAD_TILE_PATH}Road_UD");
+                roadType = Define.Road.UD;
             }
             else if (gapPos == Vector3.right)
             {
-                nextTile = Managers.Resource.Load<Tile>($"{Define.ROAD_TILE_PATH}Road_CUL");
+                roadType = Define.Road.CUL;
             }
             else if (gapPos == Vector3.left)
             {
-                nextTile = Managers.Resource.Load<Tile>($"{Define.ROAD_TILE_PATH}Road_CUR");
+                roadType = Define.Road.CUR;
             }
         }
         else
@@ -92,38 +89,38 @@ public class Road : MonoBehaviour
             {
                 if (backGapCellPos == Vector3Int.up)
                 {
-                    nextTile = Managers.Resource.Load<Tile>($"{Define.ROAD_TILE_PATH}Road_BD");
+                    roadType = Define.Road.BD;
                 }
                 else if (backGapCellPos == Vector3Int.down)
                 {
-                    nextTile = Managers.Resource.Load<Tile>($"{Define.ROAD_TILE_PATH}Road_BU");
+                    roadType = Define.Road.BU;
                 }
                 else if (backGapCellPos == Vector3Int.left)
                 {
-                    nextTile = Managers.Resource.Load<Tile>($"{Define.ROAD_TILE_PATH}Road_BR");
+                    roadType = Define.Road.BR;
                 }
                 else if (backGapCellPos == Vector3Int.right)
                 {
-                    nextTile = Managers.Resource.Load<Tile>($"{Define.ROAD_TILE_PATH}Road_BL");
+                    roadType = Define.Road.BL;
                 }
             }
             else if (!backGapCellPos.HasValue && frontGapCellPos.HasValue)
             {
                 if (frontGapCellPos == Vector3Int.up)
                 {
-                    nextTile = Managers.Resource.Load<Tile>($"{Define.ROAD_TILE_PATH}Road_BD");
+                    roadType = Define.Road.BD;
                 }
                 else if (frontGapCellPos == Vector3Int.down)
                 {
-                    nextTile = Managers.Resource.Load<Tile>($"{Define.ROAD_TILE_PATH}Road_BU");
+                    roadType = Define.Road.BU;
                 }
                 else if (frontGapCellPos == Vector3Int.left)
                 {
-                    nextTile = Managers.Resource.Load<Tile>($"{Define.ROAD_TILE_PATH}Road_BR");
+                    roadType = Define.Road.BR;
                 }
                 else if (frontGapCellPos == Vector3Int.right)
                 {
-                    nextTile = Managers.Resource.Load<Tile>($"{Define.ROAD_TILE_PATH}Road_BL");
+                    roadType = Define.Road.BL;
                 }
             }
             else if (backGapCellPos.HasValue && frontGapCellPos.HasValue)
@@ -134,44 +131,41 @@ public class Road : MonoBehaviour
                 if (absBackGapCellPos == Vector3Int.up &&
                     absFrontGapCellPos == Vector3Int.up)
                 {
-                    nextTile = Managers.Resource.Load<Tile>($"{Define.ROAD_TILE_PATH}Road_UD");
+                    roadType = Define.Road.UD;
                 }
                 else if (absBackGapCellPos == Vector3Int.right &&
                          absFrontGapCellPos == Vector3Int.right)
                 {
-                    nextTile = Managers.Resource.Load<Tile>($"{Define.ROAD_TILE_PATH}Road_LR");
+                    roadType = Define.Road.LR;
                 }
                 else if ((backGapCellPos == Vector3Int.right && frontGapCellPos == Vector3Int.up) ||
                          (backGapCellPos == Vector3Int.up && frontGapCellPos == Vector3Int.right))
                 {
-                    nextTile = Managers.Resource.Load<Tile>($"{Define.ROAD_TILE_PATH}Road_CUL");
+                    roadType = Define.Road.CUL;
                 }
                 else if ((backGapCellPos == Vector3Int.left && frontGapCellPos == Vector3Int.up) ||
                          (backGapCellPos == Vector3Int.up && frontGapCellPos == Vector3Int.left))
                 {
-                    nextTile = Managers.Resource.Load<Tile>($"{Define.ROAD_TILE_PATH}Road_CUR");
+                    roadType = Define.Road.CUR;
                 }
                 else if ((backGapCellPos == Vector3Int.right && frontGapCellPos == Vector3Int.down) ||
                          (backGapCellPos == Vector3Int.down && frontGapCellPos == Vector3Int.right))
                 {
-                    nextTile = Managers.Resource.Load<Tile>($"{Define.ROAD_TILE_PATH}Road_CDL");
+                    roadType = Define.Road.CDL;
                 }
                 else if ((backGapCellPos == Vector3Int.left && frontGapCellPos == Vector3Int.down) ||
                         (backGapCellPos == Vector3Int.down && frontGapCellPos == Vector3Int.left))
                 {
-                    nextTile = Managers.Resource.Load<Tile>($"{Define.ROAD_TILE_PATH}Road_CDR");
+                    roadType = Define.Road.CDR;
                 }
             }
         }
 
-        if (nextTile)
-        {
-            Managers.Tile.SetTile(Define.Tilemap.WillRoad, pos, nextTile);
-            var go = Managers.Tile.GetTilemap(Define.Tilemap.WillRoad).GetInstantiatedObject(pos);
-            var road = go.GetComponent<Road>();
-            road.GroupNumber = GroupNumber;
-            road.Index = Index;
-            road.IsStartRoad = IsStartRoad;
-        }
+        TileManager.GetInstance.SetTile(Define.Tilemap.WillRoad, pos, roadType);
+        var go = TileManager.GetInstance.GetTilemap(Define.Tilemap.WillRoad).GetInstantiatedObject(pos);
+        var road = go.GetComponent<Road>();
+        road.GroupNumber = GroupNumber;
+        road.Index = Index;
+        road.IsStartRoad = IsStartRoad;
     }
 }

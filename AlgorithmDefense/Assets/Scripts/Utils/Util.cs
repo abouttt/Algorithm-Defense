@@ -86,7 +86,7 @@ public static class Util
 
     public static Road GetRoad(Define.Tilemap tilemap, Vector3Int pos)
     {
-        var go = Managers.Tile.GetTilemap(tilemap).GetInstantiatedObject(pos);
+        var go = TileManager.GetInstance.GetTilemap(tilemap).GetInstantiatedObject(pos);
         if (go)
         {
             return go.GetComponent<Road>();
@@ -97,7 +97,7 @@ public static class Util
 
     public static T GetBuilding<T>(Vector3Int pos) where T : UnityEngine.Component
     {
-        var go = Managers.Tile.GetTilemap(Define.Tilemap.Building).GetInstantiatedObject(pos);
+        var go = TileManager.GetInstance.GetTilemap(Define.Tilemap.Building).GetInstantiatedObject(pos);
         if (go)
         {
             return go.GetComponent<T>();

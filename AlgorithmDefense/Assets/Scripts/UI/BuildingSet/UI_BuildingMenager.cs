@@ -51,7 +51,7 @@ public class UI_BuildingMenager : MonoBehaviour
 
         _currentShowUIController.gameObject.SetActive(true);
 
-        var pos = Managers.Tile.GetWorldToCellCenterToWorld(Define.Tilemap.Building, go.transform.position);
+        var pos = TileManager.GetInstance.GetWorldToCellCenterToWorld(Define.Tilemap.Building, go.transform.position);
         _currentShowUIController.transform.GetChild(0).position = pos;
 
 

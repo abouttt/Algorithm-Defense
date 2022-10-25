@@ -33,9 +33,8 @@ public class GameScene : MonoBehaviour
 
     private Transform _contentsRoot;
 
-    private void Start()
+    private void Awake()
     {
-        InitTileObjects();
         InitCamera();
         InitContents();
         InitGround();
@@ -54,6 +53,11 @@ public class GameScene : MonoBehaviour
     private void InitContents()
     {
         _contentsRoot = Util.CreateGameObject("@Contens_Root").transform;
+
+        if (!FindObjectOfType<TileManager>())
+        {
+            Managers.Resource.Instantiate($"{Define.CONTENTS_PATH}@TileManager").transform.SetParent(_contentsRoot);
+        }
 
         if (!FindObjectOfType<MouseController>())
         {
@@ -79,29 +83,9 @@ public class GameScene : MonoBehaviour
     private void InitGround()
     {
         int stageNumber = PlayerPrefs.GetInt("Num");
-        var go =Managers.Resource.Instantiate($"{Define.GROUND_PREFAB_PATH}Ground_{stageNumber}");
+        var go = Managers.Resource.Instantiate($"{Define.GROUND_PREFAB_PATH}Ground_{stageNumber}");
         go.transform.position = new Vector3(5f, 5.5f, 0f);
-        go.transform.SetParent(Managers.Tile.GetGrid().transform);
-    }
-
-    public void InitTileObjects()
-    {
-        var buildingNames = Enum.GetNames(typeof(Define.Building));
-        Tile buildingTile = null;
-        foreach (var buildingName in buildingNames)
-        {
-            buildingTile = Managers.Resource.Load<Tile>($"{Define.BUILDING_TILE_PATH}{buildingName}");
-            buildingTile.gameObject = Managers.Resource.Load<GameObject>($"{Define.BUILDING_PREFAB_PATH}{buildingName}");
-            buildingTile.color = Color.white;
-        }
-
-        var roadNames = Enum.GetNames(typeof(Define.Road));
-        Tile roadTile = null;
-        foreach (var roadName in roadNames)
-        {
-            roadTile = Managers.Resource.Load<Tile>($"{Define.ROAD_TILE_PATH}Road_{roadName}");
-            roadTile.gameObject = Managers.Resource.Load<GameObject>($"{Define.ROAD_PREFAB_PATH}Road_{roadName}");
-        }
+        go.transform.SetParent(TileManager.GetInstance.GetGrid().transform);
     }
 
     private void InitRampart()
@@ -113,21 +97,21 @@ public class GameScene : MonoBehaviour
 
         for (int x = StartPosition.x + 1; x < RampartWidth - 1; x++)
         {
-            Managers.Tile.SetTile(Define.Tilemap.Rampart, new Vector3Int(x, StartPosition.y, 0), rampartLR);
-            Managers.Tile.SetTile(Define.Tilemap.Rampart, new Vector3Int(x, RampartHeight - 1, 0), rampartLR);
+            TileManager.GetInstance.SetTile(Define.Tilemap.Rampart, new Vector3Int(x, StartPosition.y, 0), rampartLR);
+            TileManager.GetInstance.SetTile(Define.Tilemap.Rampart, new Vector3Int(x, RampartHeight - 1, 0), rampartLR);
         }
 
         for (int y = StartPosition.y + 1; y < RampartHeight - 1; y++)
         {
-            Managers.Tile.SetTile(Define.Tilemap.Rampart, new Vector3Int(StartPosition.x, y, 0), rampartUD);
-            Managers.Tile.SetTile(Define.Tilemap.Rampart, new Vector3Int(RampartWidth - 1, y, 0), rampartUD);
+            TileManager.GetInstance.SetTile(Define.Tilemap.Rampart, new Vector3Int(StartPosition.x, y, 0), rampartUD);
+            TileManager.GetInstance.SetTile(Define.Tilemap.Rampart, new Vector3Int(RampartWidth - 1, y, 0), rampartUD);
         }
 
-        Managers.Tile.SetTile(Define.Tilemap.Rampart, StartPosition, rampartCL);
-        Managers.Tile.SetTile(Define.Tilemap.Rampart, new Vector3Int(StartPosition.x, RampartHeight - 1, 0), rampartCL);
+        TileManager.GetInstance.SetTile(Define.Tilemap.Rampart, StartPosition, rampartCL);
+        TileManager.GetInstance.SetTile(Define.Tilemap.Rampart, new Vector3Int(StartPosition.x, RampartHeight - 1, 0), rampartCL);
 
-        Managers.Tile.SetTile(Define.Tilemap.Rampart, new Vector3Int(RampartWidth - 1, StartPosition.y, 0), rampartCR);
-        Managers.Tile.SetTile(Define.Tilemap.Rampart, new Vector3Int(RampartWidth - 1, RampartHeight - 1, 0), rampartCR);
+        TileManager.GetInstance.SetTile(Define.Tilemap.Rampart, new Vector3Int(RampartWidth - 1, StartPosition.y, 0), rampartCR);
+        TileManager.GetInstance.SetTile(Define.Tilemap.Rampart, new Vector3Int(RampartWidth - 1, RampartHeight - 1, 0), rampartCR);
     }
 
     private void InitSpawn()
@@ -137,18 +121,13 @@ public class GameScene : MonoBehaviour
 
     private void InitBattleLine()
     {
-        var castleGate = Managers.Resource.Load<Tile>($"{Define.BUILDING_TILE_PATH}{Define.Building.CastleGate}");
-        var bdRoad = Managers.Resource.Load<Tile>($"{Define.ROAD_TILE_PATH}Road_BD");
-        var udRoad = Managers.Resource.Load<Tile>($"{Define.ROAD_TILE_PATH}Road_UD");
-        var monsterCenter = Managers.Resource.Load<Tile>($"{Define.BUILDING_TILE_PATH}{Define.Building.MonsterGate}");
-
         // 성벽 / 몬스터 스폰 지역 설치.
         for (int x = 1; x <= 5; x += 2)
         {
-            Managers.Tile.SetTile(Define.Tilemap.Rampart, new Vector3Int(StartPosition.x + x, RampartHeight - 1, 0), null);
+            TileManager.GetInstance.SetTile(Define.Tilemap.Rampart, new Vector3Int(StartPosition.x + x, RampartHeight - 1, 0), null);
 
-            Managers.Tile.SetTile(Define.Tilemap.Building, new Vector3Int(StartPosition.x + x, RampartHeight - 1, 0), castleGate);
-            Managers.Tile.SetTile(Define.Tilemap.Building, new Vector3Int(StartPosition.x + x, RampartHeight + BattleLineLength, 0), monsterCenter);
+            TileManager.GetInstance.SetTile(Define.Tilemap.Building, new Vector3Int(StartPosition.x + x, RampartHeight - 1, 0), Define.Building.CastleGate);
+            TileManager.GetInstance.SetTile(Define.Tilemap.Building, new Vector3Int(StartPosition.x + x, RampartHeight + BattleLineLength, 0), Define.Building.MonsterGate);
         }
 
         // 길 설치.
@@ -156,10 +135,10 @@ public class GameScene : MonoBehaviour
         {
             for (int y = 0; y < BattleLineLength; y++)
             {
-                Managers.Tile.SetTile(Define.Tilemap.Road, new Vector3Int(StartPosition.x + x, RampartHeight + y, 0), udRoad);
+                TileManager.GetInstance.SetTile(Define.Tilemap.Road, new Vector3Int(StartPosition.x + x, RampartHeight + y, 0), Define.Road.UD);
             }
 
-            Managers.Tile.SetTile(Define.Tilemap.Road, new Vector3Int(StartPosition.x + x, RampartHeight + BattleLineLength, 0), bdRoad);
+            TileManager.GetInstance.SetTile(Define.Tilemap.Road, new Vector3Int(StartPosition.x + x, RampartHeight + BattleLineLength, 0), Define.Road.BD);
         }
     }
 }
