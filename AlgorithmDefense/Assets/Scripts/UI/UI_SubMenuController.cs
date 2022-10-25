@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class UI_SubMenuController : MonoBehaviour
 {
@@ -30,32 +32,69 @@ public class UI_SubMenuController : MonoBehaviour
         if (Input.GetButtonDown("Cancel"))//esc버튼 클릭
         {
             EarlySet.SetActive(true);       //초기화면 키기
-            SattingSet.SetActive(false);    //설정화면 끄기
-            Resolution.SetActive(false);    //해상도화면 끄기
-            Sound.SetActive(false);         //소리화면 끄기
+            //SattingSet.SetActive(false);    //설정화면 끄기
+            //Resolution.SetActive(false);    //해상도화면 끄기
+            //Sound.SetActive(false);         //소리화면 끄기
 
             //이미 메뉴가 열린 상태라면
             if (SubMenuSet.activeSelf)
             {
                 //전체닫기
                 SubMenuSet.SetActive(false);
-                MainMenuSet.SetActive(true);
+                Time.timeScale = 1f;
+                //MainMenuSet.SetActive(true);
             }
             else//아니면
             {
                 //열기
                 SubMenuSet.SetActive(true);
-                MainMenuSet.SetActive(false);
+                Time.timeScale = 0f;
+                //MainMenuSet.SetActive(false);
             }
 
         }
 
     }
 
-    //종료버튼
-    public void GameExit()
+    public void SubMenuOpen()
     {
-        //종료
-        Application.Quit();
+        //Game씬(1번)다시 시작
+        Time.timeScale = 0f;
+        SubMenuSet.SetActive(true);
     }
+
+    public void ContinueStage()
+    {
+        //Game씬(1번)다시 시작
+        Time.timeScale = 1f;
+        SubMenuSet.SetActive(false);
+    }
+
+
+    //다시하기
+    public void NowStageAgain()
+    {
+        //Game씬(1번)다시 시작
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(1);
+    }
+
+    public void BackStartScene()
+    {
+        //시작화면으로 이동
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(0);
+    }
+
+
+
+
+
+
+    ////종료버튼
+    //public void GameExit()
+    //{
+    //    //종료
+    //    Application.Quit();
+    //}
 }

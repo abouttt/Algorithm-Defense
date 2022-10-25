@@ -3,22 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class TileManager : MonoBehaviour
+public class TileManager
 {
-    private static TileManager s_instance;
-    public static TileManager GetInstance { get { Init(); return s_instance; } }
-
     private Grid _grid;
-    private Dictionary<Define.Tilemap, Tilemap> _tilemaps = new();
-    private Dictionary<Define.Road, TileBase> _roadTiles = new();
-    private Dictionary<Define.Building, TileBase> _buildingTiles = new();
+    private Dictionary<Define.Tilemap, Tilemap> _tilemaps = new Dictionary<Define.Tilemap, Tilemap>();
 
-    private void Awake()
+    public void Init()
     {
-        _grid = FindObjectOfType<Grid>();
+        _grid = UnityEngine.Object.FindObjectOfType<Grid>();
 
-        InitTilemap();
-        InitTileObject();
+        var names = Enum.GetNames(typeof(Define.Tilemap));
+        for (int i = 0; i < names.Length; i++)
+        {
+            var tilemap = Util.FindChild<Tilemap>(_grid.gameObject, $"Tilemap_{names[i]}", recursive: false);
+            if (tilemap != null)
+            {
+                Define.Tilemap type = (Define.Tilemap)Enum.Parse(typeof(Define.Tilemap), names[i]);
+                _tilemaps.Add(type, tilemap);
+            }
+            else
+            {
+                Debug.Log($"[TileManager] Failed to find tilemap : {names[i]}");
+            }
+        }
     }
 
     public Grid GetGrid() => _grid;
@@ -49,63 +56,16 @@ public class TileManager : MonoBehaviour
         return _tilemaps[tilemap].GetCellCenterWorld(cellPos);
     }
 
-    public void SetTile(Define.Tilemap tilemap, Vector3Int cellPos, TileBase tile)
-        => _tilemaps[tilemap].SetTile(cellPos, tile);
-
-    public void SetTile(Define.Tilemap tilemap, Vector3Int cellPos, Define.Road road)
-        => _tilemaps[tilemap].SetTile(cellPos, _roadTiles[road]);
-
-    public void SetTile(Define.Tilemap tilemap, Vector3Int cellPos, Define.Building building)
-        => _tilemaps[tilemap].SetTile(cellPos, _buildingTiles[building]);
-
-    private void InitTilemap()
+    public TileBase SetTile(Define.Tilemap tilemap, Vector3Int cellPos, TileBase tile)
     {
-        var names = Enum.GetNames(typeof(Define.Tilemap));
-        for (int i = 0; i < names.Length; i++)
-        {
-            var tilemap = Util.FindChild<Tilemap>(_grid.gameObject, $"Tilemap_{names[i]}", recursive: false);
-            if (tilemap != null)
-            {
-                Define.Tilemap type = (Define.Tilemap)Enum.Parse(typeof(Define.Tilemap), names[i]);
-                _tilemaps.Add(type, tilemap);
-            }
-            else
-            {
-                Debug.Log($"[TileManager] Failed to find tilemap : {names[i]}");
-            }
-        }
+        _tilemaps[tilemap].SetTile(cellPos, tile);
+        return tile;
     }
 
-    private void InitTileObject()
+    public TileBase SetTile(Define.Tilemap tilemap, Vector3 pos, TileBase tile)
     {
-        var buildingNames = Enum.GetNames(typeof(Define.Building));
-        foreach (var buildingName in buildingNames)
-        {
-            var buildingTile = Instantiate(Managers.Resource.Load<Tile>($"{Define.BUILDING_TILE_PATH}{buildingName}"));
-            buildingTile.gameObject = Managers.Resource.Load<GameObject>($"{Define.BUILDING_PREFAB_PATH}{buildingName}");
-            _buildingTiles.Add((Define.Building)Enum.Parse(typeof(Define.Building), buildingName), buildingTile);
-        }
-
-        var roadNames = Enum.GetNames(typeof(Define.Road));
-        foreach (var roadName in roadNames)
-        {
-            var roadTile = Instantiate(Managers.Resource.Load<Tile>($"{Define.ROAD_TILE_PATH}Road_{roadName}"));
-            roadTile.gameObject = Managers.Resource.Load<GameObject>($"{Define.ROAD_PREFAB_PATH}Road_{roadName}");
-            _roadTiles.Add((Define.Road)Enum.Parse(typeof(Define.Road), roadName), roadTile);
-        }
-    }
-
-    private static void Init()
-    {
-        if (s_instance == null)
-        {
-            var go = GameObject.Find("@TileManager");
-            if (!go)
-            {
-                go = Util.CreateGameObject<TileManager>("@TileManager");
-            }
-
-            s_instance = go.GetComponent<TileManager>();
-        }
+        var cellPos = GetWorldToCell(tilemap, pos);
+        _tilemaps[tilemap].SetTile(cellPos, tile);
+        return tile;
     }
 }

@@ -20,7 +20,7 @@ public class UI_CitizenCountController : UI_BaseBuildingController
     //생성된 프리탭 데이터
     //private GatewayWithCount _withCount;
     //오류출력 TEXT
-    private UI_NoticeTextSet GetNoticeInstance;
+    //private UI_NoticeTextSet GetNoticeInstance;
 
 
     private void OnEnable()

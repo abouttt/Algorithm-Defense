@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 
 public class UI_TileSpawnController : MonoBehaviour
 {
@@ -15,7 +15,7 @@ public class UI_TileSpawnController : MonoBehaviour
         public Sprite ButtonSprite; //버튼 이미지
         public int _cost;           //가격
         [HideInInspector]
-        public Text CostText;       //가격 텍스트
+        public TextMeshProUGUI CostText;       //가격 텍스트
         [HideInInspector]
         public Button ButtonObj;   //생성된 버튼 오브젝트 정보
     }
@@ -57,7 +57,7 @@ public class UI_TileSpawnController : MonoBehaviour
 
 
             //생성된 버튼의 좌표와 이미지 변경
-            newButton.transform.localPosition = new Vector3(newButton.transform.localPosition.x + 150f * i, newButton.transform.localPosition.y, newButton.transform.localPosition.z);
+            newButton.transform.localPosition = new Vector3(newButton.transform.localPosition.x + 250f * i, newButton.transform.localPosition.y, newButton.transform.localPosition.z);
             newButton.GetComponent<Image>().sprite = btn_Slot[i].ButtonSprite;
 
 
@@ -65,7 +65,7 @@ public class UI_TileSpawnController : MonoBehaviour
 
             //현재 버튼의 하위 항목 찾기(obj.text)
             GameObject buttonText = newButton.transform.Find("Text").gameObject;
-            btn_Slot[i].CostText = buttonText.GetComponent<Text>();
+            btn_Slot[i].CostText = buttonText.GetComponent<TextMeshProUGUI>();
 
             //찾은 text에 cost를 형변환해서 변경함
             string conversion = btn_Slot[i]._cost.ToString();
@@ -76,7 +76,18 @@ public class UI_TileSpawnController : MonoBehaviour
             btn_Slot[index].ButtonObj.onClick.AddListener(() =>
             {
 
-                TileButtonOnClick(index);
+                //TileButtonOnClick(index);
+
+                int firstGoid = Managers.Game.Gold;
+
+                GoldAnimation.GetInstance.GoldExpenditure(btn_Slot[index]._cost);
+
+                if(firstGoid>= btn_Slot[index]._cost)
+                {
+                    Debug.Log("스킬실행");
+
+                }
+
 
             });
 

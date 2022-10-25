@@ -26,7 +26,7 @@ public class MouseController : MonoBehaviour
     private void Update()
     {
         MouseWorldPos = _camera.ScreenToWorldPoint(Input.mousePosition);
-        MouseCellPos = TileManager.GetInstance.GetGrid().WorldToCell(MouseWorldPos);
+        MouseCellPos = Managers.Tile.GetGrid().WorldToCell(MouseWorldPos);
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -41,7 +41,7 @@ public class MouseController : MonoBehaviour
                 return;
             }
 
-            var go = TileManager.GetInstance.GetTilemap(Define.Tilemap.Building).GetInstantiatedObject(MouseCellPos);
+            var go = Managers.Tile.GetTilemap(Define.Tilemap.Building).GetInstantiatedObject(MouseCellPos);
             if (go)
             {
                 var building = go.GetComponent<BaseBuilding>();
@@ -79,17 +79,17 @@ public class MouseController : MonoBehaviour
             }
 
             // 길 삭제.
-            var go = TileManager.GetInstance.GetTilemap(Define.Tilemap.Road).GetInstantiatedObject(MouseCellPos);
+            var go = Managers.Tile.GetTilemap(Define.Tilemap.Road).GetInstantiatedObject(MouseCellPos);
             if (go)
             {
                 RoadBuilder.GetInstance.RemoveRoads(go.GetComponent<Road>().GroupNumber);
             }
 
             // 건물 삭제.
-            var building = TileManager.GetInstance.GetTile(Define.Tilemap.Building, MouseCellPos);
+            var building = Managers.Tile.GetTile(Define.Tilemap.Building, MouseCellPos);
             if (building)
             {
-                TileManager.GetInstance.SetTile(Define.Tilemap.Building, MouseCellPos, null);
+                Managers.Tile.SetTile(Define.Tilemap.Building, MouseCellPos, null);
             }
         }
     }
