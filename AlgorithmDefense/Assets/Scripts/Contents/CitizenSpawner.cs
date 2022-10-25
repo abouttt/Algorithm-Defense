@@ -51,12 +51,14 @@ public class CitizenSpawner : MonoBehaviour
         _spawnCellPos = spawnPos;
         _spawnTime = spawnTime;
 
-        var bu = Managers.Resource.Load<TileBase>($"{Define.ROAD_TILE_PATH}Road_BU");
-        var db = Managers.Resource.Load<TileBase>($"{Define.ROAD_TILE_PATH}Road_BD");
-        Managers.Tile.SetTile(Define.Tilemap.Road, spawnPos, bu);
-        Managers.Tile.SetTile(Define.Tilemap.Road, spawnPos + Vector3Int.up, db);
+        //var bu = Managers.Resource.Load<TileBase>($"{Define.ROAD_TILE_PATH}Road_BU");
+        //var db = Managers.Resource.Load<TileBase>($"{Define.ROAD_TILE_PATH}Road_BD");
+        TileManager.GetInstance.SetTile(Define.Tilemap.Road, spawnPos, Define.Road.BU);
+        TileManager.GetInstance.SetTile(Define.Tilemap.Road, spawnPos + Vector3Int.up, Define.Road.BD);
+        //TileManager.GetInstance.SetTile(Define.Tilemap.Road, spawnPos, bu);
+        //TileManager.GetInstance.SetTile(Define.Tilemap.Road, spawnPos + Vector3Int.up, db);
 
-        var go = Managers.Tile.GetTilemap(Define.Tilemap.Road).GetInstantiatedObject(spawnPos + Vector3Int.up);
+        var go = TileManager.GetInstance.GetTilemap(Define.Tilemap.Road).GetInstantiatedObject(spawnPos + Vector3Int.up);
         go.GetComponent<Road>().IsStartRoad = true;
     }
 
@@ -73,7 +75,7 @@ public class CitizenSpawner : MonoBehaviour
             _spawnTarget = CitizenSpawnList[_spawnIndex];
             _spawnIndex = ++_spawnIndex < CitizenSpawnList.Length ? _spawnIndex : 0;
 
-            var pos = Managers.Tile.GetCellCenterToWorld(Define.Tilemap.Ground, _spawnCellPos);
+            var pos = TileManager.GetInstance.GetCellCenterToWorld(Define.Tilemap.Ground, _spawnCellPos);
             var go = Managers.Resource.Instantiate($"{Define.CITIZEN_PATH}{_spawnTarget}Citizen", pos);
             var citizen = go.GetOrAddComponent<CitizenController>();
             citizen.Data.CitizenType = _spawnTarget;

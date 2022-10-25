@@ -83,7 +83,6 @@ public class StageTileInformation : MonoBehaviour
 
                         //필드생성 불러오기
 
-                        var tile = Managers.Resource.Load<TileBase>($"{Define.BUILDING_TILE_PATH}{Define.Building.Gateway}");
                         for (int y = 0; y < 5; y++)
                         {
                             for (int x = 0; x < 5; x++)
@@ -93,13 +92,12 @@ public class StageTileInformation : MonoBehaviour
                                     continue;
                                 }
 
-                                tile = Managers.Resource.Load<TileBase>($"{Define.BUILDING_TILE_PATH}{(Define.Building)StageTileData[y][x]}");
-                                Managers.Tile.SetTile(
+                                TileManager.GetInstance.SetTile(
                                     Define.Tilemap.Building,
                                     new Vector3Int(
                                         Managers.Game.Setting.StartPosition.x + x + 1,
-                                        Managers.Game.Setting.StartPosition.y + y + 1, 0), 
-                                        tile);
+                                        Managers.Game.Setting.StartPosition.y + y + 1, 0),
+                                        (Define.Building)StageTileData[y][x]);
                             }
                         }
 

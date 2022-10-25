@@ -21,7 +21,7 @@ public class CitizenController : MonoBehaviour
 
     public void SetNextDestination(Vector3 startPosition)
     {
-        var cellPos = Managers.Tile.GetWorldToCell(Define.Tilemap.Ground, startPosition);
+        var cellPos = TileManager.GetInstance.GetWorldToCell(Define.Tilemap.Ground, startPosition);
         switch (Data.MoveType)
         {
             case Define.Move.Down:
@@ -46,7 +46,7 @@ public class CitizenController : MonoBehaviour
                 break;
         }
 
-        Data.Destination = Managers.Tile.GetCellCenterToWorld(Define.Tilemap.Ground, cellPos);
+        Data.Destination = TileManager.GetInstance.GetCellCenterToWorld(Define.Tilemap.Ground, cellPos);
     }
 
     public void SetReverseMoveType()
@@ -72,7 +72,7 @@ public class CitizenController : MonoBehaviour
     {
         transform.position = Vector2.MoveTowards(transform.position, Data.Destination, (Data.MoveSpeed * Time.deltaTime));
 
-        var cellPos = Managers.Tile.GetWorldToCell(Define.Tilemap.Ground, transform.position);
+        var cellPos = TileManager.GetInstance.GetWorldToCell(Define.Tilemap.Ground, transform.position);
         if (Vector2.Distance(transform.position, Data.Destination) <= 0.01f)
         {
             CheckRoad(cellPos);
@@ -93,7 +93,7 @@ public class CitizenController : MonoBehaviour
 
     private void CheckRoad(Vector3Int pos)
     {
-        var go = Managers.Tile.GetTilemap(Define.Tilemap.Road).GetInstantiatedObject(pos);
+        var go = TileManager.GetInstance.GetTilemap(Define.Tilemap.Road).GetInstantiatedObject(pos);
         if (!go)
         {
             return;

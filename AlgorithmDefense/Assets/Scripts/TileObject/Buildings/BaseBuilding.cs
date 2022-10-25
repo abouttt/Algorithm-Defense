@@ -42,7 +42,7 @@ public abstract class BaseBuilding : MonoBehaviour
 
     protected void SetCitizenPosition(CitizenController citizen)
     {
-        var pos = Managers.Tile.GetWorldToCellCenterToWorld(Define.Tilemap.Ground, transform.position);
+        var pos = TileManager.GetInstance.GetWorldToCellCenterToWorld(Define.Tilemap.Ground, transform.position);
 
         switch (citizen.Data.MoveType)
         {
@@ -65,7 +65,7 @@ public abstract class BaseBuilding : MonoBehaviour
 
     protected bool HasRoadNextPosition(Define.Move moveType)
     {
-        var nextPos = Managers.Tile.GetWorldToCell(Define.Tilemap.Ground, transform.position);
+        var nextPos = TileManager.GetInstance.GetWorldToCell(Define.Tilemap.Ground, transform.position);
 
         switch (moveType)
         {
