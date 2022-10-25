@@ -1313,6 +1313,8 @@ MonoBehaviour:
   CameraY: 7.5
   CameraZ: -10
   CameraSize: 7.5
+  CastleMaxHP: 100
+  DungeonMaxHP: 100
   GroundWidth: 7
   GroundHeight: 15
   GrassPercentage: 10
