@@ -22,7 +22,7 @@ public class GameManager
                 _hpBarAnim = Transform.FindObjectOfType<HPBarAnimation>();
             }
 
-            _hpBarAnim.CastleAttacked();
+           // _hpBarAnim.CastleAttacked();
         }
     }
 
@@ -41,7 +41,7 @@ public class GameManager
                 _hpBarAnim = Transform.FindObjectOfType<HPBarAnimation>();
             }
 
-            _hpBarAnim.EnemyAttacked();
+            //_hpBarAnim.EnemyAttacked();
         }
     }
 

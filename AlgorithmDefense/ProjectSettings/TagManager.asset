@@ -48,3 +48,6 @@ TagManager:
   - name: ExitMenu
     uniqueID: 1094313175
     locked: 0
+  - name: LoadingScene
+    uniqueID: 3961767481
+    locked: 0

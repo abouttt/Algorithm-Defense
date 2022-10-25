@@ -8,6 +8,10 @@ using TMPro;
 
 public class GoldAnimation : MonoBehaviour
 {
+
+    private static GoldAnimation s_instance;
+    public static GoldAnimation GetInstance { get { Init(); return s_instance; } }
+
     [SerializeField]
     private TextMeshProUGUI goldText;
     [SerializeField]
@@ -47,7 +51,7 @@ public class GoldAnimation : MonoBehaviour
         goldTextTransform.DOScale(1.2f, 0.2f);
         goldText.DOColor(Color.yellow, 0.3f).OnComplete(() =>
         {
-            goldText.DOColor(Color.white, 0.3f);
+            goldText.DOColor(Color.black, 0.3f);
             goldTextTransform.DOScale(1f, 0.2f);
         });
     }
@@ -64,18 +68,18 @@ public class GoldAnimation : MonoBehaviour
             goldTextTransform.DOScale(0.85f, 0.2f);
             goldText.DOColor(Color.red, 0.3f).OnComplete(() =>
             {
-                goldText.DOColor(Color.white, 0.3f);
+                goldText.DOColor(Color.black, 0.3f);
                 goldTextTransform.DOScale(1f, 0.2f);
             });
-
+          
         }
         else//돈이 부족할 때
         {
             goldTextTransform.DOShakePosition(0.2f, 5, 20, 90, true, false);
             goldText.DOColor(Color.red, 0.3f).OnComplete(() =>
             {
-                goldText.DOColor(Color.white, 0.3f);
-                goldTextTransform.localPosition = new Vector3(-20f, 0f, 0f);
+                goldText.DOColor(Color.black, 0.3f);
+                goldTextTransform.localPosition = new Vector3(50f, 5f, 0f);
             });
 
 
@@ -84,5 +88,18 @@ public class GoldAnimation : MonoBehaviour
 
     }
 
+    private static void Init()
+    {
+        if (!s_instance)
+        {
+            var go = GameObject.Find("MenuManager");
+            if (!go)
+            {
+                go = new GameObject { name = "MenuManager" };
+                go.AddComponent<GoldAnimation>();
+            }
 
+            s_instance = go.GetComponent<GoldAnimation>();
+        }
+    }
 }

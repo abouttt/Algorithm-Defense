@@ -68,7 +68,7 @@ public class TileObjectBuilder : MonoBehaviour
         }
         else
         {
-            TileManager.GetInstance.SetTile(Define.Tilemap.Building, cellPos, tileBase);
+            Managers.Tile.SetTile(Define.Tilemap.Building, cellPos, tileBase);
             Clear();
         }
     }
@@ -81,7 +81,7 @@ public class TileObjectBuilder : MonoBehaviour
         }
 
         IsBuilding = false;
-        TileManager.GetInstance.SetTile(Define.Tilemap.Temp, _prevCellPos, null);
+        Managers.Tile.SetTile(Define.Tilemap.Temp, _prevCellPos, null);
         _targetTile.color = Color.white;
         _targetTile = null;
         _target = null;
@@ -91,11 +91,11 @@ public class TileObjectBuilder : MonoBehaviour
 
     private void CheckCanBuild(Vector3Int cellPos)
     {
-        TileManager.GetInstance.SetTile(Define.Tilemap.Temp, _prevCellPos, null);
+        Managers.Tile.SetTile(Define.Tilemap.Temp, _prevCellPos, null);
 
-        if (TileManager.GetInstance.GetTile(Define.Tilemap.Road, cellPos) ||
-            TileManager.GetInstance.GetTile(Define.Tilemap.Building, cellPos) ||
-            TileManager.GetInstance.GetTile(Define.Tilemap.Rampart, cellPos))
+        if (Managers.Tile.GetTile(Define.Tilemap.Road, cellPos) ||
+            Managers.Tile.GetTile(Define.Tilemap.Building, cellPos) ||
+            Managers.Tile.GetTile(Define.Tilemap.Rampart, cellPos))
         {
             SetCanBuildFalse();
         }
@@ -104,7 +104,7 @@ public class TileObjectBuilder : MonoBehaviour
             SetCanBuildTrue();
         }
 
-        TileManager.GetInstance.SetTile(Define.Tilemap.Temp, cellPos, _targetTile);
+        Managers.Tile.SetTile(Define.Tilemap.Temp, cellPos, _targetTile);
 
         _prevCellPos = cellPos;
     }

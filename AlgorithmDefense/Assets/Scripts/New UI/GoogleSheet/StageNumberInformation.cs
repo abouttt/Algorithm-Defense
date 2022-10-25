@@ -86,6 +86,7 @@ public class StageNumberInformation : MonoBehaviour
             UI_StartSceneUIAnimation.GetInstance.StageUIBar[i].starCount = StageStar[i];
             UI_StartSceneUIAnimation.GetInstance.StageUIBar[i].open = StageOpen[i];
 
+           
         }
 
         //stage메뉴 생성하기 호출

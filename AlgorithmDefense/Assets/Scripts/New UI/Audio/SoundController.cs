@@ -17,6 +17,12 @@ public class SoundController : MonoBehaviour
     private AudioSource endCreditSound;
 
 
+    private void Awake()
+    {
+        backgroundMusic.Stop();
+        buttonClickSound.Stop();
+
+    }
 
 
     public void SetBackgroundMusicVolume(float volume)//¹è°æÀ½ º¼·ý

@@ -19,16 +19,12 @@ public class UI_StartSceneUIAnimation : MonoBehaviour
     private RectTransform stageRectTransform;
     [SerializeField]
     private CanvasGroup mainMenuCanvasGroup;
-
     [SerializeField]
     private GameObject defaultStageUIBar;
     [SerializeField]
     private RectTransform stageButtonContainer;
-
     [SerializeField]
     private RectTransform endCreditsTransform;
-
-
 
     private int _easterEggCount = 0;
 
@@ -54,6 +50,10 @@ public class UI_StartSceneUIAnimation : MonoBehaviour
     private Sprite openImage;
     [SerializeField]
     private Sprite closeImage;
+    [SerializeField]
+    private Sprite starGetImage;
+    [SerializeField]
+    private Sprite starFailImage;
 
 
     private void Start()
@@ -68,7 +68,9 @@ public class UI_StartSceneUIAnimation : MonoBehaviour
         //현재 스테이지 갯수 저장
         PlayerPrefs.SetInt("StageCount", StageUIBar.Length);
 
-        CreateStageUIBar(stageButtonContainer, defaultStageUIBar, StageUIBar);       
+        CreateStageUIBar(stageButtonContainer, defaultStageUIBar, StageUIBar);
+        LoadingControl.GetInstance.LoadingComplete();
+        SoundController.GetInstance.Background();
     }
 
 
@@ -132,7 +134,8 @@ public class UI_StartSceneUIAnimation : MonoBehaviour
             //클리어 갯수만큼 별 노랗게 만듬
             for (int j = 0; j < _dataSlot[i].starCount; j++)
             {
-                _dataSlot[i].starImages[j].color = Color.yellow;
+                //_dataSlot[i].starImages[j].color = Color.yellow;
+                _dataSlot[i].starImages[j].GetComponent<Image>().sprite = starGetImage;
             }
 
 
@@ -201,7 +204,7 @@ public class UI_StartSceneUIAnimation : MonoBehaviour
         foreach (var stage in StageUIBar)
         {
             SoundController.GetInstance.BtnClick();
-            stage.stageUIBarObj.transform.DOScale(1f, 0.5f).SetEase(Ease.OutBounce);
+            stage.stageUIBarObj.transform.DOScale(1f, 0.8f).SetEase(Ease.OutBounce);
             yield return new WaitForSeconds(0.05f);
         }
 
@@ -269,10 +272,10 @@ public class UI_StartSceneUIAnimation : MonoBehaviour
     {
         if (!s_instance)
         {
-            var go = GameObject.Find("ManuManager");
+            var go = GameObject.Find("MenuManager");
             if (!go)
             {
-                go = new GameObject { name = "ManuManager" };
+                go = new GameObject { name = "MenuManager" };
                 go.AddComponent<UI_StartSceneUIAnimation>();
             }
 

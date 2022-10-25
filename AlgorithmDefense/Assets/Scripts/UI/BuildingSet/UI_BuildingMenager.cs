@@ -34,10 +34,31 @@ public class UI_BuildingMenager : MonoBehaviour
             case Define.Building.Gateway:
                 _currentShowUIController = GatewayUIController;
                 break;
+
         }
 
-        _currentShowUIController.CurrentBuilding = go;
+        //ÁÂÇ¥°ª ¼öÁ¤Áß
+
+        //GameObject obj = Instantiate(_currentShowUIController.gameObject, go.transform);
+
+        //var pos = Camera.main.WorldToScreenPoint(go.transform.localPosition);
+        //obj.transform.GetChild(0).localPosition = pos;
+
+        //Debug.Log(pos);
+
+        //obj.GetComponent<UI_BaseBuildingController>().CurrentBuilding = go;
+        //obj.SetActive(true);
+
         _currentShowUIController.gameObject.SetActive(true);
+
+        var pos = Managers.Tile.GetWorldToCellCenterToWorld(Define.Tilemap.Building, go.transform.position);
+        _currentShowUIController.transform.GetChild(0).position = pos;
+
+
+        _currentShowUIController.CurrentBuilding = go;
+        _currentShowUIController.GetComponent<UI_CitizenDirectionController>().OnUI();
+
+
     }
 
     //°Ç¹°UI ²ô±â

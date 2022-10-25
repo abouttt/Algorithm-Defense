@@ -40,10 +40,8 @@ public class StageTileInformation : MonoBehaviour
         StarCount = 0;
 
         //클릭한 스테이지 번호 가져오기
-        stageNum = PlayerPrefs.GetInt("Num");
-        Debug.Log(stageNum);
-        //stageNum = 1;
-
+        stageNum = PlayerPrefs.GetInt("StageNum");
+        Debug.Log("stageNum: "+stageNum);
         WWWForm form = new WWWForm();
 
         //각각의 정보 이름과 넣을정보를 넣어줌
@@ -76,30 +74,11 @@ public class StageTileInformation : MonoBehaviour
                 switch (GD.order)
                 {
                     case "getStageTile":
-                        SetTileData();
-
-                        //StarCount = 3;
-                        //GameClearSetStarCount();
+                        GetTileDataSave();
 
                         //필드생성 불러오기
-
-                        for (int y = 0; y < 5; y++)
-                        {
-                            for (int x = 0; x < 5; x++)
-                            {
-                                if (StageTileData[y][x] == -1)
-                                {
-                                    continue;
-                                }
-
-                                TileManager.GetInstance.SetTile(
-                                    Define.Tilemap.Building,
-                                    new Vector3Int(
-                                        Managers.Game.Setting.StartPosition.x + x + 1,
-                                        Managers.Game.Setting.StartPosition.y + y + 1, 0),
-                                        (Define.Building)StageTileData[y][x]);
-                            }
-                        }
+                        SetTileData();
+                        LoadingControl.GetInstance.LoadingComplete();
 
                         break;
 
@@ -107,12 +86,6 @@ public class StageTileInformation : MonoBehaviour
                         break;
 
                 }
-
-
-
-
-               
-
 
 
             }
@@ -151,12 +124,12 @@ public class StageTileInformation : MonoBehaviour
         Debug.Log("(" + GD.order + "): " + GD.result + " [deta: " + GD.deta + "]");
     }
 
-    public void SetTileData()
+    public void GetTileDataSave()
     {
         string[] data = GD.deta.Split(',');
         int count = 0;
 
-        Debug.Log("data.Length: " + data.Length);
+        //Debug.Log("data.Length: " + data.Length);
 
         for (int i = 0; i < 5; i++)
         {
@@ -172,6 +145,30 @@ public class StageTileInformation : MonoBehaviour
     }
 
 
+
+    public void SetTileData()
+    {
+        var tile = Managers.Resource.Load<TileBase>($"{Define.BUILDING_TILE_PATH}{Define.Building.Gateway}");
+        for (int y = 0; y < 5; y++)
+        {
+            for (int x = 0; x < 5; x++)
+            {
+                if (StageTileData[y][x] == -1)
+                {
+                    continue;
+                }
+
+                tile = Managers.Resource.Load<TileBase>($"{Define.BUILDING_TILE_PATH}{(Define.Building)StageTileData[y][x]}");
+                Managers.Tile.SetTile(
+                    Define.Tilemap.Building,
+                    new Vector3Int(
+                        Managers.Game.Setting.StartPosition.x + x + 1,
+                        Managers.Game.Setting.StartPosition.y + y + 1, 0),
+                        tile);
+            }
+        }
+
+    }
 
     //클리어시 별 저장 후 다음챕터 오픈
     public void GameClearSetStarCount()

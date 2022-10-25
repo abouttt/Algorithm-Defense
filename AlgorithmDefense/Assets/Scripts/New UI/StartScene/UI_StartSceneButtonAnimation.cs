@@ -25,14 +25,14 @@ public class UI_StartSceneButtonAnimation : MonoBehaviour
     public void StartButtonFadeIn()
     {
 
-        gameStartButton.transform.GetComponent<Image>().DOFade(1, 0.2f);
+        //gameStartButton.transform.GetComponent<Image>().DOFade(1, 0.2f);
         gameStartText.transform.GetComponent<Text>().DOColor(Color.black, 0.4f);
     }
 
     public void StartButtonFadeOut()
     {
 
-        gameStartButton.transform.GetComponent<Image>().DOFade(0, 0.2f);
+        //gameStartButton.transform.GetComponent<Image>().DOFade(0, 0.2f);
         gameStartText.transform.GetComponent<Text>().DOColor(Color.white, 0.4f);
     }
 
@@ -40,14 +40,14 @@ public class UI_StartSceneButtonAnimation : MonoBehaviour
     public void SettingButtonFadeIn()
     {
 
-        settingButton.transform.GetComponent<Image>().DOFade(1, 0.2f);
+        //settingButton.transform.GetComponent<Image>().DOFade(1, 0.2f);
         settingText.transform.GetComponent<Text>().DOColor(Color.black, 0.4f);
     }
 
     public void SettingButtonFadeOut()
     {
 
-        settingButton.transform.GetComponent<Image>().DOFade(0, 0.2f);
+        //settingButton.transform.GetComponent<Image>().DOFade(0, 0.2f);
         settingText.transform.GetComponent<Text>().DOColor(Color.white, 0.4f);
     }
 
@@ -55,14 +55,14 @@ public class UI_StartSceneButtonAnimation : MonoBehaviour
     public void ExitButtonFadeIn()
     {
 
-        exitButton.transform.GetComponent<Image>().DOFade(1, 0.2f);
+        //exitButton.transform.GetComponent<Image>().DOFade(1, 0.2f);
         exitText.transform.GetComponent<Text>().DOColor(Color.black, 0.4f);
     }
 
     public void ExitButtonFadeOut()
     {
 
-        exitButton.transform.GetComponent<Image>().DOFade(0, 0.2f);
+        //exitButton.transform.GetComponent<Image>().DOFade(0, 0.2f);
         exitText.transform.GetComponent<Text>().DOColor(Color.white, 0.4f);
     }
 
