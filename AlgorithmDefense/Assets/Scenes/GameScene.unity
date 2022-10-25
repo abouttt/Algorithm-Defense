@@ -887,28 +887,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 620633015}
-  - component: {fileID: 620633014}
+  - component: {fileID: 620633016}
   m_Layer: 9
-  m_Name: TstSkill
+  m_Name: '@CallSkill'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &620633014
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 620633013}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d3a131a3f725184aa1005ea913cf2cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SkillPref: {fileID: 3181280159678566585, guid: f7d42f5625580e6459fef7c0535a4aba, type: 3}
-  _spawn: 0
 --- !u!4 &620633015
 Transform:
   m_ObjectHideFlags: 0
@@ -922,8 +908,30 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &620633016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620633013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4ff5d9b9bcdd71458b0530301c28add, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawn1: 0
+  _spawn2: 0
+  _spawn3: 0
+  SkillPref:
+  - {fileID: 3181280159678566585, guid: f7d42f5625580e6459fef7c0535a4aba, type: 3}
+  - {fileID: 8543706532658410587, guid: 02034cab2dfa629498144daceb590117, type: 3}
+  - {fileID: 5637044225157842184, guid: ffdc76e6a7cb3d44b9a6a0b29dd4f6ed, type: 3}
+  Cooldown1: 1
+  Cooldown2: 1
+  Cooldown3: 1
 --- !u!1 &1122283139
 GameObject:
   m_ObjectHideFlags: 0
@@ -1093,7 +1101,7 @@ Transform:
   - {fileID: 94177498}
   - {fileID: 1122283140}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1572757259
 GameObject:
@@ -8568,7 +8576,7 @@ Transform:
   - {fileID: 3235753842837272715}
   - {fileID: 7714426250754793748}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!222 &6158733442782202823
 CanvasRenderer:
