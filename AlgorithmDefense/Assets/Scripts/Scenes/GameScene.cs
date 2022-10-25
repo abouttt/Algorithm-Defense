@@ -14,10 +14,6 @@ public class GameScene : MonoBehaviour
     public float CameraZ;
     public float CameraSize;
 
-    [Header("성벽, 던전 최대 HP")]
-    public float CastleMaxHP;
-    public float DungeonMaxHP;
-
     [Header("[그라운드 생성]")]
     public int GroundWidth;
     public int GroundHeight;

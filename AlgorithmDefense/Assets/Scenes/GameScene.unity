@@ -878,6 +878,52 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &620633013
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 620633015}
+  - component: {fileID: 620633014}
+  m_Layer: 9
+  m_Name: TstSkill
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &620633014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620633013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d3a131a3f725184aa1005ea913cf2cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SkillPref: {fileID: 3181280159678566585, guid: f7d42f5625580e6459fef7c0535a4aba, type: 3}
+  _spawn: 0
+--- !u!4 &620633015
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620633013}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1122283139
 GameObject:
   m_ObjectHideFlags: 0
@@ -1185,7 +1231,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1573714491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1198,7 +1244,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25d2b3d053d300f4fbfb47674b7645a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnTime: 1
+  _gatePos:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  waves:
+  - {fileID: 11400000, guid: a300aea7525374d4ea3d497b13b8ac24, type: 2}
+  SpawnPoint:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!4 &1573714492
 Transform:
   m_ObjectHideFlags: 0
@@ -1313,8 +1368,6 @@ MonoBehaviour:
   CameraY: 7.5
   CameraZ: -10
   CameraSize: 7.5
-  CastleMaxHP: 100
-  DungeonMaxHP: 100
   GroundWidth: 7
   GroundHeight: 15
   GrassPercentage: 10

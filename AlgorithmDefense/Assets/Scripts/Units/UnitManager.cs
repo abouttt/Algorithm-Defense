@@ -6,6 +6,7 @@ public class UnitManager : MonoBehaviour
 {
     private Animator _anim;
     [SerializeField] private int hitPoint;
+    private int maxHP;
 
     public void Awake()
     {
@@ -22,13 +23,23 @@ public class UnitManager : MonoBehaviour
             _anim.SetBool("Dead", true);
             return true;
         }
+        return false;
+    }
+
+    public virtual bool GetHp(int amount)
+    {
+        if (hitPoint < maxHP)
+        {
+            hitPoint += amount;
+            return true;
+        }
 
         return false;
     }
 
     public void UnitDelete()
     {
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 
     public void UnitHit()
