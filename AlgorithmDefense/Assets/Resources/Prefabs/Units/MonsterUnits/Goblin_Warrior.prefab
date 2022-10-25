@@ -173,6 +173,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveType: 4
+  arrowPrefab: {fileID: 0}
+  RotatePoint: {fileID: 0}
+  Damage: 10
   layerMask:
     serializedVersion: 2
     m_Bits: 384
