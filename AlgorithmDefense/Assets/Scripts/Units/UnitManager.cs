@@ -16,7 +16,7 @@ public class UnitManager : MonoBehaviour
     {
         hitPoint -= amount;
 
-         _anim.SetBool("Hurt", true);
+        _anim.SetBool("Hurt", true);
 
         if (hitPoint <= 0)
         {
@@ -39,7 +39,7 @@ public class UnitManager : MonoBehaviour
 
     public void UnitDelete()
     {
-        Destroy(gameObject);
+        Managers.Resource.Destroy(gameObject);
     }
 
     public void UnitHit()

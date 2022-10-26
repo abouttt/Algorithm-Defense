@@ -14,6 +14,6 @@ public class UnitEffect : MonoBehaviour
 
     private void DestroyArrow()
     {
-        Destroy(gameObject);
+        Managers.Resource.Destroy(gameObject);
     }
 }

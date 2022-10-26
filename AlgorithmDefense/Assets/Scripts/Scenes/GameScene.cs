@@ -45,6 +45,10 @@ public class GameScene : MonoBehaviour
         InitRampart();
         InitSpawn();
         InitBattleLine();
+
+        Managers.Pool.Init();
+        Managers.Game.CastleHP = (int)Managers.Game.Setting.CastleMaxHP;
+        Managers.Game.DungeonHP = (int)Managers.Game.Setting.DungeonMaxHP;
     }
 
     private void InitCamera()
@@ -71,6 +75,16 @@ public class GameScene : MonoBehaviour
         if (!FindObjectOfType<CitizenSpawner>())
         {
             Managers.Resource.Instantiate($"{Define.CONTENTS_PATH}@CitizenSpawner").transform.SetParent(_contentsRoot);
+        }
+
+        if (!FindObjectOfType<MonsterSpawner>())
+        {
+            Managers.Resource.Instantiate($"{Define.CONTENTS_PATH}@MonsterSpawner").transform.SetParent(_contentsRoot);
+        }
+
+        if (!FindObjectOfType<CallSkill>())
+        {
+            Managers.Resource.Instantiate($"{Define.CONTENTS_PATH}@CallSkill").transform.SetParent(_contentsRoot);
         }
 
         if (!FindObjectOfType<TileObjectBuilder>())

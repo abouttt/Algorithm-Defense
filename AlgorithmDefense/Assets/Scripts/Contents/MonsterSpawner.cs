@@ -8,7 +8,6 @@ public class MonsterSpawner : MonoBehaviour
     private WaveSystem currentWave;
     private int waveValue;
     private float timeBtwnSpawn;
-    private bool isSpawning = false;
 
     public WaveSystem[] waves;
     public Transform[] SpawnPoint;
@@ -22,6 +21,8 @@ public class MonsterSpawner : MonoBehaviour
 
     private void Start()
     {
+        LoadingControl.GetInstance.LoadingCompleteAction += StartSpawn;
+
         for (int x = 1; x <= 5; x += 2)
         {
             _gatePos.Add(TileManager.GetInstance.GetCellToWorld(Define.Tilemap.Building, new Vector3Int(
@@ -31,21 +32,11 @@ public class MonsterSpawner : MonoBehaviour
         }
 
     }
-    private void Update()
+
+    private void StartSpawn()
     {
-
-        if (isSpawning)
-        {
-            return;
-        }
-
-        if (Time.time >= timeBtwnSpawn)
-        {
-            StartCoroutine(Spawn());
-            IncWave();
-
-            timeBtwnSpawn = Time.time + currentWave.TimeBeforeThisWave;
-        }
+        StartCoroutine(Spawn());
+        IncWave();
     }
 
     private void IncWave()
@@ -54,10 +45,6 @@ public class MonsterSpawner : MonoBehaviour
         {
             waveValue++;
             currentWave = waves[waveValue];
-        }
-        else
-        {
-            isSpawning = true;
         }
     }
 

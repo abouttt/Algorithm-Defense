@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
+using Unity.VisualScripting;
 
 public class StageTileInformation : MonoBehaviour
 {
@@ -38,6 +39,8 @@ public class StageTileInformation : MonoBehaviour
     private void Start()
     {
         StarCount = 0;
+
+        LoadingControl.GetInstance.LoadingCompleteAction += SetTileData;
 
         //클릭한 스테이지 번호 가져오기
         stageNum = PlayerPrefs.GetInt("StageNum");
@@ -76,9 +79,9 @@ public class StageTileInformation : MonoBehaviour
                     case "getStageTile":
                         GetTileDataSave();
 
-                        //필드생성 불러오기
-                        SetTileData();
-                        LoadingControl.GetInstance.LoadingComplete();
+                        // 로딩 완료
+
+                        LoadingControl.GetInstance.GameSceneLoadingComplete();
 
                         break;
 
@@ -190,6 +193,7 @@ public class StageTileInformation : MonoBehaviour
     {
         Time.timeScale = 1f;
         //시작화면으로 이동
+        Managers.Clear();
         SceneManager.LoadScene(0);
     }
 
@@ -198,6 +202,7 @@ public class StageTileInformation : MonoBehaviour
     {
         Time.timeScale = 1f;
         //Game씬(1번)다시 시작
+        Managers.Clear();
         SceneManager.LoadScene(1);
     }
 
@@ -219,6 +224,7 @@ public class StageTileInformation : MonoBehaviour
         {
             Debug.Log("모든 스테이지 클리어!!!");
             //Start씬(0번) 시작
+            Managers.Clear();
             SceneManager.LoadScene(0);
         }
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class LoadingControl : MonoBehaviour
 {
+    public Action LoadingCompleteAction;
+
     [SerializeField]
     private GameObject lodingObject;
 
@@ -22,6 +25,11 @@ public class LoadingControl : MonoBehaviour
         lodingObject.SetActive(false);
     }
 
+    public void GameSceneLoadingComplete()
+    {
+        LoadingCompleteAction.Invoke();
+        lodingObject.SetActive(false);
+    }
 
     private static void Init()
     {

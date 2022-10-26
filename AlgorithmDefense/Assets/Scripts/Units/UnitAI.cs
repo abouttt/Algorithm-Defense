@@ -5,7 +5,7 @@ using UnityEngine;
 public class UnitAI : MonoBehaviour
 {
     public Define.Move MoveType;
-    public GameObject arrowPrefab;
+    public GameObject ProjectilePrefab;
     public Transform RotatePoint;
     public int Damage;
 
@@ -65,8 +65,8 @@ public class UnitAI : MonoBehaviour
 
     public void ShootObject()
     {
-        RotatePoint.rotation = Quaternion.Euler(0, 0, rot);
-        Instantiate(arrowPrefab, transform.position, RotatePoint.rotation);
+        var go = Managers.Resource.Instantiate($"{Define.PROJECTILE_PREFAB_PATH}{ProjectilePrefab.name}", transform.position);
+        go.transform.rotation = Quaternion.Euler(0, 0, rot);
 
         if (_detectedUnit)
         {

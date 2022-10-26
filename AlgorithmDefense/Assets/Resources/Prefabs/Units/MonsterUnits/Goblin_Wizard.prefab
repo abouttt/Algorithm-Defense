@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6351383279685968831}
   - component: {fileID: -2993093027628242852}
   - component: {fileID: 9012696581089423590}
+  - component: {fileID: -7584471374535933501}
   m_Layer: 6
   m_Name: Goblin_Wizard
   m_TagString: Untagged
@@ -173,7 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveType: 4
-  arrowPrefab: {fileID: 2205923079419506430, guid: bd376a7dcedeec244ae5decba6aa47a6, type: 3}
+  ProjectilePrefab: {fileID: 2205923079419506430, guid: bd376a7dcedeec244ae5decba6aa47a6, type: 3}
   RotatePoint: {fileID: 7756331903609329635}
   Damage: 10
   layerMask:
@@ -182,6 +183,19 @@ MonoBehaviour:
   attackDamage: 2
   _speed: 0.6
   _range: 0.8
+--- !u!114 &-7584471374535933501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 362743502254531367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d4eb884f849dc14aa6260d7d5ad5dd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsUsing: 0
 --- !u!1 &2005188334131592351
 GameObject:
   m_ObjectHideFlags: 0
