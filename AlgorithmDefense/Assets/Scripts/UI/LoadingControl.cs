@@ -27,6 +27,7 @@ public class LoadingControl : MonoBehaviour
 
     public void GameSceneLoadingComplete()
     {
+        Managers.Clear();
         LoadingCompleteAction.Invoke();
         lodingObject.SetActive(false);
     }

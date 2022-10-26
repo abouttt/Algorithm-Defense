@@ -193,7 +193,6 @@ public class StageTileInformation : MonoBehaviour
     {
         Time.timeScale = 1f;
         //시작화면으로 이동
-        Managers.Clear();
         SceneManager.LoadScene(0);
     }
 
@@ -202,7 +201,6 @@ public class StageTileInformation : MonoBehaviour
     {
         Time.timeScale = 1f;
         //Game씬(1번)다시 시작
-        Managers.Clear();
         SceneManager.LoadScene(1);
     }
 
@@ -216,7 +214,6 @@ public class StageTileInformation : MonoBehaviour
         {
             //다음 스테이지 번호로 변경저장
             PlayerPrefs.SetInt("Num", stageNum + 1);
-
             //Game씬(1번)다시 시작
             SceneManager.LoadScene(1);
         }
@@ -224,7 +221,6 @@ public class StageTileInformation : MonoBehaviour
         {
             Debug.Log("모든 스테이지 클리어!!!");
             //Start씬(0번) 시작
-            Managers.Clear();
             SceneManager.LoadScene(0);
         }
 
