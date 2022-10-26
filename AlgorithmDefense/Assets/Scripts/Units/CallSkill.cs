@@ -11,40 +11,41 @@ public class CallSkill : MonoBehaviour
     public GameObject[] SkillPref;
     public float Cooldown1, Cooldown2, Cooldown3 = 5f;
 
-    private void Update()
-    {
-        skill1();
-        skill2();
-        skill3();
-    }
 
-    public void skill1()
+
+    public void skill(int num)
     {
-        if (_spawn1 && !_isSpawning1)
+        switch (num)
         {
-            StartCoroutine(SpawnSkill1(SkillPref[0].name));
-            _isSpawning1 = true;
+            case 0:
+                _spawn1 = true;
+                if (_spawn1 && !_isSpawning1)
+                {
+                    StartCoroutine(SpawnSkill1(SkillPref[0].name));
+                    _isSpawning1 = true;
+                }
+                return;
+            case 1:
+                _spawn2 = true;
+                if (_spawn2 && !_isSpawning2)
+                {
+                    StartCoroutine(SpawnSkill2(SkillPref[1].name));
+                    _isSpawning2 = true;
+                }
+                return;
+            case 2:
+                _spawn3 = true;
+                if (_spawn3 && !_isSpawning3)
+                {
+                    StartCoroutine(SpawnSkill3(SkillPref[2].name));
+                    _isSpawning3 = true;
+                }
+                return;
         }
 
     }
 
-    public void skill2()
-    {
-        if (_spawn2 && !_isSpawning2)
-        {
-            StartCoroutine(SpawnSkill2(SkillPref[1].name));
-            _isSpawning2 = true;
-        }
-    }
 
-    public void skill3()
-    {
-        if (_spawn3 && !_isSpawning3)
-        {
-            StartCoroutine(SpawnSkill3(SkillPref[2].name));
-            _isSpawning3 = true;
-        }
-    }
 
     public IEnumerator SpawnSkill1(string ID)
     {

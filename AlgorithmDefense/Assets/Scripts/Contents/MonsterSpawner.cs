@@ -2,85 +2,100 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public struct MonsterSpawnData
+{
+    public float time;
+    public Define.Job job;
+}
+
 public class MonsterSpawner : MonoBehaviour
 {
-    public List<Vector3> _gatePos = new();
-    private WaveSystem currentWave;
-    private int waveValue;
-    private float timeBtwnSpawn;
+    [SerializeField]
+    private List<MonsterSpawnData> _first;
+    [SerializeField]
+    private List<MonsterSpawnData> _second;
+    [SerializeField]
+    private List<MonsterSpawnData> _third;
 
-    public WaveSystem[] waves;
-    public Transform[] SpawnPoint;
-
-    private void Awake()
-    {
-        currentWave = waves[waveValue];
-        timeBtwnSpawn = currentWave.TimeBeforeThisWave;
-
-    }
+    private Vector3[] _spawnPos = new Vector3[3];
 
     private void Start()
     {
+        _spawnPos[0] = new Vector3(Managers.Game.Setting.StartPosition.x + 1, 
+            Managers.Game.Setting.RampartHeight + Managers.Game.Setting.BattleLineLength, 0);
+        _spawnPos[1] = new Vector3(Managers.Game.Setting.StartPosition.x + 3, 
+            Managers.Game.Setting.RampartHeight + Managers.Game.Setting.BattleLineLength, 0);
+        _spawnPos[2] = new Vector3(Managers.Game.Setting.StartPosition.x + 5, 
+            Managers.Game.Setting.RampartHeight + Managers.Game.Setting.BattleLineLength, 0);
+
         LoadingControl.GetInstance.LoadingCompleteAction += StartSpawn;
-
-        for (int x = 1; x <= 5; x += 2)
-        {
-            _gatePos.Add(TileManager.GetInstance.GetCellToWorld(Define.Tilemap.Building, new Vector3Int(
-                    Managers.Game.Setting.StartPosition.x + x,
-                    Managers.Game.Setting.RampartHeight + Managers.Game.Setting.BattleLineLength, 0)));
-
-        }
-
     }
 
     private void StartSpawn()
     {
-        StartCoroutine(Spawn());
-        IncWave();
+        StartCoroutine(FirstSpawn());
+        StartCoroutine(SecondSpawn());
+        StartCoroutine(ThirdSpawn());
     }
 
-    private void IncWave()
+    private IEnumerator FirstSpawn()
     {
-        if (waveValue + 1 < waves.Length)
+        int index = 0;
+        while (true)
         {
-            waveValue++;
-            currentWave = waves[waveValue];
+            MonsterSpawnData data = _first[index];
+
+            yield return new WaitForSeconds(data.time);
+
+            var go = Managers.Resource.Instantiate($"{Define.MONSTER_UNIT_PATH}Goblin_{data.job}");
+            go.transform.position = _spawnPos[0] + new Vector3(0.5f, 0f, 0f);
+
+            index++;
+            if (_first.Count >= index)
+            {
+                index = 0;
+            }
         }
     }
 
-    public IEnumerator Spawn()
+    private IEnumerator SecondSpawn()
     {
-        for (int i = 0; i < currentWave.NumberToSpawn; i++)
+        int index = 0;
+        while (true)
         {
-            int a = Random.Range(0, 3);
-            if (a == 1)
+            MonsterSpawnData data = _second[index];
+
+            yield return new WaitForSeconds(data.time);
+
+            var go = Managers.Resource.Instantiate($"{Define.MONSTER_UNIT_PATH}Goblin_{data.job}");
+            go.transform.position = _spawnPos[1] + new Vector3(0.5f, 0f, 0f);
+
+            index++;
+            if (_second.Count >= index)
             {
-                int num = Random.Range(0, currentWave.monsterPrefab.Length);
-                int num2 = Random.Range(0, _gatePos.Count);
-                var go = Managers.Resource.Instantiate($"Prefabs/Units/MonsterUnits/{currentWave.monsterPrefab[num].name}", _gatePos[num2]);
-                go.transform.position = _gatePos[num2] + (Vector3.right * 0.5f);
+                index = 0;
             }
-            else if (a == 2)
+        }
+    }
+
+    private IEnumerator ThirdSpawn()
+    {
+        int index = 0;
+        while (true)
+        {
+            MonsterSpawnData data = _third[index];
+
+            yield return new WaitForSeconds(data.time);
+
+            var go = Managers.Resource.Instantiate($"{Define.MONSTER_UNIT_PATH}Goblin_{data.job}");
+            go.transform.position = _spawnPos[2] + new Vector3(0.5f, 0f, 0f);
+
+            index++;
+            if (_third.Count >= index)
             {
-                for (int x = 0; x < 2; x++)
-                {
-                    int num = Random.Range(0, currentWave.monsterPrefab.Length);
-                    int num2 = Random.Range(0, _gatePos.Count);
-                    var go = Managers.Resource.Instantiate($"Prefabs/Units/MonsterUnits/{currentWave.monsterPrefab[num].name}", _gatePos[num2]);
-                    go.transform.position = _gatePos[num2] + (Vector3.right * 0.5f);
-                }
+                index = 0;
             }
-            else if (a == 3)
-            {
-                for (int y = 0; y < 3; y++)
-                {
-                    int num = Random.Range(0, currentWave.monsterPrefab.Length);
-                    var go = Managers.Resource.Instantiate($"Prefabs/Units/MonsterUnits/{currentWave.monsterPrefab[num].name}", _gatePos[y]);
-                    go.transform.position = _gatePos[y] + (Vector3.right * 0.5f);
-                }
-            }
-            yield return new WaitForSeconds(4f);
-            //Instantiate(currentWave.monsterPrefab[num], SpawnPoint[num2].position, SpawnPoint[num2].rotation);
         }
     }
 }

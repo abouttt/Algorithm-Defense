@@ -9,6 +9,7 @@ public static class Define
     public static readonly string GROUND_PREFAB_PATH = "Prefabs/Ground/";
     public static readonly string CITIZEN_PATH = "Prefabs/Units/Citizens/";
     public static readonly string BATTILE_UNIT_PATH = "Prefabs/Units/BattleUnits/";
+    public static readonly string MONSTER_UNIT_PATH = "Prefabs/Units/MonsterUnits/";
     public static readonly string BUILDING_PREFAB_PATH = "Prefabs/TileObject/Buildings/";
     public static readonly string ROAD_PREFAB_PATH = "Prefabs/TileObject/Roads/";
     public static readonly string ROAD_TILE_PATH = "Tiles/Roads/";
@@ -81,10 +82,10 @@ public static class Define
     public enum Move
     {
         None,
-        Left,
-        Right,
         Up,
+        Right,
         Down,
+        Left,
     }
 
     public enum Magic

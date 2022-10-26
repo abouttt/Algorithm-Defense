@@ -159,8 +159,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08943eedf67b89d4a95b3bd8b666c9fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveType: 3
-  arrowPrefab: {fileID: 0}
+  MoveType: 1
+  ProjectileName: 
   RotatePoint: {fileID: 0}
   Damage: 10
   layerMask:

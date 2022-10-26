@@ -14,9 +14,9 @@ public class RoadBuilder : MonoBehaviour
     public bool IsBuilding;
     public Dictionary<int, List<Vector3Int>> RoadGroupDic = new();
 
-    private Vector3Int _prevPos;
     private int _groupCount = 1;
 
+    private Vector3Int _prevPos;
     private Vector3Int _firstPos;
     private Vector3Int _lastPos;
     private Vector3Int? _startRoadPos;
@@ -38,6 +38,16 @@ public class RoadBuilder : MonoBehaviour
                 IsBuilding = false;
             }
         }
+    }
+
+    public bool IsWillRoadBuild()
+    {
+        if (!RoadGroupDic.ContainsKey(_groupCount))
+        {
+            return true;
+        }
+
+        return RoadGroupDic[_groupCount].Count > 1;
     }
 
     public void RemoveRoads(int groupNumber)
@@ -162,10 +172,10 @@ public class RoadBuilder : MonoBehaviour
         }
     }
 
-    private void BuildRoads()
+    public void BuildRoads()
     {
         // 아무것도 예약되어 있지 않다면 진행하지 않는다.
-        if (RoadGroupDic[_groupCount].Count == 0)
+        if (!RoadGroupDic.ContainsKey(_groupCount) || RoadGroupDic[_groupCount].Count == 0)
         {
             return;
         }
@@ -207,9 +217,11 @@ public class RoadBuilder : MonoBehaviour
                 }
             }
 
-            RoadGroupDic.Remove(_groupCount);
+            //RoadGroupDic.Remove(_groupCount);
+            RoadGroupDic[_groupCount].Clear();
         }
 
+        _prevPos = Vector3Int.zero;
         _firstPos = Vector3Int.zero;
         _lastPos = Vector3Int.zero;
     }

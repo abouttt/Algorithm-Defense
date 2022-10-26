@@ -8,10 +8,12 @@ public class CitizenController : MonoBehaviour
     public CitizenData Data = new();
 
     private Animator _animator;
+    private SpriteRenderer _sr;
 
     private void Awake()
     {
         _animator = GetComponent<Animator>();
+        _sr = GetComponent<SpriteRenderer>();
     }
 
     private void Update()

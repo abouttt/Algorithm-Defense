@@ -167,6 +167,7 @@ SpriteAtlas:
   - {fileID: -900035858, guid: 60cabc14182a2c4429c562a5f010df48, type: 3}
   - {fileID: -333230105, guid: 60cabc14182a2c4429c562a5f010df48, type: 3}
   - {fileID: 21300000, guid: 8eb16e846507afe47bf3de071be8193f, type: 3}
+  - {fileID: 21300000, guid: acd416b62ab307b46bb9589001f2107f, type: 3}
   - {fileID: -1467446014, guid: ce6d801708d9a2348b38c7608fb52cd0, type: 3}
   - {fileID: -2130542764, guid: ce6d801708d9a2348b38c7608fb52cd0, type: 3}
   - {fileID: -1478409049, guid: ce6d801708d9a2348b38c7608fb52cd0, type: 3}
@@ -318,6 +319,7 @@ SpriteAtlas:
   - SP-Trees_61
   - SP-Trees_60
   - Grass_3
+  - Cursor
   - SP-Land_9
   - SP-Land_8
   - SP-Land_5
