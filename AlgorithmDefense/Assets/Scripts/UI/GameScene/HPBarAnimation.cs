@@ -19,6 +19,10 @@ public class HPBarAnimation : MonoBehaviour
     private Color enemyColor;
     private Color castleColor;
 
+    private float maxHP = 100f;
+    private float enemyCurHP = 100f;
+    private float castleCurHP = 100f;
+
     private int starCount;
     private float collapsedEnemy;
     private float collapsedCastle;
@@ -26,10 +30,10 @@ public class HPBarAnimation : MonoBehaviour
 
     private void Awake()
     {
-        enemyBar.value = Managers.Game.DungeonHP / Managers.Game.Setting.DungeonMaxHP;
+        enemyBar.value = enemyCurHP / maxHP;
         enemyColor = enemyHealthTransform.GetComponent<Image>().color;
 
-        castleBar.value = Managers.Game.CastleHP / Managers.Game.Setting.CastleMaxHP;
+        castleBar.value = castleCurHP / maxHP;
         castleColor = castleHealthTransform.GetComponent<Image>().color;
 
         starCount = 3;
@@ -38,13 +42,45 @@ public class HPBarAnimation : MonoBehaviour
         gameClear = false;
     }
 
-    public void EnemyAttacked()
+    private void Update()
+    {
+
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {          
+            EnemyAttacked(10f);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            CastleAttacked(10f);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+
+            enemyCurHP = 100f;
+            enemyBar.value = enemyCurHP / maxHP;
+
+            castleCurHP = 100f;
+            castleBar.value = castleCurHP / maxHP;
+            gameClear = true;
+        }
+
+    }
+
+    public void EnemyAttacked(float damage)
     {
         if (gameClear == false)
         {
             enemyBar.transform.DOGoto(0f, true);
 
-            enemyBar.value = Managers.Game.DungeonHP / Managers.Game.Setting.DungeonMaxHP;
+            if (enemyCurHP > 0f)
+            {
+                enemyCurHP -= damage;
+            }
+
+            enemyBar.value = enemyCurHP / maxHP;
 
             if (enemyBar.value < collapsedEnemy)
             {
@@ -55,8 +91,9 @@ public class HPBarAnimation : MonoBehaviour
 
             }
 
-            if (Managers.Game.DungeonHP <= 0f)
+            if (enemyCurHP <= 0f)
             {
+                enemyCurHP = 0f;
                 //½Â¸®        
                 gameClear = true;
                 ClearMenuAnimation.GetInstance.ClearMenuCall(starCount, true);
@@ -80,13 +117,18 @@ public class HPBarAnimation : MonoBehaviour
     }
 
 
-    public void CastleAttacked()
+    public void CastleAttacked(float damage)
     {
         if (gameClear == false)
         {
             castleBar.transform.DOGoto(0f, true);
 
-            castleBar.value = Managers.Game.CastleHP / Managers.Game.Setting.CastleMaxHP;
+            if (castleCurHP > 0f)
+            {
+                castleCurHP -= damage;
+            }
+
+            castleBar.value = castleCurHP / maxHP;
 
             if (castleBar.value < collapsedCastle)
             {
@@ -98,8 +140,9 @@ public class HPBarAnimation : MonoBehaviour
 
             }
 
-            if (Managers.Game.CastleHP <= 0f)
+            if (castleCurHP <= 0f)
             {
+                castleCurHP = 0f;
                 //ÆÐ¹è
                 starCount = 0;
                 gameClear = true;

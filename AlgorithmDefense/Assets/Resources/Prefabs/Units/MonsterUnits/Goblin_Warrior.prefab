@@ -141,12 +141,12 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.4
+  m_Radius: 0.3
 --- !u!114 &131939357959910675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c70187ed11576449ad98deeef54a456, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoint: 10
+  hitPoint: 100
 --- !u!114 &-1322759237819811674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,12 +175,12 @@ MonoBehaviour:
   MoveType: 4
   arrowPrefab: {fileID: 0}
   RotatePoint: {fileID: 0}
-  Damage: 10
+  Damage: 0
   layerMask:
     serializedVersion: 2
     m_Bits: 384
   attackDamage: 2
-  _speed: 1
+  _speed: 0.6
   _range: 0.3
 --- !u!114 &-6125521690656012149
 MonoBehaviour:

@@ -5,27 +5,35 @@ using UnityEngine;
 public class SkillManager : MonoBehaviour
 {
     private UnitManager _detectedUnit;
-    private Animator _anim;
     [SerializeField] private LayerMask layerMask;
-    [SerializeField] private int attackDamage;
+    [SerializeField] private int Damaged;
     [SerializeField] private float _range = 0f;
+    [SerializeField] private float destroySkill;
+
+    public enum skillType { Damage, Heal };
+    public skillType Type;
 
     void Update()
     {
-        CheckLayer();
+        Destroy(gameObject, destroySkill);
     }
 
-    public void AddDamaged()
+    public void AddDamaged(UnitManager a)
     {
-        bool unitDie = _detectedUnit.LoseHp(attackDamage);
-
-        if (unitDie)
+        if (a)
         {
-            _detectedUnit = null;
+            a.LoseHp(Damaged);
         }
-
     }
-    private void CheckLayer()
+
+    public void AddHp(UnitManager a)
+    {
+        if (a)
+        {
+            a.GetHp(Damaged);
+        }
+    }
+    public void CheckLayerDamaged()
     {
         if (_detectedUnit)
         {
@@ -38,7 +46,27 @@ public class SkillManager : MonoBehaviour
         {
             if (colliders != null)
             {
-                _detectedUnit = collider2D.GetComponent<UnitManager>();
+                AddDamaged(collider2D.GetComponent<UnitManager>());
+
+            }
+        }
+    }
+
+    public void CheckLayerHeal()
+    {
+        if (_detectedUnit)
+        {
+            return;
+        }
+
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, _range, layerMask);
+
+        foreach (Collider2D collider2D in colliders)
+        {
+            if (colliders != null)
+            {
+                AddDamaged(collider2D.GetComponent<UnitManager>());
+
             }
         }
     }
