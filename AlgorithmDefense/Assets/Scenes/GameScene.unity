@@ -1239,7 +1239,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1573714491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1376,6 +1376,8 @@ MonoBehaviour:
   CameraY: 7.5
   CameraZ: -10
   CameraSize: 7.5
+  CastleMaxHP: 100
+  DungeonMaxHP: 100
   GroundWidth: 7
   GroundHeight: 15
   GrassPercentage: 10

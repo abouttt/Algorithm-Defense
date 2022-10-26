@@ -194,7 +194,7 @@ MonoBehaviour:
   MoveType: 3
   arrowPrefab: {fileID: 2205923079419506430, guid: bd376a7dcedeec244ae5decba6aa47a6, type: 3}
   RotatePoint: {fileID: 3904652600563281461}
-  Damage: 0
+  Damage: 10
   layerMask:
     serializedVersion: 2
     m_Bits: 320
