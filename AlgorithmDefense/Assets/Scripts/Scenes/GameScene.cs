@@ -45,7 +45,7 @@ public class GameScene : MonoBehaviour
         InitRampart();
         InitSpawn();
         InitBattleLine();
-
+        Managers.Game.Gold = 0;
         Managers.Pool.Init();
         Managers.Game.CastleHP = (int)Managers.Game.Setting.CastleMaxHP;
         Managers.Game.DungeonHP = (int)Managers.Game.Setting.DungeonMaxHP;
