@@ -66,7 +66,6 @@ public class UI_BuildingMenager : MonoBehaviour
     {
         if (!_currentShowUIController)
         {
-            Debug.Log("빌딩 메니저 리턴");
             return;
         }
 

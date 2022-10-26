@@ -109,7 +109,7 @@ public class StageTileInformation : MonoBehaviour
         //받아온 값이 비어있다면
         if (string.IsNullOrEmpty(json))
         {
-            Debug.Log("빈값받음");
+            Debug.Log("빈값 받음");
             return;
         }
 
@@ -119,12 +119,12 @@ public class StageTileInformation : MonoBehaviour
         //에러일때
         if (GD.result == "ERROR")
         {
-            Debug.Log("(" + GD.order + "): " + GD.result + " [deta: " + GD.deta + "]");
+            //Debug.Log("(" + GD.order + "): " + GD.result + " [deta: " + GD.deta + "]");
             return;
         }
 
 
-        Debug.Log("(" + GD.order + "): " + GD.result + " [deta: " + GD.deta + "]");
+        //Debug.Log("(" + GD.order + "): " + GD.result + " [deta: " + GD.deta + "]");
     }
 
     public void GetTileDataSave()

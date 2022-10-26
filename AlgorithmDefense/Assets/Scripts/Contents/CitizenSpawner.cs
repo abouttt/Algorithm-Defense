@@ -31,6 +31,8 @@ public class CitizenSpawner : MonoBehaviour
             Define.Citizen.Blue,
         };
 
+        LoadingControl.GetInstance.LoadingCompleteAction += StartSpawn;
+
         StartCoroutine(SpawnCitizen());
     }
 
@@ -41,6 +43,11 @@ public class CitizenSpawner : MonoBehaviour
             StartCoroutine(SpawnCitizen());
             _isSpawning = true;
         }
+    }
+
+    public void StartSpawn()
+    {
+        _spawn = true;
     }
 
     public void Setup(Vector3Int spawnPos, float spawnTime)

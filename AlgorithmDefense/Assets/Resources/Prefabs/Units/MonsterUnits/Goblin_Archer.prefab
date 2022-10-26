@@ -204,8 +204,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08943eedf67b89d4a95b3bd8b666c9fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveType: 4
-  ProjectilePrefab: {fileID: 3222863194544384520, guid: b83bf189983acd041bc66c0d2ba8a463, type: 3}
+  MoveType: 3
+  ProjectileName: Arrow
   RotatePoint: {fileID: 1952750031018767628}
   Damage: 10
   layerMask:

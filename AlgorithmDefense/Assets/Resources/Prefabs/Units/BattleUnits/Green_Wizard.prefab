@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 6009226577167646315}
   - component: {fileID: 348779376133977653}
   - component: {fileID: 7444022826104319249}
-  - component: {fileID: 2484228118418490861}
   - component: {fileID: 3850801219476193483}
+  - component: {fileID: 2484228118418490861}
   - component: {fileID: 4031502291994150515}
   m_Layer: 7
   m_Name: Green_Wizard
@@ -148,6 +148,28 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &3850801219476193483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6009226577167646314}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08943eedf67b89d4a95b3bd8b666c9fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveType: 1
+  ProjectileName: FireBall
+  RotatePoint: {fileID: 7432611583939586586}
+  Damage: 10
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 320
+  attackDamage: 2
+  _speed: 0.6
+  _range: 0.3
 --- !u!114 &2484228118418490861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,28 +183,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitPoint: 0
---- !u!114 &3850801219476193483
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6009226577167646314}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08943eedf67b89d4a95b3bd8b666c9fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MoveType: 3
-  arrowPrefab: {fileID: 2205923079419506430, guid: bd376a7dcedeec244ae5decba6aa47a6, type: 3}
-  RotatePoint: {fileID: 7432611583939586586}
-  Damage: 10
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 320
-  attackDamage: 2
-  _speed: 0.6
-  _range: 0.3
 --- !u!114 &4031502291994150515
 MonoBehaviour:
   m_ObjectHideFlags: 0

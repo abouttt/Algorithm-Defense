@@ -173,8 +173,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08943eedf67b89d4a95b3bd8b666c9fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveType: 4
-  ProjectilePrefab: {fileID: 2205923079419506430, guid: bd376a7dcedeec244ae5decba6aa47a6, type: 3}
+  MoveType: 3
+  ProjectileName: FireBall
   RotatePoint: {fileID: 7756331903609329635}
   Damage: 10
   layerMask:
