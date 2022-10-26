@@ -41,7 +41,7 @@ public class StageTileInformation : MonoBehaviour
 
         //클릭한 스테이지 번호 가져오기
         stageNum = PlayerPrefs.GetInt("StageNum");
-        Debug.Log("stageNum: "+stageNum);
+        Debug.Log("stageNum: " + stageNum);
         WWWForm form = new WWWForm();
 
         //각각의 정보 이름과 넣을정보를 넣어줌
@@ -188,6 +188,7 @@ public class StageTileInformation : MonoBehaviour
     //뒤로가기
     public void BackStartScene()
     {
+        Time.timeScale = 1f;
         //시작화면으로 이동
         SceneManager.LoadScene(0);
     }
@@ -195,13 +196,15 @@ public class StageTileInformation : MonoBehaviour
     //다시하기
     public void NowStageAgain()
     {
+        Time.timeScale = 1f;
         //Game씬(1번)다시 시작
         SceneManager.LoadScene(1);
     }
 
     //다음챕터
-   public void NextStageNumSet()
+    public void NextStageNumSet()
     {
+        Time.timeScale = 1f;
 
         int stage = PlayerPrefs.GetInt("StageCount");
         if (stage != stageNum)

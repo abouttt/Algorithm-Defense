@@ -15,14 +15,14 @@ public class GameManager
         }
         set
         {
-            _castleHP += value;
-            
-            if(!_hpBarAnim)
+            _castleHP = value;
+
+            if (!_hpBarAnim)
             {
                 _hpBarAnim = Transform.FindObjectOfType<HPBarAnimation>();
             }
 
-           // _hpBarAnim.CastleAttacked();
+            _hpBarAnim.CastleAttacked();
         }
     }
 
@@ -34,14 +34,14 @@ public class GameManager
         }
         set
         {
-            _dungeonHP += value;
+            _dungeonHP = value;
 
             if (!_hpBarAnim)
             {
                 _hpBarAnim = Transform.FindObjectOfType<HPBarAnimation>();
             }
 
-            //_hpBarAnim.EnemyAttacked();
+            _hpBarAnim.EnemyAttacked();
         }
     }
 
