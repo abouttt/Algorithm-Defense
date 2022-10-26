@@ -13,11 +13,9 @@ public class CallSkill : MonoBehaviour
 
     private void Update()
     {
-
         skill1();
         skill2();
         skill3();
-
     }
 
     public void skill1()

@@ -44,10 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25d2b3d053d300f4fbfb47674b7645a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gatePos:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
+  _gatePos: []
   waves:
   - {fileID: 11400000, guid: a300aea7525374d4ea3d497b13b8ac24, type: 2}
   SpawnPoint:

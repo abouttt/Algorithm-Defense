@@ -100,7 +100,7 @@ public class GameScene : MonoBehaviour
 
     private void InitGround()
     {
-        int stageNumber = PlayerPrefs.GetInt("Num");
+        int stageNumber = PlayerPrefs.GetInt("StageNum");
         var go = Managers.Resource.Instantiate($"{Define.GROUND_PREFAB_PATH}Ground_{stageNumber}");
         go.transform.position = new Vector3(5f, 5.5f, 0f);
         go.transform.SetParent(TileManager.GetInstance.GetGrid().transform);
