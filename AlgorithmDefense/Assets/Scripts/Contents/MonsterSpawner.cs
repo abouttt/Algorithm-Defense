@@ -54,7 +54,8 @@ public class MonsterSpawner : MonoBehaviour
             SetHP(go.GetComponent<UnitManager>());
 
             index++;
-            if (_first.Count >= index)
+            Debug.Log(index);
+            if (_first.Count <= index)
             {
                 index = 0;
             }
@@ -76,7 +77,8 @@ public class MonsterSpawner : MonoBehaviour
             SetHP(go.GetComponent<UnitManager>());
 
             index++;
-            if (_second.Count >= index)
+            Debug.Log(index);
+            if (_second.Count <= index)
             {
                 index = 0;
             }
@@ -98,7 +100,8 @@ public class MonsterSpawner : MonoBehaviour
             SetHP(go.GetComponent<UnitManager>());
 
             index++;
-            if (_third.Count >= index)
+            Debug.Log(index);
+            if (_third.Count <= index)
             {
                 index = 0;
             }
