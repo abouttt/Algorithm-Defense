@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class CastleGate : BaseBuilding
@@ -23,33 +22,30 @@ public class CastleGate : BaseBuilding
 
     protected IEnumerator ReleaseCitizen()
     {
-        while (true)
+        while (_citizenOrderQueue.Count > 0)
         {
-            if (_citizenOrderQueue.Count == 0)
-            {
-                _isReleasing = false;
-                yield break;
-            }
-
             yield return new WaitForSeconds(_releaseTime);
 
-            var citizen = DequeueCitizen(_citizenOrderQueue);
+            var citizenData = _citizenOrderQueue.Dequeue();
 
-            if (citizen.Data.JobType != Define.Job.None)
+            if (citizenData.JobType != Define.Job.None)
             {
-                citizen.Data.MoveType = Define.Move.Up;
-                citizen.GetComponent<CitizenController>().enabled = false;
-                citizen.GetComponent<UnitManager>().enabled = true;
-                citizen.GetComponent<UnitAI>().enabled = true;
+                var go = Managers.Resource.Instantiate($"{Define.BATTILE_UNIT_PATH}{citizenData.CitizenType}_{citizenData.JobType}");
+                var unitManager = go.GetComponent<UnitManager>();
+                unitManager.CurrentHP = unitManager.MaxHP;
+                SetUnitPosition(go, Define.Move.Up);
             }
             else
             {
+                var go = Managers.Resource.Instantiate($"{Define.CITIZEN_PATH}{citizenData.CitizenType}Citizen");
+                var citizen = go.GetComponent<CitizenController>();
                 citizen.SetReverseMoveType();
+                SetUnitPosition(go, citizen.Data.MoveType);
+                citizen.SetNextDestination(transform.position);
             }
-
-            SetCitizenPosition(citizen);
-            citizen.SetNextDestination(transform.position);
         }
+
+        _isReleasing = false;
     }
 
     protected override void Init()

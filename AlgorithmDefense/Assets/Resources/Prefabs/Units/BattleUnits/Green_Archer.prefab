@@ -155,7 +155,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2134547115178478043}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 08943eedf67b89d4a95b3bd8b666c9fa, type: 3}
   m_Name: 
@@ -182,7 +182,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c70187ed11576449ad98deeef54a456, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoint: 100
+  MaxHP: 50
+  CurrentHP: 10
 --- !u!114 &2134547115178478044
 MonoBehaviour:
   m_ObjectHideFlags: 0

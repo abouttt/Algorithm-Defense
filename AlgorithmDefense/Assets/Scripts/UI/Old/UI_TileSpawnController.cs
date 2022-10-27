@@ -84,7 +84,7 @@ public class UI_TileSpawnController : MonoBehaviour
 
                 if(firstGoid>= btn_Slot[index]._cost)
                 {
-                    Debug.Log("스킬실행");
+                    //Debug.Log("스킬실행");
                     _CallSkill.skill(index);
                 }
 

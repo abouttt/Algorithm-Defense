@@ -64,20 +64,16 @@ public class CitizenSpawner : MonoBehaviour
 
     public IEnumerator SpawnCitizen()
     {
-        while (true)
+        while (_spawn)
         {
-            if (!_spawn)
-            {
-                _isSpawning = false;
-                yield break;
-            }
-
             _spawnTarget = CitizenSpawnList[_spawnIndex];
             _spawnIndex = ++_spawnIndex < CitizenSpawnList.Length ? _spawnIndex : 0;
 
             var pos = TileManager.GetInstance.GetCellCenterToWorld(Define.Tilemap.Ground, _spawnCellPos);
+
             var go = Managers.Resource.Instantiate($"{Define.CITIZEN_PATH}{_spawnTarget}Citizen", pos);
-            var citizen = go.GetOrAddComponent<CitizenController>();
+
+            var citizen = go.GetComponent<CitizenController>();
             citizen.Data.CitizenType = _spawnTarget;
             citizen.Data.MoveType = Define.Move.Up;
             citizen.SetNextDestination(citizen.transform.position);
@@ -86,6 +82,8 @@ public class CitizenSpawner : MonoBehaviour
 
             _spawnIndex = ++_spawnIndex < CitizenSpawnList.Length ? _spawnIndex : 0;
         }
+
+        _isSpawning = false;
     }
 
     private static void Init()

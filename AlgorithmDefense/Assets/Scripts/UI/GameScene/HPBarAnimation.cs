@@ -48,7 +48,7 @@ public class HPBarAnimation : MonoBehaviour
 
             if (enemyBar.value < collapsedEnemy)
             {
-                Debug.Log("적 건물 파괴");
+                //Debug.Log("적 건물 파괴");
                 collapsedEnemy -= 0.33f;
 
                 //적 건물 이미지 감소???

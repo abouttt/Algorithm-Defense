@@ -51,6 +51,8 @@ public class MonsterSpawner : MonoBehaviour
             var go = Managers.Resource.Instantiate($"{Define.MONSTER_UNIT_PATH}Goblin_{data.job}");
             go.transform.position = _spawnPos[0] + new Vector3(0.5f, 0f, 0f);
 
+            SetHP(go.GetComponent<UnitManager>());
+
             index++;
             if (_first.Count >= index)
             {
@@ -70,6 +72,8 @@ public class MonsterSpawner : MonoBehaviour
 
             var go = Managers.Resource.Instantiate($"{Define.MONSTER_UNIT_PATH}Goblin_{data.job}");
             go.transform.position = _spawnPos[1] + new Vector3(0.5f, 0f, 0f);
+
+            SetHP(go.GetComponent<UnitManager>());
 
             index++;
             if (_second.Count >= index)
@@ -91,11 +95,18 @@ public class MonsterSpawner : MonoBehaviour
             var go = Managers.Resource.Instantiate($"{Define.MONSTER_UNIT_PATH}Goblin_{data.job}");
             go.transform.position = _spawnPos[2] + new Vector3(0.5f, 0f, 0f);
 
+            SetHP(go.GetComponent<UnitManager>());
+
             index++;
             if (_third.Count >= index)
             {
                 index = 0;
             }
         }
+    }
+
+    private void SetHP(UnitManager um)
+    {
+        um.CurrentHP = um.MaxHP;
     }
 }

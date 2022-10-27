@@ -14,19 +14,22 @@ public class UnitAI : MonoBehaviour
 
     private Animator _anim;
     [SerializeField] private LayerMask layerMask;
-    [SerializeField] private int attackDamage;
     [SerializeField] private float _speed = 0f;
     [SerializeField] private float _range = 0f;
     private int rot;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         _anim = transform.GetComponentInChildren<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
+    {
+        _detectedUnit = null;
+        _tower = null;
+    }
+
+    private void Update()
     {
         if (!_detectedUnit && !_tower)
         {
@@ -40,13 +43,14 @@ public class UnitAI : MonoBehaviour
     {
         if (_detectedUnit)
         {
-            bool unitDie = _detectedUnit.LoseHp(attackDamage);
-
-            if (unitDie)
+            if (_detectedUnit.CurrentHP <= 0)
             {
                 _anim.SetBool("Attack", false);
-
                 _detectedUnit = null;
+            }
+            else
+            {
+                _detectedUnit.LoseHp(Damage);
             }
         }
         else
@@ -70,13 +74,14 @@ public class UnitAI : MonoBehaviour
 
         if (_detectedUnit)
         {
-            bool unitDie = _detectedUnit.LoseHp(attackDamage);
-
-            if (unitDie)
+            if (_detectedUnit.CurrentHP <= 0)
             {
                 _anim.SetBool("Attack", false);
-
                 _detectedUnit = null;
+            }
+            else
+            {
+                _detectedUnit.LoseHp(Damage);
             }
         }
         else

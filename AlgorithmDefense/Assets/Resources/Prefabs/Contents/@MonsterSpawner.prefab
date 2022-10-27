@@ -45,11 +45,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _first:
-  - time: 2
+  - time: 10
     job: 1
   _second:
-  - time: 1
+  - time: 10
     job: 2
   _third:
-  - time: 3
+  - time: 10
     job: 3

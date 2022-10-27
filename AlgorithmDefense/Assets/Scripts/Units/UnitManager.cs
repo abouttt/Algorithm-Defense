@@ -5,36 +5,38 @@ using UnityEngine;
 public class UnitManager : MonoBehaviour
 {
     private Animator _anim;
-    [SerializeField] private int hitPoint;
-    private int maxHP;
+    public int MaxHP;
+    [HideInInspector]
+    public int CurrentHP;
 
-    public void Awake()
+    private void Awake()
     {
         _anim = GetComponent<Animator>();
     }
-    public virtual bool LoseHp(int amount)
+
+    private void Update()
     {
-        hitPoint -= amount;
-
-        _anim.SetBool("Hurt", true);
-
-        if (hitPoint <= 0)
+        if (CurrentHP <= 0)
         {
             _anim.SetBool("Dead", true);
-            return true;
         }
-        return false;
     }
 
-    public virtual bool GetHp(int amount)
+    public void LoseHp(int amount)
     {
-        if (hitPoint < maxHP)
+        CurrentHP -= amount;
+
+        _anim.SetBool("Hurt", true);
+    }
+
+    public void GetHp(int amount)
+    {
+        if (CurrentHP >= MaxHP)
         {
-            hitPoint += amount;
-            return true;
+            return;
         }
 
-        return false;
+        CurrentHP += amount;
     }
 
     public void UnitDelete()

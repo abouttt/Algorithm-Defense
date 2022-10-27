@@ -34,14 +34,8 @@ public class JobCenter : BaseBuilding
 
     protected IEnumerator ReleaseCitizen()
     {
-        while (true)
+        while (_citizenOrderQueue.Count > 0)
         {
-            if (_citizenOrderQueue.Count == 0)
-            {
-                _isReleasing = false;
-                yield break;
-            }
-
             yield return new WaitForSeconds(_releaseTime);
 
             bool hasOutputRoad = HasRoadNextPosition(_outputDirs[_outputDirIndex]);
@@ -51,25 +45,20 @@ public class JobCenter : BaseBuilding
                 continue;
             }
 
-            var citizen = DequeueCitizen(_citizenOrderQueue);
+            var citizenData = _citizenOrderQueue.Dequeue();
 
-            var go = Managers.Resource.Instantiate($"{Define.BATTILE_UNIT_PATH}{citizen.Data.CitizenType}_{_jobType}");
-            go.transform.position = transform.position;
+            var go = Managers.Resource.Instantiate($"{Define.CITIZEN_PATH}{citizenData.CitizenType}Citizen_{_jobType}");
 
-            var newCitizen = go.GetOrAddComponent<CitizenController>();
-            newCitizen.Data = citizen.Data;
-            newCitizen.Data.MoveType = _outputDirs[_outputDirIndex];
-            newCitizen.Data.JobType = _jobType;
+            var citizen = go.GetComponent<CitizenController>();
+            citizen.transform.position = transform.position;
+            citizen.Data.MoveType = _outputDirs[_outputDirIndex];
+            citizen.Data.JobType = _jobType;
 
-            Managers.Resource.Destroy(citizen.gameObject);
-            citizen = newCitizen;
-            citizen.GetComponent<CitizenController>().enabled = true;
-            citizen.GetComponent<UnitManager>().enabled = false;
-            citizen.GetComponent<UnitAI>().enabled = false;
-
-            SetCitizenPosition(citizen);
+            SetUnitPosition(go, citizen.Data.MoveType);
             citizen.SetNextDestination(transform.position);
         }
+
+        _isReleasing = false;
     }
 
     protected override void Init()

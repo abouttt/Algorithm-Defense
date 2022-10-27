@@ -49,14 +49,8 @@ public class Gateway : BaseBuilding
 
     private IEnumerator ReleaseRedCitizen()
     {
-        while (true)
+        while (_redOrderQueue.Count > 0)
         {
-            if (_redOrderQueue.Count == 0)
-            {
-                _isRedReleasing = false;
-                yield break;
-            }
-
             yield return new WaitForSeconds(_releaseTime);
 
             if (!HasRoadNextPosition(DirectionCondition[Define.Citizen.Red]))
@@ -66,18 +60,14 @@ public class Gateway : BaseBuilding
 
             Release(_redOrderQueue);
         }
+
+        _isRedReleasing = false;
     }
 
     private IEnumerator ReleaseGreenCitizen()
     {
-        while (true)
+        while (_greenOrderQueue.Count > 0)
         {
-            if (_greenOrderQueue.Count == 0)
-            {
-                _isGreenReleasing = false;
-                yield break;
-            }
-
             yield return new WaitForSeconds(_releaseTime);
 
             if (!HasRoadNextPosition(DirectionCondition[Define.Citizen.Green]))
@@ -87,18 +77,14 @@ public class Gateway : BaseBuilding
 
             Release(_greenOrderQueue);
         }
+
+        _isGreenReleasing = false;
     }
 
     private IEnumerator ReleaseBlueCitizen()
     {
-        while (true)
+        while (_blueOrderQueue.Count > 0)
         {
-            if (_blueOrderQueue.Count == 0)
-            {
-                _isBlueReleasing = false;
-                yield break;
-            }
-
             yield return new WaitForSeconds(_releaseTime);
 
             if (!HasRoadNextPosition(DirectionCondition[Define.Citizen.Blue]))
@@ -108,6 +94,8 @@ public class Gateway : BaseBuilding
 
             Release(_blueOrderQueue);
         }
+
+        _isBlueReleasing = false;
     }
 
 
@@ -115,7 +103,7 @@ public class Gateway : BaseBuilding
     {
         var citizen = DequeueCitizen(citizenOrderQueue);
         citizen.Data.MoveType = DirectionCondition[citizen.Data.CitizenType];
-        SetCitizenPosition(citizen);
+        SetUnitPosition(citizen.gameObject, citizen.Data.MoveType);
         citizen.SetNextDestination(transform.position);
     }
 

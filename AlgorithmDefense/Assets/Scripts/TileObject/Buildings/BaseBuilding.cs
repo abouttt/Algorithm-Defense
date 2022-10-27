@@ -30,21 +30,21 @@ public abstract class BaseBuilding : MonoBehaviour
         else
         {
             go = Managers.Resource.Instantiate(
-                $"{Define.BATTILE_UNIT_PATH}" +
-                $"{citizenData.CitizenType}_{citizenData.JobType}");
+                $"{Define.CITIZEN_PATH}" +
+                $"{citizenData.CitizenType}Citizen_{citizenData.JobType}");
         }
 
-        var citizen = go.GetOrAddComponent<CitizenController>();
+        var citizen = go.GetComponent<CitizenController>();
         citizen.Data = citizenData;
 
         return citizen;
     }
 
-    protected void SetCitizenPosition(CitizenController citizen)
+    protected void SetUnitPosition(GameObject go, Define.Move moveType)
     {
         var pos = TileManager.GetInstance.GetWorldToCellCenterToWorld(Define.Tilemap.Ground, transform.position);
 
-        switch (citizen.Data.MoveType)
+        switch (moveType)
         {
             case Define.Move.Right:
                 pos += new Vector3(0.51f, 0, 0);
@@ -60,7 +60,7 @@ public abstract class BaseBuilding : MonoBehaviour
                 break;
         }
 
-        citizen.transform.position = pos;
+        go.transform.position = pos;
     }
 
     protected bool HasRoadNextPosition(Define.Move moveType)

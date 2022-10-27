@@ -72,7 +72,7 @@ public class StageNumberInformation : MonoBehaviour
 
     public void SetStageData(int length)
     {
-        Debug.Log("GoogleSheetDataSet");
+        //Debug.Log("GoogleSheetDataSet");
 
         for (int i = 0; i < length; i++)
         {

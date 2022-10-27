@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 4101191250409400679}
   - component: {fileID: 4101191250409400696}
   - component: {fileID: 4101191250409400697}
-  - component: {fileID: 5410645194157225791}
-  - component: {fileID: 5418507237917127241}
   - component: {fileID: -8189947774330361553}
   - component: {fileID: -3343670480490707746}
+  - component: {fileID: 5410645194157225791}
+  - component: {fileID: 5418507237917127241}
   m_Layer: 0
   m_Name: GreenCitizen
   m_TagString: Player
@@ -109,37 +109,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5410645194157225791
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4101191250409400698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b068d6803e5b1644cb7b1ee95b699602, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Data:
-    CitizenType: 2
-    JobType: 0
-    MoveType: 0
-    MoveSpeed: 1
-    Destination: {x: 0, y: 0, z: 0}
---- !u!114 &5418507237917127241
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4101191250409400698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d4eb884f849dc14aa6260d7d5ad5dd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsUsing: 0
 --- !u!50 &-8189947774330361553
 Rigidbody2D:
   serializedVersion: 4
@@ -187,3 +156,34 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &5410645194157225791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4101191250409400698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b068d6803e5b1644cb7b1ee95b699602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Data:
+    CitizenType: 2
+    JobType: 0
+    MoveType: 0
+    MoveSpeed: 1
+    Destination: {x: 0, y: 0, z: 0}
+--- !u!114 &5418507237917127241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4101191250409400698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d4eb884f849dc14aa6260d7d5ad5dd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsUsing: 0
