@@ -57,6 +57,28 @@ MonoBehaviour:
   - First: []
     Second: []
     Third: []
-  - First: []
-    Second: []
-    Third: []
+  - First:
+    - time: 18
+      job: 1
+    - time: 5
+      job: 3
+    - time: 21
+      job: 1
+    Second:
+    - time: 18
+      job: 1
+    - time: 4
+      job: 2
+    - time: 15
+      job: 2
+    - time: 2
+      job: 1
+    Third:
+    - time: 20
+      job: 3
+    - time: 15
+      job: 2
+    - time: 11
+      job: 1
+    - time: 1
+      job: 1

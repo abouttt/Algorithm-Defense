@@ -194,13 +194,12 @@ MonoBehaviour:
   MoveType: 1
   ProjectileName: FireBall
   RotatePoint: {fileID: 3904652600563281461}
-  Damage: 10
+  Damage: 12
   layerMask:
     serializedVersion: 2
     m_Bits: 320
-  attackDamage: 2
   _speed: 0.6
-  _range: 0.8
+  _range: 1.5
 --- !u!114 &3666073848110289762
 MonoBehaviour:
   m_ObjectHideFlags: 0

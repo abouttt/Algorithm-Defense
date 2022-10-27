@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c70187ed11576449ad98deeef54a456, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHP: 50
+  MaxHP: 70
   CurrentHP: 10
 --- !u!114 &-5305519583196170815
 MonoBehaviour:
@@ -212,9 +212,8 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 384
-  attackDamage: 2
   _speed: 0.6
-  _range: 0.8
+  _range: 1
 --- !u!114 &3862713582883802978
 MonoBehaviour:
   m_ObjectHideFlags: 0

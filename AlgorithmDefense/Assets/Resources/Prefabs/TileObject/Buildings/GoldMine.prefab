@@ -45,4 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _releaseTime: 1
-  GoldIncrease: 10
+  GoldIncrease: 30

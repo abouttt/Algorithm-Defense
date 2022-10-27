@@ -1298,8 +1298,8 @@ MonoBehaviour:
   CameraY: 7.5
   CameraZ: -10
   CameraSize: 7.5
-  CastleMaxHP: 100000
-  DungeonMaxHP: 100000
+  CastleMaxHP: 2000
+  DungeonMaxHP: 2000
   GroundWidth: 7
   GroundHeight: 15
   GrassPercentage: 10
@@ -1307,7 +1307,7 @@ MonoBehaviour:
   RampartWidth: 7
   RampartHeight: 8
   SpawnCellPos: {x: 3, y: 1, z: 0}
-  SpawnTime: 5
+  SpawnTime: 4
   BattleLineLength: 4
 --- !u!4 &1717982457
 Transform:
