@@ -46,14 +46,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StageDataList:
   - First:
-    - time: 0
-      job: 0
+    - time: 10
+      job: 1
     Second:
-    - time: 0
-      job: 0
+    - time: 10
+      job: 2
     Third:
-    - time: 0
-      job: 0
+    - time: 10
+      job: 3
   - First: []
     Second: []
     Third: []

@@ -31,6 +31,7 @@ public class CastleGate : BaseBuilding
             if (citizenData.JobType != Define.Job.None)
             {
                 var go = Managers.Resource.Instantiate($"{Define.BATTILE_UNIT_PATH}{citizenData.CitizenType}_{citizenData.JobType}");
+                go.transform.position = transform.position;
                 var unitManager = go.GetComponent<UnitManager>();
                 unitManager.CurrentHP = unitManager.MaxHP;
                 SetUnitPosition(go, Define.Move.Up);

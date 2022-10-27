@@ -33,7 +33,7 @@ public class MonsterSpawner : MonoBehaviour
         _spawnPos[2] = new Vector3(Managers.Game.Setting.StartPosition.x + 5,
             Managers.Game.Setting.RampartHeight + Managers.Game.Setting.BattleLineLength, 0);
 
-        _stageNumber = PlayerPrefs.GetInt("StageNum");
+        _stageNumber = PlayerPrefs.GetInt("StageNum") - 1;
 
         LoadingControl.GetInstance.LoadingCompleteAction += StartSpawn;
     }

@@ -8,12 +8,10 @@ public class CitizenController : MonoBehaviour
     public CitizenData Data = new();
 
     private Animator _animator;
-    private SpriteRenderer _sr;
 
     private void Awake()
     {
         _animator = GetComponent<Animator>();
-        _sr = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -95,13 +93,12 @@ public class CitizenController : MonoBehaviour
 
     private void CheckRoad(Vector3Int pos)
     {
-        var go = TileManager.GetInstance.GetTilemap(Define.Tilemap.Road).GetInstantiatedObject(pos);
-        if (!go)
+        var road = Util.GetRoad(Define.Tilemap.Road, pos);
+        if (!road)
         {
             return;
         }
 
-        var road = go.GetComponent<Road>();
         switch (road.RoadType)
         {
             case Define.Road.B:

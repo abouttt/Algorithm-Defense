@@ -71,20 +71,65 @@ public abstract class BaseBuilding : MonoBehaviour
         {
             case Define.Move.None:
                 return false;
-            case Define.Move.Right:
-                nextPos += Vector3Int.right;
-                break;
-            case Define.Move.Left:
-                nextPos += Vector3Int.left;
-                break;
             case Define.Move.Up:
                 nextPos += Vector3Int.up;
+                break;
+            case Define.Move.Right:
+                nextPos += Vector3Int.right;
                 break;
             case Define.Move.Down:
                 nextPos += Vector3Int.down;
                 break;
+            case Define.Move.Left:
+                nextPos += Vector3Int.left;
+                break;
         }
 
-        return Util.GetRoad(Define.Tilemap.Road, nextPos) ? true : false;
+        var road = Util.GetRoad(Define.Tilemap.Road, nextPos);
+        if (road)
+        {
+            if (moveType == Define.Move.Up)
+            {
+                if (road.RoadType == Define.Road.BD ||
+                   road.RoadType == Define.Road.CUL ||
+                   road.RoadType == Define.Road.CUR ||
+                   road.RoadType == Define.Road.UD)
+                {
+                    return true;
+                }
+            }
+            else if (moveType == Define.Move.Right)
+            {
+                if (road.RoadType == Define.Road.BL ||
+                   road.RoadType == Define.Road.CDL ||
+                   road.RoadType == Define.Road.CUL ||
+                   road.RoadType == Define.Road.LR)
+                {
+                    return true;
+                }
+            }
+            else if (moveType == Define.Move.Down)
+            {
+                if (road.RoadType == Define.Road.BU ||
+                   road.RoadType == Define.Road.CDL ||
+                   road.RoadType == Define.Road.CDR ||
+                   road.RoadType == Define.Road.UD)
+                {
+                    return true;
+                }
+            }
+            else if (moveType == Define.Move.Left)
+            {
+                if (road.RoadType == Define.Road.BR ||
+                   road.RoadType == Define.Road.CDR ||
+                   road.RoadType == Define.Road.CUR ||
+                   road.RoadType == Define.Road.LR)
+                {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 }

@@ -27,8 +27,8 @@ public class GoldAnimation : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-
-            GoldSaving(10);
+            Managers.Game.Gold += 1000;
+            GoldSaving();
 
         }
 
@@ -43,9 +43,8 @@ public class GoldAnimation : MonoBehaviour
     }
 
 
-    public void GoldSaving(int price)
+    public void GoldSaving()
     {
-        Managers.Game.Gold += price;
         goldText.text = Managers.Game.Gold.ToString();
 
         goldTextTransform.DOScale(1.2f, 0.2f);
@@ -71,7 +70,7 @@ public class GoldAnimation : MonoBehaviour
                 goldText.DOColor(Color.black, 0.3f);
                 goldTextTransform.DOScale(1f, 0.2f);
             });
-          
+
         }
         else//돈이 부족할 때
         {
