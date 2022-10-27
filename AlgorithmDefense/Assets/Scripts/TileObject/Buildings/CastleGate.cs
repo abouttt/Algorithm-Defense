@@ -38,6 +38,12 @@ public class CastleGate : BaseBuilding
             }
             else
             {
+                if (!HasRoadNextPosition(Define.Move.Down))
+                {
+                    _citizenOrderQueue.Enqueue(citizenData);
+                    continue;
+                }
+
                 var go = Managers.Resource.Instantiate($"{Define.CITIZEN_PATH}{citizenData.CitizenType}Citizen");
                 var citizen = go.GetComponent<CitizenController>();
                 citizen.SetReverseMoveType();
