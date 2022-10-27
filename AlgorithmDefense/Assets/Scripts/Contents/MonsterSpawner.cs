@@ -9,25 +9,31 @@ public struct MonsterSpawnData
     public Define.Job job;
 }
 
+[System.Serializable]
+public struct StageSpawnData
+{
+    public List<MonsterSpawnData> First;
+    public List<MonsterSpawnData> Second;
+    public List<MonsterSpawnData> Third;
+}
+
 public class MonsterSpawner : MonoBehaviour
 {
-    [SerializeField]
-    private List<MonsterSpawnData> _first;
-    [SerializeField]
-    private List<MonsterSpawnData> _second;
-    [SerializeField]
-    private List<MonsterSpawnData> _third;
+    public List<StageSpawnData> StageDataList;
 
     private Vector3[] _spawnPos = new Vector3[3];
+    private int _stageNumber;
 
     private void Start()
     {
-        _spawnPos[0] = new Vector3(Managers.Game.Setting.StartPosition.x + 1, 
+        _spawnPos[0] = new Vector3(Managers.Game.Setting.StartPosition.x + 1,
             Managers.Game.Setting.RampartHeight + Managers.Game.Setting.BattleLineLength, 0);
-        _spawnPos[1] = new Vector3(Managers.Game.Setting.StartPosition.x + 3, 
+        _spawnPos[1] = new Vector3(Managers.Game.Setting.StartPosition.x + 3,
             Managers.Game.Setting.RampartHeight + Managers.Game.Setting.BattleLineLength, 0);
-        _spawnPos[2] = new Vector3(Managers.Game.Setting.StartPosition.x + 5, 
+        _spawnPos[2] = new Vector3(Managers.Game.Setting.StartPosition.x + 5,
             Managers.Game.Setting.RampartHeight + Managers.Game.Setting.BattleLineLength, 0);
+
+        _stageNumber = PlayerPrefs.GetInt("StageNum");
 
         LoadingControl.GetInstance.LoadingCompleteAction += StartSpawn;
     }
@@ -44,7 +50,7 @@ public class MonsterSpawner : MonoBehaviour
         int index = 0;
         while (true)
         {
-            MonsterSpawnData data = _first[index];
+            MonsterSpawnData data = StageDataList[_stageNumber].First[index];
 
             yield return new WaitForSeconds(data.time);
 
@@ -54,8 +60,7 @@ public class MonsterSpawner : MonoBehaviour
             SetHP(go.GetComponent<UnitManager>());
 
             index++;
-            Debug.Log(index);
-            if (_first.Count <= index)
+            if (StageDataList[_stageNumber].First.Count <= index)
             {
                 index = 0;
             }
@@ -67,7 +72,7 @@ public class MonsterSpawner : MonoBehaviour
         int index = 0;
         while (true)
         {
-            MonsterSpawnData data = _second[index];
+            MonsterSpawnData data = StageDataList[_stageNumber].Second[index];
 
             yield return new WaitForSeconds(data.time);
 
@@ -77,8 +82,7 @@ public class MonsterSpawner : MonoBehaviour
             SetHP(go.GetComponent<UnitManager>());
 
             index++;
-            Debug.Log(index);
-            if (_second.Count <= index)
+            if (StageDataList[_stageNumber].Second.Count <= index)
             {
                 index = 0;
             }
@@ -90,7 +94,7 @@ public class MonsterSpawner : MonoBehaviour
         int index = 0;
         while (true)
         {
-            MonsterSpawnData data = _third[index];
+            MonsterSpawnData data = StageDataList[_stageNumber].Third[index];
 
             yield return new WaitForSeconds(data.time);
 
@@ -100,8 +104,7 @@ public class MonsterSpawner : MonoBehaviour
             SetHP(go.GetComponent<UnitManager>());
 
             index++;
-            Debug.Log(index);
-            if (_third.Count <= index)
+            if (StageDataList[_stageNumber].Third.Count <= index)
             {
                 index = 0;
             }
