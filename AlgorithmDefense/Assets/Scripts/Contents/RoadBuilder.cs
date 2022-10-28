@@ -1,9 +1,7 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.Tilemaps;
 
 public class RoadBuilder : MonoBehaviour
 {
@@ -40,7 +38,7 @@ public class RoadBuilder : MonoBehaviour
         }
     }
 
-    public bool IsWillRoadBuild()
+    public bool IsWillRoadBuilding()
     {
         if (!RoadGroupDic.ContainsKey(_groupCount))
         {
@@ -54,7 +52,6 @@ public class RoadBuilder : MonoBehaviour
     {
         if (!RoadGroupDic.ContainsKey(groupNumber))
         {
-            Debug.Log($"RoadBuilder - RemoveRoads() : No contains group number({groupNumber}).");
             return;
         }
 
@@ -68,11 +65,12 @@ public class RoadBuilder : MonoBehaviour
             }
         }
 
+        // 길 삭제.
         foreach (var pos in RoadGroupDic[groupNumber])
         {
             TileManager.GetInstance.SetTile(Define.Tilemap.Road, pos, null);
 
-            if (_startRoadPos.HasValue && _startRoadPos.Value == pos)
+            if (_startRoadPos.HasValue && (_startRoadPos.Value == pos))
             {
                 TileManager.GetInstance.SetTile(Define.Tilemap.Road, _startRoadPos.Value, Define.Road.BD);
                 Util.GetRoad(Define.Tilemap.Road, _startRoadPos.Value).IsStartRoad = true;
@@ -144,7 +142,7 @@ public class RoadBuilder : MonoBehaviour
         }
 
         // 마지막 위치에 건물이 있다면 진행하지 않는다.
-        if ((_firstPos != _lastPos) && TileManager.GetInstance.GetTilemap(Define.Tilemap.Building).GetInstantiatedObject(_lastPos))
+        if ((_firstPos != _lastPos) && Util.GetBuilding<BaseBuilding>(_lastPos))
         {
             return;
         }
@@ -175,20 +173,22 @@ public class RoadBuilder : MonoBehaviour
     public void BuildRoads()
     {
         // 아무것도 예약되어 있지 않다면 진행하지 않는다.
-        if (!RoadGroupDic.ContainsKey(_groupCount) || RoadGroupDic[_groupCount].Count == 0)
+        if (!RoadGroupDic.ContainsKey(_groupCount) || (RoadGroupDic[_groupCount].Count == 0))
         {
             return;
         }
 
         if (IsConnectedBuilding())
         {
-            Road willRoad = null;
             Road road = null;
+            Road willRoad = null;
+            Define.Road roadType = Define.Road.B;
 
             foreach (var pos in RoadGroupDic[_groupCount])
             {
                 willRoad = Util.GetRoad(Define.Tilemap.WillRoad, pos);
-                Define.Road roadType = willRoad.RoadType;
+
+                roadType = willRoad.RoadType;
                 int willRoadGroupNumber = willRoad.GroupNumber;
                 int willRoadIndex = willRoad.Index;
                 bool isStartRoad = willRoad.IsStartRoad;
@@ -217,7 +217,6 @@ public class RoadBuilder : MonoBehaviour
                 }
             }
 
-            //RoadGroupDic.Remove(_groupCount);
             RoadGroupDic[_groupCount].Clear();
         }
 
@@ -262,7 +261,7 @@ public class RoadBuilder : MonoBehaviour
             int nx = prevPos.x + Define.DX[i];
             int ny = prevPos.y + Define.DY[i];
 
-            if (pos.x == nx && pos.y == ny)
+            if ((pos.x == nx) && (pos.y == ny))
             {
                 return true;
             }
@@ -289,10 +288,10 @@ public class RoadBuilder : MonoBehaviour
 
     private bool IsInOfRange(Vector3Int pos)
     {
-        if (pos.x <= Managers.Game.Setting.StartPosition.x ||
-            pos.y <= Managers.Game.Setting.StartPosition.y ||
-            pos.x > Managers.Game.Setting.StartPosition.x + Managers.Game.Setting.RampartWidth - 1 ||
-            pos.y > Managers.Game.Setting.StartPosition.y + Managers.Game.Setting.RampartHeight - 1)
+        if ((pos.x <= Managers.Game.Setting.StartPosition.x) ||
+            (pos.y <= Managers.Game.Setting.StartPosition.y) ||
+            (pos.x > Managers.Game.Setting.StartPosition.x + Managers.Game.Setting.RampartWidth - 1) ||
+            (pos.y > Managers.Game.Setting.StartPosition.y + Managers.Game.Setting.RampartHeight - 1))
         {
             return false;
         }
@@ -302,8 +301,8 @@ public class RoadBuilder : MonoBehaviour
 
     private bool IsConnectedBuilding()
     {
-        var firstBuilding = TileManager.GetInstance.GetTilemap(Define.Tilemap.Building).GetInstantiatedObject(_firstPos);
-        var secondBuilding = TileManager.GetInstance.GetTilemap(Define.Tilemap.Building).GetInstantiatedObject(_lastPos);
+        var firstBuilding = Util.GetBuilding<BaseBuilding>(_firstPos);
+        var secondBuilding = Util.GetBuilding<BaseBuilding>(_lastPos);
 
         if (firstBuilding && secondBuilding)
         {

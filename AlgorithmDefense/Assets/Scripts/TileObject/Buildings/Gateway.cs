@@ -107,6 +107,28 @@ public class Gateway : BaseBuilding
         citizen.SetNextDestination(transform.position);
     }
 
+    private CitizenController DequeueCitizen(Queue<CitizenData> citizenOrderQueue)
+    {
+        CitizenData citizenData = citizenOrderQueue.Dequeue();
+
+        GameObject go = null;
+        if (citizenData.JobType == Define.Job.None)
+        {
+            go = Managers.Resource.Instantiate($"{Define.CITIZEN_PREFAB_PATH}{citizenData.CitizenType}Citizen");
+        }
+        else
+        {
+            go = Managers.Resource.Instantiate(
+                $"{Define.CITIZEN_PREFAB_PATH}" +
+                $"{citizenData.CitizenType}Citizen_{citizenData.JobType}");
+        }
+
+        var citizen = go.GetComponent<CitizenController>();
+        citizen.Data = citizenData;
+
+        return citizen;
+    }
+
     protected override void Init()
     {
         if (DirectionCondition == null)

@@ -45,7 +45,7 @@ public class MouseController : MonoBehaviour
                 return;
             }
 
-            if (RoadBuilder.GetInstance.IsWillRoadBuild())
+            if (RoadBuilder.GetInstance.IsWillRoadBuilding())
             {
                 return;
             }
@@ -67,8 +67,6 @@ public class MouseController : MonoBehaviour
                         jobCenter.ChangeOutputDir();
                     }
                 }
-
-                //RoadBuilder.GetInstance.IsBuilding = false;
             }
         }
 
@@ -87,42 +85,6 @@ public class MouseController : MonoBehaviour
             RoadBuilder.GetInstance.IsBuilding = true;
         }
 
-        /* if (Input.GetMouseButtonUp(0))
-         {
-             if (EventSystem.current.IsPointerOverGameObject())
-             {
-                 return;
-             }
-
-             if (RoadBuilder.GetInstance.IsBuilding)
-             {
-                 return;
-             }
-
-             var go = TileManager.GetInstance.GetTilemap(Define.Tilemap.Building).GetInstantiatedObject(MouseCellPos);
-             if (go)
-             {
-                 var building = go.GetComponent<BaseBuilding>();
-                 if (building.HasUI)
-                 {
-                     //생성된 클론으로 건물 정보 찾기
-                     var name = building.name.Replace("(Clone)", string.Empty);
-
-                     //일딴 켜져있는 해당 건물UI 닫기(같은 이름의 건물 클릭 오류 방지)
-                     UI_BuildingMenager.GetInstance.CloseUIController();
-
-                     //클릭한 건물 이름과 오브젝트 전달
-                     UI_BuildingMenager.GetInstance.ShowUIController((Define.Building)Enum.Parse(typeof(Define.Building), name), building);
-                 }
-
-                 var jobCenter = go.GetComponent<JobCenter>();
-                 if (jobCenter)
-                 {
-                     jobCenter.ChangeOutputDir();
-                 }
-             }
-         }*/
-
         if (Input.GetMouseButtonDown(1))
         {
             if (EventSystem.current.IsPointerOverGameObject())
@@ -136,10 +98,10 @@ public class MouseController : MonoBehaviour
             }
 
             // 길 삭제.
-            var go = TileManager.GetInstance.GetTilemap(Define.Tilemap.Road).GetInstantiatedObject(MouseCellPos);
-            if (go)
+            var road = Util.GetRoad(Define.Tilemap.Road, MouseCellPos);
+            if (road)
             {
-                RoadBuilder.GetInstance.RemoveRoads(go.GetComponent<Road>().GroupNumber);
+                RoadBuilder.GetInstance.RemoveRoads(road.GetComponent<Road>().GroupNumber);
             }
 
             // 건물 삭제.

@@ -19,9 +19,9 @@ public class CitizenController : MonoBehaviour
         UpdateMoving();
     }
 
-    public void SetNextDestination(Vector3 startPosition)
+    public void SetNextDestination(Vector3 startPos)
     {
-        var cellPos = TileManager.GetInstance.GetWorldToCell(Define.Tilemap.Ground, startPosition);
+        var cellPos = TileManager.GetInstance.GetWorldToCell(Define.Tilemap.Ground, startPos);
         switch (Data.MoveType)
         {
             case Define.Move.Down:

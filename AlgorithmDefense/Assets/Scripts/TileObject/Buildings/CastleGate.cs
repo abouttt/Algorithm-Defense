@@ -5,54 +5,77 @@ using UnityEngine;
 public class CastleGate : BaseBuilding
 {
     private Queue<CitizenData> _citizenOrderQueue = new();
-    private bool _isReleasing;
+    private Queue<CitizenData> _battleUnitOrderQueue = new();
+    private bool _isCitizenReleasing;
+    private bool _isBattleUnitReleasing;
 
     public override void EnterTheBuilding(CitizenController citizen)
     {
-        _citizenOrderQueue.Enqueue(citizen.Data);
+        if (citizen.Data.JobType == Define.Job.None)
+        {
+            _citizenOrderQueue.Enqueue(citizen.Data);
+            if (!_isCitizenReleasing)
+            {
+                _isCitizenReleasing = true;
+                StartCoroutine(ReleaseCitizen());
+            }
+        }
+        else
+        {
+            _battleUnitOrderQueue.Enqueue(citizen.Data);
+            if (!_isBattleUnitReleasing)
+            {
+                _isBattleUnitReleasing = true;
+                StartCoroutine(ReleaseBattleUnit());
+            }
+        }
 
         Managers.Resource.Destroy(citizen.gameObject);
-
-        if (!_isReleasing)
-        {
-            _isReleasing = true;
-            StartCoroutine(ReleaseCitizen());
-        }
     }
 
-    protected IEnumerator ReleaseCitizen()
+    private IEnumerator ReleaseCitizen()
     {
         while (_citizenOrderQueue.Count > 0)
         {
             yield return new WaitForSeconds(_releaseTime);
 
-            var citizenData = _citizenOrderQueue.Dequeue();
+            var data = _citizenOrderQueue.Dequeue();
 
-            if (citizenData.JobType != Define.Job.None)
+            if (!HasRoadNextPosition(Define.Move.Down))
             {
-                var go = Managers.Resource.Instantiate($"{Define.BATTILE_UNIT_PATH}{citizenData.CitizenType}_{citizenData.JobType}");
-                go.transform.position = transform.position;
-                var unitManager = go.GetComponent<UnitManager>();
-                unitManager.CurrentHP = unitManager.MaxHP;
-                SetUnitPosition(go, Define.Move.Up);
+                _citizenOrderQueue.Enqueue(data);
+                continue;
             }
-            else
-            {
-                if (!HasRoadNextPosition(Define.Move.Down))
-                {
-                    _citizenOrderQueue.Enqueue(citizenData);
-                    continue;
-                }
 
-                var go = Managers.Resource.Instantiate($"{Define.CITIZEN_PATH}{citizenData.CitizenType}Citizen");
-                var citizen = go.GetComponent<CitizenController>();
-                citizen.SetReverseMoveType();
-                SetUnitPosition(go, citizen.Data.MoveType);
-                citizen.SetNextDestination(transform.position);
-            }
+            var go = Managers.Resource.Instantiate($"{Define.CITIZEN_PREFAB_PATH}{data.CitizenType}Citizen");
+
+            var citizen = go.GetComponent<CitizenController>();
+            citizen.Data.MoveType = Define.Move.Down;
+            SetUnitPosition(go, citizen.Data.MoveType);
+            citizen.SetNextDestination(transform.position);
         }
 
-        _isReleasing = false;
+        _isCitizenReleasing = false;
+    }
+
+    private IEnumerator ReleaseBattleUnit()
+    {
+        while (_battleUnitOrderQueue.Count > 0)
+        {
+            yield return new WaitForSeconds(_releaseTime);
+
+            var data = _battleUnitOrderQueue.Dequeue();
+
+            var go = Managers.Resource.Instantiate($"{Define.BATTILE_UNIT_PREFAB_PATH}{data.CitizenType}_{data.JobType}");
+            go.transform.position = transform.position;
+
+            var um = go.GetComponent<UnitManager>();
+            um.CurrentHP = um.MaxHP;
+
+            SetUnitPosition(go, Define.Move.Up);
+        }
+
+        _isBattleUnitReleasing = false;
     }
 
     protected override void Init()

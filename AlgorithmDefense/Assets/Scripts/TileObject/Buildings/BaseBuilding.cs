@@ -18,28 +18,6 @@ public abstract class BaseBuilding : MonoBehaviour
 
     protected abstract void Init();
 
-    protected CitizenController DequeueCitizen(Queue<CitizenData> citizenOrderQueue)
-    {
-        CitizenData citizenData = citizenOrderQueue.Dequeue();
-
-        GameObject go = null;
-        if (citizenData.JobType == Define.Job.None)
-        {
-            go = Managers.Resource.Instantiate($"{Define.CITIZEN_PATH}{citizenData.CitizenType}Citizen");
-        }
-        else
-        {
-            go = Managers.Resource.Instantiate(
-                $"{Define.CITIZEN_PATH}" +
-                $"{citizenData.CitizenType}Citizen_{citizenData.JobType}");
-        }
-
-        var citizen = go.GetComponent<CitizenController>();
-        citizen.Data = citizenData;
-
-        return citizen;
-    }
-
     protected void SetUnitPosition(GameObject go, Define.Move moveType)
     {
         var pos = TileManager.GetInstance.GetWorldToCellCenterToWorld(Define.Tilemap.Ground, transform.position);

@@ -162,8 +162,8 @@ public class Road : MonoBehaviour
         }
 
         TileManager.GetInstance.SetTile(Define.Tilemap.WillRoad, pos, roadType);
-        var go = TileManager.GetInstance.GetTilemap(Define.Tilemap.WillRoad).GetInstantiatedObject(pos);
-        var road = go.GetComponent<Road>();
+
+        var road = Util.GetRoad(Define.Tilemap.WillRoad, pos);
         road.GroupNumber = GroupNumber;
         road.Index = Index;
         road.IsStartRoad = IsStartRoad;

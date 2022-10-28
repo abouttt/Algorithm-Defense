@@ -10,12 +10,11 @@ public class JobCenter : BaseBuilding
     private Queue<CitizenData> _citizenOrderQueue = new();
     private bool _isReleasing;
 
-    private Define.Move[] _outputDirs;
-    private int _outputDirIndex = 0;
+    private int _outputDir = 1;
 
     public void ChangeOutputDir()
     {
-        _outputDirIndex = (_outputDirIndex + 1) >= 4 ? 0 : _outputDirIndex + 1;
+        _outputDir = (_outputDir + 1) > 4 ? 1 : _outputDir + 1;
         transform.Rotate(new Vector3(0f, 0f, -90.0f));
     }
 
@@ -38,20 +37,18 @@ public class JobCenter : BaseBuilding
         {
             yield return new WaitForSeconds(_releaseTime);
 
-            bool hasOutputRoad = HasRoadNextPosition(_outputDirs[_outputDirIndex]);
-
-            if (!hasOutputRoad)
+            if (!HasRoadNextPosition((Define.Move)_outputDir))
             {
                 continue;
             }
 
             var citizenData = _citizenOrderQueue.Dequeue();
 
-            var go = Managers.Resource.Instantiate($"{Define.CITIZEN_PATH}{citizenData.CitizenType}Citizen_{_jobType}");
+            var go = Managers.Resource.Instantiate($"{Define.CITIZEN_PREFAB_PATH}{citizenData.CitizenType}Citizen_{_jobType}");
 
             var citizen = go.GetComponent<CitizenController>();
             citizen.transform.position = transform.position;
-            citizen.Data.MoveType = _outputDirs[_outputDirIndex];
+            citizen.Data.MoveType = (Define.Move)_outputDir;
             citizen.Data.JobType = _jobType;
 
             SetUnitPosition(go, citizen.Data.MoveType);
@@ -63,14 +60,6 @@ public class JobCenter : BaseBuilding
 
     protected override void Init()
     {
-        _outputDirs = new Define.Move[]
-        {
-            Define.Move.Up,
-            Define.Move.Right,
-            Define.Move.Down,
-            Define.Move.Left
-        };
-
         HasUI = false;
     }
 }

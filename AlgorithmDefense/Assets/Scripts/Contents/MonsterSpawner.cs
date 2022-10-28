@@ -21,16 +21,16 @@ public class MonsterSpawner : MonoBehaviour
 {
     public List<StageSpawnData> StageDataList;
 
-    private Vector3[] _spawnPos = new Vector3[3];
+    private Vector3[] _spawnPosArr = new Vector3[3];
     private int _stageNumber;
 
     private void Start()
     {
-        _spawnPos[0] = new Vector3(Managers.Game.Setting.StartPosition.x + 1,
+        _spawnPosArr[0] = new Vector3(Managers.Game.Setting.StartPosition.x + 1,
             Managers.Game.Setting.RampartHeight + Managers.Game.Setting.BattleLineLength, 0);
-        _spawnPos[1] = new Vector3(Managers.Game.Setting.StartPosition.x + 3,
+        _spawnPosArr[1] = new Vector3(Managers.Game.Setting.StartPosition.x + 3,
             Managers.Game.Setting.RampartHeight + Managers.Game.Setting.BattleLineLength, 0);
-        _spawnPos[2] = new Vector3(Managers.Game.Setting.StartPosition.x + 5,
+        _spawnPosArr[2] = new Vector3(Managers.Game.Setting.StartPosition.x + 5,
             Managers.Game.Setting.RampartHeight + Managers.Game.Setting.BattleLineLength, 0);
 
         _stageNumber = PlayerPrefs.GetInt("StageNum") - 1;
@@ -48,71 +48,56 @@ public class MonsterSpawner : MonoBehaviour
     private IEnumerator FirstSpawn()
     {
         int index = 0;
+
         while (true)
         {
             MonsterSpawnData data = StageDataList[_stageNumber].First[index];
 
             yield return new WaitForSeconds(data.time);
 
-            var go = Managers.Resource.Instantiate($"{Define.MONSTER_UNIT_PATH}Goblin_{data.job}");
-            go.transform.position = _spawnPos[0] + new Vector3(0.5f, 0f, 0f);
+            SpawnMonster(data, _spawnPosArr[0]);
 
-            SetHP(go.GetComponent<UnitManager>());
-
-            index++;
-            if (StageDataList[_stageNumber].First.Count <= index)
-            {
-                index = 0;
-            }
+            index = (index + 1) >= StageDataList[_stageNumber].First.Count ? 0 : index + 1;
         }
     }
 
     private IEnumerator SecondSpawn()
     {
         int index = 0;
+
         while (true)
         {
             MonsterSpawnData data = StageDataList[_stageNumber].Second[index];
 
             yield return new WaitForSeconds(data.time);
 
-            var go = Managers.Resource.Instantiate($"{Define.MONSTER_UNIT_PATH}Goblin_{data.job}");
-            go.transform.position = _spawnPos[1] + new Vector3(0.5f, 0f, 0f);
+            SpawnMonster(data, _spawnPosArr[1]);
 
-            SetHP(go.GetComponent<UnitManager>());
-
-            index++;
-            if (StageDataList[_stageNumber].Second.Count <= index)
-            {
-                index = 0;
-            }
+            index = (index + 1) >= StageDataList[_stageNumber].Second.Count ? 0 : index + 1;
         }
     }
 
     private IEnumerator ThirdSpawn()
     {
         int index = 0;
+
         while (true)
         {
             MonsterSpawnData data = StageDataList[_stageNumber].Third[index];
 
             yield return new WaitForSeconds(data.time);
 
-            var go = Managers.Resource.Instantiate($"{Define.MONSTER_UNIT_PATH}Goblin_{data.job}");
-            go.transform.position = _spawnPos[2] + new Vector3(0.5f, 0f, 0f);
+            SpawnMonster(data, _spawnPosArr[2]);
 
-            SetHP(go.GetComponent<UnitManager>());
-
-            index++;
-            if (StageDataList[_stageNumber].Third.Count <= index)
-            {
-                index = 0;
-            }
+            index = (index + 1) >= StageDataList[_stageNumber].Third.Count ? 0 : index + 1;
         }
     }
 
-    private void SetHP(UnitManager um)
+    private void SpawnMonster(MonsterSpawnData data, Vector3 spawnPos)
     {
+        var go = Managers.Resource.Instantiate($"{Define.MONSTER_UNIT_PREFAB_PATH}Goblin_{data.job}");
+        go.transform.position = spawnPos + new Vector3(0.5f, 0f, 0f);
+        var um = go.GetComponent<UnitManager>();
         um.CurrentHP = um.MaxHP;
     }
 }

@@ -11,11 +11,6 @@ public class MonsterGate : BaseBuilding
 
     protected override void Init()
     {
-        
-    }
-
-    protected IEnumerator ReleaseCitizen()
-    {
-        yield return null;
+        HasUI = false;
     }
 }

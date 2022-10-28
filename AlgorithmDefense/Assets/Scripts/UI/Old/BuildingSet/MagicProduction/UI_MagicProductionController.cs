@@ -46,7 +46,7 @@ public class UI_MagicProductionController : UI_BaseBuildingController
 
     }
 
-    private Toggle findToggle(Define.Magic magicType)
+    private Toggle findToggle(Define.Skill magicType)
     {
         foreach (var toggles in _toggleGroups)
         {
