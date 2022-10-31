@@ -65,10 +65,11 @@ public class CitizenSpawner : MonoBehaviour
 
             var go = Managers.Resource.Instantiate($"{Define.CITIZEN_PREFAB_PATH}{Enum.GetName(typeof(Define.Citizen), _spawnIndex)}Citizen", pos);
 
-            var citizen = go.GetComponent<CitizenController>();
-            citizen.Data.CitizenType = (Define.Citizen)_spawnIndex;
-            citizen.Data.MoveType = Define.Move.Up;
-            citizen.SetNextDestination(citizen.transform.position);
+            var unit = go.GetComponent<UnitController>();
+            unit.Data.CitizenType = (Define.Citizen)_spawnIndex;
+            unit.Data.MoveType = Define.Move.Up;
+            unit.SetNextDestination(unit.transform.position);
+            unit.Move();
 
             yield return new WaitForSeconds(_spawnTime);
 

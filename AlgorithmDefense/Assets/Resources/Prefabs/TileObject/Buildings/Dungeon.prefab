@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3618719377043828774}
   - component: {fileID: 1015463160194990654}
   - component: {fileID: -4321034668909911119}
-  m_Layer: 8
-  m_Name: MonsterGate
+  m_Layer: 9
+  m_Name: Dungeon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

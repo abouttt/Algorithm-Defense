@@ -12,9 +12,8 @@ GameObject:
   - component: {fileID: 2134547115178478046}
   - component: {fileID: 2134547115178478045}
   - component: {fileID: -2931458270903051851}
-  - component: {fileID: 7301087822451740112}
-  - component: {fileID: -683713669345818119}
-  - component: {fileID: -8997993536632108726}
+  - component: {fileID: 5333110506366188361}
+  - component: {fileID: 8618072300065855445}
   - component: {fileID: 2134547115178478044}
   m_Layer: 7
   m_Name: Green_Archer
@@ -123,7 +122,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.0001
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -132,8 +131,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &7301087822451740112
-CircleCollider2D:
+--- !u!61 &5333110506366188361
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -146,9 +145,19 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.3
---- !u!114 &-683713669345818119
+  m_Size: {x: 0.5, y: 0.5}
+  m_EdgeRadius: 0
+--- !u!114 &8618072300065855445
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -157,33 +166,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 2134547115178478043}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08943eedf67b89d4a95b3bd8b666c9fa, type: 3}
+  m_Script: {fileID: 11500000, guid: 259b9963fcde1e54ca48ceb651983d8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveType: 1
-  ProjectileName: Arrow
-  RotatePoint: {fileID: 7485717956180159848}
-  Damage: 10
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 320
-  attackDamage: 2
-  _speed: 1
-  _range: 0.3
---- !u!114 &-8997993536632108726
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2134547115178478043}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c70187ed11576449ad98deeef54a456, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxHP: 50
-  CurrentHP: 10
+  Data:
+    CitizenType: 0
+    JobType: 0
+    MoveType: 1
+    IsCitizen: 0
+    IsMonster: 0
+    MoveSpeed: 1
+    MaxHp: 100
+    Damage: 10
+    Range: 0.6
+    CurrentHp: 0
+    Destination: {x: 0, y: 0, z: 0}
+  CurrentSpeed: 0
 --- !u!114 &2134547115178478044
 MonoBehaviour:
   m_ObjectHideFlags: 0

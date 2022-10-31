@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8467152425827783955}
   - component: {fileID: -6658780448471441067}
   - component: {fileID: -7674955342122749575}
-  - component: {fileID: 3272652254993843877}
+  - component: {fileID: -5886602159773637301}
   - component: {fileID: 235906953462801577}
   m_Layer: 0
   m_Name: BlueCitizen
@@ -154,9 +154,9 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
---- !u!114 &3272652254993843877
+--- !u!114 &-5886602159773637301
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -165,15 +165,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 7095908427081570066}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b068d6803e5b1644cb7b1ee95b699602, type: 3}
+  m_Script: {fileID: 11500000, guid: 259b9963fcde1e54ca48ceb651983d8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Data:
     CitizenType: 3
     JobType: 0
     MoveType: 0
+    IsCitizen: 1
+    IsMonster: 0
     MoveSpeed: 1
+    MaxHp: 0
+    Damage: 0
+    Range: 0
+    CurrentHp: 0
     Destination: {x: 0, y: 0, z: 0}
+  CurrentSpeed: 0
 --- !u!114 &235906953462801577
 MonoBehaviour:
   m_ObjectHideFlags: 0

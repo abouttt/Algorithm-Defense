@@ -146,7 +146,7 @@ public class GameScene : MonoBehaviour
             TileManager.GetInstance.SetTile(Define.Tilemap.Rampart, new Vector3Int(StartPosition.x + x, RampartHeight - 1, 0), null);
 
             TileManager.GetInstance.SetTile(Define.Tilemap.Building, new Vector3Int(StartPosition.x + x, RampartHeight - 1, 0), Define.Building.CastleGate);
-            TileManager.GetInstance.SetTile(Define.Tilemap.Building, new Vector3Int(StartPosition.x + x, RampartHeight + BattleLineLength, 0), Define.Building.MonsterGate);
+            TileManager.GetInstance.SetTile(Define.Tilemap.Building, new Vector3Int(StartPosition.x + x, RampartHeight + BattleLineLength, 0), Define.Building.Dungeon);
         }
 
         // ±æ ¼³Ä¡.

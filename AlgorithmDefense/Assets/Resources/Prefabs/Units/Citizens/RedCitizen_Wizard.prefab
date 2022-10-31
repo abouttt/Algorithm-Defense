@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8744443234315525965}
   - component: {fileID: 3679634273313798103}
   - component: {fileID: -1775421221840616005}
-  - component: {fileID: -9079484617705353096}
+  - component: {fileID: 4188069573114324523}
   - component: {fileID: -6416543551889517681}
   m_Layer: 7
   m_Name: RedCitizen_Wizard
@@ -155,9 +155,9 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
---- !u!114 &-9079484617705353096
+--- !u!114 &4188069573114324523
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -166,15 +166,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 5907885720607522568}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b068d6803e5b1644cb7b1ee95b699602, type: 3}
+  m_Script: {fileID: 11500000, guid: 259b9963fcde1e54ca48ceb651983d8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Data:
     CitizenType: 1
-    JobType: 3
+    JobType: 0
     MoveType: 0
+    IsCitizen: 1
+    IsMonster: 0
     MoveSpeed: 1
+    MaxHp: 0
+    Damage: 0
+    Range: 0
+    CurrentHp: 0
     Destination: {x: 0, y: 0, z: 0}
+  CurrentSpeed: 0
 --- !u!114 &-6416543551889517681
 MonoBehaviour:
   m_ObjectHideFlags: 0

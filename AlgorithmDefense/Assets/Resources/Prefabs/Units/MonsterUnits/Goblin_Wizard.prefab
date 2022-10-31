@@ -12,9 +12,8 @@ GameObject:
   - component: {fileID: 362743502254531369}
   - component: {fileID: 362743502254531368}
   - component: {fileID: 6747268765466972981}
-  - component: {fileID: 6351383279685968831}
-  - component: {fileID: -2993093027628242852}
-  - component: {fileID: 9012696581089423590}
+  - component: {fileID: -1436398174556422686}
+  - component: {fileID: 1697207339261790879}
   - component: {fileID: -7584471374535933501}
   m_Layer: 6
   m_Name: Goblin_Wizard
@@ -132,8 +131,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &6351383279685968831
-CircleCollider2D:
+--- !u!61 &-1436398174556422686
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -146,9 +145,19 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 2, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.4
---- !u!114 &-2993093027628242852
+  m_Size: {x: 0.5, y: 0.5}
+  m_EdgeRadius: 0
+--- !u!114 &1697207339261790879
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -157,33 +166,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 362743502254531367}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c70187ed11576449ad98deeef54a456, type: 3}
+  m_Script: {fileID: 11500000, guid: 259b9963fcde1e54ca48ceb651983d8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHP: 50
-  CurrentHP: 10
---- !u!114 &9012696581089423590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 362743502254531367}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08943eedf67b89d4a95b3bd8b666c9fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MoveType: 3
-  ProjectileName: FireBall
-  RotatePoint: {fileID: 7756331903609329635}
-  Damage: 10
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 384
-  attackDamage: 2
-  _speed: 0.6
-  _range: 0.8
+  Data:
+    CitizenType: 0
+    JobType: 0
+    MoveType: 3
+    IsCitizen: 0
+    IsMonster: 1
+    MoveSpeed: 1
+    MaxHp: 100
+    Damage: 10
+    Range: 1
+    CurrentHp: 0
+    Destination: {x: 0, y: 0, z: 0}
+  CurrentSpeed: 0
 --- !u!114 &-7584471374535933501
 MonoBehaviour:
   m_ObjectHideFlags: 0

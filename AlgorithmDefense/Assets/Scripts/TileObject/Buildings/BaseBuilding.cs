@@ -14,11 +14,11 @@ public abstract class BaseBuilding : MonoBehaviour
         Init();
     }
 
-    public abstract void EnterTheBuilding(CitizenController citizen);
+    public abstract void EnterTheBuilding(UnitController citizen);
 
     protected abstract void Init();
 
-    protected void SetUnitPosition(GameObject go, Define.Move moveType)
+    public void SetUnitPosition(UnitController unit, Define.Move moveType)
     {
         var pos = TileManager.GetInstance.GetWorldToCellCenterToWorld(Define.Tilemap.Ground, transform.position);
 
@@ -38,7 +38,7 @@ public abstract class BaseBuilding : MonoBehaviour
                 break;
         }
 
-        go.transform.position = pos;
+        unit.transform.position = pos;
     }
 
     protected bool HasRoadNextPosition(Define.Move moveType)

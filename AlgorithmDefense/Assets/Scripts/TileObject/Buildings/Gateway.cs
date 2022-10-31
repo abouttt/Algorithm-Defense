@@ -6,20 +6,20 @@ public class Gateway : BaseBuilding
 {
     public Dictionary<Define.Citizen, Define.Move> DirectionCondition { get; private set; }
 
-    private Queue<CitizenData> _redOrderQueue = new();
-    private Queue<CitizenData> _greenOrderQueue = new();
-    private Queue<CitizenData> _blueOrderQueue = new();
+    private Queue<UnitData> _redOrderQueue = new();
+    private Queue<UnitData> _greenOrderQueue = new();
+    private Queue<UnitData> _blueOrderQueue = new();
 
     private bool _isRedReleasing;
     private bool _isGreenReleasing;
     private bool _isBlueReleasing;
 
-    public override void EnterTheBuilding(CitizenController citizen)
+    public override void EnterTheBuilding(UnitController unit)
     {
-        switch (citizen.Data.CitizenType)
+        switch (unit.Data.CitizenType)
         {
             case Define.Citizen.Red:
-                _redOrderQueue.Enqueue(citizen.Data);
+                _redOrderQueue.Enqueue(unit.Data);
                 if (!_isRedReleasing)
                 {
                     _isRedReleasing = true;
@@ -27,7 +27,7 @@ public class Gateway : BaseBuilding
                 }
                 break;
             case Define.Citizen.Green:
-                _greenOrderQueue.Enqueue(citizen.Data);
+                _greenOrderQueue.Enqueue(unit.Data);
                 if (!_isGreenReleasing)
                 {
                     _isGreenReleasing = true;
@@ -35,7 +35,7 @@ public class Gateway : BaseBuilding
                 }
                 break;
             case Define.Citizen.Blue:
-                _blueOrderQueue.Enqueue(citizen.Data);
+                _blueOrderQueue.Enqueue(unit.Data);
                 if (!_isBlueReleasing)
                 {
                     _isBlueReleasing = true;
@@ -44,7 +44,7 @@ public class Gateway : BaseBuilding
                 break;
         }
 
-        Managers.Resource.Destroy(citizen.gameObject);
+        Managers.Resource.Destroy(unit.gameObject);
     }
 
     private IEnumerator ReleaseRedCitizen()
@@ -99,34 +99,34 @@ public class Gateway : BaseBuilding
     }
 
 
-    private void Release(Queue<CitizenData> citizenOrderQueue)
+    private void Release(Queue<UnitData> unitOrderQueue)
     {
-        var citizen = DequeueCitizen(citizenOrderQueue);
-        citizen.Data.MoveType = DirectionCondition[citizen.Data.CitizenType];
-        SetUnitPosition(citizen.gameObject, citizen.Data.MoveType);
-        citizen.SetNextDestination(transform.position);
+        var unit = DequeueCitizen(unitOrderQueue);
+        unit.Data.MoveType = DirectionCondition[unit.Data.CitizenType];
+        SetUnitPosition(unit.GetComponent<UnitController>(), unit.Data.MoveType);
+        unit.SetNextDestination(transform.position);
     }
 
-    private CitizenController DequeueCitizen(Queue<CitizenData> citizenOrderQueue)
+    private UnitController DequeueCitizen(Queue<UnitData> citizenOrderQueue)
     {
-        CitizenData citizenData = citizenOrderQueue.Dequeue();
+        UnitData unitData = citizenOrderQueue.Dequeue();
 
         GameObject go = null;
-        if (citizenData.JobType == Define.Job.None)
+        if (unitData.JobType == Define.Job.None)
         {
-            go = Managers.Resource.Instantiate($"{Define.CITIZEN_PREFAB_PATH}{citizenData.CitizenType}Citizen");
+            go = Managers.Resource.Instantiate($"{Define.CITIZEN_PREFAB_PATH}{unitData.CitizenType}Citizen");
         }
         else
         {
             go = Managers.Resource.Instantiate(
                 $"{Define.CITIZEN_PREFAB_PATH}" +
-                $"{citizenData.CitizenType}Citizen_{citizenData.JobType}");
+                $"{unitData.CitizenType}Citizen_{unitData.JobType}");
         }
 
-        var citizen = go.GetComponent<CitizenController>();
-        citizen.Data = citizenData;
+        var unit = go.GetComponent<UnitController>();
+        unit.Data = unitData;
 
-        return citizen;
+        return unit;
     }
 
     protected override void Init()

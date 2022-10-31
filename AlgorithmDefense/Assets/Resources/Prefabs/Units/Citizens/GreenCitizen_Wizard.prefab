@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6009226577167646315}
   - component: {fileID: 348779376133977653}
   - component: {fileID: -355443259548820659}
-  - component: {fileID: -9077234623353386619}
+  - component: {fileID: 8437258709738000201}
   - component: {fileID: 4031502291994150515}
   m_Layer: 7
   m_Name: GreenCitizen_Wizard
@@ -155,9 +155,9 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
---- !u!114 &-9077234623353386619
+--- !u!114 &8437258709738000201
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -166,15 +166,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 6009226577167646314}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b068d6803e5b1644cb7b1ee95b699602, type: 3}
+  m_Script: {fileID: 11500000, guid: 259b9963fcde1e54ca48ceb651983d8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Data:
     CitizenType: 2
-    JobType: 3
+    JobType: 0
     MoveType: 0
+    IsCitizen: 1
+    IsMonster: 0
     MoveSpeed: 1
+    MaxHp: 0
+    Damage: 0
+    Range: 0
+    CurrentHp: 0
     Destination: {x: 0, y: 0, z: 0}
+  CurrentSpeed: 0
 --- !u!114 &4031502291994150515
 MonoBehaviour:
   m_ObjectHideFlags: 0

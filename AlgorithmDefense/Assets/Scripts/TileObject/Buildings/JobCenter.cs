@@ -7,7 +7,7 @@ public class JobCenter : BaseBuilding
     [SerializeField]
     private Define.Job _jobType = Define.Job.None;
 
-    private Queue<CitizenData> _citizenOrderQueue = new();
+    private Queue<UnitData> _citizenOrderQueue = new();
     private bool _isReleasing;
 
     private int _outputDir = 1;
@@ -18,7 +18,7 @@ public class JobCenter : BaseBuilding
         transform.Rotate(new Vector3(0f, 0f, -90.0f));
     }
 
-    public override void EnterTheBuilding(CitizenController citizen)
+    public override void EnterTheBuilding(UnitController citizen)
     {
         _citizenOrderQueue.Enqueue(citizen.Data);
 
@@ -42,17 +42,16 @@ public class JobCenter : BaseBuilding
                 continue;
             }
 
-            var citizenData = _citizenOrderQueue.Dequeue();
+            var unitData = _citizenOrderQueue.Dequeue();
 
-            var go = Managers.Resource.Instantiate($"{Define.CITIZEN_PREFAB_PATH}{citizenData.CitizenType}Citizen_{_jobType}");
+            var go = Managers.Resource.Instantiate($"{Define.CITIZEN_PREFAB_PATH}{unitData.CitizenType}Citizen_{_jobType}");
 
-            var citizen = go.GetComponent<CitizenController>();
-            citizen.transform.position = transform.position;
-            citizen.Data.MoveType = (Define.Move)_outputDir;
-            citizen.Data.JobType = _jobType;
-
-            SetUnitPosition(go, citizen.Data.MoveType);
-            citizen.SetNextDestination(transform.position);
+            var unit = go.GetComponent<UnitController>();
+            unit.Data.MoveType = (Define.Move)_outputDir;
+            unit.Data.JobType = _jobType;
+            SetUnitPosition(unit, unit.Data.MoveType);
+            unit.SetNextDestination(transform.position);
+            unit.Move();
         }
 
         _isReleasing = false;

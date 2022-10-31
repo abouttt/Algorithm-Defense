@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MonsterGate : BaseBuilding
+public class Dungeon : BaseBuilding
 {
-    public override void EnterTheBuilding(CitizenController citizen)
+    public override void EnterTheBuilding(UnitController citizen)
     {
         
     }

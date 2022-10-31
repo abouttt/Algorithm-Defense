@@ -134,7 +134,7 @@ public class UnitAI : MonoBehaviour
                 {
                     if (gameObject.layer == LayerMask.NameToLayer("Human"))
                     {
-                        if (!collider2D.gameObject.GetComponent<MonsterGate>())
+                        if (!collider2D.gameObject.GetComponent<Dungeon>())
                         {
                             return;
                         }

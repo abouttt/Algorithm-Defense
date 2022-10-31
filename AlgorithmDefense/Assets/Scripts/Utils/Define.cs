@@ -60,7 +60,7 @@ public static class Define
         WizardCenter,
         GoldMine,
         CastleGate,
-        MonsterGate,
+        Dungeon,
     }
 
     public enum Job

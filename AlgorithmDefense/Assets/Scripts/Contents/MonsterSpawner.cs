@@ -97,7 +97,8 @@ public class MonsterSpawner : MonoBehaviour
     {
         var go = Managers.Resource.Instantiate($"{Define.MONSTER_UNIT_PREFAB_PATH}Goblin_{data.job}");
         go.transform.position = spawnPos + new Vector3(0.5f, 0f, 0f);
-        var um = go.GetComponent<UnitManager>();
-        um.CurrentHP = um.MaxHP;
+        var unit = go.GetComponent<UnitController>();
+        unit.Data.CurrentHp = unit.Data.MaxHp;
+        unit.Move();
     }
 }
