@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Dungeon : BaseBuilding
 {
-    public override void EnterTheBuilding(UnitController citizen)
+    public override void EnterTheBuilding(CitizenUnitController citizen)
     {
         
     }

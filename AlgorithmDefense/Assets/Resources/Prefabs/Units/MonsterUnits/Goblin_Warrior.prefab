@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2155114593801628404}
   - component: {fileID: -801984792982810961}
   - component: {fileID: -5706146634709369569}
-  - component: {fileID: 8345467943362994947}
+  - component: {fileID: -544090925763776861}
   - component: {fileID: -6125521690656012149}
   m_Layer: 6
   m_Name: Goblin_Warrior
@@ -156,7 +156,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
---- !u!114 &8345467943362994947
+--- !u!114 &-544090925763776861
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -165,22 +165,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 2155114593801628411}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 259b9963fcde1e54ca48ceb651983d8b, type: 3}
+  m_Script: {fileID: 11500000, guid: a9f916c01adad8d47b7297228d0ceb35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Data:
-    CitizenType: 0
-    JobType: 0
     MoveType: 3
-    IsCitizen: 0
-    IsMonster: 1
-    MoveSpeed: 1
     MaxHp: 100
+    CurrentHp: 0
     Damage: 10
     Range: 0.3
-    CurrentHp: 0
-    Destination: {x: 0, y: 0, z: 0}
-  CurrentSpeed: 0
+    MoveSpeed: 1
+    TargetLayer:
+      serializedVersion: 2
+      m_Bits: 128
 --- !u!114 &-6125521690656012149
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 7779405605018320834}
   - component: {fileID: 7105955435447450995}
   - component: {fileID: 5117861043596768161}
-  - component: {fileID: -2657101306727352668}
+  - component: {fileID: -4285284435895474622}
   - component: {fileID: 3862713582883802978}
   m_Layer: 6
   m_Name: Goblin_Archer
@@ -188,7 +188,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
---- !u!114 &-2657101306727352668
+--- !u!114 &-4285284435895474622
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -197,22 +197,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 7779405605018320833}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 259b9963fcde1e54ca48ceb651983d8b, type: 3}
+  m_Script: {fileID: 11500000, guid: a9f916c01adad8d47b7297228d0ceb35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Data:
-    CitizenType: 0
-    JobType: 0
     MoveType: 3
-    IsCitizen: 0
-    IsMonster: 1
-    MoveSpeed: 1
     MaxHp: 100
+    CurrentHp: 0
     Damage: 10
     Range: 1
-    CurrentHp: 0
-    Destination: {x: 0, y: 0, z: 0}
-  CurrentSpeed: 0
+    MoveSpeed: 1
+    TargetLayer:
+      serializedVersion: 2
+      m_Bits: 128
 --- !u!114 &3862713582883802978
 MonoBehaviour:
   m_ObjectHideFlags: 0

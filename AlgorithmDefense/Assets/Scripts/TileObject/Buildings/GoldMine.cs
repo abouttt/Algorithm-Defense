@@ -10,7 +10,7 @@ public class GoldMine : BaseBuilding
 
     private GoldAnimation _goldUI;
 
-    public override void EnterTheBuilding(UnitController citizen)
+    public override void EnterTheBuilding(CitizenUnitController citizen)
     {
         Managers.Resource.Destroy(citizen.gameObject);
         Managers.Game.Gold += GoldIncrease;

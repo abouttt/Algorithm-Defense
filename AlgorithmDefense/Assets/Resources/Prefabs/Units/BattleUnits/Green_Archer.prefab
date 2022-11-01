@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2134547115178478045}
   - component: {fileID: -2931458270903051851}
   - component: {fileID: 5333110506366188361}
-  - component: {fileID: 8618072300065855445}
+  - component: {fileID: 8322055272126553595}
   - component: {fileID: 2134547115178478044}
   m_Layer: 7
   m_Name: Green_Archer
@@ -157,7 +157,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
---- !u!114 &8618072300065855445
+--- !u!114 &8322055272126553595
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -166,22 +166,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 2134547115178478043}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 259b9963fcde1e54ca48ceb651983d8b, type: 3}
+  m_Script: {fileID: 11500000, guid: a9f916c01adad8d47b7297228d0ceb35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Data:
-    CitizenType: 0
-    JobType: 0
     MoveType: 1
-    IsCitizen: 0
-    IsMonster: 0
-    MoveSpeed: 1
     MaxHp: 100
-    Damage: 10
-    Range: 0.6
     CurrentHp: 0
-    Destination: {x: 0, y: 0, z: 0}
-  CurrentSpeed: 0
+    Damage: 10
+    Range: 1
+    MoveSpeed: 1
+    TargetLayer:
+      serializedVersion: 2
+      m_Bits: 64
 --- !u!114 &2134547115178478044
 MonoBehaviour:
   m_ObjectHideFlags: 0

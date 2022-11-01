@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 2530001421311064155}
   - component: {fileID: 8226170490405657156}
   - component: {fileID: -7024269396763448873}
-  - component: {fileID: -8549463107897520885}
+  - component: {fileID: -1198777441234262833}
   - component: {fileID: 2165931747891772109}
   m_Layer: 7
   m_Name: Green_Warrior
@@ -188,7 +188,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
---- !u!114 &-8549463107897520885
+--- !u!114 &-1198777441234262833
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -197,22 +197,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 2530001421311064154}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 259b9963fcde1e54ca48ceb651983d8b, type: 3}
+  m_Script: {fileID: 11500000, guid: a9f916c01adad8d47b7297228d0ceb35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Data:
-    CitizenType: 0
-    JobType: 0
     MoveType: 1
-    IsCitizen: 0
-    IsMonster: 0
-    MoveSpeed: 1
     MaxHp: 100
+    CurrentHp: 0
     Damage: 10
     Range: 0.3
-    CurrentHp: 0
-    Destination: {x: 0, y: 0, z: 0}
-  CurrentSpeed: 0
+    MoveSpeed: 1
+    TargetLayer:
+      serializedVersion: 2
+      m_Bits: 64
 --- !u!114 &2165931747891772109
 MonoBehaviour:
   m_ObjectHideFlags: 0

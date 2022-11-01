@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class CastleGate : BaseBuilding
 {
-    private Queue<UnitData> _citizenOrderQueue = new();
-    private Queue<UnitData> _battleUnitOrderQueue = new();
+    private Queue<CitizenUnitData> _citizenOrderQueue = new();
+    private Queue<CitizenUnitData> _battleUnitOrderQueue = new();
     private bool _isCitizenReleasing;
     private bool _isBattleUnitReleasing;
 
-    public override void EnterTheBuilding(UnitController unit)
+    public override void EnterTheBuilding(CitizenUnitController citizen)
     {
-        if (unit.Data.JobType == Define.Job.None)
+        if (citizen.Data.JobType == Define.Job.None)
         {
-            _citizenOrderQueue.Enqueue(unit.Data);
+            _citizenOrderQueue.Enqueue(citizen.Data);
             if (!_isCitizenReleasing)
             {
                 _isCitizenReleasing = true;
@@ -22,7 +22,7 @@ public class CastleGate : BaseBuilding
         }
         else
         {
-            _battleUnitOrderQueue.Enqueue(unit.Data);
+            _battleUnitOrderQueue.Enqueue(citizen.Data);
             if (!_isBattleUnitReleasing)
             {
                 _isBattleUnitReleasing = true;
@@ -30,7 +30,7 @@ public class CastleGate : BaseBuilding
             }
         }
 
-        Managers.Resource.Destroy(unit.gameObject);
+        Managers.Resource.Destroy(citizen.gameObject);
     }
 
     private IEnumerator ReleaseCitizen()
@@ -48,11 +48,10 @@ public class CastleGate : BaseBuilding
 
             var go = Managers.Resource.Instantiate($"{Define.CITIZEN_PREFAB_PATH}{data.CitizenType}Citizen");
 
-            var unit = go.GetComponent<UnitController>();
-            unit.Data.MoveType = Define.Move.Down;
-            SetUnitPosition(unit, unit.Data.MoveType);
-            unit.SetNextDestination(transform.position);
-            unit.Move();
+            var citizen = go.GetComponent<CitizenUnitController>();
+            citizen.Data.MoveType = Define.Move.Down;
+            SetUnitPosition(citizen, citizen.Data.MoveType);
+            citizen.SetNextDestination(transform.position);
         }
 
         _isCitizenReleasing = false;
@@ -69,11 +68,11 @@ public class CastleGate : BaseBuilding
             var go = Managers.Resource.Instantiate($"{Define.BATTILE_UNIT_PREFAB_PATH}{data.CitizenType}_{data.JobType}");
             go.transform.position = transform.position;
 
-            var unit = go.GetComponent<UnitController>();
-            unit.Data.MoveType = Define.Move.Up;
-            unit.Data.CurrentHp = unit.Data.MaxHp;
-            SetUnitPosition(unit, unit.Data.MoveType);
-            unit.Move();
+            var battleUnit = go.GetComponent<BattleUnitController>();
+            battleUnit.Data.MoveType = Define.Move.Up;
+            battleUnit.Data.CurrentHp = battleUnit.Data.MaxHp;
+            SetUnitPosition(battleUnit, battleUnit.Data.MoveType);
+            battleUnit.SetMoveAnimation(battleUnit.Data.MoveType);
         }
 
         _isBattleUnitReleasing = false;

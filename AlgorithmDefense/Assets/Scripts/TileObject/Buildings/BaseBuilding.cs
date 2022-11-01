@@ -14,11 +14,11 @@ public abstract class BaseBuilding : MonoBehaviour
         Init();
     }
 
-    public abstract void EnterTheBuilding(UnitController citizen);
+    public abstract void EnterTheBuilding(CitizenUnitController citizen);
 
     protected abstract void Init();
 
-    public void SetUnitPosition(UnitController unit, Define.Move moveType)
+    public void SetUnitPosition(BaseUnitController unit, Define.Move moveType)
     {
         var pos = TileManager.GetInstance.GetWorldToCellCenterToWorld(Define.Tilemap.Ground, transform.position);
 
