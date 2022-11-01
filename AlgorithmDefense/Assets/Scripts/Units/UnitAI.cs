@@ -1,4 +1,3 @@
-using Newtonsoft.Json.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +5,7 @@ using UnityEngine;
 public class UnitAI : MonoBehaviour
 {
     public Define.Move MoveType;
-    public GameObject arrowPrefab;
+    public string ProjectileName;
     public Transform RotatePoint;
     public int Damage;
 
@@ -15,19 +14,22 @@ public class UnitAI : MonoBehaviour
 
     private Animator _anim;
     [SerializeField] private LayerMask layerMask;
-    [SerializeField] private int attackDamage;
     [SerializeField] private float _speed = 0f;
     [SerializeField] private float _range = 0f;
     private int rot;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         _anim = transform.GetComponentInChildren<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
+    {
+        _detectedUnit = null;
+        _tower = null;
+    }
+
+    private void Update()
     {
         if (!_detectedUnit && !_tower)
         {
@@ -41,13 +43,14 @@ public class UnitAI : MonoBehaviour
     {
         if (_detectedUnit)
         {
-            bool unitDie = _detectedUnit.LoseHp(attackDamage);
-
-            if (unitDie)
+            if (_detectedUnit.CurrentHP <= 0)
             {
                 _anim.SetBool("Attack", false);
-
                 _detectedUnit = null;
+            }
+            else
+            {
+                _detectedUnit.LoseHp(Damage);
             }
         }
         else
@@ -66,18 +69,19 @@ public class UnitAI : MonoBehaviour
 
     public void ShootObject()
     {
-        RotatePoint.rotation = Quaternion.Euler(0, 0, rot);
-        Instantiate(arrowPrefab, transform.position, RotatePoint.rotation);
+        var go = Managers.Resource.Instantiate($"{Define.PROJECTILE_PREFAB_PATH}{ProjectileName}", transform.position);
+        go.transform.rotation = Quaternion.Euler(0, 0, rot);
 
         if (_detectedUnit)
         {
-            bool unitDie = _detectedUnit.LoseHp(attackDamage);
-
-            if (unitDie)
+            if (_detectedUnit.CurrentHP <= 0)
             {
                 _anim.SetBool("Attack", false);
-
                 _detectedUnit = null;
+            }
+            else
+            {
+                _detectedUnit.LoseHp(Damage);
             }
         }
         else
@@ -130,7 +134,7 @@ public class UnitAI : MonoBehaviour
                 {
                     if (gameObject.layer == LayerMask.NameToLayer("Human"))
                     {
-                        if (!collider2D.gameObject.GetComponent<MonsterGate>())
+                        if (!collider2D.gameObject.GetComponent<Dungeon>())
                         {
                             return;
                         }

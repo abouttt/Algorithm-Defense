@@ -5,5 +5,5 @@ using UnityEngine;
 public class UI_MagicToggleSet : MonoBehaviour
 {
     [field: SerializeField]
-    public Define.Magic MagicType { get; private set; }
+    public Define.Skill MagicType { get; private set; }
 }

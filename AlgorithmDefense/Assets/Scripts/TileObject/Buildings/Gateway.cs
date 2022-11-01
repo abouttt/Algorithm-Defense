@@ -6,15 +6,15 @@ public class Gateway : BaseBuilding
 {
     public Dictionary<Define.Citizen, Define.Move> DirectionCondition { get; private set; }
 
-    private Queue<CitizenData> _redOrderQueue = new();
-    private Queue<CitizenData> _greenOrderQueue = new();
-    private Queue<CitizenData> _blueOrderQueue = new();
+    private Queue<CitizenUnitData> _redOrderQueue = new();
+    private Queue<CitizenUnitData> _greenOrderQueue = new();
+    private Queue<CitizenUnitData> _blueOrderQueue = new();
 
     private bool _isRedReleasing;
     private bool _isGreenReleasing;
     private bool _isBlueReleasing;
 
-    public override void EnterTheBuilding(CitizenController citizen)
+    public override void EnterTheBuilding(CitizenUnitController citizen)
     {
         switch (citizen.Data.CitizenType)
         {
@@ -49,14 +49,8 @@ public class Gateway : BaseBuilding
 
     private IEnumerator ReleaseRedCitizen()
     {
-        while (true)
+        while (_redOrderQueue.Count > 0)
         {
-            if (_redOrderQueue.Count == 0)
-            {
-                _isRedReleasing = false;
-                yield break;
-            }
-
             yield return new WaitForSeconds(_releaseTime);
 
             if (!HasRoadNextPosition(DirectionCondition[Define.Citizen.Red]))
@@ -66,18 +60,14 @@ public class Gateway : BaseBuilding
 
             Release(_redOrderQueue);
         }
+
+        _isRedReleasing = false;
     }
 
     private IEnumerator ReleaseGreenCitizen()
     {
-        while (true)
+        while (_greenOrderQueue.Count > 0)
         {
-            if (_greenOrderQueue.Count == 0)
-            {
-                _isGreenReleasing = false;
-                yield break;
-            }
-
             yield return new WaitForSeconds(_releaseTime);
 
             if (!HasRoadNextPosition(DirectionCondition[Define.Citizen.Green]))
@@ -87,18 +77,14 @@ public class Gateway : BaseBuilding
 
             Release(_greenOrderQueue);
         }
+
+        _isGreenReleasing = false;
     }
 
     private IEnumerator ReleaseBlueCitizen()
     {
-        while (true)
+        while (_blueOrderQueue.Count > 0)
         {
-            if (_blueOrderQueue.Count == 0)
-            {
-                _isBlueReleasing = false;
-                yield break;
-            }
-
             yield return new WaitForSeconds(_releaseTime);
 
             if (!HasRoadNextPosition(DirectionCondition[Define.Citizen.Blue]))
@@ -108,15 +94,39 @@ public class Gateway : BaseBuilding
 
             Release(_blueOrderQueue);
         }
+
+        _isBlueReleasing = false;
     }
 
 
-    private void Release(Queue<CitizenData> citizenOrderQueue)
+    private void Release(Queue<CitizenUnitData> unitOrderQueue)
     {
-        var citizen = DequeueCitizen(citizenOrderQueue);
+        var citizen = DequeueCitizen(unitOrderQueue);
         citizen.Data.MoveType = DirectionCondition[citizen.Data.CitizenType];
-        SetCitizenPosition(citizen);
+        SetUnitPosition(citizen, citizen.Data.MoveType);
         citizen.SetNextDestination(transform.position);
+    }
+
+    private CitizenUnitController DequeueCitizen(Queue<CitizenUnitData> citizenOrderQueue)
+    {
+        var data = citizenOrderQueue.Dequeue();
+
+        GameObject go = null;
+        if (data.JobType == Define.Job.None)
+        {
+            go = Managers.Resource.Instantiate($"{Define.CITIZEN_PREFAB_PATH}{data.CitizenType}Citizen");
+        }
+        else
+        {
+            go = Managers.Resource.Instantiate(
+                $"{Define.CITIZEN_PREFAB_PATH}" +
+                $"{data.CitizenType}Citizen_{data.JobType}");
+        }
+
+        var citizen = go.GetComponent<CitizenUnitController>();
+        citizen.Data = data;
+
+        return citizen;
     }
 
     protected override void Init()

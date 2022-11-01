@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 1675160351745987624}
   - component: {fileID: 1376032188618877243}
   - component: {fileID: 5123009383540431675}
-  - component: {fileID: 4968016492716726603}
-  - component: {fileID: 6920606972052367892}
-  - component: {fileID: -1744646083643635647}
   - component: {fileID: 2921786045106091236}
+  - component: {fileID: -1744646083643635647}
+  - component: {fileID: 704408617529808100}
+  - component: {fileID: 6920606972052367892}
   m_Layer: 0
   m_Name: RedCitizen
   m_TagString: Player
@@ -109,37 +109,27 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &4968016492716726603
-MonoBehaviour:
+--- !u!50 &2921786045106091236
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2809075254502448810}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b068d6803e5b1644cb7b1ee95b699602, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Data:
-    CitizenType: 1
-    JobType: 0
-    MoveType: 0
-    MoveSpeed: 1
-    Destination: {x: 0, y: 0, z: 0}
---- !u!114 &6920606972052367892
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2809075254502448810}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d4eb884f849dc14aa6260d7d5ad5dd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsUsing: 0
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!61 &-1744646083643635647
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -164,26 +154,36 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
---- !u!50 &2921786045106091236
-Rigidbody2D:
-  serializedVersion: 4
+--- !u!114 &704408617529808100
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2809075254502448810}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ace01f1036bacc847885ef41f3bd9e84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Data:
+    CitizenType: 1
+    JobType: 0
+    MoveType: 0
+    MoveSpeed: 1
+    Destination: {x: 0, y: 0, z: 0}
+--- !u!114 &6920606972052367892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2809075254502448810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d4eb884f849dc14aa6260d7d5ad5dd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsUsing: 0

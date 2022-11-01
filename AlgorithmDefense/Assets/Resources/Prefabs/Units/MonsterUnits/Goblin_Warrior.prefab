@@ -12,9 +12,8 @@ GameObject:
   - component: {fileID: 2155114593801628405}
   - component: {fileID: 2155114593801628404}
   - component: {fileID: -801984792982810961}
-  - component: {fileID: 7478052640629503762}
-  - component: {fileID: 131939357959910675}
-  - component: {fileID: -1322759237819811674}
+  - component: {fileID: -5706146634709369569}
+  - component: {fileID: -544090925763776861}
   - component: {fileID: -6125521690656012149}
   m_Layer: 6
   m_Name: Goblin_Warrior
@@ -131,8 +130,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &7478052640629503762
-CircleCollider2D:
+--- !u!61 &-5706146634709369569
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -145,9 +144,19 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 2, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.4
---- !u!114 &131939357959910675
+  m_Size: {x: 0.5, y: 0.5}
+  m_EdgeRadius: 0
+--- !u!114 &-544090925763776861
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -156,32 +165,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 2155114593801628411}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c70187ed11576449ad98deeef54a456, type: 3}
+  m_Script: {fileID: 11500000, guid: a9f916c01adad8d47b7297228d0ceb35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoint: 10
---- !u!114 &-1322759237819811674
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2155114593801628411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08943eedf67b89d4a95b3bd8b666c9fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MoveType: 4
-  arrowPrefab: {fileID: 0}
-  RotatePoint: {fileID: 0}
-  Damage: 10
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 384
-  attackDamage: 2
-  _speed: 1
-  _range: 0.3
+  Data:
+    MoveType: 3
+    MaxHp: 100
+    CurrentHp: 0
+    Damage: 10
+    Range: 0.3
+    MoveSpeed: 1
+    TargetLayer:
+      serializedVersion: 2
+      m_Bits: 128
 --- !u!114 &-6125521690656012149
 MonoBehaviour:
   m_ObjectHideFlags: 0

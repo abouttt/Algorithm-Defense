@@ -27,7 +27,7 @@ public class UI_TileSpawnController : MonoBehaviour
     private Button TileButton;
     [SerializeField]
     private RectTransform buildButtonContainer;
-
+    private CallSkill _CallSkill;
     private GameObject _buildTileMenu;
 
 
@@ -36,7 +36,7 @@ public class UI_TileSpawnController : MonoBehaviour
 
         //해당 오브젝트의 부모를 찾아서 찾기
         _buildTileMenu = GameObject.Find("BuildSpawnButtons");
-
+        _CallSkill = FindObjectOfType<CallSkill>();
         CreateButton(buildButtonContainer, TileButton, BuildButtons);
 
     }
@@ -84,8 +84,8 @@ public class UI_TileSpawnController : MonoBehaviour
 
                 if(firstGoid>= btn_Slot[index]._cost)
                 {
-                    Debug.Log("스킬실행");
-
+                    //Debug.Log("스킬실행");
+                    _CallSkill.skill(index);
                 }
 
 
@@ -98,22 +98,7 @@ public class UI_TileSpawnController : MonoBehaviour
 
 
 
-    public void TileButtonOnClick(int num)
-    {
-        //받은 버튼 번호가 0이면(길이면)
-        if (num == 0)
-        {
-            RoadBuilder.GetInstance.IsBuilding = true;
 
-        }
-        else//해당 타입 건물 전달
-        {
-            TileObjectBuilder.GetInstance.SetBuildingTarget((Define.Building)num - 1);
-
-        }
-
-       // _buildTileMenu.SetActive(false);
-    }
 
 
 

@@ -7,19 +7,18 @@ public class JobCenter : BaseBuilding
     [SerializeField]
     private Define.Job _jobType = Define.Job.None;
 
-    private Queue<CitizenData> _citizenOrderQueue = new();
+    private Queue<CitizenUnitData> _citizenOrderQueue = new();
     private bool _isReleasing;
 
-    private Define.Move[] _outputDirs;
-    private int _outputDirIndex = 0;
+    private int _outputDir = 1;
 
     public void ChangeOutputDir()
     {
-        _outputDirIndex = (_outputDirIndex + 1) >= 4 ? 0 : _outputDirIndex + 1;
+        _outputDir = (_outputDir + 1) > 4 ? 1 : _outputDir + 1;
         transform.Rotate(new Vector3(0f, 0f, -90.0f));
     }
 
-    public override void EnterTheBuilding(CitizenController citizen)
+    public override void EnterTheBuilding(CitizenUnitController citizen)
     {
         _citizenOrderQueue.Enqueue(citizen.Data);
 
@@ -34,54 +33,31 @@ public class JobCenter : BaseBuilding
 
     protected IEnumerator ReleaseCitizen()
     {
-        while (true)
+        while (_citizenOrderQueue.Count > 0)
         {
-            if (_citizenOrderQueue.Count == 0)
-            {
-                _isReleasing = false;
-                yield break;
-            }
-
             yield return new WaitForSeconds(_releaseTime);
 
-            bool hasOutputRoad = HasRoadNextPosition(_outputDirs[_outputDirIndex]);
-
-            if (!hasOutputRoad)
+            if (!HasRoadNextPosition((Define.Move)_outputDir))
             {
                 continue;
             }
 
-            var citizen = DequeueCitizen(_citizenOrderQueue);
+            var unitData = _citizenOrderQueue.Dequeue();
 
-            var go = Managers.Resource.Instantiate($"{Define.BATTILE_UNIT_PATH}{citizen.Data.CitizenType}_{_jobType}");
-            go.transform.position = transform.position;
+            var go = Managers.Resource.Instantiate($"{Define.CITIZEN_PREFAB_PATH}{unitData.CitizenType}Citizen_{_jobType}");
 
-            var newCitizen = go.GetOrAddComponent<CitizenController>();
-            newCitizen.Data = citizen.Data;
-            newCitizen.Data.MoveType = _outputDirs[_outputDirIndex];
-            newCitizen.Data.JobType = _jobType;
-
-            Managers.Resource.Destroy(citizen.gameObject);
-            citizen = newCitizen;
-            citizen.GetComponent<CitizenController>().enabled = true;
-            citizen.GetComponent<UnitManager>().enabled = false;
-            citizen.GetComponent<UnitAI>().enabled = false;
-
-            SetCitizenPosition(citizen);
+            var citizen = go.GetComponent<CitizenUnitController>();
+            citizen.Data.MoveType = (Define.Move)_outputDir;
+            citizen.Data.JobType = _jobType;
+            SetUnitPosition(citizen, citizen.Data.MoveType);
             citizen.SetNextDestination(transform.position);
         }
+
+        _isReleasing = false;
     }
 
     protected override void Init()
     {
-        _outputDirs = new Define.Move[]
-        {
-            Define.Move.Up,
-            Define.Move.Right,
-            Define.Move.Down,
-            Define.Move.Left
-        };
-
         HasUI = false;
     }
 }

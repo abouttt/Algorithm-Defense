@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,34 +14,36 @@ public class CitizenSpawner : MonoBehaviour
     private float _spawnTime;
     private Vector3Int _spawnCellPos;
 
-    private Define.Citizen _spawnTarget;
-    private int _spawnIndex = 0;
+    private int _spawnIndex = 1;
 
     [SerializeField]
-    private bool _spawn = false;
+    private bool _startSpawn = false;
     private bool _isSpawning = false;
 
     private void Start()
     {
         Init();
 
-        CitizenSpawnList = new Define.Citizen[3]
-        {
-            Define.Citizen.Red,
-            Define.Citizen.Green,
-            Define.Citizen.Blue,
-        };
-
-        StartCoroutine(SpawnCitizen());
+        LoadingControl.GetInstance.LoadingCompleteAction += StartSpawn;
     }
 
     private void Update()
     {
-        if (_spawn && !_isSpawning)
+        if (!_startSpawn)
+        {
+            return;
+        }
+
+        if (!_isSpawning)
         {
             StartCoroutine(SpawnCitizen());
             _isSpawning = true;
         }
+    }
+
+    public void StartSpawn()
+    {
+        _startSpawn = true;
     }
 
     public void Setup(Vector3Int spawnPos, float spawnTime)
@@ -51,34 +54,28 @@ public class CitizenSpawner : MonoBehaviour
         TileManager.GetInstance.SetTile(Define.Tilemap.Road, spawnPos, Define.Road.BU);
         TileManager.GetInstance.SetTile(Define.Tilemap.Road, spawnPos + Vector3Int.up, Define.Road.BD);
 
-        var go = TileManager.GetInstance.GetTilemap(Define.Tilemap.Road).GetInstantiatedObject(spawnPos + Vector3Int.up);
-        go.GetComponent<Road>().IsStartRoad = true;
+        Util.GetRoad(Define.Tilemap.Road, spawnPos + Vector3Int.up).IsStartRoad = true;
     }
 
     public IEnumerator SpawnCitizen()
     {
-        while (true)
+        while (_startSpawn)
         {
-            if (!_spawn)
-            {
-                _isSpawning = false;
-                yield break;
-            }
-
-            _spawnTarget = CitizenSpawnList[_spawnIndex];
-            _spawnIndex = ++_spawnIndex < CitizenSpawnList.Length ? _spawnIndex : 0;
-
             var pos = TileManager.GetInstance.GetCellCenterToWorld(Define.Tilemap.Ground, _spawnCellPos);
-            var go = Managers.Resource.Instantiate($"{Define.CITIZEN_PATH}{_spawnTarget}Citizen", pos);
-            var citizen = go.GetOrAddComponent<CitizenController>();
-            citizen.Data.CitizenType = _spawnTarget;
+
+            var go = Managers.Resource.Instantiate($"{Define.CITIZEN_PREFAB_PATH}{Enum.GetName(typeof(Define.Citizen), _spawnIndex)}Citizen", pos);
+
+            var citizen = go.GetComponent<CitizenUnitController>();
+            citizen.Data.CitizenType = (Define.Citizen)_spawnIndex;
             citizen.Data.MoveType = Define.Move.Up;
             citizen.SetNextDestination(citizen.transform.position);
 
             yield return new WaitForSeconds(_spawnTime);
 
-            _spawnIndex = ++_spawnIndex < CitizenSpawnList.Length ? _spawnIndex : 0;
+            _spawnIndex = (_spawnIndex + 1) < 4 ? _spawnIndex + 1 : 1;
         }
+
+        _isSpawning = false;
     }
 
     private static void Init()

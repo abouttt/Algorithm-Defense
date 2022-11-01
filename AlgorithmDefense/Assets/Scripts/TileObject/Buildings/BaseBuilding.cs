@@ -14,37 +14,15 @@ public abstract class BaseBuilding : MonoBehaviour
         Init();
     }
 
-    public abstract void EnterTheBuilding(CitizenController citizen);
+    public abstract void EnterTheBuilding(CitizenUnitController citizen);
 
     protected abstract void Init();
 
-    protected CitizenController DequeueCitizen(Queue<CitizenData> citizenOrderQueue)
-    {
-        CitizenData citizenData = citizenOrderQueue.Dequeue();
-
-        GameObject go = null;
-        if (citizenData.JobType == Define.Job.None)
-        {
-            go = Managers.Resource.Instantiate($"{Define.CITIZEN_PATH}{citizenData.CitizenType}Citizen");
-        }
-        else
-        {
-            go = Managers.Resource.Instantiate(
-                $"{Define.BATTILE_UNIT_PATH}" +
-                $"{citizenData.CitizenType}_{citizenData.JobType}");
-        }
-
-        var citizen = go.GetOrAddComponent<CitizenController>();
-        citizen.Data = citizenData;
-
-        return citizen;
-    }
-
-    protected void SetCitizenPosition(CitizenController citizen)
+    public void SetUnitPosition(BaseUnitController unit, Define.Move moveType)
     {
         var pos = TileManager.GetInstance.GetWorldToCellCenterToWorld(Define.Tilemap.Ground, transform.position);
 
-        switch (citizen.Data.MoveType)
+        switch (moveType)
         {
             case Define.Move.Right:
                 pos += new Vector3(0.51f, 0, 0);
@@ -60,7 +38,7 @@ public abstract class BaseBuilding : MonoBehaviour
                 break;
         }
 
-        citizen.transform.position = pos;
+        unit.transform.position = pos;
     }
 
     protected bool HasRoadNextPosition(Define.Move moveType)
@@ -71,20 +49,65 @@ public abstract class BaseBuilding : MonoBehaviour
         {
             case Define.Move.None:
                 return false;
-            case Define.Move.Right:
-                nextPos += Vector3Int.right;
-                break;
-            case Define.Move.Left:
-                nextPos += Vector3Int.left;
-                break;
             case Define.Move.Up:
                 nextPos += Vector3Int.up;
+                break;
+            case Define.Move.Right:
+                nextPos += Vector3Int.right;
                 break;
             case Define.Move.Down:
                 nextPos += Vector3Int.down;
                 break;
+            case Define.Move.Left:
+                nextPos += Vector3Int.left;
+                break;
         }
 
-        return Util.GetRoad(Define.Tilemap.Road, nextPos) ? true : false;
+        var road = Util.GetRoad(Define.Tilemap.Road, nextPos);
+        if (road)
+        {
+            if (moveType == Define.Move.Up)
+            {
+                if (road.RoadType == Define.Road.BD ||
+                   road.RoadType == Define.Road.CUL ||
+                   road.RoadType == Define.Road.CUR ||
+                   road.RoadType == Define.Road.UD)
+                {
+                    return true;
+                }
+            }
+            else if (moveType == Define.Move.Right)
+            {
+                if (road.RoadType == Define.Road.BL ||
+                   road.RoadType == Define.Road.CDL ||
+                   road.RoadType == Define.Road.CUL ||
+                   road.RoadType == Define.Road.LR)
+                {
+                    return true;
+                }
+            }
+            else if (moveType == Define.Move.Down)
+            {
+                if (road.RoadType == Define.Road.BU ||
+                   road.RoadType == Define.Road.CDL ||
+                   road.RoadType == Define.Road.CDR ||
+                   road.RoadType == Define.Road.UD)
+                {
+                    return true;
+                }
+            }
+            else if (moveType == Define.Move.Left)
+            {
+                if (road.RoadType == Define.Road.BR ||
+                   road.RoadType == Define.Road.CDR ||
+                   road.RoadType == Define.Road.CUR ||
+                   road.RoadType == Define.Road.LR)
+                {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 }

@@ -7,13 +7,11 @@ public class Managers : MonoBehaviour
     private static Managers s_instance;
     private static Managers Instance { get { Init(); return s_instance; } }
 
-    private DataManager _data = new DataManager();
     private GameManager _game = new GameManager();
     private PoolManager _pool = new PoolManager();
     private ResourceManager _resource = new ResourceManager();
     private SoundManager _sound = new SoundManager();
 
-    public static DataManager Data { get { return Instance._data; } }
     public static GameManager Game { get { return Instance._game; } }
     public static PoolManager Pool { get { return Instance._pool; } }
     public static ResourceManager Resource { get { return Instance._resource; } }

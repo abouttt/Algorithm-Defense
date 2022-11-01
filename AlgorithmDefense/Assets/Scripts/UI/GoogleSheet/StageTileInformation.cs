@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
+using Unity.VisualScripting;
 
 public class StageTileInformation : MonoBehaviour
 {
@@ -39,9 +40,11 @@ public class StageTileInformation : MonoBehaviour
     {
         StarCount = 0;
 
+        LoadingControl.GetInstance.LoadingCompleteAction += SetTileData;
+
         //클릭한 스테이지 번호 가져오기
         stageNum = PlayerPrefs.GetInt("StageNum");
-        Debug.Log("stageNum: "+stageNum);
+        Debug.Log("stageNum: " + stageNum);
         WWWForm form = new WWWForm();
 
         //각각의 정보 이름과 넣을정보를 넣어줌
@@ -76,9 +79,9 @@ public class StageTileInformation : MonoBehaviour
                     case "getStageTile":
                         GetTileDataSave();
 
-                        //필드생성 불러오기
-                        SetTileData();
-                        LoadingControl.GetInstance.LoadingComplete();
+                        // 로딩 완료
+
+                        LoadingControl.GetInstance.GameSceneLoadingComplete();
 
                         break;
 
@@ -106,7 +109,7 @@ public class StageTileInformation : MonoBehaviour
         //받아온 값이 비어있다면
         if (string.IsNullOrEmpty(json))
         {
-            Debug.Log("빈값받음");
+            Debug.Log("빈값 받음");
             return;
         }
 
@@ -116,12 +119,12 @@ public class StageTileInformation : MonoBehaviour
         //에러일때
         if (GD.result == "ERROR")
         {
-            Debug.Log("(" + GD.order + "): " + GD.result + " [deta: " + GD.deta + "]");
+            //Debug.Log("(" + GD.order + "): " + GD.result + " [deta: " + GD.deta + "]");
             return;
         }
 
 
-        Debug.Log("(" + GD.order + "): " + GD.result + " [deta: " + GD.deta + "]");
+        //Debug.Log("(" + GD.order + "): " + GD.result + " [deta: " + GD.deta + "]");
     }
 
     public void GetTileDataSave()
@@ -202,7 +205,7 @@ public class StageTileInformation : MonoBehaviour
     }
 
     //다음챕터
-   public void NextStageNumSet()
+    public void NextStageNumSet()
     {
         Time.timeScale = 1f;
 
@@ -211,7 +214,6 @@ public class StageTileInformation : MonoBehaviour
         {
             //다음 스테이지 번호로 변경저장
             PlayerPrefs.SetInt("Num", stageNum + 1);
-
             //Game씬(1번)다시 시작
             SceneManager.LoadScene(1);
         }

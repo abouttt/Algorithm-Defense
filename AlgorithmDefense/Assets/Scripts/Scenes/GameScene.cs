@@ -14,7 +14,7 @@ public class GameScene : MonoBehaviour
     public float CameraZ;
     public float CameraSize;
 
-    [Header("성벽, 던전 최대 HP")]
+    [Header("[성벽, 던전 최대 HP]")]
     public float CastleMaxHP;
     public float DungeonMaxHP;
 
@@ -45,6 +45,11 @@ public class GameScene : MonoBehaviour
         InitRampart();
         InitSpawn();
         InitBattleLine();
+
+        Managers.Pool.Init();
+        Managers.Game.Gold = 0;
+        Managers.Game.CastleHP = (int)Managers.Game.Setting.CastleMaxHP;
+        Managers.Game.DungeonHP = (int)Managers.Game.Setting.DungeonMaxHP;
     }
 
     private void InitCamera()
@@ -73,6 +78,16 @@ public class GameScene : MonoBehaviour
             Managers.Resource.Instantiate($"{Define.CONTENTS_PATH}@CitizenSpawner").transform.SetParent(_contentsRoot);
         }
 
+        if (!FindObjectOfType<MonsterSpawner>())
+        {
+            Managers.Resource.Instantiate($"{Define.CONTENTS_PATH}@MonsterSpawner").transform.SetParent(_contentsRoot);
+        }
+
+        if (!FindObjectOfType<CallSkill>())
+        {
+            Managers.Resource.Instantiate($"{Define.CONTENTS_PATH}@CallSkill").transform.SetParent(_contentsRoot);
+        }
+
         if (!FindObjectOfType<TileObjectBuilder>())
         {
             Managers.Resource.Instantiate($"{Define.CONTENTS_PATH}@TileObjectBuilder").transform.SetParent(_contentsRoot);
@@ -86,7 +101,7 @@ public class GameScene : MonoBehaviour
 
     private void InitGround()
     {
-        int stageNumber = PlayerPrefs.GetInt("Num");
+        int stageNumber = PlayerPrefs.GetInt("StageNum");
         var go = Managers.Resource.Instantiate($"{Define.GROUND_PREFAB_PATH}Ground_{stageNumber}");
         go.transform.position = new Vector3(5f, 5.5f, 0f);
         go.transform.SetParent(TileManager.GetInstance.GetGrid().transform);
@@ -131,7 +146,7 @@ public class GameScene : MonoBehaviour
             TileManager.GetInstance.SetTile(Define.Tilemap.Rampart, new Vector3Int(StartPosition.x + x, RampartHeight - 1, 0), null);
 
             TileManager.GetInstance.SetTile(Define.Tilemap.Building, new Vector3Int(StartPosition.x + x, RampartHeight - 1, 0), Define.Building.CastleGate);
-            TileManager.GetInstance.SetTile(Define.Tilemap.Building, new Vector3Int(StartPosition.x + x, RampartHeight + BattleLineLength, 0), Define.Building.MonsterGate);
+            TileManager.GetInstance.SetTile(Define.Tilemap.Building, new Vector3Int(StartPosition.x + x, RampartHeight + BattleLineLength, 0), Define.Building.Dungeon);
         }
 
         // 길 설치.
