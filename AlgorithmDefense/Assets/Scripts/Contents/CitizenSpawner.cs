@@ -20,10 +20,8 @@ public class CitizenSpawner : MonoBehaviour
     private bool _startSpawn = false;
     private bool _isSpawning = false;
 
-    private void Start()
+    private void Awake()
     {
-        Init();
-
         LoadingControl.GetInstance.LoadingCompleteAction += StartSpawn;
     }
 

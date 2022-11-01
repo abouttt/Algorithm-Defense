@@ -38,11 +38,16 @@ public class StageTileInformation : MonoBehaviour
 
     public int[][] StageTileData = new int[5][];
 
+    private void Awake()
+    {
+        LoadingControl.GetInstance.LoadingCompleteAction += SetTileData;
+
+    }
 
     private void Start()
     {
-       
-        LoadingControl.GetInstance.LoadingCompleteAction += SetTileData;
+
+        //LoadingControl.GetInstance.LoadingCompleteAction += SetTileData;
 
         //클릭한 스테이지 번호 가져오기
         stageNum = PlayerPrefs.GetInt("Num");
@@ -64,8 +69,8 @@ public class StageTileInformation : MonoBehaviour
 
     public void GetTileDataAsExcel()
     {
-        string[] data = stageCoordinateDB.StageCoordinate[stageNum].stage.Split(',');
-        GD.deta = stageCoordinateDB.StageCoordinate[stageNum].stage;
+        string[] data = stageCoordinateDB.StageCoordinate[stageNum-1].stage.Split(',');
+        GD.deta = stageCoordinateDB.StageCoordinate[stageNum-1].stage;
 
         int count = 0;
 
@@ -75,7 +80,7 @@ public class StageTileInformation : MonoBehaviour
 
             for (int j = 0; j < 5; j++)
             {
-               // Debug.Log(data[count]);
+                // Debug.Log(data[count]);
                 StageTileData[i][j] = int.Parse(data[count]);
                 count++;
             }
@@ -217,9 +222,13 @@ public class StageTileInformation : MonoBehaviour
 
 
             //별 갯수 변경
-            stageCoordinateDB.StageNum[stageNum].Star=_star;
+            stageCoordinateDB.StageNum[stageNum].Star = _star;
             //다음 스테이지 오픈
-            stageCoordinateDB.StageNum[stageNum+1].Open = true;
+            int stage = PlayerPrefs.GetInt("StageCount");
+            if (stage != stageNum)
+            {
+                stageCoordinateDB.StageNum[stageNum + 1].Open = true;
+            }
 
 
         }
