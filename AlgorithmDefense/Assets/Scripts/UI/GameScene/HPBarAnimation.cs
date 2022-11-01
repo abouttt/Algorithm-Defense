@@ -22,7 +22,7 @@ public class HPBarAnimation : MonoBehaviour
     private int starCount;
     private float collapsedEnemy;
     private float collapsedCastle;
-    private bool gameClear;
+    private bool gameClear=true;
 
     private void Awake()
     {
@@ -37,6 +37,7 @@ public class HPBarAnimation : MonoBehaviour
         collapsedCastle = 0.66f;
         gameClear = false;
     }
+
 
     public void EnemyAttacked()
     {
@@ -60,6 +61,7 @@ public class HPBarAnimation : MonoBehaviour
                 //½Â¸®        
                 gameClear = true;
                 ClearMenuAnimation.GetInstance.ClearMenuCall(starCount, true);
+                StageTileInformation.GetInstance.GameClearSetStarCount(starCount);
             }
 
             enemyHealthTransform.offsetMin = new Vector2(0f, 0f);
@@ -104,6 +106,7 @@ public class HPBarAnimation : MonoBehaviour
                 starCount = 0;
                 gameClear = true;
                 ClearMenuAnimation.GetInstance.ClearMenuCall(starCount, false);
+                StageTileInformation.GetInstance.GameClearSetStarCount(starCount);
             }
 
 

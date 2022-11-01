@@ -14,6 +14,12 @@ public class StageTileInformation : MonoBehaviour
 
     const string URL = "https://script.google.com/macros/s/AKfycbxzoHfRTzsaIR5un1lkT9sm0Tiwhm0iIhEWepodlykJAy0db_Oaj4BAlDPt_aSslDFN/exec";
 
+    [SerializeField]
+    private StageDataTable stageCoordinateDB;  //excel 테이블
+
+
+    private static StageTileInformation s_instance;
+    public static StageTileInformation GetInstance { get { Init(); return s_instance; } }
 
 
 
@@ -32,30 +38,51 @@ public class StageTileInformation : MonoBehaviour
 
     public int[][] StageTileData = new int[5][];
 
-    [HideInInspector]
-    public int StarCount;   //클리어 후 받은 별 갯수
-
 
     private void Start()
     {
-        StarCount = 0;
-
+       
         LoadingControl.GetInstance.LoadingCompleteAction += SetTileData;
 
         //클릭한 스테이지 번호 가져오기
-        stageNum = PlayerPrefs.GetInt("StageNum");
+        stageNum = PlayerPrefs.GetInt("Num");
         Debug.Log("stageNum: " + stageNum);
-        WWWForm form = new WWWForm();
 
-        //각각의 정보 이름과 넣을정보를 넣어줌
-        form.AddField("order", "getStageTile");
-        form.AddField("num", stageNum);
-
-        //보내기
-        StartCoroutine(Post(form));
-
+        //WWWForm form = new WWWForm();
+        ////각각의 정보 이름과 넣을정보를 넣어줌
+        //form.AddField("order", "getStageTile");
+        //form.AddField("num", stageNum);
+        ////보내기
+        //StartCoroutine(Post(form));
 
 
+
+        GetTileDataAsExcel();
+
+    }
+
+
+    public void GetTileDataAsExcel()
+    {
+        string[] data = stageCoordinateDB.StageCoordinate[stageNum].stage.Split(',');
+        GD.deta = stageCoordinateDB.StageCoordinate[stageNum].stage;
+
+        int count = 0;
+
+        for (int i = 0; i < 5; i++)
+        {
+            StageTileData[i] = new int[5];
+
+            for (int j = 0; j < 5; j++)
+            {
+               // Debug.Log(data[count]);
+                StageTileData[i][j] = int.Parse(data[count]);
+                count++;
+            }
+        }
+
+        //SetTileData();
+        LoadingControl.GetInstance.GameSceneLoadingComplete();
     }
 
 
@@ -172,19 +199,29 @@ public class StageTileInformation : MonoBehaviour
     }
 
     //클리어시 별 저장 후 다음챕터 오픈
-    public void GameClearSetStarCount()
+    public void GameClearSetStarCount(int _star)
     {
         //클리어를 못한게 아니라면
-        if (StarCount != 0)
+        if (_star != 0)
         {
-            WWWForm form = new WWWForm();
+            //WWWForm form = new WWWForm();
 
-            //각각의 정보 이름과 넣을정보를 넣어줌
-            form.AddField("order", "setValue");
-            form.AddField("star", StarCount);
+            ////각각의 정보 이름과 넣을정보를 넣어줌
+            //form.AddField("order", "setValue");
+            //form.AddField("star", _star);
 
-            //보내기
-            StartCoroutine(Post(form));
+            ////보내기
+            //StartCoroutine(Post(form));
+
+
+
+
+            //별 갯수 변경
+            stageCoordinateDB.StageNum[stageNum].Star=_star;
+            //다음 스테이지 오픈
+            stageCoordinateDB.StageNum[stageNum+1].Open = true;
+
+
         }
     }
 
@@ -227,7 +264,20 @@ public class StageTileInformation : MonoBehaviour
     }
 
 
+    private static void Init()
+    {
+        if (!s_instance)
+        {
+            var go = GameObject.Find("@GoogleSheetManager");
+            if (!go)
+            {
+                go = new GameObject { name = "@GoogleSheetManager" };
+                go.AddComponent<StageTileInformation>();
+            }
 
+            s_instance = go.GetComponent<StageTileInformation>();
+        }
+    }
 
 
 }

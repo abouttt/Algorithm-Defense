@@ -15,6 +15,8 @@ public class StageNumberInformation : MonoBehaviour
 
     const string URL = "https://docs.google.com/spreadsheets/d/1rbYCu0s6tjQM9YmjNNmWJRriqRHzgoTzIZzXo8Nj_Uw/export?format=tsv&range=A2:C";
 
+    [SerializeField]
+    private StageDataTable stageNumDB;  //excel 테이블
 
     [HideInInspector]
     public string[][] StageStringData;
@@ -25,9 +27,12 @@ public class StageNumberInformation : MonoBehaviour
     [HideInInspector]
     public bool[] StageOpen;
 
-    public void Awake()
+    public void Start()
     {
-        StartCoroutine("GetStageData");
+        //StartCoroutine("GetStageData");
+
+        SetStageDataAsExcel();
+
     }
 
 
@@ -68,6 +73,44 @@ public class StageNumberInformation : MonoBehaviour
 
 
     }
+
+
+   public void SetStageDataAsExcel()
+    {
+              
+        int count = stageNumDB.StageNum.Count;
+
+        StageStringData = new string[count][];
+
+        StageNum = new int[count];
+        StageStar = new int[count];
+        StageOpen = new bool[count];
+
+        UI_StartSceneUIAnimation.GetInstance.StageUIBar = new UI_StartSceneUIAnimation.StageUIBarInformation[count];
+
+        for (int i = 0; i < count; i++)
+        {
+            StageNum[i] = stageNumDB.StageNum[i].Num;
+            StageStar[i] = stageNumDB.StageNum[i].Star;
+            StageOpen[i] = stageNumDB.StageNum[i].Open;
+
+            UI_StartSceneUIAnimation.GetInstance.StageUIBar[i] = new UI_StartSceneUIAnimation.StageUIBarInformation();
+
+            UI_StartSceneUIAnimation.GetInstance.StageUIBar[i].stageNum = StageNum[i];
+            UI_StartSceneUIAnimation.GetInstance.StageUIBar[i].starCount = StageStar[i];
+            UI_StartSceneUIAnimation.GetInstance.StageUIBar[i].open = StageOpen[i];
+
+
+        }
+
+       
+        //stage메뉴 생성하기 호출
+        UI_StartSceneUIAnimation.GetInstance.SetStage();
+        
+    }
+
+
+
 
 
     public void SetStageData(int length)

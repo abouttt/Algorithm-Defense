@@ -737,12 +737,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c389ea73bac3d574b8b5c2ff64497332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stageCoordinateDB: {fileID: 11400000, guid: 00f49821030093b4e85b49ad45a7d5d5, type: 2}
   GD:
     order: 
     result: 
     deta: 
     value: 
-  StarCount: 0
 --- !u!4 &520920486
 Transform:
   m_ObjectHideFlags: 0
