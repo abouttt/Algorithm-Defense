@@ -178,6 +178,8 @@ MonoBehaviour:
     TargetLayer:
       serializedVersion: 2
       m_Bits: 128
+  _projectile: {fileID: 0}
+  _flashDuration: 0.1
 --- !u!114 &-6125521690656012149
 MonoBehaviour:
   m_ObjectHideFlags: 0

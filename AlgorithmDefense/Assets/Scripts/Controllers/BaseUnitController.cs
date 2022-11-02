@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
 public class BaseUnitController : MonoBehaviour
@@ -8,7 +9,7 @@ public class BaseUnitController : MonoBehaviour
 
     private void Awake()
     {
-        _animator = GetComponent<Animator>();
+        Init();
     }
 
     public void SetMoveAnimation(Define.Move moveType)
@@ -32,5 +33,10 @@ public class BaseUnitController : MonoBehaviour
                 _animator.SetFloat("Ver", 0);
                 break;
         }
+    }
+
+    protected virtual void Init()
+    {
+        _animator = GetComponent<Animator>();
     }
 }

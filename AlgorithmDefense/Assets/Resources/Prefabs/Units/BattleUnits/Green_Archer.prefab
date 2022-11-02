@@ -179,6 +179,8 @@ MonoBehaviour:
     TargetLayer:
       serializedVersion: 2
       m_Bits: 64
+  _projectile: {fileID: 3222863194544384520, guid: b83bf189983acd041bc66c0d2ba8a463, type: 3}
+  _flashDuration: 0.1
 --- !u!114 &2134547115178478044
 MonoBehaviour:
   m_ObjectHideFlags: 0
