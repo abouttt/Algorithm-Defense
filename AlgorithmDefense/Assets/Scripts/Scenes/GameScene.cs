@@ -88,10 +88,10 @@ public class GameScene : MonoBehaviour
             Managers.Resource.Instantiate($"{Define.CONTENTS_PATH}@CitizenSpawner").transform.SetParent(_contentsRoot);
         }
 
-        if (!FindObjectOfType<MonsterSpawner>())
-        {
-            Managers.Resource.Instantiate($"{Define.CONTENTS_PATH}@MonsterSpawner").transform.SetParent(_contentsRoot);
-        }
+        //if (!FindObjectOfType<MonsterSpawner>())
+        //{
+        //    Managers.Resource.Instantiate($"{Define.CONTENTS_PATH}@MonsterSpawner").transform.SetParent(_contentsRoot);
+        //}
 
         if (!FindObjectOfType<CallSkill>())
         {
