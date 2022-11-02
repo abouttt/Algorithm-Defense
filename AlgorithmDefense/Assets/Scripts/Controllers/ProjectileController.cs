@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 public class ProjectileController : MonoBehaviour
 {
@@ -11,6 +10,9 @@ public class ProjectileController : MonoBehaviour
     public int Damage;
     [HideInInspector]
     public GameObject Target;
+
+    [SerializeField]
+    private bool _isFireball;
 
     private void Update()
     {
@@ -52,8 +54,20 @@ public class ProjectileController : MonoBehaviour
                 }
             }
 
+            if (_isFireball)
+            {
+                CreateFireballDamageEffect();
+            }
+
             Clear();
         }
+    }
+
+    private void CreateFireballDamageEffect()
+    {
+        var go = Managers.Resource.Instantiate("Prefabs/Projectile/FireBallDamage");
+        go.transform.position = transform.position;
+        go.transform.rotation = transform.rotation;
     }
 
     private void Clear()
