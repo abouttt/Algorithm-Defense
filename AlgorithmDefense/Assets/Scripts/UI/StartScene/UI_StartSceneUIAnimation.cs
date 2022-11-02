@@ -244,6 +244,7 @@ public class UI_StartSceneUIAnimation : MonoBehaviour
                 mainMenuCanvasGroup.alpha = 1f;
                 mainMenuCanvasGroup.DOFade(0, 3f).OnComplete(() =>
                 {
+                  
                     endCreditsTransform.transform.localPosition = new Vector3(0f, -1600f, 0f);
                     //페이드 인 종류와 속도
 

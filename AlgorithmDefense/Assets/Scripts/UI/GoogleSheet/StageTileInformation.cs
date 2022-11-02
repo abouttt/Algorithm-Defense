@@ -86,6 +86,13 @@ public class StageTileInformation : MonoBehaviour
             }
         }
 
+        //최대 채력 설정
+        Managers.Game.Setting.DungeonMaxHP = stageCoordinateDB.StageCoordinate[stageNum - 1].enemyHP;
+        Managers.Game.Setting.CastleMaxHP = stageCoordinateDB.StageCoordinate[stageNum - 1].castleHP;
+        Managers.Game.DungeonHP = (int)stageCoordinateDB.StageCoordinate[stageNum - 1].enemyHP;
+        Managers.Game.CastleHP = (int)stageCoordinateDB.StageCoordinate[stageNum - 1].castleHP;
+
+
         //SetTileData();
         LoadingControl.GetInstance.GameSceneLoadingComplete();
     }
@@ -219,15 +226,17 @@ public class StageTileInformation : MonoBehaviour
             //StartCoroutine(Post(form));
 
 
-
-
-            //별 갯수 변경
-            stageCoordinateDB.StageNum[stageNum].Star = _star;
+            if(stageCoordinateDB.StageNum[stageNum].Star< _star)
+            {
+                //별 갯수 변경
+                stageCoordinateDB.StageNum[stageNum].Star = _star;
+            }
+          
             //다음 스테이지 오픈
             int stage = PlayerPrefs.GetInt("StageCount");
             if (stage != stageNum)
             {
-                stageCoordinateDB.StageNum[stageNum + 1].Open = true;
+                stageCoordinateDB.StageNum[stageNum].Open = true;
             }
 
 

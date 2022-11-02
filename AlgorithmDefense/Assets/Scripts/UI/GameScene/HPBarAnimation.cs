@@ -39,6 +39,27 @@ public class HPBarAnimation : MonoBehaviour
     }
 
 
+    private void Update()
+    {
+
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            Managers.Game.DungeonHP -= 10;
+            Debug.Log(Managers.Game.DungeonHP);
+            EnemyAttacked();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            Managers.Game.CastleHP -= 10;
+            Debug.Log(Managers.Game.CastleHP);
+            CastleAttacked();
+        }
+
+       
+    }
+
     public void EnemyAttacked()
     {
         if (gameClear == false)
