@@ -13,26 +13,11 @@ public class SkillManager : MonoBehaviour
     public enum skillType { Damage, Heal };
     public skillType Type;
 
-    void Update()
+    private void Start()
     {
         Destroy(gameObject, destroySkill);
     }
 
-    public void AddDamaged(UnitManager a)
-    {
-        if (a)
-        {
-            a.LoseHp(Damaged);
-        }
-    }
-
-    public void AddHp(UnitManager a)
-    {
-        if (a)
-        {
-            a.GetHp(Damaged);
-        }
-    }
     public void CheckLayerDamaged()
     {
         if (_detectedUnit)
@@ -44,11 +29,7 @@ public class SkillManager : MonoBehaviour
 
         foreach (Collider2D collider2D in colliders)
         {
-            if (colliders != null)
-            {
-                AddDamaged(collider2D.GetComponent<UnitManager>());
-
-            }
+            collider2D.GetComponent<BattleUnitController>().TakeDamage(Damaged);
         }
     }
 
@@ -63,11 +44,7 @@ public class SkillManager : MonoBehaviour
 
         foreach (Collider2D collider2D in colliders)
         {
-            if (colliders != null)
-            {
-                AddDamaged(collider2D.GetComponent<UnitManager>());
-
-            }
+            collider2D.GetComponent<BattleUnitController>().TakeHp(Damaged);
         }
     }
 }

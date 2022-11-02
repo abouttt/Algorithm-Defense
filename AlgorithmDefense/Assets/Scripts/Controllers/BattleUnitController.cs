@@ -63,6 +63,14 @@ public class BattleUnitController : BaseUnitController
         Flash();
     }
 
+    public void TakeHp(int hp)
+    {
+        if (Data.CurrentHp > 0)
+        {
+            Data.CurrentHp += hp;
+        }
+    }
+
     private void Move()
     {
         Vector2 dir = (Data.MoveType == Define.Move.Up) ? Vector2.up :
