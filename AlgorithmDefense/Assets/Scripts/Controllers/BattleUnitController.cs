@@ -144,7 +144,7 @@ public class BattleUnitController : BaseUnitController
         var go = Managers.Resource.Instantiate($"{Define.PROJECTILE_PREFAB_PATH}{_projectile.name}");
         var projectile = go.GetComponent<ProjectileController>();
 
-        Quaternion quat = (target.layer == LayerMask.NameToLayer("Castle")) ? Quaternion.Euler(0f, 0f, -90f) : Quaternion.Euler(0f, 0f, 90f);
+        Quaternion quat = ((1 << target.layer) & LayerMask.GetMask("Castle")) != 0 ? Quaternion.Euler(0f, 0f, -90f) : Quaternion.Euler(0f, 0f, 90f);
         projectile.transform.rotation = quat;
         projectile.transform.position = transform.position;
         projectile.Damage = Data.Damage;
@@ -183,7 +183,7 @@ public class BattleUnitController : BaseUnitController
 
     private void CheckTargetBuilding()
     {
-        LayerMask layer = (Data.TargetLayer == LayerMask.NameToLayer("Human")) ? LayerMask.GetMask("Dungeon") : LayerMask.GetMask("Castle");
+        LayerMask layer = (Data.TargetLayer & LayerMask.GetMask("Monster")) != 0 ? LayerMask.GetMask("Dungeon") : LayerMask.GetMask("Castle");
         var hit = GetRayHit2DInfo(layer);
         if (hit.collider != null)
         {
