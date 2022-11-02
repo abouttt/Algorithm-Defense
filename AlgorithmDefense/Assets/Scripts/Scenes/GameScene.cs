@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +5,14 @@ using UnityEngine.Tilemaps;
 
 public class GameScene : MonoBehaviour
 {
+    [System.Serializable]
+    public struct StageLineData
+    {
+        public bool First;
+        public bool Second;
+        public bool Third;
+    }
+
     [Header("[게임 초기 설정] - 씬 시작 시 1회만 동작한다.")]
 
     [Header("[카메라 설정]")]
@@ -32,8 +39,10 @@ public class GameScene : MonoBehaviour
     public Vector3Int SpawnCellPos;
     public float SpawnTime;
 
-    [Header("[전투 라인 설정]")]
+    [Header("[전투 라인 생성]")]
     public int BattleLineLength;
+    [SerializeField]
+    private List<StageLineData> _stageLineDatas = new();
 
     private Transform _contentsRoot;
 
@@ -43,8 +52,9 @@ public class GameScene : MonoBehaviour
         InitContents();
         InitGround();
         InitRampart();
-        InitSpawn();
+        InitCastleAndDungeon();
         InitBattleLine();
+        InitSpawn();
 
         Managers.Pool.Init();
         Managers.Game.Gold = 0;
@@ -138,26 +148,73 @@ public class GameScene : MonoBehaviour
         CitizenSpawner.GetInstance.Setup(SpawnCellPos, SpawnTime);
     }
 
-    private void InitBattleLine()
+    private void InitCastleAndDungeon()
     {
-        // 성벽 / 몬스터 스폰 지역 설치.
-        for (int x = 1; x <= 5; x += 2)
-        {
-            TileManager.GetInstance.SetTile(Define.Tilemap.Rampart, new Vector3Int(StartPosition.x + x, RampartHeight - 1, 0), null);
+        int stageNumber = PlayerPrefs.GetInt("StageNum") - 1;
 
-            TileManager.GetInstance.SetTile(Define.Tilemap.Building, new Vector3Int(StartPosition.x + x, RampartHeight - 1, 0), Define.Building.CastleGate);
-            TileManager.GetInstance.SetTile(Define.Tilemap.Building, new Vector3Int(StartPosition.x + x, RampartHeight + BattleLineLength, 0), Define.Building.Dungeon);
-        }
-
-        // 길 설치.
-        for (int x = 1; x <= 5; x += 2)
+        for (int i = 0; i < 3; i++)
         {
-            for (int y = 0; y < BattleLineLength; y++)
+            if (_stageLineDatas[stageNumber].First && (i == 0))
             {
-                TileManager.GetInstance.SetTile(Define.Tilemap.Road, new Vector3Int(StartPosition.x + x, RampartHeight + y, 0), Define.Road.UD);
+                SetCastleAndDungeon(1);
             }
 
-            TileManager.GetInstance.SetTile(Define.Tilemap.Road, new Vector3Int(StartPosition.x + x, RampartHeight + BattleLineLength, 0), Define.Road.BD);
+            if (_stageLineDatas[stageNumber].Second && (i == 1))
+            {
+                SetCastleAndDungeon(3);
+            }
+
+            if (_stageLineDatas[stageNumber].Third && (i == 2))
+            {
+                SetCastleAndDungeon(5);
+            }
         }
+    }
+
+    private void InitBattleLine()
+    {
+        int stageNumber = PlayerPrefs.GetInt("StageNum") - 1;
+
+        for (int i = 0; i < 3; i++)
+        {
+            if (_stageLineDatas[stageNumber].First && (i == 0))
+            {
+                SetBattleLine(1);
+            }
+
+            if (_stageLineDatas[stageNumber].Second && (i == 1))
+            {
+                SetBattleLine(3);
+            }
+
+            if (_stageLineDatas[stageNumber].Third && (i == 2))
+            {
+                SetBattleLine(5);
+            }
+        }
+    }
+
+    private void SetCastleAndDungeon(int x)
+    {
+        TileManager.GetInstance.SetTile(Define.Tilemap.Rampart, new Vector3Int(StartPosition.x + x, RampartHeight - 1, 0), null);
+
+        TileManager.GetInstance.SetTile(
+                    Define.Tilemap.Building,
+                    new Vector3Int(StartPosition.x + x, RampartHeight - 1, 0),
+                    Define.Building.CastleGate);
+
+        TileManager.GetInstance.SetTile(Define.Tilemap.Building,
+            new Vector3Int(StartPosition.x + x, RampartHeight + BattleLineLength, 0),
+            Define.Building.Dungeon);
+    }
+
+    private void SetBattleLine(int x)
+    {
+        for (int y = 0; y < BattleLineLength; y++)
+        {
+            TileManager.GetInstance.SetTile(Define.Tilemap.Road, new Vector3Int(StartPosition.x + x, RampartHeight + y, 0), Define.Road.UD);
+        }
+
+        TileManager.GetInstance.SetTile(Define.Tilemap.Road, new Vector3Int(StartPosition.x + x, RampartHeight + BattleLineLength, 0), Define.Road.BD);
     }
 }

@@ -1309,6 +1309,16 @@ MonoBehaviour:
   SpawnCellPos: {x: 3, y: 1, z: 0}
   SpawnTime: 5
   BattleLineLength: 4
+  _stageLineDatas:
+  - First: 0
+    Second: 1
+    Third: 0
+  - First: 1
+    Second: 0
+    Third: 1
+  - First: 1
+    Second: 1
+    Third: 1
 --- !u!4 &1717982457
 Transform:
   m_ObjectHideFlags: 0
