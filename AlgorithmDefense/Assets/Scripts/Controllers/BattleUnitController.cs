@@ -30,14 +30,16 @@ public class BattleUnitController : BaseUnitController
             return;
         }
 
-        if (IsEndAnimation("Attacked"))
-        {
-            Clear();
-        }
-
         if (_targetUnit || _targetBuilding)
         {
-            return;
+            if (IsEndAnimation("Attacked"))
+            {
+                Clear();
+            }
+            else
+            {
+                return;
+            }
         }
 
         CheckTargetUnit();
@@ -113,9 +115,6 @@ public class BattleUnitController : BaseUnitController
                 }
             }
         }
-
-        _targetUnit = null;
-        _targetBuilding = null;
     }
 
     private void DeadAnimationEvent()
@@ -154,7 +153,7 @@ public class BattleUnitController : BaseUnitController
     private bool IsEndAnimation(string stateName)
     {
         var info = _animator.GetCurrentAnimatorStateInfo(0);
-        if (info.IsName(stateName) && info.normalizedTime >= 0.9f)
+        if (info.IsName(stateName) && info.normalizedTime >= 0.99f)
         {
             return true;
         }
