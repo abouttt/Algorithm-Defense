@@ -43,10 +43,12 @@ public class Dungeon : BaseBuilding
 
             _randomMonsterList.Clear();
             _randomMonsterList.Add((int)Define.Job.Warrior);
+
             if (_archerCurrentCount > _archerMaxCount)
             {
                 _randomMonsterList.Add((int)Define.Job.Archer);
             }
+
             if (_wizardCurrentCount > _wizardMaxCount)
             {
                 _randomMonsterList.Add((int)Define.Job.Wizard);
@@ -74,11 +76,11 @@ public class Dungeon : BaseBuilding
     private void CreateMonster(Define.Job job)
     {
         var go = Managers.Resource.Instantiate($"{Define.MONSTER_UNIT_PREFAB_PATH}Goblin_{job}");
-        var battleUnit = go.GetComponent<BattleUnitController>();
-        battleUnit.transform.position = transform.position;
-        battleUnit.Data.MoveType = Define.Move.Down;
-        battleUnit.Data.CurrentHp = battleUnit.Data.MaxHp;
-        SetUnitPosition(battleUnit, Define.Move.Down);
+        var monster = go.GetComponent<BattleUnitController>();
+        monster.transform.position = transform.position;
+        monster.Data.MoveType = Define.Move.Down;
+        monster.Data.CurrentHp = monster.Data.MaxHp;
+        SetUnitPosition(monster, Define.Move.Down);
     }
 
     protected override void Init()

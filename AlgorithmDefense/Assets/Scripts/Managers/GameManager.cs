@@ -18,14 +18,17 @@ public class GameManager
         }
         set
         {
-            _currentCastleHP = value;
-
             if (!_hpBarAnim)
             {
                 _hpBarAnim = Transform.FindObjectOfType<HPBarAnimation>();
             }
 
-            _hpBarAnim.CastleAttacked();
+            if (_currentCastleHP > value)
+            {
+                _hpBarAnim.CastleAttacked();
+            }
+
+            _currentCastleHP = value;
         }
     }
 
@@ -37,14 +40,17 @@ public class GameManager
         }
         set
         {
-            _currentDungeonHP = value;
-
             if (!_hpBarAnim)
             {
                 _hpBarAnim = Transform.FindObjectOfType<HPBarAnimation>();
             }
 
-            _hpBarAnim.EnemyAttacked();
+            if (_currentDungeonHP > value)
+            {
+                _hpBarAnim.EnemyAttacked();
+            }
+
+            _currentDungeonHP = value;
         }
     }
 
