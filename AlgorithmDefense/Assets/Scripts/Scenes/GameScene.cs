@@ -1,4 +1,4 @@
-using System.Collections;
+    using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -111,7 +111,7 @@ public class GameScene : MonoBehaviour
 
     private void InitGround()
     {
-        int stageNumber = PlayerPrefs.GetInt("StageNum");
+        int stageNumber = PlayerPrefs.GetInt("Num");
         var go = Managers.Resource.Instantiate($"{Define.GROUND_PREFAB_PATH}Ground_{stageNumber}");
         go.transform.position = new Vector3(5f, 5.5f, 0f);
         go.transform.SetParent(TileManager.GetInstance.GetGrid().transform);
@@ -150,7 +150,7 @@ public class GameScene : MonoBehaviour
 
     private void InitCastleAndDungeon()
     {
-        int stageNumber = PlayerPrefs.GetInt("StageNum") - 1;
+        int stageNumber = PlayerPrefs.GetInt("Num") - 1;
 
         for (int i = 0; i < 3; i++)
         {
@@ -173,7 +173,7 @@ public class GameScene : MonoBehaviour
 
     private void InitBattleLine()
     {
-        int stageNumber = PlayerPrefs.GetInt("StageNum") - 1;
+        int stageNumber = PlayerPrefs.GetInt("  Num") - 1;
 
         for (int i = 0; i < 3; i++)
         {
