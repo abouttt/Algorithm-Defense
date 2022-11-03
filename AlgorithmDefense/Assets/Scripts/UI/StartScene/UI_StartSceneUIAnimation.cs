@@ -78,6 +78,10 @@ public class UI_StartSceneUIAnimation : MonoBehaviour
     {
         int y_count = 0;
 
+        //스크롤 뷰 크기 설정
+        //_container.sizeDelta.y(현재 기본 크기400f) + 300f(버튼크기)*(버튼갯수-1(배열-1))
+        _container.sizeDelta = new Vector2(0f, _container.sizeDelta.y + (300f * (StageUIBar.Length - 1)));
+
 
         for (int i = 0; i < _dataSlot.Length; i++)
         {
@@ -149,7 +153,7 @@ public class UI_StartSceneUIAnimation : MonoBehaviour
                     SoundController.GetInstance.BtnClick();
 
                     //다른 씬으로 데이터를 보내기위한 일시저장 변수(유니티가 알아서 저장해줌)
-                    PlayerPrefs.SetInt("StageNum", _dataSlot[index].stageNum);
+                    PlayerPrefs.SetInt("Num", _dataSlot[index].stageNum);
 
                     SceneManager.LoadScene("GameScene");
 
@@ -240,6 +244,7 @@ public class UI_StartSceneUIAnimation : MonoBehaviour
                 mainMenuCanvasGroup.alpha = 1f;
                 mainMenuCanvasGroup.DOFade(0, 3f).OnComplete(() =>
                 {
+                  
                     endCreditsTransform.transform.localPosition = new Vector3(0f, -1600f, 0f);
                     //페이드 인 종류와 속도
 

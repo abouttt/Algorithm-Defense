@@ -75,5 +75,5 @@ MonoBehaviour:
   _sapwnTime:
     min: 5
     max: 10
-  _archerMaxCount: 3
-  _wizardMaxCount: 5
+  _archerMaxCount: 10
+  _wizardMaxCount: 10

@@ -22,7 +22,7 @@ public class HPBarAnimation : MonoBehaviour
     private int starCount;
     private float collapsedEnemy;
     private float collapsedCastle;
-    private bool gameClear;
+    private bool gameClear=true;
 
     private void Awake()
     {
@@ -36,6 +36,28 @@ public class HPBarAnimation : MonoBehaviour
         collapsedEnemy = 0.66f;
         collapsedCastle = 0.66f;
         gameClear = false;
+    }
+
+
+    private void Update()
+    {
+
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            Managers.Game.DungeonHP -= 10;
+            Debug.Log(Managers.Game.DungeonHP);
+            EnemyAttacked();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            Managers.Game.CastleHP -= 10;
+            Debug.Log(Managers.Game.CastleHP);
+            CastleAttacked();
+        }
+
+       
     }
 
     public void EnemyAttacked()
@@ -60,6 +82,7 @@ public class HPBarAnimation : MonoBehaviour
                 //½Â¸®        
                 gameClear = true;
                 ClearMenuAnimation.GetInstance.ClearMenuCall(starCount, true);
+                StageTileInformation.GetInstance.GameClearSetStarCount(starCount);
             }
 
             enemyHealthTransform.offsetMin = new Vector2(0f, 0f);
@@ -104,6 +127,7 @@ public class HPBarAnimation : MonoBehaviour
                 starCount = 0;
                 gameClear = true;
                 ClearMenuAnimation.GetInstance.ClearMenuCall(starCount, false);
+                StageTileInformation.GetInstance.GameClearSetStarCount(starCount);
             }
 
 

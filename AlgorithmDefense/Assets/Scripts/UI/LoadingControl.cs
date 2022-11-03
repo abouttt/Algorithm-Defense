@@ -18,10 +18,12 @@ public class LoadingControl : MonoBehaviour
     private void Awake()
     {
         lodingObject.SetActive(true);
+      
     }
 
     public void LoadingComplete()
     {
+        Debug.Log("·Îµù³¡");
         lodingObject.SetActive(false);
     }
 
