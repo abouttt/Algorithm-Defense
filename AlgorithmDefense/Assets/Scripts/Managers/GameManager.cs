@@ -7,15 +7,18 @@ public class GameManager
     public GameScene Setting;
     public int Gold = 0;
 
-    public int CastleHP
+    public float CastleMaxHP;
+    public float DungeonMaxHP;
+
+    public int CurrentCastleHP
     {
         get
         {
-            return _castleHP;
+            return _currentCastleHP;
         }
         set
         {
-            _castleHP = value;
+            _currentCastleHP = value;
 
             if (!_hpBarAnim)
             {
@@ -26,15 +29,15 @@ public class GameManager
         }
     }
 
-    public int DungeonHP
+    public int CurrentDungeonHP
     {
         get
         {
-            return _dungeonHP;
+            return _currentDungeonHP;
         }
         set
         {
-            _dungeonHP = value;
+            _currentDungeonHP = value;
 
             if (!_hpBarAnim)
             {
@@ -45,8 +48,8 @@ public class GameManager
         }
     }
 
-    private int _castleHP = 100;
-    private int _dungeonHP = 100;
+    private int _currentCastleHP = 100;
+    private int _currentDungeonHP = 100;
 
     private HPBarAnimation _hpBarAnim;
 

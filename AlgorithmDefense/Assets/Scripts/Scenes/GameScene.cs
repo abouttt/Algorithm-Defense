@@ -21,15 +21,6 @@ public class GameScene : MonoBehaviour
     public float CameraZ;
     public float CameraSize;
 
-    [Header("[己寒, 带傈 弥措 HP]")]
-    public float CastleMaxHP;
-    public float DungeonMaxHP;
-
-    [Header("[弊扼款靛 积己]")]
-    public int GroundWidth;
-    public int GroundHeight;
-    public int GrassPercentage;
-
     [Header("[己寒 积己]")]
     public Vector3Int StartPosition;
     public int RampartWidth;
@@ -58,8 +49,6 @@ public class GameScene : MonoBehaviour
 
         Managers.Pool.Init();
         Managers.Game.Gold = 0;
-        Managers.Game.CastleHP = (int)Managers.Game.Setting.CastleMaxHP;
-        Managers.Game.DungeonHP = (int)Managers.Game.Setting.DungeonMaxHP;
     }
 
     private void InitCamera()
@@ -88,11 +77,6 @@ public class GameScene : MonoBehaviour
             Managers.Resource.Instantiate($"{Define.CONTENTS_PATH}@CitizenSpawner").transform.SetParent(_contentsRoot);
         }
 
-        //if (!FindObjectOfType<MonsterSpawner>())
-        //{
-        //    Managers.Resource.Instantiate($"{Define.CONTENTS_PATH}@MonsterSpawner").transform.SetParent(_contentsRoot);
-        //}
-
         if (!FindObjectOfType<CallSkill>())
         {
             Managers.Resource.Instantiate($"{Define.CONTENTS_PATH}@CallSkill").transform.SetParent(_contentsRoot);
@@ -113,7 +97,7 @@ public class GameScene : MonoBehaviour
     {
         int stageNumber = PlayerPrefs.GetInt("Num");
         var go = Managers.Resource.Instantiate($"{Define.GROUND_PREFAB_PATH}Ground_{stageNumber}");
-        go.transform.position = new Vector3(5f, 5.5f, 0f);
+        go.transform.position = new Vector3(5f, 5f, 0f);
         go.transform.SetParent(TileManager.GetInstance.GetGrid().transform);
     }
 
@@ -173,7 +157,7 @@ public class GameScene : MonoBehaviour
 
     private void InitBattleLine()
     {
-        int stageNumber = PlayerPrefs.GetInt("  Num") - 1;
+        int stageNumber = PlayerPrefs.GetInt("Num") - 1;
 
         for (int i = 0; i < 3; i++)
         {

@@ -107,11 +107,11 @@ public class BattleUnitController : BaseUnitController
             {
                 if (_targetBuilding.gameObject.layer == LayerMask.NameToLayer("Castle"))
                 {
-                    Managers.Game.CastleHP -= Data.Damage;
+                    Managers.Game.CurrentCastleHP -= Data.Damage;
                 }
                 else
                 {
-                    Managers.Game.DungeonHP -= Data.Damage;
+                    Managers.Game.CurrentDungeonHP -= Data.Damage;
                 }
             }
         }

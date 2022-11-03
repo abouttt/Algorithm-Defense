@@ -16,32 +16,14 @@ public class CitizenSpawner : MonoBehaviour
 
     private int _spawnIndex = 1;
 
-    [SerializeField]
-    private bool _startSpawn = false;
-    private bool _isSpawning = false;
-
     private void Awake()
     {
         LoadingControl.GetInstance.LoadingCompleteAction += StartSpawn;
     }
 
-    private void Update()
-    {
-        if (!_startSpawn)
-        {
-            return;
-        }
-
-        if (!_isSpawning)
-        {
-            StartCoroutine(SpawnCitizen());
-            _isSpawning = true;
-        }
-    }
-
     public void StartSpawn()
     {
-        _startSpawn = true;
+        StartCoroutine(SpawnCitizen());
     }
 
     public void Setup(Vector3Int spawnPos, float spawnTime)
@@ -57,7 +39,7 @@ public class CitizenSpawner : MonoBehaviour
 
     public IEnumerator SpawnCitizen()
     {
-        while (_startSpawn)
+        while (true)
         {
             var pos = TileManager.GetInstance.GetCellCenterToWorld(Define.Tilemap.Ground, _spawnCellPos);
 
@@ -72,8 +54,6 @@ public class CitizenSpawner : MonoBehaviour
 
             _spawnIndex = (_spawnIndex + 1) < 4 ? _spawnIndex + 1 : 1;
         }
-
-        _isSpawning = false;
     }
 
     private static void Init()

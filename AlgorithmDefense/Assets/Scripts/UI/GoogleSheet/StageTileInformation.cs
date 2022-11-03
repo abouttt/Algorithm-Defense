@@ -87,10 +87,10 @@ public class StageTileInformation : MonoBehaviour
         }
 
         //최대 채력 설정
-        Managers.Game.Setting.DungeonMaxHP = stageCoordinateDB.StageCoordinate[stageNum - 1].enemyHP;
-        Managers.Game.Setting.CastleMaxHP = stageCoordinateDB.StageCoordinate[stageNum - 1].castleHP;
-        Managers.Game.DungeonHP = (int)stageCoordinateDB.StageCoordinate[stageNum - 1].enemyHP;
-        Managers.Game.CastleHP = (int)stageCoordinateDB.StageCoordinate[stageNum - 1].castleHP;
+        Managers.Game.DungeonMaxHP = stageCoordinateDB.StageCoordinate[stageNum - 1].enemyHP;
+        Managers.Game.CastleMaxHP = stageCoordinateDB.StageCoordinate[stageNum - 1].castleHP;
+        Managers.Game.CurrentDungeonHP = (int)stageCoordinateDB.StageCoordinate[stageNum - 1].enemyHP;
+        Managers.Game.CurrentCastleHP = (int)stageCoordinateDB.StageCoordinate[stageNum - 1].castleHP;
 
 
         //SetTileData();

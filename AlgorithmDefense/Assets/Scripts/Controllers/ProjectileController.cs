@@ -45,11 +45,11 @@ public class ProjectileController : MonoBehaviour
                 {
                     if (Target.layer == LayerMask.NameToLayer("Castle"))
                     {
-                        Managers.Game.CastleHP -= Damage;
+                        Managers.Game.CurrentCastleHP -= Damage;
                     }
                     else
                     {
-                        Managers.Game.DungeonHP -= Damage;
+                        Managers.Game.CurrentDungeonHP -= Damage;
                     }
                 }
             }

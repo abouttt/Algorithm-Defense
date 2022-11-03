@@ -1295,18 +1295,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CameraX: 3.5
-  CameraY: 7.5
+  CameraY: 7
   CameraZ: -10
-  CameraSize: 7.5
-  CastleMaxHP: 100000
-  DungeonMaxHP: 100000
-  GroundWidth: 7
-  GroundHeight: 15
-  GrassPercentage: 10
-  StartPosition: {x: 0, y: 1, z: 0}
+  CameraSize: 8
+  CastleMaxHP: 100
+  DungeonMaxHP: 100
+  StartPosition: {x: 0, y: 0, z: 0}
   RampartWidth: 7
   RampartHeight: 8
-  SpawnCellPos: {x: 3, y: 1, z: 0}
+  SpawnCellPos: {x: 3, y: 0, z: 0}
   SpawnTime: 5
   BattleLineLength: 4
   _stageLineDatas:
