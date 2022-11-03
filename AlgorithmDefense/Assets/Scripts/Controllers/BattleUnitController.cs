@@ -25,7 +25,8 @@ public class BattleUnitController : BaseUnitController
     {
         if (Data.CurrentHp <= 0)
         {
-            Clear();
+            ClearAttack();
+            StopFlash();
             _animator.SetBool("Dead", true);
             return;
         }
@@ -34,7 +35,7 @@ public class BattleUnitController : BaseUnitController
         {
             if (IsEndAnimation("Attacked"))
             {
-                Clear();
+                ClearAttack();
             }
             else
             {
@@ -122,11 +123,21 @@ public class BattleUnitController : BaseUnitController
         Managers.Resource.Destroy(gameObject);
     }
 
-    public void Flash()
+    private void Flash()
     {
         if (_flashRoutine == null)
         {
             _flashRoutine = StartCoroutine(FlashRoutine());
+        }
+    }
+
+    private void StopFlash()
+    {
+        if (_flashRoutine != null)
+        {
+            _sr.material = _originalMtrl;
+            StopCoroutine(_flashRoutine);
+            _flashRoutine = null;
         }
     }
 
@@ -190,7 +201,7 @@ public class BattleUnitController : BaseUnitController
         }
     }
 
-    private void Clear()
+    private void ClearAttack()
     {
         _targetUnit = null;
         _targetBuilding = null;

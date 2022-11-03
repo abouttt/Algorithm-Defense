@@ -41,7 +41,6 @@ public class StageTileInformation : MonoBehaviour
     private void Awake()
     {
         LoadingControl.GetInstance.LoadingCompleteAction += SetTileData;
-
     }
 
     private void Start()
@@ -63,7 +62,6 @@ public class StageTileInformation : MonoBehaviour
 
 
         GetTileDataAsExcel();
-
     }
 
 

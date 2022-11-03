@@ -26,11 +26,7 @@ public class HPBarAnimation : MonoBehaviour
 
     private void Awake()
     {
-        enemyBar.value = Managers.Game.CurrentDungeonHP / Managers.Game.DungeonMaxHP;
-        enemyColor = enemyHealthTransform.GetComponent<Image>().color;
-
-        castleBar.value = Managers.Game.CurrentCastleHP / Managers.Game.CastleMaxHP;
-        castleColor = castleHealthTransform.GetComponent<Image>().color;
+        LoadingControl.GetInstance.LoadingCompleteAction += InitHpBar;
 
         starCount = 3;
         collapsedEnemy = 0.66f;
@@ -148,7 +144,14 @@ public class HPBarAnimation : MonoBehaviour
         }
     }
 
+    private void InitHpBar()
+    {
+        enemyBar.value = Managers.Game.CurrentDungeonHP / Managers.Game.DungeonMaxHP;
+        enemyColor = enemyHealthTransform.GetComponent<Image>().color;
 
+        castleBar.value = Managers.Game.CurrentCastleHP / Managers.Game.CastleMaxHP;
+        castleColor = castleHealthTransform.GetComponent<Image>().color;
+    }
 
 
 
