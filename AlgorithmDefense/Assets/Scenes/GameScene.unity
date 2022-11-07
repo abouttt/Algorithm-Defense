@@ -1298,18 +1298,25 @@ MonoBehaviour:
   CameraY: 7
   CameraZ: -10
   CameraSize: 8
-  CastleMaxHP: 100
-  DungeonMaxHP: 100
   StartPosition: {x: 0, y: 0, z: 0}
   RampartWidth: 7
   RampartHeight: 8
   SpawnCellPos: {x: 3, y: 0, z: 0}
-  SpawnTime: 5
+  SpawnTime: 4
   BattleLineLength: 4
   _stageLineDatas:
-  - First: 0
+  - First: 1
+    Second: 0
+    Third: 0
+  - First: 1
     Second: 1
     Third: 0
+  - First: 1
+    Second: 1
+    Third: 0
+  - First: 1
+    Second: 1
+    Third: 1
   - First: 1
     Second: 0
     Third: 1
@@ -1317,16 +1324,7 @@ MonoBehaviour:
     Second: 1
     Third: 1
   - First: 1
-    Second: 1
-    Third: 1
-  - First: 1
-    Second: 1
-    Third: 1
-  - First: 1
-    Second: 1
-    Third: 1
-  - First: 1
-    Second: 1
+    Second: 0
     Third: 1
   - First: 1
     Second: 1
