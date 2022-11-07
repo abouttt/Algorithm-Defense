@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class SoundManager
 {
     private AudioSource[] _audioSources = new AudioSource[(int)Define.Sound.MaxCount];
-    private Dictionary<string, AudioClip> _audioClips = new Dictionary<string, AudioClip>();
+    private Dictionary<string, AudioClip> _audioClips = new();
 
     public void Init()
     {
@@ -20,6 +21,7 @@ public class SoundManager
             {
                 var go = new GameObject { name = soundNames[i] };
                 _audioSources[i] = go.AddComponent<AudioSource>();
+                go.AddComponent<AudioCountManager>();
                 go.transform.parent = root.transform;
             }
 
@@ -55,8 +57,13 @@ public class SoundManager
         else
         {
             var audioSource = _audioSources[(int)type];
-            audioSource.volume = volume;
-            audioSource.PlayOneShot(audioClip);
+            var audioCountManager = audioSource.GetComponent<AudioCountManager>();
+            if (audioCountManager.CanPlayOneShot(audioClip))
+            {
+                audioSource.volume = volume;
+                audioSource.PlayOneShot(audioClip);
+                audioCountManager.IncreaseAudioClipCount(audioClip);
+            }
         }
     }
 

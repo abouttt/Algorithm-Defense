@@ -1298,8 +1298,6 @@ MonoBehaviour:
   CameraY: 7
   CameraZ: -10
   CameraSize: 8
-  CastleMaxHP: 100
-  DungeonMaxHP: 100
   StartPosition: {x: 0, y: 0, z: 0}
   RampartWidth: 7
   RampartHeight: 8
