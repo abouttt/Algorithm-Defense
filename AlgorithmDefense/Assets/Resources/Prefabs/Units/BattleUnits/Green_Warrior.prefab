@@ -201,6 +201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Data:
+    JobType: 1
     MoveType: 1
     MaxHp: 100
     CurrentHp: 0

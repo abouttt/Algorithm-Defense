@@ -170,6 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Data:
+    JobType: 3
     MoveType: 3
     MaxHp: 100
     CurrentHp: 0

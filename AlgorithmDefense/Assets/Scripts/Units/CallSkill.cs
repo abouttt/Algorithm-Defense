@@ -56,7 +56,9 @@ public class CallSkill : MonoBehaviour
                 _isSpawning1 = false;
                 yield break;
             }
+
             Managers.Resource.Instantiate($"Prefabs/Skill/{ID}");
+            Managers.Sound.Play($"Skill/skill_1");
 
             yield return new WaitForSeconds(Cooldown1);
             _spawn1 = false;
@@ -72,7 +74,9 @@ public class CallSkill : MonoBehaviour
                 _isSpawning2 = false;
                 yield break;
             }
+
             Managers.Resource.Instantiate($"Prefabs/Skill/{ID}");
+            Managers.Sound.Play($"Skill/skill_2");
 
             yield return new WaitForSeconds(Cooldown2);
             _spawn2 = false;
@@ -88,7 +92,9 @@ public class CallSkill : MonoBehaviour
                 _isSpawning3 = false;
                 yield break;
             }
+
             Managers.Resource.Instantiate($"Prefabs/Skill/{ID}");
+            Managers.Sound.Play($"Skill/skill_3");
 
             yield return new WaitForSeconds(Cooldown3);
             _spawn3 = false;

@@ -60,10 +60,12 @@ public class BattleUnitController : BaseUnitController
         Move();
     }
 
+
     public void TakeDamage(int damage)
     {
         Data.CurrentHp -= damage;
         Flash();
+        Managers.Sound.Play("Unit/Damage");
     }
 
     public void TakeHp(int hp)
@@ -97,6 +99,8 @@ public class BattleUnitController : BaseUnitController
                     _targetUnit.TakeDamage(Data.Damage);
                 }
             }
+
+            PlayAttackSound();
         }
         else if (_targetBuilding)
         {
@@ -115,12 +119,31 @@ public class BattleUnitController : BaseUnitController
                     Managers.Game.CurrentDungeonHP -= Data.Damage;
                 }
             }
+
+            PlayAttackSound();
         }
     }
 
     private void DeadAnimationEvent()
     {
+        Managers.Sound.Play("Unit/Death");
         Managers.Resource.Destroy(gameObject);
+    }
+
+    private void PlayAttackSound()
+    {
+        switch (Data.JobType)
+        {
+            case Define.Job.Warrior:
+                Managers.Sound.Play("Unit/WarriorAttack");
+                break;
+            case Define.Job.Archer:
+                Managers.Sound.Play("Unit/ArcherAttack");
+                break;
+            case Define.Job.Wizard:
+                Managers.Sound.Play("Unit/WizardAttack");
+                break;
+        }
     }
 
     private void Flash()
