@@ -54,13 +54,6 @@ public class StageTileInformation : MonoBehaviour
         ////보내기
         //StartCoroutine(Post(form));
 
-        //1번 스테이지면 골드 5000으로 고정
-        if(stageNum==1)
-        {
-            Managers.Game.Gold = 5000;
-            GoldAnimation.GetInstance.goldText.text = Managers.Game.Gold.ToString();
-        }
-
         GetTileDataAsExcel();
         Managers.Sound.Play("UI/Stage_Background", Define.Sound.Bgm);
     }
@@ -247,6 +240,7 @@ public class StageTileInformation : MonoBehaviour
     {
         Time.timeScale = 1f;
         //시작화면으로 이동
+        Managers.Sound.SetVolume(Define.Sound.BattleEffect, Managers.Game.EffectVolume);
         SceneManager.LoadScene(0);
     }
 
@@ -255,6 +249,7 @@ public class StageTileInformation : MonoBehaviour
     {
         Time.timeScale = 1f;
         //Game씬(1번)다시 시작
+        Managers.Sound.SetVolume(Define.Sound.BattleEffect, Managers.Game.EffectVolume);
         SceneManager.LoadScene(1);
     }
 
@@ -262,7 +257,7 @@ public class StageTileInformation : MonoBehaviour
     public void NextStageNumSet()
     {
         Time.timeScale = 1f;
-
+        Managers.Sound.SetVolume(Define.Sound.BattleEffect, Managers.Game.EffectVolume);
         int stage = PlayerPrefs.GetInt("StageCount");
         if (stage != stageNum)
         {

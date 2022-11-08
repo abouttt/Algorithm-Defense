@@ -26,6 +26,7 @@ public class SoundController : MonoBehaviour
     public void SetEffectVolume(float volume)
     {
         Managers.Sound.SetVolume(Define.Sound.Effect, volume);
+        Managers.Sound.SetVolume(Define.Sound.BattleEffect, volume);
         Managers.Game.EffectVolume = volume;
         Managers.Sound.Play("UI/mouse_click", Define.Sound.Effect);
     }
