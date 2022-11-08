@@ -12,8 +12,8 @@ public class GoldAnimation : MonoBehaviour
     private static GoldAnimation s_instance;
     public static GoldAnimation GetInstance { get { Init(); return s_instance; } }
 
-    [SerializeField]
-    private TextMeshProUGUI goldText;
+    
+    public TextMeshProUGUI goldText;
     [SerializeField]
     private RectTransform goldTextTransform;
 
@@ -27,7 +27,7 @@ public class GoldAnimation : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            Managers.Game.Gold += 1000;
+            Managers.Game.Gold += 100;
             GoldSaving();
 
         }
@@ -53,6 +53,8 @@ public class GoldAnimation : MonoBehaviour
             goldText.DOColor(Color.black, 0.3f);
             goldTextTransform.DOScale(1f, 0.2f);
         });
+
+        UI_TileSpawnController.GetInstance.GoldChange();
     }
 
 
@@ -84,7 +86,7 @@ public class GoldAnimation : MonoBehaviour
 
         }
 
-
+        UI_TileSpawnController.GetInstance.GoldChange();
     }
 
     private static void Init()
