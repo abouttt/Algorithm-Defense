@@ -148,9 +148,6 @@ public class UI_StartSceneUIAnimation : MonoBehaviour
 
                 if (_dataSlot[index].open == true)
                 {
-
-                    Managers.Sound.Play("UI/mouse_click");
-
                     //다른 씬으로 데이터를 보내기위한 일시저장 변수(유니티가 알아서 저장해줌)
                     PlayerPrefs.SetInt("Num", _dataSlot[index].stageNum);
 
@@ -206,7 +203,7 @@ public class UI_StartSceneUIAnimation : MonoBehaviour
 
         foreach (var stage in StageUIBar)
         {
-            Managers.Sound.Play("UI/mouse_click");
+            Managers.Sound.Play("UI/mouse_click", Define.Sound.Effect);
             stage.stageUIBarObj.transform.DOScale(1f, 0.8f).SetEase(Ease.OutBounce);
             yield return new WaitForSeconds(0.05f);
         }
@@ -228,10 +225,11 @@ public class UI_StartSceneUIAnimation : MonoBehaviour
             if (_easterEggCount == 10)
             {
                 Debug.Log("이스터애그 발견!!!!!!");
+                Managers.Sound.Clear();
 
                 Camera.main.DOColor(Color.black, 3f).OnComplete(() =>
                 {
-                    Managers.Sound.Play("UI/CreditsSound");
+                    Managers.Sound.Play("UI/CreditsSound",Define.Sound.Bgm);
                 });
 
 
@@ -239,14 +237,14 @@ public class UI_StartSceneUIAnimation : MonoBehaviour
                 mainMenuCanvasGroup.DOFade(0, 3f).OnComplete(() =>
                 {
 
-                    endCreditsTransform.transform.localPosition = new Vector3(0f, -1600f, 0f);
+                    endCreditsTransform.transform.localPosition = new Vector3(0f, -1800f, 0f);
                     //페이드 인 종류와 속도
 
 
-                    endCreditsTransform.DOAnchorPos(new Vector2(0f, 1600f), 20f, false).SetEase(Ease.Linear)
+                    endCreditsTransform.DOAnchorPos(new Vector2(0f, 1800f), 20f, false).SetEase(Ease.Linear)
                     .OnComplete(() =>
                     {
-                        endCreditsTransform.transform.localPosition = new Vector3(0f, -1600f, 0f);
+                        endCreditsTransform.transform.localPosition = new Vector3(0f, -1800f, 0f);
 
 
                         Camera.main.DOColor(new Color(255 / 255f, 200 / 255f, 125 / 255f, 0), 3f);
@@ -254,7 +252,7 @@ public class UI_StartSceneUIAnimation : MonoBehaviour
                         mainMenuCanvasGroup.DOFade(1, 3f);
 
 
-                        Managers.Sound.Play("UI/test_music");
+                        Managers.Sound.Play("UI/test_music",Define.Sound.Bgm);
                         _easterEggCount = 0;
                     });
 

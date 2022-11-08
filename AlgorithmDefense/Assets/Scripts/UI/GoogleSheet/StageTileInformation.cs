@@ -54,9 +54,15 @@ public class StageTileInformation : MonoBehaviour
         ////보내기
         //StartCoroutine(Post(form));
 
-
+        //1번 스테이지면 골드 5000으로 고정
+        if(stageNum==1)
+        {
+            Managers.Game.Gold = 5000;
+            GoldAnimation.GetInstance.goldText.text = Managers.Game.Gold.ToString();
+        }
 
         GetTileDataAsExcel();
+        Managers.Sound.Play("UI/Stage_Background", Define.Sound.Bgm);
     }
 
 
