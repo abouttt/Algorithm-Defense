@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class SoundManager
 {
     private AudioSource[] _audioSources = new AudioSource[(int)Define.Sound.MaxCount];
-    private Dictionary<string, AudioClip> _audioClips = new Dictionary<string, AudioClip>();
+    private Dictionary<string, AudioClip> _audioClips = new();
 
     public void Init()
     {
@@ -20,6 +21,7 @@ public class SoundManager
             {
                 var go = new GameObject { name = soundNames[i] };
                 _audioSources[i] = go.AddComponent<AudioSource>();
+                go.AddComponent<SoundCounter>();
                 go.transform.parent = root.transform;
             }
 
@@ -27,13 +29,13 @@ public class SoundManager
         }
     }
 
-    public void Play(string path, Define.Sound type = Define.Sound.Effect, float volume = 1.0f)
+    public void Play(string path, Define.Sound type = Define.Sound.Effect)
     {
         var audioClip = getOrAddAudioClip(path, type);
-        Play(audioClip, type, volume);
+        Play(audioClip, type);
     }
 
-    public void Play(AudioClip audioClip, Define.Sound type = Define.Sound.Effect, float volume = 1.0f)
+    public void Play(AudioClip audioClip, Define.Sound type = Define.Sound.Effect)
     {
         if (!audioClip)
         {
@@ -48,16 +50,24 @@ public class SoundManager
                 audioSource.Stop();
             }
 
-            audioSource.volume = volume;
             audioSource.clip = audioClip;
             audioSource.Play();
         }
         else
         {
             var audioSource = _audioSources[(int)type];
-            audioSource.volume = volume;
-            audioSource.PlayOneShot(audioClip);
+            var audioCountManager = audioSource.GetComponent<SoundCounter>();
+            if (audioCountManager.CanPlayOneShot(audioClip))
+            {
+                audioSource.PlayOneShot(audioClip);
+                audioCountManager.IncreaseAudioClipCount(audioClip);
+            }
         }
+    }
+
+    public void SetVolume(Define.Sound soundType, float volume)
+    {
+        _audioSources[(int)soundType].volume = volume;
     }
 
     public void Clear()
@@ -66,6 +76,7 @@ public class SoundManager
         {
             audioSource.clip = null;
             audioSource.Stop();
+            audioSource.GetComponent<SoundCounter>().Clear();
         }
         _audioClips.Clear();
     }

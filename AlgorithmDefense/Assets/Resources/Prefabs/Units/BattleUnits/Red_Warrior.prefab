@@ -169,6 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Data:
+    JobType: 1
     MoveType: 1
     MaxHp: 100
     CurrentHp: 0
@@ -178,6 +179,8 @@ MonoBehaviour:
     TargetLayer:
       serializedVersion: 2
       m_Bits: 64
+  _projectile: {fileID: 0}
+  _flashDuration: 0.1
 --- !u!114 &3744709538090476499
 MonoBehaviour:
   m_ObjectHideFlags: 0

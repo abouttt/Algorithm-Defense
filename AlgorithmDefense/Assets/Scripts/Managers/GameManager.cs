@@ -7,46 +7,56 @@ public class GameManager
     public GameScene Setting;
     public int Gold = 0;
 
-    public int CastleHP
+    public float CastleMaxHP;
+    public float DungeonMaxHP;
+
+    public int CurrentCastleHP
     {
         get
         {
-            return _castleHP;
+            return _currentCastleHP;
         }
         set
         {
-            _castleHP = value;
-
             if (!_hpBarAnim)
             {
                 _hpBarAnim = Transform.FindObjectOfType<HPBarAnimation>();
             }
 
-            _hpBarAnim.CastleAttacked();
+            if (_currentCastleHP > value)
+            {
+                _hpBarAnim.CastleAttacked();
+                Managers.Sound.Play("Unit/CastleDamage");
+            }
+
+            _currentCastleHP = value;
         }
     }
 
-    public int DungeonHP
+    public int CurrentDungeonHP
     {
         get
         {
-            return _dungeonHP;
+            return _currentDungeonHP;
         }
         set
         {
-            _dungeonHP = value;
-
             if (!_hpBarAnim)
             {
                 _hpBarAnim = Transform.FindObjectOfType<HPBarAnimation>();
             }
 
-            _hpBarAnim.EnemyAttacked();
+            if (_currentDungeonHP > value)
+            {
+                _hpBarAnim.EnemyAttacked();
+            }
+
+            _currentDungeonHP = value;
         }
     }
 
-    private int _castleHP = 100;
-    private int _dungeonHP = 100;
+    private int _currentCastleHP = 100;
+    private int _currentDungeonHP = 100;
 
     private HPBarAnimation _hpBarAnim;
 

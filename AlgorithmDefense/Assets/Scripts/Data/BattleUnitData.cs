@@ -5,6 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public struct BattleUnitData
 {
+    public Define.Job JobType;
     public Define.Move MoveType;
     public int MaxHp;
     public int CurrentHp;

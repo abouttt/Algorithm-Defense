@@ -57,11 +57,11 @@ public class UnitAI : MonoBehaviour
         {
             if (_tower.gameObject.GetComponent<CastleGate>())
             {
-                Managers.Game.CastleHP -= Damage;
+                Managers.Game.CurrentCastleHP -= Damage;
             }
             else
             {
-                Managers.Game.DungeonHP -= Damage;
+                Managers.Game.CurrentDungeonHP -= Damage;
             }
         }
 
@@ -88,11 +88,11 @@ public class UnitAI : MonoBehaviour
         {
             if (_tower.gameObject.GetComponent<CastleGate>())
             {
-                Managers.Game.CastleHP -= Damage;
+                Managers.Game.CurrentCastleHP -= Damage;
             }
             else
             {
-                Managers.Game.DungeonHP -= Damage;
+                Managers.Game.CurrentDungeonHP -= Damage;
             }
         }
     }
