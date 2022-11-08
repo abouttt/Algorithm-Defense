@@ -63,17 +63,18 @@ public class ClearMenuAnimation : MonoBehaviour
     {
         
         clearMenuObj.SetActive(true);
-        Managers.Sound.SetVolume(Define.Sound.Effect, 0f);
+        Managers.Sound.Clear();
+        Managers.Sound.SetVolume(Define.Sound.BattleEffect, 0f);
 
         if (_victory)
         {
             clearText.text = "Victory";
-            Managers.Sound.Play("UI/Victory", Define.Sound.Bgm);
+            Managers.Sound.Play("UI/Victory", Define.Sound.Effect);
         }
         else
         {
             clearText.text = "Defeat";
-            Managers.Sound.Play("UI/Defeat", Define.Sound.Bgm);
+            Managers.Sound.Play("UI/Defeat", Define.Sound.Effect);
         }
       
 
@@ -108,8 +109,8 @@ public class ClearMenuAnimation : MonoBehaviour
                                 {
                                     clearMenuButtonsObj.SetActive(true);
                                     Time.timeScale = 0f;
-                                    Managers.Sound.SetVolume(Define.Sound.Effect, Managers.Game.EffectVolume);
-                                });
+                                   
+                               });
                             });
 
                         });
