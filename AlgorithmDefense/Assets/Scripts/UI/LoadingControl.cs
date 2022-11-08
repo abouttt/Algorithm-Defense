@@ -30,7 +30,10 @@ public class LoadingControl : MonoBehaviour
     public void GameSceneLoadingComplete()
     {
         Managers.Clear();
-        LoadingCompleteAction.Invoke();
+        if (lodingObject != null)
+        {
+            LoadingCompleteAction.Invoke();
+        }
         lodingObject.SetActive(false);
     }
 

@@ -38,11 +38,6 @@ public class StageTileInformation : MonoBehaviour
 
     public int[][] StageTileData = new int[5][];
 
-    private void Awake()
-    {
-        LoadingControl.GetInstance.LoadingCompleteAction += SetTileData;
-    }
-
     private void Start()
     {
 
@@ -91,8 +86,9 @@ public class StageTileInformation : MonoBehaviour
         Managers.Game.CurrentCastleHP = (int)stageCoordinateDB.StageCoordinate[stageNum - 1].castleHP;
 
 
-        //SetTileData();
+        SetTileData();
         LoadingControl.GetInstance.GameSceneLoadingComplete();
+        
     }
 
 
@@ -205,7 +201,6 @@ public class StageTileInformation : MonoBehaviour
                         (Define.Building)StageTileData[y][x]);
             }
         }
-
     }
 
     //클리어시 별 저장 후 다음챕터 오픈

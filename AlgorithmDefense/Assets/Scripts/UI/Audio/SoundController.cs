@@ -4,92 +4,13 @@ using UnityEngine;
 
 public class SoundController : MonoBehaviour
 {
-
-    private static SoundController s_instance;
-    public static SoundController GetInstance { get { Init(); return s_instance; } }
-
-
-    [SerializeField]
-    private AudioSource backgroundMusic;
-    [SerializeField]
-    private AudioSource buttonClickSound;
-    [SerializeField]
-    private AudioSource endCreditSound;
-
-
-    private void Awake()
+    public void SetBackgroundMusicVolume(float volume)
     {
-        backgroundMusic.Stop();
-        buttonClickSound.Stop();
-
+        Managers.Sound.SetVolume(Define.Sound.Bgm, volume);
     }
 
-
-    public void SetBackgroundMusicVolume(float volume)//배경음 볼륨
+    public void SetButtonClickVolume(float volume)
     {
-        backgroundMusic.volume = volume;
-        endCreditSound.volume = volume;
+        Managers.Sound.SetVolume(Define.Sound.Effect, volume);
     }
-
-    public void SetButtonClickVolume(float volume)//효과음 볼륨
-    {
-        buttonClickSound.volume = volume;
-    }
-
-
-
-    public void Background()
-    {
-        backgroundMusic.Play();
-    }
-
-    public void BackgroundStop()
-    {
-        backgroundMusic.Stop();
-    }
-
-    //클릭할 때
-    public void BtnClick()
-    {
-        //클릭음 재생
-        buttonClickSound.Play();
-    }
-
-    public void BtnClickStop()
-    {
-        //클릭음 재생
-        buttonClickSound.Stop();
-    }
-
-    public void EndCredits()
-    {
-        endCreditSound.Play();
-        
-    }
-
-
-    public void EndCreditsStop()
-    {
-       
-        endCreditSound.Stop();
-    }
-
-
-
-    private static void Init()
-    {
-        if (!s_instance)
-        {
-            var go = GameObject.Find("SoundManager");
-            if (!go)
-            {
-                go = new GameObject { name = "SoundManager" };
-                go.AddComponent<SoundController>();
-            }
-
-            s_instance = go.GetComponent<SoundController>();
-        }
-    }
-
-
 }

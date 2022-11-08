@@ -29,13 +29,13 @@ public class SoundManager
         }
     }
 
-    public void Play(string path, Define.Sound type = Define.Sound.Effect, float volume = 1.0f)
+    public void Play(string path, Define.Sound type = Define.Sound.Effect)
     {
         var audioClip = getOrAddAudioClip(path, type);
-        Play(audioClip, type, volume);
+        Play(audioClip, type);
     }
 
-    public void Play(AudioClip audioClip, Define.Sound type = Define.Sound.Effect, float volume = 1.0f)
+    public void Play(AudioClip audioClip, Define.Sound type = Define.Sound.Effect)
     {
         if (!audioClip)
         {
@@ -50,7 +50,6 @@ public class SoundManager
                 audioSource.Stop();
             }
 
-            audioSource.volume = volume;
             audioSource.clip = audioClip;
             audioSource.Play();
         }
@@ -60,7 +59,6 @@ public class SoundManager
             var audioCountManager = audioSource.GetComponent<SoundCounter>();
             if (audioCountManager.CanPlayOneShot(audioClip))
             {
-                audioSource.volume = volume;
                 audioSource.PlayOneShot(audioClip);
                 audioCountManager.IncreaseAudioClipCount(audioClip);
             }
