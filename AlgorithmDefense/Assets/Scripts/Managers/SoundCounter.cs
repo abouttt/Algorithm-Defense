@@ -24,7 +24,6 @@ public class SoundCounter : MonoBehaviour
 
         if (_audioPlaying[audioClip] == true)
         {
-            Debug.Log("IsPlaying");
             return false;
         }
 

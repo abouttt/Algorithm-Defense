@@ -76,6 +76,7 @@ public class SoundManager
         {
             audioSource.clip = null;
             audioSource.Stop();
+            audioSource.GetComponent<SoundCounter>().Clear();
         }
         _audioClips.Clear();
     }
