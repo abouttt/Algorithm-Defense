@@ -63,7 +63,7 @@ public class BattleUnitController : BaseUnitController
     {
         Data.CurrentHp -= damage;
         Flash();
-        Managers.Sound.Play("Unit/Damage");
+        Managers.Sound.Play("Unit/Damage", Define.Sound.BattleEffect);
     }
 
     public void TakeHp(int hp)
@@ -122,7 +122,7 @@ public class BattleUnitController : BaseUnitController
 
     private void DeadAnimationEvent()
     {
-        Managers.Sound.Play("Unit/Death");
+        Managers.Sound.Play("Unit/Death", Define.Sound.BattleEffect);
         Managers.Resource.Destroy(gameObject);
     }
 
@@ -131,13 +131,13 @@ public class BattleUnitController : BaseUnitController
         switch (Data.JobType)
         {
             case Define.Job.Warrior:
-                Managers.Sound.Play("Unit/WarriorAttack");
+                Managers.Sound.Play("Unit/WarriorAttack", Define.Sound.BattleEffect);
                 break;
             case Define.Job.Archer:
-                Managers.Sound.Play("Unit/ArcherAttack");
+                Managers.Sound.Play("Unit/ArcherAttack", Define.Sound.BattleEffect);
                 break;
             case Define.Job.Wizard:
-                Managers.Sound.Play("Unit/WizardAttack");
+                Managers.Sound.Play("Unit/WizardAttack", Define.Sound.BattleEffect);
                 break;
         }
     }
