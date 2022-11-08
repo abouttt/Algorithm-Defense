@@ -21,7 +21,7 @@ public class SoundManager
             {
                 var go = new GameObject { name = soundNames[i] };
                 _audioSources[i] = go.AddComponent<AudioSource>();
-                go.AddComponent<AudioCountManager>();
+                go.AddComponent<SoundCounter>();
                 go.transform.parent = root.transform;
             }
 
@@ -57,7 +57,7 @@ public class SoundManager
         else
         {
             var audioSource = _audioSources[(int)type];
-            var audioCountManager = audioSource.GetComponent<AudioCountManager>();
+            var audioCountManager = audioSource.GetComponent<SoundCounter>();
             if (audioCountManager.CanPlayOneShot(audioClip))
             {
                 audioSource.volume = volume;
@@ -65,6 +65,11 @@ public class SoundManager
                 audioCountManager.IncreaseAudioClipCount(audioClip);
             }
         }
+    }
+
+    public void SetVolume(Define.Sound soundType, float volume)
+    {
+        _audioSources[(int)soundType].volume = volume;
     }
 
     public void Clear()

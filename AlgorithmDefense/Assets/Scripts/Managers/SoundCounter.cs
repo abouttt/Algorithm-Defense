@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioCountManager : MonoBehaviour
+public class SoundCounter : MonoBehaviour
 {
     private Dictionary<AudioClip, int> _audioClipCounts = new();
     private int _maxDuplicateOneShotAudioClips = 5;
