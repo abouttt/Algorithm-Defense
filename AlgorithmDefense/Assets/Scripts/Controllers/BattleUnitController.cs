@@ -37,10 +37,8 @@ public class BattleUnitController : BaseUnitController
             {
                 ClearAttack();
             }
-            else
-            {
-                return;
-            }
+
+            return;
         }
 
         CheckTargetUnit();
@@ -99,8 +97,6 @@ public class BattleUnitController : BaseUnitController
                     _targetUnit.TakeDamage(Data.Damage);
                 }
             }
-
-            PlayAttackSound();
         }
         else if (_targetBuilding)
         {
@@ -119,9 +115,9 @@ public class BattleUnitController : BaseUnitController
                     Managers.Game.CurrentDungeonHP -= Data.Damage;
                 }
             }
-
-            PlayAttackSound();
         }
+
+        PlayAttackSound();
     }
 
     private void DeadAnimationEvent()
@@ -182,6 +178,7 @@ public class BattleUnitController : BaseUnitController
         projectile.transform.position = transform.position;
         projectile.Damage = Data.Damage;
         projectile.Target = target;
+        Debug.Log("CreateProjectile()");
     }
 
     private bool IsEndAnimation(string stateName)
