@@ -178,7 +178,6 @@ public class BattleUnitController : BaseUnitController
         projectile.transform.position = transform.position;
         projectile.Damage = Data.Damage;
         projectile.Target = target;
-        Debug.Log("CreateProjectile()");
     }
 
     private bool IsEndAnimation(string stateName)
