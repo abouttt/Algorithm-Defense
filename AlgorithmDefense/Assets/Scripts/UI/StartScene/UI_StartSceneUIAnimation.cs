@@ -70,7 +70,6 @@ public class UI_StartSceneUIAnimation : MonoBehaviour
 
         CreateStageUIBar(stageButtonContainer, defaultStageUIBar, StageUIBar);
         LoadingControl.GetInstance.LoadingComplete();
-        SoundController.GetInstance.Background();
     }
 
 
@@ -149,8 +148,8 @@ public class UI_StartSceneUIAnimation : MonoBehaviour
 
                 if (_dataSlot[index].open == true)
                 {
-                   
-                    SoundController.GetInstance.BtnClick();
+
+                    Managers.Sound.Play("UI/mouse_click");
 
                     //다른 씬으로 데이터를 보내기위한 일시저장 변수(유니티가 알아서 저장해줌)
                     PlayerPrefs.SetInt("Num", _dataSlot[index].stageNum);
@@ -207,13 +206,10 @@ public class UI_StartSceneUIAnimation : MonoBehaviour
 
         foreach (var stage in StageUIBar)
         {
-            SoundController.GetInstance.BtnClick();
+            Managers.Sound.Play("UI/mouse_click");
             stage.stageUIBarObj.transform.DOScale(1f, 0.8f).SetEase(Ease.OutBounce);
             yield return new WaitForSeconds(0.05f);
         }
-
-        //마지막 사운드 정지
-        SoundController.GetInstance.BtnClickStop();
     }
 
 
@@ -233,18 +229,16 @@ public class UI_StartSceneUIAnimation : MonoBehaviour
             {
                 Debug.Log("이스터애그 발견!!!!!!");
 
-                SoundController.GetInstance.BackgroundStop();
-
                 Camera.main.DOColor(Color.black, 3f).OnComplete(() =>
                 {
-                    SoundController.GetInstance.EndCredits();
+                    Managers.Sound.Play("UI/CreditsSound");
                 });
 
 
                 mainMenuCanvasGroup.alpha = 1f;
                 mainMenuCanvasGroup.DOFade(0, 3f).OnComplete(() =>
                 {
-                  
+
                     endCreditsTransform.transform.localPosition = new Vector3(0f, -1600f, 0f);
                     //페이드 인 종류와 속도
 
@@ -260,8 +254,7 @@ public class UI_StartSceneUIAnimation : MonoBehaviour
                         mainMenuCanvasGroup.DOFade(1, 3f);
 
 
-                        SoundController.GetInstance.EndCreditsStop();
-                        SoundController.GetInstance.Background();
+                        Managers.Sound.Play("UI/test_music");
                         _easterEggCount = 0;
                     });
 

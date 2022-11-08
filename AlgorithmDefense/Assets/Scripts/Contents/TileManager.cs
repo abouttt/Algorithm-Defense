@@ -56,7 +56,7 @@ public class TileManager : MonoBehaviour
         => _tilemaps[tilemap].SetTile(cellPos, _roadTiles[road]);
 
     public void SetTile(Define.Tilemap tilemap, Vector3Int cellPos, Define.Building building)
-        => _tilemaps[tilemap].SetTile(cellPos, _buildingTiles[building]);
+         => _tilemaps[tilemap].SetTile(cellPos, _buildingTiles[building]);
 
     private void InitTilemap()
     {
