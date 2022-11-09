@@ -1097,7 +1097,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.0008203445, y: 0.00046672486}
+  m_AnchoredPosition: {x: -0.0008203445, y: 0.0016927873}
   m_SizeDelta: {x: 0, y: 400}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &2684390042945368139
@@ -2126,7 +2126,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3490207423599595339}
         m_TargetAssemblyTypeName: SoundController, Assembly-CSharp
-        m_MethodName: SetBackgroundMusicVolume
+        m_MethodName: SetBackgroundVolume
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8466,7 +8466,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3490207423599595339}
         m_TargetAssemblyTypeName: SoundController, Assembly-CSharp
-        m_MethodName: SetButtonClickVolume
+        m_MethodName: SetEffectVolume
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
