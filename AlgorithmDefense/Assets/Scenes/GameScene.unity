@@ -1820,7 +1820,7 @@ MonoBehaviour:
   SpawnTime: 4
   BattleLineLength: 4
   _stageLineDatas:
-  - First: 1
+  - First: 0
     Second: 0
     Third: 0
   - First: 1
