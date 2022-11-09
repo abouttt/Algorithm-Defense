@@ -240,7 +240,8 @@ public class StageTileInformation : MonoBehaviour
     {
         Time.timeScale = 1f;
         //시작화면으로 이동
-        Managers.Sound.SetVolume(Define.Sound.BattleEffect, 0f);
+        float Bvolume = Managers.Sound.GetVolume(Define.Sound.Effect);
+        Managers.Sound.SetVolume(Define.Sound.BattleEffect, Bvolume);
         SceneManager.LoadScene(0);
     }
 
@@ -249,7 +250,8 @@ public class StageTileInformation : MonoBehaviour
     {
         Time.timeScale = 1f;
         //Game씬(1번)다시 시작
-        Managers.Sound.SetVolume(Define.Sound.BattleEffect, 0f);
+        float Bvolume = Managers.Sound.GetVolume(Define.Sound.Effect);
+        Managers.Sound.SetVolume(Define.Sound.BattleEffect, Bvolume);
         SceneManager.LoadScene(1);
     }
 
@@ -257,7 +259,8 @@ public class StageTileInformation : MonoBehaviour
     public void NextStageNumSet()
     {
         Time.timeScale = 1f;
-        Managers.Sound.SetVolume(Define.Sound.BattleEffect, 0f);
+        float Bvolume = Managers.Sound.GetVolume(Define.Sound.Effect);
+        Managers.Sound.SetVolume(Define.Sound.BattleEffect, Bvolume);
         int stage = PlayerPrefs.GetInt("StageCount");
         if (stage != stageNum)
         {

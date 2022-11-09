@@ -63,7 +63,11 @@ public class ClearMenuAnimation : MonoBehaviour
     {
         
         clearMenuObj.SetActive(true);
+
+       
         Managers.Sound.SetVolume(Define.Sound.BattleEffect, 0f);
+
+        Managers.Sound.Stop();
 
         if (_victory)
         {
@@ -108,7 +112,6 @@ public class ClearMenuAnimation : MonoBehaviour
                                 {
                                     clearMenuButtonsObj.SetActive(true);
                                     Time.timeScale = 0f;
-                                   
                                });
                             });
 
