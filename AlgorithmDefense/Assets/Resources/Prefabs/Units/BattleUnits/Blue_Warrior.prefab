@@ -171,11 +171,11 @@ MonoBehaviour:
   Data:
     JobType: 1
     MoveType: 1
-    MaxHp: 100
+    MaxHp: 120
     CurrentHp: 0
     Damage: 10
-    Range: 0.3
-    MoveSpeed: 1
+    Range: 0.5
+    MoveSpeed: 0.7
     TargetLayer:
       serializedVersion: 2
       m_Bits: 64
