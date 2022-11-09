@@ -20,6 +20,8 @@ public class UI_StartSceneUIAnimation : MonoBehaviour
     [SerializeField]
     private CanvasGroup mainMenuCanvasGroup;
     [SerializeField]
+    private CanvasGroup blackCanvasGroup;
+    [SerializeField]
     private GameObject defaultStageUIBar;
     [SerializeField]
     private RectTransform stageButtonContainer;
@@ -168,6 +170,8 @@ public class UI_StartSceneUIAnimation : MonoBehaviour
         mainMenuCanvasGroup.alpha = 1f;
         mainMenuCanvasGroup.DOFade(0, 0.3f);
 
+        blackCanvasGroup.DOFade(1, 0.3f);
+
         stageCanvasGroup.alpha = 0f;
 
         stageRectTransform.DOGoto(1800f, true);
@@ -184,6 +188,8 @@ public class UI_StartSceneUIAnimation : MonoBehaviour
     {
         mainMenuCanvasGroup.alpha = 0f;
         mainMenuCanvasGroup.DOFade(1, 0.3f);
+
+        blackCanvasGroup.DOFade(0, 0.3f);
 
         stageCanvasGroup.alpha = 1f;
         stageRectTransform.transform.localPosition = new Vector3(0f, 0f, 0f);
@@ -226,7 +232,9 @@ public class UI_StartSceneUIAnimation : MonoBehaviour
             {
                 Debug.Log("이스터애그 발견!!!!!!");
 
-                Camera.main.DOColor(Color.black, 3f).OnComplete(() =>
+                Managers.Sound.Stop();
+
+               Camera.main.DOColor(Color.black, 3f).OnComplete(() =>
                 {
                     Managers.Sound.Play("UI/CreditsSound",Define.Sound.Bgm);
                 });

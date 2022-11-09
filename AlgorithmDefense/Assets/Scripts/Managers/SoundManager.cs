@@ -75,6 +75,15 @@ public class SoundManager
         _audioSources[(int)soundType].volume = volume;
     }
 
+    public void Stop()
+    {
+        foreach (AudioSource audioSource in _audioSources)
+        {          
+            audioSource.Stop();       
+        }       
+    }
+
+
     public void Clear()
     {
         foreach (AudioSource audioSource in _audioSources)

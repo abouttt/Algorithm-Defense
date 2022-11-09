@@ -41,8 +41,7 @@ public class UI_SubMenuController : MonoBehaviour
             {
                 //전체닫기
                 SubMenuSet.SetActive(false);
-                Time.timeScale = 1f;
-                Managers.Sound.Play("UI/Stage_Background", Define.Sound.Bgm);
+                Time.timeScale = 1f;                
                 //MainMenuSet.SetActive(true);
             }
             else//아니면
@@ -71,7 +70,7 @@ public class UI_SubMenuController : MonoBehaviour
     {
         //Game씬(1번)다시 시작
         Time.timeScale = 1f;
-        Managers.Sound.Play("UI/Stage_Background", Define.Sound.Bgm);
+       
         SubMenuSet.SetActive(false);
     }
 

@@ -12,7 +12,8 @@ public class UI_StartSceneSubMenuController : MonoBehaviour
     private RectTransform subMenuRectTransform;
     [SerializeField]
     private CanvasGroup mainMenuCanvasGroup;
-
+    [SerializeField]
+    private CanvasGroup blackCanvasGroup;
 
     public void SubMenuFadeIn()
     {
@@ -22,7 +23,8 @@ public class UI_StartSceneSubMenuController : MonoBehaviour
 
         mainMenuCanvasGroup.alpha = 1f;
         mainMenuCanvasGroup.DOFade(0, 0.3f);
-
+        
+        blackCanvasGroup.DOFade(1, 0.3f);
 
         subMenuCanvasGroup.alpha = 0f;
         subMenuRectTransform.transform.localPosition = new Vector3(-1100f, 0f, 0f);
@@ -42,6 +44,8 @@ public class UI_StartSceneSubMenuController : MonoBehaviour
 
         mainMenuCanvasGroup.alpha = 0f;
         mainMenuCanvasGroup.DOFade(1, 0.3f);
+
+        blackCanvasGroup.DOFade(0, 0.3f);
 
         subMenuCanvasGroup.alpha = 1f;
         subMenuRectTransform.transform.localPosition = new Vector3(0f, 0f, 0f);
