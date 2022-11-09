@@ -63,7 +63,6 @@ public class ClearMenuAnimation : MonoBehaviour
     {
         
         clearMenuObj.SetActive(true);
-        Managers.Sound.Clear();
         Managers.Sound.SetVolume(Define.Sound.BattleEffect, 0f);
 
         if (_victory)

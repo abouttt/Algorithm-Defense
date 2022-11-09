@@ -225,7 +225,6 @@ public class UI_StartSceneUIAnimation : MonoBehaviour
             if (_easterEggCount == 10)
             {
                 Debug.Log("이스터애그 발견!!!!!!");
-                Managers.Sound.Clear();
 
                 Camera.main.DOColor(Color.black, 3f).OnComplete(() =>
                 {
