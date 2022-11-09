@@ -51,33 +51,35 @@ SpriteAtlas:
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: 5619a0a0e2b2c714daf5ecd38f75347c, type: 3}
-  - {fileID: 21300000, guid: 4c356ea0adddcc34783d024da913a900, type: 3}
   - {fileID: 21300000, guid: cbb7e6f278070c44791258ca4c25665c, type: 3}
   - {fileID: 21300000, guid: 8cb425030b943e34881f7e118db8bfb2, type: 3}
+  - {fileID: 21300000, guid: f72d4fc36ac748e439820f64f0f44ac3, type: 3}
   - {fileID: 21300000, guid: 0e7905f52bc1c724c9637fb94758a9bc, type: 3}
+  - {fileID: 21300000, guid: 36d86c57694e08a4582037fa9411746a, type: 3}
+  - {fileID: 21300000, guid: cc7b38975d96c244ebe38d57f4b89cd8, type: 3}
   - {fileID: 21300000, guid: a55b780882a90a84f8d6218ba5bcc644, type: 3}
   - {fileID: 21300000, guid: d575f34933734b54cb418ff6023edc35, type: 3}
   - {fileID: 21300000, guid: 5981d4b90b4792044bc1139afc0ae0c8, type: 3}
   - {fileID: 21300000, guid: 2e0f39da6c26a8848a7bc548364a1b60, type: 3}
-  - {fileID: 21300000, guid: 0af0d34bced890c4b96df63c982a7781, type: 3}
   - {fileID: 21300000, guid: a8738f9ddff8fb04595a1d4befbdbf3f, type: 3}
   - {fileID: 21300000, guid: 49eda33ebefc6994fb48985bb34504ef, type: 3}
-  - {fileID: 21300000, guid: 4e60e75faf5ac9d43b9aae68256417c8, type: 3}
+  - {fileID: 21300000, guid: 82319d5ecf6e5554dad3e61495892726, type: 3}
   - {fileID: 21300000, guid: 77fda99f306392a4fb92d6b7a62b5bcc, type: 3}
   m_PackedSpriteNamesToIndex:
   - WarriorCenter
-  - GoldMine_1
   - WizardCenter
   - CastleGate
+  - GoldMine_1
   - Dungeon
+  - GoldMine_2
+  - GoldMine_3
   - Rampart_CL
   - GoldMine_0
   - Rampart_UD
   - ArcherCenter
-  - GoldMine_2
   - Rampart_LR
   - Gateway
-  - GoldMine_3
+  - GoldMine_4
   - Rampart_CR
   m_RenderDataMap: {}
   m_Tag: BuildingAtlas
