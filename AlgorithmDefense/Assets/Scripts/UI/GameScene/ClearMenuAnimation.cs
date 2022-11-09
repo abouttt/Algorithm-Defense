@@ -63,18 +63,20 @@ public class ClearMenuAnimation : MonoBehaviour
     {
         
         clearMenuObj.SetActive(true);
-       
+        Managers.Sound.Clear();
+        Managers.Sound.SetVolume(Define.Sound.BattleEffect, 0f);
 
         if (_victory)
         {
             clearText.text = "Victory";
+            Managers.Sound.Play("UI/Victory", Define.Sound.Effect);
         }
         else
         {
             clearText.text = "Defeat";
-            
+            Managers.Sound.Play("UI/Defeat", Define.Sound.Effect);
         }
-
+      
 
         for(int i=0;i<_star;i++)
         {
@@ -89,7 +91,7 @@ public class ClearMenuAnimation : MonoBehaviour
                starImages[0].transform.DORotate(new Vector3(0f, 360f, 0f), 1f,RotateMode.FastBeyond360);
                starImages[0].transform.DOScale(1.2f, 0.2f).OnComplete(() =>
                 {
-
+                    
                     starImages[0].transform.DOScale(1f, 0.2f);
                     starImages[1].transform.DORotate(new Vector3(0f, 360f, 30f), 1f, RotateMode.FastBeyond360);
                     starImages[1].transform.DOScale(1.2f, 0.2f).OnComplete(() =>
@@ -107,7 +109,8 @@ public class ClearMenuAnimation : MonoBehaviour
                                 {
                                     clearMenuButtonsObj.SetActive(true);
                                     Time.timeScale = 0f;
-                                });
+                                   
+                               });
                             });
 
                         });
