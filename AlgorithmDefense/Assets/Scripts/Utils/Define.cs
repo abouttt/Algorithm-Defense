@@ -100,6 +100,7 @@ public static class Define
     {
         Bgm,
         Effect,
+        BattleEffect,
         MaxCount,
     }
 }

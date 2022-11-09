@@ -16,7 +16,7 @@ public class ProjectileController : MonoBehaviour
 
     private void Update()
     {
-        if (!Target)
+        if (!Target || (Target.activeSelf == false))
         {
             Clear();
             return;
