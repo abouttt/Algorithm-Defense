@@ -272,7 +272,7 @@ TextureImporter:
         height: 21
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 5, y: 6, z: 5, w: 5}
+      border: {x: 4, y: 5, z: 4, w: 4}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -766,6 +766,132 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: UI_Image2_31
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 138
+        width: 36
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 5, y: 6, z: 5, w: 5}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c722b689c7ccf7c45b771f1aa6a62f9a
+      internalID: 356962027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Image2_32
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 138
+        width: 20
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84912ab24f1175f4aa4e350811a2b52b
+      internalID: -801230241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Image2_33
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 138
+        width: 20
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52b1ce855d633e74faa8fc6773c90f9a
+      internalID: 994414264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Image2_34
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 43
+        width: 20
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efbb1b800da833941b6833e72e231065
+      internalID: -434064223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Image2_35
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 43
+        width: 20
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31ec5227a6f95774c9f0f9637b3ca687
+      internalID: 460059670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Image2_36
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 43
+        width: 20
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bd9c9db96143254ab52b6900ac36630
+      internalID: -1151678509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -790,9 +916,11 @@ TextureImporter:
       UI_Image2_18: 1077140450
       UI_Image2_4: 1403712528
       UI_Image2_1: -1648671372
+      UI_Image2_33: 994414264
       UI_Image2_27: -403923651
       UI_Image2_2: -944630455
       UI_Image2_21: -85780311
+      UI_Image2_31: 356962027
       UI_Image2_28: -1877894675
       UI_Image2_26: -1318636793
       UI_Image2_23: -270521860
@@ -800,11 +928,15 @@ TextureImporter:
       UI_Image2_11: -1470242617
       UI_Image2_3: 386703033
       UI_Image2_25: -964839699
+      UI_Image2_34: -434064223
       UI_Image2_0: -5651364
       UI_Image2_8: 1641009531
       UI_Image2_24: 1160557576
+      UI_Image2_36: -1151678509
       UI_Image2_13: -1930546793
       UI_Image2_29: -316145516
+      UI_Image2_32: -801230241
+      UI_Image2_35: 460059670
       UI_Image2_19: 843627665
       UI_Image2_12: 947407946
       UI_Image2_22: 105488712
