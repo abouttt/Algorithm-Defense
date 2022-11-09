@@ -2,18 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoundCounter : MonoBehaviour
+public class AudioClipManager : MonoBehaviour
 {
     private Dictionary<AudioClip, int> _audioClipCounts = new();
     private Dictionary<AudioClip, bool> _audioPlaying = new();
     private int _maxDuplicateOneShotAudioClips = 5;
-    private float _soundSkipTime = 0.1f;
+    private float _soundSkipTime = 0.05f;
 
     public bool CanPlayOneShot(AudioClip audioClip)
     {
         if (!_audioClipCounts.ContainsKey(audioClip))
         {
             _audioClipCounts.Add(audioClip, 0);
+        }
+
+        if (!_audioPlaying.ContainsKey(audioClip))
+        {
             _audioPlaying.Add(audioClip, false);
         }
 
@@ -32,18 +36,9 @@ public class SoundCounter : MonoBehaviour
 
     public void IncreaseAudioClipCount(AudioClip audioClip)
     {
-        if (!_audioClipCounts.ContainsKey(audioClip))
-        {
-            _audioClipCounts.Add(audioClip, 0);
-        }
-
-        if (_audioClipCounts[audioClip] >= _maxDuplicateOneShotAudioClips)
-        {
-            return;
-        }
-
         _audioClipCounts[audioClip]++;
         _audioPlaying[audioClip] = true;
+
         StartCoroutine(DecreaseAudioClipCount(audioClip));
         StartCoroutine(AudioPlayingClear(audioClip));
     }
@@ -57,12 +52,24 @@ public class SoundCounter : MonoBehaviour
     private IEnumerator DecreaseAudioClipCount(AudioClip audioClip)
     {
         yield return new WaitForSeconds(audioClip.length);
+
+        if (!_audioClipCounts.ContainsKey(audioClip))
+        {
+            yield return null;
+        }
+
         _audioClipCounts[audioClip]--;
     }
 
     private IEnumerator AudioPlayingClear(AudioClip audioClip)
     {
         yield return new WaitForSeconds(_soundSkipTime);
+
+        if (!_audioPlaying.ContainsKey(audioClip))
+        {
+            yield return null;
+        }
+
         _audioPlaying[audioClip] = false;
     }
 }

@@ -50,7 +50,6 @@ public class UI_SubMenuController : MonoBehaviour
                 //열기
                 SubMenuSet.SetActive(true);
                 Time.timeScale = 0f;
-                Managers.Sound.Clear();
                 //MainMenuSet.SetActive(false);
             }
 
@@ -62,7 +61,6 @@ public class UI_SubMenuController : MonoBehaviour
     {
         //Game씬(1번)다시 시작
         Time.timeScale = 0f;
-        Managers.Sound.Clear();
         SubMenuSet.SetActive(true);
 
         EarlySet.SetActive(true);       //초기화면 키기    

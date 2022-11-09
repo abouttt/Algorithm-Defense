@@ -10,9 +10,6 @@ public class GameManager
     public float CastleMaxHP;
     public float DungeonMaxHP;
 
-    public float BackgroundVolume=1f;
-    public float EffectVolume=1f;
-
     public int CurrentCastleHP
     {
         get

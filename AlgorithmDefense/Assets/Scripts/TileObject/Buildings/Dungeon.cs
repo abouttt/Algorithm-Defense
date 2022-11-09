@@ -30,6 +30,11 @@ public class Dungeon : BaseBuilding
 
     private void StartSpawn()
     {
+        if (PlayerPrefs.GetInt("Num") == 0)
+        {
+            return;
+        }
+
         StartCoroutine(SpawnMonster());
     }
 
