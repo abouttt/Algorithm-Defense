@@ -73,7 +73,6 @@ public class PoolManager
         if (!root)
         {
             root = new GameObject { name = "@Pool_Root" };
-            GameObject.DontDestroyOnLoad(root);
         }
 
         _root = root.transform;

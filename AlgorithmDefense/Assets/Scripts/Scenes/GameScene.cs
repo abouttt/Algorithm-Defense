@@ -1,4 +1,4 @@
-using System.Collections;
+    using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -37,7 +37,7 @@ public class GameScene : MonoBehaviour
 
     private Transform _contentsRoot;
 
-    public void Init()
+    private void Awake()
     {
         InitCamera();
         InitContents();
@@ -47,6 +47,7 @@ public class GameScene : MonoBehaviour
         InitBattleLine();
         InitSpawn();
 
+        Managers.Pool.Init();
         Managers.Game.Gold = 0;
     }
 
