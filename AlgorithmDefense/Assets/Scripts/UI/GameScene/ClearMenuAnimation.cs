@@ -65,19 +65,19 @@ public class ClearMenuAnimation : MonoBehaviour
         clearMenuObj.SetActive(true);
 
        
-        Managers.Sound.SetVolume(Define.Sound.Effect, 0f);
+        Managers.Sound.SetVolume(Define.Sound.BattleEffect, 0f);
 
         Managers.Sound.AllStop();
 
         if (_victory)
         {
             clearText.text = "Victory";
-            Managers.Sound.Play("UI/Victory", Define.Sound.UI);
+            Managers.Sound.Play("UI/Victory", Define.Sound.Effect);
         }
         else
         {
             clearText.text = "Defeat";
-            Managers.Sound.Play("UI/Defeat", Define.Sound.UI);
+            Managers.Sound.Play("UI/Defeat", Define.Sound.Effect);
         }
       
 

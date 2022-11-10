@@ -40,7 +40,7 @@ public class GameManager
             if (_currentCastleHP > value)
             {
                 _hpBarAnim.CastleAttacked();
-                Managers.Sound.Play("Unit/CastleDamage", Define.Sound.Effect);
+                Managers.Sound.Play("Unit/CastleDamage");
             }
 
             _currentCastleHP = value;

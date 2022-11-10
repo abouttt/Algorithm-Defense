@@ -13,7 +13,7 @@ public class SoundController : MonoBehaviour
     private void Start()
     {
         backgroundSlider.value = Managers.Sound.GetVolume(Define.Sound.Bgm);
-        effectSlider.value = Managers.Sound.GetVolume(Define.Sound.UI);
+        effectSlider.value = Managers.Sound.GetVolume(Define.Sound.Effect);
     }
 
 
@@ -24,14 +24,14 @@ public class SoundController : MonoBehaviour
 
     public void SetEffectVolume(float volume)
     {
-        Managers.Sound.SetVolume(Define.Sound.UI, volume);
         Managers.Sound.SetVolume(Define.Sound.Effect, volume);
-        Managers.Sound.Play("UI/mouse_click", Define.Sound.UI);
+        Managers.Sound.SetVolume(Define.Sound.BattleEffect, volume);
+        Managers.Sound.Play("UI/mouse_click", Define.Sound.Effect);
     }
 
     public void ButtonClick()
     {
-        Managers.Sound.Play("UI/mouse_click", Define.Sound.UI);
+        Managers.Sound.Play("UI/mouse_click", Define.Sound.Effect);
     }
 
 }

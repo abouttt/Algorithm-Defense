@@ -99,8 +99,8 @@ public static class Define
     public enum Sound
     {
         Bgm,
-        UI,
         Effect,
+        BattleEffect,
         MaxCount,
     }
 }
