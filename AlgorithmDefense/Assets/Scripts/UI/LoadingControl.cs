@@ -23,13 +23,12 @@ public class LoadingControl : MonoBehaviour
 
     public void LoadingComplete()
     {
-        Debug.Log("·Îµù³¡");
+        Debug.Log("Loading ended");
         lodingObject.SetActive(false);
     }
 
     public void GameSceneLoadingComplete()
     {
-        Managers.Clear();
         if (lodingObject != null)
         {
             LoadingCompleteAction.Invoke();

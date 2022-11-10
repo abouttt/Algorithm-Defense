@@ -39,6 +39,8 @@ public class GameScene : MonoBehaviour
 
     private void Awake()
     {
+        Managers.Clear();
+
         InitCamera();
         InitContents();
         InitGround();
@@ -47,7 +49,6 @@ public class GameScene : MonoBehaviour
         InitBattleLine();
         InitSpawn();
 
-        Managers.Pool.Init();
         Managers.Game.Gold = 0;
     }
 
