@@ -4,7 +4,21 @@ using UnityEngine;
 
 public class GameManager
 {
-    public GameScene Setting;
+    public GameScene Setting
+    {
+        get
+        {
+            if (!_setting)
+            {
+                var go = Managers.Resource.Instantiate($"{Define.CONTENTS_PATH}@GameSceneSetting");
+                _setting = go.GetComponent<GameScene>();
+                GameObject.DontDestroyOnLoad(go);
+            }
+
+            return _setting;
+        }
+    }
+
     public int Gold = 0;
 
     public float CastleMaxHP;
@@ -55,13 +69,10 @@ public class GameManager
         }
     }
 
+    private GameScene _setting;
+
     private int _currentCastleHP = 100;
     private int _currentDungeonHP = 100;
 
     private HPBarAnimation _hpBarAnim;
-
-    public void Init()
-    {
-        Setting = GameObject.FindObjectOfType<GameScene>();
-    }
 }

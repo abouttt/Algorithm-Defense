@@ -75,7 +75,7 @@ public class SoundManager
         _audioSources[(int)soundType].volume = volume;
     }
 
-    public void Stop()
+    public void AllStop()
     {
         foreach (AudioSource audioSource in _audioSources)
         {          

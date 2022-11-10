@@ -67,7 +67,7 @@ public class ClearMenuAnimation : MonoBehaviour
        
         Managers.Sound.SetVolume(Define.Sound.Effect, 0f);
 
-        Managers.Sound.Stop();
+        Managers.Sound.AllStop();
 
         if (_victory)
         {

@@ -53,23 +53,19 @@ public class AudioClipManager : MonoBehaviour
     {
         yield return new WaitForSeconds(audioClip.length);
 
-        if (!_audioClipCounts.ContainsKey(audioClip))
+        if (_audioClipCounts.ContainsKey(audioClip))
         {
-            yield return null;
+            _audioClipCounts[audioClip]--;
         }
-
-        _audioClipCounts[audioClip]--;
     }
 
     private IEnumerator AudioPlayingClear(AudioClip audioClip)
     {
         yield return new WaitForSeconds(_soundSkipTime);
 
-        if (!_audioPlaying.ContainsKey(audioClip))
+        if (_audioPlaying.ContainsKey(audioClip))
         {
-            yield return null;
+            _audioPlaying[audioClip] = false;
         }
-
-        _audioPlaying[audioClip] = false;
     }
 }

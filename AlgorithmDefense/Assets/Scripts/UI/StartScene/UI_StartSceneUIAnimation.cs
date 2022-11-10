@@ -232,7 +232,7 @@ public class UI_StartSceneUIAnimation : MonoBehaviour
             {
                 Debug.Log("이스터애그 발견!!!!!!");
 
-                Managers.Sound.Stop();
+                Managers.Sound.AllStop();
 
                Camera.main.DOColor(Color.black, 3f).OnComplete(() =>
                 {

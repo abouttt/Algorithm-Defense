@@ -80,6 +80,7 @@ public class UI_SubMenuController : MonoBehaviour
     {
         //Game씬(1번)다시 시작
         Time.timeScale = 1f;
+        Managers.Clear();
         SceneManager.LoadScene(1);
     }
 
@@ -87,6 +88,7 @@ public class UI_SubMenuController : MonoBehaviour
     {
         //시작화면으로 이동
         Time.timeScale = 1f;
+        Managers.Clear();
         SceneManager.LoadScene(0);
     }
 

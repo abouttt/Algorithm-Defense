@@ -756,7 +756,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &565934454
 GameObject:
@@ -1658,7 +1658,7 @@ Transform:
   - {fileID: 94177498}
   - {fileID: 1122283140}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1572757259
 GameObject:
@@ -1780,79 +1780,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &1717982455
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1717982457}
-  - component: {fileID: 1717982456}
-  m_Layer: 0
-  m_Name: '@Scene'
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1717982456
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1717982455}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 612e9eaa27ff8db4c9223b84cedef549, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CameraX: 3.5
-  CameraY: 7
-  CameraZ: -10
-  CameraSize: 8
-  StartPosition: {x: 0, y: 0, z: 0}
-  RampartWidth: 7
-  RampartHeight: 8
-  SpawnCellPos: {x: 3, y: 0, z: 0}
-  SpawnTime: 4
-  BattleLineLength: 4
-  _stageLineDatas:
-  - First: 1
-    Second: 0
-    Third: 0
-  - First: 1
-    Second: 1
-    Third: 0
-  - First: 1
-    Second: 1
-    Third: 1
-  - First: 1
-    Second: 0
-    Third: 1
-  - First: 1
-    Second: 1
-    Third: 1
-  - First: 1
-    Second: 1
-    Third: 1
---- !u!4 &1717982457
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1717982455}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2054142936
 GameObject:
   m_ObjectHideFlags: 0
@@ -1965,7 +1892,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &12034107018119932
 MonoBehaviour:
@@ -9675,7 +9602,7 @@ Transform:
   - {fileID: 3235753842837272715}
   - {fileID: 7714426250754793748}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!222 &6158733442782202823
 CanvasRenderer:
