@@ -11,6 +11,7 @@ public class RoadBuilder : MonoBehaviour
     [HideInInspector]
     public bool IsBuilding;
     public Dictionary<int, List<Vector3Int>> RoadGroupDic = new();
+    public int GroupCount { get { return _groupCount; } }
 
     private int _groupCount = 1;
 

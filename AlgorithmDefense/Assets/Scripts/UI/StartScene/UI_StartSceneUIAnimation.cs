@@ -270,6 +270,11 @@ public class UI_StartSceneUIAnimation : MonoBehaviour
 
     }
 
+    public void OnClickTutorialButton()
+    {
+        SceneManager.LoadScene("TutorialScene");
+    }
+
 
     private static void Init()
     {

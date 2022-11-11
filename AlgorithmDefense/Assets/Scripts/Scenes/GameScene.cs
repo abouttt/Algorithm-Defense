@@ -1,4 +1,4 @@
-    using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -34,6 +34,9 @@ public class GameScene : MonoBehaviour
     public int BattleLineLength;
     [SerializeField]
     private List<StageLineData> _stageLineDatas = new();
+
+    [Header("[Æ©Åä¸®¾ó]")]
+    public bool IsTutorialScene;
 
     private Transform _contentsRoot;
 
@@ -83,23 +86,33 @@ public class GameScene : MonoBehaviour
             Managers.Resource.Instantiate($"{Define.CONTENTS_PATH}@CallSkill").transform.SetParent(_contentsRoot);
         }
 
-        if (!FindObjectOfType<TileObjectBuilder>())
-        {
-            Managers.Resource.Instantiate($"{Define.CONTENTS_PATH}@TileObjectBuilder").transform.SetParent(_contentsRoot);
-        }
-
         if (!FindObjectOfType<RoadBuilder>())
         {
             Managers.Resource.Instantiate($"{Define.CONTENTS_PATH}@RoadBuilder").transform.SetParent(_contentsRoot);
+        }
+
+        if (IsTutorialScene && !FindObjectOfType<TutorialManager>())
+        {
+            Managers.Resource.Instantiate($"{Define.CONTENTS_PATH}@TutorialManager").transform.SetParent(_contentsRoot);
         }
     }
 
     private void InitGround()
     {
-        int stageNumber = PlayerPrefs.GetInt("Num");
-        var go = Managers.Resource.Instantiate($"{Define.GROUND_PREFAB_PATH}Ground_{stageNumber}");
-        go.transform.position = new Vector3(5f, 5f, 0f);
-        go.transform.SetParent(TileManager.GetInstance.GetGrid().transform);
+        GameObject ground = null;
+
+        if (IsTutorialScene)
+        {
+            ground = Managers.Resource.Instantiate($"{Define.GROUND_PREFAB_PATH}Ground_0");
+        }
+        else
+        {
+            int stageNumber = PlayerPrefs.GetInt("Num");
+            ground = Managers.Resource.Instantiate($"{Define.GROUND_PREFAB_PATH}Ground_{stageNumber}");
+        }
+
+        ground.transform.position = new Vector3(5f, 5f, 0f);
+        ground.transform.SetParent(TileManager.GetInstance.GetGrid().transform);
     }
 
     private void InitRampart()

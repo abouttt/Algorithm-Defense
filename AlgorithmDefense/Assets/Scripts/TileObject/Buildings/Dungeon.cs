@@ -30,6 +30,11 @@ public class Dungeon : BaseBuilding
 
     private void StartSpawn()
     {
+        if (Managers.Game.Setting.IsTutorialScene)
+        {
+            return;
+        }
+
         if (PlayerPrefs.GetInt("Num") == 0)
         {
             return;
