@@ -12,4 +12,5 @@ public class TutorialTextData
 public class TutorialTextList : ScriptableObject
 {
     public List<TutorialTextData> TextList;
+    public List<TutorialTextData> ErrorTextList;
 }

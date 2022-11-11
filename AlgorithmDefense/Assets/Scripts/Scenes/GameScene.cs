@@ -150,6 +150,11 @@ public class GameScene : MonoBehaviour
     {
         int stageNumber = PlayerPrefs.GetInt("Num") - 1;
 
+        if (IsTutorialScene)
+        {
+            stageNumber = 0;
+        }
+
         for (int i = 0; i < 3; i++)
         {
             if (_stageLineDatas[stageNumber].First && (i == 0))
@@ -172,6 +177,11 @@ public class GameScene : MonoBehaviour
     private void InitBattleLine()
     {
         int stageNumber = PlayerPrefs.GetInt("Num") - 1;
+
+        if (IsTutorialScene)
+        {
+            stageNumber = 0;
+        }
 
         for (int i = 0; i < 3; i++)
         {
