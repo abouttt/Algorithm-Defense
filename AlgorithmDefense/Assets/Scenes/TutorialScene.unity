@@ -1735,6 +1735,10 @@ PrefabInstance:
       value: '@TutorialManager'
       objectReference: {fileID: 0}
     - target: {fileID: 1006188600359205221, guid: 194d1c54033d3224d9c73ef43ccfd341, type: 3}
+      propertyPath: _eventCount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1006188600359205221, guid: 194d1c54033d3224d9c73ef43ccfd341, type: 3}
       propertyPath: _tutorialUI
       value: 
       objectReference: {fileID: 508667479}
@@ -11044,7 +11048,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uB300\uC0AC"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 02e0c9d7f100dee418919bad4b5e3c13, type: 2}
   m_sharedMaterial: {fileID: 7374510155775689302, guid: 02e0c9d7f100dee418919bad4b5e3c13, type: 2}

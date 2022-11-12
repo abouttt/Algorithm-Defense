@@ -7,12 +7,16 @@ public class TutorialEvent_0 : TutorialBaseEvent
     [SerializeField]
     private Vector3Int _warriorCenterPos;
 
+    bool[,] _discovered;
+    Queue<Vector3Int> _reservePos = new();
+
     private bool _isChecked = false;
     private bool _isCanConnectRoad = false;
 
     private void Awake()
     {
         RoadBuilder.GetInstance.ConnectedRoadDoneAction += CheckConnectRoad;
+        _discovered = new bool[Managers.Game.Setting.RampartHeight, Managers.Game.Setting.RampartWidth];
     }
 
     public override void InitEvent()
@@ -30,6 +34,7 @@ public class TutorialEvent_0 : TutorialBaseEvent
             }
             else
             {
+                Clear();
                 IsFailureEvent = true;
             }
 
@@ -45,13 +50,11 @@ public class TutorialEvent_0 : TutorialBaseEvent
 
     private bool IsCanConnectCastle()
     {
-        bool[,] visited = new bool[Managers.Game.Setting.RampartHeight, Managers.Game.Setting.RampartWidth];
-        Queue<Vector3Int> q = new();
-        visited[_warriorCenterPos.y, _warriorCenterPos.x] = true;
-        q.Enqueue(_warriorCenterPos);
-        while (q.Count > 0)
+        _discovered[_warriorCenterPos.y, _warriorCenterPos.x] = true;
+        _reservePos.Enqueue(_warriorCenterPos);
+        while (_reservePos.Count > 0)
         {
-            Vector3Int pos = q.Dequeue();
+            Vector3Int pos = _reservePos.Dequeue();
             for (int i = 0; i < 4; i++)
             {
                 int ny = pos.y + Define.DY[i];
@@ -65,7 +68,7 @@ public class TutorialEvent_0 : TutorialBaseEvent
                     continue;
                 }
 
-                if (visited[ny, nx])
+                if (_discovered[ny, nx])
                 {
                     continue;
                 }
@@ -87,11 +90,24 @@ public class TutorialEvent_0 : TutorialBaseEvent
                     return true;
                 }
 
-                visited[ny, nx] = true;
-                q.Enqueue(nextPos);
+                _discovered[ny, nx] = true;
+                _reservePos.Enqueue(nextPos);
             }
         }
 
         return false;
+    }
+
+    private void Clear()
+    {
+        for (int i = 0; i < _discovered.GetLength(0); i++)
+        {
+            for (int j = 0; j < _discovered.GetLength(1); j++)
+            {
+                _discovered[i, j] = false;
+            }
+        }
+
+        _reservePos.Clear();
     }
 }

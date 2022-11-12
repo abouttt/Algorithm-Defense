@@ -19,13 +19,18 @@ public class TutorialManager : MonoBehaviour
     private int _eventNumber = 0;
     private int _textIndex = 0;
 
+    private void Awake()
+    {
+        LoadingControl.GetInstance.LoadingCompleteAction += StartEvent;
+    }
+
     private void Update()
     {
         if (_tutorialUI.activeSelf)
         {
             if (_tutorialEvent.IsFailureEvent)
             {
-                ShowText(_tutorialEvent.ErrorTextList);
+                ShowText(_tutorialEvent.FailedTextList);
             }
             else
             {
@@ -49,11 +54,6 @@ public class TutorialManager : MonoBehaviour
                 }
             }
         }
-    }
-
-    private void Awake()
-    {
-        LoadingControl.GetInstance.LoadingCompleteAction += StartEvent;
     }
 
     private void ShowText(List<string> textList)

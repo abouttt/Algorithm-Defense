@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class TutorialBaseEvent : MonoBehaviour
 {
     public List<string> TextList;
-    public List<string> ErrorTextList;
+    public List<string> FailedTextList;
 
     [HideInInspector]
     public bool IsSuccessEvent = false;
