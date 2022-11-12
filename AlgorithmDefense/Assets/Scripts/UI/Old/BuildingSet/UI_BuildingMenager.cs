@@ -69,6 +69,7 @@ public class UI_BuildingMenager : MonoBehaviour
             return;
         }
 
+        Managers.Sound.Play("UI/Complete_The_Gateway_Setup", Define.Sound.UI);
         _currentShowUIController.Clear();
 
         _currentShowUIController.gameObject.SetActive(false);

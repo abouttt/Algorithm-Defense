@@ -27,17 +27,17 @@ public class UI_ExitmenuContrller : MonoBehaviour
         // 메뉴창
         if (Input.GetButtonDown("Cancel"))//esc버튼 클릭
         {
-           
+
             //이미 메뉴가 열린 상태라면
             if (ExitMenu.activeSelf)
             {
                 ExitMenu.SetActive(false);       //초기화면 키기
-             
+
             }
             else//아니면
             {
                 ExitMenu.SetActive(true);       //초기화면 키기
-          
+
             }
 
         }
@@ -47,8 +47,8 @@ public class UI_ExitmenuContrller : MonoBehaviour
 
     public void ExitButtonClick()
     {
-     
-            ExitMenu.SetActive(true);       //초기화면 키기
+
+        ExitMenu.SetActive(true);       //초기화면 키기
 
     }
 
@@ -56,7 +56,7 @@ public class UI_ExitmenuContrller : MonoBehaviour
     public void GameAgain()
     {
         ExitMenu.SetActive(false);       //초기화면 키기
-      
+
     }
 
 

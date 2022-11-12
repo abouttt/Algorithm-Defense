@@ -31,8 +31,7 @@ public class StageNumberInformation : MonoBehaviour
     {
         //StartCoroutine("GetStageData");
 
-        SetStageDataAsExcel();
-        Managers.Sound.Play("UI/test_music", Define.Sound.Bgm);
+        SetStageDataAsExcel();       
     }
 
 

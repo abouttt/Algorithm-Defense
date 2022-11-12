@@ -20,7 +20,7 @@ public class UI_StartSceneSubMenuController : MonoBehaviour
         // Debug.Log("시작버튼 클릭ㄷ");
         //시작 alpha 0
 
-
+        UI_StartSceneButtonAnimation.GetInstance.SetButtonsOff();
         mainMenuCanvasGroup.alpha = 1f;
         mainMenuCanvasGroup.DOFade(0, 0.3f);
         
@@ -52,7 +52,7 @@ public class UI_StartSceneSubMenuController : MonoBehaviour
         subMenuRectTransform.DOAnchorPos(new Vector2(-1100f, 0f), 1f, false).SetEase(Ease.InOutQuint);
         subMenuCanvasGroup.DOFade(0, 0.7f);
 
-
+        UI_StartSceneButtonAnimation.GetInstance.SetButtonsOn();
 
     }
 
