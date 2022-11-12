@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3961206834268322111
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 453385441729100469}
+  - component: {fileID: 5069374289873592507}
+  m_Layer: 0
+  m_Name: TutorialEvent_0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &453385441729100469
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3961206834268322111}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5069374289873592507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3961206834268322111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 706b7a879e971bf4882eaa05270ab0bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextList:
+  - "\uC548\uB155\uD558\uC138\uC694."
+  - "\uC2DC\uC791\uAE38\uC744 \uC804\uC0AC \uBD80\uC5EC\uC18C\uC5D0 \uC5F0\uACB0\uD558\uC138\uC694."
+  ErrorTextList:
+  - "\uC804\uC0AC \uBD80\uC5EC\uC18C\uC640 \uC131\uBCBD\uACFC \uC774\uC744\uC218
+    \uC788\uB294 \uACBD\uB85C\uAC00 \uC5C6\uC2B5\uB2C8\uB2E4. \uAE38\uC774 \uC0AD\uC81C\uD558\uACE0
+    \uB2E4\uC2DC \uC5F0\uACB0\uD558\uC138\uC694."
+  IsDone: 0
+  IsSuccessEvent: 0
+  _warriorCenterPos: {x: 3, y: 3, z: 0}

@@ -12,11 +12,9 @@ public class RoadBuilder : MonoBehaviour
     [HideInInspector]
     public bool IsBuilding;
     public Dictionary<int, List<Vector3Int>> RoadGroupDic = new();
-    public int GroupCount { get { return _groupCount; } }
     public Action ConnectedRoadDoneAction;
 
     private int _groupCount = 1;
-
     private Vector3Int _prevPos;
     private Vector3Int _firstPos;
     private Vector3Int _lastPos;
