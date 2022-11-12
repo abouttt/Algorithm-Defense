@@ -1,4 +1,4 @@
-    using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -35,10 +35,15 @@ public class GameScene : MonoBehaviour
     [SerializeField]
     private List<StageLineData> _stageLineDatas = new();
 
+    [Header("[Æ©Åä¸®¾ó]")]
+    public bool IsTutorialScene;
+
     private Transform _contentsRoot;
 
     private void Awake()
     {
+        Managers.Clear();
+
         InitCamera();
         InitContents();
         InitGround();
@@ -47,7 +52,6 @@ public class GameScene : MonoBehaviour
         InitBattleLine();
         InitSpawn();
 
-        Managers.Pool.Init();
         Managers.Game.Gold = 0;
     }
 
@@ -82,23 +86,33 @@ public class GameScene : MonoBehaviour
             Managers.Resource.Instantiate($"{Define.CONTENTS_PATH}@CallSkill").transform.SetParent(_contentsRoot);
         }
 
-        if (!FindObjectOfType<TileObjectBuilder>())
-        {
-            Managers.Resource.Instantiate($"{Define.CONTENTS_PATH}@TileObjectBuilder").transform.SetParent(_contentsRoot);
-        }
-
         if (!FindObjectOfType<RoadBuilder>())
         {
             Managers.Resource.Instantiate($"{Define.CONTENTS_PATH}@RoadBuilder").transform.SetParent(_contentsRoot);
+        }
+
+        if (IsTutorialScene && !FindObjectOfType<TutorialManager>())
+        {
+            Managers.Resource.Instantiate($"{Define.CONTENTS_PATH}@TutorialManager").transform.SetParent(_contentsRoot);
         }
     }
 
     private void InitGround()
     {
-        int stageNumber = PlayerPrefs.GetInt("Num");
-        var go = Managers.Resource.Instantiate($"{Define.GROUND_PREFAB_PATH}Ground_{stageNumber}");
-        go.transform.position = new Vector3(5f, 5f, 0f);
-        go.transform.SetParent(TileManager.GetInstance.GetGrid().transform);
+        GameObject ground = null;
+
+        if (IsTutorialScene)
+        {
+            ground = Managers.Resource.Instantiate($"{Define.GROUND_PREFAB_PATH}Ground_0");
+        }
+        else
+        {
+            int stageNumber = PlayerPrefs.GetInt("Num");
+            ground = Managers.Resource.Instantiate($"{Define.GROUND_PREFAB_PATH}Ground_{stageNumber}");
+        }
+
+        ground.transform.position = new Vector3(5f, 5f, 0f);
+        ground.transform.SetParent(TileManager.GetInstance.GetGrid().transform);
     }
 
     private void InitRampart()
@@ -136,6 +150,11 @@ public class GameScene : MonoBehaviour
     {
         int stageNumber = PlayerPrefs.GetInt("Num") - 1;
 
+        if (IsTutorialScene)
+        {
+            stageNumber = 0;
+        }
+
         for (int i = 0; i < 3; i++)
         {
             if (_stageLineDatas[stageNumber].First && (i == 0))
@@ -158,6 +177,11 @@ public class GameScene : MonoBehaviour
     private void InitBattleLine()
     {
         int stageNumber = PlayerPrefs.GetInt("Num") - 1;
+
+        if (IsTutorialScene)
+        {
+            stageNumber = 0;
+        }
 
         for (int i = 0; i < 3; i++)
         {

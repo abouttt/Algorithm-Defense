@@ -44,8 +44,13 @@ public class StageTileInformation : MonoBehaviour
         //LoadingControl.GetInstance.LoadingCompleteAction += SetTileData;
 
         //클릭한 스테이지 번호 가져오기
-        stageNum = PlayerPrefs.GetInt("Num");
-        Debug.Log("stageNum: " + stageNum);
+
+        if (!Managers.Game.Setting.IsTutorialScene)
+        {
+            stageNum = PlayerPrefs.GetInt("Num");
+            Debug.Log("stageNum: " + stageNum);
+            GetTileDataAsExcel();
+        }
 
         //WWWForm form = new WWWForm();
         ////각각의 정보 이름과 넣을정보를 넣어줌
@@ -53,16 +58,15 @@ public class StageTileInformation : MonoBehaviour
         //form.AddField("num", stageNum);
         ////보내기
         //StartCoroutine(Post(form));
-
-        GetTileDataAsExcel();
+        LoadingControl.GetInstance.GameSceneLoadingComplete();
         Managers.Sound.Play("UI/Stage_Background", Define.Sound.Bgm);
     }
 
 
     public void GetTileDataAsExcel()
     {
-        string[] data = stageCoordinateDB.StageCoordinate[stageNum-1].stage.Split(',');
-        GD.deta = stageCoordinateDB.StageCoordinate[stageNum-1].stage;
+        string[] data = stageCoordinateDB.StageCoordinate[stageNum - 1].stage.Split(',');
+        GD.deta = stageCoordinateDB.StageCoordinate[stageNum - 1].stage;
 
         int count = 0;
 
@@ -86,8 +90,7 @@ public class StageTileInformation : MonoBehaviour
 
 
         SetTileData();
-        LoadingControl.GetInstance.GameSceneLoadingComplete();
-        
+
     }
 
 
@@ -218,12 +221,12 @@ public class StageTileInformation : MonoBehaviour
             //StartCoroutine(Post(form));
 
 
-            if(stageCoordinateDB.StageNum[stageNum].Star< _star)
+            if (stageCoordinateDB.StageNum[stageNum].Star < _star)
             {
                 //별 갯수 변경
                 stageCoordinateDB.StageNum[stageNum].Star = _star;
             }
-          
+
             //다음 스테이지 오픈
             int stage = PlayerPrefs.GetInt("StageCount");
             if (stage != stageNum)
@@ -240,8 +243,8 @@ public class StageTileInformation : MonoBehaviour
     {
         Time.timeScale = 1f;
         //시작화면으로 이동
-        float Bvolume = Managers.Sound.GetVolume(Define.Sound.Effect);
-        Managers.Sound.SetVolume(Define.Sound.BattleEffect, Bvolume);
+        float Bvolume = Managers.Sound.GetVolume(Define.Sound.UI);
+        Managers.Sound.SetVolume(Define.Sound.Effect, Bvolume);
         SceneManager.LoadScene(0);
     }
 
@@ -250,8 +253,8 @@ public class StageTileInformation : MonoBehaviour
     {
         Time.timeScale = 1f;
         //Game씬(1번)다시 시작
-        float Bvolume = Managers.Sound.GetVolume(Define.Sound.Effect);
-        Managers.Sound.SetVolume(Define.Sound.BattleEffect, Bvolume);
+        float Bvolume = Managers.Sound.GetVolume(Define.Sound.UI);
+        Managers.Sound.SetVolume(Define.Sound.Effect, Bvolume);
         SceneManager.LoadScene(1);
     }
 
@@ -259,8 +262,8 @@ public class StageTileInformation : MonoBehaviour
     public void NextStageNumSet()
     {
         Time.timeScale = 1f;
-        float Bvolume = Managers.Sound.GetVolume(Define.Sound.Effect);
-        Managers.Sound.SetVolume(Define.Sound.BattleEffect, Bvolume);
+        float Bvolume = Managers.Sound.GetVolume(Define.Sound.UI);
+        Managers.Sound.SetVolume(Define.Sound.Effect, Bvolume);
         int stage = PlayerPrefs.GetInt("StageCount");
         if (stage != stageNum)
         {

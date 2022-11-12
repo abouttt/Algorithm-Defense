@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,8 @@ public class RoadBuilder : MonoBehaviour
     [HideInInspector]
     public bool IsBuilding;
     public Dictionary<int, List<Vector3Int>> RoadGroupDic = new();
+    public int GroupCount { get { return _groupCount; } }
+    public Action ConnectedRoadDoneAction;
 
     private int _groupCount = 1;
 
@@ -116,6 +119,12 @@ public class RoadBuilder : MonoBehaviour
             return;
         }
 
+        // 이전에 예약한 위치 옆이 아닐 경우 진행하지 않는다.
+        if (!IsNextToPrevPos(pos))
+        {
+            return;
+        }
+
         // 시작길이 아니며 길이 있다면 진행하지 않는다.
         if (TileManager.GetInstance.GetTile(Define.Tilemap.Road, pos))
         {
@@ -127,12 +136,6 @@ public class RoadBuilder : MonoBehaviour
             {
                 return;
             }
-        }
-
-        // 이전에 예약한 위치 옆이 아닐 경우 진행하지 않는다.
-        if (!IsNextToPrevPos(pos))
-        {
-            return;
         }
 
         // 이전에 예약한 위치가 시작길이라면 진행하지 않는다.
@@ -203,8 +206,8 @@ public class RoadBuilder : MonoBehaviour
             }
 
             RemoveFirstAndLastRoad();
-
             _groupCount++;
+            ConnectedRoadDoneAction?.Invoke();
         }
         else
         {

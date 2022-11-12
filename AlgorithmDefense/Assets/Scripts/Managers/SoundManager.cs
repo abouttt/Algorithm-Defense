@@ -29,13 +29,13 @@ public class SoundManager
         }
     }
 
-    public void Play(string path, Define.Sound type = Define.Sound.Effect)
+    public void Play(string path, Define.Sound type = Define.Sound.UI)
     {
-        var audioClip = getOrAddAudioClip(path, type);
+        var audioClip = GetOrAddAudioClip(path, type);
         Play(audioClip, type);
     }
 
-    public void Play(AudioClip audioClip, Define.Sound type = Define.Sound.Effect)
+    public void Play(AudioClip audioClip, Define.Sound type = Define.Sound.UI)
     {
         if (!audioClip)
         {
@@ -83,7 +83,6 @@ public class SoundManager
         }       
     }
 
-
     public void Clear()
     {
         foreach (AudioSource audioSource in _audioSources)
@@ -95,7 +94,7 @@ public class SoundManager
         _audioClips.Clear();
     }
 
-    private AudioClip getOrAddAudioClip(string path, Define.Sound type = Define.Sound.Effect)
+    private AudioClip GetOrAddAudioClip(string path, Define.Sound type = Define.Sound.UI)
     {
         if (!path.Contains("Sounds/"))
         {

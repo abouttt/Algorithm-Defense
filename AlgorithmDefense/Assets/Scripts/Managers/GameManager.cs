@@ -4,7 +4,19 @@ using UnityEngine;
 
 public class GameManager
 {
-    public GameScene Setting;
+    public GameScene Setting
+    {
+        get
+        {
+            if (!_setting)
+            {
+                _setting = GameObject.FindObjectOfType<GameScene>();
+            }
+
+            return _setting;
+        }
+    }
+
     public int Gold = 0;
 
     public float CastleMaxHP;
@@ -26,7 +38,7 @@ public class GameManager
             if (_currentCastleHP > value)
             {
                 _hpBarAnim.CastleAttacked();
-                Managers.Sound.Play("Unit/CastleDamage");
+                Managers.Sound.Play("Unit/CastleDamage", Define.Sound.Effect);
             }
 
             _currentCastleHP = value;
@@ -58,10 +70,16 @@ public class GameManager
     private int _currentCastleHP = 100;
     private int _currentDungeonHP = 100;
 
+    private GameScene _setting;
     private HPBarAnimation _hpBarAnim;
 
     public void Init()
     {
-        Setting = GameObject.FindObjectOfType<GameScene>();
+        _setting = GameObject.FindObjectOfType<GameScene>();
+    }
+
+    public void Clear()
+    {
+        _setting = null;
     }
 }

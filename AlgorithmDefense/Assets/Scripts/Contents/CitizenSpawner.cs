@@ -23,6 +23,11 @@ public class CitizenSpawner : MonoBehaviour
 
     public void StartSpawn()
     {
+        if (Managers.Game.Setting.IsTutorialScene)
+        {
+            return;
+        }
+
         StartCoroutine(SpawnCitizen());
     }
 
