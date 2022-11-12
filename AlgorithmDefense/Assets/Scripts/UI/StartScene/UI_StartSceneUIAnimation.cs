@@ -72,6 +72,7 @@ public class UI_StartSceneUIAnimation : MonoBehaviour
 
         CreateStageUIBar(stageButtonContainer, defaultStageUIBar, StageUIBar);
         LoadingControl.GetInstance.LoadingComplete();
+        Managers.Sound.Play("UI/Start_Background", Define.Sound.Bgm);
     }
 
 
@@ -167,6 +168,9 @@ public class UI_StartSceneUIAnimation : MonoBehaviour
 
     public void StageUIFadeIn()
     {
+        //버튼 클릭 정지
+        UI_StartSceneButtonAnimation.GetInstance.SetButtonsOff();
+
         mainMenuCanvasGroup.alpha = 1f;
         mainMenuCanvasGroup.DOFade(0, 0.3f);
 
@@ -195,6 +199,9 @@ public class UI_StartSceneUIAnimation : MonoBehaviour
         stageRectTransform.transform.localPosition = new Vector3(0f, 0f, 0f);
         stageRectTransform.DOAnchorPos(new Vector2(0f, -1800f), 1f, false).SetEase(Ease.InOutQuint);
         stageCanvasGroup.DOFade(0, 0.7f);
+
+        //버튼 클릭 온
+        UI_StartSceneButtonAnimation.GetInstance.SetButtonsOn();
     }
 
 
@@ -239,7 +246,7 @@ public class UI_StartSceneUIAnimation : MonoBehaviour
                     Managers.Sound.Play("UI/CreditsSound",Define.Sound.Bgm);
                 });
 
-
+                UI_StartSceneButtonAnimation.GetInstance.SetButtonsOff();
                 mainMenuCanvasGroup.alpha = 1f;
                 mainMenuCanvasGroup.DOFade(0, 3f).OnComplete(() =>
                 {
@@ -256,10 +263,11 @@ public class UI_StartSceneUIAnimation : MonoBehaviour
 
                         Camera.main.DOColor(new Color(255 / 255f, 200 / 255f, 125 / 255f, 0), 3f);
                         mainMenuCanvasGroup.alpha = 0f;
-                        mainMenuCanvasGroup.DOFade(1, 3f);
-
-
-                        Managers.Sound.Play("UI/test_music",Define.Sound.Bgm);
+                        mainMenuCanvasGroup.DOFade(1, 1f).OnComplete(() =>
+                        {
+                            UI_StartSceneButtonAnimation.GetInstance.SetButtonsOn();
+                        });
+                        Managers.Sound.Play("UI/Start_Background", Define.Sound.Bgm);
                         _easterEggCount = 0;
                     });
 

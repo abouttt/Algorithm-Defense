@@ -124,6 +124,18 @@ public class UI_TileSpawnController : MonoBehaviour
                         //Debug.Log("스킬실행");
                         _CallSkill.skill(index);
                     }
+                    else
+                    {
+                        //골드 부족 오류
+                        UI_NoticeTextSet.GetInstance.LackOfGold();
+                        Managers.Sound.Play("UI/Failed_To_Use_Skill", Define.Sound.Effect);
+                    }
+                }
+                else
+                {
+                    //스킬 쿨타임 오류
+                    UI_NoticeTextSet.GetInstance.SkillCooldown();
+                    Managers.Sound.Play("UI/Failed_To_Use_Skill", Define.Sound.Effect);
                 }
 
             });

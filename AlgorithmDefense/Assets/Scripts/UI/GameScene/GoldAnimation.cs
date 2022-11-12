@@ -45,6 +45,8 @@ public class GoldAnimation : MonoBehaviour
 
     public void GoldSaving()
     {
+        Managers.Sound.Play("UI/Earn_Gold", Define.Sound.Effect);
+
         goldText.text = Managers.Game.Gold.ToString();
 
         goldTextTransform.DOScale(1.2f, 0.2f);
