@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6496b2387dc879d44be6cf9a3fe335c6
+guid: eed92f5a3caf675459f8f0e633682b34
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -100,11 +100,23 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Blue_Archer_0
+      name: Goblin_Archer_0
       rect:
         serializedVersion: 2
         x: 0
@@ -118,14 +130,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1cdb0762353ae1f4496635581db546d4
-      internalID: -2001468101
+      spriteID: 819df3cb1c0e2a14fbc43f6ba19760d0
+      internalID: 2125541320
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_1
+      name: Goblin_Archer_1
       rect:
         serializedVersion: 2
         x: 32
@@ -139,14 +151,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6530573810c6d67468e38032525c23df
-      internalID: -352315788
+      spriteID: fe9bf77d6c8baed478f99be15652996f
+      internalID: -1480818805
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_2
+      name: Goblin_Archer_2
       rect:
         serializedVersion: 2
         x: 64
@@ -160,14 +172,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 018f58ef35ca6ce41a7b9ee234fb8da6
-      internalID: -284823411
+      spriteID: b4fcc0875f98f294fb0c8c46da799bb7
+      internalID: 932502596
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_3
+      name: Goblin_Archer_3
       rect:
         serializedVersion: 2
         x: 96
@@ -181,14 +193,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb1f8ed9243629b48a81482dbebf1fb7
-      internalID: 754217978
+      spriteID: 7940a4d16a43c54409311f6ca9bd2c3c
+      internalID: 1509630207
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_4
+      name: Goblin_Archer_4
       rect:
         serializedVersion: 2
         x: 128
@@ -202,14 +214,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 401bd951e1c6ac249be2a2a9f0bf1cac
-      internalID: 1242220880
+      spriteID: 4e3f99f66fc0f494cbac50ed467354ab
+      internalID: -496034070
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_5
+      name: Goblin_Archer_5
       rect:
         serializedVersion: 2
         x: 160
@@ -223,14 +235,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c50d0fe6077255946bf7897807854d3e
-      internalID: -1496238174
+      spriteID: ae2dbbe988e969f469ba988f21cd0888
+      internalID: 1865973622
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_6
+      name: Goblin_Archer_6
       rect:
         serializedVersion: 2
         x: 192
@@ -244,14 +256,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 12a4daa1133f94f4ab9ec832ce5f2f36
-      internalID: 104951346
+      spriteID: e5dfc0f0298fc114596584d6195255a4
+      internalID: -1565387892
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_7
+      name: Goblin_Archer_7
       rect:
         serializedVersion: 2
         x: 224
@@ -265,14 +277,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd315e9ef1b241e45970cab39b2f41d1
-      internalID: 236089612
+      spriteID: 4d4c0ed62ed333b49bba6598edc82d23
+      internalID: -1822192075
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_8
+      name: Goblin_Archer_8
       rect:
         serializedVersion: 2
         x: 256
@@ -286,14 +298,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a6eaf6d11dd36242ba4bc036937f9d2
-      internalID: -1898979094
+      spriteID: 1a569362afd76af46996fc9c8508f237
+      internalID: -10892927
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_9
+      name: Goblin_Archer_9
       rect:
         serializedVersion: 2
         x: 288
@@ -307,14 +319,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 272cf12421f0a224ca3168995e084a58
-      internalID: 102362785
+      spriteID: b01e95d7915a9254a86b2c6b67d299b8
+      internalID: -1542201870
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_10
+      name: Goblin_Archer_10
       rect:
         serializedVersion: 2
         x: 320
@@ -328,14 +340,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b89718b87fc76864e87e05123ab58de0
-      internalID: -888112579
+      spriteID: 24c8f46d5a8d4864482a0aa6452eaf69
+      internalID: 879775839
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_11
+      name: Goblin_Archer_11
       rect:
         serializedVersion: 2
         x: 352
@@ -349,14 +361,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d2967e9d71f96b4ebe7bddc09fd9243
-      internalID: -152530033
+      spriteID: 72cf101d36824084280e63ade9341949
+      internalID: -1072381204
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_12
+      name: Goblin_Archer_12
       rect:
         serializedVersion: 2
         x: 384
@@ -370,14 +382,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2383c5eeddacac64ca42fd50a5ab3c8b
-      internalID: 953953601
+      spriteID: 3c42d80a61c9a5e488fde8791a8bca07
+      internalID: -257900016
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_13
+      name: Goblin_Archer_13
       rect:
         serializedVersion: 2
         x: 416
@@ -391,14 +403,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b2dd3ee9e576f88458f3e32f0391108f
-      internalID: 1683490280
+      spriteID: 19889f38f50ccdb48bd6b47e7934fed7
+      internalID: 467641133
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_14
+      name: Goblin_Archer_14
       rect:
         serializedVersion: 2
         x: 448
@@ -412,14 +424,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b29e19354dc304418b058831e4f6526
-      internalID: 1319167517
+      spriteID: 7180b157f471d4744ad89419c1697e66
+      internalID: 131439724
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_15
+      name: Goblin_Archer_15
       rect:
         serializedVersion: 2
         x: 480
@@ -433,14 +445,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b70a709a1f0ae6a4d8f9b511c2c2a6ed
-      internalID: -1314216045
+      spriteID: 74b45097fab9da24c8aae0b456f14598
+      internalID: -1936295699
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_16
+      name: Goblin_Archer_16
       rect:
         serializedVersion: 2
         x: 512
@@ -454,14 +466,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7b9c241fb8246734ebb7a3586323a3d6
-      internalID: 1137571280
+      spriteID: 35667ac4b2ace5d44b1c31aab6df028a
+      internalID: -1037795053
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_17
+      name: Goblin_Archer_17
       rect:
         serializedVersion: 2
         x: 544
@@ -475,14 +487,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc5d037110dd1c9408af12280ea451b3
-      internalID: -1930202466
+      spriteID: df72e205153ef2e4da5c395f3e723889
+      internalID: -1455464094
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_18
+      name: Goblin_Archer_18
       rect:
         serializedVersion: 2
         x: 576
@@ -496,14 +508,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 047d910b84bf69b4b8c089adbfb2f2de
-      internalID: 1450997500
+      spriteID: e25d1243fb9881543bfde8418eea6c1c
+      internalID: -807499962
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_19
+      name: Goblin_Archer_19
       rect:
         serializedVersion: 2
         x: 608
@@ -517,14 +529,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5504c6b3450bf2f4ca79b35f60d1bf84
-      internalID: -1795791729
+      spriteID: ee0443704e1b9eb419246a9db97e3bfe
+      internalID: 172516100
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_20
+      name: Goblin_Archer_20
       rect:
         serializedVersion: 2
         x: 640
@@ -538,14 +550,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c4440673c6f9814198233ee0116c643
-      internalID: -386849229
+      spriteID: 5a3699d7ca0f885409971285164fd8bf
+      internalID: -1296635324
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_21
+      name: Goblin_Archer_21
       rect:
         serializedVersion: 2
         x: 672
@@ -559,14 +571,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3da1131f1973e774da05eed093e20481
-      internalID: 1952098142
+      spriteID: 959e4fddf5b61f04bbf9a97347654a47
+      internalID: -460588575
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_22
+      name: Goblin_Archer_22
       rect:
         serializedVersion: 2
         x: 704
@@ -580,14 +592,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1fdabc8d2ea3ebe4e9ee476eba42032f
-      internalID: -1280412094
+      spriteID: ff52efd929b6d9344821d2ad1821b940
+      internalID: 1670746452
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_23
+      name: Goblin_Archer_23
       rect:
         serializedVersion: 2
         x: 736
@@ -601,14 +613,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0458badc7c352944a98dc3d66395ac80
-      internalID: -876149125
+      spriteID: 8930063f138da6f42a1ae75cdd5b63c2
+      internalID: -691524170
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_24
+      name: Goblin_Archer_24
       rect:
         serializedVersion: 2
         x: 768
@@ -622,14 +634,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d75e13fa272fd64bb2833512990e29a
-      internalID: 1203381057
+      spriteID: a5614d706d36bb74393b034624879ac7
+      internalID: -819337607
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_25
+      name: Goblin_Archer_25
       rect:
         serializedVersion: 2
         x: 800
@@ -643,14 +655,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d46689d2a053ce7449d4ab004f94bf33
-      internalID: 1872115843
+      spriteID: ae83df6e08025264995b4494a9a83f07
+      internalID: 725870365
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_26
+      name: Goblin_Archer_26
       rect:
         serializedVersion: 2
         x: 832
@@ -664,14 +676,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9825a8fb24fe01f46acca54a31fc616a
-      internalID: -384099686
+      spriteID: ca5142f70157b5740b1f3fcc26424452
+      internalID: -1039725570
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_27
+      name: Goblin_Archer_27
       rect:
         serializedVersion: 2
         x: 864
@@ -685,14 +697,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9de88640f9f9f3c4e8d1baa79fe288c1
-      internalID: -735794219
+      spriteID: a65d86f6816350d47be7e086efef81e8
+      internalID: 264806079
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_28
+      name: Goblin_Archer_28
       rect:
         serializedVersion: 2
         x: 896
@@ -706,14 +718,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f92e595e741685e4f9685436b575e77e
-      internalID: 1998226244
+      spriteID: 1e8921fd45737834fb9af490b2354198
+      internalID: -2085571399
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_29
+      name: Goblin_Archer_29
       rect:
         serializedVersion: 2
         x: 0
@@ -727,14 +739,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 512862098510b154fad9e4edb8ea89ea
-      internalID: -1702954535
+      spriteID: f44b89f548e86d14aa6b85e7e41a787f
+      internalID: -277968269
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_30
+      name: Goblin_Archer_30
       rect:
         serializedVersion: 2
         x: 32
@@ -748,14 +760,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba2f53c6511c1374b8aa8299e1f8a503
-      internalID: 1308041147
+      spriteID: e96616460f031cb42948cabe0741a9fb
+      internalID: -985396852
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_31
+      name: Goblin_Archer_31
       rect:
         serializedVersion: 2
         x: 64
@@ -769,14 +781,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4dd1b57380a30d64cb093f1e306102d3
-      internalID: 659971171
+      spriteID: 3454ce29f141ec64bac28f948a8b752c
+      internalID: -1947854913
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_32
+      name: Goblin_Archer_32
       rect:
         serializedVersion: 2
         x: 96
@@ -790,14 +802,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 27f7ada53b6bcbf4db86cec9881fe045
-      internalID: -401798992
+      spriteID: 3d4279b981bc69f44810f089addf67ae
+      internalID: 2014239073
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_33
+      name: Goblin_Archer_33
       rect:
         serializedVersion: 2
         x: 128
@@ -811,14 +823,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 97906afe51c98d642b394b0c20aa6115
-      internalID: -835349672
+      spriteID: 3e51ad2b9a557d84cb11491d2b2386e7
+      internalID: -1461623088
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_34
+      name: Goblin_Archer_34
       rect:
         serializedVersion: 2
         x: 160
@@ -832,14 +844,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d5250347e1d3064489679eb7dac2371a
-      internalID: -482057814
+      spriteID: 95d602504f3c1ca45896cb5e73630899
+      internalID: 326329583
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_35
+      name: Goblin_Archer_35
       rect:
         serializedVersion: 2
         x: 192
@@ -853,14 +865,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7fa690d25a3831540810504c0491b448
-      internalID: -732706274
+      spriteID: 4ab0f4a3fdf767547a5d0207b0ad9bd4
+      internalID: 1624635395
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_36
+      name: Goblin_Archer_36
       rect:
         serializedVersion: 2
         x: 224
@@ -874,14 +886,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 582af98fd070d6942837bc3d1cd1e2d7
-      internalID: -1025278713
+      spriteID: 960ce35215461434b84a7b9cd5b02197
+      internalID: 547687662
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_37
+      name: Goblin_Archer_37
       rect:
         serializedVersion: 2
         x: 256
@@ -895,14 +907,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e13cdaa3c14c9d438d176e532de183c
-      internalID: 326331304
+      spriteID: 5f76bf2ae3a65b642a5b5e3f9ba039fd
+      internalID: -1084654828
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_38
+      name: Goblin_Archer_38
       rect:
         serializedVersion: 2
         x: 288
@@ -916,14 +928,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff4fd3260506d94499dcd09303b447bd
-      internalID: 1456519030
+      spriteID: a8df89b77e7666448a776d457db6104c
+      internalID: -1364046942
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_39
+      name: Goblin_Archer_39
       rect:
         serializedVersion: 2
         x: 320
@@ -937,14 +949,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6aca5a5fc9f487f49a6500371a2e7c43
-      internalID: -831493722
+      spriteID: 6d5292166e7c3804494cb4d50cd74148
+      internalID: -1620443364
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_40
+      name: Goblin_Archer_40
       rect:
         serializedVersion: 2
         x: 352
@@ -958,14 +970,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 23b1a5871614312499cd78ce59acfd29
-      internalID: -1495901973
+      spriteID: c48e06c69084e5c4e9adf7957293e480
+      internalID: -1903651036
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_41
+      name: Goblin_Archer_41
       rect:
         serializedVersion: 2
         x: 384
@@ -979,14 +991,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df28eac1982715c47aad13a2d145c7f0
-      internalID: 633563478
+      spriteID: 364debeefcae66848a5c8f05206e4529
+      internalID: 1345623298
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_42
+      name: Goblin_Archer_42
       rect:
         serializedVersion: 2
         x: 416
@@ -1000,14 +1012,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: afbbe775df2af11488fcdb25141e9eac
-      internalID: -1397062834
+      spriteID: b0d4789fc421f0c4aa4487625cadf2d6
+      internalID: -1274463060
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_43
+      name: Goblin_Archer_43
       rect:
         serializedVersion: 2
         x: 448
@@ -1021,14 +1033,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 38e679de90ba017499185354b629a766
-      internalID: 1336753000
+      spriteID: f0c5684bad9f8b547be514bbf6b5ccc1
+      internalID: -1377771739
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_44
+      name: Goblin_Archer_44
       rect:
         serializedVersion: 2
         x: 480
@@ -1042,14 +1054,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f823c1f6069d5d648b6c4041bdcc13ca
-      internalID: -1432349656
+      spriteID: 9b725c1fe0651b641910a699ad805837
+      internalID: -1412819140
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_45
+      name: Goblin_Archer_45
       rect:
         serializedVersion: 2
         x: 512
@@ -1063,14 +1075,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b5e37a05f38bc640bbb1502e58734b5
-      internalID: 441406758
+      spriteID: 6b9086b75ba3fe149afed77759d8a1e3
+      internalID: -664864645
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_46
+      name: Goblin_Archer_46
       rect:
         serializedVersion: 2
         x: 544
@@ -1084,14 +1096,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68c889dc10d3bef4a967191a3d280b3c
-      internalID: -1391902570
+      spriteID: 03407db016263c443aaf6bb5a0b37ef0
+      internalID: 2031087340
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_47
+      name: Goblin_Archer_47
       rect:
         serializedVersion: 2
         x: 576
@@ -1105,14 +1117,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa098d44d8855754981782c61a2e3de6
-      internalID: -1040206653
+      spriteID: a1945e6433051ad46907d787899f4942
+      internalID: 1765044647
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_48
+      name: Goblin_Archer_48
       rect:
         serializedVersion: 2
         x: 608
@@ -1126,14 +1138,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e64c722f89fc7364b88a0bbaedc5abbe
-      internalID: 1058532423
+      spriteID: 55a6ab44f16df5247840cc13afcd2e46
+      internalID: -1638448313
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_49
+      name: Goblin_Archer_49
       rect:
         serializedVersion: 2
         x: 640
@@ -1147,14 +1159,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5834f8b7ae1ffea409ab165397865467
-      internalID: 1320004426
+      spriteID: 8af11ead3a6f41447a3e8262e14e908f
+      internalID: 1028557942
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_50
+      name: Goblin_Archer_50
       rect:
         serializedVersion: 2
         x: 672
@@ -1168,14 +1180,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c67cf4d7e10e4704faeba1aade16e5a0
-      internalID: -313800900
+      spriteID: 88b473f10af16174198dc31c9ad84aef
+      internalID: -415937332
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_51
+      name: Goblin_Archer_51
       rect:
         serializedVersion: 2
         x: 704
@@ -1189,14 +1201,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9778e444e40ed914abc8413eb7166c02
-      internalID: -411559638
+      spriteID: 063eb61d98260a547bf65cd62f41a328
+      internalID: -631305464
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_52
+      name: Goblin_Archer_52
       rect:
         serializedVersion: 2
         x: 736
@@ -1210,14 +1222,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c33b969e0c64de449c68aa6469b00f2
-      internalID: -1541722508
+      spriteID: 827e751daf207c140988d2747149446f
+      internalID: 1396337669
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_53
+      name: Goblin_Archer_53
       rect:
         serializedVersion: 2
         x: 768
@@ -1231,14 +1243,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec63abc18bb70bb4ab5af19d718c74ea
-      internalID: 2094140491
+      spriteID: 4bbff3321f14b3c4baa5f9a615b3297e
+      internalID: 2117066211
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_54
+      name: Goblin_Archer_54
       rect:
         serializedVersion: 2
         x: 800
@@ -1252,14 +1264,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b2d37c03cb0041e44aa8b2e7fa987213
-      internalID: -1975022440
+      spriteID: 4585dbc47d096ee48a7ad259f8695f82
+      internalID: -1407345700
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_55
+      name: Goblin_Archer_55
       rect:
         serializedVersion: 2
         x: 832
@@ -1273,14 +1285,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: efae3aff80c746d4eb23724d160c671d
-      internalID: -1578788119
+      spriteID: 62f8798ce966adf4abe361d7c7cab202
+      internalID: -1109576194
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_56
+      name: Goblin_Archer_56
       rect:
         serializedVersion: 2
         x: 864
@@ -1294,14 +1306,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa11ecab6e1175d428ecc6b14c60b968
-      internalID: 1051395491
+      spriteID: 12dcb9f1fc3ea314fb2ea7b434bc6717
+      internalID: 266306498
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_57
+      name: Goblin_Archer_57
       rect:
         serializedVersion: 2
         x: 896
@@ -1315,14 +1327,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 32f4f699f228bc940b763986404f9bf9
-      internalID: 1857908636
+      spriteID: b7c7c7041058f144b90733c2957f8a1c
+      internalID: 1115968704
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_58
+      name: Goblin_Archer_58
       rect:
         serializedVersion: 2
         x: 0
@@ -1336,14 +1348,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d5f532938f38164c81e14782e12a911
-      internalID: 1256805927
+      spriteID: 197223778390e3649b3f12cd70b1966c
+      internalID: -686732609
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_59
+      name: Goblin_Archer_59
       rect:
         serializedVersion: 2
         x: 32
@@ -1357,14 +1369,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 82f69fe4dccd9644bbe13bab9d8b5dea
-      internalID: 549332267
+      spriteID: 4ca647eeb5e468c49809620e2f81b1a9
+      internalID: -357946352
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_60
+      name: Goblin_Archer_60
       rect:
         serializedVersion: 2
         x: 64
@@ -1378,14 +1390,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 03f9f352009657d448eba3be80bcbfe4
-      internalID: 967489708
+      spriteID: 7a21882c4d7e10f46b0d8ff1d6a6a667
+      internalID: 832156860
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_61
+      name: Goblin_Archer_61
       rect:
         serializedVersion: 2
         x: 96
@@ -1399,14 +1411,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a92d5ec44786f2644b327b806d20f7a6
-      internalID: -1195360572
+      spriteID: 5b9508ea49aa08a4195adc0743eefada
+      internalID: 461819652
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_62
+      name: Goblin_Archer_62
       rect:
         serializedVersion: 2
         x: 128
@@ -1420,14 +1432,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca1fbd75919f0694a99176083588a653
-      internalID: 241451756
+      spriteID: 1bbcef814b5856544a2d6df3915eb9a6
+      internalID: 1684060740
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_63
+      name: Goblin_Archer_63
       rect:
         serializedVersion: 2
         x: 160
@@ -1441,14 +1453,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e82eea696826854499abf5f5a8e0c321
-      internalID: -1494526369
+      spriteID: 9b42cb8608082f743be934493c4f56f3
+      internalID: 1188644649
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_64
+      name: Goblin_Archer_64
       rect:
         serializedVersion: 2
         x: 192
@@ -1462,14 +1474,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cfebdf760fa5bc049bdfb5a3b99ad2d0
-      internalID: -1550766294
+      spriteID: 41e403c05fe7ecb4dbcdba9922ece2f5
+      internalID: -1212377566
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_65
+      name: Goblin_Archer_65
       rect:
         serializedVersion: 2
         x: 224
@@ -1483,14 +1495,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 279bcedcb19374a48a042d2816ac590e
-      internalID: 55808720
+      spriteID: 8b839805e0f45e64fb040955b49c183b
+      internalID: -1358958938
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_66
+      name: Goblin_Archer_66
       rect:
         serializedVersion: 2
         x: 256
@@ -1504,14 +1516,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 943b98faf9624df42923d430b1a711b8
-      internalID: -828696725
+      spriteID: f33cf8f9cc60a26428de74731cedf15e
+      internalID: -1877359364
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_67
+      name: Goblin_Archer_67
       rect:
         serializedVersion: 2
         x: 288
@@ -1525,14 +1537,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d468a390f1401543a6ff476bba4773b
-      internalID: -1085346031
+      spriteID: 90edf6f35ee0cbb4891ddd9d3cfc6698
+      internalID: -1641930645
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_68
+      name: Goblin_Archer_68
       rect:
         serializedVersion: 2
         x: 320
@@ -1546,14 +1558,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 573776c655b21e74eabaa4f9aa53946b
-      internalID: 697415576
+      spriteID: 581f4c2254080844180b3b0c382f23f5
+      internalID: -764277966
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_69
+      name: Goblin_Archer_69
       rect:
         serializedVersion: 2
         x: 352
@@ -1567,14 +1579,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2419373a112c4c04cb91e2b6de516dc4
-      internalID: 1200170298
+      spriteID: d4ff45734befc1c418c84528a9abf583
+      internalID: -1263759806
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_70
+      name: Goblin_Archer_70
       rect:
         serializedVersion: 2
         x: 384
@@ -1588,14 +1600,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae767cd556af14d4793b3e9c0d1fbb77
-      internalID: -569436532
+      spriteID: 45b3658fb9f82be43ab45843499615e3
+      internalID: 1688324132
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_71
+      name: Goblin_Archer_71
       rect:
         serializedVersion: 2
         x: 416
@@ -1609,14 +1621,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bb969af252d6b55429ed66a4b00526d0
-      internalID: 1590737291
+      spriteID: 584b2c7d65e4e9c47a64d74c849818fd
+      internalID: -764809516
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_72
+      name: Goblin_Archer_72
       rect:
         serializedVersion: 2
         x: 448
@@ -1630,14 +1642,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29f5ad0c291309446b874b133c981f79
-      internalID: -1484248427
+      spriteID: f5ffc3e80ff9fbc4dab908290e64532a
+      internalID: -946671486
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_73
+      name: Goblin_Archer_73
       rect:
         serializedVersion: 2
         x: 480
@@ -1651,14 +1663,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a184791d143797a44aec9cd06a790121
-      internalID: -963314031
+      spriteID: 082da3ca85642614e882e9763752f9f1
+      internalID: -297619571
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_74
+      name: Goblin_Archer_74
       rect:
         serializedVersion: 2
         x: 512
@@ -1672,14 +1684,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9fc05093b64ce164a8e9c5331cd5c83f
-      internalID: 963942797
+      spriteID: 0028be5cb032a4649b2c00244efb75ca
+      internalID: -1957821990
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_75
+      name: Goblin_Archer_75
       rect:
         serializedVersion: 2
         x: 544
@@ -1693,14 +1705,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17f27599e068b624c92bcb2c546b69de
-      internalID: -1572506934
+      spriteID: 7730e52d5b0e07748b1000bbc26d5c52
+      internalID: 614172970
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_76
+      name: Goblin_Archer_76
       rect:
         serializedVersion: 2
         x: 576
@@ -1714,14 +1726,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 028c14e88ee469949a4c7b165d56f8e7
-      internalID: -1317199272
+      spriteID: 0281229ed0f0aee429b34d59da0b35ee
+      internalID: -261795790
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_77
+      name: Goblin_Archer_77
       rect:
         serializedVersion: 2
         x: 608
@@ -1735,14 +1747,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0eed80e94fa787f4abae17960fefe221
-      internalID: 1132202198
+      spriteID: 05bc7abcc3a35fb469eeb33a274b58e1
+      internalID: -1527537968
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_78
+      name: Goblin_Archer_78
       rect:
         serializedVersion: 2
         x: 640
@@ -1756,14 +1768,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0154ad4f7752ef4a89c56e457373dca
-      internalID: -1775998021
+      spriteID: 57fd81e371a6cb74c826781b82c971ed
+      internalID: 576696594
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_79
+      name: Goblin_Archer_79
       rect:
         serializedVersion: 2
         x: 672
@@ -1777,14 +1789,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: afcde276e729f0c4db60f831b3cb4570
-      internalID: -116838442
+      spriteID: a413ceebcabd41749974c1dd38d887bf
+      internalID: 1121911232
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_80
+      name: Goblin_Archer_80
       rect:
         serializedVersion: 2
         x: 704
@@ -1798,14 +1810,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b4cde5ef5cb26b249874f9f8478fa13a
-      internalID: 1858169339
+      spriteID: 081ceb7520043eb48b607ea98036f982
+      internalID: -1786093134
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_81
+      name: Goblin_Archer_81
       rect:
         serializedVersion: 2
         x: 736
@@ -1819,14 +1831,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f94583ca417a4fc49b7aa955e8aa2770
-      internalID: -97825292
+      spriteID: 4e3945c1dfbc5f142b399a9e56af5f7e
+      internalID: 2013322206
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_82
+      name: Goblin_Archer_82
       rect:
         serializedVersion: 2
         x: 768
@@ -1840,14 +1852,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68bb9c2e79d08f6468b9a062ae739c05
-      internalID: 1112349389
+      spriteID: 86774b616011bd8478850481bed43f2f
+      internalID: -754341418
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_83
+      name: Goblin_Archer_83
       rect:
         serializedVersion: 2
         x: 800
@@ -1861,14 +1873,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 340ea4205b87540409c1c85a52d753ac
-      internalID: 494898007
+      spriteID: fadce23951f58f844ac50c84c880ea35
+      internalID: -1156768738
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_84
+      name: Goblin_Archer_84
       rect:
         serializedVersion: 2
         x: 832
@@ -1882,14 +1894,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 675e1be965b576c408d18e065847420f
-      internalID: 1312018925
+      spriteID: 5ec9dafc4108b54438a1889317b357d6
+      internalID: 2796667
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_85
+      name: Goblin_Archer_85
       rect:
         serializedVersion: 2
         x: 864
@@ -1903,14 +1915,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 50ea708efa8b1614ab692de366dbf431
-      internalID: -1420214182
+      spriteID: 2b4a0899e8c79104d8c51ec1bdf75ffb
+      internalID: -2040525890
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_86
+      name: Goblin_Archer_86
       rect:
         serializedVersion: 2
         x: 896
@@ -1924,14 +1936,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 534dd238900f87544ae47cb4d6609a24
-      internalID: 1373275169
+      spriteID: 6df19e9f30d615743bbf057f149477f6
+      internalID: 824239299
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_87
+      name: Goblin_Archer_87
       rect:
         serializedVersion: 2
         x: 0
@@ -1945,14 +1957,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68b27ac656831914eab207d615af094b
-      internalID: -975917476
+      spriteID: 6497e53c18f35fa43803802a379027fc
+      internalID: 349268915
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_88
+      name: Goblin_Archer_88
       rect:
         serializedVersion: 2
         x: 32
@@ -1966,14 +1978,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d7fbd72db3ebe045a803a811392c766
-      internalID: 314205797
+      spriteID: a4fe904a596addc408bcc70be7b4f14b
+      internalID: 1263847569
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_89
+      name: Goblin_Archer_89
       rect:
         serializedVersion: 2
         x: 64
@@ -1987,14 +1999,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4842c7982c2e29c48856e78a87e86669
-      internalID: 1049864582
+      spriteID: e8090abd081e41b4480b37f3ad346d70
+      internalID: -1806633816
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_90
+      name: Goblin_Archer_90
       rect:
         serializedVersion: 2
         x: 96
@@ -2008,14 +2020,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 24dcba6853f648845ae9ac549461af9a
-      internalID: -313167993
+      spriteID: 68becb41ab3950549908a620788708d2
+      internalID: 1397454174
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_91
+      name: Goblin_Archer_91
       rect:
         serializedVersion: 2
         x: 128
@@ -2029,14 +2041,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6045a38c43023054f99722d6cd2efec4
-      internalID: -995566187
+      spriteID: 98a51c8cd1141834f82eb586e8d8954e
+      internalID: 116954901
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_92
+      name: Goblin_Archer_92
       rect:
         serializedVersion: 2
         x: 160
@@ -2050,14 +2062,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca4e20d72ac840b44913cb54da1afcad
-      internalID: 384307527
+      spriteID: ec215c7ed992cc94c8ec5691b3ff1a79
+      internalID: 156460348
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_93
+      name: Goblin_Archer_93
       rect:
         serializedVersion: 2
         x: 192
@@ -2071,14 +2083,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f52bdf07da99f9044b20a72f00896dd5
-      internalID: 67185194
+      spriteID: b1b8bec8376a934408e83ac3ef5591c5
+      internalID: 1847768818
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_94
+      name: Goblin_Archer_94
       rect:
         serializedVersion: 2
         x: 224
@@ -2092,14 +2104,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 51577834d81369a4a91ab1c81060a604
-      internalID: 1196382591
+      spriteID: 2f759727471b4404c8bf096627a44a37
+      internalID: -295646768
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_95
+      name: Goblin_Archer_95
       rect:
         serializedVersion: 2
         x: 256
@@ -2113,14 +2125,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a51a94eda3b0fb40b7d27d55985262a
-      internalID: 1450685572
+      spriteID: 597a9e0dd55eecf4b802eb110a0f2cdd
+      internalID: -778320309
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_96
+      name: Goblin_Archer_96
       rect:
         serializedVersion: 2
         x: 288
@@ -2134,14 +2146,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 87c2d29b9248b8447b7d32d9a1503260
-      internalID: 603605464
+      spriteID: 501838f6e091ae448bdd37e3309b0596
+      internalID: 1118655996
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_97
+      name: Goblin_Archer_97
       rect:
         serializedVersion: 2
         x: 320
@@ -2155,14 +2167,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 451e564beb26a214db212dd0b99d19dc
-      internalID: 1587832024
+      spriteID: 38c7f545813249749b49be9f8d65e18e
+      internalID: -1832076710
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_98
+      name: Goblin_Archer_98
       rect:
         serializedVersion: 2
         x: 352
@@ -2176,14 +2188,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 79a9697d73cbf4b40984e96633d8c05f
-      internalID: -1711046401
+      spriteID: 5e40ed08eff475344a99de3d31f258d8
+      internalID: 389861272
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_99
+      name: Goblin_Archer_99
       rect:
         serializedVersion: 2
         x: 384
@@ -2197,14 +2209,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd90a4673dd071a4c986d020a6fea479
-      internalID: -1514015604
+      spriteID: 897a534fec83ecc4ebc768da77bea67d
+      internalID: 2038958135
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_100
+      name: Goblin_Archer_100
       rect:
         serializedVersion: 2
         x: 416
@@ -2218,14 +2230,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1ff4743728b67924eb5561b80dc53e17
-      internalID: 204235257
+      spriteID: e0f2730fd22b42049a87874f8860e142
+      internalID: 1725348342
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_101
+      name: Goblin_Archer_101
       rect:
         serializedVersion: 2
         x: 448
@@ -2239,14 +2251,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc1a2945d165fa749b5009851f1c65fb
-      internalID: 665352582
+      spriteID: 9d864b911c31f6c48b17aebed70ebca0
+      internalID: 703090977
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_102
+      name: Goblin_Archer_102
       rect:
         serializedVersion: 2
         x: 480
@@ -2260,14 +2272,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a625dbc1b1899e42a2b899a1b9c67e2
-      internalID: 448521258
+      spriteID: 883acb92b96d51943b133ad398205093
+      internalID: 2080282397
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_103
+      name: Goblin_Archer_103
       rect:
         serializedVersion: 2
         x: 512
@@ -2281,14 +2293,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 141c65b630d007d4b9189fd966e46ccc
-      internalID: -744325137
+      spriteID: 2a8ec4ef65ccca94e9319ef22928480a
+      internalID: 1774518760
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_104
+      name: Goblin_Archer_104
       rect:
         serializedVersion: 2
         x: 544
@@ -2302,14 +2314,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 976552c5c54833a4c9c6f40abb5dd7d0
-      internalID: 378248286
+      spriteID: abed76e0471c68d478b1219b58831171
+      internalID: -164269520
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_105
+      name: Goblin_Archer_105
       rect:
         serializedVersion: 2
         x: 576
@@ -2323,14 +2335,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 96e2110769990d344bd023b0cc9748ca
-      internalID: -2038596485
+      spriteID: 7b494a75494c00346b813a9a3be27568
+      internalID: -496882798
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_106
+      name: Goblin_Archer_106
       rect:
         serializedVersion: 2
         x: 608
@@ -2344,14 +2356,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa0ddef798132b34c972a4626287ea2d
-      internalID: 1914503729
+      spriteID: 796a0898b4e51404399c79f3d611ce99
+      internalID: -23957446
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_107
+      name: Goblin_Archer_107
       rect:
         serializedVersion: 2
         x: 640
@@ -2365,14 +2377,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f9adfc4f137302948b930306a45b411f
-      internalID: -1611775536
+      spriteID: e972fd792e3c09a4485b159c9c848941
+      internalID: -930428647
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_108
+      name: Goblin_Archer_108
       rect:
         serializedVersion: 2
         x: 672
@@ -2386,14 +2398,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74f0f859bb883434585c964fbe86e546
-      internalID: 1034542858
+      spriteID: f43662a0d2b83fc40955957014da6c3a
+      internalID: -1555541041
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_109
+      name: Goblin_Archer_109
       rect:
         serializedVersion: 2
         x: 704
@@ -2407,14 +2419,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 79f58ecf2c5d0b740ae30f2df1542d97
-      internalID: -1828979730
+      spriteID: 79c574bfbedee8144b4053f3b7cb7fd2
+      internalID: 1009456031
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_110
+      name: Goblin_Archer_110
       rect:
         serializedVersion: 2
         x: 736
@@ -2428,14 +2440,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd0ffa12c6c6cb249bc3b40b822bf845
-      internalID: -1184463392
+      spriteID: 55ab9afcd441ad7499b0b2d141328971
+      internalID: 341976421
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_111
+      name: Goblin_Archer_111
       rect:
         serializedVersion: 2
         x: 768
@@ -2449,14 +2461,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eabb1439c2fa4af4a9ad78583c8cd681
-      internalID: 1024280267
+      spriteID: da90466cbacf6f5469fc9db3492ea958
+      internalID: -721918104
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_112
+      name: Goblin_Archer_112
       rect:
         serializedVersion: 2
         x: 800
@@ -2470,14 +2482,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dbf41c196513a5c4e963ec57304d5fbe
-      internalID: 1139570170
+      spriteID: 9b9dcb13b5a3e71498e80d29d446337b
+      internalID: -1774776914
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_113
+      name: Goblin_Archer_113
       rect:
         serializedVersion: 2
         x: 832
@@ -2491,14 +2503,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b339a50773e6eed45ae5435bc02ac03f
-      internalID: -328542427
+      spriteID: 5dcf3730c43e7a043b5e9ad8fc378ca2
+      internalID: -892176115
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_114
+      name: Goblin_Archer_114
       rect:
         serializedVersion: 2
         x: 864
@@ -2512,14 +2524,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 56c4088ea9de23846ad2a8095e3e9cb8
-      internalID: -540344736
+      spriteID: c8f26926e0305e7418c98301c1bbb61a
+      internalID: 236188915
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_115
+      name: Goblin_Archer_115
       rect:
         serializedVersion: 2
         x: 896
@@ -2533,14 +2545,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f350146cec2d12248a248a103bc9fa48
-      internalID: 342481550
+      spriteID: bab469edcdf2cf14a9a02a6f038e3df9
+      internalID: 1632797785
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_116
+      name: Goblin_Archer_116
       rect:
         serializedVersion: 2
         x: 0
@@ -2554,14 +2566,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25368e206276c26488ea5095758a140b
-      internalID: -906455981
+      spriteID: f7abc583d26bc244bb3fbf848b58f067
+      internalID: 13152993
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_117
+      name: Goblin_Archer_117
       rect:
         serializedVersion: 2
         x: 32
@@ -2575,14 +2587,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7738a7caeeb334042b2c32ae28184f43
-      internalID: -875370763
+      spriteID: 1828331bb8207f74c8b65e279abf6c63
+      internalID: -615996941
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_118
+      name: Goblin_Archer_118
       rect:
         serializedVersion: 2
         x: 64
@@ -2596,14 +2608,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 95149c378b8d2074ba713cffcaa21944
-      internalID: -1941131866
+      spriteID: a92bb4a70807ff140992ee2d7939f350
+      internalID: 1294501349
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_119
+      name: Goblin_Archer_119
       rect:
         serializedVersion: 2
         x: 96
@@ -2617,14 +2629,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d27b16dfa524369468665768df8c26f1
-      internalID: 489903808
+      spriteID: 826b580644518f9438b1233026fffe45
+      internalID: 1142542129
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_120
+      name: Goblin_Archer_120
       rect:
         serializedVersion: 2
         x: 128
@@ -2638,14 +2650,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5db8e929c706d8548973357b62c05633
-      internalID: -787776837
+      spriteID: 7d54729e606ae4b4cb8ddc9a3460b62e
+      internalID: -476304398
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_121
+      name: Goblin_Archer_121
       rect:
         serializedVersion: 2
         x: 160
@@ -2659,14 +2671,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba8fa3f73533ee84a9986ee45a7c695b
-      internalID: 149345659
+      spriteID: 02d63b10f592c224eb87e46b25ebc445
+      internalID: 1363399099
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_122
+      name: Goblin_Archer_122
       rect:
         serializedVersion: 2
         x: 192
@@ -2680,14 +2692,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c4d0cd415ff641d4d9bf0c76701d2d0c
-      internalID: -612551057
+      spriteID: 2bb34e5e09bf3444a961a5411228ac1d
+      internalID: -663515767
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_123
+      name: Goblin_Archer_123
       rect:
         serializedVersion: 2
         x: 224
@@ -2701,14 +2713,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d7da434f5cd65a94c977a520d833b007
-      internalID: -1475583299
+      spriteID: 44474f89af3e8444ab6852a8a56b95c6
+      internalID: -1719022778
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_124
+      name: Goblin_Archer_124
       rect:
         serializedVersion: 2
         x: 256
@@ -2722,14 +2734,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cbc4a143a05f7414aa94e1f5c2552321
-      internalID: -784562632
+      spriteID: 86417d008ab548642af677b0785f568d
+      internalID: -983337123
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_125
+      name: Goblin_Archer_125
       rect:
         serializedVersion: 2
         x: 288
@@ -2743,14 +2755,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf038006c791a9b44ab2f8c9df363a50
-      internalID: -64000998
+      spriteID: bbcd73b1ff0482c4ba6639b862cef1eb
+      internalID: -858628087
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_126
+      name: Goblin_Archer_126
       rect:
         serializedVersion: 2
         x: 320
@@ -2764,14 +2776,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df2621f07fd7ac44290a9eec453079ce
-      internalID: 1034750496
+      spriteID: 1bfdf8d99ef6b6f4ead4e9a2f4fcf4e5
+      internalID: 1166421101
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_127
+      name: Goblin_Archer_127
       rect:
         serializedVersion: 2
         x: 352
@@ -2785,14 +2797,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9969b8d1a5ff3de438da7c5d4345d225
-      internalID: 1071550564
+      spriteID: 95598f21043a42946a96b60cc55bbdcc
+      internalID: 1155568039
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_128
+      name: Goblin_Archer_128
       rect:
         serializedVersion: 2
         x: 384
@@ -2806,14 +2818,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa4c98f4a061ec34a9b3658346e61bc9
-      internalID: 621710567
+      spriteID: 8b8a08b0ebb294f4ab9a6ff798a29264
+      internalID: -595911539
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_129
+      name: Goblin_Archer_129
       rect:
         serializedVersion: 2
         x: 416
@@ -2827,14 +2839,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 16182bffc335cc44988a39632b801ad8
-      internalID: 1333651638
+      spriteID: c5c0a86ad6e4c544098f731edb535820
+      internalID: -1218001916
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_130
+      name: Goblin_Archer_130
       rect:
         serializedVersion: 2
         x: 448
@@ -2848,14 +2860,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f08565f1e42e1c49b6508c07ee569fe
-      internalID: -693675911
+      spriteID: 9354336b63eb39142a509b5bd9dfcd67
+      internalID: -293324020
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_131
+      name: Goblin_Archer_131
       rect:
         serializedVersion: 2
         x: 480
@@ -2869,14 +2881,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 403a4c6d0dde13a45906d1f9ee5da047
-      internalID: -2147107997
+      spriteID: 24d209cd1061ed742852082baa167439
+      internalID: 1049182163
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_132
+      name: Goblin_Archer_132
       rect:
         serializedVersion: 2
         x: 512
@@ -2890,14 +2902,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 188447dcb6292944189f83f0649f474f
-      internalID: 928646437
+      spriteID: 3c0cb3b4c520b1846985cf19a727a152
+      internalID: 1356258863
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_133
+      name: Goblin_Archer_133
       rect:
         serializedVersion: 2
         x: 544
@@ -2911,14 +2923,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f962f38cca64c04980af9ee78a6f7fa
-      internalID: -1356016679
+      spriteID: 7d0bcdce78cfd32438f280fe7d909e1e
+      internalID: -1485841372
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_134
+      name: Goblin_Archer_134
       rect:
         serializedVersion: 2
         x: 576
@@ -2932,14 +2944,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e3d0cc7e2fe0f941908521bf146dce2
-      internalID: -52073704
+      spriteID: 1daad8a5fd24f824dbf564dc5bf09a7a
+      internalID: -1471644402
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_135
+      name: Goblin_Archer_135
       rect:
         serializedVersion: 2
         x: 608
@@ -2953,14 +2965,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c4f9791aa2c334746a2bfdfdd838fe85
-      internalID: -1960130955
+      spriteID: 84892ad403837ec479a1bf86f541e0c2
+      internalID: 1965148348
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_136
+      name: Goblin_Archer_136
       rect:
         serializedVersion: 2
         x: 640
@@ -2974,14 +2986,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fcdf53712fde774469c9a31005df581f
-      internalID: -1699556353
+      spriteID: 8a36f2ad776859946ab88249ea6fe009
+      internalID: 1834814463
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_137
+      name: Goblin_Archer_137
       rect:
         serializedVersion: 2
         x: 672
@@ -2995,14 +3007,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69ee95a088862ee419f6480c3786f6a0
-      internalID: -1682495312
+      spriteID: 89cf6fee8dfd89c4482203ac2e3010fa
+      internalID: 1991082742
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_138
+      name: Goblin_Archer_138
       rect:
         serializedVersion: 2
         x: 704
@@ -3016,14 +3028,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7b2f9440397e3044ba51aab1fc26b32c
-      internalID: -991694600
+      spriteID: 5468986f1b040ae489214d0b361089de
+      internalID: -413098709
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_139
+      name: Goblin_Archer_139
       rect:
         serializedVersion: 2
         x: 736
@@ -3037,14 +3049,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 712fe2c577b8caa4285b73fdfd508771
-      internalID: -875082231
+      spriteID: 23611234e97685b4d97afc3d38ccae6b
+      internalID: -1860397626
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_140
+      name: Goblin_Archer_140
       rect:
         serializedVersion: 2
         x: 768
@@ -3058,14 +3070,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 413393c9bda2dd84a8553a0bf55cd19e
-      internalID: 1443110746
+      spriteID: 57e7202c5a99670459e1cb54e9f24f9e
+      internalID: 409560579
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_141
+      name: Goblin_Archer_141
       rect:
         serializedVersion: 2
         x: 800
@@ -3079,14 +3091,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ff9fe0071b180c49b20aaabc7b2336a
-      internalID: 1667437824
+      spriteID: 55c4347718c25f5499b09ce08ae2928e
+      internalID: 185590493
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_142
+      name: Goblin_Archer_142
       rect:
         serializedVersion: 2
         x: 832
@@ -3100,14 +3112,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91dd54dcbac36854ba7383a9eac8ceb8
-      internalID: -1522687945
+      spriteID: 3d212cdc0cd3c8c40b21ca88373314b5
+      internalID: 1329800588
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_143
+      name: Goblin_Archer_143
       rect:
         serializedVersion: 2
         x: 864
@@ -3121,14 +3133,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c546c66af8dbc9f428908d2f1698c44f
-      internalID: 39057632
+      spriteID: 85d71df51cb789740b35dcbe84559d7f
+      internalID: -1837981799
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_144
+      name: Goblin_Archer_144
       rect:
         serializedVersion: 2
         x: 896
@@ -3142,14 +3154,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cf1b603e77b60aa46a8803f9ceda80a8
-      internalID: 607247081
+      spriteID: 8d34b719ff7dd1448bb060c8f483ba77
+      internalID: 133719240
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_145
+      name: Goblin_Archer_145
       rect:
         serializedVersion: 2
         x: 0
@@ -3163,14 +3175,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4380acaef266ae740a5fa17528b1b5d4
-      internalID: -1536685215
+      spriteID: 036b94ff165bd51478e8158dab03ba67
+      internalID: -644883544
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_146
+      name: Goblin_Archer_146
       rect:
         serializedVersion: 2
         x: 32
@@ -3184,14 +3196,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 451d2f09a83308f42b2257f5bdc53001
-      internalID: 2121721903
+      spriteID: 11103fb36407a1a42a2eeaf4a4d70e5c
+      internalID: -120798573
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_147
+      name: Goblin_Archer_147
       rect:
         serializedVersion: 2
         x: 64
@@ -3205,14 +3217,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5cbe7ae17317030438236d8962e6e4a6
-      internalID: 918128703
+      spriteID: d788517d7513f7d419490fafce28e6b4
+      internalID: 1341030423
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_148
+      name: Goblin_Archer_148
       rect:
         serializedVersion: 2
         x: 96
@@ -3226,14 +3238,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e55f61d2aafad1459b54129a0fe7017
-      internalID: 465203715
+      spriteID: d79b447f53dc4b741adc458565aa68c6
+      internalID: 643417967
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_149
+      name: Goblin_Archer_149
       rect:
         serializedVersion: 2
         x: 128
@@ -3247,14 +3259,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c9c553d3d9210c1438c474c2c7bff61b
-      internalID: -1832273958
+      spriteID: 4ea43314edb8c2c498caf8c675ddf689
+      internalID: 962203416
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_150
+      name: Goblin_Archer_150
       rect:
         serializedVersion: 2
         x: 160
@@ -3268,14 +3280,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 230537288e107c84c9c0c7ea54925fec
-      internalID: 48957547
+      spriteID: b18faa68c9b66d84fa60972fd3abf9eb
+      internalID: 1379338389
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_151
+      name: Goblin_Archer_151
       rect:
         serializedVersion: 2
         x: 192
@@ -3289,14 +3301,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 417cd4eaa3648ae4d8504749bd3b5ccb
-      internalID: 1801006580
+      spriteID: ccada6a0e54c96d45a0112e8bec4c34b
+      internalID: 1079309784
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_152
+      name: Goblin_Archer_152
       rect:
         serializedVersion: 2
         x: 224
@@ -3310,14 +3322,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 73d599ab6c22c694eb86ab8e2c672472
-      internalID: -502366359
+      spriteID: 562b903660f2684489e82b8c7360a332
+      internalID: -1583433552
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_153
+      name: Goblin_Archer_153
       rect:
         serializedVersion: 2
         x: 256
@@ -3331,14 +3343,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e40d5f84994e3924da4deec8c9e4346b
-      internalID: 1600087722
+      spriteID: 532fe6be6e6cb42419df82ccf3b0a566
+      internalID: -1785055603
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_154
+      name: Goblin_Archer_154
       rect:
         serializedVersion: 2
         x: 288
@@ -3352,14 +3364,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0af3e27350743ce449ce37e14ca8b1a1
-      internalID: -956069323
+      spriteID: 95c41fe83244b8240adc3838d0ad05d3
+      internalID: 986384379
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_155
+      name: Goblin_Archer_155
       rect:
         serializedVersion: 2
         x: 320
@@ -3373,14 +3385,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ded0590cacd991e4a90bbd2bf6dce035
-      internalID: -1698515786
+      spriteID: 5b3225dd8beb2754f9da11e5fbdf27d8
+      internalID: -820808995
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_156
+      name: Goblin_Archer_156
       rect:
         serializedVersion: 2
         x: 352
@@ -3394,14 +3406,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: acf18ea5a4839d945a9a9cce138d138e
-      internalID: -1922262312
+      spriteID: a77fc64f14aea024182062273b6dfb33
+      internalID: 1037055853
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_157
+      name: Goblin_Archer_157
       rect:
         serializedVersion: 2
         x: 384
@@ -3415,14 +3427,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ccda7cbb640effa40bee3b3f31e8b9d8
-      internalID: 1534744425
+      spriteID: b15e0d823444d3a488509fd98ae16d93
+      internalID: 1790626748
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_158
+      name: Goblin_Archer_158
       rect:
         serializedVersion: 2
         x: 416
@@ -3436,14 +3448,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b25bbb82a0df55140bf134bf890e4446
-      internalID: 56360709
+      spriteID: 1415447c1afc58c42b1984e3e736c423
+      internalID: 760035336
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_159
+      name: Goblin_Archer_159
       rect:
         serializedVersion: 2
         x: 448
@@ -3457,14 +3469,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bebd88ca0644f834384bb9eded0b4504
-      internalID: 17813278
+      spriteID: 62a1a03bd1905f444bc87b611297718c
+      internalID: -680217690
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_160
+      name: Goblin_Archer_160
       rect:
         serializedVersion: 2
         x: 480
@@ -3478,14 +3490,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 70a44afd63206f34eb3b926d0398bfd9
-      internalID: -382649733
+      spriteID: 7801a2da873aa0a4d80698468899416b
+      internalID: -1428934454
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_161
+      name: Goblin_Archer_161
       rect:
         serializedVersion: 2
         x: 512
@@ -3499,14 +3511,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab5b78cd5b49e044197b04a2e5b62cd4
-      internalID: 1473102556
+      spriteID: 7cfdced9b52af4b48abccb93c6f627de
+      internalID: 2115928356
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_162
+      name: Goblin_Archer_162
       rect:
         serializedVersion: 2
         x: 544
@@ -3520,14 +3532,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d580074702ff40c479378e726fc2fccd
-      internalID: 1234134492
+      spriteID: 82c7cff12eb030f4fb8dcddb77a8be13
+      internalID: -688621234
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_163
+      name: Goblin_Archer_163
       rect:
         serializedVersion: 2
         x: 576
@@ -3541,14 +3553,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 290eebfbca1f0844ab17b9001f6165d0
-      internalID: -243007275
+      spriteID: 145ed48b02648e64b9a95981070144ee
+      internalID: 39315354
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_164
+      name: Goblin_Archer_164
       rect:
         serializedVersion: 2
         x: 608
@@ -3562,14 +3574,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29f1641ed496b674099800a7ad6a251c
-      internalID: 1454423989
+      spriteID: cbbc27ee34bb3d94e8e59908390711de
+      internalID: 1373803066
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_165
+      name: Goblin_Archer_165
       rect:
         serializedVersion: 2
         x: 640
@@ -3583,14 +3595,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f50f0cbaf4efbf4d94edc7e1d4d6305
-      internalID: 1859708228
+      spriteID: b8183538277f75b40bfc6c117cd62fd9
+      internalID: 39433362
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_166
+      name: Goblin_Archer_166
       rect:
         serializedVersion: 2
         x: 672
@@ -3604,14 +3616,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce879031cbfce1a42a9a3154bcbeecfa
-      internalID: 2141360561
+      spriteID: 45c46135bdd553c4ead05206243d3046
+      internalID: 688487899
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_167
+      name: Goblin_Archer_167
       rect:
         serializedVersion: 2
         x: 704
@@ -3625,14 +3637,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0cdbf545b85361e449c488ab270ef69d
-      internalID: 1755450093
+      spriteID: f07ee613c4cda5e47b230e427a4af705
+      internalID: -602420797
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_168
+      name: Goblin_Archer_168
       rect:
         serializedVersion: 2
         x: 736
@@ -3646,14 +3658,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee76f40ffc77ae044bdd6c702fd62501
-      internalID: -1514391537
+      spriteID: 93fca99e24b7b48419eb3669ec4faab6
+      internalID: -546205652
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_169
+      name: Goblin_Archer_169
       rect:
         serializedVersion: 2
         x: 768
@@ -3667,14 +3679,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0da6ca0782aa0cd4e83786cb6962d0d0
-      internalID: -735752888
+      spriteID: 45d7818baea8c1844ad6612b7ba7b501
+      internalID: 668250493
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_170
+      name: Goblin_Archer_170
       rect:
         serializedVersion: 2
         x: 800
@@ -3688,14 +3700,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a358165b62f0924980e9ceec09bbc89
-      internalID: 1841243394
+      spriteID: b87bb7159a71e01469d6d6560024ea71
+      internalID: 598395416
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_171
+      name: Goblin_Archer_171
       rect:
         serializedVersion: 2
         x: 832
@@ -3709,14 +3721,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b976630d6d5447941b5c15a16033221e
-      internalID: -351919630
+      spriteID: 81621f6d36a8c2d4495f4557de12b96b
+      internalID: 1673884514
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_172
+      name: Goblin_Archer_172
       rect:
         serializedVersion: 2
         x: 864
@@ -3730,14 +3742,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 23ec2a13a17967346aad48ab63120e61
-      internalID: 1748861768
+      spriteID: 7099eded3ae51904cb62cc72f2897d22
+      internalID: 1615225723
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_173
+      name: Goblin_Archer_173
       rect:
         serializedVersion: 2
         x: 896
@@ -3751,14 +3763,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ce38a867363f1449b1508141ee22fe9
-      internalID: 1682941350
+      spriteID: d74ad27fecee9f44390292b42566eb72
+      internalID: 1026283146
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_174
+      name: Goblin_Archer_174
       rect:
         serializedVersion: 2
         x: 0
@@ -3772,14 +3784,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e1d8886f0219da1498a30e97104fa78b
-      internalID: -676273350
+      spriteID: 897ef233535bdd9408740fd77ca915df
+      internalID: 1057638226
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_175
+      name: Goblin_Archer_175
       rect:
         serializedVersion: 2
         x: 32
@@ -3793,14 +3805,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a0369b848e33cd49b9c887205b8b09f
-      internalID: -779086395
+      spriteID: aae14f0e58634574ab6088d127330180
+      internalID: -511641793
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_176
+      name: Goblin_Archer_176
       rect:
         serializedVersion: 2
         x: 64
@@ -3814,14 +3826,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab71ec5c6da34554284af0502645b50e
-      internalID: -194835780
+      spriteID: 111a49b2fd93f514f91d2332941f9a0a
+      internalID: -1670865784
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_177
+      name: Goblin_Archer_177
       rect:
         serializedVersion: 2
         x: 96
@@ -3835,14 +3847,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 26295a5c06dc160488f72daed41b501f
-      internalID: 1638600159
+      spriteID: 06240251548e90242aa77c6cec6bf55e
+      internalID: -1257765847
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_178
+      name: Goblin_Archer_178
       rect:
         serializedVersion: 2
         x: 128
@@ -3856,14 +3868,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b8a78d99561b42429a6093294d62dd5
-      internalID: 1497545927
+      spriteID: aefb1b29d59dd0d47b19fb958def39ac
+      internalID: 294718316
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_179
+      name: Goblin_Archer_179
       rect:
         serializedVersion: 2
         x: 160
@@ -3877,14 +3889,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0db368cb5ed12a0488f76a62f2d40fc3
-      internalID: 598066442
+      spriteID: b0233910d2e72e44db6ded694ec63361
+      internalID: -281191105
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_180
+      name: Goblin_Archer_180
       rect:
         serializedVersion: 2
         x: 192
@@ -3898,14 +3910,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e129cb91ffcc634a9eca357b7157ea2
-      internalID: 1853192175
+      spriteID: d6fc1dc530836ab4caef95aad914af8b
+      internalID: -2054745653
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_181
+      name: Goblin_Archer_181
       rect:
         serializedVersion: 2
         x: 224
@@ -3919,14 +3931,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81c926dfe0d8c3343b4007877d858910
-      internalID: -1455567874
+      spriteID: 439a362cd901b084baeb77a05ff4615e
+      internalID: -1140095613
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_182
+      name: Goblin_Archer_182
       rect:
         serializedVersion: 2
         x: 256
@@ -3940,14 +3952,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 394222596690ff740a8d444c7cccf15a
-      internalID: 730417950
+      spriteID: 6b7c30ce96335cb40abefede2a7234bd
+      internalID: 689537261
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_183
+      name: Goblin_Archer_183
       rect:
         serializedVersion: 2
         x: 288
@@ -3961,14 +3973,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d505431bf2ae4643aef891885a5cc96
-      internalID: 1721080689
+      spriteID: d64a13708e62a404ca0bfe87d9d9bc06
+      internalID: -28234160
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_184
+      name: Goblin_Archer_184
       rect:
         serializedVersion: 2
         x: 320
@@ -3982,14 +3994,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e461c95f5ef49746acf6461d04e99c7
-      internalID: 36347353
+      spriteID: 3ff26e796dc0b6741969f0fe74e535bf
+      internalID: 1137967915
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_185
+      name: Goblin_Archer_185
       rect:
         serializedVersion: 2
         x: 352
@@ -4003,14 +4015,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f6b1ee2922a40b242a2cc7a61e92b562
-      internalID: -351318782
+      spriteID: 55793ceb1d2e5f2478b2c8de984e70bb
+      internalID: -611895086
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_186
+      name: Goblin_Archer_186
       rect:
         serializedVersion: 2
         x: 384
@@ -4024,14 +4036,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 873e499ccd58e234ca33d666fe896028
-      internalID: -1792393065
+      spriteID: 134ced08af32d2c4e9ea3a14d5390c18
+      internalID: -1134235556
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_187
+      name: Goblin_Archer_187
       rect:
         serializedVersion: 2
         x: 416
@@ -4045,14 +4057,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e036dbbe672ed894699e49c1e49f34d3
-      internalID: 115755536
+      spriteID: 14b70abc1d22aa342934ac84abb992c0
+      internalID: 1207391068
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_188
+      name: Goblin_Archer_188
       rect:
         serializedVersion: 2
         x: 448
@@ -4066,14 +4078,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 623d4044fe513254c8c513301b06ac81
-      internalID: -371108292
+      spriteID: d5d66145a1f5e8642bc20106021817a8
+      internalID: 248201937
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_189
+      name: Goblin_Archer_189
       rect:
         serializedVersion: 2
         x: 480
@@ -4087,14 +4099,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b30a0b465b551d469171f44edc31edd
-      internalID: 1466781336
+      spriteID: 4f03552c3b92c4b4a98a5036fefd6eac
+      internalID: -1443348910
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_190
+      name: Goblin_Archer_190
       rect:
         serializedVersion: 2
         x: 512
@@ -4108,14 +4120,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 48ff34178a2ac7749aa44e6bf4d942f6
-      internalID: -1321674034
+      spriteID: c9c473d91ae4067488b4c0f8299ab703
+      internalID: 626263167
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_191
+      name: Goblin_Archer_191
       rect:
         serializedVersion: 2
         x: 544
@@ -4129,14 +4141,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 62d4d8a2c3c0e8d42a35d09efbea8193
-      internalID: 569173463
+      spriteID: 8a771a8cf47b0a14ab2a898bb04dbc15
+      internalID: -180363994
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_192
+      name: Goblin_Archer_192
       rect:
         serializedVersion: 2
         x: 576
@@ -4150,14 +4162,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 61c53adbb5a4fb74e89a50a38d44b9f3
-      internalID: -1389994213
+      spriteID: ba946ad8dbe9f0c4a9de677ed4741d40
+      internalID: 2122797181
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_193
+      name: Goblin_Archer_193
       rect:
         serializedVersion: 2
         x: 608
@@ -4171,14 +4183,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec63b08e399dbb04ab5feedccd860dad
-      internalID: -1160732029
+      spriteID: 909d15b7dba068241a5cdaefd5da3669
+      internalID: -448845144
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_194
+      name: Goblin_Archer_194
       rect:
         serializedVersion: 2
         x: 640
@@ -4192,14 +4204,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 36d33e85d613b8a4f8301802982d4e44
-      internalID: 2117484928
+      spriteID: 014917dc57cbfd54690e41c5332077de
+      internalID: 1378855352
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_195
+      name: Goblin_Archer_195
       rect:
         serializedVersion: 2
         x: 672
@@ -4213,14 +4225,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: afa1be979afba2543a756b8bfe71718e
-      internalID: 1855650723
+      spriteID: 082efc9601b9ad74cbcb8a7cd0c9ebe3
+      internalID: 1658641393
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_196
+      name: Goblin_Archer_196
       rect:
         serializedVersion: 2
         x: 704
@@ -4234,14 +4246,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd4ad82c41e876145aa01f849fd05853
-      internalID: -235171617
+      spriteID: 1c38ad727872cde4d92dd4f26b9ce8eb
+      internalID: 196786277
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_197
+      name: Goblin_Archer_197
       rect:
         serializedVersion: 2
         x: 736
@@ -4255,14 +4267,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 57e9b42d5b42cfe40adcb7286d067991
-      internalID: -1406360174
+      spriteID: 354e5f8015a62244b8f87cc14003c99b
+      internalID: -1176171931
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_198
+      name: Goblin_Archer_198
       rect:
         serializedVersion: 2
         x: 768
@@ -4276,14 +4288,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a814a9879874e1141a25488a989c2277
-      internalID: -1752341025
+      spriteID: f66c7755a4de9e64f92b4fcd879fc26a
+      internalID: 622648506
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_199
+      name: Goblin_Archer_199
       rect:
         serializedVersion: 2
         x: 800
@@ -4297,14 +4309,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be75c8b7641a7c3499269f63c7e2ef2e
-      internalID: -951268384
+      spriteID: 5589ad90ea2a664478a4551ef3e8e628
+      internalID: -1051650853
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_200
+      name: Goblin_Archer_200
       rect:
         serializedVersion: 2
         x: 832
@@ -4318,14 +4330,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 38008a415341e4f4e9362b6cf8a4bc48
-      internalID: 1155995243
+      spriteID: a793d917a5007f64c915b5707e37b0cc
+      internalID: 1643297059
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_201
+      name: Goblin_Archer_201
       rect:
         serializedVersion: 2
         x: 864
@@ -4339,14 +4351,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 38a56156f6aa5a04eb7b7e55abf89441
-      internalID: -1999207260
+      spriteID: 62f7d39def577f941a263ee3647188db
+      internalID: -1135219077
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_202
+      name: Goblin_Archer_202
       rect:
         serializedVersion: 2
         x: 896
@@ -4360,14 +4372,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0385d9a46578d7e40a408df086249479
-      internalID: 13396382
+      spriteID: 02b029010e7ce174d9c7347e8ca811cd
+      internalID: -29705615
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_203
+      name: Goblin_Archer_203
       rect:
         serializedVersion: 2
         x: 0
@@ -4381,14 +4393,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: acdb03d7f14bb2c468f44668f0199ddb
-      internalID: 1289483324
+      spriteID: 33c32354c6ec1e34e81c73523f4f6760
+      internalID: 658961678
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_204
+      name: Goblin_Archer_204
       rect:
         serializedVersion: 2
         x: 32
@@ -4402,14 +4414,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e755ef068e2d91f46902880ece677e7b
-      internalID: -89600820
+      spriteID: a8b19916d6645ed4b8ba9b59dd94b694
+      internalID: -1854782123
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_205
+      name: Goblin_Archer_205
       rect:
         serializedVersion: 2
         x: 64
@@ -4423,14 +4435,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d75a98bd73037fb45888160110f9c34f
-      internalID: -1060043274
+      spriteID: 3e25455e38578e54e93747c148ee4803
+      internalID: -142150746
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_206
+      name: Goblin_Archer_206
       rect:
         serializedVersion: 2
         x: 96
@@ -4444,14 +4456,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a591c4c4fc3b4f44d8109421e77c69fe
-      internalID: -1103793574
+      spriteID: d678b1978f3de4d4b8bad17a55a46a65
+      internalID: 872868075
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_207
+      name: Goblin_Archer_207
       rect:
         serializedVersion: 2
         x: 128
@@ -4465,14 +4477,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 12283e2cc10a2f94ba18baa5bf9c93af
-      internalID: -280289371
+      spriteID: 150775bdce2dd684294276de3b422bfc
+      internalID: 2038921680
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_208
+      name: Goblin_Archer_208
       rect:
         serializedVersion: 2
         x: 160
@@ -4486,14 +4498,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4cd0c5245c5448d4b9ff3fdbd8074330
-      internalID: 401599907
+      spriteID: 6d3aab910c496af43bfb9ac8873c4625
+      internalID: -570885559
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_209
+      name: Goblin_Archer_209
       rect:
         serializedVersion: 2
         x: 192
@@ -4507,14 +4519,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 118e940f308a4de4abee7771deae1d43
-      internalID: 1399862177
+      spriteID: 8404ac9712bef064e90e24228343acf3
+      internalID: -869154729
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_210
+      name: Goblin_Archer_210
       rect:
         serializedVersion: 2
         x: 224
@@ -4528,14 +4540,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 95565436b60f77c4ab9ff7af8b81c384
-      internalID: 1725115524
+      spriteID: ad502118858e8244dbba80ff4b97a047
+      internalID: -294686905
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_211
+      name: Goblin_Archer_211
       rect:
         serializedVersion: 2
         x: 256
@@ -4549,14 +4561,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c639e4353de60e24c93198f3bd44c1b4
-      internalID: -2008579160
+      spriteID: b74058bdebd9fb84092f6318a2107638
+      internalID: -1166996525
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_212
+      name: Goblin_Archer_212
       rect:
         serializedVersion: 2
         x: 288
@@ -4570,14 +4582,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3fe22a142bfcab94caec23cdae0845cd
-      internalID: 1081790403
+      spriteID: f32e42d569e0ef743be214bdf85e34e7
+      internalID: 1719237669
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_213
+      name: Goblin_Archer_213
       rect:
         serializedVersion: 2
         x: 320
@@ -4591,14 +4603,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dad64e355e157d84f83feea623444d8f
-      internalID: 44284965
+      spriteID: da8840575f170cc4e92f73128b315bef
+      internalID: -678122926
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_214
+      name: Goblin_Archer_214
       rect:
         serializedVersion: 2
         x: 352
@@ -4612,14 +4624,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c0dab67ba78398f4db977cf93c457630
-      internalID: -1496394828
+      spriteID: 7f5a6e1a93bd9d04fa9a400c41666fc1
+      internalID: -272548747
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_215
+      name: Goblin_Archer_215
       rect:
         serializedVersion: 2
         x: 384
@@ -4633,14 +4645,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88283673df528434b8d5f4324eac8e56
-      internalID: -1671865674
+      spriteID: 899a0024c8b98804a9581e500f832890
+      internalID: -555107626
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_216
+      name: Goblin_Archer_216
       rect:
         serializedVersion: 2
         x: 416
@@ -4654,14 +4666,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e6668408cd65184392ecbd8b27252a4
-      internalID: -964177042
+      spriteID: 3ed5fec3c8c907a44a31fa86e86338ac
+      internalID: 1485694753
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_217
+      name: Goblin_Archer_217
       rect:
         serializedVersion: 2
         x: 448
@@ -4675,14 +4687,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de7f3f28a299c214aa384903bceed44e
-      internalID: 547801026
+      spriteID: 11ca67294c9373c4c8371c03d2c69fe9
+      internalID: -2107288936
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_218
+      name: Goblin_Archer_218
       rect:
         serializedVersion: 2
         x: 480
@@ -4696,14 +4708,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0859a157532f9c048938b372efb2d743
-      internalID: 408803947
+      spriteID: 459e52a78c2e5444c94c2d32b4b293fa
+      internalID: 487397323
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_219
+      name: Goblin_Archer_219
       rect:
         serializedVersion: 2
         x: 512
@@ -4717,14 +4729,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d5630eb307932a94c9a8dbb1fbc52476
-      internalID: -1478141782
+      spriteID: 04d25215ca188a74aaef21894bc22ae8
+      internalID: -513277462
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_220
+      name: Goblin_Archer_220
       rect:
         serializedVersion: 2
         x: 544
@@ -4738,14 +4750,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 719b3dab698a60649b3012461a72a7dc
-      internalID: -1003672319
+      spriteID: 3a6e75a907eef884aa20a651e89db8a0
+      internalID: 776857315
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_221
+      name: Goblin_Archer_221
       rect:
         serializedVersion: 2
         x: 576
@@ -4759,14 +4771,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d2896adc3936404ba3517d8b3081a84
-      internalID: 1141156652
+      spriteID: 6960b838b1b62e546b3a74c8d14a2bf1
+      internalID: -1323796714
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_222
+      name: Goblin_Archer_222
       rect:
         serializedVersion: 2
         x: 608
@@ -4780,14 +4792,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f75b3f6fd1f1c804cb111600d1335a26
-      internalID: 232313535
+      spriteID: 9b479643067e7544dac8aec65dcc066d
+      internalID: -1552402391
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_223
+      name: Goblin_Archer_223
       rect:
         serializedVersion: 2
         x: 640
@@ -4801,14 +4813,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 53c13508114ff7b4b8ff638334e7ef81
-      internalID: -1875533588
+      spriteID: 13980ee4f16c85a42b46abcb59fa1508
+      internalID: 1695740349
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_224
+      name: Goblin_Archer_224
       rect:
         serializedVersion: 2
         x: 672
@@ -4822,14 +4834,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a1324a704d1703e498e835e8f78a3b12
-      internalID: -668097180
+      spriteID: f5e14ae73d68c234d9d183104c553eca
+      internalID: 914421053
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_225
+      name: Goblin_Archer_225
       rect:
         serializedVersion: 2
         x: 704
@@ -4843,14 +4855,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5610e85661ddacb4db02a2409087a9e9
-      internalID: 1672311287
+      spriteID: d9a807d55014e31468e88d819db349d7
+      internalID: -572219237
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_226
+      name: Goblin_Archer_226
       rect:
         serializedVersion: 2
         x: 736
@@ -4864,14 +4876,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fba8d09a740765c43901ab3c961feda3
-      internalID: 373979362
+      spriteID: 72cf6000d44d3364daba2adc5a8586a6
+      internalID: -677529134
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_227
+      name: Goblin_Archer_227
       rect:
         serializedVersion: 2
         x: 768
@@ -4885,14 +4897,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7363a8e792016c841a3edd366da7b9a2
-      internalID: -559661879
+      spriteID: 9b70bab5a84b99e45815a921f97021dd
+      internalID: -1202097423
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_228
+      name: Goblin_Archer_228
       rect:
         serializedVersion: 2
         x: 800
@@ -4906,14 +4918,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29937162dfb0fdf4485c93d714dedaac
-      internalID: -1091806430
+      spriteID: fad919573aefb8344a9eb362f7d972c0
+      internalID: -1084584853
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_229
+      name: Goblin_Archer_229
       rect:
         serializedVersion: 2
         x: 832
@@ -4927,14 +4939,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 44e15ab1fa04dbd439faa7c76560d3c9
-      internalID: -1606692406
+      spriteID: c3ac416c60d0083439602cc8c6876cb3
+      internalID: -1460898511
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_230
+      name: Goblin_Archer_230
       rect:
         serializedVersion: 2
         x: 864
@@ -4948,14 +4960,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d9bc05fa1bf0d8148991279a8c3462f9
-      internalID: -1768219336
+      spriteID: 015fbf503530a85479a682db9987a606
+      internalID: -1191906455
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Blue_Archer_231
+      name: Goblin_Archer_231
       rect:
         serializedVersion: 2
         x: 896
@@ -4969,8 +4981,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb0f6db03631450498fbea305717dfc0
-      internalID: 1297915952
+      spriteID: 3a669f1e07bbbb34ea8138a335a1449f
+      internalID: -33364238
       vertices: []
       indices: 
       edges: []
@@ -4986,238 +4998,238 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Blue_Archer_109: -1828979730
-      Blue_Archer_120: -787776837
-      Blue_Archer_113: -328542427
-      Blue_Archer_178: 1497545927
-      Blue_Archer_36: -1025278713
-      Blue_Archer_105: -2038596485
-      Blue_Archer_114: -540344736
-      Blue_Archer_68: 697415576
-      Blue_Archer_195: 1855650723
-      Blue_Archer_51: -411559638
-      Blue_Archer_156: -1922262312
-      Blue_Archer_24: 1203381057
-      Blue_Archer_200: 1155995243
-      Blue_Archer_216: -964177042
-      Blue_Archer_224: -668097180
-      Blue_Archer_31: 659971171
-      Blue_Archer_82: 1112349389
-      Blue_Archer_46: -1391902570
-      Blue_Archer_182: 730417950
-      Blue_Archer_199: -951268384
-      Blue_Archer_19: -1795791729
-      Blue_Archer_143: 39057632
-      Blue_Archer_210: 1725115524
-      Blue_Archer_83: 494898007
-      Blue_Archer_13: 1683490280
-      Blue_Archer_174: -676273350
-      Blue_Archer_119: 489903808
-      Blue_Archer_111: 1024280267
-      Blue_Archer_89: 1049864582
-      Blue_Archer_65: 55808720
-      Blue_Archer_144: 607247081
-      Blue_Archer_34: -482057814
-      Blue_Archer_215: -1671865674
-      Blue_Archer_223: -1875533588
-      Blue_Archer_141: 1667437824
-      Blue_Archer_44: -1432349656
-      Blue_Archer_168: -1514391537
-      Blue_Archer_204: -89600820
-      Blue_Archer_212: 1081790403
-      Blue_Archer_10: -888112579
-      Blue_Archer_84: 1312018925
-      Blue_Archer_180: 1853192175
-      Blue_Archer_91: -995566187
-      Blue_Archer_169: -735752888
-      Blue_Archer_164: 1454423989
-      Blue_Archer_103: -744325137
-      Blue_Archer_207: -280289371
-      Blue_Archer_55: -1578788119
-      Blue_Archer_142: -1522687945
-      Blue_Archer_78: -1775998021
-      Blue_Archer_94: 1196382591
-      Blue_Archer_157: 1534744425
-      Blue_Archer_176: -194835780
-      Blue_Archer_162: 1234134492
-      Blue_Archer_147: 918128703
-      Blue_Archer_69: 1200170298
-      Blue_Archer_37: 326331304
-      Blue_Archer_22: -1280412094
-      Blue_Archer_77: 1132202198
-      Blue_Archer_29: -1702954535
-      Blue_Archer_4: 1242220880
-      Blue_Archer_87: -975917476
-      Blue_Archer_3: 754217978
-      Blue_Archer_186: -1792393065
-      Blue_Archer_135: -1960130955
-      Blue_Archer_50: -313800900
-      Blue_Archer_209: 1399862177
-      Blue_Archer_86: 1373275169
-      Blue_Archer_7: 236089612
-      Blue_Archer_35: -732706274
-      Blue_Archer_137: -1682495312
-      Blue_Archer_124: -784562632
-      Blue_Archer_88: 314205797
-      Blue_Archer_100: 204235257
-      Blue_Archer_139: -875082231
-      Blue_Archer_115: 342481550
-      Blue_Archer_153: 1600087722
-      Blue_Archer_192: -1389994213
-      Blue_Archer_191: 569173463
-      Blue_Archer_229: -1606692406
-      Blue_Archer_183: 1721080689
-      Blue_Archer_45: 441406758
-      Blue_Archer_32: -401798992
-      Blue_Archer_48: 1058532423
-      Blue_Archer_64: -1550766294
-      Blue_Archer_221: 1141156652
-      Blue_Archer_226: 373979362
-      Blue_Archer_27: -735794219
-      Blue_Archer_80: 1858169339
-      Blue_Archer_146: 2121721903
-      Blue_Archer_8: -1898979094
-      Blue_Archer_220: -1003672319
-      Blue_Archer_198: -1752341025
-      Blue_Archer_116: -906455981
-      Blue_Archer_41: 633563478
-      Blue_Archer_136: -1699556353
-      Blue_Archer_177: 1638600159
-      Blue_Archer_130: -693675911
-      Blue_Archer_193: -1160732029
-      Blue_Archer_39: -831493722
-      Blue_Archer_57: 1857908636
-      Blue_Archer_172: 1748861768
-      Blue_Archer_62: 241451756
-      Blue_Archer_145: -1536685215
-      Blue_Archer_33: -835349672
-      Blue_Archer_49: 1320004426
-      Blue_Archer_126: 1034750496
-      Blue_Archer_218: 408803947
-      Blue_Archer_190: -1321674034
-      Blue_Archer_132: 928646437
-      Blue_Archer_92: 384307527
-      Blue_Archer_53: 2094140491
-      Blue_Archer_158: 56360709
-      Blue_Archer_79: -116838442
-      Blue_Archer_122: -612551057
-      Blue_Archer_18: 1450997500
-      Blue_Archer_72: -1484248427
-      Blue_Archer_201: -1999207260
-      Blue_Archer_152: -502366359
-      Blue_Archer_161: 1473102556
-      Blue_Archer_21: 1952098142
-      Blue_Archer_28: 1998226244
-      Blue_Archer_47: -1040206653
-      Blue_Archer_138: -991694600
-      Blue_Archer_206: -1103793574
-      Blue_Archer_155: -1698515786
-      Blue_Archer_118: -1941131866
-      Blue_Archer_70: -569436532
-      Blue_Archer_102: 448521258
-      Blue_Archer_213: 44284965
-      Blue_Archer_110: -1184463392
-      Blue_Archer_134: -52073704
-      Blue_Archer_214: -1496394828
-      Blue_Archer_123: -1475583299
-      Blue_Archer_2: -284823411
-      Blue_Archer_75: -1572506934
-      Blue_Archer_121: 149345659
-      Blue_Archer_74: 963942797
-      Blue_Archer_160: -382649733
-      Blue_Archer_5: -1496238174
-      Blue_Archer_159: 17813278
-      Blue_Archer_6: 104951346
-      Blue_Archer_17: -1930202466
-      Blue_Archer_73: -963314031
-      Blue_Archer_20: -386849229
-      Blue_Archer_166: 2141360561
-      Blue_Archer_203: 1289483324
-      Blue_Archer_187: 115755536
-      Blue_Archer_149: -1832273958
-      Blue_Archer_96: 603605464
-      Blue_Archer_104: 378248286
-      Blue_Archer_98: -1711046401
-      Blue_Archer_197: -1406360174
-      Blue_Archer_202: 13396382
-      Blue_Archer_188: -371108292
-      Blue_Archer_71: 1590737291
-      Blue_Archer_56: 1051395491
-      Blue_Archer_61: -1195360572
-      Blue_Archer_231: 1297915952
-      Blue_Archer_52: -1541722508
-      Blue_Archer_127: 1071550564
-      Blue_Archer_170: 1841243394
-      Blue_Archer_85: -1420214182
-      Blue_Archer_40: -1495901973
-      Blue_Archer_181: -1455567874
-      Blue_Archer_211: -2008579160
-      Blue_Archer_225: 1672311287
-      Blue_Archer_11: -152530033
-      Blue_Archer_171: -351919630
-      Blue_Archer_179: 598066442
-      Blue_Archer_175: -779086395
-      Blue_Archer_9: 102362785
-      Blue_Archer_16: 1137571280
-      Blue_Archer_167: 1755450093
-      Blue_Archer_217: 547801026
-      Blue_Archer_208: 401599907
-      Blue_Archer_140: 1443110746
-      Blue_Archer_194: 2117484928
-      Blue_Archer_63: -1494526369
-      Blue_Archer_43: 1336753000
-      Blue_Archer_117: -875370763
-      Blue_Archer_125: -64000998
-      Blue_Archer_26: -384099686
-      Blue_Archer_185: -351318782
-      Blue_Archer_0: -2001468101
-      Blue_Archer_12: 953953601
-      Blue_Archer_112: 1139570170
-      Blue_Archer_30: 1308041147
-      Blue_Archer_42: -1397062834
-      Blue_Archer_15: -1314216045
-      Blue_Archer_76: -1317199272
-      Blue_Archer_154: -956069323
-      Blue_Archer_107: -1611775536
-      Blue_Archer_131: -2147107997
-      Blue_Archer_189: 1466781336
-      Blue_Archer_222: 232313535
-      Blue_Archer_205: -1060043274
-      Blue_Archer_163: -243007275
-      Blue_Archer_228: -1091806430
-      Blue_Archer_99: -1514015604
-      Blue_Archer_196: -235171617
-      Blue_Archer_106: 1914503729
-      Blue_Archer_81: -97825292
-      Blue_Archer_1: -352315788
-      Blue_Archer_219: -1478141782
-      Blue_Archer_59: 549332267
-      Blue_Archer_66: -828696725
-      Blue_Archer_58: 1256805927
-      Blue_Archer_165: 1859708228
-      Blue_Archer_129: 1333651638
-      Blue_Archer_97: 1587832024
-      Blue_Archer_95: 1450685572
-      Blue_Archer_148: 465203715
-      Blue_Archer_128: 621710567
-      Blue_Archer_93: 67185194
-      Blue_Archer_108: 1034542858
-      Blue_Archer_60: 967489708
-      Blue_Archer_230: -1768219336
-      Blue_Archer_90: -313167993
-      Blue_Archer_25: 1872115843
-      Blue_Archer_38: 1456519030
-      Blue_Archer_23: -876149125
-      Blue_Archer_54: -1975022440
-      Blue_Archer_133: -1356016679
-      Blue_Archer_150: 48957547
-      Blue_Archer_101: 665352582
-      Blue_Archer_173: 1682941350
-      Blue_Archer_67: -1085346031
-      Blue_Archer_14: 1319167517
-      Blue_Archer_184: 36347353
-      Blue_Archer_227: -559661879
-      Blue_Archer_151: 1801006580
+      Goblin_Archer_77: -1527537968
+      Goblin_Archer_74: -1957821990
+      Goblin_Archer_212: 1719237669
+      Goblin_Archer_192: 2122797181
+      Goblin_Archer_209: -869154729
+      Goblin_Archer_198: 622648506
+      Goblin_Archer_231: -33364238
+      Goblin_Archer_124: -983337123
+      Goblin_Archer_101: 703090977
+      Goblin_Archer_115: 1632797785
+      Goblin_Archer_221: -1323796714
+      Goblin_Archer_43: -1377771739
+      Goblin_Archer_61: 461819652
+      Goblin_Archer_208: -570885559
+      Goblin_Archer_92: 156460348
+      Goblin_Archer_224: 914421053
+      Goblin_Archer_146: -120798573
+      Goblin_Archer_30: -985396852
+      Goblin_Archer_151: 1079309784
+      Goblin_Archer_195: 1658641393
+      Goblin_Archer_220: 776857315
+      Goblin_Archer_44: -1412819140
+      Goblin_Archer_104: -164269520
+      Goblin_Archer_114: 236188915
+      Goblin_Archer_91: 116954901
+      Goblin_Archer_17: -1455464094
+      Goblin_Archer_78: 576696594
+      Goblin_Archer_178: 294718316
+      Goblin_Archer_230: -1191906455
+      Goblin_Archer_82: -754341418
+      Goblin_Archer_185: -611895086
+      Goblin_Archer_162: -688621234
+      Goblin_Archer_135: 1965148348
+      Goblin_Archer_121: 1363399099
+      Goblin_Archer_180: -2054745653
+      Goblin_Archer_0: 2125541320
+      Goblin_Archer_200: 1643297059
+      Goblin_Archer_46: 2031087340
+      Goblin_Archer_39: -1620443364
+      Goblin_Archer_152: -1583433552
+      Goblin_Archer_129: -1218001916
+      Goblin_Archer_193: -448845144
+      Goblin_Archer_83: -1156768738
+      Goblin_Archer_85: -2040525890
+      Goblin_Archer_201: -1135219077
+      Goblin_Archer_99: 2038958135
+      Goblin_Archer_3: 1509630207
+      Goblin_Archer_93: 1847768818
+      Goblin_Archer_40: -1903651036
+      Goblin_Archer_7: -1822192075
+      Goblin_Archer_100: 1725348342
+      Goblin_Archer_160: -1428934454
+      Goblin_Archer_182: 689537261
+      Goblin_Archer_25: 725870365
+      Goblin_Archer_188: 248201937
+      Goblin_Archer_89: -1806633816
+      Goblin_Archer_49: 1028557942
+      Goblin_Archer_54: -1407345700
+      Goblin_Archer_57: 1115968704
+      Goblin_Archer_229: -1460898511
+      Goblin_Archer_96: 1118655996
+      Goblin_Archer_109: 1009456031
+      Goblin_Archer_55: -1109576194
+      Goblin_Archer_119: 1142542129
+      Goblin_Archer_19: 172516100
+      Goblin_Archer_203: 658961678
+      Goblin_Archer_145: -644883544
+      Goblin_Archer_35: 1624635395
+      Goblin_Archer_187: 1207391068
+      Goblin_Archer_126: 1166421101
+      Goblin_Archer_141: 185590493
+      Goblin_Archer_14: 131439724
+      Goblin_Archer_190: 626263167
+      Goblin_Archer_32: 2014239073
+      Goblin_Archer_103: 1774518760
+      Goblin_Archer_36: 547687662
+      Goblin_Archer_131: 1049182163
+      Goblin_Archer_140: 409560579
+      Goblin_Archer_149: 962203416
+      Goblin_Archer_107: -930428647
+      Goblin_Archer_147: 1341030423
+      Goblin_Archer_67: -1641930645
+      Goblin_Archer_80: -1786093134
+      Goblin_Archer_168: -546205652
+      Goblin_Archer_38: -1364046942
+      Goblin_Archer_90: 1397454174
+      Goblin_Archer_50: -415937332
+      Goblin_Archer_175: -511641793
+      Goblin_Archer_111: -721918104
+      Goblin_Archer_219: -513277462
+      Goblin_Archer_116: 13152993
+      Goblin_Archer_29: -277968269
+      Goblin_Archer_120: -476304398
+      Goblin_Archer_113: -892176115
+      Goblin_Archer_70: 1688324132
+      Goblin_Archer_106: -23957446
+      Goblin_Archer_123: -1719022778
+      Goblin_Archer_134: -1471644402
+      Goblin_Archer_5: 1865973622
+      Goblin_Archer_21: -460588575
+      Goblin_Archer_47: 1765044647
+      Goblin_Archer_144: 133719240
+      Goblin_Archer_148: 643417967
+      Goblin_Archer_79: 1121911232
+      Goblin_Archer_156: 1037055853
+      Goblin_Archer_226: -677529134
+      Goblin_Archer_63: 1188644649
+      Goblin_Archer_128: -595911539
+      Goblin_Archer_64: -1212377566
+      Goblin_Archer_94: -295646768
+      Goblin_Archer_118: 1294501349
+      Goblin_Archer_153: -1785055603
+      Goblin_Archer_222: -1552402391
+      Goblin_Archer_199: -1051650853
+      Goblin_Archer_197: -1176171931
+      Goblin_Archer_65: -1358958938
+      Goblin_Archer_11: -1072381204
+      Goblin_Archer_10: 879775839
+      Goblin_Archer_108: -1555541041
+      Goblin_Archer_98: 389861272
+      Goblin_Archer_136: 1834814463
+      Goblin_Archer_139: -1860397626
+      Goblin_Archer_51: -631305464
+      Goblin_Archer_228: -1084584853
+      Goblin_Archer_171: 1673884514
+      Goblin_Archer_56: 266306498
+      Goblin_Archer_60: 832156860
+      Goblin_Archer_155: -820808995
+      Goblin_Archer_194: 1378855352
+      Goblin_Archer_112: -1774776914
+      Goblin_Archer_223: 1695740349
+      Goblin_Archer_196: 196786277
+      Goblin_Archer_12: -257900016
+      Goblin_Archer_159: -680217690
+      Goblin_Archer_170: 598395416
+      Goblin_Archer_13: 467641133
+      Goblin_Archer_16: -1037795053
+      Goblin_Archer_154: 986384379
+      Goblin_Archer_227: -1202097423
+      Goblin_Archer_20: -1296635324
+      Goblin_Archer_88: 1263847569
+      Goblin_Archer_166: 688487899
+      Goblin_Archer_34: 326329583
+      Goblin_Archer_143: -1837981799
+      Goblin_Archer_23: -691524170
+      Goblin_Archer_81: 2013322206
+      Goblin_Archer_214: -272548747
+      Goblin_Archer_105: -496882798
+      Goblin_Archer_27: 264806079
+      Goblin_Archer_217: -2107288936
+      Goblin_Archer_174: 1057638226
+      Goblin_Archer_225: -572219237
+      Goblin_Archer_183: -28234160
+      Goblin_Archer_138: -413098709
+      Goblin_Archer_53: 2117066211
+      Goblin_Archer_110: 341976421
+      Goblin_Archer_181: -1140095613
+      Goblin_Archer_133: -1485841372
+      Goblin_Archer_132: 1356258863
+      Goblin_Archer_157: 1790626748
+      Goblin_Archer_87: 349268915
+      Goblin_Archer_68: -764277966
+      Goblin_Archer_210: -294686905
+      Goblin_Archer_169: 668250493
+      Goblin_Archer_66: -1877359364
+      Goblin_Archer_86: 824239299
+      Goblin_Archer_72: -946671486
+      Goblin_Archer_204: -1854782123
+      Goblin_Archer_130: -293324020
+      Goblin_Archer_71: -764809516
+      Goblin_Archer_62: 1684060740
+      Goblin_Archer_31: -1947854913
+      Goblin_Archer_75: 614172970
+      Goblin_Archer_2: 932502596
+      Goblin_Archer_15: -1936295699
+      Goblin_Archer_163: 39315354
+      Goblin_Archer_165: 39433362
+      Goblin_Archer_215: -555107626
+      Goblin_Archer_191: -180363994
+      Goblin_Archer_37: -1084654828
+      Goblin_Archer_207: 2038921680
+      Goblin_Archer_142: 1329800588
+      Goblin_Archer_186: -1134235556
+      Goblin_Archer_137: 1991082742
+      Goblin_Archer_4: -496034070
+      Goblin_Archer_8: -10892927
+      Goblin_Archer_58: -686732609
+      Goblin_Archer_18: -807499962
+      Goblin_Archer_102: 2080282397
+      Goblin_Archer_24: -819337607
+      Goblin_Archer_41: 1345623298
+      Goblin_Archer_213: -678122926
+      Goblin_Archer_76: -261795790
+      Goblin_Archer_167: -602420797
+      Goblin_Archer_26: -1039725570
+      Goblin_Archer_52: 1396337669
+      Goblin_Archer_97: -1832076710
+      Goblin_Archer_158: 760035336
+      Goblin_Archer_73: -297619571
+      Goblin_Archer_117: -615996941
+      Goblin_Archer_179: -281191105
+      Goblin_Archer_189: -1443348910
+      Goblin_Archer_6: -1565387892
+      Goblin_Archer_42: -1274463060
+      Goblin_Archer_176: -1670865784
+      Goblin_Archer_59: -357946352
+      Goblin_Archer_1: -1480818805
+      Goblin_Archer_22: 1670746452
+      Goblin_Archer_127: 1155568039
+      Goblin_Archer_150: 1379338389
+      Goblin_Archer_161: 2115928356
+      Goblin_Archer_211: -1166996525
+      Goblin_Archer_206: 872868075
+      Goblin_Archer_216: 1485694753
+      Goblin_Archer_84: 2796667
+      Goblin_Archer_202: -29705615
+      Goblin_Archer_95: -778320309
+      Goblin_Archer_218: 487397323
+      Goblin_Archer_122: -663515767
+      Goblin_Archer_45: -664864645
+      Goblin_Archer_69: -1263759806
+      Goblin_Archer_164: 1373803066
+      Goblin_Archer_9: -1542201870
+      Goblin_Archer_28: -2085571399
+      Goblin_Archer_48: -1638448313
+      Goblin_Archer_173: 1026283146
+      Goblin_Archer_205: -142150746
+      Goblin_Archer_184: 1137967915
+      Goblin_Archer_125: -858628087
+      Goblin_Archer_172: 1615225723
+      Goblin_Archer_177: -1257765847
+      Goblin_Archer_33: -1461623088
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

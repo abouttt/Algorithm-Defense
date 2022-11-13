@@ -1,0 +1,176 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: CitizenAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 4096
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 0
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 78befb547cd7e6944ac236ed42843cc0, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 94808636, guid: e5d0b3f850b736944b5f673c0e91e042, type: 3}
+  - {fileID: 936812586, guid: e5d0b3f850b736944b5f673c0e91e042, type: 3}
+  - {fileID: -775897985, guid: e5d0b3f850b736944b5f673c0e91e042, type: 3}
+  - {fileID: 1278160514, guid: e5d0b3f850b736944b5f673c0e91e042, type: 3}
+  - {fileID: 804104799, guid: e5d0b3f850b736944b5f673c0e91e042, type: 3}
+  - {fileID: 1941049366, guid: e5d0b3f850b736944b5f673c0e91e042, type: 3}
+  - {fileID: 760010490, guid: e5d0b3f850b736944b5f673c0e91e042, type: 3}
+  - {fileID: -595933883, guid: e5d0b3f850b736944b5f673c0e91e042, type: 3}
+  - {fileID: -1634308761, guid: e5d0b3f850b736944b5f673c0e91e042, type: 3}
+  - {fileID: 1098610033, guid: e5d0b3f850b736944b5f673c0e91e042, type: 3}
+  - {fileID: 1571079223, guid: e5d0b3f850b736944b5f673c0e91e042, type: 3}
+  - {fileID: 1364078122, guid: e5d0b3f850b736944b5f673c0e91e042, type: 3}
+  - {fileID: 1056382079, guid: e5d0b3f850b736944b5f673c0e91e042, type: 3}
+  - {fileID: 800447378, guid: e5d0b3f850b736944b5f673c0e91e042, type: 3}
+  - {fileID: 974552007, guid: e5d0b3f850b736944b5f673c0e91e042, type: 3}
+  - {fileID: -780102756, guid: e5d0b3f850b736944b5f673c0e91e042, type: 3}
+  - {fileID: -1090483118, guid: e5d0b3f850b736944b5f673c0e91e042, type: 3}
+  - {fileID: -1732309308, guid: e5d0b3f850b736944b5f673c0e91e042, type: 3}
+  - {fileID: -325388119, guid: e5d0b3f850b736944b5f673c0e91e042, type: 3}
+  - {fileID: 639006823, guid: e5d0b3f850b736944b5f673c0e91e042, type: 3}
+  - {fileID: 1557713648, guid: 448c58e9ccd7fd947939b2c7dc748b6e, type: 3}
+  - {fileID: 846554992, guid: 448c58e9ccd7fd947939b2c7dc748b6e, type: 3}
+  - {fileID: -1809631269, guid: 448c58e9ccd7fd947939b2c7dc748b6e, type: 3}
+  - {fileID: -133329280, guid: 448c58e9ccd7fd947939b2c7dc748b6e, type: 3}
+  - {fileID: -1305856895, guid: 448c58e9ccd7fd947939b2c7dc748b6e, type: 3}
+  - {fileID: 997185884, guid: 448c58e9ccd7fd947939b2c7dc748b6e, type: 3}
+  - {fileID: 1506226854, guid: 448c58e9ccd7fd947939b2c7dc748b6e, type: 3}
+  - {fileID: 1471814746, guid: 448c58e9ccd7fd947939b2c7dc748b6e, type: 3}
+  - {fileID: -800946864, guid: 448c58e9ccd7fd947939b2c7dc748b6e, type: 3}
+  - {fileID: -961254262, guid: 448c58e9ccd7fd947939b2c7dc748b6e, type: 3}
+  - {fileID: 1720185987, guid: 448c58e9ccd7fd947939b2c7dc748b6e, type: 3}
+  - {fileID: -1446668522, guid: 448c58e9ccd7fd947939b2c7dc748b6e, type: 3}
+  - {fileID: 697321588, guid: 448c58e9ccd7fd947939b2c7dc748b6e, type: 3}
+  - {fileID: -542358099, guid: 448c58e9ccd7fd947939b2c7dc748b6e, type: 3}
+  - {fileID: 2047241003, guid: 448c58e9ccd7fd947939b2c7dc748b6e, type: 3}
+  - {fileID: 1502046799, guid: 448c58e9ccd7fd947939b2c7dc748b6e, type: 3}
+  - {fileID: -1458178995, guid: 448c58e9ccd7fd947939b2c7dc748b6e, type: 3}
+  - {fileID: 177815232, guid: 448c58e9ccd7fd947939b2c7dc748b6e, type: 3}
+  - {fileID: 1943313892, guid: 448c58e9ccd7fd947939b2c7dc748b6e, type: 3}
+  - {fileID: -445835640, guid: 448c58e9ccd7fd947939b2c7dc748b6e, type: 3}
+  - {fileID: 29717882, guid: bc40e7f9d872e724691329267dc8a639, type: 3}
+  - {fileID: 1502860574, guid: bc40e7f9d872e724691329267dc8a639, type: 3}
+  - {fileID: 626124126, guid: bc40e7f9d872e724691329267dc8a639, type: 3}
+  - {fileID: 1903897680, guid: bc40e7f9d872e724691329267dc8a639, type: 3}
+  - {fileID: -189221626, guid: bc40e7f9d872e724691329267dc8a639, type: 3}
+  - {fileID: 1697566552, guid: bc40e7f9d872e724691329267dc8a639, type: 3}
+  - {fileID: 734320751, guid: bc40e7f9d872e724691329267dc8a639, type: 3}
+  - {fileID: -546965626, guid: bc40e7f9d872e724691329267dc8a639, type: 3}
+  - {fileID: -1492713910, guid: bc40e7f9d872e724691329267dc8a639, type: 3}
+  - {fileID: -1404957414, guid: bc40e7f9d872e724691329267dc8a639, type: 3}
+  - {fileID: -2030506221, guid: bc40e7f9d872e724691329267dc8a639, type: 3}
+  - {fileID: 1412565955, guid: bc40e7f9d872e724691329267dc8a639, type: 3}
+  - {fileID: 262977292, guid: bc40e7f9d872e724691329267dc8a639, type: 3}
+  - {fileID: -1554332414, guid: bc40e7f9d872e724691329267dc8a639, type: 3}
+  - {fileID: -1890776482, guid: bc40e7f9d872e724691329267dc8a639, type: 3}
+  - {fileID: 1590315082, guid: bc40e7f9d872e724691329267dc8a639, type: 3}
+  - {fileID: -594104710, guid: bc40e7f9d872e724691329267dc8a639, type: 3}
+  - {fileID: 1472835915, guid: bc40e7f9d872e724691329267dc8a639, type: 3}
+  - {fileID: 521114913, guid: bc40e7f9d872e724691329267dc8a639, type: 3}
+  - {fileID: 1794421880, guid: bc40e7f9d872e724691329267dc8a639, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - GreenCitizen_15
+  - GreenCitizen_16
+  - GreenCitizen_17
+  - GreenCitizen_9
+  - GreenCitizen_8
+  - GreenCitizen_1
+  - GreenCitizen_0
+  - GreenCitizen_3
+  - GreenCitizen_2
+  - GreenCitizen_5
+  - GreenCitizen_4
+  - GreenCitizen_7
+  - GreenCitizen_6
+  - GreenCitizen_18
+  - GreenCitizen_19
+  - GreenCitizen_10
+  - GreenCitizen_11
+  - GreenCitizen_12
+  - GreenCitizen_13
+  - GreenCitizen_14
+  - BlueCitizen_19
+  - BlueCitizen_18
+  - BlueCitizen_17
+  - BlueCitizen_16
+  - BlueCitizen_15
+  - BlueCitizen_14
+  - BlueCitizen_13
+  - BlueCitizen_12
+  - BlueCitizen_11
+  - BlueCitizen_10
+  - BlueCitizen_4
+  - BlueCitizen_5
+  - BlueCitizen_6
+  - BlueCitizen_7
+  - BlueCitizen_0
+  - BlueCitizen_1
+  - BlueCitizen_2
+  - BlueCitizen_3
+  - BlueCitizen_8
+  - BlueCitizen_9
+  - RedCitizen_18
+  - RedCitizen_19
+  - RedCitizen_10
+  - RedCitizen_11
+  - RedCitizen_12
+  - RedCitizen_13
+  - RedCitizen_14
+  - RedCitizen_15
+  - RedCitizen_16
+  - RedCitizen_17
+  - RedCitizen_9
+  - RedCitizen_8
+  - RedCitizen_1
+  - RedCitizen_0
+  - RedCitizen_3
+  - RedCitizen_2
+  - RedCitizen_5
+  - RedCitizen_4
+  - RedCitizen_7
+  - RedCitizen_6
+  m_RenderDataMap: {}
+  m_Tag: CitizenAtlas
+  m_IsVariant: 0

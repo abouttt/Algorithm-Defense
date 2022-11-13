@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: eed92f5a3caf675459f8f0e633682b34
+guid: 5e983eab1ac01904c9187c05902f75b3
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -100,23 +100,11 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Goblin_Archer_0
+      name: Green_Warrior_0
       rect:
         serializedVersion: 2
         x: 0
@@ -130,14 +118,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 819df3cb1c0e2a14fbc43f6ba19760d0
-      internalID: 2125541320
+      spriteID: 675db8c0ce60b3e49b092f13a90a9bf1
+      internalID: 24836141
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_1
+      name: Green_Warrior_1
       rect:
         serializedVersion: 2
         x: 32
@@ -151,14 +139,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe9bf77d6c8baed478f99be15652996f
-      internalID: -1480818805
+      spriteID: 33085c23ff67a0e428890d3a96484b40
+      internalID: -50679125
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_2
+      name: Green_Warrior_2
       rect:
         serializedVersion: 2
         x: 64
@@ -172,14 +160,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b4fcc0875f98f294fb0c8c46da799bb7
-      internalID: 932502596
+      spriteID: cdc86164faaa52c45b8c389fd32b7565
+      internalID: -1067078057
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_3
+      name: Green_Warrior_3
       rect:
         serializedVersion: 2
         x: 96
@@ -193,14 +181,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7940a4d16a43c54409311f6ca9bd2c3c
-      internalID: 1509630207
+      spriteID: 7ac88d1ce9a30b543a03666de0b03b02
+      internalID: 1897154580
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_4
+      name: Green_Warrior_4
       rect:
         serializedVersion: 2
         x: 128
@@ -214,14 +202,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e3f99f66fc0f494cbac50ed467354ab
-      internalID: -496034070
+      spriteID: ebc91307c75c85a478ea54a5d79f813a
+      internalID: 168666988
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_5
+      name: Green_Warrior_5
       rect:
         serializedVersion: 2
         x: 160
@@ -235,14 +223,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae2dbbe988e969f469ba988f21cd0888
-      internalID: 1865973622
+      spriteID: dc86cc7e047d0f340911e860e51e62bf
+      internalID: 1387076127
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_6
+      name: Green_Warrior_6
       rect:
         serializedVersion: 2
         x: 192
@@ -256,14 +244,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e5dfc0f0298fc114596584d6195255a4
-      internalID: -1565387892
+      spriteID: f113120e48c660745849a8d844bf20e8
+      internalID: -136073326
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_7
+      name: Green_Warrior_7
       rect:
         serializedVersion: 2
         x: 224
@@ -277,14 +265,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d4c0ed62ed333b49bba6598edc82d23
-      internalID: -1822192075
+      spriteID: 1428623fab2f1064abe496739ee9a2cd
+      internalID: -265682156
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_8
+      name: Green_Warrior_8
       rect:
         serializedVersion: 2
         x: 256
@@ -298,14 +286,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a569362afd76af46996fc9c8508f237
-      internalID: -10892927
+      spriteID: 0df534b0edd5dd84c884ff1ef0788ed3
+      internalID: -277937603
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_9
+      name: Green_Warrior_9
       rect:
         serializedVersion: 2
         x: 288
@@ -319,14 +307,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b01e95d7915a9254a86b2c6b67d299b8
-      internalID: -1542201870
+      spriteID: ea8daaba628748f4dbb7b702bde7916b
+      internalID: 1977607794
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_10
+      name: Green_Warrior_10
       rect:
         serializedVersion: 2
         x: 320
@@ -340,14 +328,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 24c8f46d5a8d4864482a0aa6452eaf69
-      internalID: 879775839
+      spriteID: dc3ec8957fea1d54ba5be391f906ba63
+      internalID: -194099626
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_11
+      name: Green_Warrior_11
       rect:
         serializedVersion: 2
         x: 352
@@ -361,14 +349,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72cf101d36824084280e63ade9341949
-      internalID: -1072381204
+      spriteID: f7449a6463c0f734abae5a4e9342cf65
+      internalID: 1798974022
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_12
+      name: Green_Warrior_12
       rect:
         serializedVersion: 2
         x: 384
@@ -382,14 +370,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c42d80a61c9a5e488fde8791a8bca07
-      internalID: -257900016
+      spriteID: c5122fbd139b31b48a34edde118b3bf7
+      internalID: 1616740876
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_13
+      name: Green_Warrior_13
       rect:
         serializedVersion: 2
         x: 416
@@ -403,14 +391,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19889f38f50ccdb48bd6b47e7934fed7
-      internalID: 467641133
+      spriteID: e5ab3c9c6cfbf1946990d95bf04d6004
+      internalID: 352386449
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_14
+      name: Green_Warrior_14
       rect:
         serializedVersion: 2
         x: 448
@@ -424,14 +412,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7180b157f471d4744ad89419c1697e66
-      internalID: 131439724
+      spriteID: 1b22e46977d1e5a4d95496168a643fe2
+      internalID: -1522777157
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_15
+      name: Green_Warrior_15
       rect:
         serializedVersion: 2
         x: 480
@@ -445,14 +433,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74b45097fab9da24c8aae0b456f14598
-      internalID: -1936295699
+      spriteID: 5b7c4589453c4c14daa141349c32305f
+      internalID: -1405489707
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_16
+      name: Green_Warrior_16
       rect:
         serializedVersion: 2
         x: 512
@@ -466,14 +454,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 35667ac4b2ace5d44b1c31aab6df028a
-      internalID: -1037795053
+      spriteID: ee73d195be7e2a64fab93e9cc599d28f
+      internalID: 200216610
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_17
+      name: Green_Warrior_17
       rect:
         serializedVersion: 2
         x: 544
@@ -487,14 +475,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df72e205153ef2e4da5c395f3e723889
-      internalID: -1455464094
+      spriteID: dd9a979105c69294a85843ca26b80da7
+      internalID: 872492465
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_18
+      name: Green_Warrior_18
       rect:
         serializedVersion: 2
         x: 576
@@ -508,14 +496,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e25d1243fb9881543bfde8418eea6c1c
-      internalID: -807499962
+      spriteID: 346837a229fcff44daf8077fbdcff5b0
+      internalID: 760930807
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_19
+      name: Green_Warrior_19
       rect:
         serializedVersion: 2
         x: 608
@@ -529,14 +517,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee0443704e1b9eb419246a9db97e3bfe
-      internalID: 172516100
+      spriteID: 054f35e58c6603a40889de946980666a
+      internalID: 1090676366
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_20
+      name: Green_Warrior_20
       rect:
         serializedVersion: 2
         x: 640
@@ -550,14 +538,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a3699d7ca0f885409971285164fd8bf
-      internalID: -1296635324
+      spriteID: 8e5e8b57df9ca95489e2c93779f0e885
+      internalID: -1344402302
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_21
+      name: Green_Warrior_21
       rect:
         serializedVersion: 2
         x: 672
@@ -571,14 +559,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 959e4fddf5b61f04bbf9a97347654a47
-      internalID: -460588575
+      spriteID: f1624b2d1151d1b48bf158ae53522472
+      internalID: 745079055
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_22
+      name: Green_Warrior_22
       rect:
         serializedVersion: 2
         x: 704
@@ -592,14 +580,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff52efd929b6d9344821d2ad1821b940
-      internalID: 1670746452
+      spriteID: d00dc9fb93960564089d630bdcb8cdd2
+      internalID: -899285027
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_23
+      name: Green_Warrior_23
       rect:
         serializedVersion: 2
         x: 736
@@ -613,14 +601,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8930063f138da6f42a1ae75cdd5b63c2
-      internalID: -691524170
+      spriteID: 51c6dbbe55ad5e147b09239bd60287c0
+      internalID: -1838542710
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_24
+      name: Green_Warrior_24
       rect:
         serializedVersion: 2
         x: 768
@@ -634,14 +622,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a5614d706d36bb74393b034624879ac7
-      internalID: -819337607
+      spriteID: 2526e63ab84c75f4aa6df2c176da094d
+      internalID: 1129534396
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_25
+      name: Green_Warrior_25
       rect:
         serializedVersion: 2
         x: 800
@@ -655,14 +643,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae83df6e08025264995b4494a9a83f07
-      internalID: 725870365
+      spriteID: f4079abf0e29b264eb1b910a1345ab01
+      internalID: -90846124
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_26
+      name: Green_Warrior_26
       rect:
         serializedVersion: 2
         x: 832
@@ -676,14 +664,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca5142f70157b5740b1f3fcc26424452
-      internalID: -1039725570
+      spriteID: 982546e1c64e4ba4d892dc34bba27ca3
+      internalID: -908909037
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_27
+      name: Green_Warrior_27
       rect:
         serializedVersion: 2
         x: 864
@@ -697,14 +685,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a65d86f6816350d47be7e086efef81e8
-      internalID: 264806079
+      spriteID: a92f124c151ef634a8306225a9194b4b
+      internalID: 1820742355
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_28
+      name: Green_Warrior_28
       rect:
         serializedVersion: 2
         x: 896
@@ -718,14 +706,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e8921fd45737834fb9af490b2354198
-      internalID: -2085571399
+      spriteID: f4f2ec3976205414a932d0b31ea33056
+      internalID: 2084207191
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_29
+      name: Green_Warrior_29
       rect:
         serializedVersion: 2
         x: 0
@@ -739,14 +727,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f44b89f548e86d14aa6b85e7e41a787f
-      internalID: -277968269
+      spriteID: bcdf31319921b224cbebb21c459a7fea
+      internalID: 839267118
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_30
+      name: Green_Warrior_30
       rect:
         serializedVersion: 2
         x: 32
@@ -760,14 +748,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e96616460f031cb42948cabe0741a9fb
-      internalID: -985396852
+      spriteID: 13aedf38388343a42b931ad2a84b4658
+      internalID: 113173838
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_31
+      name: Green_Warrior_31
       rect:
         serializedVersion: 2
         x: 64
@@ -781,14 +769,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3454ce29f141ec64bac28f948a8b752c
-      internalID: -1947854913
+      spriteID: b84f70dd35b3db146ae631700b9628c1
+      internalID: 140590258
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_32
+      name: Green_Warrior_32
       rect:
         serializedVersion: 2
         x: 96
@@ -802,14 +790,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d4279b981bc69f44810f089addf67ae
-      internalID: 2014239073
+      spriteID: 3c6e63369f4b22941be78ec8aecc5b54
+      internalID: -1917727199
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_33
+      name: Green_Warrior_33
       rect:
         serializedVersion: 2
         x: 128
@@ -823,14 +811,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e51ad2b9a557d84cb11491d2b2386e7
-      internalID: -1461623088
+      spriteID: 69ed6b7bd550024408b6443331781586
+      internalID: 2089558824
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_34
+      name: Green_Warrior_34
       rect:
         serializedVersion: 2
         x: 160
@@ -844,14 +832,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 95d602504f3c1ca45896cb5e73630899
-      internalID: 326329583
+      spriteID: 26dd5e0657e973d4c8566066f6131c11
+      internalID: 1578371564
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_35
+      name: Green_Warrior_35
       rect:
         serializedVersion: 2
         x: 192
@@ -865,14 +853,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4ab0f4a3fdf767547a5d0207b0ad9bd4
-      internalID: 1624635395
+      spriteID: 62dee2be8d6861848820d31684bd919f
+      internalID: 1862363894
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_36
+      name: Green_Warrior_36
       rect:
         serializedVersion: 2
         x: 224
@@ -886,14 +874,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 960ce35215461434b84a7b9cd5b02197
-      internalID: 547687662
+      spriteID: 77d75d5480741cd40a277998527a2b27
+      internalID: 1534318462
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_37
+      name: Green_Warrior_37
       rect:
         serializedVersion: 2
         x: 256
@@ -907,14 +895,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f76bf2ae3a65b642a5b5e3f9ba039fd
-      internalID: -1084654828
+      spriteID: 42d864440fc4cfd4fb7289c3e0191951
+      internalID: 1022818529
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_38
+      name: Green_Warrior_38
       rect:
         serializedVersion: 2
         x: 288
@@ -928,14 +916,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a8df89b77e7666448a776d457db6104c
-      internalID: -1364046942
+      spriteID: b2793002e19ec1b4783b52595ca962c6
+      internalID: -112497033
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_39
+      name: Green_Warrior_39
       rect:
         serializedVersion: 2
         x: 320
@@ -949,14 +937,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d5292166e7c3804494cb4d50cd74148
-      internalID: -1620443364
+      spriteID: c35c934301d3cda4fb7f2b1ac7b54ef8
+      internalID: 1768330059
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_40
+      name: Green_Warrior_40
       rect:
         serializedVersion: 2
         x: 352
@@ -970,14 +958,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c48e06c69084e5c4e9adf7957293e480
-      internalID: -1903651036
+      spriteID: a626fc53acaaf0d48aaa950a277b3c7e
+      internalID: 1457323218
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_41
+      name: Green_Warrior_41
       rect:
         serializedVersion: 2
         x: 384
@@ -991,14 +979,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 364debeefcae66848a5c8f05206e4529
-      internalID: 1345623298
+      spriteID: 995786e8471bf714695479736bb8db9a
+      internalID: -781426855
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_42
+      name: Green_Warrior_42
       rect:
         serializedVersion: 2
         x: 416
@@ -1012,14 +1000,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b0d4789fc421f0c4aa4487625cadf2d6
-      internalID: -1274463060
+      spriteID: 2956797fa2a75a74da930b6558080364
+      internalID: -1868403700
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_43
+      name: Green_Warrior_43
       rect:
         serializedVersion: 2
         x: 448
@@ -1033,14 +1021,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0c5684bad9f8b547be514bbf6b5ccc1
-      internalID: -1377771739
+      spriteID: 01d5276ede8fb9c4a8300d65d73ab8b3
+      internalID: -2023789046
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_44
+      name: Green_Warrior_44
       rect:
         serializedVersion: 2
         x: 480
@@ -1054,14 +1042,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b725c1fe0651b641910a699ad805837
-      internalID: -1412819140
+      spriteID: 6f1c71849b6674948ba492ec2a73259e
+      internalID: -1111973915
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_45
+      name: Green_Warrior_45
       rect:
         serializedVersion: 2
         x: 512
@@ -1075,14 +1063,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b9086b75ba3fe149afed77759d8a1e3
-      internalID: -664864645
+      spriteID: 9779745ea0b9e1a428afa06fe7ff7ed9
+      internalID: -693388909
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_46
+      name: Green_Warrior_46
       rect:
         serializedVersion: 2
         x: 544
@@ -1096,14 +1084,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 03407db016263c443aaf6bb5a0b37ef0
-      internalID: 2031087340
+      spriteID: 7278861029a5e9c41a95e0e712f07326
+      internalID: 44140101
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_47
+      name: Green_Warrior_47
       rect:
         serializedVersion: 2
         x: 576
@@ -1117,14 +1105,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a1945e6433051ad46907d787899f4942
-      internalID: 1765044647
+      spriteID: 25d3c0c3726572b4ea4f71965776f923
+      internalID: -1442066386
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_48
+      name: Green_Warrior_48
       rect:
         serializedVersion: 2
         x: 608
@@ -1138,14 +1126,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 55a6ab44f16df5247840cc13afcd2e46
-      internalID: -1638448313
+      spriteID: 6c47aa6b57ac8644ab77f13299628d92
+      internalID: -817290920
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_49
+      name: Green_Warrior_49
       rect:
         serializedVersion: 2
         x: 640
@@ -1159,14 +1147,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8af11ead3a6f41447a3e8262e14e908f
-      internalID: 1028557942
+      spriteID: b2d55d492bc2bd345ac974e797dc29e3
+      internalID: 124571861
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_50
+      name: Green_Warrior_50
       rect:
         serializedVersion: 2
         x: 672
@@ -1180,14 +1168,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88b473f10af16174198dc31c9ad84aef
-      internalID: -415937332
+      spriteID: cd10e28b790622541b1371a8da6b2926
+      internalID: 215469147
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_51
+      name: Green_Warrior_51
       rect:
         serializedVersion: 2
         x: 704
@@ -1201,14 +1189,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 063eb61d98260a547bf65cd62f41a328
-      internalID: -631305464
+      spriteID: 62c012da2bb960147a19120121871dad
+      internalID: -1356445923
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_52
+      name: Green_Warrior_52
       rect:
         serializedVersion: 2
         x: 736
@@ -1222,14 +1210,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 827e751daf207c140988d2747149446f
-      internalID: 1396337669
+      spriteID: db40e7d04de842b43a935043dbb81c53
+      internalID: -529611649
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_53
+      name: Green_Warrior_53
       rect:
         serializedVersion: 2
         x: 768
@@ -1243,14 +1231,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4bbff3321f14b3c4baa5f9a615b3297e
-      internalID: 2117066211
+      spriteID: c3720e8d3746a6144bf50447a113047c
+      internalID: 231833601
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_54
+      name: Green_Warrior_54
       rect:
         serializedVersion: 2
         x: 800
@@ -1264,14 +1252,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4585dbc47d096ee48a7ad259f8695f82
-      internalID: -1407345700
+      spriteID: 05e600586c9949a499e9726e72a8280f
+      internalID: -962107332
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_55
+      name: Green_Warrior_55
       rect:
         serializedVersion: 2
         x: 832
@@ -1285,14 +1273,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 62f8798ce966adf4abe361d7c7cab202
-      internalID: -1109576194
+      spriteID: f322aec3f8a155545a06e95da0bbc895
+      internalID: -892030177
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_56
+      name: Green_Warrior_56
       rect:
         serializedVersion: 2
         x: 864
@@ -1306,14 +1294,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 12dcb9f1fc3ea314fb2ea7b434bc6717
-      internalID: 266306498
+      spriteID: 566beb5a75462d047825d826372af09b
+      internalID: 1263279446
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_57
+      name: Green_Warrior_57
       rect:
         serializedVersion: 2
         x: 896
@@ -1327,14 +1315,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b7c7c7041058f144b90733c2957f8a1c
-      internalID: 1115968704
+      spriteID: 617eb3d62b68d3542b0aecfa473e7ef1
+      internalID: 55568834
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_58
+      name: Green_Warrior_58
       rect:
         serializedVersion: 2
         x: 0
@@ -1348,14 +1336,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 197223778390e3649b3f12cd70b1966c
-      internalID: -686732609
+      spriteID: 2b37710bc0de948418e5abb8880ded36
+      internalID: 709584523
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_59
+      name: Green_Warrior_59
       rect:
         serializedVersion: 2
         x: 32
@@ -1369,14 +1357,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4ca647eeb5e468c49809620e2f81b1a9
-      internalID: -357946352
+      spriteID: fdbbb0bd2dc9e1942b07215688ed118d
+      internalID: -865960901
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_60
+      name: Green_Warrior_60
       rect:
         serializedVersion: 2
         x: 64
@@ -1390,14 +1378,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a21882c4d7e10f46b0d8ff1d6a6a667
-      internalID: 832156860
+      spriteID: 93e24a41a10ea404a8532923f4fd83f2
+      internalID: -332750358
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_61
+      name: Green_Warrior_61
       rect:
         serializedVersion: 2
         x: 96
@@ -1411,14 +1399,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b9508ea49aa08a4195adc0743eefada
-      internalID: 461819652
+      spriteID: be96644f9ddfc8245b17a85413da74b8
+      internalID: 147451838
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_62
+      name: Green_Warrior_62
       rect:
         serializedVersion: 2
         x: 128
@@ -1432,14 +1420,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1bbcef814b5856544a2d6df3915eb9a6
-      internalID: 1684060740
+      spriteID: f047eed0d776e6049be2847a12fa4924
+      internalID: 1223516082
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_63
+      name: Green_Warrior_63
       rect:
         serializedVersion: 2
         x: 160
@@ -1453,14 +1441,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b42cb8608082f743be934493c4f56f3
-      internalID: 1188644649
+      spriteID: 51d68a8fa02635b43a7a6acb3c32ddbc
+      internalID: -1317069553
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_64
+      name: Green_Warrior_64
       rect:
         serializedVersion: 2
         x: 192
@@ -1474,14 +1462,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 41e403c05fe7ecb4dbcdba9922ece2f5
-      internalID: -1212377566
+      spriteID: 45e414606f4d236458e3f398af9e45e3
+      internalID: -1101718983
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_65
+      name: Green_Warrior_65
       rect:
         serializedVersion: 2
         x: 224
@@ -1495,14 +1483,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b839805e0f45e64fb040955b49c183b
-      internalID: -1358958938
+      spriteID: 9bde0833b0b95ff40b9c6dcbce035a90
+      internalID: 879236482
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_66
+      name: Green_Warrior_66
       rect:
         serializedVersion: 2
         x: 256
@@ -1516,14 +1504,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f33cf8f9cc60a26428de74731cedf15e
-      internalID: -1877359364
+      spriteID: d951d7664d1a9164f93046e286c92410
+      internalID: 1481538998
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_67
+      name: Green_Warrior_67
       rect:
         serializedVersion: 2
         x: 288
@@ -1537,14 +1525,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 90edf6f35ee0cbb4891ddd9d3cfc6698
-      internalID: -1641930645
+      spriteID: d734bb7006b133241b8f9e3d2d3c215d
+      internalID: 1646012566
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_68
+      name: Green_Warrior_68
       rect:
         serializedVersion: 2
         x: 320
@@ -1558,14 +1546,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 581f4c2254080844180b3b0c382f23f5
-      internalID: -764277966
+      spriteID: 784c6ee02b538234dba457208e49f0d2
+      internalID: 404294176
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_69
+      name: Green_Warrior_69
       rect:
         serializedVersion: 2
         x: 352
@@ -1579,14 +1567,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4ff45734befc1c418c84528a9abf583
-      internalID: -1263759806
+      spriteID: c451f10ff6ee0854e952b14092eda482
+      internalID: -320767012
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_70
+      name: Green_Warrior_70
       rect:
         serializedVersion: 2
         x: 384
@@ -1600,14 +1588,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45b3658fb9f82be43ab45843499615e3
-      internalID: 1688324132
+      spriteID: 4437aee64044db3459682445b8ed0af0
+      internalID: -1499026710
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_71
+      name: Green_Warrior_71
       rect:
         serializedVersion: 2
         x: 416
@@ -1621,14 +1609,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 584b2c7d65e4e9c47a64d74c849818fd
-      internalID: -764809516
+      spriteID: 57753e6e9d5bc064593e2e39e16b949b
+      internalID: -1107976985
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_72
+      name: Green_Warrior_72
       rect:
         serializedVersion: 2
         x: 448
@@ -1642,14 +1630,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f5ffc3e80ff9fbc4dab908290e64532a
-      internalID: -946671486
+      spriteID: c37e051742b24bd4f927e6af6ef48a56
+      internalID: -960976179
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_73
+      name: Green_Warrior_73
       rect:
         serializedVersion: 2
         x: 480
@@ -1663,14 +1651,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 082da3ca85642614e882e9763752f9f1
-      internalID: -297619571
+      spriteID: 331aa61b3a8c30342b34ae790cd58276
+      internalID: 1457577310
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_74
+      name: Green_Warrior_74
       rect:
         serializedVersion: 2
         x: 512
@@ -1684,14 +1672,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0028be5cb032a4649b2c00244efb75ca
-      internalID: -1957821990
+      spriteID: 8f499bfc8b368d94e96025fce638166a
+      internalID: 1649000776
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_75
+      name: Green_Warrior_75
       rect:
         serializedVersion: 2
         x: 544
@@ -1705,14 +1693,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7730e52d5b0e07748b1000bbc26d5c52
-      internalID: 614172970
+      spriteID: 2daed0e1985f2c144a2cd407cc0b9d6c
+      internalID: 1658235595
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_76
+      name: Green_Warrior_76
       rect:
         serializedVersion: 2
         x: 576
@@ -1726,14 +1714,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0281229ed0f0aee429b34d59da0b35ee
-      internalID: -261795790
+      spriteID: 92208b0086d25c54fab526aa15f19fe3
+      internalID: -719136977
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_77
+      name: Green_Warrior_77
       rect:
         serializedVersion: 2
         x: 608
@@ -1747,14 +1735,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 05bc7abcc3a35fb469eeb33a274b58e1
-      internalID: -1527537968
+      spriteID: a742149d59489244d9e1ebb9f52d0233
+      internalID: 1589810545
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_78
+      name: Green_Warrior_78
       rect:
         serializedVersion: 2
         x: 640
@@ -1768,14 +1756,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 57fd81e371a6cb74c826781b82c971ed
-      internalID: 576696594
+      spriteID: 5c8b30a5b3e69cd4eb6153856f8ef92c
+      internalID: 2024361386
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_79
+      name: Green_Warrior_79
       rect:
         serializedVersion: 2
         x: 672
@@ -1789,14 +1777,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a413ceebcabd41749974c1dd38d887bf
-      internalID: 1121911232
+      spriteID: b447b230bb805e744a2241bb5cecc58f
+      internalID: 906264325
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_80
+      name: Green_Warrior_80
       rect:
         serializedVersion: 2
         x: 704
@@ -1810,14 +1798,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 081ceb7520043eb48b607ea98036f982
-      internalID: -1786093134
+      spriteID: f26591f4a0f2ce349a4450442efdaa8d
+      internalID: 1020561198
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_81
+      name: Green_Warrior_81
       rect:
         serializedVersion: 2
         x: 736
@@ -1831,14 +1819,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e3945c1dfbc5f142b399a9e56af5f7e
-      internalID: 2013322206
+      spriteID: e92b7231c24b80340a5180943636d5f8
+      internalID: -919115271
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_82
+      name: Green_Warrior_82
       rect:
         serializedVersion: 2
         x: 768
@@ -1852,14 +1840,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 86774b616011bd8478850481bed43f2f
-      internalID: -754341418
+      spriteID: 6dc30a0b2105e8f44add04e030bb78f3
+      internalID: 285309339
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_83
+      name: Green_Warrior_83
       rect:
         serializedVersion: 2
         x: 800
@@ -1873,14 +1861,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fadce23951f58f844ac50c84c880ea35
-      internalID: -1156768738
+      spriteID: af25325a555e0474ba7830bae1dd388a
+      internalID: -1420064434
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_84
+      name: Green_Warrior_84
       rect:
         serializedVersion: 2
         x: 832
@@ -1894,14 +1882,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ec9dafc4108b54438a1889317b357d6
-      internalID: 2796667
+      spriteID: 0af118454c24f27468cd3ae30fe01f03
+      internalID: -1574972646
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_85
+      name: Green_Warrior_85
       rect:
         serializedVersion: 2
         x: 864
@@ -1915,14 +1903,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b4a0899e8c79104d8c51ec1bdf75ffb
-      internalID: -2040525890
+      spriteID: 63d57faaa6bd3754087089c80becd61e
+      internalID: -2028682300
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_86
+      name: Green_Warrior_86
       rect:
         serializedVersion: 2
         x: 896
@@ -1936,14 +1924,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6df19e9f30d615743bbf057f149477f6
-      internalID: 824239299
+      spriteID: d573a6ff6e5e18d4c97215439c731a09
+      internalID: -1277180598
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_87
+      name: Green_Warrior_87
       rect:
         serializedVersion: 2
         x: 0
@@ -1957,14 +1945,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6497e53c18f35fa43803802a379027fc
-      internalID: 349268915
+      spriteID: 163eb2709cca41f4482e8753dbf1d8f4
+      internalID: -1940776915
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_88
+      name: Green_Warrior_88
       rect:
         serializedVersion: 2
         x: 32
@@ -1978,14 +1966,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a4fe904a596addc408bcc70be7b4f14b
-      internalID: 1263847569
+      spriteID: 8312ac638109b0a43a4bab06fb8c91a1
+      internalID: -161721032
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_89
+      name: Green_Warrior_89
       rect:
         serializedVersion: 2
         x: 64
@@ -1999,14 +1987,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e8090abd081e41b4480b37f3ad346d70
-      internalID: -1806633816
+      spriteID: 7f124821a6dfb9444be74550d229c422
+      internalID: -808899672
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_90
+      name: Green_Warrior_90
       rect:
         serializedVersion: 2
         x: 96
@@ -2020,14 +2008,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68becb41ab3950549908a620788708d2
-      internalID: 1397454174
+      spriteID: 3ba80a5d99d60224fb3d377870bfcd66
+      internalID: -958895374
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_91
+      name: Green_Warrior_91
       rect:
         serializedVersion: 2
         x: 128
@@ -2041,14 +2029,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98a51c8cd1141834f82eb586e8d8954e
-      internalID: 116954901
+      spriteID: 4b505e0af020e994da60b6ebaee42790
+      internalID: -1391500304
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_92
+      name: Green_Warrior_92
       rect:
         serializedVersion: 2
         x: 160
@@ -2062,14 +2050,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec215c7ed992cc94c8ec5691b3ff1a79
-      internalID: 156460348
+      spriteID: bf0f8660940bbaf4b88c934d5ddf05a8
+      internalID: -1268050524
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_93
+      name: Green_Warrior_93
       rect:
         serializedVersion: 2
         x: 192
@@ -2083,14 +2071,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b1b8bec8376a934408e83ac3ef5591c5
-      internalID: 1847768818
+      spriteID: aabc3f4fdb99e364b827f3df6a53931a
+      internalID: -1013445346
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_94
+      name: Green_Warrior_94
       rect:
         serializedVersion: 2
         x: 224
@@ -2104,14 +2092,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f759727471b4404c8bf096627a44a37
-      internalID: -295646768
+      spriteID: 974be72444c56384fa475309e9a763d8
+      internalID: -1562178620
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_95
+      name: Green_Warrior_95
       rect:
         serializedVersion: 2
         x: 256
@@ -2125,14 +2113,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 597a9e0dd55eecf4b802eb110a0f2cdd
-      internalID: -778320309
+      spriteID: a543585a612944d4c996a59854f8f1e3
+      internalID: -1094593203
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_96
+      name: Green_Warrior_96
       rect:
         serializedVersion: 2
         x: 288
@@ -2146,14 +2134,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 501838f6e091ae448bdd37e3309b0596
-      internalID: 1118655996
+      spriteID: 18a0aa495699a204f9ac7b27a311fa08
+      internalID: -1536547247
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_97
+      name: Green_Warrior_97
       rect:
         serializedVersion: 2
         x: 320
@@ -2167,14 +2155,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 38c7f545813249749b49be9f8d65e18e
-      internalID: -1832076710
+      spriteID: 0866a6b80729d6c47b5ef71348d03a2b
+      internalID: -814030369
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_98
+      name: Green_Warrior_98
       rect:
         serializedVersion: 2
         x: 352
@@ -2188,14 +2176,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e40ed08eff475344a99de3d31f258d8
-      internalID: 389861272
+      spriteID: 7e9451768985ce4449152d6623d7bfc5
+      internalID: 901085061
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_99
+      name: Green_Warrior_99
       rect:
         serializedVersion: 2
         x: 384
@@ -2209,14 +2197,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 897a534fec83ecc4ebc768da77bea67d
-      internalID: 2038958135
+      spriteID: 6b79790253266f9429851f59a991da98
+      internalID: 1140829923
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_100
+      name: Green_Warrior_100
       rect:
         serializedVersion: 2
         x: 416
@@ -2230,14 +2218,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0f2730fd22b42049a87874f8860e142
-      internalID: 1725348342
+      spriteID: f7088c115e1e3594ca7283e55fa921f6
+      internalID: 810447615
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_101
+      name: Green_Warrior_101
       rect:
         serializedVersion: 2
         x: 448
@@ -2251,14 +2239,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d864b911c31f6c48b17aebed70ebca0
-      internalID: 703090977
+      spriteID: 5625bd9f2b514d84584b777b12c6eed4
+      internalID: 1185725291
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_102
+      name: Green_Warrior_102
       rect:
         serializedVersion: 2
         x: 480
@@ -2272,14 +2260,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 883acb92b96d51943b133ad398205093
-      internalID: 2080282397
+      spriteID: 79e2b8264aeaa6846b26bac1a10104e0
+      internalID: -1320254869
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_103
+      name: Green_Warrior_103
       rect:
         serializedVersion: 2
         x: 512
@@ -2293,14 +2281,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2a8ec4ef65ccca94e9319ef22928480a
-      internalID: 1774518760
+      spriteID: 1cea748895db9b548b79d3ac3ca195cb
+      internalID: 1098921295
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_104
+      name: Green_Warrior_104
       rect:
         serializedVersion: 2
         x: 544
@@ -2314,14 +2302,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: abed76e0471c68d478b1219b58831171
-      internalID: -164269520
+      spriteID: 20b55e41102c2d84bb389f3f4f9ddac9
+      internalID: -528759584
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_105
+      name: Green_Warrior_105
       rect:
         serializedVersion: 2
         x: 576
@@ -2335,14 +2323,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7b494a75494c00346b813a9a3be27568
-      internalID: -496882798
+      spriteID: 6821851168139074faa8d67a9de999bb
+      internalID: 303717634
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_106
+      name: Green_Warrior_106
       rect:
         serializedVersion: 2
         x: 608
@@ -2356,14 +2344,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 796a0898b4e51404399c79f3d611ce99
-      internalID: -23957446
+      spriteID: c1ee7e5349424b548b3e1e98b4badc96
+      internalID: 682991851
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_107
+      name: Green_Warrior_107
       rect:
         serializedVersion: 2
         x: 640
@@ -2377,14 +2365,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e972fd792e3c09a4485b159c9c848941
-      internalID: -930428647
+      spriteID: 6092e86b0c1bdf746a7c25db0404c736
+      internalID: 1950201616
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_108
+      name: Green_Warrior_108
       rect:
         serializedVersion: 2
         x: 672
@@ -2398,14 +2386,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f43662a0d2b83fc40955957014da6c3a
-      internalID: -1555541041
+      spriteID: ec688ca785b3be048baeaedabc4130e0
+      internalID: -1321533219
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_109
+      name: Green_Warrior_109
       rect:
         serializedVersion: 2
         x: 704
@@ -2419,14 +2407,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 79c574bfbedee8144b4053f3b7cb7fd2
-      internalID: 1009456031
+      spriteID: 9e7379f398f00ed499c7dfd11b2df94e
+      internalID: 2144858624
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_110
+      name: Green_Warrior_110
       rect:
         serializedVersion: 2
         x: 736
@@ -2440,14 +2428,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 55ab9afcd441ad7499b0b2d141328971
-      internalID: 341976421
+      spriteID: 94f448711f77f1647b3d647a43f29435
+      internalID: 2094565331
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_111
+      name: Green_Warrior_111
       rect:
         serializedVersion: 2
         x: 768
@@ -2461,14 +2449,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da90466cbacf6f5469fc9db3492ea958
-      internalID: -721918104
+      spriteID: 7bfc9e87afd049a4eae3c5874353d8d5
+      internalID: 1823635843
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_112
+      name: Green_Warrior_112
       rect:
         serializedVersion: 2
         x: 800
@@ -2482,14 +2470,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b9dcb13b5a3e71498e80d29d446337b
-      internalID: -1774776914
+      spriteID: 6cdba58a786ed4d46bc57b63f9fbe474
+      internalID: 58126328
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_113
+      name: Green_Warrior_113
       rect:
         serializedVersion: 2
         x: 832
@@ -2503,14 +2491,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5dcf3730c43e7a043b5e9ad8fc378ca2
-      internalID: -892176115
+      spriteID: 6b15ce5b33a62e74faeba4d3b0109bc6
+      internalID: -1902237755
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_114
+      name: Green_Warrior_114
       rect:
         serializedVersion: 2
         x: 864
@@ -2524,14 +2512,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c8f26926e0305e7418c98301c1bbb61a
-      internalID: 236188915
+      spriteID: 3ab6463d3f6081e41941cf8c809fe8f1
+      internalID: 981582393
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_115
+      name: Green_Warrior_115
       rect:
         serializedVersion: 2
         x: 896
@@ -2545,14 +2533,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bab469edcdf2cf14a9a02a6f038e3df9
-      internalID: 1632797785
+      spriteID: 69939ad47d749654d9d012afb05901c6
+      internalID: 1984528259
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_116
+      name: Green_Warrior_116
       rect:
         serializedVersion: 2
         x: 0
@@ -2566,14 +2554,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7abc583d26bc244bb3fbf848b58f067
-      internalID: 13152993
+      spriteID: 8c9a52d14ef26d1488a595959efcbe8f
+      internalID: 1225000237
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_117
+      name: Green_Warrior_117
       rect:
         serializedVersion: 2
         x: 32
@@ -2587,14 +2575,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1828331bb8207f74c8b65e279abf6c63
-      internalID: -615996941
+      spriteID: 40aa2ac88db03684ca40f3cadb18393f
+      internalID: -717853267
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_118
+      name: Green_Warrior_118
       rect:
         serializedVersion: 2
         x: 64
@@ -2608,14 +2596,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a92bb4a70807ff140992ee2d7939f350
-      internalID: 1294501349
+      spriteID: d18a92ad8310edc4ea2758a930047ccf
+      internalID: -901024252
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_119
+      name: Green_Warrior_119
       rect:
         serializedVersion: 2
         x: 96
@@ -2629,14 +2617,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 826b580644518f9438b1233026fffe45
-      internalID: 1142542129
+      spriteID: 50ac0193cd29f004b820a3ff311ec0f1
+      internalID: 1419478233
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_120
+      name: Green_Warrior_120
       rect:
         serializedVersion: 2
         x: 128
@@ -2650,14 +2638,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d54729e606ae4b4cb8ddc9a3460b62e
-      internalID: -476304398
+      spriteID: 738cd7b122bd54f46b904381fce6da14
+      internalID: 1241133128
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_121
+      name: Green_Warrior_121
       rect:
         serializedVersion: 2
         x: 160
@@ -2671,14 +2659,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02d63b10f592c224eb87e46b25ebc445
-      internalID: 1363399099
+      spriteID: 179c9dca2c4576748864c70949c4126a
+      internalID: 1316147883
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_122
+      name: Green_Warrior_122
       rect:
         serializedVersion: 2
         x: 192
@@ -2692,14 +2680,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2bb34e5e09bf3444a961a5411228ac1d
-      internalID: -663515767
+      spriteID: 8d7b3884700854b48b66c3cef3445202
+      internalID: 1410546928
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_123
+      name: Green_Warrior_123
       rect:
         serializedVersion: 2
         x: 224
@@ -2713,14 +2701,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 44474f89af3e8444ab6852a8a56b95c6
-      internalID: -1719022778
+      spriteID: 2366f95388d250d4a9be7a0326e0e7ef
+      internalID: 1232258786
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_124
+      name: Green_Warrior_124
       rect:
         serializedVersion: 2
         x: 256
@@ -2734,14 +2722,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 86417d008ab548642af677b0785f568d
-      internalID: -983337123
+      spriteID: 64fceb75ff5f750428354328dca47a46
+      internalID: 907188478
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_125
+      name: Green_Warrior_125
       rect:
         serializedVersion: 2
         x: 288
@@ -2755,14 +2743,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bbcd73b1ff0482c4ba6639b862cef1eb
-      internalID: -858628087
+      spriteID: 3601846b4bfd4bb438613ccf82d05f25
+      internalID: 2053917100
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_126
+      name: Green_Warrior_126
       rect:
         serializedVersion: 2
         x: 320
@@ -2776,14 +2764,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1bfdf8d99ef6b6f4ead4e9a2f4fcf4e5
-      internalID: 1166421101
+      spriteID: dbddd92dec4e8ec4f8f65df4c2addd15
+      internalID: 183937976
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_127
+      name: Green_Warrior_127
       rect:
         serializedVersion: 2
         x: 352
@@ -2797,14 +2785,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 95598f21043a42946a96b60cc55bbdcc
-      internalID: 1155568039
+      spriteID: 7507ad696cc326d4287e3299e78b216b
+      internalID: -75060175
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_128
+      name: Green_Warrior_128
       rect:
         serializedVersion: 2
         x: 384
@@ -2818,14 +2806,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b8a08b0ebb294f4ab9a6ff798a29264
-      internalID: -595911539
+      spriteID: 891007ac92d191343b99bbb1db40eb09
+      internalID: 1846470187
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_129
+      name: Green_Warrior_129
       rect:
         serializedVersion: 2
         x: 416
@@ -2839,14 +2827,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c5c0a86ad6e4c544098f731edb535820
-      internalID: -1218001916
+      spriteID: eb8b8c22a2577cf4ab52bbb7cac20a4b
+      internalID: 650102466
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_130
+      name: Green_Warrior_130
       rect:
         serializedVersion: 2
         x: 448
@@ -2860,14 +2848,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9354336b63eb39142a509b5bd9dfcd67
-      internalID: -293324020
+      spriteID: 84e5a1779b414444595f81f95c9441d7
+      internalID: 477104621
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_131
+      name: Green_Warrior_131
       rect:
         serializedVersion: 2
         x: 480
@@ -2881,14 +2869,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 24d209cd1061ed742852082baa167439
-      internalID: 1049182163
+      spriteID: aca54a89dea32a94d80250278ba0ee07
+      internalID: -1557239890
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_132
+      name: Green_Warrior_132
       rect:
         serializedVersion: 2
         x: 512
@@ -2902,14 +2890,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c0cb3b4c520b1846985cf19a727a152
-      internalID: 1356258863
+      spriteID: 110e03b7e70313849bc0a2e6ab826d4b
+      internalID: -1276656292
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_133
+      name: Green_Warrior_133
       rect:
         serializedVersion: 2
         x: 544
@@ -2923,14 +2911,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d0bcdce78cfd32438f280fe7d909e1e
-      internalID: -1485841372
+      spriteID: 72caee2aebbf23d4b9f7890331eae0dd
+      internalID: 1283493185
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_134
+      name: Green_Warrior_134
       rect:
         serializedVersion: 2
         x: 576
@@ -2944,14 +2932,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1daad8a5fd24f824dbf564dc5bf09a7a
-      internalID: -1471644402
+      spriteID: 62f106b293067e045a0d49865e226760
+      internalID: -717983853
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_135
+      name: Green_Warrior_135
       rect:
         serializedVersion: 2
         x: 608
@@ -2965,14 +2953,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 84892ad403837ec479a1bf86f541e0c2
-      internalID: 1965148348
+      spriteID: c4866d2bee098524d91c45348817bd9f
+      internalID: 1988493091
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_136
+      name: Green_Warrior_136
       rect:
         serializedVersion: 2
         x: 640
@@ -2986,14 +2974,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a36f2ad776859946ab88249ea6fe009
-      internalID: 1834814463
+      spriteID: 96d573374af51324b8e58adecdcb14e8
+      internalID: 159059938
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_137
+      name: Green_Warrior_137
       rect:
         serializedVersion: 2
         x: 672
@@ -3007,14 +2995,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 89cf6fee8dfd89c4482203ac2e3010fa
-      internalID: 1991082742
+      spriteID: ea829bc02336a124fba9fe6d33c20102
+      internalID: 608104348
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_138
+      name: Green_Warrior_138
       rect:
         serializedVersion: 2
         x: 704
@@ -3028,14 +3016,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5468986f1b040ae489214d0b361089de
-      internalID: -413098709
+      spriteID: b977b42498a8e64439912286a997abd2
+      internalID: 1926213107
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_139
+      name: Green_Warrior_139
       rect:
         serializedVersion: 2
         x: 736
@@ -3049,14 +3037,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 23611234e97685b4d97afc3d38ccae6b
-      internalID: -1860397626
+      spriteID: 2d38851334ae7584d881449d06639d0b
+      internalID: -885061736
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_140
+      name: Green_Warrior_140
       rect:
         serializedVersion: 2
         x: 768
@@ -3070,14 +3058,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 57e7202c5a99670459e1cb54e9f24f9e
-      internalID: 409560579
+      spriteID: d3ef5607d1b7f4a4b80eb221703587b9
+      internalID: -782784588
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_141
+      name: Green_Warrior_141
       rect:
         serializedVersion: 2
         x: 800
@@ -3091,14 +3079,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 55c4347718c25f5499b09ce08ae2928e
-      internalID: 185590493
+      spriteID: c14724977c82eb242b9891b17c7aeeff
+      internalID: 1129823166
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_142
+      name: Green_Warrior_142
       rect:
         serializedVersion: 2
         x: 832
@@ -3112,14 +3100,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d212cdc0cd3c8c40b21ca88373314b5
-      internalID: 1329800588
+      spriteID: 5b78ba87b520a8048afbe399f338a744
+      internalID: 348662269
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_143
+      name: Green_Warrior_143
       rect:
         serializedVersion: 2
         x: 864
@@ -3133,14 +3121,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 85d71df51cb789740b35dcbe84559d7f
-      internalID: -1837981799
+      spriteID: 867e5345ba6bec846a12e9e023b13967
+      internalID: 2140543903
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_144
+      name: Green_Warrior_144
       rect:
         serializedVersion: 2
         x: 896
@@ -3154,14 +3142,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d34b719ff7dd1448bb060c8f483ba77
-      internalID: 133719240
+      spriteID: 3e2c82a824a83494f927f4f2dfa5204a
+      internalID: -1624518405
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_145
+      name: Green_Warrior_145
       rect:
         serializedVersion: 2
         x: 0
@@ -3175,14 +3163,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 036b94ff165bd51478e8158dab03ba67
-      internalID: -644883544
+      spriteID: 90d57b1c2fef2ae4aa89508b4a62f07c
+      internalID: 982534041
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_146
+      name: Green_Warrior_146
       rect:
         serializedVersion: 2
         x: 32
@@ -3196,14 +3184,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 11103fb36407a1a42a2eeaf4a4d70e5c
-      internalID: -120798573
+      spriteID: c969ba4d94d9ce04aaf21a2f34566c98
+      internalID: 128378636
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_147
+      name: Green_Warrior_147
       rect:
         serializedVersion: 2
         x: 64
@@ -3217,14 +3205,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d788517d7513f7d419490fafce28e6b4
-      internalID: 1341030423
+      spriteID: 0f8abf0ba2f83c541a83e35af14ad6af
+      internalID: -773113912
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_148
+      name: Green_Warrior_148
       rect:
         serializedVersion: 2
         x: 96
@@ -3238,14 +3226,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d79b447f53dc4b741adc458565aa68c6
-      internalID: 643417967
+      spriteID: 430d03456bd952e4aa568bd088f49e46
+      internalID: 298586056
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_149
+      name: Green_Warrior_149
       rect:
         serializedVersion: 2
         x: 128
@@ -3259,14 +3247,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4ea43314edb8c2c498caf8c675ddf689
-      internalID: 962203416
+      spriteID: 5811aa6b592aeef4ea4dc4bb12ab1795
+      internalID: -619527357
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_150
+      name: Green_Warrior_150
       rect:
         serializedVersion: 2
         x: 160
@@ -3280,14 +3268,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b18faa68c9b66d84fa60972fd3abf9eb
-      internalID: 1379338389
+      spriteID: 802232d2bd3cca84083d41f622696ab9
+      internalID: -1318817143
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_151
+      name: Green_Warrior_151
       rect:
         serializedVersion: 2
         x: 192
@@ -3301,14 +3289,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ccada6a0e54c96d45a0112e8bec4c34b
-      internalID: 1079309784
+      spriteID: 5d5627f8a4e67584c8263f733d50b2d7
+      internalID: 1625222500
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_152
+      name: Green_Warrior_152
       rect:
         serializedVersion: 2
         x: 224
@@ -3322,14 +3310,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 562b903660f2684489e82b8c7360a332
-      internalID: -1583433552
+      spriteID: c60b33f01be12e143956e29b5735f13e
+      internalID: 1907129159
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_153
+      name: Green_Warrior_153
       rect:
         serializedVersion: 2
         x: 256
@@ -3343,14 +3331,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 532fe6be6e6cb42419df82ccf3b0a566
-      internalID: -1785055603
+      spriteID: 6c15afe1c47243f43a9a4175ea3f7553
+      internalID: 1646037387
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_154
+      name: Green_Warrior_154
       rect:
         serializedVersion: 2
         x: 288
@@ -3364,14 +3352,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 95c41fe83244b8240adc3838d0ad05d3
-      internalID: 986384379
+      spriteID: 4d28b6417f671c2488af9e32b298589d
+      internalID: 364970680
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_155
+      name: Green_Warrior_155
       rect:
         serializedVersion: 2
         x: 320
@@ -3385,14 +3373,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b3225dd8beb2754f9da11e5fbdf27d8
-      internalID: -820808995
+      spriteID: 279b887dfab8d7440a55aebedbf254f4
+      internalID: 1275241264
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_156
+      name: Green_Warrior_156
       rect:
         serializedVersion: 2
         x: 352
@@ -3406,14 +3394,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a77fc64f14aea024182062273b6dfb33
-      internalID: 1037055853
+      spriteID: 32d5ec51b5f624544b55b3b8350c21c9
+      internalID: 894792875
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_157
+      name: Green_Warrior_157
       rect:
         serializedVersion: 2
         x: 384
@@ -3427,14 +3415,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b15e0d823444d3a488509fd98ae16d93
-      internalID: 1790626748
+      spriteID: 48b9e5f02bee8bd40b83f82278d04851
+      internalID: -976183711
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_158
+      name: Green_Warrior_158
       rect:
         serializedVersion: 2
         x: 416
@@ -3448,14 +3436,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1415447c1afc58c42b1984e3e736c423
-      internalID: 760035336
+      spriteID: d996c51fa8b232644866d6fcf241cdf2
+      internalID: 499863960
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_159
+      name: Green_Warrior_159
       rect:
         serializedVersion: 2
         x: 448
@@ -3469,14 +3457,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 62a1a03bd1905f444bc87b611297718c
-      internalID: -680217690
+      spriteID: 039cb5163c0553848a4028e5f482543c
+      internalID: -2028698116
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_160
+      name: Green_Warrior_160
       rect:
         serializedVersion: 2
         x: 480
@@ -3490,14 +3478,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7801a2da873aa0a4d80698468899416b
-      internalID: -1428934454
+      spriteID: 20474deedcb2b244eb7f87dd6bd2a1a8
+      internalID: -227918361
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_161
+      name: Green_Warrior_161
       rect:
         serializedVersion: 2
         x: 512
@@ -3511,14 +3499,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7cfdced9b52af4b48abccb93c6f627de
-      internalID: 2115928356
+      spriteID: 22df2ea5cc6808647acc5b4370963ec5
+      internalID: -277408254
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_162
+      name: Green_Warrior_162
       rect:
         serializedVersion: 2
         x: 544
@@ -3532,14 +3520,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 82c7cff12eb030f4fb8dcddb77a8be13
-      internalID: -688621234
+      spriteID: 0538aeb98d818be4fb0aa542800c7385
+      internalID: 1992964899
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_163
+      name: Green_Warrior_163
       rect:
         serializedVersion: 2
         x: 576
@@ -3553,14 +3541,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 145ed48b02648e64b9a95981070144ee
-      internalID: 39315354
+      spriteID: ad441a58b1a48494e93e4fab2c5c2a26
+      internalID: -2037177811
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_164
+      name: Green_Warrior_164
       rect:
         serializedVersion: 2
         x: 608
@@ -3574,14 +3562,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cbbc27ee34bb3d94e8e59908390711de
-      internalID: 1373803066
+      spriteID: 9b1405c775769594f9af76adbc3c020e
+      internalID: 2019027674
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_165
+      name: Green_Warrior_165
       rect:
         serializedVersion: 2
         x: 640
@@ -3595,14 +3583,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b8183538277f75b40bfc6c117cd62fd9
-      internalID: 39433362
+      spriteID: 67894df9dbc201e40a3a180e35137a89
+      internalID: 1037326664
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_166
+      name: Green_Warrior_166
       rect:
         serializedVersion: 2
         x: 672
@@ -3616,14 +3604,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45c46135bdd553c4ead05206243d3046
-      internalID: 688487899
+      spriteID: 436cde657ae32fc4c87e02207c87f2fd
+      internalID: -1148612248
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_167
+      name: Green_Warrior_167
       rect:
         serializedVersion: 2
         x: 704
@@ -3637,14 +3625,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f07ee613c4cda5e47b230e427a4af705
-      internalID: -602420797
+      spriteID: 5f0e6388efd9b284ea05464220334757
+      internalID: 802313099
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_168
+      name: Green_Warrior_168
       rect:
         serializedVersion: 2
         x: 736
@@ -3658,14 +3646,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 93fca99e24b7b48419eb3669ec4faab6
-      internalID: -546205652
+      spriteID: ffec63b9e3f42ab4bbc02edeacb8804e
+      internalID: 430913888
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_169
+      name: Green_Warrior_169
       rect:
         serializedVersion: 2
         x: 768
@@ -3679,14 +3667,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45d7818baea8c1844ad6612b7ba7b501
-      internalID: 668250493
+      spriteID: fea700c4e2b113041b83d7b0df4fb9e0
+      internalID: 548709061
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_170
+      name: Green_Warrior_170
       rect:
         serializedVersion: 2
         x: 800
@@ -3700,14 +3688,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b87bb7159a71e01469d6d6560024ea71
-      internalID: 598395416
+      spriteID: e14bebedc5cd52f4a812a8a65dd12d15
+      internalID: -590865043
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_171
+      name: Green_Warrior_171
       rect:
         serializedVersion: 2
         x: 832
@@ -3721,14 +3709,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81621f6d36a8c2d4495f4557de12b96b
-      internalID: 1673884514
+      spriteID: 548614912c04ed543bc4f0707908cb7a
+      internalID: -2135949997
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_172
+      name: Green_Warrior_172
       rect:
         serializedVersion: 2
         x: 864
@@ -3742,14 +3730,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7099eded3ae51904cb62cc72f2897d22
-      internalID: 1615225723
+      spriteID: 431a659b30c2b21429b761dad063928c
+      internalID: 266305752
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_173
+      name: Green_Warrior_173
       rect:
         serializedVersion: 2
         x: 896
@@ -3763,14 +3751,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d74ad27fecee9f44390292b42566eb72
-      internalID: 1026283146
+      spriteID: 7350f8d9434767a49a15d89a99b725fc
+      internalID: -114469621
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_174
+      name: Green_Warrior_174
       rect:
         serializedVersion: 2
         x: 0
@@ -3784,14 +3772,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 897ef233535bdd9408740fd77ca915df
-      internalID: 1057638226
+      spriteID: d70442bb808babd4e946d54bda2a3bcc
+      internalID: -1040148854
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_175
+      name: Green_Warrior_175
       rect:
         serializedVersion: 2
         x: 32
@@ -3805,14 +3793,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aae14f0e58634574ab6088d127330180
-      internalID: -511641793
+      spriteID: ed03dc4eaeeca114bbdae4c4c441042e
+      internalID: -258871401
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_176
+      name: Green_Warrior_176
       rect:
         serializedVersion: 2
         x: 64
@@ -3826,14 +3814,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 111a49b2fd93f514f91d2332941f9a0a
-      internalID: -1670865784
+      spriteID: 918fab66022280548ac37ac53f662346
+      internalID: -234926714
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_177
+      name: Green_Warrior_177
       rect:
         serializedVersion: 2
         x: 96
@@ -3847,14 +3835,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06240251548e90242aa77c6cec6bf55e
-      internalID: -1257765847
+      spriteID: 707f9a90a6b72d84a9a675ec72bf0ca7
+      internalID: -2080064740
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_178
+      name: Green_Warrior_178
       rect:
         serializedVersion: 2
         x: 128
@@ -3868,14 +3856,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aefb1b29d59dd0d47b19fb958def39ac
-      internalID: 294718316
+      spriteID: b3462ecd2cbd06d47ab767b226deba16
+      internalID: 1332370884
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_179
+      name: Green_Warrior_179
       rect:
         serializedVersion: 2
         x: 160
@@ -3889,14 +3877,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b0233910d2e72e44db6ded694ec63361
-      internalID: -281191105
+      spriteID: b404e9a9ec1df2141834fad1b264fa00
+      internalID: -1168458441
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_180
+      name: Green_Warrior_180
       rect:
         serializedVersion: 2
         x: 192
@@ -3910,14 +3898,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6fc1dc530836ab4caef95aad914af8b
-      internalID: -2054745653
+      spriteID: 41f2ba2238ae8234bad4ca9a86a8d884
+      internalID: -964447656
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_181
+      name: Green_Warrior_181
       rect:
         serializedVersion: 2
         x: 224
@@ -3931,14 +3919,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 439a362cd901b084baeb77a05ff4615e
-      internalID: -1140095613
+      spriteID: 2b047de220f79dc489202b439c67fe40
+      internalID: 119877625
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_182
+      name: Green_Warrior_182
       rect:
         serializedVersion: 2
         x: 256
@@ -3952,14 +3940,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b7c30ce96335cb40abefede2a7234bd
-      internalID: 689537261
+      spriteID: f270cbed73869b841a4557b9ca412548
+      internalID: 1317476109
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_183
+      name: Green_Warrior_183
       rect:
         serializedVersion: 2
         x: 288
@@ -3973,14 +3961,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d64a13708e62a404ca0bfe87d9d9bc06
-      internalID: -28234160
+      spriteID: 69f904e60258f274ca350282eaf8d1f9
+      internalID: -1803031252
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_184
+      name: Green_Warrior_184
       rect:
         serializedVersion: 2
         x: 320
@@ -3994,14 +3982,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ff26e796dc0b6741969f0fe74e535bf
-      internalID: 1137967915
+      spriteID: 58fc1959f1a01be4187e5148b2d7c759
+      internalID: -788814800
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_185
+      name: Green_Warrior_185
       rect:
         serializedVersion: 2
         x: 352
@@ -4015,14 +4003,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 55793ceb1d2e5f2478b2c8de984e70bb
-      internalID: -611895086
+      spriteID: f87986c0a0b445349958047f32319c61
+      internalID: -993152993
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_186
+      name: Green_Warrior_186
       rect:
         serializedVersion: 2
         x: 384
@@ -4036,14 +4024,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 134ced08af32d2c4e9ea3a14d5390c18
-      internalID: -1134235556
+      spriteID: 445410096db59cf42aed2e39af7606a6
+      internalID: -1140146622
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_187
+      name: Green_Warrior_187
       rect:
         serializedVersion: 2
         x: 416
@@ -4057,14 +4045,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14b70abc1d22aa342934ac84abb992c0
-      internalID: 1207391068
+      spriteID: 20deccca988b8734bbedc2c9731c9d2b
+      internalID: -1113080853
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_188
+      name: Green_Warrior_188
       rect:
         serializedVersion: 2
         x: 448
@@ -4078,14 +4066,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d5d66145a1f5e8642bc20106021817a8
-      internalID: 248201937
+      spriteID: 0ec5950b2ae0f9f4480d1d30e11eece3
+      internalID: 1970843608
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_189
+      name: Green_Warrior_189
       rect:
         serializedVersion: 2
         x: 480
@@ -4099,14 +4087,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f03552c3b92c4b4a98a5036fefd6eac
-      internalID: -1443348910
+      spriteID: c54b2db77b7116c439083b23596729b9
+      internalID: -882966199
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_190
+      name: Green_Warrior_190
       rect:
         serializedVersion: 2
         x: 512
@@ -4120,14 +4108,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c9c473d91ae4067488b4c0f8299ab703
-      internalID: 626263167
+      spriteID: 6a3f79b5bc413504ab88f25d68613037
+      internalID: -1090399591
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_191
+      name: Green_Warrior_191
       rect:
         serializedVersion: 2
         x: 544
@@ -4141,14 +4129,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a771a8cf47b0a14ab2a898bb04dbc15
-      internalID: -180363994
+      spriteID: bad312e0f1112df43aeb0ac0cbe65930
+      internalID: 1489433739
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_192
+      name: Green_Warrior_192
       rect:
         serializedVersion: 2
         x: 576
@@ -4162,14 +4150,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba946ad8dbe9f0c4a9de677ed4741d40
-      internalID: 2122797181
+      spriteID: a00c43870703620468148f5642b94485
+      internalID: -1728712584
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_193
+      name: Green_Warrior_193
       rect:
         serializedVersion: 2
         x: 608
@@ -4183,14 +4171,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 909d15b7dba068241a5cdaefd5da3669
-      internalID: -448845144
+      spriteID: a73adc8388eb87f4eb9c2fbfb6d99e3c
+      internalID: -1314765257
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_194
+      name: Green_Warrior_194
       rect:
         serializedVersion: 2
         x: 640
@@ -4204,14 +4192,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 014917dc57cbfd54690e41c5332077de
-      internalID: 1378855352
+      spriteID: 9b65558b3549d3943aa354cfc6f967e0
+      internalID: -1352371179
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_195
+      name: Green_Warrior_195
       rect:
         serializedVersion: 2
         x: 672
@@ -4225,14 +4213,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 082efc9601b9ad74cbcb8a7cd0c9ebe3
-      internalID: 1658641393
+      spriteID: a9eb467d8e06beb4ea5d59c40219a0e8
+      internalID: -46250100
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_196
+      name: Green_Warrior_196
       rect:
         serializedVersion: 2
         x: 704
@@ -4246,14 +4234,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c38ad727872cde4d92dd4f26b9ce8eb
-      internalID: 196786277
+      spriteID: fc8d1815f7f24814b931038bfd7339c4
+      internalID: 251199924
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_197
+      name: Green_Warrior_197
       rect:
         serializedVersion: 2
         x: 736
@@ -4267,14 +4255,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 354e5f8015a62244b8f87cc14003c99b
-      internalID: -1176171931
+      spriteID: 39f206d08c9c0d94792029476503a013
+      internalID: 48076162
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_198
+      name: Green_Warrior_198
       rect:
         serializedVersion: 2
         x: 768
@@ -4288,14 +4276,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f66c7755a4de9e64f92b4fcd879fc26a
-      internalID: 622648506
+      spriteID: 174ecf0c13b6552409fa45f3a35822be
+      internalID: 286213798
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_199
+      name: Green_Warrior_199
       rect:
         serializedVersion: 2
         x: 800
@@ -4309,14 +4297,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5589ad90ea2a664478a4551ef3e8e628
-      internalID: -1051650853
+      spriteID: 5ad8d470372f2464d8df188cb4a6066b
+      internalID: 26521968
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_200
+      name: Green_Warrior_200
       rect:
         serializedVersion: 2
         x: 832
@@ -4330,14 +4318,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a793d917a5007f64c915b5707e37b0cc
-      internalID: 1643297059
+      spriteID: 0a97ac8d746d95648adac77b7c4ec994
+      internalID: -884744016
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_201
+      name: Green_Warrior_201
       rect:
         serializedVersion: 2
         x: 864
@@ -4351,14 +4339,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 62f7d39def577f941a263ee3647188db
-      internalID: -1135219077
+      spriteID: b237142459a2c1041bbaf9ba5d7bf233
+      internalID: 1075523890
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_202
+      name: Green_Warrior_202
       rect:
         serializedVersion: 2
         x: 896
@@ -4372,14 +4360,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02b029010e7ce174d9c7347e8ca811cd
-      internalID: -29705615
+      spriteID: 6345dac760a0b514ab517dd338251659
+      internalID: 161667065
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_203
+      name: Green_Warrior_203
       rect:
         serializedVersion: 2
         x: 0
@@ -4393,14 +4381,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 33c32354c6ec1e34e81c73523f4f6760
-      internalID: 658961678
+      spriteID: 77797c8be61adb243852f0d2288e7534
+      internalID: -1794417736
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_204
+      name: Green_Warrior_204
       rect:
         serializedVersion: 2
         x: 32
@@ -4414,14 +4402,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a8b19916d6645ed4b8ba9b59dd94b694
-      internalID: -1854782123
+      spriteID: 9693d6931c812f843a89a3e16bff360c
+      internalID: -1206297779
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_205
+      name: Green_Warrior_205
       rect:
         serializedVersion: 2
         x: 64
@@ -4435,14 +4423,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e25455e38578e54e93747c148ee4803
-      internalID: -142150746
+      spriteID: 6d30efcb06367144b83bcbd5204245dd
+      internalID: 481235403
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_206
+      name: Green_Warrior_206
       rect:
         serializedVersion: 2
         x: 96
@@ -4456,14 +4444,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d678b1978f3de4d4b8bad17a55a46a65
-      internalID: 872868075
+      spriteID: 2b044dce810e6374da839dab1702436b
+      internalID: -162829974
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_207
+      name: Green_Warrior_207
       rect:
         serializedVersion: 2
         x: 128
@@ -4477,14 +4465,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 150775bdce2dd684294276de3b422bfc
-      internalID: 2038921680
+      spriteID: c2d1705a420d7c14680a5faf4bc6ad14
+      internalID: 1336651794
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_208
+      name: Green_Warrior_208
       rect:
         serializedVersion: 2
         x: 160
@@ -4498,14 +4486,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d3aab910c496af43bfb9ac8873c4625
-      internalID: -570885559
+      spriteID: 58cab72856edc9547b6dfcc14aca7aa8
+      internalID: 1481133603
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_209
+      name: Green_Warrior_209
       rect:
         serializedVersion: 2
         x: 192
@@ -4519,14 +4507,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8404ac9712bef064e90e24228343acf3
-      internalID: -869154729
+      spriteID: e4a39cf8bf49cd047814fd27e9db402d
+      internalID: -1338855096
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_210
+      name: Green_Warrior_210
       rect:
         serializedVersion: 2
         x: 224
@@ -4540,14 +4528,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad502118858e8244dbba80ff4b97a047
-      internalID: -294686905
+      spriteID: 48375912411c7ca4ca28ecc2d1bd84d3
+      internalID: -1428827647
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_211
+      name: Green_Warrior_211
       rect:
         serializedVersion: 2
         x: 256
@@ -4561,14 +4549,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b74058bdebd9fb84092f6318a2107638
-      internalID: -1166996525
+      spriteID: 504dc6453d151d84b9654866bcf50df0
+      internalID: -223219210
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_212
+      name: Green_Warrior_212
       rect:
         serializedVersion: 2
         x: 288
@@ -4582,14 +4570,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f32e42d569e0ef743be214bdf85e34e7
-      internalID: 1719237669
+      spriteID: d5b50ff59e2388346bbb2e945672abef
+      internalID: -736027253
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_213
+      name: Green_Warrior_213
       rect:
         serializedVersion: 2
         x: 320
@@ -4603,14 +4591,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da8840575f170cc4e92f73128b315bef
-      internalID: -678122926
+      spriteID: e19995deaf9f0574287a26e33418bc30
+      internalID: 346841397
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_214
+      name: Green_Warrior_214
       rect:
         serializedVersion: 2
         x: 352
@@ -4624,14 +4612,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f5a6e1a93bd9d04fa9a400c41666fc1
-      internalID: -272548747
+      spriteID: cc5e8d6e09e05b84fba835dae1146c6e
+      internalID: -1237826535
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_215
+      name: Green_Warrior_215
       rect:
         serializedVersion: 2
         x: 384
@@ -4645,14 +4633,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 899a0024c8b98804a9581e500f832890
-      internalID: -555107626
+      spriteID: 185f202d8df6dee4b988e173504f4281
+      internalID: -540562105
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_216
+      name: Green_Warrior_216
       rect:
         serializedVersion: 2
         x: 416
@@ -4666,14 +4654,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ed5fec3c8c907a44a31fa86e86338ac
-      internalID: 1485694753
+      spriteID: 847b0144ae801b94da8115850a9e35b2
+      internalID: 1367846571
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_217
+      name: Green_Warrior_217
       rect:
         serializedVersion: 2
         x: 448
@@ -4687,14 +4675,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 11ca67294c9373c4c8371c03d2c69fe9
-      internalID: -2107288936
+      spriteID: cb947dac1c516444db1a7a9d540770ac
+      internalID: 396649857
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_218
+      name: Green_Warrior_218
       rect:
         serializedVersion: 2
         x: 480
@@ -4708,14 +4696,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 459e52a78c2e5444c94c2d32b4b293fa
-      internalID: 487397323
+      spriteID: 4cc68cbc4dea56d45886e8323ba81a17
+      internalID: 705462738
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_219
+      name: Green_Warrior_219
       rect:
         serializedVersion: 2
         x: 512
@@ -4729,14 +4717,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 04d25215ca188a74aaef21894bc22ae8
-      internalID: -513277462
+      spriteID: eae06cde4fa5b6b4ba9fe0398b9f0028
+      internalID: -684956699
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_220
+      name: Green_Warrior_220
       rect:
         serializedVersion: 2
         x: 544
@@ -4750,14 +4738,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a6e75a907eef884aa20a651e89db8a0
-      internalID: 776857315
+      spriteID: af32bac98ab29364ba1796151c270abf
+      internalID: 2021778660
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_221
+      name: Green_Warrior_221
       rect:
         serializedVersion: 2
         x: 576
@@ -4771,14 +4759,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6960b838b1b62e546b3a74c8d14a2bf1
-      internalID: -1323796714
+      spriteID: 2c686d5bc8447a84f820e98c9be6bd9e
+      internalID: -670976092
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_222
+      name: Green_Warrior_222
       rect:
         serializedVersion: 2
         x: 608
@@ -4792,14 +4780,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b479643067e7544dac8aec65dcc066d
-      internalID: -1552402391
+      spriteID: 6aad6123082a909428a0f9bebfa4a885
+      internalID: 873214847
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_223
+      name: Green_Warrior_223
       rect:
         serializedVersion: 2
         x: 640
@@ -4813,14 +4801,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 13980ee4f16c85a42b46abcb59fa1508
-      internalID: 1695740349
+      spriteID: 44c62abd0d1cf014d9b82675087b7a79
+      internalID: -933197003
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_224
+      name: Green_Warrior_224
       rect:
         serializedVersion: 2
         x: 672
@@ -4834,14 +4822,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f5e14ae73d68c234d9d183104c553eca
-      internalID: 914421053
+      spriteID: 8ea2e1b97c708e641bef309938a2f076
+      internalID: 419767497
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_225
+      name: Green_Warrior_225
       rect:
         serializedVersion: 2
         x: 704
@@ -4855,14 +4843,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d9a807d55014e31468e88d819db349d7
-      internalID: -572219237
+      spriteID: 16e7412a214b508439cda093c6c1eef8
+      internalID: 1958713484
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_226
+      name: Green_Warrior_226
       rect:
         serializedVersion: 2
         x: 736
@@ -4876,14 +4864,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72cf6000d44d3364daba2adc5a8586a6
-      internalID: -677529134
+      spriteID: 39cfde606e01b8b43ab3c61dcc96fb4b
+      internalID: -1785139670
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_227
+      name: Green_Warrior_227
       rect:
         serializedVersion: 2
         x: 768
@@ -4897,14 +4885,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b70bab5a84b99e45815a921f97021dd
-      internalID: -1202097423
+      spriteID: 9aac39756a7a01c4da44484626a92fba
+      internalID: 111787920
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_228
+      name: Green_Warrior_228
       rect:
         serializedVersion: 2
         x: 800
@@ -4918,14 +4906,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fad919573aefb8344a9eb362f7d972c0
-      internalID: -1084584853
+      spriteID: 16ad06450e8ab9d46babb430c90109c8
+      internalID: -1865744241
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_229
+      name: Green_Warrior_229
       rect:
         serializedVersion: 2
         x: 832
@@ -4939,14 +4927,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c3ac416c60d0083439602cc8c6876cb3
-      internalID: -1460898511
+      spriteID: 2b346cb8b7057c14a999a2536bee3b7a
+      internalID: -375852211
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_230
+      name: Green_Warrior_230
       rect:
         serializedVersion: 2
         x: 864
@@ -4960,14 +4948,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 015fbf503530a85479a682db9987a606
-      internalID: -1191906455
+      spriteID: 1567db8a5c440ac4db81f7b3f53a7b73
+      internalID: -17310754
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin_Archer_231
+      name: Green_Warrior_231
       rect:
         serializedVersion: 2
         x: 896
@@ -4981,8 +4969,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a669f1e07bbbb34ea8138a335a1449f
-      internalID: -33364238
+      spriteID: 6f24f52f20b29c74190485d7015df82a
+      internalID: -880515159
       vertices: []
       indices: 
       edges: []
@@ -4998,238 +4986,238 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Goblin_Archer_77: -1527537968
-      Goblin_Archer_177: -1257765847
-      Goblin_Archer_212: 1719237669
-      Goblin_Archer_192: 2122797181
-      Goblin_Archer_209: -869154729
-      Goblin_Archer_198: 622648506
-      Goblin_Archer_231: -33364238
-      Goblin_Archer_124: -983337123
-      Goblin_Archer_101: 703090977
-      Goblin_Archer_115: 1632797785
-      Goblin_Archer_221: -1323796714
-      Goblin_Archer_43: -1377771739
-      Goblin_Archer_61: 461819652
-      Goblin_Archer_208: -570885559
-      Goblin_Archer_92: 156460348
-      Goblin_Archer_224: 914421053
-      Goblin_Archer_146: -120798573
-      Goblin_Archer_30: -985396852
-      Goblin_Archer_151: 1079309784
-      Goblin_Archer_195: 1658641393
-      Goblin_Archer_220: 776857315
-      Goblin_Archer_44: -1412819140
-      Goblin_Archer_104: -164269520
-      Goblin_Archer_114: 236188915
-      Goblin_Archer_91: 116954901
-      Goblin_Archer_17: -1455464094
-      Goblin_Archer_78: 576696594
-      Goblin_Archer_178: 294718316
-      Goblin_Archer_230: -1191906455
-      Goblin_Archer_82: -754341418
-      Goblin_Archer_185: -611895086
-      Goblin_Archer_162: -688621234
-      Goblin_Archer_0: 2125541320
-      Goblin_Archer_121: 1363399099
-      Goblin_Archer_180: -2054745653
-      Goblin_Archer_135: 1965148348
-      Goblin_Archer_200: 1643297059
-      Goblin_Archer_46: 2031087340
-      Goblin_Archer_39: -1620443364
-      Goblin_Archer_152: -1583433552
-      Goblin_Archer_129: -1218001916
-      Goblin_Archer_193: -448845144
-      Goblin_Archer_83: -1156768738
-      Goblin_Archer_85: -2040525890
-      Goblin_Archer_201: -1135219077
-      Goblin_Archer_99: 2038958135
-      Goblin_Archer_3: 1509630207
-      Goblin_Archer_93: 1847768818
-      Goblin_Archer_40: -1903651036
-      Goblin_Archer_7: -1822192075
-      Goblin_Archer_100: 1725348342
-      Goblin_Archer_160: -1428934454
-      Goblin_Archer_182: 689537261
-      Goblin_Archer_25: 725870365
-      Goblin_Archer_188: 248201937
-      Goblin_Archer_89: -1806633816
-      Goblin_Archer_49: 1028557942
-      Goblin_Archer_54: -1407345700
-      Goblin_Archer_57: 1115968704
-      Goblin_Archer_229: -1460898511
-      Goblin_Archer_96: 1118655996
-      Goblin_Archer_109: 1009456031
-      Goblin_Archer_55: -1109576194
-      Goblin_Archer_119: 1142542129
-      Goblin_Archer_19: 172516100
-      Goblin_Archer_203: 658961678
-      Goblin_Archer_145: -644883544
-      Goblin_Archer_35: 1624635395
-      Goblin_Archer_187: 1207391068
-      Goblin_Archer_126: 1166421101
-      Goblin_Archer_141: 185590493
-      Goblin_Archer_14: 131439724
-      Goblin_Archer_190: 626263167
-      Goblin_Archer_32: 2014239073
-      Goblin_Archer_103: 1774518760
-      Goblin_Archer_36: 547687662
-      Goblin_Archer_131: 1049182163
-      Goblin_Archer_140: 409560579
-      Goblin_Archer_149: 962203416
-      Goblin_Archer_107: -930428647
-      Goblin_Archer_147: 1341030423
-      Goblin_Archer_67: -1641930645
-      Goblin_Archer_80: -1786093134
-      Goblin_Archer_168: -546205652
-      Goblin_Archer_38: -1364046942
-      Goblin_Archer_90: 1397454174
-      Goblin_Archer_50: -415937332
-      Goblin_Archer_175: -511641793
-      Goblin_Archer_111: -721918104
-      Goblin_Archer_219: -513277462
-      Goblin_Archer_116: 13152993
-      Goblin_Archer_29: -277968269
-      Goblin_Archer_120: -476304398
-      Goblin_Archer_113: -892176115
-      Goblin_Archer_70: 1688324132
-      Goblin_Archer_106: -23957446
-      Goblin_Archer_123: -1719022778
-      Goblin_Archer_134: -1471644402
-      Goblin_Archer_5: 1865973622
-      Goblin_Archer_21: -460588575
-      Goblin_Archer_47: 1765044647
-      Goblin_Archer_144: 133719240
-      Goblin_Archer_148: 643417967
-      Goblin_Archer_79: 1121911232
-      Goblin_Archer_156: 1037055853
-      Goblin_Archer_226: -677529134
-      Goblin_Archer_63: 1188644649
-      Goblin_Archer_128: -595911539
-      Goblin_Archer_64: -1212377566
-      Goblin_Archer_94: -295646768
-      Goblin_Archer_118: 1294501349
-      Goblin_Archer_153: -1785055603
-      Goblin_Archer_222: -1552402391
-      Goblin_Archer_199: -1051650853
-      Goblin_Archer_197: -1176171931
-      Goblin_Archer_65: -1358958938
-      Goblin_Archer_11: -1072381204
-      Goblin_Archer_10: 879775839
-      Goblin_Archer_108: -1555541041
-      Goblin_Archer_98: 389861272
-      Goblin_Archer_136: 1834814463
-      Goblin_Archer_139: -1860397626
-      Goblin_Archer_51: -631305464
-      Goblin_Archer_228: -1084584853
-      Goblin_Archer_171: 1673884514
-      Goblin_Archer_56: 266306498
-      Goblin_Archer_60: 832156860
-      Goblin_Archer_155: -820808995
-      Goblin_Archer_194: 1378855352
-      Goblin_Archer_112: -1774776914
-      Goblin_Archer_223: 1695740349
-      Goblin_Archer_196: 196786277
-      Goblin_Archer_12: -257900016
-      Goblin_Archer_159: -680217690
-      Goblin_Archer_170: 598395416
-      Goblin_Archer_13: 467641133
-      Goblin_Archer_16: -1037795053
-      Goblin_Archer_154: 986384379
-      Goblin_Archer_227: -1202097423
-      Goblin_Archer_20: -1296635324
-      Goblin_Archer_88: 1263847569
-      Goblin_Archer_166: 688487899
-      Goblin_Archer_34: 326329583
-      Goblin_Archer_143: -1837981799
-      Goblin_Archer_23: -691524170
-      Goblin_Archer_81: 2013322206
-      Goblin_Archer_214: -272548747
-      Goblin_Archer_105: -496882798
-      Goblin_Archer_27: 264806079
-      Goblin_Archer_217: -2107288936
-      Goblin_Archer_174: 1057638226
-      Goblin_Archer_225: -572219237
-      Goblin_Archer_183: -28234160
-      Goblin_Archer_138: -413098709
-      Goblin_Archer_53: 2117066211
-      Goblin_Archer_110: 341976421
-      Goblin_Archer_181: -1140095613
-      Goblin_Archer_133: -1485841372
-      Goblin_Archer_132: 1356258863
-      Goblin_Archer_157: 1790626748
-      Goblin_Archer_87: 349268915
-      Goblin_Archer_68: -764277966
-      Goblin_Archer_210: -294686905
-      Goblin_Archer_169: 668250493
-      Goblin_Archer_66: -1877359364
-      Goblin_Archer_86: 824239299
-      Goblin_Archer_72: -946671486
-      Goblin_Archer_204: -1854782123
-      Goblin_Archer_130: -293324020
-      Goblin_Archer_71: -764809516
-      Goblin_Archer_62: 1684060740
-      Goblin_Archer_31: -1947854913
-      Goblin_Archer_75: 614172970
-      Goblin_Archer_2: 932502596
-      Goblin_Archer_15: -1936295699
-      Goblin_Archer_163: 39315354
-      Goblin_Archer_165: 39433362
-      Goblin_Archer_215: -555107626
-      Goblin_Archer_191: -180363994
-      Goblin_Archer_37: -1084654828
-      Goblin_Archer_207: 2038921680
-      Goblin_Archer_142: 1329800588
-      Goblin_Archer_186: -1134235556
-      Goblin_Archer_137: 1991082742
-      Goblin_Archer_4: -496034070
-      Goblin_Archer_8: -10892927
-      Goblin_Archer_58: -686732609
-      Goblin_Archer_18: -807499962
-      Goblin_Archer_102: 2080282397
-      Goblin_Archer_24: -819337607
-      Goblin_Archer_41: 1345623298
-      Goblin_Archer_213: -678122926
-      Goblin_Archer_76: -261795790
-      Goblin_Archer_167: -602420797
-      Goblin_Archer_26: -1039725570
-      Goblin_Archer_52: 1396337669
-      Goblin_Archer_97: -1832076710
-      Goblin_Archer_158: 760035336
-      Goblin_Archer_73: -297619571
-      Goblin_Archer_117: -615996941
-      Goblin_Archer_179: -281191105
-      Goblin_Archer_189: -1443348910
-      Goblin_Archer_6: -1565387892
-      Goblin_Archer_42: -1274463060
-      Goblin_Archer_176: -1670865784
-      Goblin_Archer_59: -357946352
-      Goblin_Archer_1: -1480818805
-      Goblin_Archer_22: 1670746452
-      Goblin_Archer_127: 1155568039
-      Goblin_Archer_150: 1379338389
-      Goblin_Archer_161: 2115928356
-      Goblin_Archer_211: -1166996525
-      Goblin_Archer_206: 872868075
-      Goblin_Archer_216: 1485694753
-      Goblin_Archer_84: 2796667
-      Goblin_Archer_202: -29705615
-      Goblin_Archer_95: -778320309
-      Goblin_Archer_218: 487397323
-      Goblin_Archer_122: -663515767
-      Goblin_Archer_45: -664864645
-      Goblin_Archer_69: -1263759806
-      Goblin_Archer_164: 1373803066
-      Goblin_Archer_9: -1542201870
-      Goblin_Archer_28: -2085571399
-      Goblin_Archer_48: -1638448313
-      Goblin_Archer_173: 1026283146
-      Goblin_Archer_205: -142150746
-      Goblin_Archer_184: 1137967915
-      Goblin_Archer_125: -858628087
-      Goblin_Archer_172: 1615225723
-      Goblin_Archer_74: -1957821990
-      Goblin_Archer_33: -1461623088
+      Green_Warrior_66: 1481538998
+      Green_Warrior_134: -717983853
+      Green_Warrior_226: -1785139670
+      Green_Warrior_16: 200216610
+      Green_Warrior_43: -2023789046
+      Green_Warrior_20: -1344402302
+      Green_Warrior_104: -528759584
+      Green_Warrior_4: 168666988
+      Green_Warrior_89: -808899672
+      Green_Warrior_77: 1589810545
+      Green_Warrior_15: -1405489707
+      Green_Warrior_174: -1040148854
+      Green_Warrior_231: -880515159
+      Green_Warrior_118: -901024252
+      Green_Warrior_149: -619527357
+      Green_Warrior_175: -258871401
+      Green_Warrior_135: 1988493091
+      Green_Warrior_65: 879236482
+      Green_Warrior_103: 1098921295
+      Green_Warrior_212: -736027253
+      Green_Warrior_179: -1168458441
+      Green_Warrior_177: -2080064740
+      Green_Warrior_213: 346841397
+      Green_Warrior_10: -194099626
+      Green_Warrior_167: 802313099
+      Green_Warrior_125: 2053917100
+      Green_Warrior_24: 1129534396
+      Green_Warrior_27: 1820742355
+      Green_Warrior_162: 1992964899
+      Green_Warrior_186: -1140146622
+      Green_Warrior_182: 1317476109
+      Green_Warrior_133: 1283493185
+      Green_Warrior_32: -1917727199
+      Green_Warrior_168: 430913888
+      Green_Warrior_158: 499863960
+      Green_Warrior_146: 128378636
+      Green_Warrior_97: -814030369
+      Green_Warrior_107: 1950201616
+      Green_Warrior_63: -1317069553
+      Green_Warrior_225: 1958713484
+      Green_Warrior_144: -1624518405
+      Green_Warrior_50: 215469147
+      Green_Warrior_28: 2084207191
+      Green_Warrior_102: -1320254869
+      Green_Warrior_137: 608104348
+      Green_Warrior_190: -1090399591
+      Green_Warrior_54: -962107332
+      Green_Warrior_111: 1823635843
+      Green_Warrior_197: 48076162
+      Green_Warrior_220: 2021778660
+      Green_Warrior_227: 111787920
+      Green_Warrior_78: 2024361386
+      Green_Warrior_61: 147451838
+      Green_Warrior_93: -1013445346
+      Green_Warrior_6: -136073326
+      Green_Warrior_194: -1352371179
+      Green_Warrior_112: 58126328
+      Green_Warrior_210: -1428827647
+      Green_Warrior_58: 709584523
+      Green_Warrior_214: -1237826535
+      Green_Warrior_81: -919115271
+      Green_Warrior_188: 1970843608
+      Green_Warrior_219: -684956699
+      Green_Warrior_196: 251199924
+      Green_Warrior_29: 839267118
+      Green_Warrior_198: 286213798
+      Green_Warrior_123: 1232258786
+      Green_Warrior_55: -892030177
+      Green_Warrior_83: -1420064434
+      Green_Warrior_0: 24836141
+      Green_Warrior_14: -1522777157
+      Green_Warrior_138: 1926213107
+      Green_Warrior_119: 1419478233
+      Green_Warrior_117: -717853267
+      Green_Warrior_127: -75060175
+      Green_Warrior_88: -161721032
+      Green_Warrior_116: 1225000237
+      Green_Warrior_160: -227918361
+      Green_Warrior_62: 1223516082
+      Green_Warrior_86: -1277180598
+      Green_Warrior_132: -1276656292
+      Green_Warrior_5: 1387076127
+      Green_Warrior_152: 1907129159
+      Green_Warrior_169: 548709061
+      Green_Warrior_200: -884744016
+      Green_Warrior_36: 1534318462
+      Green_Warrior_72: -960976179
+      Green_Warrior_173: -114469621
+      Green_Warrior_99: 1140829923
+      Green_Warrior_44: -1111973915
+      Green_Warrior_131: -1557239890
+      Green_Warrior_90: -958895374
+      Green_Warrior_114: 981582393
+      Green_Warrior_26: -908909037
+      Green_Warrior_209: -1338855096
+      Green_Warrior_38: -112497033
+      Green_Warrior_155: 1275241264
+      Green_Warrior_109: 2144858624
+      Green_Warrior_208: 1481133603
+      Green_Warrior_48: -817290920
+      Green_Warrior_69: -320767012
+      Green_Warrior_21: 745079055
+      Green_Warrior_9: 1977607794
+      Green_Warrior_2: -1067078057
+      Green_Warrior_53: 231833601
+      Green_Warrior_203: -1794417736
+      Green_Warrior_12: 1616740876
+      Green_Warrior_110: 2094565331
+      Green_Warrior_124: 907188478
+      Green_Warrior_76: -719136977
+      Green_Warrior_22: -899285027
+      Green_Warrior_79: 906264325
+      Green_Warrior_143: 2140543903
+      Green_Warrior_130: 477104621
+      Green_Warrior_30: 113173838
+      Green_Warrior_120: 1241133128
+      Green_Warrior_228: -1865744241
+      Green_Warrior_8: -277937603
+      Green_Warrior_82: 285309339
+      Green_Warrior_121: 1316147883
+      Green_Warrior_23: -1838542710
+      Green_Warrior_1: -50679125
+      Green_Warrior_217: 396649857
+      Green_Warrior_223: -933197003
+      Green_Warrior_139: -885061736
+      Green_Warrior_136: 159059938
+      Green_Warrior_115: 1984528259
+      Green_Warrior_128: 1846470187
+      Green_Warrior_18: 760930807
+      Green_Warrior_19: 1090676366
+      Green_Warrior_129: 650102466
+      Green_Warrior_68: 404294176
+      Green_Warrior_91: -1391500304
+      Green_Warrior_101: 1185725291
+      Green_Warrior_148: 298586056
+      Green_Warrior_163: -2037177811
+      Green_Warrior_199: 26521968
+      Green_Warrior_157: -976183711
+      Green_Warrior_7: -265682156
+      Green_Warrior_216: 1367846571
+      Green_Warrior_147: -773113912
+      Green_Warrior_180: -964447656
+      Green_Warrior_153: 1646037387
+      Green_Warrior_105: 303717634
+      Green_Warrior_126: 183937976
+      Green_Warrior_151: 1625222500
+      Green_Warrior_106: 682991851
+      Green_Warrior_142: 348662269
+      Green_Warrior_25: -90846124
+      Green_Warrior_181: 119877625
+      Green_Warrior_185: -993152993
+      Green_Warrior_113: -1902237755
+      Green_Warrior_145: 982534041
+      Green_Warrior_71: -1107976985
+      Green_Warrior_98: 901085061
+      Green_Warrior_100: 810447615
+      Green_Warrior_229: -375852211
+      Green_Warrior_207: 1336651794
+      Green_Warrior_59: -865960901
+      Green_Warrior_67: 1646012566
+      Green_Warrior_94: -1562178620
+      Green_Warrior_87: -1940776915
+      Green_Warrior_40: 1457323218
+      Green_Warrior_170: -590865043
+      Green_Warrior_206: -162829974
+      Green_Warrior_176: -234926714
+      Green_Warrior_60: -332750358
+      Green_Warrior_141: 1129823166
+      Green_Warrior_172: 266305752
+      Green_Warrior_202: 161667065
+      Green_Warrior_17: 872492465
+      Green_Warrior_165: 1037326664
+      Green_Warrior_73: 1457577310
+      Green_Warrior_84: -1574972646
+      Green_Warrior_205: 481235403
+      Green_Warrior_46: 44140101
+      Green_Warrior_13: 352386449
+      Green_Warrior_224: 419767497
+      Green_Warrior_96: -1536547247
+      Green_Warrior_211: -223219210
+      Green_Warrior_34: 1578371564
+      Green_Warrior_51: -1356445923
+      Green_Warrior_166: -1148612248
+      Green_Warrior_189: -882966199
+      Green_Warrior_222: 873214847
+      Green_Warrior_204: -1206297779
+      Green_Warrior_195: -46250100
+      Green_Warrior_85: -2028682300
+      Green_Warrior_221: -670976092
+      Green_Warrior_47: -1442066386
+      Green_Warrior_201: 1075523890
+      Green_Warrior_187: -1113080853
+      Green_Warrior_74: 1649000776
+      Green_Warrior_215: -540562105
+      Green_Warrior_45: -693388909
+      Green_Warrior_95: -1094593203
+      Green_Warrior_218: 705462738
+      Green_Warrior_184: -788814800
+      Green_Warrior_35: 1862363894
+      Green_Warrior_92: -1268050524
+      Green_Warrior_192: -1728712584
+      Green_Warrior_56: 1263279446
+      Green_Warrior_49: 124571861
+      Green_Warrior_41: -781426855
+      Green_Warrior_140: -782784588
+      Green_Warrior_156: 894792875
+      Green_Warrior_159: -2028698116
+      Green_Warrior_164: 2019027674
+      Green_Warrior_191: 1489433739
+      Green_Warrior_150: -1318817143
+      Green_Warrior_80: 1020561198
+      Green_Warrior_230: -17310754
+      Green_Warrior_11: 1798974022
+      Green_Warrior_39: 1768330059
+      Green_Warrior_178: 1332370884
+      Green_Warrior_31: 140590258
+      Green_Warrior_75: 1658235595
+      Green_Warrior_3: 1897154580
+      Green_Warrior_154: 364970680
+      Green_Warrior_52: -529611649
+      Green_Warrior_193: -1314765257
+      Green_Warrior_42: -1868403700
+      Green_Warrior_108: -1321533219
+      Green_Warrior_122: 1410546928
+      Green_Warrior_183: -1803031252
+      Green_Warrior_37: 1022818529
+      Green_Warrior_70: -1499026710
+      Green_Warrior_171: -2135949997
+      Green_Warrior_64: -1101718983
+      Green_Warrior_33: 2089558824
+      Green_Warrior_57: 55568834
+      Green_Warrior_161: -277408254
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

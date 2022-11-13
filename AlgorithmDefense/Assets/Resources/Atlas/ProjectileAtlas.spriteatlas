@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ProjectileAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 4096
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 0
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 786eb0142ac327349acde62a4479c52d, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: -106243749, guid: 8ed0b6c1a0072d24fabb4c802d36b55f, type: 3}
+  - {fileID: -2062815724, guid: 8ed0b6c1a0072d24fabb4c802d36b55f, type: 3}
+  - {fileID: -145946387, guid: 8ed0b6c1a0072d24fabb4c802d36b55f, type: 3}
+  - {fileID: 1239244097, guid: 8ed0b6c1a0072d24fabb4c802d36b55f, type: 3}
+  - {fileID: 523421159, guid: 8ed0b6c1a0072d24fabb4c802d36b55f, type: 3}
+  - {fileID: 390187704, guid: 5e136917cfbd38c4e9d8dc506c947f57, type: 3}
+  - {fileID: 1347138105, guid: 5e136917cfbd38c4e9d8dc506c947f57, type: 3}
+  - {fileID: 227462137, guid: df07e75f4964a814099d77e79ac5e680, type: 3}
+  - {fileID: 1103409067, guid: df07e75f4964a814099d77e79ac5e680, type: 3}
+  - {fileID: 1497346941, guid: df07e75f4964a814099d77e79ac5e680, type: 3}
+  - {fileID: -1819783018, guid: df07e75f4964a814099d77e79ac5e680, type: 3}
+  - {fileID: -1794636944, guid: df07e75f4964a814099d77e79ac5e680, type: 3}
+  - {fileID: -852236380, guid: df07e75f4964a814099d77e79ac5e680, type: 3}
+  - {fileID: 232339172, guid: df07e75f4964a814099d77e79ac5e680, type: 3}
+  - {fileID: -284964040, guid: df07e75f4964a814099d77e79ac5e680, type: 3}
+  - {fileID: 418766642, guid: df07e75f4964a814099d77e79ac5e680, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - FireBall_2_4
+  - FireBall_2_2
+  - FireBall_2_3
+  - FireBall_2_0
+  - FireBall_2_1
+  - ArrowLong_1
+  - ArrowLong_0
+  - Sprite Sheet - Fire Ball - Active_8
+  - Sprite Sheet - Fire Ball - Active_5
+  - Sprite Sheet - Fire Ball - Active_4
+  - Sprite Sheet - Fire Ball - Active_7
+  - Sprite Sheet - Fire Ball - Active_6
+  - Sprite Sheet - Fire Ball - Active_1
+  - Sprite Sheet - Fire Ball - Active_0
+  - Sprite Sheet - Fire Ball - Active_3
+  - Sprite Sheet - Fire Ball - Active_2
+  m_RenderDataMap: {}
+  m_Tag: ProjectileAtlas
+  m_IsVariant: 0

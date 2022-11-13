@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9ed637324893a6c43930b0f597a8012b
+guid: e8ce61c240a626d408e8f62a5243bca9
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,7 +104,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Green_Wizard_0
+      name: Red_Archer_0
       rect:
         serializedVersion: 2
         x: 0
@@ -118,14 +118,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce8e43233ce327147a8f45511bffbd36
-      internalID: 1211693237
+      spriteID: ffadfe7defcf7104fb346827711c084e
+      internalID: -2069850359
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_1
+      name: Red_Archer_1
       rect:
         serializedVersion: 2
         x: 32
@@ -139,14 +139,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ec320042e945de4682af20d11e27778
-      internalID: 1893475254
+      spriteID: fed73ca0d741d52499b8a314a449cd0b
+      internalID: -431002215
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_2
+      name: Red_Archer_2
       rect:
         serializedVersion: 2
         x: 64
@@ -160,14 +160,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 90ab8162324f1904f85d06cb2aae6751
-      internalID: 987114047
+      spriteID: d4957125305746544833e33c03d862c9
+      internalID: -147027042
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_3
+      name: Red_Archer_3
       rect:
         serializedVersion: 2
         x: 96
@@ -181,14 +181,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce999c491a45e3c4c8027048951de9a0
-      internalID: 2049593320
+      spriteID: 7f1b35fc7f41c3f428176029ab65b16e
+      internalID: -699105972
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_4
+      name: Red_Archer_4
       rect:
         serializedVersion: 2
         x: 128
@@ -202,14 +202,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5fae8b03547ada3479e69f08cf0db591
-      internalID: 998228075
+      spriteID: c6583dce0f06d3649911c9025dd32c83
+      internalID: -884186220
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_5
+      name: Red_Archer_5
       rect:
         serializedVersion: 2
         x: 160
@@ -223,14 +223,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d295fc8d5bde14c43b6e7c865409c062
-      internalID: -599436234
+      spriteID: f7cfa9e69bbc34143a961ebdab65c03c
+      internalID: 1521187031
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_6
+      name: Red_Archer_6
       rect:
         serializedVersion: 2
         x: 192
@@ -244,14 +244,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 035eb487e71a0b349a6ae54f19824b38
-      internalID: -936721022
+      spriteID: 2a47c47eae7e65745a00fbdd112d9f60
+      internalID: -900434400
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_7
+      name: Red_Archer_7
       rect:
         serializedVersion: 2
         x: 224
@@ -265,14 +265,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a785532a37e340f43a9d01d7a5dfad1b
-      internalID: -2049330740
+      spriteID: ce53899a1e2c60d48bf12e754ea91808
+      internalID: 8676649
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_8
+      name: Red_Archer_8
       rect:
         serializedVersion: 2
         x: 256
@@ -286,14 +286,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 84c138b85c3730d40a70b68b77a424b2
-      internalID: 1045139042
+      spriteID: ed2c18fc983651540922291f4ea54c04
+      internalID: -1747847917
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_9
+      name: Red_Archer_9
       rect:
         serializedVersion: 2
         x: 288
@@ -307,14 +307,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 27e3dfd04e84ffb44bb269b58ec576ba
-      internalID: 1045942418
+      spriteID: eaaaba019df47af48aea9fd895117c91
+      internalID: -709042122
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_10
+      name: Red_Archer_10
       rect:
         serializedVersion: 2
         x: 320
@@ -328,14 +328,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a305a5324ffc6b42bd97056a2c4efda
-      internalID: -1425347237
+      spriteID: 8eab862809b966544bffda816a8ac1ed
+      internalID: -2072076806
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_11
+      name: Red_Archer_11
       rect:
         serializedVersion: 2
         x: 352
@@ -349,14 +349,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b73aad19280308b47bc2b47cab031561
-      internalID: 1781579500
+      spriteID: f701a1ec2ddac5e4a86d19b01440cc1f
+      internalID: -1781531462
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_12
+      name: Red_Archer_12
       rect:
         serializedVersion: 2
         x: 384
@@ -370,14 +370,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5fecf2fc8f2066446bc30bb4ae358ccd
-      internalID: -2016670707
+      spriteID: 0ab396213ae2b8445a97526a12bcffb0
+      internalID: -1552673349
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_13
+      name: Red_Archer_13
       rect:
         serializedVersion: 2
         x: 416
@@ -391,14 +391,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5335832b375417e44b8a23588c19cee1
-      internalID: -710622498
+      spriteID: ec61ef42de4a1394abb45f423a3e66df
+      internalID: 1947191938
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_14
+      name: Red_Archer_14
       rect:
         serializedVersion: 2
         x: 448
@@ -412,14 +412,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b437699d429386240bf70c169d31aac6
-      internalID: -1559695222
+      spriteID: 55b683bb914b06d41a00547fb3494c0f
+      internalID: 1075436622
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_15
+      name: Red_Archer_15
       rect:
         serializedVersion: 2
         x: 480
@@ -433,14 +433,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc63cd0fe4316634cbe4cf0d769e63c1
-      internalID: -1550201988
+      spriteID: 8fef3884683f6db4ca6ca90b0954a92c
+      internalID: -1082842190
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_16
+      name: Red_Archer_16
       rect:
         serializedVersion: 2
         x: 512
@@ -454,14 +454,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c46270d1fe2435544ac3b223b58c1aaf
-      internalID: 1222024652
+      spriteID: 1d91a36c0b5e1bf458012e123808082c
+      internalID: -688720673
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_17
+      name: Red_Archer_17
       rect:
         serializedVersion: 2
         x: 544
@@ -475,14 +475,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 70efc9e2a67d12246a5e328117527077
-      internalID: 131841774
+      spriteID: 396ec3fa014ba3e4a88d6e90d89344fa
+      internalID: 2098207984
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_18
+      name: Red_Archer_18
       rect:
         serializedVersion: 2
         x: 576
@@ -496,14 +496,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b33970088abde0246b9021e2e88d446f
-      internalID: -466027209
+      spriteID: d921e665d1acd8c408cddc6a8134eea0
+      internalID: -1968180068
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_19
+      name: Red_Archer_19
       rect:
         serializedVersion: 2
         x: 608
@@ -517,14 +517,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d48bab64446a62a4ca4415d5c718bf62
-      internalID: -1122180131
+      spriteID: 54dbcd7193eee2248a3e6d38ea843960
+      internalID: 1321829406
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_20
+      name: Red_Archer_20
       rect:
         serializedVersion: 2
         x: 640
@@ -538,14 +538,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba2c5e809c24d71498650e39c88ee712
-      internalID: -121192457
+      spriteID: bc13d23f86d7da3419feeddb3c642ba5
+      internalID: -2125654623
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_21
+      name: Red_Archer_21
       rect:
         serializedVersion: 2
         x: 672
@@ -559,14 +559,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 55adfb3a6034c39418e28126e465b931
-      internalID: -273646164
+      spriteID: c592c856de69b3b4caa8489990cf6051
+      internalID: -1543383708
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_22
+      name: Red_Archer_22
       rect:
         serializedVersion: 2
         x: 704
@@ -580,14 +580,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 53120b947ce09614d99c971f9e6709fb
-      internalID: -78462482
+      spriteID: bbc0eba387e330e4bbf6d358d1c526de
+      internalID: 1602869885
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_23
+      name: Red_Archer_23
       rect:
         serializedVersion: 2
         x: 736
@@ -601,14 +601,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e9790f80cd5c3204cb840b7e78876716
-      internalID: -166792111
+      spriteID: b5998601e081564428457b8cc62197fc
+      internalID: -1349856321
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_24
+      name: Red_Archer_24
       rect:
         serializedVersion: 2
         x: 768
@@ -622,14 +622,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2620c877ff8ca34e8715f5d28ac3875
-      internalID: -1465649071
+      spriteID: 4c0466202d0cc0b4a8586a317e97dbfb
+      internalID: -469652749
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_25
+      name: Red_Archer_25
       rect:
         serializedVersion: 2
         x: 800
@@ -643,14 +643,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76bc4e62d84baef48a0eadca6532e1f4
-      internalID: -541245368
+      spriteID: 6ad0d8a9eba58b147b19287e6d33816a
+      internalID: -1830293331
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_26
+      name: Red_Archer_26
       rect:
         serializedVersion: 2
         x: 832
@@ -664,14 +664,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7b5183eb422c8642926b11ba7c18c91
-      internalID: 262100069
+      spriteID: f767800910e1a454186b243a5aee8693
+      internalID: 464135530
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_27
+      name: Red_Archer_27
       rect:
         serializedVersion: 2
         x: 864
@@ -685,14 +685,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 219a36a47099e3c47a28197bab4f57a5
-      internalID: -298229268
+      spriteID: 7ac7d8b3299edf44d93c58f20a0b32cd
+      internalID: 333612296
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_28
+      name: Red_Archer_28
       rect:
         serializedVersion: 2
         x: 896
@@ -706,14 +706,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a7fa55f41aac004f977691e9f2158a7
-      internalID: 1196786094
+      spriteID: 7303eee3668f4864e9d40f259d9ec03b
+      internalID: -1930259406
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_29
+      name: Red_Archer_29
       rect:
         serializedVersion: 2
         x: 0
@@ -727,14 +727,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20781f4f31c96634989e993b6e4b0c99
-      internalID: -1226849622
+      spriteID: d4551d8762ad19e4ea9d73dfc37994ba
+      internalID: 1874217461
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_30
+      name: Red_Archer_30
       rect:
         serializedVersion: 2
         x: 32
@@ -748,14 +748,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd2f72698ebb97344b64ee33837d6674
-      internalID: 618312568
+      spriteID: 97034007b3d03eb46ad33f4c38c6fabf
+      internalID: -156085597
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_31
+      name: Red_Archer_31
       rect:
         serializedVersion: 2
         x: 64
@@ -769,14 +769,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6290b7f4b47af014eb8f6f44c5f2c8ed
-      internalID: -1128036081
+      spriteID: c0e0517d87b32b34f8d90515ada17cbf
+      internalID: -158265339
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_32
+      name: Red_Archer_32
       rect:
         serializedVersion: 2
         x: 96
@@ -790,14 +790,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d5f851bd5354e4d48ac433e071b9a4df
-      internalID: -1773795405
+      spriteID: 16fe9e3f8dde7e24c881edf7850bfc9b
+      internalID: 397796033
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_33
+      name: Red_Archer_33
       rect:
         serializedVersion: 2
         x: 128
@@ -811,14 +811,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fdac19eb706d85247a89fd81f264a3f3
-      internalID: -1288804184
+      spriteID: ef4c35ec4343f9b47ad4b2b0e572774d
+      internalID: 457472119
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_34
+      name: Red_Archer_34
       rect:
         serializedVersion: 2
         x: 160
@@ -832,14 +832,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e03e45b067d73fc49b22f1c243653fe3
-      internalID: -547124847
+      spriteID: 2abd8ecc8d1e17844bee31684dc1f0d0
+      internalID: 444795554
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_35
+      name: Red_Archer_35
       rect:
         serializedVersion: 2
         x: 192
@@ -853,14 +853,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6e7d935e7d97dd468106f72da882e83
-      internalID: -1390387877
+      spriteID: 7f54a038a3ba27a48b803833518f51a7
+      internalID: 1289047316
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_36
+      name: Red_Archer_36
       rect:
         serializedVersion: 2
         x: 224
@@ -874,14 +874,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 299268a52126cf642a57818820d65ce4
-      internalID: 1467820912
+      spriteID: 0563d2ba554c7004dbf0eb6baae2a1a7
+      internalID: -292108506
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_37
+      name: Red_Archer_37
       rect:
         serializedVersion: 2
         x: 256
@@ -895,14 +895,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81f2c410e6d3e9d419ae1d2a8a48c62e
-      internalID: -614241877
+      spriteID: 7d9baf1b74812094e8256d509da54f86
+      internalID: -958864685
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_38
+      name: Red_Archer_38
       rect:
         serializedVersion: 2
         x: 288
@@ -916,14 +916,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45e682bfec7caf94ab2b64ea81069e96
-      internalID: -432628672
+      spriteID: f0a0b6da3a2f576479771b8be00675df
+      internalID: 887912453
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_39
+      name: Red_Archer_39
       rect:
         serializedVersion: 2
         x: 320
@@ -937,14 +937,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ae75a4e521fcbe4baefb007d9d46303
-      internalID: 528563840
+      spriteID: 28af47708c7d9414c83e5ec81c0997a9
+      internalID: -1955501649
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_40
+      name: Red_Archer_40
       rect:
         serializedVersion: 2
         x: 352
@@ -958,14 +958,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ba63db8c63faa94ab13bd9550c51fc3
-      internalID: -1098945963
+      spriteID: 64665e897f85ac64386f0a8944cf2280
+      internalID: -476234326
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_41
+      name: Red_Archer_41
       rect:
         serializedVersion: 2
         x: 384
@@ -979,14 +979,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4cb0ec688f50924e81f971ce8d71ad7
-      internalID: -1666530551
+      spriteID: 743aac2e9bb639a4ca7f263e658e6cda
+      internalID: -2091495736
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_42
+      name: Red_Archer_42
       rect:
         serializedVersion: 2
         x: 416
@@ -1000,14 +1000,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ebe42272d7456e4eb83f8ea4f54913b
-      internalID: -936559542
+      spriteID: a6d441d78d03b8b4aabf8c9dca010a52
+      internalID: -620644268
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_43
+      name: Red_Archer_43
       rect:
         serializedVersion: 2
         x: 448
@@ -1021,14 +1021,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 18275ce2672b4a044ac400a2baf9ccfd
-      internalID: -345994124
+      spriteID: d9170557822f54d49ab07a7c53a92399
+      internalID: -646879599
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_44
+      name: Red_Archer_44
       rect:
         serializedVersion: 2
         x: 480
@@ -1042,14 +1042,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3fa4415b774169640b416e720d3aa1af
-      internalID: -536948096
+      spriteID: 2587a005624675c4dab21eda28a60065
+      internalID: 1358647167
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_45
+      name: Red_Archer_45
       rect:
         serializedVersion: 2
         x: 512
@@ -1063,14 +1063,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 600f5fac68bb5f648a1f398577bd7ff3
-      internalID: 845097207
+      spriteID: 8deac2d6349cf384598402be6f998f16
+      internalID: 482051988
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_46
+      name: Red_Archer_46
       rect:
         serializedVersion: 2
         x: 544
@@ -1084,14 +1084,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3e96004f656129408153cd07134ef8d
-      internalID: -1354044431
+      spriteID: 483f99e9eb2af5a4f80cf8dc99db5d16
+      internalID: -131170896
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_47
+      name: Red_Archer_47
       rect:
         serializedVersion: 2
         x: 576
@@ -1105,14 +1105,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d6d3317b42b37d4492e68d3e4930c71
-      internalID: -1560718784
+      spriteID: 81c760d9f5636ff42b3eaa028f888642
+      internalID: 1076795917
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_48
+      name: Red_Archer_48
       rect:
         serializedVersion: 2
         x: 608
@@ -1126,14 +1126,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f01c9157c7b22547a68948d5ed252a9
-      internalID: 1758036698
+      spriteID: 895b25fbdaf87d146bf7a33a712f245f
+      internalID: -125438356
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_49
+      name: Red_Archer_49
       rect:
         serializedVersion: 2
         x: 640
@@ -1147,14 +1147,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 045d0270699c9ae44aeb9f78da467f51
-      internalID: -1135481953
+      spriteID: 2c79759a669b62040bea940708b85e41
+      internalID: -1631845492
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_50
+      name: Red_Archer_50
       rect:
         serializedVersion: 2
         x: 672
@@ -1168,14 +1168,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c2077029aaee52548aa5ca4fc45a61e3
-      internalID: 2127402738
+      spriteID: ed5437c57da30954a8247d161cd0a464
+      internalID: 458091050
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_51
+      name: Red_Archer_51
       rect:
         serializedVersion: 2
         x: 704
@@ -1189,14 +1189,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 839580787b0d21e47b7ab365ea8bc8b0
-      internalID: 185952554
+      spriteID: c774bb187d0b39545ac6f5a1153a322d
+      internalID: 342735331
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_52
+      name: Red_Archer_52
       rect:
         serializedVersion: 2
         x: 736
@@ -1210,14 +1210,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd842bbe79af1ec45b3fbb6bf2ff36f2
-      internalID: 1089058146
+      spriteID: de97ad2ea7ac01948a0dcc578e5e23da
+      internalID: 473546523
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_53
+      name: Red_Archer_53
       rect:
         serializedVersion: 2
         x: 768
@@ -1231,14 +1231,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 30ed990dd7d295846993d37ebd496b91
-      internalID: -529537937
+      spriteID: 3620e9bfe5a0e1d4fbfa1becd9266298
+      internalID: 268913007
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_54
+      name: Red_Archer_54
       rect:
         serializedVersion: 2
         x: 800
@@ -1252,14 +1252,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 10bf3d8c3c2aa704d829f457ad677178
-      internalID: -724834203
+      spriteID: cb15474c57945e143ac63e201a5d58cd
+      internalID: 1974336367
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_55
+      name: Red_Archer_55
       rect:
         serializedVersion: 2
         x: 832
@@ -1273,14 +1273,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29463a8067bdd3745b875077f414f2c4
-      internalID: -1434702390
+      spriteID: be547f838838c5b45a8a23a89b24bfb7
+      internalID: 1799093183
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_56
+      name: Red_Archer_56
       rect:
         serializedVersion: 2
         x: 864
@@ -1294,14 +1294,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d21e7e21c9ba4fc4086e9b482eca8841
-      internalID: -1218478209
+      spriteID: 578c6d9e9feda4c4e9a0c055fed39ec2
+      internalID: 1403465745
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_57
+      name: Red_Archer_57
       rect:
         serializedVersion: 2
         x: 896
@@ -1315,14 +1315,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c0d398ed60a690a429673e437ed147fc
-      internalID: -1924869721
+      spriteID: 3b3cb34d1ecd7d3458f7cc3c891512c0
+      internalID: -226328025
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_58
+      name: Red_Archer_58
       rect:
         serializedVersion: 2
         x: 0
@@ -1336,14 +1336,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb7f8002f92d9bc45accd2c6cf8169c8
-      internalID: -1830602692
+      spriteID: e7a0fd663f630d344a24958163221a23
+      internalID: 823740039
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_59
+      name: Red_Archer_59
       rect:
         serializedVersion: 2
         x: 32
@@ -1357,14 +1357,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c601ac59c1c13dd40b72cedf532dd0a1
-      internalID: 1442120229
+      spriteID: 1ae8ece38597d7e4086d96fcdd096158
+      internalID: 501113568
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_60
+      name: Red_Archer_60
       rect:
         serializedVersion: 2
         x: 64
@@ -1378,14 +1378,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b7fa0453a943ef4292e9723a8c78487
-      internalID: -249895983
+      spriteID: e1644b082510ade40bb31b1c52937766
+      internalID: -1981383487
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_61
+      name: Red_Archer_61
       rect:
         serializedVersion: 2
         x: 96
@@ -1399,14 +1399,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aee887fab06159b42afc46d2fa36d1c7
-      internalID: 1093182628
+      spriteID: a4386146405207248a433eabd9f02aa9
+      internalID: -2072469517
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_62
+      name: Red_Archer_62
       rect:
         serializedVersion: 2
         x: 128
@@ -1420,14 +1420,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 12223c05ec5aee449836c7479b1fbfc1
-      internalID: -262718833
+      spriteID: b4ed434d82917ae48811e014a2a9099d
+      internalID: -1053671363
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_63
+      name: Red_Archer_63
       rect:
         serializedVersion: 2
         x: 160
@@ -1441,14 +1441,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe30522c696846f4c8bf04d6606e0649
-      internalID: 378031391
+      spriteID: cde46da85bd1baa47a3b149e300f161f
+      internalID: 1368131193
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_64
+      name: Red_Archer_64
       rect:
         serializedVersion: 2
         x: 192
@@ -1462,14 +1462,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e8dc2284a54edb4daf48e09d2e80926
-      internalID: -1408702211
+      spriteID: 15716aa275d4cb54daa23ec4a2ad4b80
+      internalID: 2012313737
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_65
+      name: Red_Archer_65
       rect:
         serializedVersion: 2
         x: 224
@@ -1483,14 +1483,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f6c68b07d8122f4cb04c57b7fe6c386
-      internalID: 2038170845
+      spriteID: 846ceba758ee6b54d8c9b2f36d6b25e1
+      internalID: 761675682
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_66
+      name: Red_Archer_66
       rect:
         serializedVersion: 2
         x: 256
@@ -1504,14 +1504,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c8122255155bdf14eb2dfc5010de881a
-      internalID: 859346026
+      spriteID: 9f44bb5ecbbe2c84c98fa38aa319ae66
+      internalID: -390641729
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_67
+      name: Red_Archer_67
       rect:
         serializedVersion: 2
         x: 288
@@ -1525,14 +1525,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6eb9cde2f25dd54cb13347cc5b4f84a
-      internalID: -1680514979
+      spriteID: 14f304b51fc519341abb9b0cc31bd1ae
+      internalID: 330499701
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_68
+      name: Red_Archer_68
       rect:
         serializedVersion: 2
         x: 320
@@ -1546,14 +1546,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fde7cac6898bb1e42bed0f0ec0806a39
-      internalID: 1662152021
+      spriteID: a8097aa2a635f9d478a274a9ba301163
+      internalID: -2022696280
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_69
+      name: Red_Archer_69
       rect:
         serializedVersion: 2
         x: 352
@@ -1567,14 +1567,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f48ad6f7c3ecd44a83cbbebf9d60d23
-      internalID: 666293948
+      spriteID: c8599cc35e4a4124687b893faa98b7b2
+      internalID: 92829293
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_70
+      name: Red_Archer_70
       rect:
         serializedVersion: 2
         x: 384
@@ -1588,14 +1588,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 43c3aa0bc7743c04399dc3fc3fce2741
-      internalID: 1509483804
+      spriteID: 58f6bd02656f794439668a4373d060fd
+      internalID: -302775313
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_71
+      name: Red_Archer_71
       rect:
         serializedVersion: 2
         x: 416
@@ -1609,14 +1609,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b63a8ee0aebdc0c4e81a4e2e5b51b4aa
-      internalID: 2065548342
+      spriteID: 92754b4a3e7376f48926fb7d541cc9b6
+      internalID: -2074065301
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_72
+      name: Red_Archer_72
       rect:
         serializedVersion: 2
         x: 448
@@ -1630,14 +1630,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5241eac6e701674d8260dbf480a24d1
-      internalID: 1892099084
+      spriteID: 67f3fd330a1493243955da218294eb9b
+      internalID: -2122737927
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_73
+      name: Red_Archer_73
       rect:
         serializedVersion: 2
         x: 480
@@ -1651,14 +1651,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4418b36e8ea823845ab257531a17484e
-      internalID: -669614444
+      spriteID: 6ff5cc75c4a879644a8ea805de846a0b
+      internalID: -988292421
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_74
+      name: Red_Archer_74
       rect:
         serializedVersion: 2
         x: 512
@@ -1672,14 +1672,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a1640f11c64afd14fbd382d9ad08fa82
-      internalID: -1933051745
+      spriteID: 0ebad0df20b4b704a901d81a9070db16
+      internalID: 805175273
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_75
+      name: Red_Archer_75
       rect:
         serializedVersion: 2
         x: 544
@@ -1693,14 +1693,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42e9de88ae492a04aade43180f8ebe86
-      internalID: 634485228
+      spriteID: 6aba3b2ae5891734db59fa73bce3ed29
+      internalID: -1775213022
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_76
+      name: Red_Archer_76
       rect:
         serializedVersion: 2
         x: 576
@@ -1714,14 +1714,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58b46102f582ad3428feee0da8ce4521
-      internalID: 1806768830
+      spriteID: c72e5e449240dd348b460126cfd640d1
+      internalID: 1668479289
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_77
+      name: Red_Archer_77
       rect:
         serializedVersion: 2
         x: 608
@@ -1735,14 +1735,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d11c842b838f0440b7b0406ff34c268
-      internalID: 1471225222
+      spriteID: bfb611a0feb8c0648a6e410ebe70c786
+      internalID: 1604127283
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_78
+      name: Red_Archer_78
       rect:
         serializedVersion: 2
         x: 640
@@ -1756,14 +1756,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d868217b517164b4c986f4f061fb1a7a
-      internalID: 1534296518
+      spriteID: a59dc7b8ab35ab3418023505313ce825
+      internalID: 1165383270
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_79
+      name: Red_Archer_79
       rect:
         serializedVersion: 2
         x: 672
@@ -1777,14 +1777,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a4b9ea7f86037784297ce4f85b041184
-      internalID: -792583739
+      spriteID: 8aeb8fa9f3473734a808c2090ade4169
+      internalID: -239682451
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_80
+      name: Red_Archer_80
       rect:
         serializedVersion: 2
         x: 704
@@ -1798,14 +1798,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6fd9ff8ba3e385c429e51990a76f389b
-      internalID: 2077856212
+      spriteID: df215492f25cee7448fb5519c3aa1f22
+      internalID: -1764472562
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_81
+      name: Red_Archer_81
       rect:
         serializedVersion: 2
         x: 736
@@ -1819,14 +1819,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1410ac948febf4146963631bb93f53db
-      internalID: -214631840
+      spriteID: 7e1514d074ce0af49a16ef344c4f8e14
+      internalID: 302615013
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_82
+      name: Red_Archer_82
       rect:
         serializedVersion: 2
         x: 768
@@ -1840,14 +1840,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 13a1eaa6f1e18874db77f77699c450a1
-      internalID: 137114114
+      spriteID: e19e6964c211ed843b9d63ed3bedf79d
+      internalID: 2092268782
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_83
+      name: Red_Archer_83
       rect:
         serializedVersion: 2
         x: 800
@@ -1861,14 +1861,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e8e29d574b041de46ac8b75f68c320bc
-      internalID: 995904650
+      spriteID: 103481c5191bd344eac9645ca3357ed7
+      internalID: 37927904
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_84
+      name: Red_Archer_84
       rect:
         serializedVersion: 2
         x: 832
@@ -1882,14 +1882,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee6f92674cdd73644a726c4cdc0d0256
-      internalID: 1121652091
+      spriteID: 58738abdb035d3c4b95827aff62d8729
+      internalID: -1610361494
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_85
+      name: Red_Archer_85
       rect:
         serializedVersion: 2
         x: 864
@@ -1903,14 +1903,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df18034d604e08e409a588a35f757f21
-      internalID: 414476178
+      spriteID: 1557547d681029a4aa39f9e270750e9a
+      internalID: -906403978
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_86
+      name: Red_Archer_86
       rect:
         serializedVersion: 2
         x: 896
@@ -1924,14 +1924,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19544c76d6133dd4085fc57f44a919d4
-      internalID: 1975182580
+      spriteID: 29eacee8d51855e41949c19bbb8b9d0b
+      internalID: -1412820823
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_87
+      name: Red_Archer_87
       rect:
         serializedVersion: 2
         x: 0
@@ -1945,14 +1945,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d0addc8cf625d74fb045b2bbb41caab
-      internalID: -57921792
+      spriteID: f8c3dbe0914a67a42a9cdfdc16effd4c
+      internalID: 1512907921
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_88
+      name: Red_Archer_88
       rect:
         serializedVersion: 2
         x: 32
@@ -1966,14 +1966,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76b9842118b326d41b8e0eace6180c9e
-      internalID: -868978551
+      spriteID: b1c5b6f842dcc5c41bbd9dcdd31a6f97
+      internalID: 123185931
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_89
+      name: Red_Archer_89
       rect:
         serializedVersion: 2
         x: 64
@@ -1987,14 +1987,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7f762c8ee65dc449bfc5c8192cb4717
-      internalID: 658964280
+      spriteID: 37ab6a668e3541c4491a5c473c79dd76
+      internalID: -334988488
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_90
+      name: Red_Archer_90
       rect:
         serializedVersion: 2
         x: 96
@@ -2008,14 +2008,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cab259502844fbd47a700f34fb3f390f
-      internalID: 93429170
+      spriteID: 078d5f66d2256c44a9e1ef565ba08435
+      internalID: 549178034
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_91
+      name: Red_Archer_91
       rect:
         serializedVersion: 2
         x: 128
@@ -2029,14 +2029,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d95acd2fdec6a4e4a9e2f64f0fe83d1c
-      internalID: -1028183178
+      spriteID: 0d4a553ee4149aa48b5ee86c902f2711
+      internalID: -731413009
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_92
+      name: Red_Archer_92
       rect:
         serializedVersion: 2
         x: 160
@@ -2050,14 +2050,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4acef50542a394b45b60723e7a816623
-      internalID: -458166682
+      spriteID: 69b6ddcdfb9e02e44ab2f5edcc21c281
+      internalID: -614363975
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_93
+      name: Red_Archer_93
       rect:
         serializedVersion: 2
         x: 192
@@ -2071,14 +2071,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 79598116e00a7824b873189d6f8ad98b
-      internalID: 2017207572
+      spriteID: 2b99248debd41344688d0c8025964bd9
+      internalID: -280753304
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_94
+      name: Red_Archer_94
       rect:
         serializedVersion: 2
         x: 224
@@ -2092,14 +2092,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b887451fff4c19449fba9c1d19b8d0c
-      internalID: -1428049177
+      spriteID: 50eb51614a005284f8f370647a8c2765
+      internalID: -285371919
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_95
+      name: Red_Archer_95
       rect:
         serializedVersion: 2
         x: 256
@@ -2113,14 +2113,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e9a81610f4dd21c4fa30ce91fd43b63e
-      internalID: -1727985139
+      spriteID: d8405a54ebc15834ebff3c29dd5babae
+      internalID: 1788862284
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_96
+      name: Red_Archer_96
       rect:
         serializedVersion: 2
         x: 288
@@ -2134,14 +2134,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4bf4b175ff1395d4bbeaf5f545bed47a
-      internalID: -1944610688
+      spriteID: 6c9b180d4428ef049b50b919a7607dc7
+      internalID: 1839828421
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_97
+      name: Red_Archer_97
       rect:
         serializedVersion: 2
         x: 320
@@ -2155,14 +2155,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 039bd13c0e27fd14294635af66222539
-      internalID: -1680708
+      spriteID: e7146af2519c3df408dc717caacf2343
+      internalID: -2012904511
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_98
+      name: Red_Archer_98
       rect:
         serializedVersion: 2
         x: 352
@@ -2176,14 +2176,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 302a962ee15c7c94384d12c619d33edd
-      internalID: 122039999
+      spriteID: 925feaded037e7847a87039ef32a32de
+      internalID: -1834454996
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_99
+      name: Red_Archer_99
       rect:
         serializedVersion: 2
         x: 384
@@ -2197,14 +2197,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1471c651aecfe41488685df71f25ead7
-      internalID: -1445668058
+      spriteID: 16e9a738e1bbb3046b31c89a4ac0ee3b
+      internalID: -1456697783
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_100
+      name: Red_Archer_100
       rect:
         serializedVersion: 2
         x: 416
@@ -2218,14 +2218,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98456474daa0f254285930b4baaa8aae
-      internalID: -1796887399
+      spriteID: 879a459552672bf47a26554dbe6a1184
+      internalID: -826528819
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_101
+      name: Red_Archer_101
       rect:
         serializedVersion: 2
         x: 448
@@ -2239,14 +2239,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: becf9938cc7a1f0438430326b9c59454
-      internalID: -59755281
+      spriteID: 396f3a043ebdc0e44833e3e3e87f6f40
+      internalID: 371062542
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_102
+      name: Red_Archer_102
       rect:
         serializedVersion: 2
         x: 480
@@ -2260,14 +2260,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1bf4e5c8133b29640ab634ad30c8b3e5
-      internalID: -1020156849
+      spriteID: d2b8a28e00ac7af479830a3a5f221c3f
+      internalID: -480356529
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_103
+      name: Red_Archer_103
       rect:
         serializedVersion: 2
         x: 512
@@ -2281,14 +2281,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2afd30ac5485eec41b95d10e7478c4be
-      internalID: 393503261
+      spriteID: 697658900a7d3d744a8132cc14729544
+      internalID: -405712165
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_104
+      name: Red_Archer_104
       rect:
         serializedVersion: 2
         x: 544
@@ -2302,14 +2302,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a0c698fb400f934aa57704d71fcf360
-      internalID: 1573798015
+      spriteID: 6aa4c0ede7a16544fb3c7e0b2b934ddb
+      internalID: 88624017
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_105
+      name: Red_Archer_105
       rect:
         serializedVersion: 2
         x: 576
@@ -2323,14 +2323,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 50bb7ee230c4f34418884148e0907c19
-      internalID: -1333480943
+      spriteID: 8f1c5ac192a3d5941a527046a347e00f
+      internalID: -343058154
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_106
+      name: Red_Archer_106
       rect:
         serializedVersion: 2
         x: 608
@@ -2344,14 +2344,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dfa09c266acf5464fb255570b0c0ed1b
-      internalID: 951801687
+      spriteID: c26a3c2fd081dbf4a9b171ba3c610ba5
+      internalID: -323941512
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_107
+      name: Red_Archer_107
       rect:
         serializedVersion: 2
         x: 640
@@ -2365,14 +2365,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1400d1c53c5ee8849af26dd0ca1f248e
-      internalID: -367548225
+      spriteID: 368998a704d112d49a9a30c90db7322b
+      internalID: 1331710298
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_108
+      name: Red_Archer_108
       rect:
         serializedVersion: 2
         x: 672
@@ -2386,14 +2386,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2047296bf2bd0a45a4fc80bdb18f6c2
-      internalID: -991386815
+      spriteID: 25fb42b17c16bbc4b8970b12d1e0c45e
+      internalID: 1323096071
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_109
+      name: Red_Archer_109
       rect:
         serializedVersion: 2
         x: 704
@@ -2407,14 +2407,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b0b013dd30f734245a3858d789883160
-      internalID: 1712951037
+      spriteID: 9232e1b381dcf4c4183b4a8eaef3baf0
+      internalID: -1860423710
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_110
+      name: Red_Archer_110
       rect:
         serializedVersion: 2
         x: 736
@@ -2428,14 +2428,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1ce2019c4a80a2f42b12f4177fd61283
-      internalID: 75347148
+      spriteID: fc716c98e80fc97489946db2c9b623a1
+      internalID: 15328609
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_111
+      name: Red_Archer_111
       rect:
         serializedVersion: 2
         x: 768
@@ -2449,14 +2449,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 57ffa6a8ce4daae40b44932d2fe38d02
-      internalID: 397953095
+      spriteID: 285ad26957c82c646adcea5d463783e9
+      internalID: -199941211
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_112
+      name: Red_Archer_112
       rect:
         serializedVersion: 2
         x: 800
@@ -2470,14 +2470,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b72b6a314aecd8f4cb3471d57567671f
-      internalID: -2079962160
+      spriteID: c8d0026020dcef743890f146f2bff68b
+      internalID: -881449746
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_113
+      name: Red_Archer_113
       rect:
         serializedVersion: 2
         x: 832
@@ -2491,14 +2491,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f4d65cc95d567f746adbb86955ddc3ce
-      internalID: 1523739597
+      spriteID: e9097632720606b46b2a6bfcfbce161f
+      internalID: -2069151008
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_114
+      name: Red_Archer_114
       rect:
         serializedVersion: 2
         x: 864
@@ -2512,14 +2512,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 66e4f858d768ae74a932e017e3b32a6f
-      internalID: 1920418295
+      spriteID: e91eb48563bf8b847818d34064477017
+      internalID: 670875981
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_115
+      name: Red_Archer_115
       rect:
         serializedVersion: 2
         x: 896
@@ -2533,14 +2533,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7dc1acb1a2af1834ab83e100fb0fd506
-      internalID: -350617804
+      spriteID: 82cb61a03338b1849a86a682d1189339
+      internalID: -1368431933
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_116
+      name: Red_Archer_116
       rect:
         serializedVersion: 2
         x: 0
@@ -2554,14 +2554,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e713e6c3dfafab943b0c18114868e177
-      internalID: 368288120
+      spriteID: 0cf048fc6d8c6194fb61af2ce959a0fe
+      internalID: -1652732877
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_117
+      name: Red_Archer_117
       rect:
         serializedVersion: 2
         x: 32
@@ -2575,14 +2575,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 64fd06f8a3a368d448c93a9b819aa659
-      internalID: -824195784
+      spriteID: 9aa1d23a29081ec408c80f0de34bb031
+      internalID: -1725833055
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_118
+      name: Red_Archer_118
       rect:
         serializedVersion: 2
         x: 64
@@ -2596,14 +2596,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 80ef0b358d12b0c4da65283ae3976c7f
-      internalID: 413963271
+      spriteID: 9efe3f4991db1b1408ff3b9bbffc9766
+      internalID: 149321815
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_119
+      name: Red_Archer_119
       rect:
         serializedVersion: 2
         x: 96
@@ -2617,14 +2617,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4835191cf84fdc148ad60b0bc6890dba
-      internalID: 1346061319
+      spriteID: 0e601160f4b854344aebfd8e93d9dd39
+      internalID: -917608670
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_120
+      name: Red_Archer_120
       rect:
         serializedVersion: 2
         x: 128
@@ -2638,14 +2638,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a48a367086f54824693596a518218b37
-      internalID: -721658587
+      spriteID: c26cc03b4d2ccb84583552ab1a0eca2c
+      internalID: -1964971064
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_121
+      name: Red_Archer_121
       rect:
         serializedVersion: 2
         x: 160
@@ -2659,14 +2659,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2b0551bcfebd36428d2dcaae7c279e3
-      internalID: -2067383670
+      spriteID: bc637bc6afdb27b478bcfb44cdff4eb8
+      internalID: 73346530
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_122
+      name: Red_Archer_122
       rect:
         serializedVersion: 2
         x: 192
@@ -2680,14 +2680,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c1cfd6953ad2f54e9375c287e2005b3
-      internalID: 557120348
+      spriteID: ab52d95b5a95c4143a63f585cb90c7e7
+      internalID: -1646033772
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_123
+      name: Red_Archer_123
       rect:
         serializedVersion: 2
         x: 224
@@ -2701,14 +2701,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c270ddcc7d656774880a4c743b310378
-      internalID: -261431160
+      spriteID: 75d9015d59b92674ab0619e3122fe57a
+      internalID: 234672653
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_124
+      name: Red_Archer_124
       rect:
         serializedVersion: 2
         x: 256
@@ -2722,14 +2722,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f4090867e21001040a59d71eafa4466e
-      internalID: -2121984593
+      spriteID: 859be298cdd385d488ea84fbc629ed0d
+      internalID: 460449600
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_125
+      name: Red_Archer_125
       rect:
         serializedVersion: 2
         x: 288
@@ -2743,14 +2743,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14d448c3814d27b4ab89d60b0712234b
-      internalID: 1813624351
+      spriteID: 74ea1c6d696457a4cbafc033db70fd06
+      internalID: -952512212
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_126
+      name: Red_Archer_126
       rect:
         serializedVersion: 2
         x: 320
@@ -2764,14 +2764,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 245a2ccb0ae54de4dbd22eab3bf9325a
-      internalID: -1970591760
+      spriteID: b241968d338bafd42bba2fb55a67bf64
+      internalID: -550392989
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_127
+      name: Red_Archer_127
       rect:
         serializedVersion: 2
         x: 352
@@ -2785,14 +2785,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 86133e81d3ed4374186fbbcb3c258027
-      internalID: 1894730227
+      spriteID: e316c9ea39c3d9b4a8309d8c26697681
+      internalID: -717508835
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_128
+      name: Red_Archer_128
       rect:
         serializedVersion: 2
         x: 384
@@ -2806,14 +2806,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 53de0e954aca45941b7cf999b718164a
-      internalID: 370485339
+      spriteID: 831a869bb98539c418ce73e9ffbf69e1
+      internalID: -2088174639
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_129
+      name: Red_Archer_129
       rect:
         serializedVersion: 2
         x: 416
@@ -2827,14 +2827,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58048ad3a58c7b949bb475cb189b0bc2
-      internalID: 842093487
+      spriteID: 7ffb1c74e97c26b41842d567a2e92669
+      internalID: -643910278
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_130
+      name: Red_Archer_130
       rect:
         serializedVersion: 2
         x: 448
@@ -2848,14 +2848,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29749b6437ad4ce4bbb6fc26f10417f7
-      internalID: -2085403271
+      spriteID: ea7b97241dadcdf4e9bb826eb7ddc37e
+      internalID: 1401299834
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_131
+      name: Red_Archer_131
       rect:
         serializedVersion: 2
         x: 480
@@ -2869,14 +2869,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee1f656420226fa4da661e7d75c2c267
-      internalID: -1149004990
+      spriteID: 303219cb29756014cb3d5b2032550665
+      internalID: -2097236342
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_132
+      name: Red_Archer_132
       rect:
         serializedVersion: 2
         x: 512
@@ -2890,14 +2890,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa7adfa6e0bdf534da43755d91f4f032
-      internalID: 1075926596
+      spriteID: c089adb899cd010469cf5390ecb24d57
+      internalID: -226287579
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_133
+      name: Red_Archer_133
       rect:
         serializedVersion: 2
         x: 544
@@ -2911,14 +2911,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 43c4927cc2fc6d84a98cfd2cf86e1692
-      internalID: -179770555
+      spriteID: 82ee08be660639f49af828a6a10be70d
+      internalID: -207741271
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_134
+      name: Red_Archer_134
       rect:
         serializedVersion: 2
         x: 576
@@ -2932,14 +2932,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c272b9bfcd4e0e458788176e9b65898
-      internalID: -825776840
+      spriteID: 6e7a72164bdfa6d4e895c9b96b62f636
+      internalID: -683412838
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_135
+      name: Red_Archer_135
       rect:
         serializedVersion: 2
         x: 608
@@ -2953,14 +2953,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c3e021a1f19902a4c86d79c43d63f5cd
-      internalID: -59175700
+      spriteID: ac3be0b44fad93c49970e5bc6b6aabb0
+      internalID: -1375811763
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_136
+      name: Red_Archer_136
       rect:
         serializedVersion: 2
         x: 640
@@ -2974,14 +2974,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 194d6bec93b501f418d402061bc08853
-      internalID: -1114609376
+      spriteID: c87dc5288c0f1af4eb17ace81bd35b1c
+      internalID: -751596669
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_137
+      name: Red_Archer_137
       rect:
         serializedVersion: 2
         x: 672
@@ -2995,14 +2995,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d1067beacad1a714589cc599138be9c4
-      internalID: 1949216629
+      spriteID: d671f0500f20a4546ae14bfcc2d06b35
+      internalID: 1702870027
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_138
+      name: Red_Archer_138
       rect:
         serializedVersion: 2
         x: 704
@@ -3016,14 +3016,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 04d5da8e94870374da417a309e7083c7
-      internalID: 1766735505
+      spriteID: 0f6c68de01374f6499f0c080be201796
+      internalID: 1872840590
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_139
+      name: Red_Archer_139
       rect:
         serializedVersion: 2
         x: 736
@@ -3037,14 +3037,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da1e6fc370d87ce41a57d477b6548369
-      internalID: 40984192
+      spriteID: 12fd93bb27cbf45439d952a6c10ad2ba
+      internalID: 1140670940
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_140
+      name: Red_Archer_140
       rect:
         serializedVersion: 2
         x: 768
@@ -3058,14 +3058,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aea412c6708c95448a5abe158c34146e
-      internalID: 563985853
+      spriteID: c429c2fbbcb9f9a42bb6477759374c90
+      internalID: 1818526032
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_141
+      name: Red_Archer_141
       rect:
         serializedVersion: 2
         x: 800
@@ -3079,14 +3079,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c674f00a361fad47bf3d5c1b6041268
-      internalID: 1623208505
+      spriteID: daf5b243fb561d5459bfd2cc3e7fc372
+      internalID: -544077940
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_142
+      name: Red_Archer_142
       rect:
         serializedVersion: 2
         x: 832
@@ -3100,14 +3100,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7a6f5f7be200924fae49a886eaad8af
-      internalID: -1082712115
+      spriteID: 4a2631ccb17a5654f99db5cb28945b0e
+      internalID: -1673500946
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_143
+      name: Red_Archer_143
       rect:
         serializedVersion: 2
         x: 864
@@ -3121,14 +3121,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f137ddd9eefae7499fb7a6be77c9346
-      internalID: 1442059306
+      spriteID: 1b40080eb473e2241ad0dda7e5c2da9c
+      internalID: -837450419
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_144
+      name: Red_Archer_144
       rect:
         serializedVersion: 2
         x: 896
@@ -3142,14 +3142,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c9a9ec0ce30c0e44a6e38f9e8ce23e4
-      internalID: 894933980
+      spriteID: 149357664cd9f764ca85ec6b615d66df
+      internalID: -2086491629
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_145
+      name: Red_Archer_145
       rect:
         serializedVersion: 2
         x: 0
@@ -3163,14 +3163,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d5290a8c16bbbda40878053182471f51
-      internalID: 1212702384
+      spriteID: bf0ec76f2b4e19d44a2119bba6824533
+      internalID: -261640893
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_146
+      name: Red_Archer_146
       rect:
         serializedVersion: 2
         x: 32
@@ -3184,14 +3184,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19a3422caea4a45449a409f540b39bb2
-      internalID: -66695209
+      spriteID: 6388bb38f484577498ec4a9b4104cf18
+      internalID: -1904661840
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_147
+      name: Red_Archer_147
       rect:
         serializedVersion: 2
         x: 64
@@ -3205,14 +3205,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b228e49052d20544adf898e608fbe37
-      internalID: -1607576486
+      spriteID: 8341af9494ddaf546ad6d7602dbb54a7
+      internalID: 588752749
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_148
+      name: Red_Archer_148
       rect:
         serializedVersion: 2
         x: 96
@@ -3226,14 +3226,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 11a4d7253d6ce644b99161f7ac826526
-      internalID: -99319933
+      spriteID: fc86a5c9f2ff70b4fa2092980dd14b18
+      internalID: -2010431961
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_149
+      name: Red_Archer_149
       rect:
         serializedVersion: 2
         x: 128
@@ -3247,14 +3247,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 97a5dd8430cb06146a3842636231ac39
-      internalID: -990061554
+      spriteID: b0554c4089636de44b603779bcff8702
+      internalID: 2118025560
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_150
+      name: Red_Archer_150
       rect:
         serializedVersion: 2
         x: 160
@@ -3268,14 +3268,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 553d4e843c3b9fc419870ac5e1346d25
-      internalID: -180599391
+      spriteID: 5b09d88e6582de24392ecd69e43acbaf
+      internalID: 2114116550
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_151
+      name: Red_Archer_151
       rect:
         serializedVersion: 2
         x: 192
@@ -3289,14 +3289,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 52b914191449a4a42afe264711a97fc1
-      internalID: -1596971253
+      spriteID: 15098d029a4639c4bbb1b3e7e55a80b2
+      internalID: -1013435571
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_152
+      name: Red_Archer_152
       rect:
         serializedVersion: 2
         x: 224
@@ -3310,14 +3310,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b183216c9a3a6d5458c2d78e82c12b73
-      internalID: 197588631
+      spriteID: f0ce839c421e70543a4bf3ddc6c2c8be
+      internalID: 499348052
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_153
+      name: Red_Archer_153
       rect:
         serializedVersion: 2
         x: 256
@@ -3331,14 +3331,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e767401a090fe0341a7500ccfde07846
-      internalID: -1722143732
+      spriteID: 360a8b1d726b9e44a8b065f9b7bb2f28
+      internalID: -1115108135
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_154
+      name: Red_Archer_154
       rect:
         serializedVersion: 2
         x: 288
@@ -3352,14 +3352,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0bbe514370d73344a94aa9e235e63c74
-      internalID: -1960241266
+      spriteID: 990e4950b19868a4a8ff12ff27201c90
+      internalID: 963749294
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_155
+      name: Red_Archer_155
       rect:
         serializedVersion: 2
         x: 320
@@ -3373,14 +3373,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 774be66dbaa62694f816609f048ea6df
-      internalID: -1784801629
+      spriteID: 5954b11c2755fc94194dd18982d925af
+      internalID: 839896374
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_156
+      name: Red_Archer_156
       rect:
         serializedVersion: 2
         x: 352
@@ -3394,14 +3394,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6f57d0924317684ab165324f52a2d19
-      internalID: 1534728115
+      spriteID: 57b38c6f791d22b43b510d91ef3e9e14
+      internalID: 1041276679
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_157
+      name: Red_Archer_157
       rect:
         serializedVersion: 2
         x: 384
@@ -3415,14 +3415,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d4bb5413f8d8ba41ab5ee80ff2a4b21
-      internalID: -2084812640
+      spriteID: e0443d73d9f7d5742a02e6ff5df13a06
+      internalID: 521169916
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_158
+      name: Red_Archer_158
       rect:
         serializedVersion: 2
         x: 416
@@ -3436,14 +3436,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d001a8002341e344967c4b50a26583e
-      internalID: -1387761602
+      spriteID: dd4fadb8c205a5c46965c47f3fc5ea36
+      internalID: 1164392616
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_159
+      name: Red_Archer_159
       rect:
         serializedVersion: 2
         x: 448
@@ -3457,14 +3457,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e8f64484634e7a04d8adb25634190be7
-      internalID: 1809517290
+      spriteID: a77eb3ca017ae504f85d390d2b8bcfa3
+      internalID: -17775485
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_160
+      name: Red_Archer_160
       rect:
         serializedVersion: 2
         x: 480
@@ -3478,14 +3478,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b7fbb656536f994f907833317b7475e
-      internalID: -1653823707
+      spriteID: 4dd6ef6c1317df944826a8b11e06cc06
+      internalID: -1288291696
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_161
+      name: Red_Archer_161
       rect:
         serializedVersion: 2
         x: 512
@@ -3499,14 +3499,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae265613b578af949a62d8977c50853b
-      internalID: 1519982875
+      spriteID: 9c0733872bc8b904bbea50a008a416f3
+      internalID: -1183042208
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_162
+      name: Red_Archer_162
       rect:
         serializedVersion: 2
         x: 544
@@ -3520,14 +3520,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 055c627c23c4a6e48921961523f3157e
-      internalID: -359676792
+      spriteID: 981313dd6ada22448aaccdd9ec244b92
+      internalID: -1749894819
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_163
+      name: Red_Archer_163
       rect:
         serializedVersion: 2
         x: 576
@@ -3541,14 +3541,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e1b745e0f2070b94e96a8a57e7cc19da
-      internalID: -1371631375
+      spriteID: c4e577650eea9fb4293f9ca8dc052f26
+      internalID: -1442038069
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_164
+      name: Red_Archer_164
       rect:
         serializedVersion: 2
         x: 608
@@ -3562,14 +3562,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 478ed107ba316ab41999bbeec9d7fc38
-      internalID: -634960010
+      spriteID: fa0dffc3f6866ee4e8dd82ebe0a556f8
+      internalID: -1438547484
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_165
+      name: Red_Archer_165
       rect:
         serializedVersion: 2
         x: 640
@@ -3583,14 +3583,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 40353919e78c9374e869581ff0642859
-      internalID: 327786707
+      spriteID: 8df451c908a28ab41b702192d954634e
+      internalID: 1953474952
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_166
+      name: Red_Archer_166
       rect:
         serializedVersion: 2
         x: 672
@@ -3604,14 +3604,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a181d37b117e5474d8e61b737e41a5af
-      internalID: 1407349893
+      spriteID: b9faeaaf36b54cb47b0a07ed84ffcb74
+      internalID: 1416052151
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_167
+      name: Red_Archer_167
       rect:
         serializedVersion: 2
         x: 704
@@ -3625,14 +3625,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 301c1c7eb9df6184299a5996fb61fd93
-      internalID: -1251281991
+      spriteID: 30a44d5f7fd584848ab39dcb593f5bb4
+      internalID: 581603021
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_168
+      name: Red_Archer_168
       rect:
         serializedVersion: 2
         x: 736
@@ -3646,14 +3646,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 15735589cc20d3e47bc256a34cd00009
-      internalID: 1438463462
+      spriteID: 38f7ecea9d10d584f8d002492f08c845
+      internalID: 571645735
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_169
+      name: Red_Archer_169
       rect:
         serializedVersion: 2
         x: 768
@@ -3667,14 +3667,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 931244789ca079445b1265a8613f2442
-      internalID: -672859421
+      spriteID: b6c76abdc00759246ab9e3aa735d452e
+      internalID: 1202234010
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_170
+      name: Red_Archer_170
       rect:
         serializedVersion: 2
         x: 800
@@ -3688,14 +3688,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b159f95fc036fd45a2a2de176d6d053
-      internalID: -2131823044
+      spriteID: 0bea46256ab9b3c449639bbb720cc417
+      internalID: -1148960411
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_171
+      name: Red_Archer_171
       rect:
         serializedVersion: 2
         x: 832
@@ -3709,14 +3709,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 59d93c5bc60ea55449f9fe954c4604d8
-      internalID: 404216237
+      spriteID: 13cfb2c57b8e0b045bb575b389f62b14
+      internalID: -1989201645
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_172
+      name: Red_Archer_172
       rect:
         serializedVersion: 2
         x: 864
@@ -3730,14 +3730,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e47e02c992a59d448aab2901e2c1185
-      internalID: -1267994682
+      spriteID: 9d2d7d0836f9e6d45bf5dab79b9110f5
+      internalID: 1488364134
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_173
+      name: Red_Archer_173
       rect:
         serializedVersion: 2
         x: 896
@@ -3751,14 +3751,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9cbcc1569db100f458534ad9f26efe5c
-      internalID: 128611594
+      spriteID: a91afda09d2e7bf4090153e3902cfa62
+      internalID: 2002101914
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_174
+      name: Red_Archer_174
       rect:
         serializedVersion: 2
         x: 0
@@ -3772,14 +3772,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd0233dc12b89c448a498f0a304d7b8b
-      internalID: 257555667
+      spriteID: 7f6b8e1d5bd1a9d4ca6f8efed7dd7efe
+      internalID: 686367487
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_175
+      name: Red_Archer_175
       rect:
         serializedVersion: 2
         x: 32
@@ -3793,14 +3793,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a759dd87b7440c7418226ce14b930540
-      internalID: -780235376
+      spriteID: 244a296bf6f1543409f8c72d64828b01
+      internalID: -1821528597
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_176
+      name: Red_Archer_176
       rect:
         serializedVersion: 2
         x: 64
@@ -3814,14 +3814,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2435299b8d7fd2645a7883d82d35fb1f
-      internalID: 816762465
+      spriteID: 1d0224dd137a01a4f90120bc17c39de6
+      internalID: -2090645578
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_177
+      name: Red_Archer_177
       rect:
         serializedVersion: 2
         x: 96
@@ -3835,14 +3835,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88f727c4fe20f694ba3dc27db32a3bc9
-      internalID: -440661621
+      spriteID: f8b04dfdc94368f408ae100aaa48a66c
+      internalID: -15191907
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_178
+      name: Red_Archer_178
       rect:
         serializedVersion: 2
         x: 128
@@ -3856,14 +3856,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e90db65070ba6a64aa18941d0618651f
-      internalID: 1571855131
+      spriteID: 423c30cbc81a4954f961a4530e02f515
+      internalID: 1505169371
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_179
+      name: Red_Archer_179
       rect:
         serializedVersion: 2
         x: 160
@@ -3877,14 +3877,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 561694227f8eff14c9ae7cea83f91862
-      internalID: -1543341086
+      spriteID: d320ac150c4526c439f19436d63d83ea
+      internalID: 704102131
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_180
+      name: Red_Archer_180
       rect:
         serializedVersion: 2
         x: 192
@@ -3898,14 +3898,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0fd63a8838825bb4baa4d7bfd808835e
-      internalID: -2064344703
+      spriteID: dbd897653b658f34cbaaadc151417a7d
+      internalID: 1405201299
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_181
+      name: Red_Archer_181
       rect:
         serializedVersion: 2
         x: 224
@@ -3919,14 +3919,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0232ee4bff24c0a49905fb23a47e9d77
-      internalID: 427126024
+      spriteID: 5b824792dec6de94a926df8f674aee3e
+      internalID: 1451696072
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_182
+      name: Red_Archer_182
       rect:
         serializedVersion: 2
         x: 256
@@ -3940,14 +3940,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ee6eb528f2a7ee4980bcd58d776afdb
-      internalID: -636584515
+      spriteID: 1776649e8ce64d94bb86d51443416d59
+      internalID: -1944118794
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_183
+      name: Red_Archer_183
       rect:
         serializedVersion: 2
         x: 288
@@ -3961,14 +3961,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3076efdfc7f202d4c8584d8c069e5b47
-      internalID: -763764201
+      spriteID: 1914e299cf486df449a1495d9501201a
+      internalID: 1987107004
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_184
+      name: Red_Archer_184
       rect:
         serializedVersion: 2
         x: 320
@@ -3982,14 +3982,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c1f327d9b33baf4e95e155e08392ac0
-      internalID: 1678020421
+      spriteID: ef0938e7c617a8840a8e1e1b806f2422
+      internalID: 635227954
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_185
+      name: Red_Archer_185
       rect:
         serializedVersion: 2
         x: 352
@@ -4003,14 +4003,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bbd0a93a56b0e044fb18ffebe30b6282
-      internalID: 192752439
+      spriteID: 0b6cb7fb420dc894380cead07802d1e0
+      internalID: 304215196
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_186
+      name: Red_Archer_186
       rect:
         serializedVersion: 2
         x: 384
@@ -4024,14 +4024,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d42fb9a1559af934a97e448dbedd6ec3
-      internalID: -885547147
+      spriteID: 0559e22d18111074293a5741b33b4fc2
+      internalID: 114241208
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_187
+      name: Red_Archer_187
       rect:
         serializedVersion: 2
         x: 416
@@ -4045,14 +4045,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b55468c0980862c4ab2113826eb7edf3
-      internalID: -2117130190
+      spriteID: 3cd69a895c4bc9446a28b19021a37db1
+      internalID: 1991650302
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_188
+      name: Red_Archer_188
       rect:
         serializedVersion: 2
         x: 448
@@ -4066,14 +4066,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 198aa60ef89c4d84abcb8802fd131386
-      internalID: 311697039
+      spriteID: 0075b01df2be0bb4fb995d6c846de080
+      internalID: -1939440156
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_189
+      name: Red_Archer_189
       rect:
         serializedVersion: 2
         x: 480
@@ -4087,14 +4087,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc24fee7603290443b6d8b0525759c04
-      internalID: 1465752092
+      spriteID: 0300dc7505baa5c4b859a796a5eec96f
+      internalID: 848379893
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_190
+      name: Red_Archer_190
       rect:
         serializedVersion: 2
         x: 512
@@ -4108,14 +4108,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cf1b4ddf2af26164688b1b5e82ee620d
-      internalID: 528888056
+      spriteID: 18ec81b5ce631994c86e68c4d20ad967
+      internalID: -531304384
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_191
+      name: Red_Archer_191
       rect:
         serializedVersion: 2
         x: 544
@@ -4129,14 +4129,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 725df3065b342bf48bc847a57b6393e1
-      internalID: 471700161
+      spriteID: ab3650afb065d30488b175fe54314e1d
+      internalID: -829104244
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_192
+      name: Red_Archer_192
       rect:
         serializedVersion: 2
         x: 576
@@ -4150,14 +4150,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d07ee016c5404545857779299f60fe5
-      internalID: 1134138300
+      spriteID: 57acec7da1ba2d342a11795e8f344e1d
+      internalID: 2134045841
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_193
+      name: Red_Archer_193
       rect:
         serializedVersion: 2
         x: 608
@@ -4171,14 +4171,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ef7809ef3584c9d4988d9454b81ee1bb
-      internalID: -323742893
+      spriteID: a762d7c466c654641b2a22ad9e4d47fb
+      internalID: -1909622248
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_194
+      name: Red_Archer_194
       rect:
         serializedVersion: 2
         x: 640
@@ -4192,14 +4192,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e350ca3798734e4d96ba64967232d13
-      internalID: -659904654
+      spriteID: cdc195e6272d78d4a83a0ff7f40149a0
+      internalID: -1118718829
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_195
+      name: Red_Archer_195
       rect:
         serializedVersion: 2
         x: 672
@@ -4213,14 +4213,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ccaecbe729a80524397db3a6ee730400
-      internalID: -1632546609
+      spriteID: b4cde0290c2649745ab5ff98c7119b05
+      internalID: 798526290
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_196
+      name: Red_Archer_196
       rect:
         serializedVersion: 2
         x: 704
@@ -4234,14 +4234,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2fe70ab1dae88a042b1b9168a7372149
-      internalID: 2117395215
+      spriteID: c9f157f6968cb404fa83999aa49f8194
+      internalID: -382426532
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_197
+      name: Red_Archer_197
       rect:
         serializedVersion: 2
         x: 736
@@ -4255,14 +4255,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba13ba1e236e845438736edd8dd42686
-      internalID: 814084586
+      spriteID: ebe9142348544e84881b75149f39ec68
+      internalID: -1852033421
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_198
+      name: Red_Archer_198
       rect:
         serializedVersion: 2
         x: 768
@@ -4276,14 +4276,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d1dcca8584b9aef498839e94a2c2258e
-      internalID: -1636759986
+      spriteID: cbeb0de89c82042459c842a0206a4f4f
+      internalID: -1664020602
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_199
+      name: Red_Archer_199
       rect:
         serializedVersion: 2
         x: 800
@@ -4297,14 +4297,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d7e7fbdce92078d42b6662eacb565351
-      internalID: 1480556201
+      spriteID: df5ffcd92a9218c4c867927e962c846a
+      internalID: -1075781890
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_200
+      name: Red_Archer_200
       rect:
         serializedVersion: 2
         x: 832
@@ -4318,14 +4318,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2bd29581bdc2ca4cab8d08f654ca215
-      internalID: 1892496509
+      spriteID: 18861f8c1ac5b104ebbbfbcbf18b38a5
+      internalID: -1578990587
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_201
+      name: Red_Archer_201
       rect:
         serializedVersion: 2
         x: 864
@@ -4339,14 +4339,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff66c32129a3d0d4eae627bb4194250e
-      internalID: -1002063373
+      spriteID: 5b2d8769829565a4eaf0f1f479970849
+      internalID: -1351144712
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_202
+      name: Red_Archer_202
       rect:
         serializedVersion: 2
         x: 896
@@ -4360,14 +4360,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 745b6ed01f7d39045a3dacfc790bda7b
-      internalID: 1733266316
+      spriteID: 344ec05822c47404aad19c5cbcf5205b
+      internalID: 2054844516
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_203
+      name: Red_Archer_203
       rect:
         serializedVersion: 2
         x: 0
@@ -4381,14 +4381,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 135a2542fa752a04e86f67220c9b6501
-      internalID: 637706132
+      spriteID: c0da923cca5c3fd48b7c553e679455e1
+      internalID: -1627903906
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_204
+      name: Red_Archer_204
       rect:
         serializedVersion: 2
         x: 32
@@ -4402,14 +4402,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d997723b78e554e4f8bc7cada3148f9e
-      internalID: -1274277905
+      spriteID: 1adfc1ccad3cb5d499ffdf9d02d8549b
+      internalID: 1747185866
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_205
+      name: Red_Archer_205
       rect:
         serializedVersion: 2
         x: 64
@@ -4423,14 +4423,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 009da6e47396fd74081ef30dbfd51c34
-      internalID: -42240204
+      spriteID: 7ed19ba29a7887d4dbe3247f83fe444b
+      internalID: 1374293587
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_206
+      name: Red_Archer_206
       rect:
         serializedVersion: 2
         x: 96
@@ -4444,14 +4444,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e32482ba94ffc74187fea1a613f2352
-      internalID: 646303884
+      spriteID: 9ea9dce2e1ce38d43921c69b5d1e95d7
+      internalID: -477110279
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_207
+      name: Red_Archer_207
       rect:
         serializedVersion: 2
         x: 128
@@ -4465,14 +4465,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5459065d615bc734f89aaeebf849b438
-      internalID: 1150345307
+      spriteID: a3caf15c85a37264bb4a95c642987359
+      internalID: -1699506719
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_208
+      name: Red_Archer_208
       rect:
         serializedVersion: 2
         x: 160
@@ -4486,14 +4486,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81b6c589277a98d47922636b4a66ff04
-      internalID: -342535051
+      spriteID: 9b93f31ff0684a34c86a9e128c19888a
+      internalID: 1065075294
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_209
+      name: Red_Archer_209
       rect:
         serializedVersion: 2
         x: 192
@@ -4507,14 +4507,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f67f63bcfb9d90443a0c2737513116dc
-      internalID: 1952876182
+      spriteID: c14284ea928736f44bdce522435f07e0
+      internalID: -1228287355
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_210
+      name: Red_Archer_210
       rect:
         serializedVersion: 2
         x: 224
@@ -4528,14 +4528,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c23dab3a3d28fb4cab84f9da94939b6
-      internalID: -1051201567
+      spriteID: 33ae7bebdc7a3c1449fa7741a1ee35e1
+      internalID: 948882644
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_211
+      name: Red_Archer_211
       rect:
         serializedVersion: 2
         x: 256
@@ -4549,14 +4549,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e5dbb9a3ded22d4cbe1d2d9a8dfb3bd
-      internalID: -690371937
+      spriteID: 7b901483bb43b3f4388520b948609b71
+      internalID: -1993026925
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_212
+      name: Red_Archer_212
       rect:
         serializedVersion: 2
         x: 288
@@ -4570,14 +4570,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ab11e4d73844d347aef156ef8545657
-      internalID: 1086570251
+      spriteID: 926cef8b6bc2fc547bcde5b4e5d00773
+      internalID: -912758162
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_213
+      name: Red_Archer_213
       rect:
         serializedVersion: 2
         x: 320
@@ -4591,14 +4591,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 77d1da229986e934cba58321c0ba5a8c
-      internalID: 1132567634
+      spriteID: 08b14ea9ec317e74da1037f1a015cef3
+      internalID: 1735657749
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_214
+      name: Red_Archer_214
       rect:
         serializedVersion: 2
         x: 352
@@ -4612,14 +4612,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0eee0984aeac6b644a02f50b5518307d
-      internalID: 1031959355
+      spriteID: 157646debcb076c49a2aeeef0af0d820
+      internalID: -601576789
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_215
+      name: Red_Archer_215
       rect:
         serializedVersion: 2
         x: 384
@@ -4633,14 +4633,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17b99095ad8827f438b31bc67b71f357
-      internalID: 848525295
+      spriteID: 8dab2efd17fdd1f498e373c5535d88e4
+      internalID: -745545991
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_216
+      name: Red_Archer_216
       rect:
         serializedVersion: 2
         x: 416
@@ -4654,14 +4654,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2498965d94b7ea94c8a347a17f29fa1f
-      internalID: -660016440
+      spriteID: af40fd0a70c34424e9891b34477c62ca
+      internalID: 1537358999
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_217
+      name: Red_Archer_217
       rect:
         serializedVersion: 2
         x: 448
@@ -4675,14 +4675,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6792204985a61cd448f40c2af8a7d280
-      internalID: -647778963
+      spriteID: e36efc0a2503f294d988ff956714b717
+      internalID: 810097107
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_218
+      name: Red_Archer_218
       rect:
         serializedVersion: 2
         x: 480
@@ -4696,14 +4696,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c32179d81f2bcd24cbb04b1beb71d77e
-      internalID: 864500383
+      spriteID: e89becfd0ba506348ac89644f25dd0e9
+      internalID: -1635316479
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_219
+      name: Red_Archer_219
       rect:
         serializedVersion: 2
         x: 512
@@ -4717,14 +4717,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 59b04eefcecc2b744bc5b37c3f23a581
-      internalID: 2106552186
+      spriteID: 80058d6f98fa1534ab1696f9422f28a0
+      internalID: -655752497
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_220
+      name: Red_Archer_220
       rect:
         serializedVersion: 2
         x: 544
@@ -4738,14 +4738,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 22a2383cadf6fd24aa2e86782057555c
-      internalID: 103556288
+      spriteID: da2d034f1b6cb70488f6fcead5821bde
+      internalID: -405847155
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_221
+      name: Red_Archer_221
       rect:
         serializedVersion: 2
         x: 576
@@ -4759,14 +4759,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e1072bc9512d6e4ab2931ce9d632718
-      internalID: -1163229803
+      spriteID: 4dd76a653447a5d45889a1cfc31714d6
+      internalID: -143574150
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_222
+      name: Red_Archer_222
       rect:
         serializedVersion: 2
         x: 608
@@ -4780,14 +4780,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c51f4f5673e27124483aa5253eb1280f
-      internalID: 1140377212
+      spriteID: dfea0aa260508994db1708c6695e73e2
+      internalID: 1544568192
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_223
+      name: Red_Archer_223
       rect:
         serializedVersion: 2
         x: 640
@@ -4801,14 +4801,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e46a4eeea6bff645b809d2b89f1293f
-      internalID: 1890021222
+      spriteID: 4f1487fd2acd69c478f8aaee81fe0f74
+      internalID: 2069111405
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_224
+      name: Red_Archer_224
       rect:
         serializedVersion: 2
         x: 672
@@ -4822,14 +4822,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 93fc5b2d2794cf84ab37a1e4312dd5e8
-      internalID: -1766436274
+      spriteID: e1eed19b9cb2af241854a70081fbe589
+      internalID: -2059254782
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_225
+      name: Red_Archer_225
       rect:
         serializedVersion: 2
         x: 704
@@ -4843,14 +4843,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91557640a2b6229499ed3fe4b6abe5aa
-      internalID: -790862951
+      spriteID: 3d1266ae0c9edfb4eab85b76dc605a9c
+      internalID: 848842796
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_226
+      name: Red_Archer_226
       rect:
         serializedVersion: 2
         x: 736
@@ -4864,14 +4864,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a827f380b573994b90062b84ac504e5
-      internalID: 2117473899
+      spriteID: 55eff35794d5e974ea94f99a85085ad3
+      internalID: 908832838
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_227
+      name: Red_Archer_227
       rect:
         serializedVersion: 2
         x: 768
@@ -4885,14 +4885,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6dcf238f413bbd8408871b6f1a4323ba
-      internalID: -1190385285
+      spriteID: 5635a0761465a1c4b84d5b5cf44e570c
+      internalID: -209489888
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_228
+      name: Red_Archer_228
       rect:
         serializedVersion: 2
         x: 800
@@ -4906,14 +4906,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e12d02d2d5656e45b0d18aedbb7772c
-      internalID: -318584333
+      spriteID: a9f2dacf5d3a2524d8ff2b79c6ea3be5
+      internalID: 1118738994
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_229
+      name: Red_Archer_229
       rect:
         serializedVersion: 2
         x: 832
@@ -4927,14 +4927,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 220d476954b02294a8e9290803ec416d
-      internalID: 817536021
+      spriteID: 29668dee8b0d37646b5c401377f21c37
+      internalID: -1461074917
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_230
+      name: Red_Archer_230
       rect:
         serializedVersion: 2
         x: 864
@@ -4948,14 +4948,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d5686c53ae85c9a4e8fa8e4578217496
-      internalID: -936377758
+      spriteID: 591cc6fe3d5705248b4fda1f7277726c
+      internalID: -167528483
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Green_Wizard_231
+      name: Red_Archer_231
       rect:
         serializedVersion: 2
         x: 896
@@ -4969,8 +4969,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be54e6de8d628be41b4c242872db3232
-      internalID: -1278464491
+      spriteID: 3bbb5e9b652510a4b88962613a92a083
+      internalID: -1680455251
       vertices: []
       indices: 
       edges: []
@@ -4986,238 +4986,238 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Green_Wizard_24: -1465649071
-      Green_Wizard_40: -1098945963
-      Green_Wizard_98: 122039999
-      Green_Wizard_46: -1354044431
-      Green_Wizard_207: 1150345307
-      Green_Wizard_41: -1666530551
-      Green_Wizard_176: 816762465
-      Green_Wizard_4: 998228075
-      Green_Wizard_106: 951801687
-      Green_Wizard_136: -1114609376
-      Green_Wizard_187: -2117130190
-      Green_Wizard_224: -1766436274
-      Green_Wizard_170: -2131823044
-      Green_Wizard_2: 987114047
-      Green_Wizard_199: 1480556201
-      Green_Wizard_51: 185952554
-      Green_Wizard_162: -359676792
-      Green_Wizard_7: -2049330740
-      Green_Wizard_108: -991386815
-      Green_Wizard_209: 1952876182
-      Green_Wizard_103: 393503261
-      Green_Wizard_216: -660016440
-      Green_Wizard_6: -936721022
-      Green_Wizard_167: -1251281991
-      Green_Wizard_23: -166792111
-      Green_Wizard_34: -547124847
-      Green_Wizard_172: -1267994682
-      Green_Wizard_13: -710622498
-      Green_Wizard_140: 563985853
-      Green_Wizard_193: -323742893
-      Green_Wizard_118: 413963271
-      Green_Wizard_154: -1960241266
-      Green_Wizard_225: -790862951
-      Green_Wizard_168: 1438463462
-      Green_Wizard_77: 1471225222
-      Green_Wizard_182: -636584515
-      Green_Wizard_186: -885547147
-      Green_Wizard_111: 397953095
-      Green_Wizard_87: -57921792
-      Green_Wizard_33: -1288804184
-      Green_Wizard_115: -350617804
-      Green_Wizard_122: 557120348
-      Green_Wizard_132: 1075926596
-      Green_Wizard_169: -672859421
-      Green_Wizard_128: 370485339
-      Green_Wizard_17: 131841774
-      Green_Wizard_194: -659904654
-      Green_Wizard_220: 103556288
-      Green_Wizard_127: 1894730227
-      Green_Wizard_149: -990061554
-      Green_Wizard_123: -261431160
-      Green_Wizard_107: -367548225
-      Green_Wizard_92: -458166682
-      Green_Wizard_55: -1434702390
-      Green_Wizard_158: -1387761602
-      Green_Wizard_148: -99319933
-      Green_Wizard_105: -1333480943
-      Green_Wizard_121: -2067383670
-      Green_Wizard_131: -1149004990
-      Green_Wizard_202: 1733266316
-      Green_Wizard_0: 1211693237
-      Green_Wizard_69: 666293948
-      Green_Wizard_181: 427126024
-      Green_Wizard_94: -1428049177
-      Green_Wizard_178: 1571855131
-      Green_Wizard_146: -66695209
-      Green_Wizard_183: -763764201
-      Green_Wizard_70: 1509483804
-      Green_Wizard_192: 1134138300
-      Green_Wizard_76: 1806768830
-      Green_Wizard_109: 1712951037
-      Green_Wizard_200: 1892496509
-      Green_Wizard_152: 197588631
-      Green_Wizard_180: -2064344703
-      Green_Wizard_75: 634485228
-      Green_Wizard_165: 327786707
-      Green_Wizard_36: 1467820912
-      Green_Wizard_126: -1970591760
-      Green_Wizard_113: 1523739597
-      Green_Wizard_64: -1408702211
-      Green_Wizard_57: -1924869721
-      Green_Wizard_218: 864500383
-      Green_Wizard_229: 817536021
-      Green_Wizard_151: -1596971253
-      Green_Wizard_198: -1636759986
-      Green_Wizard_100: -1796887399
-      Green_Wizard_20: -121192457
-      Green_Wizard_81: -214631840
-      Green_Wizard_28: 1196786094
-      Green_Wizard_215: 848525295
-      Green_Wizard_49: -1135481953
-      Green_Wizard_31: -1128036081
-      Green_Wizard_27: -298229268
-      Green_Wizard_82: 137114114
-      Green_Wizard_90: 93429170
-      Green_Wizard_210: -1051201567
-      Green_Wizard_29: -1226849622
-      Green_Wizard_74: -1933051745
-      Green_Wizard_84: 1121652091
-      Green_Wizard_48: 1758036698
-      Green_Wizard_110: 75347148
-      Green_Wizard_8: 1045139042
-      Green_Wizard_72: 1892099084
-      Green_Wizard_205: -42240204
-      Green_Wizard_60: -249895983
-      Green_Wizard_213: 1132567634
-      Green_Wizard_179: -1543341086
-      Green_Wizard_145: 1212702384
-      Green_Wizard_89: 658964280
-      Green_Wizard_206: 646303884
-      Green_Wizard_212: 1086570251
-      Green_Wizard_130: -2085403271
-      Green_Wizard_135: -59175700
-      Green_Wizard_30: 618312568
-      Green_Wizard_78: 1534296518
-      Green_Wizard_189: 1465752092
-      Green_Wizard_138: 1766735505
-      Green_Wizard_129: 842093487
-      Green_Wizard_25: -541245368
-      Green_Wizard_53: -529537937
-      Green_Wizard_79: -792583739
-      Green_Wizard_133: -179770555
-      Green_Wizard_67: -1680514979
-      Green_Wizard_155: -1784801629
-      Green_Wizard_196: 2117395215
-      Green_Wizard_156: 1534728115
-      Green_Wizard_219: 2106552186
-      Green_Wizard_230: -936377758
-      Green_Wizard_35: -1390387877
-      Green_Wizard_16: 1222024652
-      Green_Wizard_147: -1607576486
-      Green_Wizard_175: -780235376
-      Green_Wizard_10: -1425347237
-      Green_Wizard_21: -273646164
-      Green_Wizard_88: -868978551
-      Green_Wizard_134: -825776840
-      Green_Wizard_32: -1773795405
-      Green_Wizard_201: -1002063373
-      Green_Wizard_14: -1559695222
-      Green_Wizard_63: 378031391
-      Green_Wizard_19: -1122180131
-      Green_Wizard_188: 311697039
-      Green_Wizard_43: -345994124
-      Green_Wizard_191: 471700161
-      Green_Wizard_195: -1632546609
-      Green_Wizard_117: -824195784
-      Green_Wizard_228: -318584333
-      Green_Wizard_37: -614241877
-      Green_Wizard_1: 1893475254
-      Green_Wizard_124: -2121984593
-      Green_Wizard_22: -78462482
-      Green_Wizard_65: 2038170845
-      Green_Wizard_173: 128611594
-      Green_Wizard_114: 1920418295
-      Green_Wizard_197: 814084586
-      Green_Wizard_221: -1163229803
-      Green_Wizard_161: 1519982875
-      Green_Wizard_5: -599436234
-      Green_Wizard_12: -2016670707
-      Green_Wizard_116: 368288120
-      Green_Wizard_71: 2065548342
-      Green_Wizard_97: -1680708
-      Green_Wizard_62: -262718833
-      Green_Wizard_47: -1560718784
-      Green_Wizard_177: -440661621
-      Green_Wizard_226: 2117473899
-      Green_Wizard_50: 2127402738
-      Green_Wizard_160: -1653823707
-      Green_Wizard_203: 637706132
-      Green_Wizard_39: 528563840
-      Green_Wizard_164: -634960010
-      Green_Wizard_159: 1809517290
-      Green_Wizard_95: -1727985139
-      Green_Wizard_137: 1949216629
-      Green_Wizard_112: -2079962160
-      Green_Wizard_52: 1089058146
-      Green_Wizard_15: -1550201988
-      Green_Wizard_163: -1371631375
-      Green_Wizard_231: -1278464491
-      Green_Wizard_68: 1662152021
-      Green_Wizard_190: 528888056
-      Green_Wizard_80: 2077856212
-      Green_Wizard_96: -1944610688
-      Green_Wizard_104: 1573798015
-      Green_Wizard_85: 414476178
-      Green_Wizard_73: -669614444
-      Green_Wizard_184: 1678020421
-      Green_Wizard_54: -724834203
-      Green_Wizard_101: -59755281
-      Green_Wizard_223: 1890021222
-      Green_Wizard_208: -342535051
-      Green_Wizard_211: -690371937
-      Green_Wizard_141: 1623208505
-      Green_Wizard_59: 1442120229
-      Green_Wizard_139: 40984192
-      Green_Wizard_45: 845097207
-      Green_Wizard_102: -1020156849
-      Green_Wizard_18: -466027209
-      Green_Wizard_185: 192752439
-      Green_Wizard_217: -647778963
-      Green_Wizard_61: 1093182628
-      Green_Wizard_204: -1274277905
-      Green_Wizard_58: -1830602692
-      Green_Wizard_66: 859346026
-      Green_Wizard_222: 1140377212
-      Green_Wizard_125: 1813624351
-      Green_Wizard_144: 894933980
-      Green_Wizard_11: 1781579500
-      Green_Wizard_42: -936559542
-      Green_Wizard_44: -536948096
-      Green_Wizard_91: -1028183178
-      Green_Wizard_157: -2084812640
-      Green_Wizard_119: 1346061319
-      Green_Wizard_171: 404216237
-      Green_Wizard_174: 257555667
-      Green_Wizard_143: 1442059306
-      Green_Wizard_93: 2017207572
-      Green_Wizard_83: 995904650
-      Green_Wizard_227: -1190385285
-      Green_Wizard_38: -432628672
-      Green_Wizard_99: -1445668058
-      Green_Wizard_120: -721658587
-      Green_Wizard_150: -180599391
-      Green_Wizard_153: -1722143732
-      Green_Wizard_166: 1407349893
-      Green_Wizard_3: 2049593320
-      Green_Wizard_26: 262100069
-      Green_Wizard_142: -1082712115
-      Green_Wizard_214: 1031959355
-      Green_Wizard_86: 1975182580
-      Green_Wizard_56: -1218478209
-      Green_Wizard_9: 1045942418
+      Red_Archer_102: -480356529
+      Red_Archer_175: -1821528597
+      Red_Archer_83: 37927904
+      Red_Archer_149: 2118025560
+      Red_Archer_10: -2072076806
+      Red_Archer_230: -167528483
+      Red_Archer_12: -1552673349
+      Red_Archer_178: 1505169371
+      Red_Archer_136: -751596669
+      Red_Archer_130: 1401299834
+      Red_Archer_213: 1735657749
+      Red_Archer_185: 304215196
+      Red_Archer_16: -688720673
+      Red_Archer_220: -405847155
+      Red_Archer_227: -209489888
+      Red_Archer_169: 1202234010
+      Red_Archer_60: -1981383487
+      Red_Archer_23: -1349856321
+      Red_Archer_99: -1456697783
+      Red_Archer_17: 2098207984
+      Red_Archer_135: -1375811763
+      Red_Archer_123: 234672653
+      Red_Archer_57: -226328025
+      Red_Archer_112: -881449746
+      Red_Archer_156: 1041276679
+      Red_Archer_49: -1631845492
+      Red_Archer_25: -1830293331
+      Red_Archer_108: 1323096071
+      Red_Archer_163: -1442038069
+      Red_Archer_98: -1834454996
+      Red_Archer_197: -1852033421
+      Red_Archer_193: -1909622248
+      Red_Archer_50: 458091050
+      Red_Archer_221: -143574150
+      Red_Archer_118: 149321815
+      Red_Archer_190: -531304384
+      Red_Archer_166: 1416052151
+      Red_Archer_224: -2059254782
+      Red_Archer_2: -147027042
+      Red_Archer_38: 887912453
+      Red_Archer_162: -1749894819
+      Red_Archer_88: 123185931
+      Red_Archer_115: -1368431933
+      Red_Archer_184: 635227954
+      Red_Archer_133: -207741271
+      Red_Archer_158: 1164392616
+      Red_Archer_146: -1904661840
+      Red_Archer_26: 464135530
+      Red_Archer_191: -829104244
+      Red_Archer_55: 1799093183
+      Red_Archer_189: 848379893
+      Red_Archer_205: 1374293587
+      Red_Archer_154: 963749294
+      Red_Archer_114: 670875981
+      Red_Archer_174: 686367487
+      Red_Archer_66: -390641729
+      Red_Archer_89: -334988488
+      Red_Archer_202: 2054844516
+      Red_Archer_176: -2090645578
+      Red_Archer_138: 1872840590
+      Red_Archer_222: 1544568192
+      Red_Archer_110: 15328609
+      Red_Archer_124: 460449600
+      Red_Archer_141: -544077940
+      Red_Archer_97: -2012904511
+      Red_Archer_204: 1747185866
+      Red_Archer_6: -900434400
+      Red_Archer_70: -302775313
+      Red_Archer_32: 397796033
+      Red_Archer_47: 1076795917
+      Red_Archer_106: -323941512
+      Red_Archer_231: -1680455251
+      Red_Archer_219: -655752497
+      Red_Archer_177: -15191907
+      Red_Archer_216: 1537358999
+      Red_Archer_69: 92829293
+      Red_Archer_41: -2091495736
+      Red_Archer_56: 1403465745
+      Red_Archer_152: 499348052
+      Red_Archer_180: 1405201299
+      Red_Archer_100: -826528819
+      Red_Archer_81: 302615013
+      Red_Archer_74: 805175273
+      Red_Archer_139: 1140670940
+      Red_Archer_95: 1788862284
+      Red_Archer_87: 1512907921
+      Red_Archer_155: 839896374
+      Red_Archer_195: 798526290
+      Red_Archer_196: -382426532
+      Red_Archer_150: 2114116550
+      Red_Archer_62: -1053671363
+      Red_Archer_96: 1839828421
+      Red_Archer_142: -1673500946
+      Red_Archer_129: -643910278
+      Red_Archer_21: -1543383708
+      Red_Archer_58: 823740039
+      Red_Archer_173: 2002101914
+      Red_Archer_210: 948882644
+      Red_Archer_144: -2086491629
+      Red_Archer_228: 1118738994
+      Red_Archer_160: -1288291696
+      Red_Archer_148: -2010431961
+      Red_Archer_168: 571645735
+      Red_Archer_122: -1646033772
+      Red_Archer_172: 1488364134
+      Red_Archer_200: -1578990587
+      Red_Archer_165: 1953474952
+      Red_Archer_82: 2092268782
+      Red_Archer_52: 473546523
+      Red_Archer_143: -837450419
+      Red_Archer_132: -226287579
+      Red_Archer_39: -1955501649
+      Red_Archer_113: -2069151008
+      Red_Archer_30: -156085597
+      Red_Archer_137: 1702870027
+      Red_Archer_206: -477110279
+      Red_Archer_223: 2069111405
+      Red_Archer_35: 1289047316
+      Red_Archer_0: -2069850359
+      Red_Archer_226: 908832838
+      Red_Archer_13: 1947191938
+      Red_Archer_103: -405712165
+      Red_Archer_53: 268913007
+      Red_Archer_34: 444795554
+      Red_Archer_64: 2012313737
+      Red_Archer_211: -1993026925
+      Red_Archer_44: 1358647167
+      Red_Archer_5: 1521187031
+      Red_Archer_119: -917608670
+      Red_Archer_217: 810097107
+      Red_Archer_208: 1065075294
+      Red_Archer_111: -199941211
+      Red_Archer_147: 588752749
+      Red_Archer_3: -699105972
+      Red_Archer_31: -158265339
+      Red_Archer_85: -906403978
+      Red_Archer_63: 1368131193
+      Red_Archer_105: -343058154
+      Red_Archer_43: -646879599
+      Red_Archer_187: 1991650302
+      Red_Archer_212: -912758162
+      Red_Archer_11: -1781531462
+      Red_Archer_33: 457472119
+      Red_Archer_194: -1118718829
+      Red_Archer_79: -239682451
+      Red_Archer_167: 581603021
+      Red_Archer_28: -1930259406
+      Red_Archer_18: -1968180068
+      Red_Archer_29: 1874217461
+      Red_Archer_45: 482051988
+      Red_Archer_182: -1944118794
+      Red_Archer_188: -1939440156
+      Red_Archer_73: -988292421
+      Red_Archer_151: -1013435571
+      Red_Archer_7: 8676649
+      Red_Archer_9: -709042122
+      Red_Archer_225: 848842796
+      Red_Archer_59: 501113568
+      Red_Archer_192: 2134045841
+      Red_Archer_1: -431002215
+      Red_Archer_54: 1974336367
+      Red_Archer_68: -2022696280
+      Red_Archer_80: -1764472562
+      Red_Archer_171: -1989201645
+      Red_Archer_36: -292108506
+      Red_Archer_46: -131170896
+      Red_Archer_107: 1331710298
+      Red_Archer_109: -1860423710
+      Red_Archer_215: -745545991
+      Red_Archer_71: -2074065301
+      Red_Archer_179: 704102131
+      Red_Archer_72: -2122737927
+      Red_Archer_186: 114241208
+      Red_Archer_209: -1228287355
+      Red_Archer_117: -1725833055
+      Red_Archer_101: 371062542
+      Red_Archer_153: -1115108135
+      Red_Archer_51: 342735331
+      Red_Archer_157: 521169916
+      Red_Archer_126: -550392989
+      Red_Archer_127: -717508835
+      Red_Archer_42: -620644268
+      Red_Archer_134: -683412838
+      Red_Archer_19: 1321829406
+      Red_Archer_159: -17775485
+      Red_Archer_65: 761675682
+      Red_Archer_84: -1610361494
+      Red_Archer_116: -1652732877
+      Red_Archer_22: 1602869885
+      Red_Archer_24: -469652749
+      Red_Archer_214: -601576789
+      Red_Archer_77: 1604127283
+      Red_Archer_86: -1412820823
+      Red_Archer_181: 1451696072
+      Red_Archer_104: 88624017
+      Red_Archer_229: -1461074917
+      Red_Archer_4: -884186220
+      Red_Archer_145: -261640893
+      Red_Archer_15: -1082842190
+      Red_Archer_207: -1699506719
+      Red_Archer_14: 1075436622
+      Red_Archer_164: -1438547484
+      Red_Archer_93: -280753304
+      Red_Archer_20: -2125654623
+      Red_Archer_161: -1183042208
+      Red_Archer_48: -125438356
+      Red_Archer_218: -1635316479
+      Red_Archer_140: 1818526032
+      Red_Archer_120: -1964971064
+      Red_Archer_75: -1775213022
+      Red_Archer_125: -952512212
+      Red_Archer_198: -1664020602
+      Red_Archer_27: 333612296
+      Red_Archer_78: 1165383270
+      Red_Archer_183: 1987107004
+      Red_Archer_203: -1627903906
+      Red_Archer_67: 330499701
+      Red_Archer_91: -731413009
+      Red_Archer_128: -2088174639
+      Red_Archer_94: -285371919
+      Red_Archer_121: 73346530
+      Red_Archer_8: -1747847917
+      Red_Archer_131: -2097236342
+      Red_Archer_199: -1075781890
+      Red_Archer_170: -1148960411
+      Red_Archer_90: 549178034
+      Red_Archer_201: -1351144712
+      Red_Archer_40: -476234326
+      Red_Archer_37: -958864685
+      Red_Archer_61: -2072469517
+      Red_Archer_92: -614363975
+      Red_Archer_76: 1668479289
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
