@@ -12,7 +12,22 @@ public abstract class TutorialBaseEvent : MonoBehaviour
     [HideInInspector]
     public bool IsFailureEvent = false;
 
+    private GameObject _guideUI;
+
+    private void Start()
+    {
+        _guideUI = transform.Find("GuideUI").gameObject;
+    }
+
     public abstract void InitEvent();
     public abstract void StartEvent();
     public abstract void CheckEvent();
+
+    public void SetActiveGuideUI(bool isShow)
+    {
+        if (_guideUI)
+        {
+            _guideUI.SetActive(isShow);
+        }
+    }
 }

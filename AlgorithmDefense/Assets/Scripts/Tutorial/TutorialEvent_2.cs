@@ -21,8 +21,6 @@ public class TutorialEvent_2 : TutorialBaseEvent
         var citizen = go.GetComponent<CitizenUnitController>();
         citizen.Data.MoveType = Define.Move.Up;
         citizen.SetNextDestination(citizen.transform.position);
-
-
     }
 
     public override void CheckEvent()
