@@ -45,7 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TextList:
-  - "\uC804\uC0AC \uBD80\uC5EC\uC18C\uC640 \uC131\uBCBD\uC744 \uC774\uC73C\uC138\uC694."
-  ErrorTextList: []
-  IsDone: 0
+  - "\uC804\uC0AC \uBD80\uC5EC\uC18C\uC640 \uC131\uBCBD\uC744 \uC5F0\uACB0\uD558\uC138\uC694."
+  FailedTextList:
+  - "\uB2E4\uC2DC \uC5F0\uACB0\uD574 \uBCF4\uC138\uC694."
   IsSuccessEvent: 0
+  IsFailureEvent: 0
+  _warriorCenterPos: {x: 3, y: 3, z: 0}

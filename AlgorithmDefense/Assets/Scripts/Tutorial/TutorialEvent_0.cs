@@ -24,6 +24,11 @@ public class TutorialEvent_0 : TutorialBaseEvent
         TileManager.GetInstance.SetTile(Define.Tilemap.Building, _warriorCenterPos, Define.Building.WarriorCenter);
     }
 
+    public override void StartEvent()
+    {
+
+    }
+
     public override void CheckEvent()
     {
         if (_isChecked)
@@ -44,14 +49,15 @@ public class TutorialEvent_0 : TutorialBaseEvent
 
     private void CheckConnectRoad()
     {
-        _isCanConnectRoad = IsCanConnectCastle() ? true : false;
+        _isCanConnectRoad = IsCanConnectToCastle() ? true : false;
         _isChecked = true;
     }
 
-    private bool IsCanConnectCastle()
+    private bool IsCanConnectToCastle()
     {
         _discovered[_warriorCenterPos.y, _warriorCenterPos.x] = true;
         _reservePos.Enqueue(_warriorCenterPos);
+
         while (_reservePos.Count > 0)
         {
             Vector3Int pos = _reservePos.Dequeue();

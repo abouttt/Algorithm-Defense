@@ -13,5 +13,6 @@ public abstract class TutorialBaseEvent : MonoBehaviour
     public bool IsFailureEvent = false;
 
     public abstract void InitEvent();
+    public abstract void StartEvent();
     public abstract void CheckEvent();
 }

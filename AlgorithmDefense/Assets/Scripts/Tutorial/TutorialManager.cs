@@ -70,6 +70,7 @@ public class TutorialManager : MonoBehaviour
             if (_textIndex >= textList.Count)
             {
                 CloseText();
+                _tutorialEvent.StartEvent();
                 return;
             }
 

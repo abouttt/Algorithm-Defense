@@ -5,6 +5,7 @@ using DG.Tweening;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
+using TMPro;
 
 public class UI_StartSceneUIAnimation : MonoBehaviour
 {
@@ -37,7 +38,7 @@ public class UI_StartSceneUIAnimation : MonoBehaviour
         public int starCount;      //별 갯수
         public bool open;          //스테이지 오픈 여부   
         [HideInInspector]
-        public Text stageNumText;        //스테이지 텍스트
+        public TextMeshProUGUI stageNumText;        //스테이지 텍스트
         [HideInInspector]
         public Image[] starImages;      //스테이지 텍스트
         [HideInInspector]
@@ -121,7 +122,7 @@ public class UI_StartSceneUIAnimation : MonoBehaviour
 
             GameObject stageTextBar = newUIObj.transform.Find("StageTextBar").gameObject;
             GameObject stageText = stageTextBar.transform.Find("Text").gameObject;
-            _dataSlot[i].stageNumText = stageText.GetComponent<Text>();
+            _dataSlot[i].stageNumText = stageText.GetComponent<TextMeshProUGUI>();
 
             string conversion = "STAGE " + (index + 1).ToString();
             _dataSlot[i].stageNumText.text = conversion;
