@@ -49,12 +49,14 @@ public class TutorialEvent_1 : TutorialBaseEvent
 
     private void CheckConnectedToCastle()
     {
-        _isConnectedToCastle = IsConnectedToCastle() ? true : false;
+        _isConnectedToCastle = (IsConnectedToCastle() && IsConnectedToStartRoad()) ? true : false;
         _isChecked = true;
     }
 
     private bool IsConnectedToCastle()
     {
+        Clear();
+
         _discovered[_warriorCenterPos.y, _warriorCenterPos.x] = true;
         _reservePos.Enqueue(_warriorCenterPos);
 
@@ -89,6 +91,57 @@ public class TutorialEvent_1 : TutorialBaseEvent
                 if (Util.GetBuilding<CastleGate>(nextPos))
                 {
                     return true;
+                }
+
+                if (TileManager.GetInstance.GetTile(Define.Tilemap.Road, nextPos))
+                {
+                    _discovered[ny, nx] = true;
+                    _reservePos.Enqueue(nextPos);
+                }
+            }
+        }
+
+        return false;
+    }
+
+    private bool IsConnectedToStartRoad()
+    {
+        Clear();
+
+        _discovered[_warriorCenterPos.y, _warriorCenterPos.x] = true;
+        _reservePos.Enqueue(_warriorCenterPos);
+
+        while (_reservePos.Count > 0)
+        {
+            Vector3Int pos = _reservePos.Dequeue();
+            for (int i = 0; i < 4; i++)
+            {
+                int ny = pos.y + Define.DY[i];
+                int nx = pos.x + Define.DX[i];
+
+                if (ny < Managers.Game.Setting.StartPosition.y ||
+                    nx < Managers.Game.Setting.StartPosition.x ||
+                    ny > Managers.Game.Setting.StartPosition.y + Managers.Game.Setting.RampartHeight - 1 ||
+                    nx > Managers.Game.Setting.StartPosition.x + Managers.Game.Setting.RampartWidth - 1)
+                {
+                    continue;
+                }
+
+                if (_discovered[ny, nx])
+                {
+                    continue;
+                }
+
+                var nextPos = new Vector3Int(nx, ny, 0);
+
+                if (nextPos == Managers.Game.Setting.SpawnCellPos)
+                {
+                    return true;
+                }
+
+                if (TileManager.GetInstance.GetTile(Define.Tilemap.Rampart, nextPos))
+                {
+                    continue;
                 }
 
                 if (TileManager.GetInstance.GetTile(Define.Tilemap.Road, nextPos))
