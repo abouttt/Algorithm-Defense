@@ -1,3 +1,4 @@
+using DG.Tweening.Core.Easing;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -45,6 +46,31 @@ public class Gateway : BaseBuilding
         }
 
         Managers.Resource.Destroy(citizen.gameObject);
+    }
+
+    public bool HasCitizenData()
+    {
+        if (_redOrderQueue.Count > 0)
+        {
+            return true;
+        }
+        else if (_greenOrderQueue.Count > 0)
+        {
+            return true;
+        }
+        else if (_blueOrderQueue.Count > 0)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    public void Clear()
+    {
+        _redOrderQueue.Clear();
+        _greenOrderQueue.Clear();
+        _blueOrderQueue.Clear();
     }
 
     private IEnumerator ReleaseRedCitizen()

@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
-using static UnityEngine.GraphicsBuffer;
 
 public class TutorialEvent_2 : TutorialBaseEvent
 {
+    [SerializeField]
+    private int _monsterHp;
+
     private GameObject _monster;
     private GameObject _battleUnit;
 
@@ -43,17 +44,12 @@ public class TutorialEvent_2 : TutorialBaseEvent
         _monster = Managers.Resource.Instantiate($"{Define.MONSTER_UNIT_PREFAB_PATH}Goblin_Warrior", pos);
         var monster = _monster.GetComponent<BattleUnitController>();
         monster.transform.position = pos;
-        monster.Data.CurrentHp = 30;
+        monster.Data.CurrentHp = _monsterHp;
         monster.Data.MoveType = Define.Move.Down;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (((1 << collision.gameObject.layer) & LayerMask.GetMask("Human")) == 0)
-        {
-            return;
-        }
-
         if (!_monster)
         {
             _battleUnit = collision.gameObject;

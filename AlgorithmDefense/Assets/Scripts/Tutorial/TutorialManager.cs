@@ -16,6 +16,7 @@ public class TutorialManager : MonoBehaviour
 
     private TutorialBaseEvent _tutorialEvent;
 
+    [SerializeField]
     private int _eventNumber = 0;
     private int _textIndex = 0;
 

@@ -12,11 +12,11 @@ public abstract class TutorialBaseEvent : MonoBehaviour
     [HideInInspector]
     public bool IsFailureEvent = false;
 
-    private GameObject _guideUI;
+    private Transform _guideUI;
 
     private void Start()
     {
-        _guideUI = transform.Find("GuideUI").gameObject;
+        _guideUI = transform.Find("GuideUI");
     }
 
     public abstract void InitEvent();
@@ -27,7 +27,7 @@ public abstract class TutorialBaseEvent : MonoBehaviour
     {
         if (_guideUI)
         {
-            _guideUI.SetActive(isShow);
+            _guideUI.gameObject.SetActive(isShow);
         }
     }
 }

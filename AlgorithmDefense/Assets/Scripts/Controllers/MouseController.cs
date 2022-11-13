@@ -103,13 +103,6 @@ public class MouseController : MonoBehaviour
             {
                 RoadBuilder.GetInstance.RemoveRoads(road.GetComponent<Road>().GroupNumber);
             }
-
-            // 건물 삭제.
-            /* var building = TileManager.GetInstance.GetTile(Define.Tilemap.Building, MouseCellPos);
-             if (building)
-             {
-                 TileManager.GetInstance.SetTile(Define.Tilemap.Building, MouseCellPos, null);
-             }*/
         }
     }
 

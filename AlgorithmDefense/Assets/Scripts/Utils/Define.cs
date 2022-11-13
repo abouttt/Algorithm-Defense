@@ -61,6 +61,9 @@ public static class Define
         GoldMine,
         CastleGate,
         Dungeon,
+        TutorialWarriorCenter,
+        TutorialArcherCenter,
+        TutorialWizardCenter,
     }
 
     public enum Job
