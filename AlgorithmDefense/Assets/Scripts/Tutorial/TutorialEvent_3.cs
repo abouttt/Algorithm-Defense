@@ -18,18 +18,17 @@ public class TutorialEvent_3 : TutorialBaseEvent
     private void Awake()
     {
         transform.Find("Canvas").GetComponent<Canvas>().worldCamera = Camera.main;
-        Managers.Pool.Clear();
+        _gatewayUI = UI_BuildingMenager.GetInstance.GatewayUIController;
     }
 
     public override void InitEvent()
     {
-        Clear();
+        Managers.Pool.Clear();
+        ClearBuildingAndRoad();
         InitCastleAndDungeon();
         InitBattleLine();
         InitBuilding();
         InitRoad();
-
-        _gatewayUI = UI_BuildingMenager.GetInstance.GatewayUIController;
     }
 
     public override void StartEvent()
@@ -136,27 +135,6 @@ public class TutorialEvent_3 : TutorialBaseEvent
             }
 
             RoadBuilder.GetInstance.BuildRoads();
-        }
-    }
-
-    private void Clear()
-    {
-        for (int y = 0; y < 5; y++)
-        {
-            for (int x = 0; x < 5; x++)
-            {
-                TileManager.GetInstance.SetTile(
-                    Define.Tilemap.Building,
-                    new Vector3Int(
-                        Managers.Game.Setting.StartPosition.x + x + 1,
-                        Managers.Game.Setting.StartPosition.y + y + 1, 0),
-                        null);
-            }
-        }
-
-        for (int i = 0; i <= RoadBuilder.GetInstance.RoadGroupCount; i++)
-        {
-            RoadBuilder.GetInstance.RemoveRoads(i);
         }
     }
 }

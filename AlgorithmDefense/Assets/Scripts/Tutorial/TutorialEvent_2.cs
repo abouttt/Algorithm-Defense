@@ -29,23 +29,14 @@ public class TutorialEvent_2 : TutorialBaseEvent
         if (_monster && !_monster.activeSelf)
         {
             Managers.Resource.Destroy(_battleUnit);
-            IsSuccessEvent = true;
+            StartCoroutine(EndEvent());
         }
     }
 
-    private void SpawnMonster()
+    private IEnumerator EndEvent()
     {
-        var dungeonPos = new Vector3(
-            Managers.Game.Setting.StartPosition.x + 3,
-            Managers.Game.Setting.RampartHeight + Managers.Game.Setting.BattleLineLength,
-            0);
-        var pos = TileManager.GetInstance.GetWorldToCellCenterToWorld(Define.Tilemap.Ground, dungeonPos);
-        pos -= new Vector3(0, 0.5f, 0);
-        _monster = Managers.Resource.Instantiate($"{Define.MONSTER_UNIT_PREFAB_PATH}Goblin_Warrior", pos);
-        var monster = _monster.GetComponent<BattleUnitController>();
-        monster.transform.position = pos;
-        monster.Data.CurrentHp = _monsterHp;
-        monster.Data.MoveType = Define.Move.Down;
+        yield return new WaitForSeconds(1f);
+        IsSuccessEvent = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -53,7 +44,7 @@ public class TutorialEvent_2 : TutorialBaseEvent
         if (!_monster)
         {
             _battleUnit = collision.gameObject;
-            SpawnMonster();
+            _monster = CreateMonster(3, 30);
         }
     }
 }

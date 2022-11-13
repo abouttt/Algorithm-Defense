@@ -8,10 +8,9 @@ public class CitizenSpawner : MonoBehaviour
     private static CitizenSpawner s_instance;
     public static CitizenSpawner GetInstance { get { Init(); return s_instance; } }
 
+    public float SpawnTime;
     public Define.Citizen[] CitizenSpawnList { get; private set; }
 
-    [SerializeField]
-    private float _spawnTime;
     private Vector3Int _spawnCellPos;
 
     private int _spawnIndex = 1;
@@ -34,12 +33,17 @@ public class CitizenSpawner : MonoBehaviour
     public void Setup(Vector3Int spawnPos, float spawnTime)
     {
         _spawnCellPos = spawnPos;
-        _spawnTime = spawnTime;
+        SpawnTime = spawnTime;
 
         TileManager.GetInstance.SetTile(Define.Tilemap.Road, spawnPos, Define.Road.BU);
         TileManager.GetInstance.SetTile(Define.Tilemap.Road, spawnPos + Vector3Int.up, Define.Road.BD);
 
         Util.GetRoad(Define.Tilemap.Road, spawnPos + Vector3Int.up).IsStartRoad = true;
+    }
+
+    public void SetSpawnTime(float spawnTime)
+    {
+        SpawnTime = spawnTime;
     }
 
     public IEnumerator SpawnCitizen()
@@ -55,7 +59,7 @@ public class CitizenSpawner : MonoBehaviour
             citizen.Data.MoveType = Define.Move.Up;
             citizen.SetNextDestination(citizen.transform.position);
 
-            yield return new WaitForSeconds(_spawnTime);
+            yield return new WaitForSeconds(SpawnTime);
 
             _spawnIndex = (_spawnIndex + 1) < 4 ? _spawnIndex + 1 : 1;
         }

@@ -25,6 +25,7 @@ public class TutorialEvent_4 : TutorialBaseEvent
     private void Awake()
     {
         transform.Find("Canvas").GetComponent<Canvas>().worldCamera = Camera.main;
+        _gatewayUI = UI_BuildingMenager.GetInstance.GatewayUIController;
     }
 
     public override void InitEvent()
@@ -33,8 +34,6 @@ public class TutorialEvent_4 : TutorialBaseEvent
         _warriorCenter = Util.GetBuilding<TutorialJobCenter>(_warriorCenterPos);
         _archerCenter = Util.GetBuilding<TutorialJobCenter>(_archerCenterPos);
         _wizardCenter = Util.GetBuilding<TutorialJobCenter>(_wizardCenterPos);
-
-        _gatewayUI = UI_BuildingMenager.GetInstance.GatewayUIController;
     }
 
     public override void StartEvent()
@@ -98,14 +97,5 @@ public class TutorialEvent_4 : TutorialBaseEvent
                 break;
             }
         }
-    }
-
-    private void CreateCitizen(Define.Citizen citizenType)
-    {
-        var pos = TileManager.GetInstance.GetCellCenterToWorld(Define.Tilemap.Ground, Managers.Game.Setting.SpawnCellPos);
-        var go = Managers.Resource.Instantiate($"{Define.CITIZEN_PREFAB_PATH}{citizenType}Citizen", pos);
-        var citizen = go.GetComponent<CitizenUnitController>();
-        citizen.Data.MoveType = Define.Move.Up;
-        citizen.SetNextDestination(citizen.transform.position);
     }
 }

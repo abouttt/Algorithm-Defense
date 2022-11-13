@@ -54,33 +54,22 @@ public class TutorialEvent_5 : TutorialBaseEvent
             !_monster2.activeSelf &&
             !_monster3.activeSelf)
         {
-            IsSuccessEvent = true;
+            StartCoroutine(EndEvent());
         }
     }
 
     private void SpawnMonster()
     {
-        _monster1 = CreateMonster(1);
-        _monster2 = CreateMonster(3);
-        _monster3 = CreateMonster(5);
+        _monster1 = CreateMonster(1, 50);
+        _monster2 = CreateMonster(3, 50);
+        _monster3 = CreateMonster(5, 50);
     }
 
-    private GameObject CreateMonster(int x)
+    private IEnumerator EndEvent()
     {
-        var dungeonPos = new Vector3(
-            Managers.Game.Setting.StartPosition.x + x,
-            Managers.Game.Setting.RampartHeight + Managers.Game.Setting.BattleLineLength,
-            0);
+        yield return new WaitForSeconds(1f);
 
-        var pos = TileManager.GetInstance.GetWorldToCellCenterToWorld(Define.Tilemap.Ground, dungeonPos);
-        pos -= new Vector3(0, 0.5f, 0);
-
-        var go = Managers.Resource.Instantiate($"{Define.MONSTER_UNIT_PREFAB_PATH}Goblin_Warrior", pos);
-        var monster = go.GetComponent<BattleUnitController>();
-        monster.transform.position = pos;
-        monster.Data.CurrentHp = _monsterHp;
-        monster.Data.MoveType = Define.Move.Down;
-        return go;
+        IsSuccessEvent = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
