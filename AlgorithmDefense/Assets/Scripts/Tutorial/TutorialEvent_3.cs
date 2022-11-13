@@ -18,6 +18,7 @@ public class TutorialEvent_3 : TutorialBaseEvent
     private void Awake()
     {
         transform.Find("Canvas").GetComponent<Canvas>().worldCamera = Camera.main;
+        Managers.Pool.Clear();
     }
 
     public override void InitEvent()
