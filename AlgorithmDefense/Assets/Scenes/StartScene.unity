@@ -447,7 +447,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 233180187528302029, guid: af0b494a473beab46b67de991d44717b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.0013559924
+      value: 0.001685679
       objectReference: {fileID: 0}
     - target: {fileID: 233180187654628257, guid: af0b494a473beab46b67de991d44717b, type: 3}
       propertyPath: m_Camera
@@ -553,6 +553,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1367063621}
+    - target: {fileID: 7790744064293210051, guid: af0b494a473beab46b67de991d44717b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7790744064309219224, guid: af0b494a473beab46b67de991d44717b, type: 3}
       propertyPath: m_Camera
       value: 
@@ -576,6 +580,14 @@ PrefabInstance:
     - target: {fileID: 7790744065418318571, guid: af0b494a473beab46b67de991d44717b, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7790744065537809148, guid: af0b494a473beab46b67de991d44717b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -225
+      objectReference: {fileID: 0}
+    - target: {fileID: 7790744065537809148, guid: af0b494a473beab46b67de991d44717b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 7790744065607407094, guid: af0b494a473beab46b67de991d44717b, type: 3}
       propertyPath: m_fontAsset
@@ -632,6 +644,14 @@ PrefabInstance:
     - target: {fileID: 7790744065676088533, guid: af0b494a473beab46b67de991d44717b, type: 3}
       propertyPath: m_Name
       value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 7790744065937890645, guid: af0b494a473beab46b67de991d44717b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 225
+      objectReference: {fileID: 0}
+    - target: {fileID: 7790744065937890645, guid: af0b494a473beab46b67de991d44717b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 7790744066278068919, guid: af0b494a473beab46b67de991d44717b, type: 3}
       propertyPath: m_Camera

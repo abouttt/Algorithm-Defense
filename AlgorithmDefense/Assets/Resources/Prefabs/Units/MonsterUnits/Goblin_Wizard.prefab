@@ -176,7 +176,7 @@ MonoBehaviour:
     CurrentHp: 0
     Damage: 13
     Range: 1.5
-    MoveSpeed: 0.4
+    MoveSpeed: 0.3
     TargetLayer:
       serializedVersion: 2
       m_Bits: 128

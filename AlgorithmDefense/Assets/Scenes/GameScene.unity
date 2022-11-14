@@ -19881,6 +19881,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8253154438101861876, guid: d813f0670210cac45ae9441cce1ce81b, type: 3}
+      propertyPath: RampartHeight
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8253154438101861876, guid: d813f0670210cac45ae9441cce1ce81b, type: 3}
+      propertyPath: _stageLineDatas.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8253154438101861876, guid: d813f0670210cac45ae9441cce1ce81b, type: 3}
+      propertyPath: _stageLineDatas.Array.data[1].Third
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8253154438101861876, guid: d813f0670210cac45ae9441cce1ce81b, type: 3}
+      propertyPath: _stageLineDatas.Array.data[0].Second
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8253154438101861876, guid: d813f0670210cac45ae9441cce1ce81b, type: 3}
+      propertyPath: _stageLineDatas.Array.data[1].Second
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8253154438101861876, guid: d813f0670210cac45ae9441cce1ce81b, type: 3}
+      propertyPath: _stageLineDatas.Array.data[3].Second
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8253154438101861877, guid: d813f0670210cac45ae9441cce1ce81b, type: 3}
       propertyPath: m_RootOrder
       value: 1
