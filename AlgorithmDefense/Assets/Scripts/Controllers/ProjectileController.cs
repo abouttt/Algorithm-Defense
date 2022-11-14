@@ -10,7 +10,10 @@ public class ProjectileController : MonoBehaviour
     public int Damage;
     [HideInInspector]
     public GameObject Target;
+    public bool IsRangeDamage;
 
+    [SerializeField]
+    private float _damageRange;
     [SerializeField]
     private bool _isFireball;
 
@@ -35,7 +38,21 @@ public class ProjectileController : MonoBehaviour
             {
                 if (battleUnit.Data.CurrentHp > 0)
                 {
-                    battleUnit.TakeDamage(Damage);
+                    if (IsRangeDamage)
+                    {
+                        var colliders = Physics2D.OverlapCircleAll(Target.transform.position, _damageRange, LayerMask.GetMask("Human"));
+                        foreach (var collider in colliders)
+                        {
+                            if (collider.gameObject.activeSelf)
+                            {
+                                collider.GetComponent<BattleUnitController>().TakeDamage(Damage);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        battleUnit.TakeDamage(Damage);
+                    }
                 }
             }
             else

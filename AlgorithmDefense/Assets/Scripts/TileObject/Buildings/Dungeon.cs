@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
+using static UnityEngine.GraphicsBuffer;
 
 public class Dungeon : BaseBuilding
 {
@@ -10,9 +12,16 @@ public class Dungeon : BaseBuilding
     private int _archerMaxCount;
     [SerializeField]
     private int _wizardMaxCount;
+    [SerializeField]
+    private int _damage;
+    [SerializeField]
+    private float _attackRange;
+    [SerializeField]
+    private float _attackDelay;
 
     private List<int> _randomMonsterList = new();
 
+    private float timer = 0f;
     private int _archerCurrentCount = 0;
     private int _wizardCurrentCount = 0;
 
@@ -21,6 +30,27 @@ public class Dungeon : BaseBuilding
     private void Awake()
     {
         LoadingControl.GetInstance.LoadingCompleteAction += StartSpawn;
+    }
+
+    private void Update()
+    {
+        timer += Time.deltaTime;
+        if (timer > _attackDelay)
+        {
+            var hit = Physics2D.Raycast(transform.position, Vector2.down, _attackRange, LayerMask.GetMask("Human"));
+            if (hit.collider != null)
+            {
+                var go = Managers.Resource.Instantiate($"{Define.PROJECTILE_PREFAB_PATH}DungeonFireBall");
+                var projectile = go.GetComponent<ProjectileController>();
+
+                projectile.transform.rotation = Quaternion.Euler(0f, 0f, -90f);
+                projectile.transform.position = transform.position;
+                projectile.Damage = _damage;
+                projectile.Target = hit.collider.gameObject;
+            }
+
+            timer = 0f;
+        }
     }
 
     public override void EnterTheBuilding(CitizenUnitController citizen)
