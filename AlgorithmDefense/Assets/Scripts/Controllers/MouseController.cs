@@ -17,6 +17,7 @@ public class MouseController : MonoBehaviour
     private Camera _camera;
     private TileBase _cursorTile;
     private Vector3Int _prevMouseCellPos;
+    private UI_BaseBuildingController _gatewayUI;
 
     private void Start()
     {
@@ -24,6 +25,7 @@ public class MouseController : MonoBehaviour
 
         _camera = Camera.main;
         _cursorTile = Managers.Resource.Load<TileBase>("Tiles/Grounds/Cursor");
+        _gatewayUI = UI_BuildingMenager.GetInstance.GatewayUIController;
     }
 
     private void Update()
@@ -82,6 +84,7 @@ public class MouseController : MonoBehaviour
                 return;
             }
 
+            _gatewayUI.gameObject.SetActive(false);
             RoadBuilder.GetInstance.IsBuilding = true;
         }
 
