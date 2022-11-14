@@ -78,5 +78,5 @@ MonoBehaviour:
   _archerMaxCount: 1
   _wizardMaxCount: 1
   _damage: 30
-  _attackRange: 1
+  _attackRange: 2
   _attackDelay: 1

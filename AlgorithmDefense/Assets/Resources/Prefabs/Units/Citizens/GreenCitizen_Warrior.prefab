@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8458257170138692773}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Rpos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 8339554359454755618}
   - component: {fileID: 709969927860539913}
   - component: {fileID: 2165931747891772109}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: GreenCitizen_Warrior
   m_TagString: Player
   m_Icon: {fileID: 0}

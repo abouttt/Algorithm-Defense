@@ -122,8 +122,8 @@ MonoBehaviour:
   MoveSpeed: 3
   Damage: 0
   Target: {fileID: 0}
-  IsRangeDamage: 1
-  _damageRange: 1
+  _isRangeDamage: 1
+  _damageRange: 5
   _isFireball: 1
 --- !u!114 &6514631995259191349
 MonoBehaviour:
