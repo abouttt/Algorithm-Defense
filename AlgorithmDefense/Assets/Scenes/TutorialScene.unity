@@ -1560,9 +1560,49 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 33495366}
+    - target: {fileID: 4570839956800646701, guid: 377e524fffbcd7c4ea6a258eb3918da2, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4570839956800646701, guid: 377e524fffbcd7c4ea6a258eb3918da2, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4570839956800646701, guid: 377e524fffbcd7c4ea6a258eb3918da2, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4570839956800646702, guid: 377e524fffbcd7c4ea6a258eb3918da2, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 920
+      objectReference: {fileID: 0}
+    - target: {fileID: 4570839956800646702, guid: 377e524fffbcd7c4ea6a258eb3918da2, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 126.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 4570839956800646702, guid: 377e524fffbcd7c4ea6a258eb3918da2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -44
+      objectReference: {fileID: 0}
+    - target: {fileID: 4570839956800646702, guid: 377e524fffbcd7c4ea6a258eb3918da2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4570839957015964858, guid: 377e524fffbcd7c4ea6a258eb3918da2, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4570839957015964858, guid: 377e524fffbcd7c4ea6a258eb3918da2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1602597567, guid: ca18cc065445b11448f993d9a2c5a6d5, type: 3}
     - target: {fileID: 4570839957015964858, guid: 377e524fffbcd7c4ea6a258eb3918da2, type: 3}
       propertyPath: m_RaycastTarget
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4570839957015964859, guid: 377e524fffbcd7c4ea6a258eb3918da2, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 4570839957406400474, guid: 377e524fffbcd7c4ea6a258eb3918da2, type: 3}
       propertyPath: m_RaycastTarget
@@ -1616,13 +1656,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI_Tutorial
       objectReference: {fileID: 0}
+    - target: {fileID: 4570839957650343746, guid: 377e524fffbcd7c4ea6a258eb3918da2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4570839957980501491, guid: 377e524fffbcd7c4ea6a258eb3918da2, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 33495366}
+    - target: {fileID: 4570839958131002058, guid: 377e524fffbcd7c4ea6a258eb3918da2, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4570839958131002058, guid: 377e524fffbcd7c4ea6a258eb3918da2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1054741466, guid: ca18cc065445b11448f993d9a2c5a6d5, type: 3}
     - target: {fileID: 4570839958131002059, guid: 377e524fffbcd7c4ea6a258eb3918da2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 40341254}
+    - target: {fileID: 4570839958131002060, guid: 377e524fffbcd7c4ea6a258eb3918da2, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 4570839958131002060, guid: 377e524fffbcd7c4ea6a258eb3918da2, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 120
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 377e524fffbcd7c4ea6a258eb3918da2, type: 3}
