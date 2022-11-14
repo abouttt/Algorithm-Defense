@@ -85,9 +85,9 @@ MonoBehaviour:
     \uC774\uC744\uC218 \uC788\uB294 \uACBD\uB85C\uAC00 \uC788\uC5B4\uC57C\uD569\uB2C8\uB2E4. "
   - "\uAE38\uC744 \uC0AD\uC81C\uD558\uACE0 \uC2DC\uC791\uAE38\uC5D0\uC11C \uC804\uC0AC
     \uBD80\uC5EC\uC18C\uAE4C\uC9C0 \uAE38\uC744 \uB2E4\uC2DC \uC5F0\uACB0\uD558\uC138\uC694. "
+  ShowGuideUIIndex: 1
   IsSuccessEvent: 0
   IsFailureEvent: 0
-  _guideUI: {fileID: 0}
   _warriorCenterPos: {x: 3, y: 3, z: 0}
 --- !u!1001 &3897265062820687905
 PrefabInstance:

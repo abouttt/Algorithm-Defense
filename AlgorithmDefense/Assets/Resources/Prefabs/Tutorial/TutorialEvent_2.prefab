@@ -117,6 +117,7 @@ MonoBehaviour:
   - "\uC131\uBCBD \uBC16\uC73C\uB85C\uBD80\uD130 \uC624\uB294 \uACE0\uBE14\uB9B0\uC744
     \uCC98\uCE58\uD558\uC5EC \uC131\uBCBD\uC744 \uC9C0\uD0A4\uC138\uC694."
   FailedTextList: []
+  ShowGuideUIIndex: 2
   IsSuccessEvent: 0
   IsFailureEvent: 0
   _monsterHp: 30
