@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3904652600563281461}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Rpos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 889180133136898844}
   - component: {fileID: 1807789644274993533}
   - component: {fileID: 2978549791730237340}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BlueCitizen_Wizard
   m_TagString: Player
   m_Icon: {fileID: 0}

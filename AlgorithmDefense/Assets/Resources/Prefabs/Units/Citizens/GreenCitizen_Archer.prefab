@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1625652369245849832}
   - component: {fileID: -1543356606381164383}
   - component: {fileID: 2134547115178478044}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GreenCitizen_Archer
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -197,7 +197,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7485717956180159848}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Rpos
   m_TagString: Untagged
   m_Icon: {fileID: 0}

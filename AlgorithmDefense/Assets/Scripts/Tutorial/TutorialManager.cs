@@ -64,15 +64,6 @@ public class TutorialManager : MonoBehaviour
             _tutorialText.text = textList[0];
         }
 
-        if (_textIndex == _tutorialEvent.ShowGuideUIIndex)
-        {
-            _tutorialEvent.SetActiveGuideUI(true);
-        }
-        else
-        {
-            _tutorialEvent.SetActiveGuideUI(false);
-        }
-
         if (Input.GetMouseButtonDown(0))
         {
             _textIndex++;
@@ -97,6 +88,10 @@ public class TutorialManager : MonoBehaviour
     private void OpenText()
     {
         _tutorialUI.SetActive(true);
+        if (_tutorialEvent)
+        {
+            _tutorialEvent.SetActiveGuideUI(true);
+        }
     }
 
     private void CloseText()

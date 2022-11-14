@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7912471064696264600}
   - component: {fileID: -1929198588089771072}
   - component: {fileID: 8115490382995879972}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BlueCitizen_Warrior
   m_TagString: Player
   m_Icon: {fileID: 0}

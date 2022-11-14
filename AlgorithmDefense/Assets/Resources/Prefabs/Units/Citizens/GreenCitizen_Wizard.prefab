@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -355443259548820659}
   - component: {fileID: -5763229484629473922}
   - component: {fileID: 4031502291994150515}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GreenCitizen_Wizard
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -197,7 +197,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7432611583939586586}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Rpos
   m_TagString: Untagged
   m_Icon: {fileID: 0}

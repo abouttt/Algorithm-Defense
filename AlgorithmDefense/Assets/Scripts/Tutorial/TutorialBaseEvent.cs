@@ -6,7 +6,6 @@ public abstract class TutorialBaseEvent : MonoBehaviour
 {
     public List<string> TextList;
     public List<string> FailedTextList;
-    public int ShowGuideUIIndex;
 
     [HideInInspector]
     public bool IsSuccessEvent = false;
@@ -18,10 +17,6 @@ public abstract class TutorialBaseEvent : MonoBehaviour
     private void Start()
     {
         _guideUI = transform.Find("GuideUI");
-        if (_guideUI)
-        {
-            _guideUI.gameObject.SetActive(false);
-        }
     }
 
     public abstract void InitEvent();
