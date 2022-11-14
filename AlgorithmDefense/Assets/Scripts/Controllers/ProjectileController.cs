@@ -8,9 +8,12 @@ public class ProjectileController : MonoBehaviour
 
     [HideInInspector]
     public int Damage;
-    [HideInInspector]
     public GameObject Target;
 
+    [SerializeField]
+    private bool _isRangeDamage;
+    [SerializeField]
+    private float _damageRange;
     [SerializeField]
     private bool _isFireball;
 
@@ -33,9 +36,24 @@ public class ProjectileController : MonoBehaviour
             var battleUnit = Target.GetComponent<BattleUnitController>();
             if (battleUnit)
             {
-                if (battleUnit.Data.CurrentHp > 0)
+                if (_isRangeDamage)
                 {
-                    battleUnit.TakeDamage(Damage);
+                    var colliders = Physics2D.OverlapCircleAll(Target.transform.position, _damageRange, LayerMask.GetMask("Human"));
+                    foreach (var collider in colliders)
+                    {
+                        var battleUnitController = collider.GetComponent<BattleUnitController>();
+                        if (battleUnitController && battleUnitController.Data.CurrentHp > 0)
+                        {
+                            battleUnitController.TakeDamage(Damage);
+                        }
+                    }
+                }
+                else
+                {
+                    if (battleUnit.Data.CurrentHp > 0)
+                    {
+                        battleUnit.TakeDamage(Damage);
+                    }
                 }
             }
             else

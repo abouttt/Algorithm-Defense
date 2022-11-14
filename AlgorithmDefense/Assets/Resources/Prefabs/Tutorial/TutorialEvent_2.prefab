@@ -117,6 +117,7 @@ MonoBehaviour:
   - "\uC804\uD22C \uD544\uB4DC\uC5D0\uC11C \uC624\uB294 \uC804\uC0AC \uACE0\uBE14\uB9B0\uC744
     \uCC98\uCE58\uD558\uC5EC \uC131\uC744 \uC9C0\uCF1C\uC8FC\uC138\uC694."
   FailedTextList: []
+  ShowGuideUIIndex: 2
   IsSuccessEvent: 0
   IsFailureEvent: 0
   _monsterHp: 30
