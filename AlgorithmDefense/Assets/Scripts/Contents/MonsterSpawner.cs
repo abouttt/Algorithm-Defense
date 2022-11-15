@@ -40,56 +40,29 @@ public class MonsterSpawner : MonoBehaviour
 
     private void StartSpawn()
     {
-        StartCoroutine(FirstSpawn());
-        StartCoroutine(SecondSpawn());
-        StartCoroutine(ThirdSpawn());
+        StartCoroutine(Spawn(StageDataList[_stageNumber].First, _spawnPosArr[0] + new Vector3(0.51f, 0f, 0f)));
+        StartCoroutine(Spawn(StageDataList[_stageNumber].Second, _spawnPosArr[1] + new Vector3(0.51f, 0f, 0f)));
+        StartCoroutine(Spawn(StageDataList[_stageNumber].Third, _spawnPosArr[2] + new Vector3(0.51f, 0f, 0f)));
     }
 
-    private IEnumerator FirstSpawn()
+    private IEnumerator Spawn(List<MonsterSpawnData> monsterSpawnData, Vector3 spawnPos)
     {
-        int index = 0;
-
-        while (StageDataList[_stageNumber].First.Count > 0)
+        if (monsterSpawnData.Count == 0)
         {
-            MonsterSpawnData data = StageDataList[_stageNumber].First[index];
-
-            yield return new WaitForSeconds(data.time);
-
-            Util.CreateMonster(data.job, _spawnPosArr[0] + new Vector3(0.51f, 0f, 0f));
-
-            index = (index + 1) >= StageDataList[_stageNumber].First.Count ? 0 : index + 1;
+            yield break;
         }
-    }
 
-    private IEnumerator SecondSpawn()
-    {
         int index = 0;
 
-        while (StageDataList[_stageNumber].Second.Count > 0)
+        while (true)
         {
-            MonsterSpawnData data = StageDataList[_stageNumber].Second[index];
+            MonsterSpawnData data = monsterSpawnData[index];
 
             yield return new WaitForSeconds(data.time);
 
-            Util.CreateMonster(data.job, _spawnPosArr[1] + new Vector3(0.51f, 0f, 0f));
+            Util.CreateMonster(data.job, spawnPos);
 
-            index = (index + 1) >= StageDataList[_stageNumber].Second.Count ? 0 : index + 1;
-        }
-    }
-
-    private IEnumerator ThirdSpawn()
-    {
-        int index = 0;
-
-        while (StageDataList[_stageNumber].Third.Count > 0)
-        {
-            MonsterSpawnData data = StageDataList[_stageNumber].Third[index];
-
-            yield return new WaitForSeconds(data.time);
-
-            Util.CreateMonster(data.job, _spawnPosArr[2] + new Vector3(0.51f, 0f, 0f));
-
-            index = (index + 1) >= StageDataList[_stageNumber].Third.Count ? 0 : index + 1;
+            index = (index + 1) >= monsterSpawnData.Count ? 0 : index + 1;
         }
     }
 }
