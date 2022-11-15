@@ -105,4 +105,26 @@ public static class Util
 
         return null;
     }
+
+    public static bool IsEndAnimation(Animator animator)
+    {
+        var info = animator.GetCurrentAnimatorStateInfo(0);
+        if (info.normalizedTime >= 0.99f)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    public static bool IsEndAnimation(Animator animator, string stateName)
+    {
+        var info = animator.GetCurrentAnimatorStateInfo(0);
+        if (info.IsName(stateName) && info.normalizedTime >= 0.99f)
+        {
+            return true;
+        }
+
+        return false;
+    }
 }

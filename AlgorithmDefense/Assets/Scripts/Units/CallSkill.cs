@@ -12,8 +12,6 @@ public class CallSkill : MonoBehaviour
     public GameObject[] SkillPref;
     public float Cooldown1, Cooldown2, Cooldown3 = 5f;
 
-
-
     public void skill(int num)
     {
         switch (num)
@@ -64,7 +62,8 @@ public class CallSkill : MonoBehaviour
                 yield break;
             }
 
-            Managers.Resource.Instantiate($"Prefabs/Skill/{ID}");
+            var go =Managers.Resource.Instantiate($"Prefabs/Skill/{ID}");
+            go.transform.position = new(3.5f, 12f, 0f);
             Managers.Sound.Play($"Skill/skill_1");
 
             yield return new WaitForSeconds(Cooldown1);
@@ -87,7 +86,8 @@ public class CallSkill : MonoBehaviour
                 yield break;
             }
 
-            Managers.Resource.Instantiate($"Prefabs/Skill/{ID}");
+            var go = Managers.Resource.Instantiate($"Prefabs/Skill/{ID}");
+            go.transform.position = new(3.5f, 9f, 0f);
             Managers.Sound.Play($"Skill/skill_2");
 
             yield return new WaitForSeconds(Cooldown2);
@@ -110,7 +110,8 @@ public class CallSkill : MonoBehaviour
                 yield break;
             }
 
-            Managers.Resource.Instantiate($"Prefabs/Skill/{ID}");
+            var go = Managers.Resource.Instantiate($"Prefabs/Skill/{ID}");
+            go.transform.position = new(3.5f, 9f, 0f);
             Managers.Sound.Play($"Skill/skill_3");
 
             yield return new WaitForSeconds(Cooldown3);

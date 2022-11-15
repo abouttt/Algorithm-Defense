@@ -61,7 +61,7 @@ public class TutorialManager : MonoBehaviour
     {
         if (string.IsNullOrEmpty(_tutorialText.text))
         {
-            _tutorialText.text = textList[0];
+            _tutorialText.text = textList[0].Replace("\\n", "\n");
         }
 
         if (_textIndex == _tutorialEvent.ShowGuideUIIndex)
@@ -84,7 +84,7 @@ public class TutorialManager : MonoBehaviour
                 return;
             }
 
-            _tutorialText.text = textList[_textIndex];
+            _tutorialText.text = textList[_textIndex].Replace("\\n", "\n"); ;
         }
     }
 

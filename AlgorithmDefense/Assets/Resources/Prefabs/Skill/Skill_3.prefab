@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5637044225157842184}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.4, y: 10, z: 0}
+  m_LocalPosition: {x: 3.5, y: 9, z: 0}
   m_LocalScale: {x: 1, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -118,10 +118,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 494c1bd1be6656644892e69af5e6e95b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layerMask:
+  _layerMask:
     serializedVersion: 2
     m_Bits: 64
-  Damaged: 5
-  _range: 10
-  destroySkill: 2
+  _damage: 10
+  _rangeBoxSize: {x: 10, y: 10}
+  _destroyTime: 1
   Type: 0

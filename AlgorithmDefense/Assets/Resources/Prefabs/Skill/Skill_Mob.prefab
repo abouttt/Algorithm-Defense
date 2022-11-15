@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3110045353163953094}
   - component: {fileID: 3110045353163953093}
   - component: {fileID: -7782914458194039074}
-  - component: {fileID: -5978766373288318618}
   m_Layer: 0
   m_Name: Skill_Mob
   m_TagString: Untagged
@@ -119,23 +118,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 494c1bd1be6656644892e69af5e6e95b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layerMask:
+  _layerMask:
     serializedVersion: 2
     m_Bits: 128
-  Damaged: 100
-  _range: 0
-  destroySkill: 1
+  _damage: 100
+  _rangeBoxSize: {x: 1, y: 2}
+  _destroyTime: 1
   Type: 0
---- !u!65 &-5978766373288318618
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3110045353163953092}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 0.2}
-  m_Center: {x: 0, y: 1, z: 0}

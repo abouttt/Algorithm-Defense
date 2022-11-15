@@ -10,18 +10,20 @@ public class Dungeon : BaseBuilding
     private int _archerMaxCount;
     [SerializeField]
     private int _wizardMaxCount;
-    [SerializeField]
-    private int _damage;
+
     [SerializeField]
     private float _attackRange;
     [SerializeField]
-    private float _attackDelay;
+    private float _attackCount;
     [SerializeField]
-    private RaycastHit2D[] _targetList = new RaycastHit2D[10];
+    private int _attackUnitCount;
+    [SerializeField]
+    private float _attackDelay;
 
+    private RaycastHit2D[] _targetList = new RaycastHit2D[10];
     private List<int> _randomMonsterList = new();
 
-    private float timer = 0f;
+    private float _timer = 0f;
     private int _archerCurrentCount = 0;
     private int _wizardCurrentCount = 0;
 
@@ -34,36 +36,19 @@ public class Dungeon : BaseBuilding
 
     private void Update()
     {
-        timer += Time.deltaTime;
-        if (timer > _attackDelay)
+        _timer += Time.deltaTime;
+        if (_timer > _attackDelay)
         {
             int hit = Physics2D.RaycastNonAlloc(transform.position, Vector2.down, _targetList, _attackRange, LayerMask.GetMask("Human"));
 
-            Debug.Log(hit);
-
-            if (hit >= 5)
+            if (hit >= _attackUnitCount)
             {
-                //Debug.Log("H");
-
-                for (int a = 0; a < 4; a++)
-                {
-                    if(a != 0)
-                    {
-                        var go = Managers.Resource.Instantiate($"{Define.SKILL_PREFAB_PATH}Skill_Mob");
-                        go.transform.position = new Vector3(transform.position.x, transform.position.y - 0.5f * a);
-                        //°´Ã¼ ¼ÒÈ¯ µô·¹ÀÌ 0.5f ¿äÃ»
-                    }
-
-                }
-
-                //var projectile = go.GetComponent<ProjectileController>();
-                //projectile.transform.rotation = Quaternion.Euler(0f, 0f, -90f);
-                //projectile.transform.position = transform.position;
-                //projectile.Damage = _damage;
-                //projectile.Target = _targetList[0].collider.gameObject;
+                var go = Managers.Resource.Instantiate($"{Define.SKILL_PREFAB_PATH}Skill_Mob");
+                go.transform.position = new Vector3(transform.position.x, transform.position.y - 1.5f);
+                go.transform.rotation = Quaternion.Euler(0f, 0f, -180f);
             }
 
-            timer = 0f;
+            _timer = 0f;
         }
     }
 
