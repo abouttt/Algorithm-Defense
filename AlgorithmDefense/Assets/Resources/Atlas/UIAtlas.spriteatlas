@@ -1,0 +1,164 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UIAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 0
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 8a0d05771b86f154b8d05240162f1f9e, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 54b0bc71a9f7a7848bd2589112a46168, type: 3}
+  - {fileID: -1470242617, guid: ca18cc065445b11448f993d9a2c5a6d5, type: 3}
+  - {fileID: 680654987, guid: ca18cc065445b11448f993d9a2c5a6d5, type: 3}
+  - {fileID: -1930546793, guid: ca18cc065445b11448f993d9a2c5a6d5, type: 3}
+  - {fileID: 947407946, guid: ca18cc065445b11448f993d9a2c5a6d5, type: 3}
+  - {fileID: -1985655061, guid: ca18cc065445b11448f993d9a2c5a6d5, type: 3}
+  - {fileID: 1609455174, guid: ca18cc065445b11448f993d9a2c5a6d5, type: 3}
+  - {fileID: 294896400, guid: ca18cc065445b11448f993d9a2c5a6d5, type: 3}
+  - {fileID: -1344750340, guid: ca18cc065445b11448f993d9a2c5a6d5, type: 3}
+  - {fileID: 843627665, guid: ca18cc065445b11448f993d9a2c5a6d5, type: 3}
+  - {fileID: 1077140450, guid: ca18cc065445b11448f993d9a2c5a6d5, type: 3}
+  - {fileID: 1641009531, guid: ca18cc065445b11448f993d9a2c5a6d5, type: 3}
+  - {fileID: 192181635, guid: ca18cc065445b11448f993d9a2c5a6d5, type: 3}
+  - {fileID: -944630455, guid: ca18cc065445b11448f993d9a2c5a6d5, type: 3}
+  - {fileID: 386703033, guid: ca18cc065445b11448f993d9a2c5a6d5, type: 3}
+  - {fileID: -5651364, guid: ca18cc065445b11448f993d9a2c5a6d5, type: 3}
+  - {fileID: -1648671372, guid: ca18cc065445b11448f993d9a2c5a6d5, type: 3}
+  - {fileID: -257706243, guid: ca18cc065445b11448f993d9a2c5a6d5, type: 3}
+  - {fileID: 1331286555, guid: ca18cc065445b11448f993d9a2c5a6d5, type: 3}
+  - {fileID: 1403712528, guid: ca18cc065445b11448f993d9a2c5a6d5, type: 3}
+  - {fileID: 2024600146, guid: ca18cc065445b11448f993d9a2c5a6d5, type: 3}
+  - {fileID: -1877894675, guid: ca18cc065445b11448f993d9a2c5a6d5, type: 3}
+  - {fileID: -316145516, guid: ca18cc065445b11448f993d9a2c5a6d5, type: 3}
+  - {fileID: 268508879, guid: ca18cc065445b11448f993d9a2c5a6d5, type: 3}
+  - {fileID: 1602597567, guid: ca18cc065445b11448f993d9a2c5a6d5, type: 3}
+  - {fileID: 973849480, guid: ca18cc065445b11448f993d9a2c5a6d5, type: 3}
+  - {fileID: -85780311, guid: ca18cc065445b11448f993d9a2c5a6d5, type: 3}
+  - {fileID: 105488712, guid: ca18cc065445b11448f993d9a2c5a6d5, type: 3}
+  - {fileID: -270521860, guid: ca18cc065445b11448f993d9a2c5a6d5, type: 3}
+  - {fileID: 994414264, guid: ca18cc065445b11448f993d9a2c5a6d5, type: 3}
+  - {fileID: 1160557576, guid: ca18cc065445b11448f993d9a2c5a6d5, type: 3}
+  - {fileID: -801230241, guid: ca18cc065445b11448f993d9a2c5a6d5, type: 3}
+  - {fileID: 91113012, guid: ca18cc065445b11448f993d9a2c5a6d5, type: 3}
+  - {fileID: -964839699, guid: ca18cc065445b11448f993d9a2c5a6d5, type: 3}
+  - {fileID: 356962027, guid: ca18cc065445b11448f993d9a2c5a6d5, type: 3}
+  - {fileID: 1380944526, guid: ca18cc065445b11448f993d9a2c5a6d5, type: 3}
+  - {fileID: -1318636793, guid: ca18cc065445b11448f993d9a2c5a6d5, type: 3}
+  - {fileID: 876666375, guid: ca18cc065445b11448f993d9a2c5a6d5, type: 3}
+  - {fileID: -403923651, guid: ca18cc065445b11448f993d9a2c5a6d5, type: 3}
+  - {fileID: -1054741466, guid: ca18cc065445b11448f993d9a2c5a6d5, type: 3}
+  - {fileID: -1151678509, guid: ca18cc065445b11448f993d9a2c5a6d5, type: 3}
+  - {fileID: 460059670, guid: ca18cc065445b11448f993d9a2c5a6d5, type: 3}
+  - {fileID: -434064223, guid: ca18cc065445b11448f993d9a2c5a6d5, type: 3}
+  - {fileID: 21300000, guid: c8ba65a7fb437bb449507f1206b99437, type: 3}
+  - {fileID: 21300000, guid: e8d122da0525e3a469cf344860a73881, type: 3}
+  - {fileID: 1593315580, guid: 463ed51bce62c3e408ea278faf16e3d1, type: 3}
+  - {fileID: 21300000, guid: 2ae1780dc1f27334bb5aa8daa2c0fc47, type: 3}
+  - {fileID: 21300000, guid: c7acc61e31185334389b4f95e8839898, type: 3}
+  - {fileID: 1029921168, guid: 6730586ed8669e34eba0cab59d409c6d, type: 3}
+  - {fileID: 1262230933, guid: 6730586ed8669e34eba0cab59d409c6d, type: 3}
+  - {fileID: -1507445673, guid: 6730586ed8669e34eba0cab59d409c6d, type: 3}
+  - {fileID: -639845469, guid: 6730586ed8669e34eba0cab59d409c6d, type: 3}
+  - {fileID: -538052950, guid: 6730586ed8669e34eba0cab59d409c6d, type: 3}
+  - {fileID: 2116489063, guid: 6730586ed8669e34eba0cab59d409c6d, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - ButtonBar
+  - UI_Image2_11
+  - UI_Image2_10
+  - UI_Image2_13
+  - UI_Image2_12
+  - UI_Image2_15
+  - UI_Image2_14
+  - UI_Image2_17
+  - UI_Image2_16
+  - UI_Image2_19
+  - UI_Image2_18
+  - UI_Image2_8
+  - UI_Image2_9
+  - UI_Image2_2
+  - UI_Image2_3
+  - UI_Image2_0
+  - UI_Image2_1
+  - UI_Image2_6
+  - UI_Image2_7
+  - UI_Image2_4
+  - UI_Image2_5
+  - UI_Image2_28
+  - UI_Image2_29
+  - UI_Image2_39
+  - UI_Image2_38
+  - UI_Image2_20
+  - UI_Image2_21
+  - UI_Image2_22
+  - UI_Image2_23
+  - UI_Image2_33
+  - UI_Image2_24
+  - UI_Image2_32
+  - UI_Image2_40
+  - UI_Image2_25
+  - UI_Image2_31
+  - UI_Image2_41
+  - UI_Image2_26
+  - UI_Image2_30
+  - UI_Image2_27
+  - UI_Image2_37
+  - UI_Image2_36
+  - UI_Image2_35
+  - UI_Image2_34
+  - UnityLogo2
+  - GameLogo
+  - BT-12_0
+  - Logo
+  - UnityLogo1
+  - HP_Images_5
+  - HP_Images_4
+  - HP_Images_1
+  - HP_Images_0
+  - HP_Images_3
+  - HP_Images_2
+  m_RenderDataMap: {}
+  m_Tag: UIAtlas
+  m_IsVariant: 0
