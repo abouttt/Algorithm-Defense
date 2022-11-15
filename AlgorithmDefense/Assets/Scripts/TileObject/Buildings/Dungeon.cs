@@ -50,7 +50,8 @@ public class Dungeon : BaseBuilding
                     if(a != 0)
                     {
                         var go = Managers.Resource.Instantiate($"{Define.SKILL_PREFAB_PATH}Skill_Mob");
-                        go.transform.position = new Vector3(transform.position.x, transform.position.y - 0.3f * a);
+                        go.transform.position = new Vector3(transform.position.x, transform.position.y - 0.5f * a);
+                        //∞¥√º º“»Ø µÙ∑π¿Ã 0.5f ø‰√ª
                     }
 
                 }

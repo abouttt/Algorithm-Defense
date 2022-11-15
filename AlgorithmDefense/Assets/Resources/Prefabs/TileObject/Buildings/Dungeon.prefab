@@ -79,4 +79,4 @@ MonoBehaviour:
   _wizardMaxCount: 1
   _damage: 30
   _attackRange: 2
-  _attackDelay: 5
+  _attackDelay: 1
