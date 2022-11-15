@@ -205,7 +205,7 @@ MonoBehaviour:
     MoveType: 1
     MaxHp: 120
     CurrentHp: 0
-    Damage: 10
+    Damage: 8
     Range: 0.5
     MoveSpeed: 0.7
     TargetLayer:

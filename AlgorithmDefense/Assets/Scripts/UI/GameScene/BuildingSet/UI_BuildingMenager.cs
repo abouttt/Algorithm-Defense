@@ -8,9 +8,9 @@ public class UI_BuildingMenager : MonoBehaviour
     public static UI_BuildingMenager GetInstance { get { Init(); return s_instance; } }
 
     public UI_BaseBuildingController GatewayUIController;
-    public UI_BaseBuildingController GatewayCountUIController;
-    public UI_BaseBuildingController JobTrainingUIController;
-    public UI_BaseBuildingController MagicFactoryUIController;
+    //public UI_BaseBuildingController GatewayCountUIController;
+    //public UI_BaseBuildingController JobTrainingUIController;
+    //public UI_BaseBuildingController MagicFactoryUIController;
 
     //현재 띄워져 있는 UI
     private UI_BaseBuildingController _currentShowUIController;

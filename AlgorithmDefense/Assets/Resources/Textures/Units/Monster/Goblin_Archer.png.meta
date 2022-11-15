@@ -4999,7 +4999,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Goblin_Archer_77: -1527537968
-      Goblin_Archer_177: -1257765847
+      Goblin_Archer_74: -1957821990
       Goblin_Archer_212: 1719237669
       Goblin_Archer_192: 2122797181
       Goblin_Archer_209: -869154729
@@ -5030,10 +5030,10 @@ TextureImporter:
       Goblin_Archer_82: -754341418
       Goblin_Archer_185: -611895086
       Goblin_Archer_162: -688621234
-      Goblin_Archer_0: 2125541320
+      Goblin_Archer_135: 1965148348
       Goblin_Archer_121: 1363399099
       Goblin_Archer_180: -2054745653
-      Goblin_Archer_135: 1965148348
+      Goblin_Archer_0: 2125541320
       Goblin_Archer_200: 1643297059
       Goblin_Archer_46: 2031087340
       Goblin_Archer_39: -1620443364
@@ -5228,7 +5228,7 @@ TextureImporter:
       Goblin_Archer_184: 1137967915
       Goblin_Archer_125: -858628087
       Goblin_Archer_172: 1615225723
-      Goblin_Archer_74: -1957821990
+      Goblin_Archer_177: -1257765847
       Goblin_Archer_33: -1461623088
   spritePackingTag: 
   pSDRemoveMatte: 0
