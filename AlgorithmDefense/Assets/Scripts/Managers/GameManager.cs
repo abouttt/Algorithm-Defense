@@ -61,6 +61,7 @@ public class GameManager
             if (_currentDungeonHP > value)
             {
                 _hpBarAnim.EnemyAttacked();
+                Managers.Sound.Play("Unit/CastleDamage", Define.Sound.Effect);
             }
 
             _currentDungeonHP = value;
