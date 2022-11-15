@@ -115,16 +115,14 @@ public class GameScene : MonoBehaviour
             Managers.Resource.Instantiate($"{Define.CONTENTS_PATH}@RoadBuilder").transform.SetParent(_contentsRoot);
         }
 
+        if (!IsTutorialScene && !FindObjectOfType<MonsterSpawner>())
+        {
+            Managers.Resource.Instantiate($"{Define.CONTENTS_PATH}@MonsterSpawner").transform.SetParent(_contentsRoot);
+        }
+
         if (IsTutorialScene && !FindObjectOfType<TutorialManager>())
         {
             Managers.Resource.Instantiate($"{Define.CONTENTS_PATH}@TutorialManager").transform.SetParent(_contentsRoot);
-        }
-        else
-        {
-            if (!FindObjectOfType<MonsterSpawner>())
-            {
-                Managers.Resource.Instantiate($"{Define.CONTENTS_PATH}@MonsterSpawner").transform.SetParent(_contentsRoot);
-            }
         }
     }
 
