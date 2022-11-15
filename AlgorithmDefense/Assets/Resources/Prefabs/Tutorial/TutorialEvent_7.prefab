@@ -45,10 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TextList:
-  - "\uCCAB \uBC88\uC9F8 \uC2A4\uD0AC\uC744 \uC0AC\uC6A9\uD560 \uC218 \uC788\uB294
-    \uACE8\uB4DC\uAC00 \uBAA8\uC600\uC5B4\uC694."
-  - "<b><color=yellow>\uCCAB \uBC88\uC9F8 \uC2A4\uD0AC\uC744 \uC0AC\uC6A9</color></b>\uD558\uC5EC
-    \uBAAC\uC2A4\uD130\uB97C \uCC98\uCE58\uD574 \uBCF4\uC138\uC694."
+  - "\uC9DD\uC9DD\uC9DD~ \uCCAB \uBC88\uC9F8 <color=#FFC000>[\uC2A4\uD0AC]</color>\uC744
+    \uC0AC\uC6A9\uD560 \uC218 \uC788\uB294 \uACE8\uB4DC\uAC00 \\n\uBAA8\uC600\uC5B4\uC694. "
+  - "\uCCAB \uBC88\uC9F8 <color=#FFC000>[\uC2A4\uD0AC]</color>\uC744 <color=#FFC000>\uD074\uB9AD
+    </color>\uD558\uC5EC, \uBAAC\uC2A4\uD130\uB97C \uCC98\uCE58\uD574\uBCF4\uC138\uC694. "
   FailedTextList: []
   ShowGuideUIIndex: 0
   IsSuccessEvent: 0
