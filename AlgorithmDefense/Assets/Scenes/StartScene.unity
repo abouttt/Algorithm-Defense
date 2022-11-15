@@ -455,7 +455,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 233180187528302029, guid: af0b494a473beab46b67de991d44717b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.003984876
+      value: -0.0021365623
       objectReference: {fileID: 0}
     - target: {fileID: 233180187654628257, guid: af0b494a473beab46b67de991d44717b, type: 3}
       propertyPath: m_Camera
@@ -609,6 +609,14 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1367063621}
+    - target: {fileID: 7790744065291598845, guid: af0b494a473beab46b67de991d44717b, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7790744065291598846, guid: af0b494a473beab46b67de991d44717b, type: 3}
+      propertyPath: m_ScreenMatchMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7790744065418318571, guid: af0b494a473beab46b67de991d44717b, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -685,6 +693,14 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1367063621}
+    - target: {fileID: 8228414338233141221, guid: af0b494a473beab46b67de991d44717b, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8228414338233141222, guid: af0b494a473beab46b67de991d44717b, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9024211551529275994, guid: af0b494a473beab46b67de991d44717b, type: 3}
       propertyPath: m_Camera
       value: 

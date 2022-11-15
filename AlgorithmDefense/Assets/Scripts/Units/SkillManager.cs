@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SkillManager : MonoBehaviour
 {
-    private UnitManager _detectedUnit;
     [SerializeField]
     private LayerMask _layerMask;
     [SerializeField]
@@ -24,11 +23,6 @@ public class SkillManager : MonoBehaviour
 
     public void CheckLayerDamaged()
     {
-        if (_detectedUnit)
-        {
-            return;
-        }
-
         Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position, _rangeBoxSize, 0f, _layerMask);
 
         foreach (Collider2D collider2D in colliders)
@@ -39,11 +33,6 @@ public class SkillManager : MonoBehaviour
 
     public void CheckLayerHeal()
     {
-        if (_detectedUnit)
-        {
-            return;
-        }
-
         Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position, _rangeBoxSize, 0f, _layerMask);
 
         foreach (Collider2D collider2D in colliders)

@@ -28,7 +28,7 @@ public class ClearMenuAnimation : MonoBehaviour
     [SerializeField]
     private Sprite starFailImage;
 
-    private GameObject[] starImages;
+    private GameObject[] starImages = new GameObject[3];
 
     public void Start()
     {
@@ -36,7 +36,6 @@ public class ClearMenuAnimation : MonoBehaviour
         clearMenuObj.SetActive(false);
         clearMenuTransform.DOScale(0.3f, 0f);
         clearMenuButtonsObj.SetActive(false);
-        starImages = new GameObject[3];
 
         GameObject star = clearMenuTransform.Find("StarImages").gameObject;
         starImages[0] = star.transform.Find("Star1").gameObject;
