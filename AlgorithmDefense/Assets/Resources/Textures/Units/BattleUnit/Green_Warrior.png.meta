@@ -4986,7 +4986,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Green_Warrior_57: 55568834
+      Green_Warrior_161: -277408254
       Green_Warrior_134: -717983853
       Green_Warrior_226: -1785139670
       Green_Warrior_16: 200216610
@@ -5216,8 +5216,8 @@ TextureImporter:
       Green_Warrior_171: -2135949997
       Green_Warrior_64: -1101718983
       Green_Warrior_33: 2089558824
-      Green_Warrior_161: -277408254
       Green_Warrior_66: 1481538998
+      Green_Warrior_57: 55568834
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

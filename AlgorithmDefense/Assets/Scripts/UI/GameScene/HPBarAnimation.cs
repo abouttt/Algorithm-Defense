@@ -93,7 +93,7 @@ public class HPBarAnimation : MonoBehaviour
                 enemyHealthTransform.offsetMin = new Vector2(0f, 0f);
                 enemyHealthTransform.offsetMax = new Vector2(0f, 0f);
 
-                enemyBar.transform.localPosition = new Vector3(0f, 250f, 0f);
+                enemyBar.transform.localPosition = new Vector3(0f, 220f, 0f);
             });
         }
     }
@@ -139,7 +139,7 @@ public class HPBarAnimation : MonoBehaviour
                 castleHealthTransform.offsetMin = new Vector2(0f, 0f);
                 castleHealthTransform.offsetMax = new Vector2(0f, 0f);
 
-                castleBar.transform.localPosition = new Vector3(0f, -250f, 0f);
+                castleBar.transform.localPosition = new Vector3(0f, -220f, 0f);
             });
         }
     }
