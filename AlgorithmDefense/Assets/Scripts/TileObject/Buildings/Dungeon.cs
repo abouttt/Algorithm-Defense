@@ -11,8 +11,19 @@ public class Dungeon : BaseBuilding
     [SerializeField]
     private int _wizardMaxCount;
 
+    [SerializeField]
+    private float _attackRange;
+    [SerializeField]
+    private float _attackCount;
+    [SerializeField]
+    private int _attackUnitCount;
+    [SerializeField]
+    private float _attackDelay;
+
+    private RaycastHit2D[] _targetList = new RaycastHit2D[10];
     private List<int> _randomMonsterList = new();
 
+    private float _timer = 0f;
     private int _archerCurrentCount = 0;
     private int _wizardCurrentCount = 0;
 
@@ -21,6 +32,24 @@ public class Dungeon : BaseBuilding
     private void Awake()
     {
         LoadingControl.GetInstance.LoadingCompleteAction += StartSpawn;
+    }
+
+    private void Update()
+    {
+        _timer += Time.deltaTime;
+        if (_timer > _attackDelay)
+        {
+            int hit = Physics2D.RaycastNonAlloc(transform.position, Vector2.down, _targetList, _attackRange, LayerMask.GetMask("Human"));
+
+            if (hit >= _attackUnitCount)
+            {
+                var go = Managers.Resource.Instantiate($"{Define.SKILL_PREFAB_PATH}Skill_Mob");
+                go.transform.position = new Vector3(transform.position.x, transform.position.y - 1.5f);
+                go.transform.rotation = Quaternion.Euler(0f, 0f, -180f);
+            }
+
+            _timer = 0f;
+        }
     }
 
     public override void EnterTheBuilding(CitizenUnitController citizen)
@@ -67,7 +96,8 @@ public class Dungeon : BaseBuilding
             int randIndex = _random.Next(_randomMonsterList.Count);
             int randMonster = _randomMonsterList[randIndex];
 
-            CreateMonster((Define.Job)randMonster);
+            var monster = Util.CreateMonster((Define.Job)randMonster, transform.position);
+            SetUnitPosition(monster, Define.Move.Down);
 
             if (randMonster == (int)Define.Job.Archer)
             {
@@ -81,16 +111,6 @@ public class Dungeon : BaseBuilding
             _archerCurrentCount++;
             _wizardCurrentCount++;
         }
-    }
-
-    private void CreateMonster(Define.Job job)
-    {
-        var go = Managers.Resource.Instantiate($"{Define.MONSTER_UNIT_PREFAB_PATH}Goblin_{job}");
-        var monster = go.GetComponent<BattleUnitController>();
-        monster.transform.position = transform.position;
-        monster.Data.MoveType = Define.Move.Down;
-        monster.Data.CurrentHp = monster.Data.MaxHp;
-        SetUnitPosition(monster, Define.Move.Down);
     }
 
     protected override void Init()

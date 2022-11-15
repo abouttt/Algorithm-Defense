@@ -44,8 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 629bf9e9eb09e49458784e056e70de8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnCount: 0
-  _onRed: 0
-  _onGreen: 0
-  _onBlue: 0
-  _onYellow: 0
+  SpawnTime: 5

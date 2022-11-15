@@ -12,8 +12,6 @@ public class CallSkill : MonoBehaviour
     public GameObject[] SkillPref;
     public float Cooldown1, Cooldown2, Cooldown3 = 5f;
 
-
-
     public void skill(int num)
     {
         switch (num)

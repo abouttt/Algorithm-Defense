@@ -33,7 +33,7 @@ public class BattleUnitController : BaseUnitController
 
         if (_targetUnit || _targetBuilding)
         {
-            if (IsEndAnimation("Attacked"))
+            if (Util.IsEndAnimation(_animator, "Attacked"))
             {
                 ClearAttack();
             }
@@ -173,22 +173,18 @@ public class BattleUnitController : BaseUnitController
         var go = Managers.Resource.Instantiate($"{Define.PROJECTILE_PREFAB_PATH}{_projectile.name}");
         var projectile = go.GetComponent<ProjectileController>();
 
-        Quaternion quat = ((1 << target.layer) & LayerMask.GetMask("Castle")) != 0 ? Quaternion.Euler(0f, 0f, -90f) : Quaternion.Euler(0f, 0f, 90f);
-        projectile.transform.rotation = quat;
+        if (target.layer == LayerMask.NameToLayer("Human") ||
+            target.layer == LayerMask.NameToLayer("Castle"))
+        {
+            projectile.transform.rotation = Quaternion.Euler(0f, 0f, -90f);
+        }
+        else
+        {
+            projectile.transform.rotation = Quaternion.Euler(0f, 0f, 90f);
+        }
         projectile.transform.position = transform.position;
         projectile.Damage = Data.Damage;
         projectile.Target = target;
-    }
-
-    private bool IsEndAnimation(string stateName)
-    {
-        var info = _animator.GetCurrentAnimatorStateInfo(0);
-        if (info.IsName(stateName) && info.normalizedTime >= 0.99f)
-        {
-            return true;
-        }
-
-        return false;
     }
 
     private RaycastHit2D GetRayHit2DInfo(LayerMask layer)

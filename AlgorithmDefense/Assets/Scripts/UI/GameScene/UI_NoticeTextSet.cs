@@ -18,7 +18,7 @@ public class UI_NoticeTextSet : MonoBehaviour
 
     private void Start()
     {
-        NoticeText.DOFade(0f, 0f);    
+        NoticeText.DOFade(0f, 0f);
     }
 
 

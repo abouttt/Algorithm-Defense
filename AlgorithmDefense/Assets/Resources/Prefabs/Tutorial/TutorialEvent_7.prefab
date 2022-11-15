@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6117918561940535950
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8861578709839437938}
+  - component: {fileID: 2313368362722512195}
+  m_Layer: 0
+  m_Name: TutorialEvent_7
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8861578709839437938
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6117918561940535950}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2313368362722512195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6117918561940535950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5207bf991e5aa7d4683262f9ffffdb08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextList:
+  - "\uCCAB \uBC88\uC9F8 \uC2A4\uD0AC\uC744 \uC0AC\uC6A9\uD560 \uC218 \uC788\uB294
+    \uACE8\uB4DC\uAC00 \uBAA8\uC600\uC5B4\uC694."
+  - "<b><color=yellow>\uCCAB \uBC88\uC9F8 \uC2A4\uD0AC\uC744 \uC0AC\uC6A9</color></b>\uD558\uC5EC
+    \uBAAC\uC2A4\uD130\uB97C \uCC98\uCE58\uD574 \uBCF4\uC138\uC694."
+  FailedTextList: []
+  ShowGuideUIIndex: 0
+  IsSuccessEvent: 0
+  IsFailureEvent: 0
+  _monsterHp: 10

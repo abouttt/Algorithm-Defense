@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.TextCore.Text;
 
 
 #if UNITY_EDITOR
@@ -33,12 +35,10 @@ public class CustomEditor : EditorWindow
                 return;
             }
 
-            foreach (Canvas canvas in _prefab.transform.GetComponentsInChildren<Canvas>())
+            TMP_FontAsset font = Resources.Load<TMP_FontAsset>("Font/DNFBitBitTTF SDF");
+            foreach (var tmp in _prefab.transform.GetComponentsInChildren<TextMeshProUGUI>())
             {
-                if(!canvas.worldCamera)
-                {
-                    canvas.worldCamera = Camera.main;
-                }
+                tmp.font = font;
             }
 
             AssetDatabase.SaveAssets();

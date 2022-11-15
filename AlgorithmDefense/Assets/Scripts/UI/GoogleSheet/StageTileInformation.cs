@@ -52,14 +52,16 @@ public class StageTileInformation : MonoBehaviour
             GetTileDataAsExcel();
         }
 
+        LoadingControl.GetInstance.GameSceneLoadingComplete();
+        Managers.Sound.Play("UI/Stage_Background", Define.Sound.Bgm);
+
         //WWWForm form = new WWWForm();
         ////각각의 정보 이름과 넣을정보를 넣어줌
         //form.AddField("order", "getStageTile");
         //form.AddField("num", stageNum);
         ////보내기
         //StartCoroutine(Post(form));
-        LoadingControl.GetInstance.GameSceneLoadingComplete();
-        Managers.Sound.Play("UI/Stage_Background", Define.Sound.Bgm);
+
     }
 
 

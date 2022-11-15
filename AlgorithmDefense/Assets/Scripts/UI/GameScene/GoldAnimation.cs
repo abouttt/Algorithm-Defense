@@ -52,7 +52,7 @@ public class GoldAnimation : MonoBehaviour
         goldTextTransform.DOScale(1.2f, 0.2f);
         goldText.DOColor(Color.yellow, 0.3f).OnComplete(() =>
         {
-            goldText.DOColor(Color.black, 0.3f);
+            goldText.DOColor(Color.white, 0.3f);
             goldTextTransform.DOScale(1f, 0.2f);
         });
 
@@ -71,7 +71,7 @@ public class GoldAnimation : MonoBehaviour
             goldTextTransform.DOScale(0.85f, 0.2f);
             goldText.DOColor(Color.red, 0.3f).OnComplete(() =>
             {
-                goldText.DOColor(Color.black, 0.3f);
+                goldText.DOColor(Color.white, 0.3f);
                 goldTextTransform.DOScale(1f, 0.2f);
             });
 
@@ -81,8 +81,8 @@ public class GoldAnimation : MonoBehaviour
             goldTextTransform.DOShakePosition(0.2f, 5, 20, 90, true, false);
             goldText.DOColor(Color.red, 0.3f).OnComplete(() =>
             {
-                goldText.DOColor(Color.black, 0.3f);
-                goldTextTransform.localPosition = new Vector3(50f, 5f, 0f);
+                goldText.DOColor(Color.white, 0.3f);
+                goldTextTransform.localPosition = new Vector3(37.5f, 12f, 0f);
             });
 
 

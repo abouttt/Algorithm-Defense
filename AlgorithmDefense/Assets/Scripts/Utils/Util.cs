@@ -105,4 +105,36 @@ public static class Util
 
         return null;
     }
+
+    public static bool IsEndAnimation(Animator animator)
+    {
+        var info = animator.GetCurrentAnimatorStateInfo(0);
+        if (info.normalizedTime >= 0.99f)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    public static bool IsEndAnimation(Animator animator, string stateName)
+    {
+        var info = animator.GetCurrentAnimatorStateInfo(0);
+        if (info.IsName(stateName) && info.normalizedTime >= 0.99f)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    public static BattleUnitController CreateMonster(Define.Job job, Vector3 spawnPos)
+    {
+        var go = Managers.Resource.Instantiate($"{Define.MONSTER_UNIT_PREFAB_PATH}Goblin_{job}");
+        var monster = go.GetComponent<BattleUnitController>();
+        monster.transform.position = spawnPos;
+        monster.Data.MoveType = Define.Move.Down;
+        monster.Data.CurrentHp = monster.Data.MaxHp;
+        return monster;
+    }
 }

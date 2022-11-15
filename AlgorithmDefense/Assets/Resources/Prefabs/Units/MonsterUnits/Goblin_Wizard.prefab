@@ -173,10 +173,10 @@ MonoBehaviour:
     JobType: 3
     MoveType: 3
     MaxHp: 70
-    CurrentHp: 0
+    CurrentHp: 70
     Damage: 13
     Range: 1.5
-    MoveSpeed: 0.4
+    MoveSpeed: 0.3
     TargetLayer:
       serializedVersion: 2
       m_Bits: 128

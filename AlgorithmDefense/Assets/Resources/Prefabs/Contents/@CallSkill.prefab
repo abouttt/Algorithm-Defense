@@ -47,6 +47,9 @@ MonoBehaviour:
   _spawn1: 0
   _spawn2: 0
   _spawn3: 0
+  _isSpawning1: 0
+  _isSpawning2: 0
+  _isSpawning3: 0
   SkillPref:
   - {fileID: 3181280159678566585, guid: f7d42f5625580e6459fef7c0535a4aba, type: 3}
   - {fileID: 8543706532658410587, guid: 02034cab2dfa629498144daceb590117, type: 3}

@@ -8,212 +8,126 @@ using UnityEngine.EventSystems;
 
 public class TutorialManager : MonoBehaviour
 {
-    [Header("[이벤트 0]")]
-    [SerializeField]
-    private Vector3Int _warriorCenterPos;
-
     [Header("[변수 초기화]")]
-    [SerializeField]
-    private TutorialTextList _tutorialTextList;
     [SerializeField]
     private GameObject _tutorialUI;
     [SerializeField]
     private TextMeshProUGUI _tutorialText;
 
+    private TutorialBaseEvent _tutorialEvent;
+
+    [SerializeField]
     private int _eventNumber = 0;
     private int _textIndex = 0;
-    private int _errorTextIndex = 0;
-    private bool _isShowTutorialText;
-    private bool _isError;
-    private bool _isEndedCheckEvent;
 
-    private bool _canConnectCastle;
+    private void Awake()
+    {
+        LoadingControl.GetInstance.LoadingCompleteAction += StartEvent;
+    }
 
     private void Update()
     {
-        if (_isShowTutorialText)
+        if (_tutorialUI.activeSelf)
         {
-            if (_isError)
+            if (_tutorialEvent.IsFailureEvent)
             {
-                ShowErrorText();
+                ShowText(_tutorialEvent.FailedTextList);
             }
             else
             {
-                ShowText();
+                ShowText(_tutorialEvent.TextList);
             }
-
         }
         else
         {
-            CheckEvent();
+            _tutorialEvent.CheckEvent();
+
+            if (_tutorialEvent.IsSuccessEvent || _tutorialEvent.IsFailureEvent)
+            {
+                if (_tutorialEvent.IsSuccessEvent)
+                {
+                    _eventNumber++;
+                    StartEvent();
+                }
+                else if (_tutorialEvent.IsFailureEvent)
+                {
+                    OpenText();
+                }
+            }
+        }
+    }
+
+    private void ShowText(List<string> textList)
+    {
+        if (string.IsNullOrEmpty(_tutorialText.text))
+        {
+            _tutorialText.text = textList[0].Replace("\\n", "\n");
         }
 
-    }
+        if (_textIndex == _tutorialEvent.ShowGuideUIIndex)
+        {
+            _tutorialEvent.SetActiveGuideUI(true);
+        }
+        else
+        {
+            _tutorialEvent.SetActiveGuideUI(false);
+        }
 
-    private void Start()
-    {
-        StartTutorial();
-        RoadBuilder.GetInstance.ConnectedRoadDoneAction += CanConnectedCastle;
-    }
-
-    private void ShowText()
-    {
         if (Input.GetMouseButtonDown(0))
         {
-            if (_eventNumber >= _tutorialTextList.TextList.Count)
-            {
-                SceneManager.LoadScene("StartScene");
-            }
-
             _textIndex++;
 
-            if (_textIndex >= _tutorialTextList.TextList[_eventNumber].TextList.Count)
+            if (_textIndex >= textList.Count)
             {
-                EndTutorial();
+                CloseText();
+                _tutorialEvent.StartEvent();
                 return;
             }
 
-            _tutorialText.text = _tutorialTextList.TextList[_eventNumber].TextList[_textIndex];
-        }
-    }
-
-    private void ShowErrorText()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            _errorTextIndex++;
-
-            if (_errorTextIndex >= _tutorialTextList.ErrorTextList[_eventNumber].TextList.Count)
-            {
-                _isError = false;
-                EndTutorial();
-                return;
-            }
-
-            _tutorialText.text = _tutorialTextList.ErrorTextList[_eventNumber].TextList[_errorTextIndex];
+            _tutorialText.text = textList[_textIndex].Replace("\\n", "\n"); ;
         }
     }
 
     private void StartEvent()
     {
+        SetEvent();
+        OpenText();
+    }
 
+    private void OpenText()
+    {
+        _tutorialUI.SetActive(true);
+    }
+
+    private void CloseText()
+    {
+        if (_tutorialEvent)
+        {
+            _tutorialEvent.IsSuccessEvent = false;
+            _tutorialEvent.IsFailureEvent = false;
+            _tutorialEvent.SetActiveGuideUI(false);
+        }
+
+        _textIndex = 0;
+        _tutorialText.text = null;
+        _tutorialUI.SetActive(false);
     }
 
     private void SetEvent()
     {
-        if (_eventNumber == 0)
+        if (_tutorialEvent)
         {
-            TileManager.GetInstance.SetTile(Define.Tilemap.Building, _warriorCenterPos, Define.Building.WarriorCenter);
-        }
-        else if (_eventNumber == 1)
-        {
-
-        }
-    }
-
-    private void CheckEvent()
-    {
-        if (!_isEndedCheckEvent)
-        {
-            return;
+            Destroy(_tutorialEvent.gameObject);
         }
 
-        if (_eventNumber == 0)
+        var go = Managers.Resource.Instantiate($"Prefabs/Tutorial/TutorialEvent_{_eventNumber}");
+        if (!go)
         {
-            if (_canConnectCastle)
-            {
-                _eventNumber++;
-            }
-            else
-            {
-                _isError = true;
-            }
-
-            StartTutorial();
-            _isEndedCheckEvent = false;
-        }
-        else if (_eventNumber == 1)
-        {
-
-        }
-    }
-
-    private void StartTutorial()
-    {
-        SetEvent();
-        _tutorialUI.SetActive(true);
-        _isShowTutorialText = true;
-        if (_isError)
-        {
-            _tutorialText.text = _tutorialTextList.ErrorTextList[_eventNumber].TextList[0];
-        }
-        else
-        {
-            _tutorialText.text = _tutorialTextList.TextList[_eventNumber].TextList[0];
-        }
-    }
-
-    private void EndTutorial()
-    {
-        _textIndex = 0;
-        _errorTextIndex = 0;
-        _isShowTutorialText = false;
-        _tutorialUI.SetActive(false);
-    }
-
-    private void CanConnectedCastle()
-    {
-        bool[,] visited = new bool[Managers.Game.Setting.RampartHeight, Managers.Game.Setting.RampartWidth];
-        Queue<Vector3Int> q = new();
-        visited[_warriorCenterPos.y, _warriorCenterPos.x] = true;
-        q.Enqueue(_warriorCenterPos);
-        while (q.Count > 0)
-        {
-            Vector3Int pos = q.Dequeue();
-            for (int i = 0; i < 4; i++)
-            {
-                int ny = pos.y + Define.DY[i];
-                int nx = pos.x + Define.DX[i];
-
-                if (ny < Managers.Game.Setting.StartPosition.y ||
-                    nx < Managers.Game.Setting.StartPosition.x ||
-                    ny > Managers.Game.Setting.StartPosition.y + Managers.Game.Setting.RampartHeight - 1 ||
-                    nx > Managers.Game.Setting.StartPosition.x + Managers.Game.Setting.RampartWidth - 1)
-                {
-                    continue;
-                }
-
-                if (visited[ny, nx])
-                {
-                    continue;
-                }
-
-                var nextPos = new Vector3Int(nx, ny, 0);
-
-                if (TileManager.GetInstance.GetTile(Define.Tilemap.Rampart, nextPos))
-                {
-                    continue;
-                }
-
-                if (TileManager.GetInstance.GetTile(Define.Tilemap.Road, nextPos))
-                {
-                    continue;
-                }
-
-                if (Util.GetBuilding<CastleGate>(nextPos))
-                {
-                    _canConnectCastle = true;
-                    _isEndedCheckEvent = true;
-                    return;
-                }
-
-                visited[ny, nx] = true;
-                q.Enqueue(nextPos);
-            }
+            SceneManager.LoadScene("StartScene");
         }
 
-        _canConnectCastle = false;
-        _isEndedCheckEvent = true;
+        _tutorialEvent = go.GetComponent<TutorialBaseEvent>();
+        _tutorialEvent.InitEvent();
     }
 
     public void OnClickExitButton()

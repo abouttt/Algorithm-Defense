@@ -14,6 +14,7 @@ public static class Define
     public static readonly string BUILDING_PREFAB_PATH = "Prefabs/TileObject/Buildings/";
     public static readonly string PROJECTILE_PREFAB_PATH = "Prefabs/Projectile/";
     public static readonly string ROAD_PREFAB_PATH = "Prefabs/TileObject/Roads/";
+    public static readonly string SKILL_PREFAB_PATH = "Prefabs/Skill/";
 
     public static readonly string ROAD_TILE_PATH = "Tiles/Roads/";
     public static readonly string RULE_TILE_PATH = "Tiles/RuleTiles/";
@@ -61,6 +62,9 @@ public static class Define
         GoldMine,
         CastleGate,
         Dungeon,
+        TutorialWarriorCenter,
+        TutorialArcherCenter,
+        TutorialWizardCenter,
     }
 
     public enum Job
