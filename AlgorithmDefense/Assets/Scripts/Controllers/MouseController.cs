@@ -66,7 +66,7 @@ public class MouseController : MonoBehaviour
                     var jobCenter = building as JobCenter;
                     if (jobCenter)
                     {
-                        jobCenter.ChangeOutputDir();
+                        jobCenter.ChangeOutputDir();                       
                     }
                 }
             }
