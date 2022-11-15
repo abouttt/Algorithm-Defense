@@ -16,7 +16,7 @@ public class JobCenter : BaseBuilding
     {
         _outputDir = (_outputDir + 1) > 4 ? 1 : _outputDir + 1;
         transform.Rotate(new Vector3(0f, 0f, -90.0f));
-        Managers.Sound.Play("UI/JobCenter", Define.Sound.Effect);
+        Managers.Sound.Play("UI/Complete_The_Gateway_Setup", Define.Sound.UI);
     }
 
     public override void EnterTheBuilding(CitizenUnitController citizen)

@@ -80,7 +80,7 @@ public class RoadBuilder : MonoBehaviour
             }
         }
         RoadGroupDic.Remove(groupNumber);
-        Managers.Sound.Play("UI/RemoveRoad", Define.Sound.Effect);
+        Managers.Sound.Play("UI/RemoveRoad", Define.Sound.UI);
     }
 
     public void BuildWillRoads(Vector3Int pos)
@@ -203,7 +203,7 @@ public class RoadBuilder : MonoBehaviour
                 road.Index = willRoadIndex;
                 road.IsStartRoad = isStartRoad;
             }
-            Managers.Sound.Play("UI/SetRoad", Define.Sound.Effect);
+            Managers.Sound.Play("UI/SetRoad", Define.Sound.UI);
             RemoveFirstAndLastRoad();
             _groupCount++;
             ConnectedRoadDoneAction?.Invoke();
