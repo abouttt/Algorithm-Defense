@@ -78,8 +78,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TextList:
-  - "<b><color=yellow>\uB4DC\uB798\uADF8\uB85C \uC9C1\uC5C5 \uAC74\uBB3C\uACFC \uC131\uBCBD\uC744
-    \uC5F0\uACB0</color></b>\uD574 \uC8FC\uC138\uC694."
+  - "<color=#FFC000>[\uD6C8\uB828\uC18C]</color>\uC640 <color=#FFC000>[\uC131\uBCBD]</color>\uB3C4
+    \uC5F0\uACB0\uD558\uC138\uC694. "
   FailedTextList:
   - "\uB2E4\uC2DC \uC5F0\uACB0\uD574 \uBCF4\uC138\uC694."
   ShowGuideUIIndex: 0
