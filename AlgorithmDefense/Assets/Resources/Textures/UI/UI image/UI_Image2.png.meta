@@ -964,7 +964,7 @@ TextureImporter:
         width: 12
         height: 14
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -985,7 +985,7 @@ TextureImporter:
         width: 14
         height: 14
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -993,27 +993,6 @@ TextureImporter:
       bones: []
       spriteID: 06000f27fbc3f46498894689c93f7f1a
       internalID: 1380944526
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Image2_42
-      rect:
-        serializedVersion: 2
-        x: 236
-        y: 49
-        width: 14
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b4912173cab99d044bd5ba3c663cf52c
-      internalID: -643337231
       vertices: []
       indices: 
       edges: []
@@ -1031,46 +1010,45 @@ TextureImporter:
     nameFileIdTable:
       UI_Image2_9: 192181635
       UI_Image2_15: -1985655061
-      UI_Image2_16: -1344750340
-      UI_Image2_17: 294896400
-      UI_Image2_5: 2024600146
-      UI_Image2_4: 1403712528
-      UI_Image2_33: 994414264
-      UI_Image2_21: -85780311
-      UI_Image2_31: 356962027
-      UI_Image2_26: -1318636793
-      UI_Image2_23: -270521860
-      UI_Image2_25: -964839699
-      UI_Image2_11: -1470242617
-      UI_Image2_3: 386703033
-      UI_Image2_34: -434064223
-      UI_Image2_0: -5651364
-      UI_Image2_13: -1930546793
-      UI_Image2_29: -316145516
-      UI_Image2_35: 460059670
-      UI_Image2_19: 843627665
-      UI_Image2_12: 947407946
       UI_Image2_20: 973849480
+      UI_Image2_16: -1344750340
       UI_Image2_37: -1054741466
       UI_Image2_30: 876666375
       UI_Image2_7: 1331286555
-      UI_Image2_27: -403923651
+      UI_Image2_17: 294896400
+      UI_Image2_5: 2024600146
       UI_Image2_10: 680654987
       UI_Image2_6: -257706243
       UI_Image2_18: 1077140450
+      UI_Image2_4: 1403712528
       UI_Image2_1: -1648671372
+      UI_Image2_33: 994414264
       UI_Image2_39: 268508879
+      UI_Image2_27: -403923651
       UI_Image2_2: -944630455
-      UI_Image2_42: -643337231
+      UI_Image2_21: -85780311
+      UI_Image2_31: 356962027
       UI_Image2_41: 1380944526
       UI_Image2_28: -1877894675
+      UI_Image2_26: -1318636793
+      UI_Image2_23: -270521860
       UI_Image2_14: 1609455174
+      UI_Image2_11: -1470242617
+      UI_Image2_3: 386703033
+      UI_Image2_25: -964839699
+      UI_Image2_34: -434064223
       UI_Image2_38: 1602597567
+      UI_Image2_0: -5651364
       UI_Image2_40: 91113012
       UI_Image2_8: 1641009531
       UI_Image2_24: 1160557576
       UI_Image2_36: -1151678509
+      UI_Image2_13: -1930546793
+      UI_Image2_29: -316145516
       UI_Image2_32: -801230241
+      UI_Image2_35: 460059670
+      UI_Image2_19: 843627665
+      UI_Image2_12: 947407946
       UI_Image2_22: 105488712
   spritePackingTag: 
   pSDRemoveMatte: 0
