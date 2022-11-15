@@ -80,4 +80,4 @@ MonoBehaviour:
   _attackRange: 2
   _attackCount: 3
   _attackUnitCount: 4
-  _attackDelay: 1
+  _attackDelay: 0.5
