@@ -62,8 +62,7 @@ public class CallSkill : MonoBehaviour
                 yield break;
             }
 
-            var go =Managers.Resource.Instantiate($"Prefabs/Skill/{ID}");
-            go.transform.position = new(3.5f, 12f, 0f);
+            Managers.Resource.Instantiate($"Prefabs/Skill/{ID}");
             Managers.Sound.Play($"Skill/skill_1");
 
             yield return new WaitForSeconds(Cooldown1);
@@ -86,8 +85,7 @@ public class CallSkill : MonoBehaviour
                 yield break;
             }
 
-            var go = Managers.Resource.Instantiate($"Prefabs/Skill/{ID}");
-            go.transform.position = new(3.5f, 9f, 0f);
+            Managers.Resource.Instantiate($"Prefabs/Skill/{ID}");
             Managers.Sound.Play($"Skill/skill_2");
 
             yield return new WaitForSeconds(Cooldown2);
@@ -110,8 +108,7 @@ public class CallSkill : MonoBehaviour
                 yield break;
             }
 
-            var go = Managers.Resource.Instantiate($"Prefabs/Skill/{ID}");
-            go.transform.position = new(3.5f, 9f, 0f);
+            Managers.Resource.Instantiate($"Prefabs/Skill/{ID}");
             Managers.Sound.Play($"Skill/skill_3");
 
             yield return new WaitForSeconds(Cooldown3);
