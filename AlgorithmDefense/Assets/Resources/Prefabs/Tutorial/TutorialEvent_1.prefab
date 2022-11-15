@@ -78,12 +78,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TextList:
-  - "\uC804\uC0AC \uBD80\uC5EC\uC18C\uC640 \uC131\uBCBD\uC744 \uC5F0\uACB0\uD558\uC138\uC694."
+  - "\uB4DC\uB798\uADF8\uB85C \uC804\uC0AC \uAC74\uBB3C\uACFC \uC131\uBCBD\uC744
+    \uC5F0\uACB0\uD574 \uC8FC\uC138\uC694."
   FailedTextList:
   - "\uB2E4\uC2DC \uC5F0\uACB0\uD574 \uBCF4\uC138\uC694."
   IsSuccessEvent: 0
   IsFailureEvent: 0
-  _guideUI: {fileID: 0}
   _warriorCenterPos: {x: 3, y: 3, z: 0}
 --- !u!1001 &4228738584450400970
 PrefabInstance:

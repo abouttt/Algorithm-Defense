@@ -89,7 +89,7 @@ public class UI_TileSpawnController : MonoBehaviour
 
 
             //생성된 버튼의 좌표와 이미지 변경
-            newButton.transform.localPosition = new Vector3(newButton.transform.localPosition.x + 250f * i, newButton.transform.localPosition.y, newButton.transform.localPosition.z);
+            newButton.transform.localPosition = new Vector3(newButton.transform.localPosition.x + 170f * i, newButton.transform.localPosition.y, newButton.transform.localPosition.z);
             newButton.GetComponent<Image>().sprite = btn_Slot[i].ButtonSprite;
 
 

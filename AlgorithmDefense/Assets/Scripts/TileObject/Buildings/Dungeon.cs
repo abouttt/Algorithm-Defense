@@ -16,6 +16,8 @@ public class Dungeon : BaseBuilding
     private float _attackRange;
     [SerializeField]
     private float _attackDelay;
+    [SerializeField]
+    private RaycastHit2D[] _targetList = new RaycastHit2D[10];
 
     private List<int> _randomMonsterList = new();
 
@@ -35,16 +37,30 @@ public class Dungeon : BaseBuilding
         timer += Time.deltaTime;
         if (timer > _attackDelay)
         {
-            var hit = Physics2D.Raycast(transform.position, Vector2.down, _attackRange, LayerMask.GetMask("Human"));
-            if (hit.collider != null)
-            {
-                var go = Managers.Resource.Instantiate($"{Define.PROJECTILE_PREFAB_PATH}DungeonFireBall");
-                var projectile = go.GetComponent<ProjectileController>();
+            int hit = Physics2D.RaycastNonAlloc(transform.position, Vector2.down, _targetList, _attackRange, LayerMask.GetMask("Human"));
 
-                projectile.transform.rotation = Quaternion.Euler(0f, 0f, -90f);
-                projectile.transform.position = transform.position;
-                projectile.Damage = _damage;
-                projectile.Target = hit.collider.gameObject;
+            Debug.Log(hit);
+
+            if (hit >= 5)
+            {
+                //Debug.Log("H");
+
+                for (int a = 0; a < 4; a++)
+                {
+                    if(a != 0)
+                    {
+                        var go = Managers.Resource.Instantiate($"{Define.SKILL_PREFAB_PATH}Skill_Mob");
+                        go.transform.position = new Vector3(transform.position.x, transform.position.y - 0.5f * a);
+                        //°´Ã¼ ¼ÒÈ¯ µô·¹ÀÌ 0.5f ¿äÃ»
+                    }
+
+                }
+
+                //var projectile = go.GetComponent<ProjectileController>();
+                //projectile.transform.rotation = Quaternion.Euler(0f, 0f, -90f);
+                //projectile.transform.position = transform.position;
+                //projectile.Damage = _damage;
+                //projectile.Target = _targetList[0].collider.gameObject;
             }
 
             timer = 0f;

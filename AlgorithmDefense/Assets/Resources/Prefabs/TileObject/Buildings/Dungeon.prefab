@@ -73,8 +73,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _releaseTime: 0
   _sapwnTime:
-    min: 10
-    max: 13
+    min: 18
+    max: 21
   _archerMaxCount: 1
   _wizardMaxCount: 1
   _damage: 30

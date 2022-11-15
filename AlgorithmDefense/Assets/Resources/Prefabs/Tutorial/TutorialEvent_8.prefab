@@ -45,8 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TextList:
-  - "\uBAA8\uB4E0 \uD29C\uD1A0\uB9AC\uC5BC\uC744 \uC644\uB8CC\uD558\uC168\uC2B5\uB2C8\uB2E4."
-  - "\uB098\uAC00."
+  - "\uC798 \uD558\uC168\uC5B4\uC694! \uBAA8\uB4E0 \uD29C\uD1A0\uB9AC\uC5BC\uC774
+    \uB05D\uB0AC\uC5B4\uC694."
+  - "\uC774\uC81C \uBA54\uC778 \uD654\uBA74\uC73C\uB85C \uAC00\uC11C \uAC8C\uC784\uC744
+    \uC990\uACA8\uC8FC\uC138\uC694!"
   FailedTextList: []
   IsSuccessEvent: 0
   IsFailureEvent: 0

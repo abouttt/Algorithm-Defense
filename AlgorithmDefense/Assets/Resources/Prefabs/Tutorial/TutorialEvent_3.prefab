@@ -155,8 +155,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TextList:
-  - "\uC798 \uD558\uC168\uC2B5\uB2C8\uB2E4."
-  - "\uAD00\uBB3C\uC744 \uC120\uD0DD\uD558\uC5EC UI\uCC3D\uC744 \uC5F4\uC5B4\uBCF4\uC138\uC694."
+  - "\uC798 \uD558\uC168\uC5B4\uC694!"
+  - "\uAD00\uBB38\uC744 \uD074\uB9AD\uD574\uC11C UI \uCC3D\uC744 \uC5F4\uC5B4\uBCF4\uC138\uC694."
   FailedTextList: []
   ShowGuideUIIndex: 1
   IsSuccessEvent: 0
