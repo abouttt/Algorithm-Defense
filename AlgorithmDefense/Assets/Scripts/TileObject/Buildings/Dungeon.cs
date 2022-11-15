@@ -32,12 +32,13 @@ public class Dungeon : BaseBuilding
     private void Awake()
     {
         LoadingControl.GetInstance.LoadingCompleteAction += StartSpawn;
+        _timer = _attackDelay;
     }
 
     private void Update()
-    {
-        _timer += Time.deltaTime;
-        if (_timer > _attackDelay)
+    {        
+        _timer -= Time.deltaTime;
+        if (_timer < 0)
         {
             int hit = Physics2D.RaycastNonAlloc(transform.position, Vector2.down, _targetList, _attackRange, LayerMask.GetMask("Human"));
 
@@ -48,7 +49,7 @@ public class Dungeon : BaseBuilding
                 go.transform.rotation = Quaternion.Euler(0f, 0f, -180f);
             }
 
-            _timer = 0f;
+            _timer = _attackDelay;
         }
     }
 
