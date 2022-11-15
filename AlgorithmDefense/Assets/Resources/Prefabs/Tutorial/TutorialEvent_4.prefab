@@ -230,15 +230,15 @@ MonoBehaviour:
     <color=#FFC000>[\u25C0]</color>, <color=green>\uCD08\uB85D\uC0C9</color>\uC740
     <color=#FFC000>[\u25B6]</color>, <color=blue>\uD30C\uB780\uC0C9</color>\uC740
     <color=#FFC000>[\u25B2]</color> \uBC29\uD56D\uC73C\uB85C \\n\uC124\uC815\uD558\uACE0,
-    <color=#FFC000>OK</color>\uB97C \uD074\uB9AD\uD558\uC5EC, \uC2DC\uBBFC\uC744
-    \uBD84\uB958\uD574\uBCF4\uC138\uC694. "
+    <color=#FFC000>\uCCB4\uD06C \uBC84\uD2BC</color>\uC744 \uD074\uB9AD\uD558\uC5EC,
+    \uC2DC\uBBFC\uC744 \uBD84\uB958\uD574\uBCF4\uC138\uC694. "
   FailedTextList:
   - "\uC798\uBABB\uB41C \uBC29\uD5A5 \uC9C0\uC815\uC785\uB2C8\uB2E4."
   - "<color=red>\uBE68\uAC04\uC0C9</color>\uC740 <color=#FFC000>[\u25C0]</color>,
     <color=green>\uCD08\uB85D\uC0C9</color>\uC740 <color=#FFC000>[\u25B6]</color>,
     <color=blue>\uD30C\uB780\uC0C9</color>\uC740 <color=#FFC000>[\u25B2]</color>
-    \uBC29\uD56D\uC73C\uB85C \\n\uC124\uC815\uD558\uACE0, <color=#FFC000>OK</color>\uB97C
-    \uD074\uB9AD\uD558\uC5EC, \uC2DC\uBBFC\uC744 \uBD84\uB958\uD574\uBCF4\uC138\uC694. "
+    \uBC29\uD56D\uC73C\uB85C \\n\uC124\uC815\uD558\uACE0, <color=#FFC000>\uCCB4\uD06C
+    \uBC84\uD2BC</color>\uC744 \uD074\uB9AD\uD558\uC5EC, \uC2DC\uBBFC\uC744 \uBD84\uB958\uD574\uBCF4\uC138\uC694. "
   ShowGuideUIIndex: 0
   IsSuccessEvent: 0
   IsFailureEvent: 0
