@@ -60,6 +60,7 @@ public abstract class TutorialBaseEvent : MonoBehaviour
 
         var monster = go.GetComponent<BattleUnitController>();
         monster.Data.CurrentHp = hp;
+        monster.Data.Damage = 0;
         monster.Data.MoveType = Define.Move.Down;
 
         return go;

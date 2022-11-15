@@ -96,7 +96,8 @@ public class Dungeon : BaseBuilding
             int randIndex = _random.Next(_randomMonsterList.Count);
             int randMonster = _randomMonsterList[randIndex];
 
-            CreateMonster((Define.Job)randMonster);
+            var monster = Util.CreateMonster((Define.Job)randMonster, transform.position);
+            SetUnitPosition(monster, Define.Move.Down);
 
             if (randMonster == (int)Define.Job.Archer)
             {
@@ -110,16 +111,6 @@ public class Dungeon : BaseBuilding
             _archerCurrentCount++;
             _wizardCurrentCount++;
         }
-    }
-
-    private void CreateMonster(Define.Job job)
-    {
-        var go = Managers.Resource.Instantiate($"{Define.MONSTER_UNIT_PREFAB_PATH}Goblin_{job}");
-        var monster = go.GetComponent<BattleUnitController>();
-        monster.transform.position = transform.position;
-        monster.Data.MoveType = Define.Move.Down;
-        monster.Data.CurrentHp = monster.Data.MaxHp;
-        SetUnitPosition(monster, Define.Move.Down);
     }
 
     protected override void Init()

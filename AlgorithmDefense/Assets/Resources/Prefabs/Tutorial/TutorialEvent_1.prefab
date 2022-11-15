@@ -78,10 +78,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TextList:
-  - "\uB4DC\uB798\uADF8\uB85C \uC804\uC0AC \uAC74\uBB3C\uACFC \uC131\uBCBD\uC744
-    \uC5F0\uACB0\uD574 \uC8FC\uC138\uC694."
+  - "<b><color=yellow>\uB4DC\uB798\uADF8\uB85C \uC9C1\uC5C5 \uAC74\uBB3C\uACFC \uC131\uBCBD\uC744
+    \uC5F0\uACB0</color></b>\uD574 \uC8FC\uC138\uC694."
   FailedTextList:
   - "\uB2E4\uC2DC \uC5F0\uACB0\uD574 \uBCF4\uC138\uC694."
+  ShowGuideUIIndex: 0
   IsSuccessEvent: 0
   IsFailureEvent: 0
   _warriorCenterPos: {x: 3, y: 3, z: 0}

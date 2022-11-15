@@ -127,4 +127,14 @@ public static class Util
 
         return false;
     }
+
+    public static BattleUnitController CreateMonster(Define.Job job, Vector3 spawnPos)
+    {
+        var go = Managers.Resource.Instantiate($"{Define.MONSTER_UNIT_PREFAB_PATH}Goblin_{job}");
+        var monster = go.GetComponent<BattleUnitController>();
+        monster.transform.position = spawnPos;
+        monster.Data.MoveType = Define.Move.Down;
+        monster.Data.CurrentHp = monster.Data.MaxHp;
+        return monster;
+    }
 }

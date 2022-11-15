@@ -119,6 +119,13 @@ public class GameScene : MonoBehaviour
         {
             Managers.Resource.Instantiate($"{Define.CONTENTS_PATH}@TutorialManager").transform.SetParent(_contentsRoot);
         }
+        else
+        {
+            if (!FindObjectOfType<MonsterSpawner>())
+            {
+                Managers.Resource.Instantiate($"{Define.CONTENTS_PATH}@MonsterSpawner").transform.SetParent(_contentsRoot);
+            }
+        }
     }
 
     private void InitGround()

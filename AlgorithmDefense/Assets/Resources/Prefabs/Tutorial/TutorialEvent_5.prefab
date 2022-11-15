@@ -276,10 +276,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TextList:
   - "\uC798 \uD558\uC168\uC5B4\uC694!"
-  - "\uC774\uC81C \uC9C1\uC5C5 \uAC74\uBB3C\uC5D0\uC11C \uAC01 \uC804\uD22C \uC720\uB2DB\uC774
-    \uC0DD\uC131\uB418\uBA70 \uC131\uBCBD \uBC16\uC5D0\uC11C \uBAAC\uC2A4\uD130\uC640
-    \uC2F8\uC6B8 \uAC70\uC608\uC694."
+  - "\uC774\uC81C \uC804\uD22C \uC720\uB2DB\uC774 \uC0DD\uC131\uB418\uC11C \uBAAC\uC2A4\uD130\uB97C
+    \uBC29\uC5B4\uD560\uAC70\uC5D0\uC694."
   FailedTextList: []
+  ShowGuideUIIndex: 0
   IsSuccessEvent: 0
   IsFailureEvent: 0
   _monsterHp: 50

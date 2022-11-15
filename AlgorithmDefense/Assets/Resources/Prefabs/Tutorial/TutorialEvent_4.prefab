@@ -226,14 +226,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TextList:
-  - "\uAC01 \uC0C9\uC0C1\uC744 \uD074\uB9AD\uD574\uC11C \uBE68\uAC04\uC0C9\uC740
-    \uC67C\uCABD, \uCD08\uB85D\uC0C9\uC740 \uC624\uB978\uCABD, \uD30C\uB780\uC0C9\uC740
-    \uC704\uCABD\uC73C\uB85C \uC124\uC815\uD558\uC5EC OK\uB97C \uB204\uB978 \uD6C4
-    \uC2DC\uBBFC\uC744 \uBD84\uB958\uD574 \uBCF4\uC138\uC694."
+  - "\uAC01 \uC0C9\uC0C1\uC744 \uD074\uB9AD\uD574\uC11C\\n<b><color=red>\uBE68\uAC04\uC0C9</color></b>\uC740
+    <b><color=yellow>\uC67C\uCABD</color></b>, <b><color=green>\uCD08\uB85D\uC0C9</color></b>\uC740
+    <b><color=yellow>\uC624\uB978\uCABD</color></b>, <b><color=blue>\uD30C\uB780\uC0C9</color></b>\uC740
+    <b><color=yellow>\uC704\uCABD</color></b>\uC73C\uB85C\\n\uC124\uC815\uD558\uC5EC
+    OK\uB97C \uB204\uB978 \uD6C4 \uC2DC\uBBFC\uC744 \uBD84\uB958\uD574 \uBCF4\uC138\uC694."
   FailedTextList:
   - "\uC798\uBABB\uB41C \uBC29\uD5A5 \uC9C0\uC815\uC785\uB2C8\uB2E4."
-  - "\uBE68\uAC04\uC0C9\uC740 \uC67C\uCABD, \uCD08\uB85D\uC0C9\uC740 \uC624\uB978\uCABD,
-    \uD30C\uB780\uC0C9\uC740 \uC704\uCABD\uC73C\uB85C \uC5F0\uACB0\uD574\uBCF4\uC138\uC694. "
+  - "<b><color=red>\uBE68\uAC04\uC0C9</color></b>\uC740 <b><color=yellow>\uC67C\uCABD</color></b>,
+    <b><color=green>\uCD08\uB85D\uC0C9</color></b>\uC740 <b><color=yellow>\uC624\uB978\uCABD</color></b>,
+    <b><color=blue>\uD30C\uB780\uC0C9</color></b>\uC740 <b><color=yellow>\uC704\uCABD</color></b>\uC73C\uB85C\\n\uC5F0\uACB0\uD574\uBCF4\uC138\uC694. "
+  ShowGuideUIIndex: 0
   IsSuccessEvent: 0
   IsFailureEvent: 0
   _gatewayPos: {x: 3, y: 2, z: 0}
