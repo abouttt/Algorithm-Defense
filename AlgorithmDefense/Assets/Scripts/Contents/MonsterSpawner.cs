@@ -58,7 +58,6 @@ public class MonsterSpawner : MonoBehaviour
         {
             MonsterSpawnData data = monsterSpawnData[index];
 
-            Debug.Log(data.time);
             yield return new WaitForSeconds(data.time);
 
             Util.CreateMonster(data.job, spawnPos);
