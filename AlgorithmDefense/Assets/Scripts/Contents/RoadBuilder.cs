@@ -79,8 +79,8 @@ public class RoadBuilder : MonoBehaviour
                 _startRoadPos = null;
             }
         }
-
         RoadGroupDic.Remove(groupNumber);
+        Managers.Sound.Play("UI/RemoveRoad", Define.Sound.UI);
     }
 
     public void BuildWillRoads(Vector3Int pos)
@@ -203,7 +203,7 @@ public class RoadBuilder : MonoBehaviour
                 road.Index = willRoadIndex;
                 road.IsStartRoad = isStartRoad;
             }
-
+            Managers.Sound.Play("UI/SetRoad", Define.Sound.UI);
             RemoveFirstAndLastRoad();
             _groupCount++;
             ConnectedRoadDoneAction?.Invoke();
@@ -219,7 +219,7 @@ public class RoadBuilder : MonoBehaviour
                 }
             }
 
-            RoadGroupDic[_groupCount].Clear();
+            RoadGroupDic[_groupCount].Clear();          
         }
 
         _prevPos = Vector3Int.zero;

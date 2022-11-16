@@ -113,7 +113,7 @@ public class UI_CitizenDirectionController : UI_BaseBuildingController
         {
             R = 0;
         }
-
+        Managers.Sound.Play("UI/Complete_The_Gateway_Setup", Define.Sound.UI);
         buttons[0].GetComponent<Image>().sprite = redImages[R];
     }
 
@@ -124,7 +124,7 @@ public class UI_CitizenDirectionController : UI_BaseBuildingController
         {
             B = 0;
         }
-
+        Managers.Sound.Play("UI/Complete_The_Gateway_Setup", Define.Sound.UI);
         buttons[1].GetComponent<Image>().sprite = blueImages[B];
     }
 
@@ -135,7 +135,7 @@ public class UI_CitizenDirectionController : UI_BaseBuildingController
         {
             G = 0;
         }
-
+        Managers.Sound.Play("UI/Complete_The_Gateway_Setup", Define.Sound.UI);
         buttons[2].GetComponent<Image>().sprite = greenImages[G];
     }
 

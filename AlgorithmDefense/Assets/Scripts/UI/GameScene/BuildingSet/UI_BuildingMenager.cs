@@ -33,6 +33,7 @@ public class UI_BuildingMenager : MonoBehaviour
         {
             case Define.Building.Gateway:
                 _currentShowUIController = GatewayUIController;
+                Managers.Sound.Play("UI/Complete_The_Gateway_Setup", Define.Sound.UI);
                 break;
 
         }
