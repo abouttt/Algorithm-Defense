@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
-using UnityEngine.EventSystems;
 
 public class TutorialManager : MonoBehaviour
 {
@@ -13,12 +12,17 @@ public class TutorialManager : MonoBehaviour
     private GameObject _tutorialUI;
     [SerializeField]
     private TextMeshProUGUI _tutorialText;
+    [SerializeField]
+    private Image _clickLimitImage;
 
     private TutorialBaseEvent _tutorialEvent;
 
     [SerializeField]
     private int _eventNumber = 0;
     private int _textIndex = 0;
+
+    private Coroutine _textTypingEffectCoroutine;
+    private bool _isShowAllText;
 
     private void Awake()
     {
@@ -59,33 +63,90 @@ public class TutorialManager : MonoBehaviour
 
     private void ShowText(List<string> textList)
     {
-        if (string.IsNullOrEmpty(_tutorialText.text))
-        {
-            _tutorialText.text = textList[0].Replace("\\n", "\n");
-        }
-
         if (_textIndex == _tutorialEvent.ShowGuideUIIndex)
         {
             _tutorialEvent.SetActiveGuideUI(true);
+            var sprite = Managers.Resource.Load<Sprite>($"Textures/Tutorial/EventSprite_{_eventNumber}");
+            if (sprite)
+            {
+                _clickLimitImage.sprite = sprite;
+            }
+            else
+            {
+                _clickLimitImage.sprite = Managers.Resource.Load<Sprite>($"Textures/Tutorial/EventSprite");
+            }
         }
         else
         {
             _tutorialEvent.SetActiveGuideUI(false);
+            _clickLimitImage.sprite = Managers.Resource.Load<Sprite>($"Textures/Tutorial/EventSprite");
+        }
+
+        if (!_isShowAllText && _textTypingEffectCoroutine == null)
+        {
+            _tutorialText.text = null;
+            _textTypingEffectCoroutine = StartCoroutine(TextTypingEffect(textList[_textIndex].Replace("\\n", "\n"), 0.1f));
         }
 
         if (Input.GetMouseButtonDown(0))
         {
-            _textIndex++;
-
-            if (_textIndex >= textList.Count)
+            if (_isShowAllText)
             {
-                CloseText();
-                _tutorialEvent.StartEvent();
-                return;
+                _textIndex++;
+                _isShowAllText = false;
+                _textTypingEffectCoroutine = null;
+
+                if (_textIndex >= textList.Count)
+                {
+                    CloseText();
+                    _tutorialEvent.StartEvent();
+                    return;
+                }
+            }
+            else
+            {
+                if (_textTypingEffectCoroutine != null)
+                {
+                    StopCoroutine(_textTypingEffectCoroutine);
+                    _tutorialText.text = textList[_textIndex].Replace("\\n", "\n");
+                    _isShowAllText = true;
+                }
+            }
+        }
+    }
+
+    private IEnumerator TextTypingEffect(string text, float delayTime)
+    {
+        string codeText = null;
+        bool isCodeTextTyping = false;
+
+        foreach (char c in text)
+        {
+            if (c == '<')
+            {
+                isCodeTextTyping = true;
             }
 
-            _tutorialText.text = textList[_textIndex].Replace("\\n", "\n"); ;
+            if (c == '>')
+            {
+                codeText += c;
+                _tutorialText.text += codeText;
+                codeText = null;
+                isCodeTextTyping = false;
+                continue;
+            }
+
+            if (isCodeTextTyping)
+            {
+                codeText += c;
+                continue;
+            }
+
+            _tutorialText.text += c;
+            yield return new WaitForSeconds(delayTime);
         }
+
+        _isShowAllText = true;
     }
 
     private void StartEvent()

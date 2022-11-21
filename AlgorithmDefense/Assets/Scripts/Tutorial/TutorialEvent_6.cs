@@ -7,25 +7,26 @@ public class TutorialEvent_6 : TutorialBaseEvent
     [SerializeField]
     private Vector3Int _goldMinePos;
     [SerializeField]
+    private Vector3Int _warriorCenterPos;
+    [SerializeField]
     private float _spawnTime;
 
     private Coroutine _coroutine;
 
-    private void Awake()
-    {
-        RoadBuilder.GetInstance.ConnectedRoadDoneAction += CheckConnectedToGoldMine;
-    }
-
     public override void InitEvent()
     {
+        base.InitEvent();
         Managers.Pool.Clear();
+        UI_BuildingMenager.GetInstance.CloseUIController();
         ClearBuildingAndRoad();
         InitBuilding();
+        InitRoad();
+        RoadBuilder.GetInstance.ConnectedRoadDoneAction += CheckConnectedToGoldMine;
     }
 
     public override void StartEvent()
     {
-
+        
     }
 
     public override void CheckEvent()
@@ -83,5 +84,16 @@ public class TutorialEvent_6 : TutorialBaseEvent
     private void InitBuilding()
     {
         TileManager.GetInstance.SetTile(Define.Tilemap.Building, _goldMinePos, Define.Building.GoldMine);
+        TileManager.GetInstance.SetTile(Define.Tilemap.Building, _warriorCenterPos, Define.Building.WarriorCenter);
+    }
+
+    private void InitRoad()
+    {
+        for (int y = Managers.Game.Setting.SpawnCellPos.y; y <= _warriorCenterPos.y; y++)
+        {
+            RoadBuilder.GetInstance.BuildWillRoads(Managers.Game.Setting.SpawnCellPos + new Vector3Int(0, y, 0));
+        }
+
+        RoadBuilder.GetInstance.BuildRoads();
     }
 }

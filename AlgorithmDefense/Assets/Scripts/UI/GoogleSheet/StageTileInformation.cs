@@ -5,7 +5,6 @@ using UnityEngine.UI;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
-using Unity.VisualScripting;
 
 public class StageTileInformation : MonoBehaviour
 {
@@ -45,7 +44,14 @@ public class StageTileInformation : MonoBehaviour
 
         //클릭한 스테이지 번호 가져오기
 
-        if (!Managers.Game.Setting.IsTutorialScene)
+        if (Managers.Game.Setting.IsTutorialScene)
+        {
+            Managers.Game.DungeonMaxHP = 9999;
+            Managers.Game.CastleMaxHP = 9999;
+            Managers.Game.CurrentDungeonHP = 9999;
+            Managers.Game.CurrentCastleHP = 9999;
+        }
+        else
         {
             stageNum = PlayerPrefs.GetInt("Num");
             Debug.Log("stageNum: " + stageNum);
@@ -84,11 +90,13 @@ public class StageTileInformation : MonoBehaviour
             }
         }
 
+
         //최대 채력 설정
         Managers.Game.DungeonMaxHP = stageCoordinateDB.StageCoordinate[stageNum - 1].enemyHP;
         Managers.Game.CastleMaxHP = stageCoordinateDB.StageCoordinate[stageNum - 1].castleHP;
         Managers.Game.CurrentDungeonHP = (int)stageCoordinateDB.StageCoordinate[stageNum - 1].enemyHP;
         Managers.Game.CurrentCastleHP = (int)stageCoordinateDB.StageCoordinate[stageNum - 1].castleHP;
+
 
 
         SetTileData();
@@ -222,18 +230,18 @@ public class StageTileInformation : MonoBehaviour
             ////보내기
             //StartCoroutine(Post(form));
 
-
-            if (stageCoordinateDB.StageNum[stageNum].Star < _star)
+            // stageNum -> stageNum - 1 로 버그 수정.
+            if (stageCoordinateDB.StageNum[stageNum - 1].Star < _star)
             {
                 //별 갯수 변경
-                stageCoordinateDB.StageNum[stageNum].Star = _star;
+                stageCoordinateDB.StageNum[stageNum - 1].Star = _star;
             }
 
             //다음 스테이지 오픈
             int stage = PlayerPrefs.GetInt("StageCount");
             if (stage != stageNum)
             {
-                stageCoordinateDB.StageNum[stageNum].Open = true;
+                stageCoordinateDB.StageNum[stageNum - 1].Open = true;
             }
 
 

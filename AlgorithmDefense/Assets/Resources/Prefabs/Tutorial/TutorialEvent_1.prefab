@@ -81,7 +81,8 @@ MonoBehaviour:
   - "<color=#FFC000>[\uD6C8\uB828\uC18C]</color>\uC640 <color=#FFC000>[\uC131\uBCBD]</color>\uB3C4
     \uC5F0\uACB0\uD558\uC138\uC694. "
   FailedTextList:
-  - "\uB2E4\uC2DC \uC5F0\uACB0\uD574 \uBCF4\uC138\uC694."
+  - "<color=#FFC000>[\uC6B0\uD074\uB9AD]</color>\uC73C\uB85C <color=#FFC000>\uAE38\uC744
+    \uC0AD\uC81C</color>\uD558\uACE0 \uB2E4\uC2DC \uC5F0\uACB0\uD574\uBCF4\uC138\uC694."
   ShowGuideUIIndex: 0
   IsSuccessEvent: 0
   IsFailureEvent: 0
@@ -103,7 +104,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7073490351472928388, guid: b34b601ec7d9f484c9ada86309cb7ff2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 7073490351472928388, guid: b34b601ec7d9f484c9ada86309cb7ff2, type: 3}
       propertyPath: m_LocalPosition.z

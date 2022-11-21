@@ -21,7 +21,7 @@ public class TutorialEvent_1 : TutorialBaseEvent
 
     public override void InitEvent()
     {
-
+        base.InitEvent();
     }
 
     public override void StartEvent()

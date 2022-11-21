@@ -29,13 +29,13 @@ public class SoundManager
         }
     }
 
-    public void Play(string path, Define.Sound type = Define.Sound.UI)
+    public void Play(string path, Define.Sound type = Define.Sound.Effect)
     {
         var audioClip = GetOrAddAudioClip(path, type);
         Play(audioClip, type);
     }
 
-    public void Play(AudioClip audioClip, Define.Sound type = Define.Sound.UI)
+    public void Play(AudioClip audioClip, Define.Sound type = Define.Sound.Effect)
     {
         if (!audioClip)
         {

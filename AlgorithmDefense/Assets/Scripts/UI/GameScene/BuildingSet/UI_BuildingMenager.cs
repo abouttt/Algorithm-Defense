@@ -33,7 +33,7 @@ public class UI_BuildingMenager : MonoBehaviour
         {
             case Define.Building.Gateway:
                 _currentShowUIController = GatewayUIController;
-                Managers.Sound.Play("UI/Complete_The_Gateway_Setup", Define.Sound.UI);
+                Managers.Sound.Play("UI/Complete_The_Gateway_Setup", Define.Sound.Effect);
                 break;
 
         }
@@ -70,7 +70,7 @@ public class UI_BuildingMenager : MonoBehaviour
             return;
         }
 
-        Managers.Sound.Play("UI/Complete_The_Gateway_Setup", Define.Sound.UI);
+        Managers.Sound.Play("UI/Complete_The_Gateway_Setup", Define.Sound.Effect);
         _currentShowUIController.Clear();
 
         _currentShowUIController.gameObject.SetActive(false);

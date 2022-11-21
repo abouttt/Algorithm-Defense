@@ -23,6 +23,7 @@ public class TutorialEvent_3 : TutorialBaseEvent
 
     public override void InitEvent()
     {
+        base.InitEvent();
         Managers.Pool.Clear();
         ClearBuildingAndRoad();
         InitCastleAndDungeon();

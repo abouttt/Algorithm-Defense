@@ -7,7 +7,7 @@ public class TutorialEvent_8 : TutorialBaseEvent
 {
     public override void InitEvent()
     {
-
+        base.InitEvent();
     }
 
     public override void StartEvent()

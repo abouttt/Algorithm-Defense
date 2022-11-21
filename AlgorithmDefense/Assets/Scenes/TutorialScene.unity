@@ -648,6 +648,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1054315266}
     - target: {fileID: 1006188600359205221, guid: 194d1c54033d3224d9c73ef43ccfd341, type: 3}
+      propertyPath: _clickLimitImage
+      value: 
+      objectReference: {fileID: 1120568053}
+    - target: {fileID: 1006188600359205221, guid: 194d1c54033d3224d9c73ef43ccfd341, type: 3}
       propertyPath: _warriorCenterPos.x
       value: 3
       objectReference: {fileID: 0}
@@ -3960,7 +3964,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.5882353}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

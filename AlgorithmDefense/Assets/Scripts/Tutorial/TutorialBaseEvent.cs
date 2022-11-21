@@ -24,7 +24,12 @@ public abstract class TutorialBaseEvent : MonoBehaviour
         }
     }
 
-    public abstract void InitEvent();
+    public virtual void InitEvent()
+    {
+        RoadBuilder.GetInstance.ClearWillRoad();
+        RoadBuilder.GetInstance.IsBuilding = false;
+    }
+
     public abstract void StartEvent();
     public abstract void CheckEvent();
 

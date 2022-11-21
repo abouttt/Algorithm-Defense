@@ -63,6 +63,7 @@ public class RoadBuilder : MonoBehaviour
             var road = Util.GetRoad(Define.Tilemap.Road, pos);
             if (road && road.IsOnCitizen)
             {
+                UI_NoticeTextSet.GetInstance.FailedRemoveRoad();
                 return;
             }
         }
@@ -79,8 +80,9 @@ public class RoadBuilder : MonoBehaviour
                 _startRoadPos = null;
             }
         }
+
         RoadGroupDic.Remove(groupNumber);
-        Managers.Sound.Play("UI/RemoveRoad", Define.Sound.UI);
+        Managers.Sound.Play("UI/RemoveRoad", Define.Sound.Effect);
     }
 
     public void BuildWillRoads(Vector3Int pos)
@@ -203,28 +205,38 @@ public class RoadBuilder : MonoBehaviour
                 road.Index = willRoadIndex;
                 road.IsStartRoad = isStartRoad;
             }
-            Managers.Sound.Play("UI/SetRoad", Define.Sound.UI);
+            Managers.Sound.Play("UI/SetRoad", Define.Sound.Effect);
             RemoveFirstAndLastRoad();
             _groupCount++;
             ConnectedRoadDoneAction?.Invoke();
         }
         else
         {
-            foreach (var pos in RoadGroupDic[_groupCount])
-            {
-                TileManager.GetInstance.SetTile(Define.Tilemap.WillRoad, pos, null);
-                if (_startRoadPos.HasValue && (_startRoadPos == pos))
-                {
-                    _startRoadPos = null;
-                }
-            }
-
-            RoadGroupDic[_groupCount].Clear();          
+            ClearWillRoad();
         }
 
         _prevPos = Vector3Int.zero;
         _firstPos = Vector3Int.zero;
         _lastPos = Vector3Int.zero;
+    }
+
+    public void ClearWillRoad()
+    {
+        if (!RoadGroupDic.ContainsKey(_groupCount))
+        {
+            return;
+        }
+
+        foreach (var pos in RoadGroupDic[_groupCount])
+        {
+            TileManager.GetInstance.SetTile(Define.Tilemap.WillRoad, pos, null);
+            if (_startRoadPos.HasValue && (_startRoadPos == pos))
+            {
+                _startRoadPos = null;
+            }
+        }
+
+        RoadGroupDic[_groupCount].Clear();
     }
 
     private void RevertWillRoad(Vector3Int pos)
@@ -303,6 +315,11 @@ public class RoadBuilder : MonoBehaviour
 
     private bool IsConnectedBuilding()
     {
+        if (_firstPos == _lastPos)
+        {
+            return false;
+        }
+
         var firstBuilding = Util.GetBuilding<BaseBuilding>(_firstPos);
         var secondBuilding = Util.GetBuilding<BaseBuilding>(_lastPos);
 

@@ -41,15 +41,13 @@ public class HPBarAnimation : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            Managers.Game.CurrentDungeonHP -= 10;
-            Debug.Log(Managers.Game.CurrentDungeonHP);
+            Managers.Game.CurrentDungeonHP -= 100;
             EnemyAttacked();
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            Managers.Game.CurrentCastleHP -= 10;
-            Debug.Log(Managers.Game.CurrentCastleHP);
+            Managers.Game.CurrentCastleHP -= 100;
             CastleAttacked();
         }
 

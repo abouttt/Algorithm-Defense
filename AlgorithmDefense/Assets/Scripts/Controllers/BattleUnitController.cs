@@ -86,7 +86,7 @@ public class BattleUnitController : BaseUnitController
     {
         if (_targetUnit)
         {
-            if (_targetUnit.Data.CurrentHp > 0)
+            if ((_targetUnit.Data.CurrentHp > 0) && _targetUnit.gameObject.activeSelf)
             {
                 if (_projectile)
                 {
