@@ -25,6 +25,7 @@ public class IntroductionVideo : MonoBehaviour
     {
         _sw.Start();
         _vp.Prepare();
+        OffVideo();
     }
 
     private void Update()
@@ -35,10 +36,7 @@ public class IntroductionVideo : MonoBehaviour
         {
             if (_vp.isPlaying)
             {
-                _vp.Stop();
-                _videoTexture.gameObject.SetActive(false);
-                _blackImage.gameObject.SetActive(true);
-                StartCoroutine(SetActiveFalseBlackImage());
+                OffVideo();
             }
 
             _prevMousePos = _mousePos;
@@ -50,6 +48,14 @@ public class IntroductionVideo : MonoBehaviour
             _videoTexture.gameObject.SetActive(true);
             _vp.Play();
         }
+    }
+
+    private void OffVideo()
+    {
+        _vp.Stop();
+        _videoTexture.gameObject.SetActive(false);
+        _blackImage.gameObject.SetActive(true);
+        StartCoroutine(SetActiveFalseBlackImage());
     }
 
     private IEnumerator SetActiveFalseBlackImage()
