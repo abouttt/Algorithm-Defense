@@ -36,6 +36,12 @@ public class UI_NoticeTextSet : MonoBehaviour
         NoticeText.DOFade(0f, 3f);
     }
 
+    public void FailedRemoveRoad()
+    {
+        NoticeText.text = "시민이 있어 삭제할 수 없습니다.";
+        NoticeText.DOFade(1f, 0f);
+        NoticeText.DOFade(0f, 3f);
+    }
 
     private static void Init()
     {

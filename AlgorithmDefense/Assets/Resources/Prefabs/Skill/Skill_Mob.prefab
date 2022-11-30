@@ -121,7 +121,7 @@ MonoBehaviour:
   _layerMask:
     serializedVersion: 2
     m_Bits: 128
-  _damage: 100
+  _damage: 15
   _rangeBoxSize: {x: 1, y: 2}
   _destroyTime: 1
   Type: 0

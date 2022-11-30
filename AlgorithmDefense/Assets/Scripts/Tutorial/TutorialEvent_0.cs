@@ -21,7 +21,10 @@ public class TutorialEvent_0 : TutorialBaseEvent
 
     public override void InitEvent()
     {
+        base.InitEvent();
         TileManager.GetInstance.SetTile(Define.Tilemap.Building, _warriorCenterPos, Define.Building.WarriorCenter);
+        Util.GetBuilding<JobCenter>(_warriorCenterPos).ChangeOutputDir();
+        Util.GetBuilding<JobCenter>(_warriorCenterPos).ChangeOutputDir();
     }
 
     public override void StartEvent()

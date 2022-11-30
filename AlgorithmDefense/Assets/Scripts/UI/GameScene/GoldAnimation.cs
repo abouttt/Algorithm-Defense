@@ -82,7 +82,7 @@ public class GoldAnimation : MonoBehaviour
             goldText.DOColor(Color.red, 0.3f).OnComplete(() =>
             {
                 goldText.DOColor(Color.white, 0.3f);
-                goldTextTransform.localPosition = new Vector3(37.5f, 12f, 0f);
+                goldTextTransform.localPosition = new Vector3(37.5f, 15f, 0f);
             });
 
 

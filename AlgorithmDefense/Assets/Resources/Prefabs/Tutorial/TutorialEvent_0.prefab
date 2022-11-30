@@ -79,15 +79,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TextList:
   - "\uC548\uB155\uD558\uC138\uC694. \\n\uAC8C\uC784\uC5D0 \uB300\uD55C \uAE30\uBCF8\uC801\uC778
-    \uAC00\uC774\uB4DC\uB97C \uD574\uB4DC\uB9B4\uAED8\uC694."
-  - "\uBA3C\uC800 \uAE38 \uC124\uCE58\uC5D0 \uB300\uD574 \uC54C\uB824\uB4DC\uB9B4\uAED8\uC694."
-  - "<b><color=yellow>\uC2DC\uC791\uAE38\uC744 \uD074\uB9AD \uD6C4 \uB4DC\uB798\uADF8\uD558\uC5EC
-    \uC9C1\uC5C5 \uAC74\uBB3C\uC5D0 \uC5F0\uACB0</color></b>\uD558\uC138\uC694."
+    \uAC00\uC774\uB4DC\uB97C \uD574\uB4DC\uB9B4\uAC8C\uC694. "
+  - "\uBA3C\uC800 <color=#FFC000>\uAE38 \uC124\uCE58</color>\uC5D0 \uB300\uD574 \uC54C\uB824\uB4DC\uB9B4\uAC8C\uC694. "
+  - "<color=#FFC000>[\uC2DC\uC791\uC9C0\uC810]</color>\uACFC <color=#FFC000>[\uD6C8\uB828\uC18C]</color>\uB97C
+    <color=#FFC000>\uD074\uB9AD&\uB4DC\uB798\uADF8</color>\uD558\uC5EC \uC5F0\uACB0\uD558\uC138\uC694. "
   FailedTextList:
-  - "\uC804\uC0AC \uBD80\uC5EC\uC18C\uC5D0\uC11C \uC131\uBCBD\uAE4C\uC9C0 \uAE38\uC744
-    \uC774\uC744\uC218 \uC788\uB294 \uACBD\uB85C\uAC00 \uC788\uC5B4\uC57C\uD569\uB2C8\uB2E4. "
-  - "\uAE38\uC744 \uC0AD\uC81C\uD558\uACE0 \uC2DC\uC791\uAE38\uC5D0\uC11C \uC804\uC0AC
-    \uBD80\uC5EC\uC18C\uAE4C\uC9C0 \uAE38\uC744 \uB2E4\uC2DC \uC5F0\uACB0\uD558\uC138\uC694. "
+  - "<color=#FFC000>\uC6B0\uD074\uB9AD</color>\uC73C\uB85C <color=#FFC000>\uAE38\uC744
+    \uC0AD\uC81C</color>\uD558\uACE0 \uB2E4\uC2DC \uC5F0\uACB0\uD574\uBCF4\uC138\uC694."
   ShowGuideUIIndex: 2
   IsSuccessEvent: 0
   IsFailureEvent: 0
@@ -109,7 +107,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7073490351472928388, guid: b34b601ec7d9f484c9ada86309cb7ff2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7073490351472928388, guid: b34b601ec7d9f484c9ada86309cb7ff2, type: 3}
       propertyPath: m_LocalPosition.z

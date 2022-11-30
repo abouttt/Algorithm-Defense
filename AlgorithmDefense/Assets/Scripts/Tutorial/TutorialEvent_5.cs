@@ -31,6 +31,7 @@ public class TutorialEvent_5 : TutorialBaseEvent
 
     public override void InitEvent()
     {
+        base.InitEvent();
         _warriorCenter = Util.GetBuilding<TutorialJobCenter>(_warriorCenterPos);
         _archerCenter = Util.GetBuilding<TutorialJobCenter>(_archerCenterPos);
         _wizardCenter = Util.GetBuilding<TutorialJobCenter>(_wizardCenterPos);

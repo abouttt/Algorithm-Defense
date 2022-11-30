@@ -30,6 +30,7 @@ public class TutorialEvent_4 : TutorialBaseEvent
 
     public override void InitEvent()
     {
+        base.InitEvent();
         _gateway = Util.GetBuilding<Gateway>(_gatewayPos);
         _warriorCenter = Util.GetBuilding<TutorialJobCenter>(_warriorCenterPos);
         _archerCenter = Util.GetBuilding<TutorialJobCenter>(_archerCenterPos);
@@ -43,20 +44,15 @@ public class TutorialEvent_4 : TutorialBaseEvent
         _warriorCenter.Clear();
         _archerCenter.Clear();
         _wizardCenter.Clear();
+        _spawnCitizenCoroutine = null;
+        UI_BuildingMenager.GetInstance.ShowUIController(Define.Building.Gateway, _gateway);
     }
 
     public override void CheckEvent()
     {
-        if (!_gateway.HasCitizenData() && _gatewayUI.gameObject.activeSelf)
+        if (!_gateway.HasCitizenData() && (_spawnCitizenCoroutine == null) && !_gatewayUI.gameObject.activeSelf)
         {
-            _spawnCitizenCoroutine = null;
-        }
-        else
-        {
-            if (!_gateway.HasCitizenData() && (_spawnCitizenCoroutine == null))
-            {
-                _spawnCitizenCoroutine = StartCoroutine(SpawnCitizen());
-            }
+            _spawnCitizenCoroutine = StartCoroutine(SpawnCitizen());
         }
 
         if ((_warriorCenter.GetCitizenDataCount() == 1) &&

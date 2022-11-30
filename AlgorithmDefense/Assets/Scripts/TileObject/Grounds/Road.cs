@@ -11,7 +11,7 @@ public class Road : MonoBehaviour
     public int GroupNumber = 0;
     public int Index = 0;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         IsOnCitizen = true;
     }

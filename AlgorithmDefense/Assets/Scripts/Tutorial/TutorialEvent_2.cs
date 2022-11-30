@@ -5,6 +5,8 @@ using UnityEngine;
 public class TutorialEvent_2 : TutorialBaseEvent
 {
     [SerializeField]
+    private Vector3Int _warriorCenterPos;
+    [SerializeField]
     private int _monsterHp;
 
     private GameObject _monster;
@@ -12,7 +14,11 @@ public class TutorialEvent_2 : TutorialBaseEvent
 
     public override void InitEvent()
     {
-
+        base.InitEvent();
+        TileManager.GetInstance.SetTile(Define.Tilemap.Building, _warriorCenterPos, null);
+        TileManager.GetInstance.SetTile(Define.Tilemap.Building, _warriorCenterPos, Define.Building.WarriorCenter);
+        Util.GetBuilding<JobCenter>(_warriorCenterPos).ChangeOutputDir();
+        Util.GetBuilding<JobCenter>(_warriorCenterPos).ChangeOutputDir();
     }
 
     public override void StartEvent()
