@@ -97,6 +97,7 @@ SpriteAtlas:
   - {fileID: -434064223, guid: ca18cc065445b11448f993d9a2c5a6d5, type: 3}
   - {fileID: 21300000, guid: c8ba65a7fb437bb449507f1206b99437, type: 3}
   - {fileID: 21300000, guid: e8d122da0525e3a469cf344860a73881, type: 3}
+  - {fileID: 21300000, guid: ade96cea95217bb47871b0de76f7b7b5, type: 3}
   - {fileID: 21300000, guid: 2ae1780dc1f27334bb5aa8daa2c0fc47, type: 3}
   - {fileID: 21300000, guid: c7acc61e31185334389b4f95e8839898, type: 3}
   - {fileID: 1029921168, guid: 6730586ed8669e34eba0cab59d409c6d, type: 3}
@@ -153,6 +154,7 @@ SpriteAtlas:
   - UI_Image2_34
   - UnityLogo2
   - GameLogo
+  - Test
   - Logo
   - UnityLogo1
   - HP_Images_5
