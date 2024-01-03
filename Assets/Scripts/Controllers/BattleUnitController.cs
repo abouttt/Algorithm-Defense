@@ -163,7 +163,7 @@ public class BattleUnitController : BaseUnitController
     private IEnumerator FlashRoutine()
     {
         _sr.material = _flashMtrl;
-        yield return new WaitForSeconds(_flashDuration);
+        yield return YieldCache.WaitForSeconds(_flashDuration);
         _sr.material = _originalMtrl;
         _flashRoutine = null;
     }

@@ -77,7 +77,7 @@ public class Gateway : BaseBuilding
     {
         while (_redOrderQueue.Count > 0)
         {
-            yield return new WaitForSeconds(_releaseTime);
+            yield return YieldCache.WaitForSeconds(_releaseTime);
 
             if (!HasRoadNextPosition(DirectionCondition[Define.Citizen.Red]))
             {
@@ -94,7 +94,7 @@ public class Gateway : BaseBuilding
     {
         while (_greenOrderQueue.Count > 0)
         {
-            yield return new WaitForSeconds(_releaseTime);
+            yield return YieldCache.WaitForSeconds(_releaseTime);
 
             if (!HasRoadNextPosition(DirectionCondition[Define.Citizen.Green]))
             {
@@ -111,7 +111,7 @@ public class Gateway : BaseBuilding
     {
         while (_blueOrderQueue.Count > 0)
         {
-            yield return new WaitForSeconds(_releaseTime);
+            yield return YieldCache.WaitForSeconds(_releaseTime);
 
             if (!HasRoadNextPosition(DirectionCondition[Define.Citizen.Blue]))
             {

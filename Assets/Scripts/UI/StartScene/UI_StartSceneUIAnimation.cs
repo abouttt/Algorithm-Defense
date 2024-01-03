@@ -219,7 +219,7 @@ public class UI_StartSceneUIAnimation : MonoBehaviour
         {
             Managers.Sound.Play("UI/mouse_click", Define.Sound.UI);
             stage.stageUIBarObj.transform.DOScale(1f, 0.8f).SetEase(Ease.OutBounce);
-            yield return new WaitForSeconds(0.05f);
+            yield return YieldCache.WaitForSeconds(0.05f);
         }
     }
 

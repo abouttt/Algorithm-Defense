@@ -40,7 +40,7 @@ public class TutorialEvent_7 : TutorialBaseEvent
 
     private IEnumerator EndEvent()
     {
-        yield return new WaitForSeconds(1f);
+        yield return YieldCache.WaitForSeconds(1f);
         IsSuccessEvent = true;
     }
 }

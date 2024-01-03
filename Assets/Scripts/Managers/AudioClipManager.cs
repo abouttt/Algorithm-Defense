@@ -51,7 +51,7 @@ public class AudioClipManager : MonoBehaviour
 
     private IEnumerator DecreaseAudioClipCount(AudioClip audioClip)
     {
-        yield return new WaitForSeconds(audioClip.length);
+        yield return YieldCache.WaitForSeconds(audioClip.length);
 
         if (_audioClipCounts.ContainsKey(audioClip))
         {
@@ -61,7 +61,7 @@ public class AudioClipManager : MonoBehaviour
 
     private IEnumerator AudioPlayingClear(AudioClip audioClip)
     {
-        yield return new WaitForSeconds(_soundSkipTime);
+        yield return YieldCache.WaitForSeconds(_soundSkipTime);
 
         if (_audioPlaying.ContainsKey(audioClip))
         {

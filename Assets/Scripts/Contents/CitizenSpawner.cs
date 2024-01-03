@@ -59,7 +59,7 @@ public class CitizenSpawner : MonoBehaviour
             citizen.Data.MoveType = Define.Move.Up;
             citizen.SetNextDestination(citizen.transform.position);
 
-            yield return new WaitForSeconds(SpawnTime);
+            yield return YieldCache.WaitForSeconds(SpawnTime);
 
             _spawnIndex = (_spawnIndex + 1) < 4 ? _spawnIndex + 1 : 1;
         }

@@ -85,7 +85,7 @@ public class TutorialEvent_4 : TutorialBaseEvent
         {
             CreateCitizen((Define.Citizen)typeIndex);
 
-            yield return new WaitForSeconds(1f);
+            yield return YieldCache.WaitForSeconds(1f);
 
             typeIndex++;
             if (typeIndex > (int)Define.Citizen.Blue)

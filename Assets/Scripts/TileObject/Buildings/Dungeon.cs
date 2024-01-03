@@ -78,8 +78,7 @@ public class Dungeon : BaseBuilding
         while (true)
         {
             float waitTime = Random.Range(_sapwnTime.min, _sapwnTime.max);
-
-            yield return new WaitForSeconds(waitTime);
+            yield return YieldCache.WaitForSeconds(waitTime);
 
             _randomMonsterList.Clear();
             _randomMonsterList.Add((int)Define.Job.Warrior);

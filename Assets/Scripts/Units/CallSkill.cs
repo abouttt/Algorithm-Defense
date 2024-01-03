@@ -65,7 +65,7 @@ public class CallSkill : MonoBehaviour
             Managers.Resource.Instantiate($"Prefabs/Skill/{ID}");
             Managers.Sound.Play($"Skill/skill_1");
 
-            yield return new WaitForSeconds(Cooldown1);
+            yield return YieldCache.WaitForSeconds(Cooldown1);
             _spawn1 = false;
         }
      }
@@ -88,7 +88,7 @@ public class CallSkill : MonoBehaviour
             Managers.Resource.Instantiate($"Prefabs/Skill/{ID}");
             Managers.Sound.Play($"Skill/skill_2");
 
-            yield return new WaitForSeconds(Cooldown2);
+            yield return YieldCache.WaitForSeconds(Cooldown2);
             _spawn2 = false;
         }      
     }
@@ -111,7 +111,7 @@ public class CallSkill : MonoBehaviour
             Managers.Resource.Instantiate($"Prefabs/Skill/{ID}");
             Managers.Sound.Play($"Skill/skill_3");
 
-            yield return new WaitForSeconds(Cooldown3);
+            yield return YieldCache.WaitForSeconds(Cooldown3);
             _spawn3 = false;
         }
     }   

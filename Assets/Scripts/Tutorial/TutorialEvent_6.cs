@@ -58,7 +58,7 @@ public class TutorialEvent_6 : TutorialBaseEvent
         {
             CreateCitizen((Define.Citizen)i);
 
-            yield return new WaitForSeconds(2f);
+            yield return YieldCache.WaitForSeconds(2f);
         }
     }
 

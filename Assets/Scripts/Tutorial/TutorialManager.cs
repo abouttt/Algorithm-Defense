@@ -143,7 +143,7 @@ public class TutorialManager : MonoBehaviour
             }
 
             _tutorialText.text += c;
-            yield return new WaitForSeconds(delayTime);
+            yield return YieldCache.WaitForSeconds(delayTime);
         }
 
         _isShowAllText = true;

@@ -58,7 +58,7 @@ public class MonsterSpawner : MonoBehaviour
         {
             MonsterSpawnData data = monsterSpawnData[index];
 
-            yield return new WaitForSeconds(data.time);
+            yield return YieldCache.WaitForSeconds(data.time);
 
             Util.CreateMonster(data.job, spawnPos);
 

@@ -60,7 +60,7 @@ public class IntroductionVideo : MonoBehaviour
 
     private IEnumerator SetActiveFalseBlackImage()
     {
-        yield return new WaitForSeconds(0.01f);
+        yield return YieldCache.WaitForSeconds(0.01f);
         _blackImage.gameObject.SetActive(false);
     }
 }

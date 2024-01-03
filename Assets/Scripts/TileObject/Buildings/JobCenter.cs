@@ -36,7 +36,7 @@ public class JobCenter : BaseBuilding
     {
         while (_citizenOrderQueue.Count > 0)
         {
-            yield return new WaitForSeconds(_releaseTime);
+            yield return YieldCache.WaitForSeconds(_releaseTime);
 
             if (!HasRoadNextPosition((Define.Move)_outputDir))
             {
