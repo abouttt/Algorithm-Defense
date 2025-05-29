@@ -90,37 +90,37 @@ public class GameScene : MonoBehaviour
     {
         _contentsRoot = Util.CreateGameObject("@Contens_Root").transform;
 
-        if (!FindObjectOfType<TileManager>())
+        if (!FindAnyObjectByType<TileManager>())
         {
             Managers.Resource.Instantiate($"{Define.CONTENTS_PATH}@TileManager").transform.SetParent(_contentsRoot);
         }
 
-        if (!FindObjectOfType<MouseController>())
+        if (!FindAnyObjectByType<MouseController>())
         {
             Managers.Resource.Instantiate($"{Define.CONTENTS_PATH}@MouseController").transform.SetParent(_contentsRoot);
         }
 
-        if (!FindObjectOfType<CitizenSpawner>())
+        if (!FindAnyObjectByType<CitizenSpawner>())
         {
             Managers.Resource.Instantiate($"{Define.CONTENTS_PATH}@CitizenSpawner").transform.SetParent(_contentsRoot);
         }
 
-        if (!FindObjectOfType<CallSkill>())
+        if (!FindAnyObjectByType<CallSkill>())
         {
             Managers.Resource.Instantiate($"{Define.CONTENTS_PATH}@CallSkill").transform.SetParent(_contentsRoot);
         }
 
-        if (!FindObjectOfType<RoadBuilder>())
+        if (!FindAnyObjectByType<RoadBuilder>())
         {
             Managers.Resource.Instantiate($"{Define.CONTENTS_PATH}@RoadBuilder").transform.SetParent(_contentsRoot);
         }
 
-        if (!IsTutorialScene && !FindObjectOfType<MonsterSpawner>())
+        if (!IsTutorialScene && !FindAnyObjectByType<MonsterSpawner>())
         {
             Managers.Resource.Instantiate($"{Define.CONTENTS_PATH}@MonsterSpawner").transform.SetParent(_contentsRoot);
         }
 
-        if (IsTutorialScene && !FindObjectOfType<TutorialManager>())
+        if (IsTutorialScene && !FindAnyObjectByType<TutorialManager>())
         {
             Managers.Resource.Instantiate($"{Define.CONTENTS_PATH}@TutorialManager").transform.SetParent(_contentsRoot);
         }

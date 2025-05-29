@@ -40,7 +40,7 @@ public class UI_TileSpawnController : MonoBehaviour
 
         //해당 오브젝트의 부모를 찾아서 찾기
         _buildTileMenu = GameObject.Find("BuildSpawnButtons");
-        _CallSkill = FindObjectOfType<CallSkill>();
+        _CallSkill = FindAnyObjectByType<CallSkill>();
         CreateButton(buildButtonContainer, TileButton, BuildButtons);
         GoldChange();
     }

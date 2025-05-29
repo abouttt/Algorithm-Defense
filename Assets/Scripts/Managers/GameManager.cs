@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager
@@ -10,7 +8,7 @@ public class GameManager
         {
             if (!_setting)
             {
-                _setting = GameObject.FindObjectOfType<GameScene>();
+                _setting = Object.FindAnyObjectByType<GameScene>();
             }
 
             return _setting;
@@ -32,7 +30,7 @@ public class GameManager
         {
             if (!_hpBarAnim)
             {
-                _hpBarAnim = Transform.FindObjectOfType<HPBarAnimation>();
+                _hpBarAnim = Object.FindAnyObjectByType<HPBarAnimation>();
             }
 
             if (_currentCastleHP > value)
@@ -55,7 +53,7 @@ public class GameManager
         {
             if (!_hpBarAnim)
             {
-                _hpBarAnim = Transform.FindObjectOfType<HPBarAnimation>();
+                _hpBarAnim = Object.FindAnyObjectByType<HPBarAnimation>();
             }
 
             if (_currentDungeonHP > value)
@@ -76,7 +74,7 @@ public class GameManager
 
     public void Init()
     {
-        _setting = GameObject.FindObjectOfType<GameScene>();
+        _setting = Object.FindAnyObjectByType<GameScene>();
     }
 
     public void Clear()

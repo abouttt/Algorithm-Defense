@@ -15,7 +15,7 @@ public class TileManager : MonoBehaviour
 
     private void Awake()
     {
-        _grid = FindObjectOfType<Grid>();
+        _grid = FindAnyObjectByType<Grid>();
 
         InitTilemap();
         InitTileObject();
