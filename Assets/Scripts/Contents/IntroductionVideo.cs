@@ -8,6 +8,9 @@ using UnityEngine.Video;
 public class IntroductionVideo : MonoBehaviour
 {
     [SerializeField]
+    private bool _play;
+
+    [SerializeField]
     private float _delayMilliseconds;
 
     [SerializeField]
@@ -30,6 +33,11 @@ public class IntroductionVideo : MonoBehaviour
 
     private void Update()
     {
+        if (!_play)
+        {
+            return;
+        }
+
         _mousePos = Input.mousePosition;
 
         if (_prevMousePos != _mousePos)
